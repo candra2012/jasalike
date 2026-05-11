@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url' // pakai 'node:url' lebih eksplisit
 
 export default defineConfig({
   // HAPUS: compressHTML (biarkan astro-compress yang kerja)
-  site: 'https://auradigital.id',
+  site: 'https://jasalike.my.id',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [mdx(), icon(), compress()],
