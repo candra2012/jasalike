@@ -1,7 +1,5 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
-import SiteMetaLayanan from '@components/SiteMetaLayanan.astro'
-import LayananSchemas from '@components/LayananSchemas.astro'
 import { Icon } from 'astro-icon/components'
 
 // ====== DATA LAYANAN PER PLATFORM (FOKUS 100% LIKE) ======
@@ -12,9 +10,9 @@ const sections = [
     lead: 'Tingkatkan kredibilitas visual dan otoritas akun IG Anda secara instan.',
     icon: 'lucide:instagram',
     items: [
-      { name: 'Like Postingan (Feed)', href: 'https://jasalike.my.id/like-instagram/', icon: 'lucide:heart', desc: 'Suntik Like pada foto atau carousel secara instan untuk social proof.' },
-      { name: 'Like IG Reels', href: 'https://jasalike.my.id/like-instagram/', icon: 'lucide:play-square', desc: 'Bantu video Reels masuk halaman Explore dengan tambahan interaksi Like.' },
-      { name: 'Like Komentar IG', href: 'https://jasalike.my.id/like-instagram/', icon: 'lucide:thumbs-up', desc: 'Jadikan komentar Anda sebagai "Top Comment" dengan Like terbanyak.' },
+      { name: 'Like Postingan (Feed)', href: '/like-instagram/', icon: 'lucide:heart', desc: 'Suntik Like pada foto atau carousel secara instan untuk social proof.' },
+      { name: 'Like IG Reels', href: '/like-instagram/', icon: 'lucide:play-square', desc: 'Bantu video Reels masuk halaman Explore dengan tambahan interaksi Like.' },
+      { name: 'Like Komentar IG', href: '/like-instagram/', icon: 'lucide:thumbs-up', desc: 'Jadikan komentar Anda sebagai "Top Comment" dengan Like terbanyak.' },
     ],
   },
   {
@@ -23,8 +21,8 @@ const sections = [
     lead: 'Dorong video masuk FYP dengan sinyal algoritma interaksi yang tinggi.',
     icon: 'lucide:music',
     items: [
-      { name: 'Like Video TikTok', href: 'https://jasalike.my.id/like-tiktok/', icon: 'lucide:heart', desc: 'Tambahkan Like secara masif ke video untuk memancing algoritma FYP.' },
-      { name: 'Like Komentar TikTok', href: 'https://jasalike.my.id/like-tiktok/', icon: 'lucide:thumbs-up', desc: 'Naikkan posisi komentar Anda di video viral agar mendapat lebih banyak exposure.' },
+      { name: 'Like Video TikTok', href: '/like-tiktok/', icon: 'lucide:heart', desc: 'Tambahkan Like secara masif ke video untuk memancing algoritma FYP.' },
+      { name: 'Like Komentar TikTok', href: '/like-tiktok/', icon: 'lucide:thumbs-up', desc: 'Naikkan posisi komentar Anda di video viral agar mendapat lebih banyak exposure.' },
     ],
   },
   {
@@ -33,8 +31,8 @@ const sections = [
     lead: 'Bangun kepercayaan bisnis dan profil personal yang solid.',
     icon: 'lucide:facebook',
     items: [
-      { name: 'Like Status / Foto', href: 'https://jasalike.my.id/like-facebook/', icon: 'lucide:thumbs-up', desc: 'Tingkatkan jumlah Like untuk postingan personal maupun status Fanpage.' },
-      { name: 'Like Fanpage Bisnis', href: 'https://jasalike.my.id/like-facebook/', icon: 'lucide:users', desc: 'Tingkatkan jumlah Like (Pengikut) pada Halaman Bisnis Anda.' },
+      { name: 'Like Status / Foto', href: '/like-facebook/', icon: 'lucide:thumbs-up', desc: 'Tingkatkan jumlah Like untuk postingan personal maupun status Fanpage.' },
+      { name: 'Like Fanpage Bisnis', href: '/like-facebook/', icon: 'lucide:users', desc: 'Tingkatkan jumlah Like (Pengikut) pada Halaman Bisnis Anda.' },
     ],
   },
   {
@@ -43,8 +41,8 @@ const sections = [
     lead: 'Ciptakan hype, validasi opini, dan dominasi tren obrolan.',
     icon: 'lucide:twitter',
     items: [
-      { name: 'Like / Favorite Tweet', href: 'https://jasalike.my.id/like-twitter/', icon: 'lucide:heart', desc: 'Tambah Like pada cuitan Anda agar terlihat lebih populer dan dipercaya.' },
-      { name: 'Like Balasan (Reply)', href: 'https://jasalike.my.id/like-twitter/', icon: 'lucide:message-square', desc: 'Tingkatkan Like pada balasan tweet untuk mendominasi kolom diskusi.' },
+      { name: 'Like / Favorite Tweet', href: '/like-twitter/', icon: 'lucide:heart', desc: 'Tambah Like pada cuitan Anda agar terlihat lebih populer dan dipercaya.' },
+      { name: 'Like Balasan (Reply)', href: '/like-twitter/', icon: 'lucide:message-square', desc: 'Tingkatkan Like pada balasan tweet untuk mendominasi kolom diskusi.' },
     ],
   },
   {
@@ -53,9 +51,9 @@ const sections = [
     lead: 'Tingkatkan peringkat pencarian (SEO) video dengan engagement positif.',
     icon: 'lucide:youtube',
     items: [
-      { name: 'Like Video YouTube', href: 'https://jasalike.my.id/like-youtube/', icon: 'lucide:thumbs-up', desc: 'Naikkan rasio Like untuk memberi sinyal positif pada algoritma pencarian YouTube.' },
-      { name: 'Like YouTube Shorts', href: 'https://jasalike.my.id/like-youtube/', icon: 'lucide:play', desc: 'Suntik Like pada video Shorts untuk menjangkau audiens yang lebih luas.' },
-      { name: 'Like Komentar YouTube', href: 'https://jasalike.my.id/like-youtube/', icon: 'lucide:message-circle', desc: 'Dorong komentar Anda ke urutan paling atas agar di-pin oleh kreator.' },
+      { name: 'Like Video YouTube', href: '/like-youtube/', icon: 'lucide:thumbs-up', desc: 'Naikkan rasio Like untuk memberi sinyal positif pada algoritma pencarian YouTube.' },
+      { name: 'Like YouTube Shorts', href: '/like-youtube/', icon: 'lucide:play', desc: 'Suntik Like pada video Shorts untuk menjangkau audiens yang lebih luas.' },
+      { name: 'Like Komentar YouTube', href: '/like-youtube/', icon: 'lucide:message-circle', desc: 'Dorong komentar Anda ke urutan paling atas agar di-pin oleh kreator.' },
     ],
   },
   {
@@ -64,59 +62,57 @@ const sections = [
     lead: 'Bangun otoritas profesional dan relasi B2B yang meyakinkan.',
     icon: 'lucide:linkedin',
     items: [
-      { name: 'Like Postingan / Artikel', href: 'https://jasalike.my.id/like-linkedin/', icon: 'lucide:thumbs-up', desc: 'Dapatkan apresiasi Like dari profil profesional untuk membangun kredibilitas karir.' },
+      { name: 'Like Postingan / Artikel', href: '/like-linkedin/', icon: 'lucide:thumbs-up', desc: 'Dapatkan apresiasi Like dari profil profesional untuk membangun kredibilitas karir.' },
     ],
   }
 ]
 ---
-<DefaultLayout title="Katalog Layanan">
-  <Fragment slot="head">
-    <SiteMetaLayanan
-      title="Daftar Layanan Jasa Like Lengkap | Instagram, TikTok, Facebook, Twitter"
-      description="Pusat spesialis layanan Like untuk Instagram, TikTok, Facebook, Twitter (X), YouTube, dan LinkedIn. Proses instan, aman tanpa password."
-      url="https://jasalike.my.id/layanan/"
-      image="/og-layanan.png"
-      siteName="Jasalike"
-      ogType="website"
-      keywords={[
-        'jasa like instagram',
-        'jasa like tiktok',
-        'beli like facebook',
-        'jasa like youtube',
-        'jasa like twitter',
-        'like linkedin'
-      ]}
-    />
 
-    <LayananSchemas
-      pageUrl="https://jasalike.my.id/layanan/"
-      pageTitle="Katalog Layanan Spesialis Like | Jasalike"
-      description="Daftar lengkap layanan spesialis Like untuk berbagai platform media sosial utama."
-      imageWebp="/layanan.webp"
-      imagePng="/layanan.png"
-      services={[
+<DefaultLayout title="Daftar Layanan Jasa Like Lengkap | Jasalike">
+  
+    <Fragment slot="head">
+    <meta name="description" content="Pusat spesialis layanan Like untuk Instagram, TikTok, Facebook, Twitter (X), YouTube, dan LinkedIn. Proses instan, aman tanpa password." />
+    <meta name="keywords" content="jasa like instagram, jasa like tiktok, beli like facebook, jasa like youtube, jasa like twitter, like linkedin" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/layanan/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jasalike.my.id/layanan/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content="Daftar Layanan Jasa Like Lengkap | Jasalike" />
+    <meta property="og:description" content="Pusat spesialis layanan Like sosial media. Proses instan, aman, dan tanpa password." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+    <meta property="og:image:alt" content="Katalog Layanan Jasalike" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daftar Layanan Jasa Like Lengkap | Jasalike" />
+    <meta name="twitter:description" content="Pusat spesialis layanan Like sosial media. Proses instan, aman, dan tanpa password." />
+    <meta name="twitter:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
         {
-          name: 'Like Instagram',
-          url: 'https://jasalike.my.id/like-instagram/',
-          description: 'Tambah Like organik & cepat untuk postingan IG.',
-          serviceType: 'Social Media Engagement',
-          areaServed: 'ID',
-          offers: [{ price: '10000', priceCurrency: 'IDR', unitText: 'per 1000' }]
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" }
+          ]
         },
         {
-          name: 'Like TikTok',
-          url: 'https://jasalike.my.id/like-tiktok/',
-          description: 'Suntik Like instan untuk video TikTok.',
-          serviceType: 'Social Media Engagement',
-          areaServed: 'ID',
-          offers: [{ price: '15000', priceCurrency: 'IDR', unitText: 'per 1000' }]
+          "@type": "ItemList",
+          "name": "Katalog Jasa Like Jasalike",
+          "url": "https://jasalike.my.id/layanan/",
+          "itemListElement": sections.map((sec, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": `Jasa Like ${sec.title}`,
+            "url": `https://jasalike.my.id/${sec.id === 'twitter' ? 'like-twitter' : 'like-' + sec.id}/`
+          }))
         }
-      ]}
-      faqItems={[
-        { q: 'Apakah butuh password akun?', a: 'Tidak. Kami hanya membutuhkan link URL dari postingan/video yang ingin ditambah Like-nya.' },
-        { q: 'Berapa lama proses masuknya?', a: 'Sangat cepat. Rata-rata Like mulai masuk dalam 1 hingga 5 menit setelah pembayaran terkonfirmasi.' }
-      ]}
-    />
+      ]
+    })} />
   </Fragment>
 
   <section class="container my-12">
@@ -158,7 +154,6 @@ const sections = [
       </div>
     ))}
   </section>
-
 
   <style>
     .text-gradient {
