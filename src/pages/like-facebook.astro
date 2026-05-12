@@ -1,0 +1,128 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+---
+
+<DefaultLayout title="Spesialis Jasa Like Facebook | Jasalike">
+  <Fragment slot="head">
+    <meta name="description" content="Tingkatkan kredibilitas Fanpage dan postingan Facebook Anda dengan layanan Like instan. Proses aman tanpa password, bantu bisnis terlihat lebih terpercaya." />
+    <meta name="keywords" content="jasa like facebook, beli like facebook murah, suntik like fanpage, jasa like status fb, spesialis like facebook" />
+    <meta property="og:title" content="Spesialis Jasa Like Facebook Aman & Bergaransi" />
+    <meta property="og:description" content="Jasa tambah like Facebook instan untuk foto, status, dan Fanpage bisnis Anda." />
+    <meta property="og:url" content="https://jasalike.my.id/like-facebook/" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Jasa Like Facebook",
+      "provider": {
+        "@type": "Organization",
+        "name": "Jasalike",
+        "url": "https://jasalike.my.id"
+      },
+      "description": "Jasa tambah like Facebook untuk status, foto, dan Fanpage. Harga terbaik dengan proses instan yang dijamin aman untuk akun Anda.",
+      "url": "https://jasalike.my.id/like-facebook/",
+      "offers": {
+        "@type": "Offer",
+        "price": "15000",
+        "priceCurrency": "IDR",
+        "description": "Harga per 1.000 Like",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Jasalike"
+        }
+      }
+    })} />
+  </Fragment>
+
+  <section class="container my-24 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 dark:from-blue-900/40 dark:to-indigo-900/40 dark:text-blue-100 border border-blue-200/60 dark:border-blue-800/60 mb-6">
+      Layanan Spesialis Facebook • Fanpage & Personal
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
+      Suntik Like Facebook yang <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Cepat, Aman & Profesional</span>
+    </h1>
+    
+    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
+      Tingkatkan interaksi postingan foto, status, hingga Fanpage Bisnis Anda dengan penambahan Like instan. Bangun otoritas profil, yakinkan calon pelanggan, dan perbesar jangkauan organik tanpa butuh password.
+    </p>
+
+    <div class="mt-12 flex justify-center gap-4">
+        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Fanpage</a>
+    </div>
+  </section>
+
+  <section class="container my-32">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Postingan Facebook Butuh Banyak Like?</h2>
+    <div class="grid gap-8 sm:grid-cols-2">
+      {[
+        { title: 'Kredibilitas Fanpage Bisnis', desc: 'Halaman bisnis (Fanpage) dengan postingan yang ramai Like memberikan kesan bahwa merek Anda aktif, populer, dan dipercaya oleh banyak konsumen.' },
+        { title: 'Sinyal Algoritma (EdgeRank)', desc: 'Facebook memprioritaskan postingan dengan interaksi tinggi di beranda (News Feed) pengguna lain. Semakin banyak Like, semakin luas jangkauan postingan Anda.' },
+        { title: 'Meningkatkan Efektivitas FB Ads', desc: 'Menjalankan iklan Facebook (FB Ads) pada postingan yang sudah memiliki ribuan Like akan menekan biaya iklan (CPC) karena audiens lebih mudah tertarik untuk mengklik.' },
+        { title: 'Social Proof untuk Jualan', desc: 'Di grup Facebook atau Marketplace, penjual yang membagikan postingan dengan banyak Like akan jauh lebih dipercaya ketimbang postingan yang sepi interaksi.' },
+      ].map((b) => (
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-blue-100 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
+          <p class="text-lg opacity-80">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Hemat Like Facebook</h2>
+    <p class="text-xl opacity-80">Pilih paket sesuai kebutuhan profil atau Fanpage bisnis Anda. Proses instan dan aman.</p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-3">
+    {[
+      { n: 'Paket Starter (10 Like)',   price: 'Rp 20.000',    note: 'Cocok untuk status harian, foto profil, atau ikut kompetisi Like.' },
+      { n: 'Paket Standart (100 Like)',  price: 'Rp 200.000',   note: 'Tingkatkan kredibilitas postingan di Halaman Bisnis Anda.' },
+      { n: 'Paket Bisnis (1.000 Like)', price: 'Rp 2.000.000', note: 'Dorongan maksimal untuk postingan iklan promosi (FB Ads).' },
+    ].map((p) => (
+      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-blue-500 transition-all duration-300 transform hover:-translate-y-2">
+        <h3 class="text-2xl font-semibold">{p.n}</h3>
+        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{p.price}</p>
+        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+
+        <div class="mt-8">
+          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20Facebook.`} target="_blank" rel="noopener"
+             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md hover:shadow-xl transition-all">
+            Pesan Sekarang
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+  <section id="faq" class="container my-32">
+  <h2 class="text-4xl font-semibold mb-12 text-center">Pertanyaan Seputar Like Facebook</h2>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Apakah Like ini untuk Postingan atau Followers Fanpage?
+        <span class="text-blue-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Layanan di halaman ini khusus untuk **Like Postingan** (Status, Foto, Video, atau postingan di Fanpage). Jika Anda membutuhkan layanan Followers/Pengikut Fanpage, silakan chat admin kami.
+      </div>
+    </details>
+
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Apakah postingan harus diatur ke Publik?
+        <span class="text-blue-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Ya, sangat wajib. Pastikan privasi postingan Facebook Anda diatur ke "Publik" (ikon bola dunia) agar sistem kami dapat memproses pengiriman Like dengan lancar.
+      </div>
+    </details>
+  </div>
+</section>
+</DefaultLayout>
