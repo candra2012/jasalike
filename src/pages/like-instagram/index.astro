@@ -10,7 +10,7 @@ import SchemaLikesInstagram from '@components/SchemaLikesInstagram.astro'
       title="Spesialis Jasa Like Instagram Aman, Cepat & Murah | Jasalike"
       description="Layanan spesialis penambah Like Instagram untuk Postingan Feed, Reels, dan Carousel. 100% aman, tanpa password, proses instan masuk dalam hitungan menit."
       url="https://jasalike.my.id/like-instagram/"
-      image="/likes-instagram.png"
+      image="/og-layanan.png"
       siteName="Jasalike"
       ogType="product"
       keywords={[
@@ -25,8 +25,8 @@ import SchemaLikesInstagram from '@components/SchemaLikesInstagram.astro'
       pageUrl="https://jasalike.my.id/like-instagram/"
       pageTitle="Spesialis Jasa Like Instagram Aman, Cepat & Murah | Jasalike"
       description="Jasa tambah like Instagram untuk Reels, Feed, dan Carousel. Harga termurah, proses instan, dan dijamin aman untuk akun Anda."
-      imageWebp="/likes-instagram.webp"
-      imagePng="/likes-instagram.png"
+      imageWebp="/layanan.webp"
+      imagePng="/layanan.png"
       serviceName="Jasa Like Instagram"
       serviceUrl="https://jasalike.my.id/like-instagram/"
       price="10000"
@@ -35,163 +35,94 @@ import SchemaLikesInstagram from '@components/SchemaLikesInstagram.astro'
     />
   </Fragment>
 
-  <section class="container my-12">
-    <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 dark:from-purple-900/40 dark:to-pink-900/40 dark:text-purple-100 border border-purple-200/60 dark:border-purple-800/60">
+  <section class="container my-24 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 dark:from-purple-900/40 dark:to-pink-900/40 dark:text-purple-100 border border-purple-200/60 dark:border-purple-800/60 mb-6">
       Layanan Spesialis Instagram • Proses Instan 1-5 Menit
     </div>
 
-    <h1 class="mt-4 text-5xl md:text-6xl font-bold tracking-tight">
-      Suntik Like Instagram yang <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Cepat, Aman & Natural</span>
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
+      Suntik Like Instagram yang <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Cepat, Aman & Natural</span>
     </h1>
-    <p class="text-xl opacity-80 mt-4 max-w-3xl">
-      Dorong interaksi Feed, Reels, dan Carousel Anda dengan penambahan Like instan. Bangun otoritas akun, tingkatkan kepercayaan audiens, dan perbesar peluang masuk ke halaman Explore.
+    
+    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
+      Dorong interaksi Feed, Reels, dan Carousel Anda dengan penambahan Like instan. Bangun otoritas akun, tingkatkan kepercayaan audiens, dan perbesar peluang masuk ke halaman Explore tanpa butuh password.
     </p>
 
-    <figure class="mt-8 overflow-hidden rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 shadow-sm">
-      <picture>
-        <source srcset="/likes-instagram.webp" type="image/webp" />
-        <img src="/likes-instagram.png" alt="Ilustrasi Jasa Like Instagram" loading="eager" class="w-full h-auto" />
-      </picture>
-    </figure>
+    <div class="mt-12 flex justify-center gap-4">
+        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Gratis</a>
+    </div>
   </section>
 
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Mengapa Like Instagram Sangat Berpengaruh?</h2>
-    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+  <section class="container my-32">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Mengapa Like Instagram Sangat Berpengaruh?</h2>
+    <div class="grid gap-8 sm:grid-cols-2">
       {[
         { title: 'Sinyal Algoritma Explore', desc: 'Like adalah metrik utama algoritma Instagram. Rasio Like yang tinggi di menit-menit awal postingan tayang akan mendorong konten Anda masuk ke halaman Explore.' },
         { title: 'Social Proof & Kredibilitas', desc: 'Secara psikologis, audiens lebih percaya dan tertarik pada postingan atau bisnis yang sudah memiliki ribuan Like. Ini disebut efek Social Proof.' },
         { title: 'Meningkatkan Konversi Bisnis', desc: 'Untuk online shop, postingan produk dengan Like yang melimpah menghilangkan keraguan calon pembeli dan meningkatkan persentase closing.' },
-        { title: 'Efek Domino Interaksi', desc: 'Postingan yang ramai Like memancing audiens organik untuk ikut berhenti *scrolling*, membaca caption, dan ikut berinteraksi (komen/share).' },
+        { title: 'Efek Domino Interaksi', desc: 'Postingan yang ramai Like memancing audiens organik untuk ikut berhenti scrolling, membaca caption, dan ikut berinteraksi (komen/share).' },
       ].map((b) => (
-        <article class="p-6 rounded-2xl border bg-gradient-to-br from-purple-50 to-pink-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-purple-100 dark:border-neutral-800 shadow-sm">
-          <h3 class="text-xl font-semibold">{b.title}</h3>
-          <p class="mt-2 opacity-80">{b.desc}</p>
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-purple-50 to-pink-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-purple-100 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
+          <p class="text-lg opacity-80">{b.desc}</p>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Keunggulan Spesialis Like Kami</h2>
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {[
-        { t:'Tanpa Password', d:'Privasi Anda terjamin 100%. Kami hanya membutuhkan link (tautan) foto atau video Reels Anda. Akun dijamin aman dari banned/hack.' },
-        { t:'Proses Super Cepat', d:'Karena server kami didedikasikan khusus untuk layanan Like, pesanan Anda akan langsung diproses dan masuk dalam hitungan menit.' },
-        { t:'Harga Termurah', d:'Sebagai penyedia layanan skala besar, kami mampu menekan harga jual. Dapatkan ribuan Like dengan harga setara secangkir kopi.' },
-        { t:'Cocok Untuk Kompetisi', d:'Sedang mengikuti lomba foto atau giveaway yang membutuhkan Like terbanyak? Layanan kami adalah senjata rahasia terbaik Anda.' },
-        { t:'Bisa Dibagi (Split)', d:'Punya paket 5.000 Like? Anda bisa membaginya ke 5 postingan berbeda agar interaksi di feed Anda terlihat lebih merata.' },
-        { t:'Support Admin 24/7', d:'Tim kami siap membantu Anda kapan saja via WhatsApp. Dari konsultasi target jumlah Like hingga monitoring pesanan.' },
-      ].map((f) => (
-        <article class="p-6 rounded-2xl border bg-white/70 dark:bg-neutral-900/60 border-neutral-200/70 dark:border-neutral-800/70 shadow-sm">
-          <h3 class="text-lg font-semibold text-purple-700 dark:text-purple-400">{f.t}</h3>
-          <p class="mt-2 opacity-80">{f.d}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Hemat Like Instagram</h2>
+    <p class="text-xl opacity-80">Pilih paket sesuai kebutuhan Anda. Proses instan, aman, dan bergaransi.</p>
+  </div>
 
- <section class="container my-16">
-  <h2 class="text-3xl md:text-4xl font-semibold">Paket Hemat Like Instagram</h2>
-  <p class="mt-3 opacity-80">
-    Pilih paket sesuai kebutuhan Anda. Proses instan, aman, dan bergaransi.
-  </p>
-
-  <div class="mt-8 grid gap-6 md:grid-cols-3">
+  <div class="grid gap-8 md:grid-cols-3">
     {[
-      { n: 'Paket Starter (1.000 Likes)',   price: 'Rp 10.000',    note: 'Cocok untuk post harian & menjaga feed tetap aktif.' },
-      { n: 'Paket Growth (5.000 Likes)',  price: 'Rp 45.000',   note: 'Dorongan kuat untuk Reels masuk algoritma Explore.' },
-      { n: 'Paket Viral (10.000 Likes)', price: 'Rp 80.000', note: 'Membangun social proof maksimal untuk online shop/brand.' },
+      { n: 'Paket Starter (10 Like)',   price: 'Rp 20.000',    note: 'Cocok untuk post harian & menjaga feed tetap aktif.' },
+      { n: 'Paket Standart (100 Like)',  price: 'Rp 200.000',   note: 'Dorongan kuat untuk Reels masuk algoritma Explore.' },
+      { n: 'Paket Grown (1.000 Like)', price: 'Rp 2.000.000', note: 'Membangun social proof maksimal untuk online shop/brand.' },
     ].map((p) => (
-      <article class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/70 dark:bg-neutral-900/60 shadow-sm p-6 text-center hover:border-purple-500 transition-colors">
-        <h3 class="text-xl font-semibold">{p.n}</h3>
-        <p class="mt-2 text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">{p.price}</p>
-        <p class="mt-4 opacity-80 min-h-[48px]">{p.note}</p>
+      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-purple-500 transition-all duration-300 transform hover:-translate-y-2">
+        <h3 class="text-2xl font-semibold">{p.n}</h3>
+        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">{p.price}</p>
+        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
 
-        <div class="mt-6">
+        <div class="mt-8">
           <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20Instagram.`} target="_blank" rel="noopener"
-             class="flex items-center justify-center w-full rounded-xl px-4 py-3 font-semibold bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-md hover:shadow-lg transition-all">
+             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-md hover:shadow-xl transition-all">
             Pesan Sekarang
           </a>
         </div>
       </article>
     ))}
   </div>
-  <p class="mt-6 text-center text-sm opacity-70">
-    *Butuh jumlah Like lebih besar atau ingin layanan Auto-Like langganan? <a href="https://wa.me/6289634740308" target="_blank" class="underline text-purple-600">Chat Admin kami</a>.
-  </p>
 </section>
 
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-10">4 Langkah Mudah Order Like</h2>
-    <div class="grid gap-6 md:grid-cols-4 text-center">
-      {[
-        { step: '1', t:'Siapkan Link', d:'Copy tautan (link) foto atau Reels IG Anda. Pastikan akun tidak di-private (gembok).' },
-        { step: '2', t:'Chat Admin', d:'Klik tombol pesan untuk menghubungi admin kami via WhatsApp.' },
-        { step: '3', t:'Pembayaran', d:'Lakukan pembayaran via QRIS, E-Wallet (DANA/OVO/GoPay), atau Transfer Bank.' },
-        { step: '4', t:'Like Masuk', d:'Duduk manis, sistem kami akan langsung memproses Like ke postingan Anda.' },
-      ].map((s) => (
-        <article class="p-6 rounded-2xl border bg-white/70 dark:bg-neutral-900/60 shadow-sm relative">
-          <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-md">{s.step}</div>
-          <h3 class="text-xl font-semibold mt-4">{s.t}</h3>
-          <p class="mt-2 opacity-80">{s.d}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+  <section id="faq" class="container my-32">
+  <h2 class="text-4xl font-semibold mb-12 text-center">Pertanyaan Umum (FAQ)</h2>
 
-  <section id="faq" class="container my-20">
-  <h2 class="text-3xl md:text-4xl font-semibold">Pertanyaan Umum (FAQ)</h2>
-
-  <div class="mt-8 grid gap-4 md:grid-cols-2">
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-5 group">
-      <summary class="cursor-pointer text-lg font-semibold marker:hidden list-none flex justify-between">
+  <div class="grid gap-6 md:grid-cols-2">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
         Apakah aman dari banned Instagram?
+        <span class="text-purple-600 group-open:rotate-180 transition-transform">↓</span>
       </summary>
-      <div class="mt-3 opacity-80 pt-3 border-t border-neutral-200 dark:border-neutral-700">
-        Sangat aman. Kami menggunakan metode injeksi lalu lintas yang mematuhi standar keamanan algoritma Instagram. Postingan Anda tidak akan dihapus dan akun Anda 100% aman.
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Sangat aman. Kami menggunakan metode pengiriman yang mematuhi batas wajar algoritma Instagram. Postingan Anda tidak akan dihapus dan akun Anda 100% terlindungi.
       </div>
     </details>
 
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-5 group">
-      <summary class="cursor-pointer text-lg font-semibold marker:hidden list-none flex justify-between">
-        Apakah Like-nya bisa hilang (drop)?
-      </summary>
-      <div class="mt-3 opacity-80 pt-3 border-t border-neutral-200 dark:border-neutral-700">
-        Layanan Like kami menggunakan server kualitas tinggi (HQ) sehingga sangat stabil dan jarang sekali mengalami penurunan (drop) yang signifikan.
-      </div>
-    </details>
-
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-5 group">
-      <summary class="cursor-pointer text-lg font-semibold marker:hidden list-none flex justify-between">
-        Bolehkah saya order sambil mem-private akun?
-      </summary>
-      <div class="mt-3 opacity-80 pt-3 border-t border-neutral-200 dark:border-neutral-700">
-        Tidak bisa. Akun harus dalam status PUBLIK (tidak digembok) selama proses pengisian Like berlangsung. Setelah Like selesai masuk semua, Anda boleh mem-private-nya kembali.
-      </div>
-    </details>
-
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-5 group">
-      <summary class="cursor-pointer text-lg font-semibold marker:hidden list-none flex justify-between">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
         Apakah bisa dipecah untuk banyak foto?
+        <span class="text-purple-600 group-open:rotate-180 transition-transform">↓</span>
       </summary>
-      <div class="mt-3 opacity-80 pt-3 border-t border-neutral-200 dark:border-neutral-700">
-        Bisa! Minimal pemecahan adalah 100 Like per postingan. Jadi jika Anda order 1.000 Like, Anda bisa membaginya maksimal untuk 10 link foto/video berbeda.
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Bisa! Minimal pemecahan adalah 100 Like per postingan. Jadi jika Anda order paket 1.000 Like, Anda bisa membaginya maksimal untuk 10 link foto atau Reels berbeda.
       </div>
     </details>
   </div>
 </section>
-
-  <section class="container my-20">
-    <div class="rounded-3xl border shadow-xl bg-gradient-to-br from-purple-700 to-pink-600 text-white p-10 md:p-16 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Siap Membuat Postingan Anda Viral?</h2>
-      <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-        Jangan biarkan konten bagus Anda sepi interaksi. Konsultasikan kebutuhan optimasi akun Instagram Anda bersama tim spesialis kami sekarang.
-      </p>
-      <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20konsultasi%20layanan%20Like%20Instagram." target="_blank" rel="noopener" 
-         class="inline-block bg-white text-purple-700 font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-transform">
-        Chat Admin WhatsApp
-      </a>
-    </div>
-  </section>
 </DefaultLayout>
