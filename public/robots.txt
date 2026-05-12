@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://auradigital.id/sitemap.xml
+Sitemap: https://jasalike.my.id/sitemap-index.xml
