@@ -1,0 +1,128 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+---
+
+<DefaultLayout title="Spesialis Jasa Like TikTok | Jasalike">
+  <Fragment slot="head">
+    <meta name="description" content="Tingkatkan interaksi video TikTok Anda dengan layanan Like instan. Proses aman tanpa password, bantu video masuk FYP." />
+    <meta name="keywords" content="jasa like tiktok, beli like tiktok murah, suntik like tiktok fyp, spesialis fyp tiktok" />
+    <meta property="og:title" content="Spesialis Jasa Like TikTok Aman & Bergaransi" />
+    <meta property="og:description" content="Jasa tambah like TikTok instan dan aman untuk akun Anda." />
+    <meta property="og:url" content="https://jasalike.my.id/like-tiktok/" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Jasa Like TikTok",
+      "provider": {
+        "@type": "Organization",
+        "name": "Jasalike",
+        "url": "https://jasalike.my.id"
+      },
+      "description": "Jasa tambah like TikTok untuk video dan konten Anda. Harga terbaik dengan proses instan yang dijamin aman untuk akun Anda.",
+      "url": "https://jasalike.my.id/like-tiktok/",
+      "offers": {
+        "@type": "Offer",
+        "price": "2000",
+        "priceCurrency": "IDR",
+        "description": "Harga per 1 Like",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Jasalike"
+        }
+      }
+    })} />
+  </Fragment>
+
+  <section class="container my-24 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-800 dark:from-teal-900/40 dark:to-cyan-900/40 dark:text-teal-100 border border-teal-200/60 dark:border-teal-800/60 mb-6">
+      Layanan Spesialis TikTok • Sinyal Kuat Masuk FYP
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
+      Suntik Like TikTok yang <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">Cepat, Aman & Viral</span>
+    </h1>
+    
+    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
+      Tingkatkan interaksi video TikTok Anda dengan penambahan Like instan. Perkuat sinyal algoritma agar video lebih mudah direkomendasikan masuk FYP dan bangun kredibilitas profil Anda dalam sekejap.
+    </p>
+
+    <div class="mt-12 flex justify-center gap-4">
+        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi FYP</a>
+    </div>
+  </section>
+
+  <section class="container my-32">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Video TikTok Butuh Banyak Like?</h2>
+    <div class="grid gap-8 sm:grid-cols-2">
+      {[
+        { title: 'Trigger Algoritma FYP', desc: 'TikTok sangat mementingkan interaksi awal. Video dengan lonjakan Like yang cepat berpeluang besar ditarik oleh algoritma untuk masuk ke halaman For You Page (FYP).' },
+        { title: 'Social Proof Maksimal', desc: 'Video dengan ribuan Like menunjukkan bahwa konten tersebut berkualitas. Ini akan memancing audiens baru untuk menonton sampai habis dan ikut menekan tombol hati.' },
+        { title: 'Meningkatkan Kepercayaan Brand', desc: 'Bagi akun bisnis atau influencer, Like yang banyak adalah bukti nyata kredibilitas Anda di mata calon klien atau pembeli.' },
+        { title: 'Mendorong Share & Komentar', desc: 'Postingan yang sudah ramai Like cenderung lebih mudah mendapatkan interaksi organik lain seperti share dan komentar dari pengguna TikTok lainnya.' },
+      ].map((b) => (
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-teal-100 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
+          <p class="text-lg opacity-80">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Eksklusif Like TikTok</h2>
+    <p class="text-xl opacity-80">Rate tetap: Rp 2.000 per 1 Like. Pilih jumlah yang sesuai dengan target viral Anda.</p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-3">
+    {[
+      { n: 'Paket Starter (10 Likes)',   price: 'Rp 20.000',    note: 'Cocok untuk memicu interaksi awal video baru.' },
+      { n: 'Paket Momentum (50 Likes)',  price: 'Rp 100.000',   note: 'Berikan dorongan ekstra agar video lebih lama di FYP.' },
+      { n: 'Paket Viral (100 Likes)', price: 'Rp 200.000', note: 'Bangun social proof yang kuat untuk konten utama Anda.' },
+    ].map((p) => (
+      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-teal-500 transition-all duration-300 transform hover:-translate-y-2">
+        <h3 class="text-2xl font-semibold">{p.n}</h3>
+        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-600">{p.price}</p>
+        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+
+        <div class="mt-8">
+          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20TikTok.`} target="_blank" rel="noopener"
+             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-md hover:shadow-xl transition-all">
+            Pesan Sekarang
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+  <section id="faq" class="container my-32">
+  <h2 class="text-4xl font-semibold mb-12 text-center">Pertanyaan Seputar Like TikTok</h2>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Berapa lama Like akan masuk?
+        <span class="text-teal-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Sangat instan. Rata-rata Like akan mulai bertambah dalam waktu 1 hingga 5 menit setelah pembayaran Anda dikonfirmasi oleh admin.
+      </div>
+    </details>
+
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Apakah video saya akan dihapus TikTok?
+        <span class="text-teal-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Sama sekali tidak. Kami menggunakan sistem yang aman dan natural. Video Anda tetap aman dan akun Anda tidak berisiko di-banned.
+      </div>
+    </details>
+  </div>
+</section>
+</DefaultLayout>
