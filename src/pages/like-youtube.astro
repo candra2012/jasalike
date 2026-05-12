@@ -1,0 +1,128 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+---
+
+<DefaultLayout title="Spesialis Jasa Like YouTube | Jasalike">
+  <Fragment slot="head">
+    <meta name="description" content="Tingkatkan ranking video YouTube Anda dengan layanan Like instan. Bangun sinyal positif untuk algoritma, tingkatkan SEO, dan buat konten Anda lebih dipercaya." />
+    <meta name="keywords" content="jasa like youtube, beli like youtube murah, suntik like youtube shorts, jasa like video youtube, spesialis seo youtube" />
+    <meta property="og:title" content="Spesialis Jasa Like YouTube Aman & Instan" />
+    <meta property="og:description" content="Jasa tambah like YouTube instan untuk video panjang, YouTube Shorts, dan komentar Anda secara aman." />
+    <meta property="og:url" content="https://jasalike.my.id/like-youtube/" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Jasa Like YouTube",
+      "provider": {
+        "@type": "Organization",
+        "name": "Jasalike",
+        "url": "https://jasalike.my.id"
+      },
+      "description": "Jasa tambah like YouTube untuk meningkatkan engagement dan ranking video. Proses instan dan aman tanpa butuh akses akun.",
+      "url": "https://jasalike.my.id/like-youtube/",
+      "offers": {
+        "@type": "Offer",
+        "price": "20000",
+        "priceCurrency": "IDR",
+        "description": "Harga per 10 Like",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Jasalike"
+        }
+      }
+    })} />
+  </Fragment>
+
+  <section class="container my-24 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-100 border border-red-200 dark:border-red-800/60 mb-6">
+      Layanan Spesialis YouTube • Optimasi SEO & Engagement
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
+      Tingkatkan Ranking & <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">Otoritas Video Anda</span>
+    </h1>
+    
+    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
+      Berikan dorongan Like instan pada video panjang maupun YouTube Shorts Anda. Tingkatkan rasio interaksi untuk memicu algoritma rekomendasi, perkuat kredibilitas channel, dan naikkan posisi video di hasil pencarian tanpa butuh akses login.
+    </p>
+
+    <div class="mt-12 flex justify-center gap-4">
+        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Ranking</a>
+    </div>
+  </section>
+
+  <section class="container my-32">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Video YouTube Butuh Banyak Like?</h2>
+    <div class="grid gap-8 sm:grid-cols-2">
+      {[
+        { title: 'Sinyal Kepuasan Penonton', desc: 'Like adalah cara utama algoritma YouTube mengukur kualitas konten. Video dengan jumlah Like tinggi dianggap memberikan nilai bagi penonton dan akan lebih sering direkomendasikan.' },
+        { title: 'Meningkatkan SEO Video', desc: 'Engagement (Like, Komen, Share) merupakan faktor penting dalam SEO YouTube. Postingan yang ramai interaksi memiliki peluang jauh lebih besar untuk muncul di peringkat atas pencarian.' },
+        { title: 'Meningkatkan Watch Time', desc: 'Secara psikologis, penonton cenderung bertahan lebih lama pada video yang sudah memiliki ribuan Like. Ini secara tidak langsung akan meningkatkan total Watch Time channel Anda.' },
+        { title: 'Kredibilitas di Mata Sponsor', desc: 'Bagi kreator, jumlah Like per video adalah metrik utama yang dilihat oleh brand atau sponsor sebelum memutuskan untuk bekerja sama dengan channel Anda.' },
+      ].map((b) => (
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-red-50 to-rose-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-red-100 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
+          <p class="text-lg opacity-80">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Booster YouTube</h2>
+    <p class="text-xl opacity-80">Pilih paket Like yang paling sesuai dengan strategi konten channel Anda.</p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-3">
+    {[
+      { n: 'Paket Starter (10 Like)',   price: 'Rp 20.000',    note: 'Cocok untuk mendorong video Shorts masuk ke rak Shorts Feed lebih cepat.' },
+      { n: 'Paket Standart (100 Like)',  price: 'Rp 200.000',   note: 'Tingkatkan otoritas video panjang dan berikan sinyal positif pada algoritma.' },
+      { n: 'Paket Grown (1.000 Like)', price: 'Rp 2.000.000', note: 'Dominasi peringkat pencarian dan bangun kredibilitas maksimal untuk channel.' },
+    ].map((p) => (
+      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-red-500 transition-all duration-300 transform hover:-translate-y-2">
+        <h3 class="text-2xl font-semibold">{p.n}</h3>
+        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-600">{p.price}</p>
+        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+
+        <div class="mt-8">
+          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20YouTube.`} target="_blank" rel="noopener"
+             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-md hover:shadow-xl transition-all">
+            Pesan Sekarang
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+  <section id="faq" class="container my-32">
+  <h2 class="text-4xl font-semibold mb-12 text-center">Tanya Jawab Jasa Like YouTube</h2>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Apakah aman bagi channel yang sudah monetisasi?
+        <span class="text-red-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Sangat aman. Kami menggunakan metode yang natural dan tidak melanggar kebijakan YouTube. Channel Anda tetap aman dan proses monetisasi tidak akan terganggu.
+      </div>
+    </details>
+
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Bisa untuk Like Komentar di YouTube?
+        <span class="text-red-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Bisa! Kami juga menyediakan layanan Like Komentar agar komentar Anda berada di posisi paling atas (top comment) untuk mendapatkan exposure lebih tinggi.
+      </div>
+    </details>
+  </div>
+</section>
+</DefaultLayout>
