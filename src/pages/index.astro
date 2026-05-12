@@ -14,27 +14,30 @@ import { Icon } from 'astro-icon/components'
 
 <DefaultLayout title="Home">
   <Fragment slot="head">
-    <SiteMetaHome
-      title="Spesialis Jasa Like Murah & Cepat | Instagram, TikTok, Facebook"
-      description="JasaLike.my.id adalah spesialis penyedia layanan penambah Like untuk Instagram, TikTok, Facebook, Twitter, dan YouTube yang aman, cepat, dan terpercaya."
-      url="https://jasalike.my.id/"
-      image="/og-home.png"
-      siteName="Jasa Like"
-      ogType="website"
-      keywords={[
-        "jasa like",
-        "jasa like murah",
-        "jasa like instagram",
-        "jasa like tiktok",
-        "beli like facebook",
-        "jasa like youtube",
-        "spesialis jasa like"
-      ]}
-    />
+    <meta name="description" content="Jasalike adalah platform spesialis jasa Like sosial media. Tingkatkan interaksi di Instagram, TikTok, Facebook, Twitter, dan YouTube secara instan dan aman." />
+    <meta name="keywords" content="jasa like instagram, jasa like tiktok, jasa like facebook, beli like twitter, jasalike, spesialis jasa like" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/" />
 
-    <!-- ✅ Schema terpisah -->
-    <OrganizationSchema />
-    <HomeSchemas />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jasalike.my.id/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Spesialis Jasa Like Sosial Media Terpercaya | Jasalike" />
+    <meta property="og:description" content="Tingkatkan kredibilitas akun sosial media Anda dengan suntikan Like instan. Tanpa password dan 100% aman." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Jasalike",
+      "url": "https://jasalike.my.id/",
+      "logo": "https://jasalike.my.id/logo-jasalike.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+62-896-3474-0308",
+        "contactType": "customer service"
+      }
+    })} />
   </Fragment>
 
   <!-- ✅ Konten halaman -->
