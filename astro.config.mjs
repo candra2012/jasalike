@@ -3,15 +3,20 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import compress from 'astro-compress'
 import icon from 'astro-icon'
+import sitemap from '@astrojs/sitemap' // 1. Tambahkan import sitemap
 import tailwindcss from '@tailwindcss/vite'
-import { fileURLToPath } from 'node:url' // pakai 'node:url' lebih eksplisit
+import { fileURLToPath } from 'node:url'
 
 export default defineConfig({
-  // HAPUS: compressHTML (biarkan astro-compress yang kerja)
   site: 'https://jasalike.my.id',
   output: 'static',
   trailingSlash: 'ignore',
-  integrations: [mdx(), icon(), compress()],
+  integrations: [
+    mdx(), 
+    icon(), 
+    compress(), 
+    sitemap() // 2. Tambahkan sitemap ke sini
+  ],
   vite: {
     css: {
       preprocessorOptions: {
@@ -33,7 +38,6 @@ export default defineConfig({
         '@project-images': fileURLToPath(new URL('./public/projects', import.meta.url)),
       },
     },
-    // cegah masalah bundling di CF
     ssr: {
       noExternal: [
         'accessible-astro-components',
