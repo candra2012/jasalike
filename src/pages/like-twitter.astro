@@ -1,0 +1,128 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+---
+
+<DefaultLayout title="Spesialis Jasa Like Twitter (X) | Jasalike">
+  <Fragment slot="head">
+    <meta name="description" content="Tingkatkan interaksi cuitan Twitter (X) Anda dengan layanan Like instan. Bangun validasi sosial, dorong viralitas, dan buat tweet Anda jadi pusat perhatian." />
+    <meta name="keywords" content="jasa like twitter, beli like twitter murah, jasa favorite twitter, suntik like x, spesialis viral twitter" />
+    <meta property="og:title" content="Spesialis Jasa Like Twitter (X) Aman & Instan" />
+    <meta property="og:description" content="Jasa tambah like Twitter (X) untuk tweet, thread, dan balasan Anda secara aman." />
+    <meta property="og:url" content="https://jasalike.my.id/like-twitter/" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Jasa Like Twitter (X)",
+      "provider": {
+        "@type": "Organization",
+        "name": "Jasalike",
+        "url": "https://jasalike.my.id"
+      },
+      "description": "Jasa tambah like dan favorite Twitter (X) untuk meningkatkan interaksi cuitan. Proses instan dan aman tanpa password.",
+      "url": "https://jasalike.my.id/like-twitter/",
+      "offers": {
+        "@type": "Offer",
+        "price": "20000",
+        "priceCurrency": "IDR",
+        "description": "Harga per 10 Like",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Jasalike"
+        }
+      }
+    })} />
+  </Fragment>
+
+  <section class="container my-24 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 mb-6">
+      Layanan Spesialis Twitter (X) • Ciptakan Hype Instan
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8 italic">
+      Dominasi Tren & Buat <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">Tweet Anda Viral</span>
+    </h1>
+    
+    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
+      Tingkatkan interaksi cuitan, thread, hingga balasan (reply) Anda dengan penambahan Like instan. Bangun validasi sosial agar opini Anda lebih didengar dan perbesar jangkauan algoritma "For You" Twitter tanpa butuh password.
+    </p>
+
+    <div class="mt-12 flex justify-center gap-4">
+        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Viral</a>
+    </div>
+  </section>
+
+  <section class="container my-32">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Tweet Anda Butuh Banyak Like?</h2>
+    <div class="grid gap-8 sm:grid-cols-2">
+      {[
+        { title: 'Validasi Sosial & Opini', desc: 'Cuitan dengan ribuan Like memberikan kesan bahwa pendapat Anda didukung oleh banyak orang. Ini sangat penting untuk membangun otoritas di Twitter.' },
+        { title: 'Memicu Algoritma "For You"', desc: 'Twitter memprioritaskan cuitan dengan interaksi cepat untuk muncul di tab "For You". Semakin banyak Like, semakin besar peluang cuitan Anda menjangkau audiens di luar follower.' },
+        { title: 'Mendorong Retweet Organik', desc: 'Pengguna Twitter cenderung ragu melakukan Retweet pada cuitan yang sepi. Like yang banyak berfungsi sebagai pemancing agar orang lain mau ikut menyebarkan cuitan Anda.' },
+        { title: 'Dominasi Kolom Balasan', desc: 'Ingin balasan (reply) Anda berada di posisi paling atas pada cuitan tokoh besar? Tambahan Like pada balasan Anda adalah cara paling efektif untuk mencapainya.' },
+      ].map((b) => (
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-slate-50 to-neutral-100 dark:from-neutral-900/60 dark:to-neutral-900/20 border-slate-200 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
+          <p class="text-lg opacity-80">{b.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Hype Twitter (X)</h2>
+    <p class="text-xl opacity-80">Proses kilat, aman, dan meningkatkan jangkauan profil Anda.</p>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-3">
+    {[
+      { n: 'Paket Basic (10 Like)',   price: 'Rp 20.0000',    note: 'Cocok untuk memperkuat validasi cuitan harian atau opini singkat.' },
+      { n: 'Paket Standart (100 Like)',  price: 'Rp 200.000',   note: 'Dorongan kuat agar cuitan masuk ke radar algoritma For You.' },
+      { n: 'Paket grown (1.000 Like)', price: 'Rp 2.000.000', note: 'Bangun otoritas maksimal untuk thread edukasi atau promosi brand.' },
+    ].map((p) => (
+      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-slate-500 transition-all duration-300 transform hover:-translate-y-2">
+        <h3 class="text-2xl font-semibold">{p.n}</h3>
+        <p class="mt-4 text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">{p.price}</p>
+        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+
+        <div class="mt-8">
+          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20Twitter.`} target="_blank" rel="noopener"
+             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-slate-900 dark:bg-white dark:text-black text-white shadow-md hover:shadow-xl transition-all">
+            Pesan Sekarang
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+  <section id="faq" class="container my-32">
+  <h2 class="text-4xl font-semibold mb-12 text-center">Tanya Jawab Jasa Like Twitter</h2>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Apakah Like Twitter (X) ini permanen?
+        <span class="text-slate-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Ya, Like yang kami kirimkan bersifat permanen. Kami menggunakan akun-akun berkualitas untuk memastikan interaksi tetap stabil pada cuitan Anda.
+      </div>
+    </details>
+
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Bisa untuk Like Thread atau Balasan (Reply)?
+        <span class="text-slate-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Tentu saja bisa! Layanan kami fleksibel untuk link cuitan utama (tweet), link thread, maupun link balasan spesifik Anda.
+      </div>
+    </details>
+  </div>
+</section>
+</DefaultLayout>
