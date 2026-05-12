@@ -45,7 +45,8 @@ const {
   faqItems = []
 }: Props = Astro.props
 
-const site = Astro.site?.href?.replace(/\/$/, '') || 'https://auradigital.id'
+// 🔥 UBAH DOMAIN DEFAULT KE JASALIKE 🔥
+const site = Astro.site?.href?.replace(/\/$/, '') || 'https://jasalike.my.id'
 
 // ImageObject gabungan webp+png
 const serviceImage = {
@@ -121,11 +122,11 @@ const graph: any[] = [
     }))
   },
 
-  // Katalog penawaran (opsional tapi relevan untuk halaman daftar paket)
+  // 🔥 UBAH NAMA KATALOG KE JASALIKE 🔥
   {
     '@type': 'OfferCatalog',
     '@id': `${pageUrl}#catalog`,
-    name: 'Katalog Layanan Aura Digital',
+    name: 'Katalog Layanan Jasalike',
     url: pageUrl,
     itemListElement: services.map((s, i) => ({
       '@type': 'OfferCatalog',
@@ -153,3 +154,4 @@ const jsonld = { '@context': 'https://schema.org', '@graph': graph }
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(jsonld)}></script>
+
