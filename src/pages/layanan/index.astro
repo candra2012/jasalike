@@ -4,365 +4,153 @@ import SiteMetaLayanan from '@components/SiteMetaLayanan.astro'
 import LayananSchemas from '@components/LayananSchemas.astro'
 import { Icon } from 'astro-icon/components'
 
-// ====== DATA LAYANAN PER PLATFORM ======
+// ====== DATA LAYANAN PER PLATFORM (FOKUS 100% LIKE) ======
 const sections = [
+  {
+    id: 'instagram',
+    title: 'Instagram',
+    lead: 'Tingkatkan kredibilitas visual dan otoritas akun IG Anda secara instan.',
+    icon: 'lucide:instagram',
+    items: [
+      { name: 'Like Postingan (Feed)', href: '/like-instagram/', icon: 'lucide:heart', desc: 'Suntik Like pada foto atau carousel secara instan untuk social proof.' },
+      { name: 'Like IG Reels', href: '/like-reels-instagram/', icon: 'lucide:play-square', desc: 'Bantu video Reels masuk halaman Explore dengan tambahan interaksi Like.' },
+      { name: 'Like Komentar IG', href: '/like-komentar-instagram/', icon: 'lucide:thumbs-up', desc: 'Jadikan komentar Anda sebagai "Top Comment" dengan Like terbanyak.' },
+    ],
+  },
   {
     id: 'tiktok',
     title: 'TikTok',
-    lead: 'Optimasi pertumbuhan & engagement akun TikTok.',
-    icon: 'lucide:play',
+    lead: 'Dorong video masuk FYP dengan sinyal algoritma interaksi yang tinggi.',
+    icon: 'lucide:music',
     items: [
-      { name: 'View TikTok', href: '/views-tiktok/', icon: 'lucide:eye', desc: 'Naikkan tayangan video secara aman & bertahap.' },
-      { name: 'Like TikTok', href: '/likes-tiktok/', icon: 'lucide:heart', desc: 'Dorong interaksi dan sinyal algoritma.' },
-      { name: 'Komentar TikTok', href: '/komentar-tiktok/', icon: 'lucide:message-circle', desc: 'Komentar relevan & natural untuk social proof.' },
-      { name: 'Follower TikTok', href: '/follower-tiktok/', icon: 'lucide:users', desc: 'Pertumbuhan followers bertahap & aman.' },
-      { name: 'Livestreaming TikTok', href: '/livestreaming-tiktok/', icon: 'lucide:video', desc: 'Boost penonton & interaksi saat live TikTok' },
-      { name: 'Komentar Livestreaming', href: '/komentar-livestreaming-tiktok/', icon: 'lucide:message-square', desc: 'Tingkatkan komentar interaktif saat live TikTok.' },
-      { name: 'Komen ke Komentar', href: '/reply-komentar-tiktok/', icon: 'lucide:reply', desc: 'Balasan ke komentar untuk interaksi natural & engagement.' },
-      { name: 'Top Komentar', href: '/top-komentar-tiktok/', icon: 'lucide:star', desc: 'Dorong komentar ke posisi teratas untuk exposure lebih tinggi.' },
-      { name: 'FYP TikTok', href: '/fyp-tiktok/', icon: 'lucide:trending-up', desc: 'Bantu video masuk ke halaman FYP TikTok secara organik.' },
-      { name: 'Repost to Story', href: '/repost-story-tiktok/', icon: 'lucide:repeat', desc: 'Naikkan jangkauan dengan repost konten ke story TikTok.' },
-      { name: 'Share TikTok', href: '/share-tiktok/', icon: 'lucide:share-2', desc: 'Tingkatkan jumlah share untuk dorong algoritma TikTok.' },
-      { name: 'Save / Favorite TikTok', href: '/save-tiktok/', icon: 'lucide:bookmark', desc: 'Dorong audiens menyimpan konten untuk sinyal kualitas.' },
-      ],
+      { name: 'Like Video TikTok', href: '/like-tiktok/', icon: 'lucide:heart', desc: 'Tambahkan Like secara masif ke video untuk memancing algoritma FYP.' },
+      { name: 'Like Komentar TikTok', href: '/like-komentar-tiktok/', icon: 'lucide:thumbs-up', desc: 'Naikkan posisi komentar Anda di video viral agar mendapat lebih banyak exposure.' },
+    ],
   },
   {
-  id: 'instagram',
-  title: 'Instagram',
-  lead: 'Paket lengkap untuk IG: growth & engagement.',
-  icon: 'lucide:camera',
-  items: [
-    { name: 'View Instagram', href: '/views-instagram/', icon: 'lucide:eye', desc: 'Naikkan jumlah tayangan konten IG secara aman & stabil.' },
-    { name: 'Follower Instagram', href: '/follower-instagram/', icon: 'lucide:users', desc: 'Followers real/tertarget, bertahap & aman.' },
-    { name: 'Likes Instagram', href: '/likes-instagram/', icon: 'lucide:heart', desc: 'Tingkatkan jumlah like untuk sinyal algoritma & jangkauan lebih besar.' },
-    { name: 'Komentar Instagram', href: '/komentar-instagram/', icon: 'lucide:message-circle', desc: 'Komentar organik & relevan di posting IG.' },
-    { name: 'Viral IG / FYP', href: '/viral-ig/', icon: 'lucide:trending-up', desc: 'Bantu konten IG masuk FYP/Explore agar viral lebih cepat.' },
-    { name: 'Livestreaming Instagram', href: '/livestreaming-instagram/', icon: 'lucide:video', desc: 'Tingkatkan penonton & engagement saat Live IG.' },
-    { name: 'Komentar Livestreaming', href: '/komentar-livestreaming-ig/', icon: 'lucide:message-square', desc: 'Tambahkan komentar interaktif selama live berlangsung.' },
-    { name: 'Komen ke Komentar', href: '/reply-komentar-ig/', icon: 'lucide:reply', desc: 'Balasan komentar untuk interaksi natural & engagement.' },
-    { name: 'Top Komentar', href: '/top-komentar-ig/', icon: 'lucide:star', desc: 'Dorong komentar jadi top comment agar lebih terlihat.' },
-    { name: 'Share', href: '/share-instagram/', icon: 'lucide:share-2', desc: 'Naikkan jumlah share postingan untuk memperluas jangkauan.' },
-    { name: 'Save / Favorite', href: '/save-instagram/', icon: 'lucide:bookmark', desc: 'Dorong orang menyimpan konten untuk sinyal algoritma positif.' },
-    { name: 'Share to Story', href: '/share-story-ig/', icon: 'lucide:repeat', desc: 'Promosikan konten dengan repost otomatis ke IG Story.' },
-    { name: 'Vote Instagram', href: '/vote-instagram/', icon: 'lucide:check-square', desc: 'Tingkatkan partisipasi vote di polling & interaksi IG Story' },
-  ],
-},
-{  
-  id: 'twitter',
-  title: 'Twitter (X)',
-  lead: 'Layanan optimasi akun & campaign di Twitter/X.',
-  icon: 'lucide:twitter',
-  items: [
-    { name: 'Trending Topik', href: '/trending-twitter/', icon: 'lucide:trending-up', desc: 'Bantu masuk trending topic dengan campaign terstruktur.' },
-    { name: 'Like Twitter', href: '/like-twitter/', icon: 'lucide:heart', desc: 'Tingkatkan interaksi posting dengan like yang aman.' },
-    { name: 'Follower Twitter', href: '/follower-twitter/', icon: 'lucide:users', desc: 'Tambahkan followers aktif untuk membangun audiens.' },
-    { name: 'Komentar Twitter',  href: '/komentar-twitter/', icon: 'lucide:message-circle', desc: 'Tambahkan komentar organik & relevan di posting Twitter/X.'},
-    { name: 'Retweet', href: '/retweet-twitter/', icon: 'lucide:repeat', desc: 'Dorong retweet untuk memperluas jangkauan tweet.' },
-    { name: 'Vote Twitter', href: '/vote-twitter/', icon: 'lucide:check-square', desc: 'Tingkatkan partisipasi polling/vote di Twitter.' },
-    { name: 'Share Twitter', href: '/share-twitter/', icon: 'lucide:share-2', desc: 'Tingkatkan share posting untuk distribusi konten lebih luas.' },
-    { name: 'Save / Favorite Twitter', href: '/save-twitter/', icon: 'lucide:bookmark', desc: 'Dorong audiens untuk menyimpan tweet penting.' },
-    { name: 'Twitter Airdrop + Web Connect', href: '/twitter-airdrop-web/', icon: 'lucide:link', desc: 'Integrasi campaign airdrop dengan koneksi website.' },
-    { name: 'Connect Twitter + Telegram', href: '/connect-twitter-telegram/', icon: 'lucide:send', desc: 'Gabungkan campaign Twitter dengan komunitas Telegram.' },
-    { name: 'Connect Twitter + Discord', href: '/connect-twitter-discord/', icon: 'lucide:message-circle', desc: 'Integrasi campaign Twitter dengan server Discord.' },
-    { name: 'Web + Twitter + Telegram + Discord + Wallet', href: '/integrasi-twitter-web3/', icon: 'lucide:layers', desc: 'Paket integrasi lengkap untuk campaign Web3 & komunitas.' },
-    { name: 'Space Listening', href: '/space-listening-twitter/',  icon: 'lucide:headphones',  desc: 'Layanan pendengar & partisipasi aktif di Twitter Space.' },
-  ],
-},
-{
-  id: 'youtube',
-  title: 'YouTube',
-  lead: 'Layanan optimasi channel & video YouTube: views, like, komentar, hingga live streaming.',
-  icon: 'lucide:youtube',
-  items: [
-    { name: 'Like YouTube', href: '/like-youtube/', icon: 'lucide:heart', desc: 'Tingkatkan like video agar lebih dipercaya algoritma.' },
-    { name: 'View YouTube', href: '/views-youtube/', icon: 'lucide:eye', desc: 'Tambahkan views untuk meningkatkan exposure channel.' },
-    { name: 'Komentar YouTube', href: '/komentar-youtube/', icon: 'lucide:message-circle', desc: 'Komentar organik & relevan untuk social proof.' },
-    { name: 'Subscribe YouTube', href: '/subscribe-youtube/', icon: 'lucide:users', desc: 'Tambahkan subscriber aman & bertahap.' },
-    { name: 'Share YouTube', href: '/share-youtube/', icon: 'lucide:share-2', desc: 'Sebarkan video agar menjangkau lebih banyak audiens.' },
-    { name: 'Save/Favorite YouTube', href: '/save-youtube/', icon: 'lucide:bookmark', desc: 'Dorong orang untuk menyimpan video ke playlist.' },
-    { name: 'Livestreaming YouTube', href: '/livestreaming-youtube/', icon: 'lucide:video', desc: 'Naikkan penonton & interaksi di live streaming.' },
-    { name: 'Komen ke Komentar YouTube', href: '/reply-komentar-youtube/', icon: 'lucide:message-square', desc: 'Balas komentar agar interaksi makin hidup.' },
-    { name: 'Like Komentar YouTube', href: '/like-komentar-youtube/', icon: 'lucide:thumbs-up', desc: 'Naikkan like komentar agar muncul di atas.' },
-  ],
-},
-    {
-  id: 'threads',
-  title: 'Threads (Instagram)',
-  lead: 'Optimasi interaksi & pertumbuhan akun Threads.',
-  icon: 'lucide:message-circle',
-  items: [
-    { name: 'Like Threads', href: '/threads-like/', icon: 'lucide:heart', desc: 'Tingkatkan jumlah like pada thread.' },
-    { name: 'View Threads', href: '/threads-view/', icon: 'lucide:eye', desc: 'Dorong tayangan untuk jangkauan lebih luas.' },
-    { name: 'Komentar Threads', href: '/threads-komentar/', icon: 'lucide:message-square', desc: 'Komentar relevan untuk social proof.' },
-    { name: 'Follower Threads', href: '/threads-follower/', icon: 'lucide:users', desc: 'Pertumbuhan followers yang aman & bertahap.' },
-    { name: 'Komen ke komentar', href: '/threads-balas-komentar/', icon: 'lucide:corner-down-right', desc: 'Balas komentar untuk perpanjang diskusi.' },
-    { name: 'Top komentar', href: '/threads-top-komentar/', icon: 'lucide:arrow-up-circle', desc: 'Bantu komentar jadi top comment.' },
-    { name: 'Share Threads', href: '/threads-share/', icon: 'lucide:share', desc: 'Bagikan thread untuk tambah reach.' },
-    { name: 'Quote Threads', href: '/threads-quote/', icon: 'lucide:quote', desc: 'Quote post untuk dorong percakapan.' },
-    { name: 'Repost Threads', href: '/threads-repost/', icon: 'lucide:repeat', desc: 'Repost untuk visibilitas ekstra.' },
-  ],
-}, 
-    {
-  id: 'discord',
-  title: 'Discord',
-  lead: 'Otomasi & aktivasi komunitas di server Discord.',
-  icon: 'lucide:messages-square', // ikon judul (Lucide)
-  items: [
-    {
-      name: 'Invite Member',
-      href: '/discord-invite-member/',
-      icon: 'lucide:user-plus',
-      desc: 'Tambahkan anggota server secara terukur.'
-    },
-    {
-      name: 'Invite Member + Captcha Double Counter',
-      href: '/discord-invite-captcha/',
-      icon: 'lucide:shield-check',
-      desc: 'Undangan dengan verifikasi & anti-bot.'
-    },
-    {
-      name: 'Vote Meme di Discord',
-      href: '/discord-vote-meme/',
-      icon: 'lucide:thumbs-up',
-      desc: 'Dorong voting konten meme di channel.'
-    },
-    {
-      name: 'Discord Airdrop – Connect Web',
-      href: '/discord-airdrop-connect-web/',
-      icon: 'lucide:link-2',
-      desc: 'Integrasi airdrop dengan website.'
-    },
-    {
-      name: 'Discord + Web + Twitter',
-      href: '/discord-web-twitter/',
-      icon: 'lucide:link',
-      desc: 'Tugas gabungan lintas platform.'
-    },
-    {
-      name: 'Discord + Web + Twitter + Telegram',
-      href: '/discord-web-twitter-telegram/',
-      icon: 'lucide:link-2',
-      desc: 'Workflow multi-channel terintegrasi.'
-    },
-    {
-      name: 'Discord + Web + Twitter + Telegram + Wallet',
-      href: '/discord-web-twitter-telegram-wallet/',
-      icon: 'lucide:wallet',
-      desc: 'Termasuk verifikasi wallet.'
-    },
-  ],
-},
-   {
-  id: 'telegram',
-  title: 'Telegram',
-  lead: 'Pertumbuhan grup, channel, dan aktivasi komunitas.',
-  icon: 'lucide:send',
-  items: [
-    { name: 'Invite Friend', href: '/telegram-invite-friend/', icon: 'lucide:user-plus', desc: 'Undang teman baru ke grup atau channel.' },
-    { name: 'Telegram Member Grup', href: '/telegram-member-grup/', icon: 'lucide:users', desc: 'Tambahkan anggota ke grup Telegram secara bertahap.' },
-    { name: 'Telegram Member Channel', href: '/telegram-member-channel/', icon: 'lucide:users', desc: 'Tambahkan subscriber ke channel Telegram.' },
-    { name: 'Telegram Vote', href: '/telegram-vote/', icon: 'lucide:vote', desc: 'Voting di Telegram untuk polling komunitas.' },
-    { name: 'Telegram Airdrop + Connect Web', href: '/telegram-airdrop-connect-web/', icon: 'lucide:gift', desc: 'Airdrop dengan integrasi koneksi akun web.' },
-    { name: 'Telegram + Web + Twitter', href: '/telegram-web-twitter/', icon: 'lucide:link', desc: 'Kampanye lintas kanal: Telegram, website, dan Twitter.' },
-    { name: 'Telegram + Web + Twitter + Discord', href: '/telegram-web-twitter-discord/', icon: 'lucide:network', desc: 'Perluasan kampanye termasuk Discord.' },
-    { name: 'Telegram + Web + Twitter + Discord + Wallet', href: '/telegram-web-twitter-discord-wallet/', icon: 'lucide:wallet', desc: 'Aktivasi lengkap dengan koneksi wallet.' },
-  ],
-},
-    {
-  id: 'jasa-report',
-  title: 'Jasa Report',
-  lead: 'Layanan report akun atau postingan di berbagai platform.',
-  icon: 'lucide:shield-off',
-  items: [
-    { name: 'Report Akun/Postingan Instagram', href: '/report-instagram/', icon: 'lucide:instagram', desc: 'Laporkan akun atau postingan di Instagram agar ditindaklanjuti.' },
-    { name: 'Report Akun/Postingan TikTok', href: '/report-tiktok/', icon: 'lucide:play', desc: 'Layanan report akun/postingan TikTok secara massal.' },
-    { name: 'Report Akun/Postingan Telegram', href: '/report-telegram/', icon: 'lucide:send', desc: 'Report channel, grup, atau postingan di Telegram.' },
-    { name: 'Report Akun/Postingan Twitter', href: '/report-twitter/', icon: 'lucide:twitter', desc: 'Report tweet atau akun Twitter yang melanggar aturan.' },
-    { name: 'Report Akun/Postingan YouTube', href: '/report-youtube/', icon: 'lucide:youtube', desc: 'Laporkan video atau channel YouTube yang menyalahi aturan.' },
-    { name: 'Report Akun WhatsApp', href: '/report-whatsapp/', icon: 'lucide:phone', desc: 'Report nomor atau grup WhatsApp yang bermasalah.' },
-  ],
-},
-   {
-  id: 'soundcloud',
-  title: 'SoundCloud',
-  lead: 'Optimasi interaksi & jangkauan di SoundCloud.',
-  icon: 'lucide:music',
-  items: [
-    { name: 'Like SoundCloud', href: '/like-soundcloud/', icon: 'lucide:heart', desc: 'Tambahkan like pada track untuk meningkatkan popularitas.' },
-    { name: 'Follower SoundCloud', href: '/follower-soundcloud/', icon: 'lucide:users', desc: 'Perbanyak followers akun SoundCloud Anda.' },
-    { name: 'Play Track SoundCloud', href: '/plays-soundcloud/', icon: 'lucide:play', desc: 'Dorong jumlah pemutaran track agar lebih dikenal.' },
-    { name: 'Share SoundCloud', href: '/share-soundcloud/', icon: 'lucide:share-2', desc: 'Bagikan track agar menjangkau audiens lebih luas.' },
-  ],
-},
-    {
-  id: 'linkedin',
-  title: 'LinkedIn',
-  lead: 'Tingkatkan kredibilitas & interaksi profesional di LinkedIn.',
-  icon: 'lucide:briefcase',
-  items: [
-    { name: 'Follower LinkedIn', href: '/follower-linkedin/', icon: 'lucide:users', desc: 'Tambah followers untuk membangun jaringan profesional.' },
-    { name: 'Like LinkedIn', href: '/like-linkedin/', icon: 'lucide:heart', desc: 'Naikkan like untuk postingan agar lebih terlihat.' },
-    { name: 'Komentar LinkedIn', href: '/komentar-linkedin/', icon: 'lucide:message-circle', desc: 'Tambahkan komentar relevan di posting untuk engagement.' },
-    { name: 'Share LinkedIn', href: '/share-linkedin/', icon: 'lucide:share-2', desc: 'Bagikan postingan agar menjangkau audiens lebih luas.' },
-    { name: 'Repost LinkedIn', href: '/repost-linkedin/', icon: 'lucide:repeat', desc: 'Repost konten untuk meningkatkan visibilitas brand.' },
-  ],
-},
-   {
-  id: 'registrasi',
-  title: 'Jasa Registrasi',
-  lead: 'Layanan registrasi akun & aplikasi dengan tingkat verifikasi berbeda.',
-  icon: 'lucide:file-text',
-  items: [
-    { name: 'Registrasi Web', href: '/registrasi-web/', icon: 'lucide:globe', desc: 'Registrasi akun melalui website tanpa verifikasi tambahan.' },
-    { name: 'Registrasi Web + KTP', href: '/registrasi-web-ktp/', icon: 'lucide:id-card', desc: 'Registrasi web dengan upload dokumen KTP.' },
-    { name: 'Registrasi Web + KTP + Selfie', href: '/registrasi-web-ktp-selfie/', icon: 'lucide:camera', desc: 'Registrasi web lengkap dengan KTP dan verifikasi selfie.' },
-    { name: 'Registrasi APK', href: '/registrasi-apk/', icon: 'lucide:smartphone', desc: 'Registrasi akun langsung di aplikasi (APK).' },
-    { name: 'Registrasi APK + KTP', href: '/registrasi-apk-ktp/', icon: 'lucide:id-card', desc: 'Registrasi APK dengan upload dokumen KTP.' },
-    { name: 'Registrasi APK + KTP + Selfie', href: '/registrasi-apk-ktp-selfie/', icon: 'lucide:camera', desc: 'Registrasi APK lengkap dengan KTP dan verifikasi selfie.' },
-  ],
-},
-   {
-  id: 'google-map',
-  title: 'Google Map / Google Bisnis',
-  lead: 'Tingkatkan kepercayaan bisnis dengan ulasan positif.',
-  icon: 'lucide:map',
-  items: [
-    {name: 'Rating & Ulasan Google Bisnis', href: '/rating-ulasan-google/', icon: 'lucide:star', desc: 'Tambahkan rating bintang & ulasan positif untuk meningkatkan kredibilitas bisnis Anda di Google Map/Google Bisnis.'},
-  ],
-},
-    {
-  id: 'playstore',
-  title: 'Google Play Store',
-  lead: 'Optimasi aplikasi Anda dengan rating & ulasan positif.',
-  icon: 'lucide:smartphone',
-  items: [
-    {name: 'Rating & Ulasan Play Store', href: '/rating-ulasan-playstore/', icon: 'lucide:star', desc: 'Tambahkan rating bintang & ulasan berkualitas di Google Play Store untuk meningkatkan kepercayaan pengguna & peluang download aplikasi.'},
-  ],
-},
-   {
-  id: 'marketplace',
-  title: 'Marketplace',
-  lead: 'Tingkatkan kepercayaan toko Anda di e-commerce.',
-  icon: 'lucide:shopping-cart',
-  items: [
-    {name: 'Rating, Ulasan & Barang Terjual Marketplace', href: '/rating-ulasan-marketplace/', icon: 'lucide:star', desc: 'Tambah rating bintang, ulasan positif, dan jumlah barang terjual di marketplace (Shopee, Tokopedia, dll.) untuk meningkatkan reputasi toko & minat beli.'},
-  ],
-},
-   {
-  id: 'blast',
-  title: 'Blast Messaging',
-  lead: 'Kirim pesan massal untuk promosi & komunikasi cepat.',
-  icon: 'lucide:send',
-  items: [
-    {name: 'WhatsApp Blast', href: '/whatsapp-blast/', icon: 'lucide:message-circle', desc: 'Kirim pesan massal ke ribuan kontak WA secara cepat & aman tanpa terblokir.'},
-    {name: 'SMS Blast', href: '/sms-blast/', icon: 'lucide:phone', desc: 'Kirim ribuan SMS sekaligus untuk promosi, reminder, atau notifikasi penting.'},
-  ],
-},
-
-
-  // Tambah platform lain (YouTube, X, dll.) dengan format yang sama jika perlu
+    id: 'facebook',
+    title: 'Facebook',
+    lead: 'Bangun kepercayaan bisnis dan profil personal yang solid.',
+    icon: 'lucide:facebook',
+    items: [
+      { name: 'Like Status / Foto', href: '/like-facebook/', icon: 'lucide:thumbs-up', desc: 'Tingkatkan jumlah Like untuk postingan personal maupun status Fanpage.' },
+      { name: 'Like Fanpage Bisnis', href: '/like-fanpage-facebook/', icon: 'lucide:users', desc: 'Tingkatkan jumlah Like (Pengikut) pada Halaman Bisnis Anda.' },
+    ],
+  },
+  {
+    id: 'twitter',
+    title: 'Twitter (X)',
+    lead: 'Ciptakan hype, validasi opini, dan dominasi tren obrolan.',
+    icon: 'lucide:twitter',
+    items: [
+      { name: 'Like / Favorite Tweet', href: '/like-twitter/', icon: 'lucide:heart', desc: 'Tambah Like pada cuitan Anda agar terlihat lebih populer dan dipercaya.' },
+      { name: 'Like Balasan (Reply)', href: '/like-reply-twitter/', icon: 'lucide:message-square', desc: 'Tingkatkan Like pada balasan tweet untuk mendominasi kolom diskusi.' },
+    ],
+  },
+  {
+    id: 'youtube',
+    title: 'YouTube',
+    lead: 'Tingkatkan peringkat pencarian (SEO) video dengan engagement positif.',
+    icon: 'lucide:youtube',
+    items: [
+      { name: 'Like Video YouTube', href: '/like-youtube/', icon: 'lucide:thumbs-up', desc: 'Naikkan rasio Like untuk memberi sinyal positif pada algoritma pencarian YouTube.' },
+      { name: 'Like YouTube Shorts', href: '/like-shorts-youtube/', icon: 'lucide:play', desc: 'Suntik Like pada video Shorts untuk menjangkau audiens yang lebih luas.' },
+      { name: 'Like Komentar YouTube', href: '/like-komentar-youtube/', icon: 'lucide:message-circle', desc: 'Dorong komentar Anda ke urutan paling atas agar di-pin oleh kreator.' },
+    ],
+  },
+  {
+    id: 'linkedin',
+    title: 'LinkedIn',
+    lead: 'Bangun otoritas profesional dan relasi B2B yang meyakinkan.',
+    icon: 'lucide:linkedin',
+    items: [
+      { name: 'Like Postingan / Artikel', href: '/like-linkedin/', icon: 'lucide:thumbs-up', desc: 'Dapatkan apresiasi Like dari profil profesional untuk membangun kredibilitas karir.' },
+    ],
+  }
 ]
 ---
-      <DefaultLayout title="Layanan">
+<DefaultLayout title="Katalog Layanan">
   <Fragment slot="head">
     <SiteMetaLayanan
-      title="Jasa Kelola Instagram & TikTok, Komentar Terarah, dan Discord — Aura Digital"
-      description="Layanan fokus organik: kelola Instagram & TikTok, produksi konten, optimasi profil, komentar TikTok yang terarah, desain visual, serta manajemen komunitas Discord."
-      url="https://auradigital.id/layanan/"
+      title="Daftar Layanan Jasa Like Lengkap | Instagram, TikTok, Facebook, Twitter"
+      description="Pusat spesialis layanan Like untuk Instagram, TikTok, Facebook, Twitter (X), YouTube, dan LinkedIn. Proses instan, aman tanpa password."
+      url="https://jasalike.my.id/layanan/"
       image="/og-layanan.png"
-      siteName="Aura Digital"
+      siteName="Jasalike"
       ogType="website"
       keywords={[
-        'jasa sosial media murah',
-        'jasa komentar instagram',
-        'beli followers instagram',
-        'jasa views tiktok',
-        'jasa trending topik',
-        'jasa report akun'
+        'jasa like instagram',
+        'jasa like tiktok',
+        'beli like facebook',
+        'jasa like youtube',
+        'jasa like twitter',
+        'like linkedin'
       ]}
     />
 
-    <!-- JSON-LD untuk halaman layanan -->
     <LayananSchemas
-      pageUrl="https://auradigital.id/layanan/"
-      pageTitle="Layanan Jasa Sosial Media Murah & Terpercaya | Aura Digital"
-      description="Daftar lengkap layanan sosial media dari Aura Digital."
+      pageUrl="https://jasalike.my.id/layanan/"
+      pageTitle="Katalog Layanan Spesialis Like | Jasalike"
+      description="Daftar lengkap layanan spesialis Like untuk berbagai platform media sosial utama."
       imageWebp="/layanan.webp"
       imagePng="/layanan.png"
       services={[
         {
-          name: 'Komentar Instagram',
-          url: 'https://auradigital.id/komentar-instagram/',
-          description: 'Tambah komentar organik & relevan untuk posting IG.',
+          name: 'Like Instagram',
+          url: 'https://jasalike.my.id/like-instagram/',
+          description: 'Tambah Like organik & cepat untuk postingan IG.',
           serviceType: 'Social Media Engagement',
           areaServed: 'ID',
-          offers: [{ price: '300000', priceCurrency: 'IDR', unitText: 'per 100' }]
+          offers: [{ price: '10000', priceCurrency: 'IDR', unitText: 'per 1000' }]
         },
         {
-          name: 'Followers Instagram',
-          url: 'https://auradigital.id/followers-instagram/',
-          description: 'Penambahan followers aman dan bertahap.',
-          serviceType: 'Audience Growth',
+          name: 'Like TikTok',
+          url: 'https://jasalike.my.id/like-tiktok/',
+          description: 'Suntik Like instan untuk video TikTok.',
+          serviceType: 'Social Media Engagement',
           areaServed: 'ID',
-          offers: [{ price: '200000', priceCurrency: 'IDR', unitText: 'per 100' }]
-        },
-        {
-          name: 'Views TikTok',
-          url: 'https://auradigital.id/views-tiktok/',
-          description: 'Naikkan views konten TikTok secara cepat.',
-          serviceType: 'Video Views',
-          areaServed: 'ID',
-          offers: [{ price: '200000', priceCurrency: 'IDR', unitText: 'per 1000' }]
+          offers: [{ price: '15000', priceCurrency: 'IDR', unitText: 'per 1000' }]
         }
       ]}
       faqItems={[
-        { q: 'Bagaimana proses pemesanan?', a: 'Pilih layanan, bayar, lalu tim memproses otomatis.' },
-        { q: 'Apakah aman?', a: 'Kami menggunakan metode yang aman & bertahap.' }
+        { q: 'Apakah butuh password akun?', a: 'Tidak. Kami hanya membutuhkan link URL dari postingan/video yang ingin ditambah Like-nya.' },
+        { q: 'Berapa lama proses masuknya?', a: 'Sangat cepat. Rata-rata Like mulai masuk dalam 1 hingga 5 menit setelah pembayaran terkonfirmasi.' }
       ]}
     />
   </Fragment>
 
-  <!-- ====== HERO SECTION ====== -->
   <section class="container my-12">
-    <h1 class="text-5xl md:text-6xl font-bold">Layanan Aura Digital</h1>
+    <h1 class="text-5xl md:text-6xl font-bold text-gradient">Katalog Layanan Like</h1>
     <p class="text-xl opacity-80 mt-4 max-w-3xl">
-      Pilih layanan sesuai kebutuhan: followers, likes, komentar, views hingga campaign trending.
-      Semua dikerjakan aman & bertahap oleh tim berpengalaman.
+      Sebagai platform spesialis, kami membagi kategori layanan berdasarkan platform untuk memudahkan Anda. Pilih target platform sosial media Anda di bawah ini untuk melihat detail layanannya.
     </p>
-
-    <!-- Gambar di bawah H1 -->
-    <figure class="mt-8 overflow-hidden rounded-2xl border">
-      <picture>
-        <source srcset="/layanan.webp" type="image/webp" />
-        <img src="/layanan.png" alt="Katalog layanan Aura Digital" loading="eager" class="w-full h-auto" />
-      </picture>
-    </figure>
   </section>
 
-  <!-- ====== LIST PLATFORM + GRID LAYANAN ====== -->
   <section class="container my-16">
     {sections.map((sec) => (
-      <div class="mb-16" id={sec.id}>
-        <h2 class="text-3xl md:text-4xl font-semibold flex items-center gap-3">
-          <Icon name={sec.icon} size="28" />
-          {sec.title}
-        </h2>
-        <p class="mt-2 mb-6 text-lg opacity-80">{sec.lead}</p>
+      <div class="mb-20" id={sec.id}>
+        <div class="flex items-center gap-4 mb-4 border-b pb-4 dark:border-neutral-800">
+          <Icon name={sec.icon} size="40" class="text-primary-500" />
+          <h2 class="text-4xl font-semibold m-0">{sec.title}</h2>
+        </div>
+        <p class="text-xl opacity-80 mb-8">{sec.lead}</p>
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sec.items.map((item) => (
-            <article class="p-6 rounded-2xl border shadow-sm bg-white/60 dark:bg-neutral-900/60 hover:shadow-md transition">
+            <article class="p-6 rounded-2xl border shadow-sm bg-white/60 dark:bg-neutral-900/60 hover:shadow-md hover:border-primary-500 transition-all duration-300">
               <div class="flex items-start gap-4">
-                <Icon name={item.icon} size="32" />
+                <div class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-xl text-primary-500">
+                  <Icon name={item.icon} size="28" />
+                </div>
                 <div>
-                  <h3 class="text-xl font-semibold">
-                    <a class="!no-underline hover:underline" href={item.href}>{item.name}</a>
+                  <h3 class="text-xl font-bold mb-2">
+                    <a class="!no-underline hover:text-primary-500 transition-colors" href={item.href}>{item.name}</a>
                   </h3>
-                  <p class="opacity-80">{item.desc}</p>
+                  <p class="opacity-80 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
-              <div class="mt-5">
-                <a href={item.href} class="button">Lihat detail</a>
+              <div class="mt-6 pt-4 border-t dark:border-neutral-800">
+                <a href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20tanya%20harga%20untuk%20layanan%20Like." class="button text-sm w-full text-center">Tanya Harga</a>
               </div>
             </article>
           ))}
@@ -371,14 +159,26 @@ const sections = [
     ))}
   </section>
     
-<!-- ====== PENUTUP / CLOSING SECTION ====== -->
-  <section class="container my-20 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">
-      Siap Mengembangkan Brand Anda?
+  <section class="container my-32 text-center bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-950 p-16 rounded-3xl">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Butuh Ribuan Like Hari Ini Juga?
     </h2>
-    <p class="text-lg opacity-80 max-w-2xl mx-auto">
-      Dengan layanan sosial media lengkap dari Aura Digital, Anda bisa fokus pada bisnis
-      sementara kami yang mengelola pertumbuhan, engagement, dan kredibilitas online.
+    <p class="text-xl opacity-80 max-w-2xl mx-auto mb-10">
+      Jangan biarkan konten bagus Anda tenggelam. Gunakan layanan spesialis Jasalike sekarang untuk dorongan algoritma instan.
     </p>
+    <a href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20order%20Jasa%20Like." class="button text-lg px-8 py-4">Hubungi Admin Sekarang</a>
   </section>
+
+  <style>
+    .text-gradient {
+      background: linear-gradient(
+        315deg,
+        light-dark(var(--color-primary-300), var(--color-secondary-100)) 25%,
+        light-dark(var(--color-secondary-300), var(--color-primary-200))
+      );
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </DefaultLayout>
