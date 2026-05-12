@@ -1,248 +1,128 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
-import SiteMetaKomentarInstagram from '@components/SiteMetaKomentarInstagram.astro'
-import SchemaKomentarInstagram from '@components/SchemaKomentarInstagram.astro'
+import SiteMetaLikesTikTok from '@components/SiteMetaLikesTikTok.astro'
+import SchemaLikesTikTok from '@components/SchemaLikesTikTok.astro'
 ---
 
-<DefaultLayout title="Komentar Instagram">
+<DefaultLayout title="Jasa Like TikTok">
   <Fragment slot="head">
-    <!-- Meta + JSON-LD -->
-    <SiteMetaKomentarInstagram />
-    <SchemaKomentarInstagram />
+    <SiteMetaLikesTikTok
+      title="Spesialis Jasa Like TikTok Aman, Cepat & Bergaransi | Jasalike"
+      description="Tingkatkan interaksi video TikTok anda dengan layanan Like instan. Proses aman tanpa password, membantu video lebih mudah masuk FYP dan terlihat kredibel."
+      url="https://jasalike.my.id/like-tiktok/"
+      image="/og-layanan.png"
+      siteName="Jasalike"
+      ogType="product"
+      keywords={[
+        'jasa like tiktok',
+        'beli like tiktok murah',
+        'suntik like tiktok fyp',
+        'jasa like tiktok aman',
+        'spesialis fyp tiktok'
+      ]}
+    />
+    <SchemaLikesTikTok
+      pageUrl="https://jasalike.my.id/like-tiktok/"
+      pageTitle="Spesialis Jasa Like TikTok Aman, Cepat & Bergaransi | Jasalike"
+      description="Jasa tambah like TikTok untuk video dan konten anda. Harga terbaik dengan proses instan yang dijamin aman untuk akun anda."
+      imageWebp="/layanan.webp"
+      imagePng="/layanan.png"
+      serviceName="Jasa Like TikTok"
+      serviceUrl="https://jasalike.my.id/like-tiktok/"
+      price="2000"
+      priceCurrency="IDR"
+      unitText="per like"
+    />
   </Fragment>
 
-  <!-- ============== HERO ============== -->
-  <section class="container my-12">
-    <h1 class="text-5xl md:text-6xl font-bold">Jasa Komentar Instagram Organik & Relevan</h1>
-    <p class="text-xl opacity-80 mt-4 max-w-3xl">
-      Tambah komentar yang natural, relevan, dan aman untuk meningkatkan <em>engagement</em> serta
-      <em>social proof</em>. Cocok untuk Feed, Reels, maupun kampanye brand.
+  <section class="container my-24 text-center">
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-800 dark:from-teal-900/40 dark:to-cyan-900/40 dark:text-teal-100 border border-teal-200/60 dark:border-teal-800/60 mb-6">
+      Layanan Spesialis TikTok • Sinyal Kuat Masuk FYP
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
+      Suntik Like TikTok yang <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-teal-500 to-cyan-600 bg-clip-text text-transparent">Cepat, Aman & Viral</span>
+    </h1>
+    
+    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
+      Tingkatkan interaksi video TikTok anda dengan penambahan Like instan. Perkuat sinyal algoritma agar video lebih mudah direkomendasikan masuk FYP dan bangun kredibilitas profil anda dalam sekejap.
     </p>
 
-    <figure class="mt-8 overflow-hidden rounded-2xl border">
-      <picture>
-        <source srcset="/komentar-instagram.webp" type="image/webp" />
-        <img src="/komentar-instagram.png" alt="Layanan Komentar Instagram" loading="eager" class="w-full h-auto" />
-      </picture>
-    </figure>
-  </section>
-
-  <!-- ============== MENGAPA KOMENTAR PENTING ============== -->
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Mengapa Komentar Sangat Berpengaruh?</h2>
-
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Sinyal Algoritma</h3>
-        <p class="mt-2 opacity-80">
-          Komentar adalah interaksi bernilai tinggi. Rasio komentar terhadap tayangan/likes
-          membantu algoritma menilai kontenmu layak didorong ke audiens yang lebih luas.
-        </p>
-      </article>
-
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Social Proof & Kepercayaan</h3>
-        <p class="mt-2 opacity-80">
-          Thread diskusi di kolom komentar membangun persepsi “ramai” dan kredibel, mendorong
-          orang lain ikut terlibat dan mengikuti akunmu.
-        </p>
-      </article>
-
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Dampak ke Reach & Explore</h3>
-        <p class="mt-2 opacity-80">
-          Percakapan yang aktif sering menjadi pemicu jangkauan organik. Komentar relevan
-          mengundang balasan dan menyuburkan interaksi.
-        </p>
-      </article>
-
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Insight Konten</h3>
-        <p class="mt-2 opacity-80">
-          Isi komentar bisa menjadi umpan balik untuk riset konten, ide konten lanjutan,
-          sekaligus mengetahui keberatan/pertanyaan audiens.
-        </p>
-      </article>
+    <div class="mt-12 flex justify-center gap-4">
+        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi FYP</a>
     </div>
   </section>
 
-  <!-- ============== FITUR & KEUNGGULAN ============== -->
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Fitur & Keunggulan Layanan Komentar</h2>
-
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Metode Aman & Bertahap</h3>
-        <p class="mt-2 opacity-80">
-          Distribusi komentar dilakukan bertahap agar terlihat natural dan tidak menonjol.
-        </p>
-      </article>
-
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Harga Transparan</h3>
-        <p class="mt-2 opacity-80">
-          Tarif dasar: <strong>IDR 3.000 per komentar</strong>. Mulai dari paket kecil untuk uji performa, lalu
-          naikkan sesuai kebutuhan kampanye.
-        </p>
-      </article>
-
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Kustom Tone & Topik</h3>
-        <p class="mt-2 opacity-80">
-          Bisa memberi contoh gaya/tema komentar. Tim kami kurasi agar tetap relevan dan positif.
-        </p>
-      </article>
-
-      <article class="p-6 rounded-2xl border shadow-sm bg-white/70 dark:bg-neutral-900/60">
-        <h3 class="text-xl font-semibold">Support Cepat</h3>
-        <p class="mt-2 opacity-80">
-          Butuh rekomendasi jumlah dan tempo? Kami bantu susun ritme aman & efektif.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ============== PAKET & ESTIMASI (MATCH STYLE LIKES) ============== -->
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Paket & Estimasi</h2>
-    <p class="mt-3 opacity-80">
-      Rate dasar: <strong>IDR 3.000 per 1 komentar</strong>. Berikut contoh paket populer sebagai estimasi.
-    </p>
-
-    <div class="mt-8 grid gap-6 md:grid-cols-3">
+  <section class="container my-32">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Video TikTok Butuh Banyak Like?</h2>
+    <div class="grid gap-8 sm:grid-cols-2">
       {[
-        { n: '100 Komentar',  price: 'IDR 300.000',   note: 'Cocok untuk memulai diskusi & uji performa.' },
-        { n: '500 Komentar',  price: 'IDR 1.500.000', note: 'Bangun thread aktif & tingkatkan kepercayaan.' },
-        { n: '1.000 Komentar', price: 'IDR 3.000.000', note: 'Dorong percakapan masif untuk kampanye besar.' },
-      ].map((p) => (
-        <article class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/70 dark:bg-neutral-900/60 shadow-sm p-6">
-          <h3 class="text-xl font-semibold">{p.n}</h3>
-          <p class="mt-1 text-2xl font-extrabold tracking-tight">{p.price}</p>
-          <p class="mt-3 opacity-80">{p.note}</p>
-
-          <div class="mt-5 grid grid-cols-2 gap-3">
-            <!-- Tombol WhatsApp: hubungi admin -->
-            <a href="https://wa.me/6289634740308?text=Halo%20admin%2C%20saya%20ingin%20konsultasi%20layanan%20Komentar%20Instagram."
-               target="_blank" rel="noopener"
-               class="inline-flex items-center justify-center rounded-xl px-4 py-2 font-semibold bg-green-500 text-white hover:bg-green-600 transition">
-              Hubungi Admin
-            </a>
-
-            <!-- Tombol ke halaman layanan lain -->
-            <a href="/layanan/"
-               class="inline-flex items-center justify-center rounded-xl px-4 py-2 font-semibold bg-pink-200 text-pink-900 hover:bg-pink-300 dark:bg-pink-500/20 dark:text-pink-200 transition">
-              Lihat Layanan Lain
-            </a>
-          </div>
+        { title: 'Trigger Algoritma FYP', desc: 'TikTok sangat mementingkan interaksi awal. Video dengan lonjakan Like yang cepat berpeluang besar ditarik oleh algoritma untuk masuk ke halaman For You Page (FYP).' },
+        { title: 'Social Proof Maksimal', desc: 'Video dengan ribuan Like menunjukkan bahawa konten tersebut berkualiti. Ini akan memancing audiens baru untuk menonton sampai habis dan ikut menekan tombol hati.' },
+        { title: 'Meningkatkan Kepercayaan Brand', desc: 'Bagi akaun bisnis atau influencer, Like yang banyak adalah bukti nyata kredibilitas anda di mata calon klien atau pembeli.' },
+        { title: 'Mendorong Share & Komentar', desc: 'Postingan yang sudah ramai Like cenderung lebih mudah mendapatkan interaksi organik lain seperti share dan komentar dari pengguna TikTok yang lain.' },
+      ].map((b) => (
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-teal-100 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
+          <p class="text-lg opacity-80">{b.desc}</p>
         </article>
       ))}
     </div>
-
-    <p class="mt-4 text-sm opacity-70">
-      *Harga dapat menyesuaikan kondisi, target audiens, dan parameter kampanye.
-    </p>
   </section>
 
-       <!-- ============== PERTANYAAN UMUM (ACCORDION) ============== -->
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Pertanyaan Umum</h2>
+  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Eksklusif Like TikTok</h2>
+    <p class="text-xl opacity-80">Rate tetap: Rp 2.000 per 1 Like. Pilih jumlah yang sesuai dengan target viral anda.</p>
+  </div>
 
-    <div class="mt-6 grid gap-4 md:grid-cols-2">
-      <details class="group rounded-2xl border bg-white/70 dark:bg-neutral-900/60 p-4 open:shadow-sm">
-        <summary class="cursor-pointer list-none text-base font-semibold flex justify-between items-center">
-          Apakah aman untuk akun?
-          <span class="ml-4 transition-transform group-open:rotate-180">▾</span>
-        </summary>
-        <p class="mt-2 opacity-80">
-          Ya. Komentar didistribusikan bertahap dengan ritme yang natural dan mematuhi batas aman
-          agar tidak mencolok di sistem. Kami juga menjaga tone tetap positif dan relevan.
-        </p>
-      </details>
+  <div class="grid gap-8 md:grid-cols-3">
+    {[
+      { n: 'Paket Starter (10 Likes)',   price: 'Rp 20.000',    note: 'Sesuai untuk memicu interaksi awal video baru.' },
+      { n: 'Paket Standart (50 Likes)',  price: 'Rp 100.000',   note: 'Berikan dorongan ekstra agar video lebih lama di FYP.' },
+      { n: 'Paket Grown (100 Likes)', price: 'Rp 200.000', note: 'Bangun social proof yang kuat untuk konten utama anda.' },
+    ].map((p) => (
+      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-teal-500 transition-all duration-300 transform hover:-translate-y-2">
+        <h3 class="text-2xl font-semibold">{p.n}</h3>
+        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-600">{p.price}</p>
+        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
 
-      <details class="group rounded-2xl border bg-white/70 dark:bg-neutral-900/60 p-4 open:shadow-sm">
-        <summary class="cursor-pointer list-none text-base font-semibold flex justify-between items-center">
-          Berapa lama prosesnya?
-          <span class="ml-4 transition-transform group-open:rotate-180">▾</span>
-        </summary>
-        <p class="mt-2 opacity-80">
-          Umumnya mulai 1–24 jam setelah konfirmasi. Kecepatan berjalan bertahap sesuai paket dan
-          antrean. Kamu bisa minta tempo lebih pelan/cepat sesuai kebutuhan.
-        </p>
-      </details>
+        <div class="mt-8">
+          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20TikTok.`} target="_blank" rel="noopener"
+             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-md hover:shadow-xl transition-all">
+            Pesan Sekarang
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
 
-      <details class="group rounded-2xl border bg-white/70 dark:bg-neutral-900/60 p-4 open:shadow-sm">
-        <summary class="cursor-pointer list-none text-base font-semibold flex justify-between items-center">
-          Apakah bisa kustom topik/skrip komentar?
-          <span class="ml-4 transition-transform group-open:rotate-180">▾</span>
-        </summary>
-        <p class="mt-2 opacity-80">
-          Bisa. Kirimkan contoh gaya, poin utama, atau daftar pertanyaan. Tim akan kurasi agar
-          tetap natural dan tidak spammy.
-        </p>
-      </details>
+  <section id="faq" class="container my-32">
+  <h2 class="text-4xl font-semibold mb-12 text-center">Pertanyaan Seputar Like TikTok</h2>
 
-      <details class="group rounded-2xl border bg-white/70 dark:bg-neutral-900/60 p-4 open:shadow-sm">
-        <summary class="cursor-pointer list-none text-base font-semibold flex justify-between items-center">
-          Perlu akses akun?
-          <span class="ml-4 transition-transform group-open:rotate-180">▾</span>
-        </summary>
-        <p class="mt-2 opacity-80">
-          Tidak. Kamu cukup kirimkan URL konten yang ingin didorong komentarnya serta preferensi
-          tone/topik. Akses akun tidak diperlukan.
-        </p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ============== TESTIMONI (SLIDER OTOMATIS) ============== -->
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Testimoni Klien</h2>
-    <div class="mt-6 overflow-hidden rounded-2xl border">
-      <!-- Slider sederhana tanpa dependensi: auto-scroll horizontal -->
-      <div class="flex gap-6 p-6 animate-[scrollX_24s_linear_infinite]">
-        {[
-          { name: 'Toko Aksesoris', text: 'Komentar relevan bikin diskusi rame. Reach naik, DM masuk makin banyak.' },
-          { name: 'Kursus Online', text: 'Thread Q&A memancing minat. Conversion dari bio link ikut naik.' },
-          { name: 'Brand Skincare', text: 'Natural dan positif, membantu branding serta trust di posting review.' },
-          { name: 'Creator Reels', text: 'Engagement ratio membaik. Reels lebih sering mendapatkan rekomendasi.' },
-        ].map(t => (
-          <blockquote class="min-w-[280px] max-w-sm shrink-0 rounded-xl border bg-white/70 dark:bg-neutral-900/60 p-5">
-            <p class="opacity-90">“{t.text}”</p>
-            <footer class="mt-3 font-semibold">— {t.name}</footer>
-          </blockquote>
-        ))}
-        <!-- duplikasi untuk efek loop -->
-        {[
-          { name: 'Toko Aksesoris', text: 'Komentar relevan bikin diskusi rame. Reach naik, DM masuk makin banyak.' },
-          { name: 'Kursus Online', text: 'Thread Q&A memancing minat. Conversion dari bio link ikut naik.' },
-          { name: 'Brand Skincare', text: 'Natural dan positif, membantu branding serta trust di posting review.' },
-          { name: 'Creator Reels', text: 'Engagement ratio membaik. Reels lebih sering mendapatkan rekomendasi.' },
-        ].map(t => (
-          <blockquote class="min-w-[280px] max-w-sm shrink-0 rounded-xl border bg-white/70 dark:bg-neutral-900/60 p-5">
-            <p class="opacity-90">“{t.text}”</p>
-            <footer class="mt-3 font-semibold">— {t.name}</footer>
-          </blockquote>
-        ))}
+  <div class="grid gap-6 md:grid-cols-2">
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Berapa lama Like akan masuk?
+        <span class="text-teal-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Sangat instan. Rata-rata Like akan mula bertambah dalam masa 1 hingga 5 minit setelah pembayaran anda disahkan oleh admin kami.
       </div>
-    </div>
+    </details>
 
-    <style is:global>
-      @keyframes scrollX {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
-      }
-    </style>
-  </section>
-
-  <!-- ============== AJAKAN FOLLOW IG (TEKS LINK SAJA) ============== -->
-  <section class="container my-16">
-    <h2 class="text-3xl md:text-4xl font-semibold">Ikuti Instagram Kami</h2>
-    <p class="mt-3 text-lg opacity-80 max-w-3xl">
-      Untuk info terbaru, tips optimasi, dan update layanan, silakan ikuti Instagram kami di
-      <a href="https://instagram.com/auradigitalid" target="_blank" rel="noopener" class="underline decoration-2 decoration-pink-400 hover:decoration-pink-500">
-        @auradigitalid
-      </a>.
-    </p>
-  </section>
-
+    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+        Adakah video saya akan dihapus TikTok?
+        <span class="text-teal-600 group-open:rotate-180 transition-transform">↓</span>
+      </summary>
+      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
+        Sama sekali tidak. Kami menggunakan sistem yang selamat dan natural. Video anda tetap selamat dan akaun anda tidak berisiko disekat (banned).
+      </div>
+    </details>
+  </div>
+</section>
 </DefaultLayout>
