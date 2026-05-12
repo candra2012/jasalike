@@ -1,0 +1,170 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon/components'
+
+// ====== DATA LAYANAN PER PLATFORM (FOKUS 100% LIKE) ======
+const sections = [
+  {
+    id: 'instagram',
+    title: 'Instagram',
+    lead: 'Tingkatkan kredibilitas visual dan otoritas akun IG Anda secara instan.',
+    icon: 'lucide:instagram',
+    items: [
+      { name: 'Like Postingan (Feed)', href: '/like-instagram/', icon: 'lucide:heart', desc: 'Suntik Like pada foto atau carousel secara instan untuk social proof.' },
+      { name: 'Like IG Reels', href: '/like-instagram/', icon: 'lucide:play-square', desc: 'Bantu video Reels masuk halaman Explore dengan tambahan interaksi Like.' },
+      { name: 'Like Komentar IG', href: '/like-instagram/', icon: 'lucide:thumbs-up', desc: 'Jadikan komentar Anda sebagai "Top Comment" dengan Like terbanyak.' },
+    ],
+  },
+  {
+    id: 'tiktok',
+    title: 'TikTok',
+    lead: 'Dorong video masuk FYP dengan sinyal algoritma interaksi yang tinggi.',
+    icon: 'lucide:music',
+    items: [
+      { name: 'Like Video TikTok', href: '/like-tiktok/', icon: 'lucide:heart', desc: 'Tambahkan Like secara masif ke video untuk memancing algoritma FYP.' },
+      { name: 'Like Komentar TikTok', href: '/like-tiktok/', icon: 'lucide:thumbs-up', desc: 'Naikkan posisi komentar Anda di video viral agar mendapat lebih banyak exposure.' },
+    ],
+  },
+  {
+    id: 'facebook',
+    title: 'Facebook',
+    lead: 'Bangun kepercayaan bisnis dan profil personal yang solid.',
+    icon: 'lucide:facebook',
+    items: [
+      { name: 'Like Status / Foto', href: '/like-facebook/', icon: 'lucide:thumbs-up', desc: 'Tingkatkan jumlah Like untuk postingan personal maupun status Fanpage.' },
+      { name: 'Like Fanpage Bisnis', href: '/like-facebook/', icon: 'lucide:users', desc: 'Tingkatkan jumlah Like (Pengikut) pada Halaman Bisnis Anda.' },
+    ],
+  },
+  {
+    id: 'twitter',
+    title: 'Twitter (X)',
+    lead: 'Ciptakan hype, validasi opini, dan dominasi tren obrolan.',
+    icon: 'lucide:twitter',
+    items: [
+      { name: 'Like / Favorite Tweet', href: '/like-twitter/', icon: 'lucide:heart', desc: 'Tambah Like pada cuitan Anda agar terlihat lebih populer dan dipercaya.' },
+      { name: 'Like Balasan (Reply)', href: '/like-twitter/', icon: 'lucide:message-square', desc: 'Tingkatkan Like pada balasan tweet untuk mendominasi kolom diskusi.' },
+    ],
+  },
+  {
+    id: 'youtube',
+    title: 'YouTube',
+    lead: 'Tingkatkan peringkat pencarian (SEO) video dengan engagement positif.',
+    icon: 'lucide:youtube',
+    items: [
+      { name: 'Like Video YouTube', href: '/like-youtube/', icon: 'lucide:thumbs-up', desc: 'Naikkan rasio Like untuk memberi sinyal positif pada algoritma pencarian YouTube.' },
+      { name: 'Like YouTube Shorts', href: '/like-youtube/', icon: 'lucide:play', desc: 'Suntik Like pada video Shorts untuk menjangkau audiens yang lebih luas.' },
+      { name: 'Like Komentar YouTube', href: '/like-youtube/', icon: 'lucide:message-circle', desc: 'Dorong komentar Anda ke urutan paling atas agar di-pin oleh kreator.' },
+    ],
+  },
+  {
+    id: 'linkedin',
+    title: 'LinkedIn',
+    lead: 'Bangun otoritas profesional dan relasi B2B yang meyakinkan.',
+    icon: 'lucide:linkedin',
+    items: [
+      { name: 'Like Postingan / Artikel', href: '/like-linkedin/', icon: 'lucide:thumbs-up', desc: 'Dapatkan apresiasi Like dari profil profesional untuk membangun kredibilitas karir.' },
+    ],
+  }
+]
+---
+
+<DefaultLayout title="Daftar Layanan Jasa Like Lengkap | Jasalike">
+  
+    <Fragment slot="head">
+    <meta name="description" content="Pusat spesialis layanan Like untuk Instagram, TikTok, Facebook, Twitter (X), YouTube, dan LinkedIn. Proses instan, aman tanpa password." />
+    <meta name="keywords" content="jasa like instagram, jasa like tiktok, beli like facebook, jasa like youtube, jasa like twitter, like linkedin" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/layanan/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jasalike.my.id/layanan/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content="Daftar Layanan Jasa Like Lengkap | Jasalike" />
+    <meta property="og:description" content="Pusat spesialis layanan Like sosial media. Proses instan, aman, dan tanpa password." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+    <meta property="og:image:alt" content="Katalog Layanan Jasalike" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daftar Layanan Jasa Like Lengkap | Jasalike" />
+    <meta name="twitter:description" content="Pusat spesialis layanan Like sosial media. Proses instan, aman, dan tanpa password." />
+    <meta name="twitter:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Katalog Jasa Like Jasalike",
+          "url": "https://jasalike.my.id/layanan/",
+          "itemListElement": sections.map((sec, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": `Jasa Like ${sec.title}`,
+            "url": `https://jasalike.my.id/${sec.id === 'twitter' ? 'like-twitter' : 'like-' + sec.id}/`
+          }))
+        }
+      ]
+    })} />
+  </Fragment>
+
+  <section class="container my-12">
+    <h1 class="text-5xl md:text-6xl font-bold text-gradient">Katalog Layanan Like</h1>
+    <p class="text-xl opacity-80 mt-4 max-w-3xl">
+      Sebagai platform spesialis, kami membagi kategori layanan berdasarkan platform untuk memudahkan Anda. Pilih target platform sosial media Anda di bawah ini untuk melihat detail layanannya.
+    </p>
+  </section>
+
+  <section class="container my-16">
+    {sections.map((sec) => (
+      <div class="mb-20" id={sec.id}>
+        <div class="flex items-center gap-4 mb-4 border-b pb-4 dark:border-neutral-800">
+          <Icon name={sec.icon} size="40" class="text-primary-500" />
+          <h2 class="text-4xl font-semibold m-0">{sec.title}</h2>
+        </div>
+        <p class="text-xl opacity-80 mb-8">{sec.lead}</p>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {sec.items.map((item) => (
+            <article class="p-6 rounded-2xl border shadow-sm bg-white/60 dark:bg-neutral-900/60 hover:shadow-md hover:border-primary-500 transition-all duration-300">
+              <div class="flex items-start gap-4">
+                <div class="p-3 bg-neutral-100 dark:bg-neutral-800 rounded-xl text-primary-500">
+                  <Icon name={item.icon} size="28" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">
+                    <a class="!no-underline hover:text-primary-500 transition-colors" href={item.href}>{item.name}</a>
+                  </h3>
+                  <p class="opacity-80 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t dark:border-neutral-800">
+                <a href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20tanya%20harga%20untuk%20layanan%20Like." class="button text-sm w-full text-center">Tanya Harga</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <style>
+    .text-gradient {
+      background: linear-gradient(
+        315deg,
+        light-dark(var(--color-primary-300), var(--color-secondary-100)) 25%,
+        light-dark(var(--color-secondary-300), var(--color-primary-200))
+      );
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</DefaultLayout>
