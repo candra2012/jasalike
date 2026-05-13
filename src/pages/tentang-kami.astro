@@ -1,0 +1,122 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+---
+
+<DefaultLayout title="Tentang Kami | Jasalike - Spesialis Jasa Like Sosial Media">
+  
+  <!-- ============== SEO & SCHEMA (DIRECT VERSION) ============== -->
+  <Fragment slot="head">
+    <meta name="description" content="Kenali Jasalike lebih dekat. Kami adalah platform spesialis layanan optimasi sosial media yang fokus memberikan interaksi berkualitas, aman, dan instan." />
+    <meta name="keywords" content="tentang jasalike, profil jasalike, spesialis jasa like, jasa sosial media terpercaya, layanan optimasi sosmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/tentang-kami/" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jasalike.my.id/tentang-kami/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Tentang Kami | Jasalike" />
+    <meta property="og:description" content="Platform spesialis jasa Like sosial media yang aman, cepat, dan terpercaya." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (AboutPage & Organization) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Tentang Kami", "item": "https://jasalike.my.id/tentang-kami/" }
+          ]
+        },
+        {
+          "@type": "AboutPage",
+          "url": "https://jasalike.my.id/tentang-kami/",
+          "name": "Tentang Jasalike",
+          "description": "Informasi profil dan visi misi Jasalike sebagai penyedia layanan optimasi sosial media.",
+          "publisher": {
+            "@id": "https://jasalike.my.id/#organization"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://jasalike.my.id/#organization",
+          "name": "Jasalike",
+          "url": "https://jasalike.my.id/",
+          "logo": "https://jasalike.my.id/logo-jasalike.png",
+          "description": "Spesialis layanan interaksi sosial media untuk Instagram, TikTok, Facebook, Twitter, YouTube, dan LinkedIn.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-896-3474-0308",
+            "contactType": "Customer Service",
+            "areaServed": "ID",
+            "availableLanguage": "Indonesian"
+          }
+        }
+      ]
+    })} />
+  </Fragment>
+
+  <!-- ============== ISI KONTEN HALAMAN ============== -->
+  <section class="container my-24">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+        Mengenal <span class="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Jasalike</span>
+      </h1>
+      <p class="text-2xl opacity-80 leading-relaxed mb-12">
+        Kami hadir untuk membantu individu, kreator konten, dan pemilik bisnis membangun kehadiran digital yang kuat, meyakinkan, dan profesional.
+      </p>
+    </div>
+  </section>
+
+  <section class="container my-20">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900/40 border border-neutral-200 dark:border-neutral-800">
+        <h2 class="text-3xl font-semibold mb-6">Visi Kami</h2>
+        <p class="text-lg opacity-80 leading-relaxed">
+          Menjadi platform spesialis layanan optimasi interaksi sosial media nomor satu di Indonesia yang mengedepankan keamanan akun pengguna, kecepatan layanan, dan kualitas interaksi yang natural.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-4xl font-semibold mb-6">Fokus Pada Solusi, Bukan Sekadar Angka</h2>
+        <p class="text-lg opacity-80 leading-relaxed mb-6">
+          Di era digital saat ini, kredibilitas sangat ditentukan oleh interaksi pertama. Audiens lebih mudah percaya pada akun atau postingan yang sudah memiliki banyak interaksi (*Social Proof*).
+        </p>
+        <p class="text-lg opacity-80 leading-relaxed">
+          Oleh karena itu, Jasalike tidak sekadar menjual "angka" Like. Kami memberikan solusi bagi Anda untuk melewati rintangan algoritma awal, membangun kepercayaan calon pelanggan, dan mempercepat pertumbuhan akun Anda tanpa cara-cara yang membahayakan privasi Anda.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-32">
+    <h2 class="text-4xl font-semibold mb-16 text-center">Nilai Inti Kami</h2>
+    <div class="grid sm:grid-cols-3 gap-8">
+      {[
+        { title: '100% Aman & Privat', desc: 'Kami tidak akan pernah meminta password, email, atau akses login ke akun sosial media Anda.' },
+        { title: 'Proses Instan', desc: 'Sistem kami bekerja secara otomatis untuk memastikan pesanan Anda diproses sesegera mungkin setelah konfirmasi.' },
+        { title: 'Dukungan Penuh', desc: 'Tim Customer Service kami siap membantu Anda melalui WhatsApp untuk konsultasi dan pelacakan pesanan.' },
+      ].map((val) => (
+        <article class="p-8 rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 shadow-sm text-center">
+          <h3 class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400">{val.title}</h3>
+          <p class="opacity-80 leading-relaxed">{val.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container my-24">
+    <div class="bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 rounded-3xl p-12 text-center border border-neutral-300 dark:border-neutral-700">
+      <h2 class="text-3xl md:text-4xl font-semibold mb-6">Siap Meningkatkan Kredibilitas Anda?</h2>
+      <p class="text-xl opacity-80 mb-10 max-w-2xl mx-auto">
+        Jangan biarkan konten berkualitas Anda tenggelam karena kurangnya interaksi awal. Mari tumbuh bersama Jasalike.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/layanan/" class="button px-8 py-4 text-lg">Lihat Layanan Kami</a>
+        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Hubungi CS Kami</a>
+      </div>
+    </div>
+  </section>
+
+</DefaultLayout>
