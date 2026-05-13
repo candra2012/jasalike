@@ -4,34 +4,75 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 
 <DefaultLayout title="Spesialis Jasa Like Twitter (X) | Jasalike">
   <Fragment slot="head">
-    <meta name="description" content="Tingkatkan interaksi cuitan Twitter (X) Anda dengan layanan Like instan. Bangun validasi sosial, dorong viralitas, dan buat tweet Anda jadi pusat perhatian." />
-    <meta name="keywords" content="jasa like twitter, beli like twitter murah, jasa favorite twitter, suntik like x, spesialis viral twitter" />
-    <meta property="og:title" content="Spesialis Jasa Like Twitter (X) Aman & Instan" />
-    <meta property="og:description" content="Jasa tambah like Twitter (X) untuk tweet, thread, dan balasan Anda secara aman." />
-    <meta property="og:url" content="https://jasalike.my.id/like-twitter/" />
+    <meta name="description" content="Layanan spesialis penambah Like Twitter (X) untuk Tweet dan Balasan (Reply). Tingkatkan kredibilitas cuitan Anda, dorong hype, dan dominasi obrolan secara instan." />
+    <meta name="keywords" content="jasa like twitter, beli like x, tambah like tweet, jasa like balasan twitter, jasalike" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/like-twitter/" />
 
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="https://jasalike.my.id/like-twitter/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Jasa Like Twitter (X) Murah, Cepat & Aman | Jasalike" />
+    <meta property="og:description" content="Suntik Like untuk Tweet dan Reply Anda. Bangun opini yang kredibel dan dorong cuitan Anda menjadi viral." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Jasa Like Twitter (X)",
-      "provider": {
-        "@type": "Organization",
-        "name": "Jasalike",
-        "url": "https://jasalike.my.id"
-      },
-      "description": "Jasa tambah like dan favorite Twitter (X) untuk meningkatkan interaksi cuitan. Proses instan dan aman tanpa password.",
-      "url": "https://jasalike.my.id/like-twitter/",
-      "offers": {
-        "@type": "Offer",
-        "price": "20000",
-        "priceCurrency": "IDR",
-        "description": "Harga per 10 Like",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Jasalike"
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
+            { "@type": "ListItem", "position": 3, "name": "Like Twitter", "item": "https://jasalike.my.id/like-twitter/" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Jasa Like Twitter (X)",
+          "description": "Layanan penambah Like untuk Tweet dan Balasan (Reply) di Twitter/X. Aman dan instan.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Jasalike",
+            "url": "https://jasalike.my.id/"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "20000",
+            "priceCurrency": "IDR",
+            "url": "https://jasalike.my.id/like-twitter/",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "165"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah bisa menyuntik Like untuk balasan (Reply) orang lain?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Bisa. Anda cukup memberikan link spesifik dari balasan (reply) tersebut. Like yang banyak akan membuat balasan Anda menduduki posisi teratas di kolom komentar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah akun Twitter saya bisa kena suspend?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tidak akan. Kami tidak membutuhkan akses login atau password Anda, sehingga akun Anda 100% aman dari risiko suspend akibat aktivitas tidak wajar dari dalam akun."
+              }
+            }
+          ]
         }
-      }
+      ]
     })} />
   </Fragment>
 
