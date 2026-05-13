@@ -4,34 +4,75 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 
 <DefaultLayout title="Spesialis Jasa Like YouTube | Jasalike">
   <Fragment slot="head">
-    <meta name="description" content="Tingkatkan ranking video YouTube Anda dengan layanan Like instan. Bangun sinyal positif untuk algoritma, tingkatkan SEO, dan buat konten Anda lebih dipercaya." />
-    <meta name="keywords" content="jasa like youtube, beli like youtube murah, suntik like youtube shorts, jasa like video youtube, spesialis seo youtube" />
-    <meta property="og:title" content="Spesialis Jasa Like YouTube Aman & Instan" />
-    <meta property="og:description" content="Jasa tambah like YouTube instan untuk video panjang, YouTube Shorts, dan komentar Anda secara aman." />
-    <meta property="og:url" content="https://jasalike.my.id/like-youtube/" />
+    <meta name="description" content="Layanan spesialis penambah Like YouTube untuk Video durasi panjang, Shorts, dan Komentar. Tingkatkan SEO pencarian video Anda dengan aman tanpa password." />
+    <meta name="keywords" content="jasa like youtube, beli like youtube shorts, tambah like komentar youtube, optimasi seo youtube, jasalike" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/like-youtube/" />
 
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="https://jasalike.my.id/like-youtube/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Jasa Like YouTube Murah, Cepat & Aman | Jasalike" />
+    <meta property="og:description" content="Suntik Like untuk Video, Shorts, dan Komentar YouTube. Optimalkan algoritma pencarian channel Anda secara instan." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Jasa Like YouTube",
-      "provider": {
-        "@type": "Organization",
-        "name": "Jasalike",
-        "url": "https://jasalike.my.id"
-      },
-      "description": "Jasa tambah like YouTube untuk meningkatkan engagement dan ranking video. Proses instan dan aman tanpa butuh akses akun.",
-      "url": "https://jasalike.my.id/like-youtube/",
-      "offers": {
-        "@type": "Offer",
-        "price": "20000",
-        "priceCurrency": "IDR",
-        "description": "Harga per 10 Like",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Jasalike"
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
+            { "@type": "ListItem", "position": 3, "name": "Like YouTube", "item": "https://jasalike.my.id/like-youtube/" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Jasa Like YouTube",
+          "description": "Layanan penambah Like untuk Video, YouTube Shorts, dan Komentar. Membantu optimasi SEO YouTube.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Jasalike",
+            "url": "https://jasalike.my.id/"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "20000",
+            "priceCurrency": "IDR",
+            "url": "https://jasalike.my.id/like-youtube/",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "142"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah bisa untuk YouTube Shorts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu bisa! Sistem kami sepenuhnya mendukung penambahan Like untuk format YouTube Shorts maupun video berdurasi panjang."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah aman untuk channel yang sudah monetisasi (AdSense)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat aman. Penambahan Like kami tidak mengganggu sistem monetisasi (AdSense) karena kami hanya membutuhkan link video, bukan akses ke dashboard YouTube Studio Anda."
+              }
+            }
+          ]
         }
-      }
+      ]
     })} />
   </Fragment>
 
