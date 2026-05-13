@@ -1,9 +1,9 @@
 ---
-title: "Psikologi Social Proof: Mengapa Interaksi Awal Sangat Penting untuk Konten Anda"
-description: "Pelajari bagaimana algoritma sosial media bekerja dan mengapa jumlah Like di jam pertama sangat menentukan apakah konten Anda akan viral atau tenggelam."
-pubDate: "2026-05-13"
-author: "Tim Jasalike"
-image: "/logo-jasalike.png"
+layout: ../../layouts/MarkdownLayout.astro
+title: "Psikologi Social Proof: Mengapa Interaksi Awal Sangat Penting"
+image: "/images/blog/social-proof.jpg"
+pubDate: 2026-05-13
+description: "Pelajari mengapa jumlah Like di jam pertama sangat menentukan konten Anda viral."
 ---
 
 Pernahkah Anda menghabiskan waktu berjam-jam membuat video TikTok atau desain korsel Instagram yang luar biasa, namun saat di-posting, hasilnya sepi penonton? 
