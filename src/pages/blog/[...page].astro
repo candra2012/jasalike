@@ -5,7 +5,7 @@ import { Card, Pagination } from 'accessible-astro-components'
 import type { PaginateFunction, Page } from 'astro'
 
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  // 1. Mengambil semua data artikel dari file .md yang Anda buat di folder ini
+  // 1. Mengambil semua data artikel dari file .md
   const allPosts = await Astro.glob('./*.md');
 
   // 2. Mengurutkan postingan berdasarkan tanggal terbaru
@@ -22,26 +22,66 @@ interface Props {
 const { page } = Astro.props as Props
 ---
 
-<DefaultLayout
-  title="Blog Aura Digital"
-  description="Tips, trik, dan edukasi seputar optimasi sosial media dari Aura Digital."
->
+<DefaultLayout title="Blog Jasalike - Edukasi & Tips Sosial Media">
+  
+  <!-- ============== SEO & SCHEMA (DIRECT VERSION) ============== -->
+  <Fragment slot="head">
+    <meta name="description" content="Kumpulan artikel edukasi, tips, dan trik seputar optimasi sosial media dari spesialis Jasalike." />
+    <meta name="keywords" content="blog jasalike, tips sosial media, cara fyp tiktok, optimasi instagram, edukasi sosmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={`https://jasalike.my.id/blog${page.url.current === '/' ? '' : page.url.current}/`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://jasalike.my.id/blog${page.url.current === '/' ? '' : page.url.current}/`} />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Blog Jasalike - Edukasi & Tips Sosial Media" />
+    <meta property="og:description" content="Kumpulan artikel edukasi dan trik rahasia optimasi sosial media." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (Blog & Breadcrumb) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jasalike.my.id/blog/" }
+          ]
+        },
+        {
+          "@type": "Blog",
+          "url": "https://jasalike.my.id/blog/",
+          "name": "Blog Jasalike",
+          "description": "Artikel edukasi dan tips seputar optimasi sosial media.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Jasalike",
+            "logo": { "@type": "ImageObject", "url": "https://jasalike.my.id/logo-jasalike.png" }
+          }
+        }
+      ]
+    })} />
+  </Fragment>
+
+  <!-- ============== ISI KONTEN ============== -->
   <PageHeader
-    title="Blog Aura Digital"
+    title="Blog Jasalike"
     subtitle="Kumpulan artikel edukasi dan tips seputar optimasi sosial media untuk meningkatkan bisnis Anda."
     bgType="bordered"
   />
 
   <section class="my-12">
     <div class="container">
-      <p class="text-sm"><em>Halaman {page.currentPage} dari {page.lastPage}</em></p>
+      <p class="text-sm opacity-70"><em>Halaman {page.currentPage} dari {page.lastPage}</em></p>
       
-      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul class="my-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {
           page.data.map((post) => (
-            <li>
+            <li class="list-none">
               <Card
-                imageComponent={post.frontmatter.image || '/og-home.png'}
+                imageComponent={post.frontmatter.image || '/logo-jasalike.png'}
                 url={post.url}
                 title={post.frontmatter.title}
                 footer={post.frontmatter.pubDate}
@@ -53,7 +93,7 @@ const { page } = Astro.props as Props
         }
       </ul>
 
-      <div class="mt-12 grid place-content-center">
+      <div class="mt-16 grid place-content-center">
         <Pagination
           firstPage={page.url.prev ? '/blog' : null}
           previousPage={page.url.prev ? page.url.prev : null}
@@ -76,7 +116,6 @@ const { page } = Astro.props as Props
       margin-block-end: var(--space-xs);
       line-height: 1.3;
     }
-
     a {
       @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
     }
