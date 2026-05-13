@@ -7,7 +7,7 @@ export default {
     extend: {},
   },
   plugins: [
-    typography, // Menambahkan plugin untuk tipografi artikel
+    typography, 
   ],
   darkMode: ['class', '.darkmode'],
 }
