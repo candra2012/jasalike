@@ -4,34 +4,75 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 
 <DefaultLayout title="Spesialis Jasa Like Facebook | Jasalike">
   <Fragment slot="head">
-    <meta name="description" content="Tingkatkan kredibilitas Fanpage dan postingan Facebook Anda dengan layanan Like instan. Proses aman tanpa password, bantu bisnis terlihat lebih terpercaya." />
-    <meta name="keywords" content="jasa like facebook, beli like facebook murah, suntik like fanpage, jasa like status fb, spesialis like facebook" />
-    <meta property="og:title" content="Spesialis Jasa Like Facebook Aman & Bergaransi" />
-    <meta property="og:description" content="Jasa tambah like Facebook instan untuk foto, status, dan Fanpage bisnis Anda." />
-    <meta property="og:url" content="https://jasalike.my.id/like-facebook/" />
+    <meta name="description" content="Layanan spesialis penambah Like Facebook untuk Status, Foto, dan Fanpage. Proses cepat, 100% aman tanpa password untuk meningkatkan kredibilitas bisnis Anda." />
+    <meta name="keywords" content="jasa like facebook, beli like fanpage, tambah like status facebook, jasa like fb aman, jasalike" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/like-facebook/" />
 
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="https://jasalike.my.id/like-facebook/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Jasa Like Facebook Murah, Cepat & Aman | Jasalike" />
+    <meta property="og:description" content="Tingkatkan Like Status, Foto, dan Fanpage Facebook Anda. Aman tanpa password, cocok untuk personal branding dan bisnis." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Jasa Like Facebook",
-      "provider": {
-        "@type": "Organization",
-        "name": "Jasalike",
-        "url": "https://jasalike.my.id"
-      },
-      "description": "Jasa tambah like Facebook untuk status, foto, dan Fanpage. Harga terbaik dengan proses instan yang dijamin aman untuk akun Anda.",
-      "url": "https://jasalike.my.id/like-facebook/",
-      "offers": {
-        "@type": "Offer",
-        "price": "20000",
-        "priceCurrency": "IDR",
-        "description": "Harga per 10 Like",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Jasalike"
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
+            { "@type": "ListItem", "position": 3, "name": "Like Facebook", "item": "https://jasalike.my.id/like-facebook/" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Jasa Like Facebook",
+          "description": "Layanan penambah Like untuk Status, Foto, dan Fanpage Facebook. Proses cepat dan aman.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Jasalike",
+            "url": "https://jasalike.my.id/"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "20000",
+            "priceCurrency": "IDR",
+            "url": "https://jasalike.my.id/like-facebook/",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "198"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah bisa untuk Fanpage Bisnis?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu saja! Kami menyediakan layanan khusus untuk menambah Like dan Pengikut pada Fanpage Bisnis Anda agar terlihat lebih profesional."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah akun saya aman?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100% aman. Kami hanya membutuhkan link postingan atau link Fanpage Anda tanpa perlu akses password atau login."
+              }
+            }
+          ]
         }
-      }
+      ]
     })} />
   </Fragment>
 
