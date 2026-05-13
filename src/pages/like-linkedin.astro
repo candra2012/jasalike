@@ -2,36 +2,77 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 ---
 
-<DefaultLayout title="Spesialis Jasa Like LinkedIn | Jasalike">
+<DefaultLayout title="Spesialis Jasa Like LinkedIn | Jasalike"
   <Fragment slot="head">
-    <meta name="description" content="Tingkatkan kredibilitas profesional dan jangkauan konten LinkedIn Anda dengan layanan Like instan. Bangun otoritas profil, perkuat personal branding, dan tarik perhatian klien B2B." />
-    <meta name="keywords" content="jasa like linkedin, beli like linkedin murah, jasa share linkedin, optimasi profil linkedin, jasa postingan linkedin" />
-    <meta property="og:title" content="Spesialis Jasa Like LinkedIn Profesional & Aman" />
-    <meta property="og:description" content="Jasa tambah like LinkedIn instan untuk postingan, artikel, dan update status profesional Anda." />
-    <meta property="og:url" content="https://jasalike.my.id/like-linkedin/" />
+    <meta name="description" content="Layanan spesialis penambah Like LinkedIn untuk Postingan dan Artikel. Bangun otoritas profesional, kredibilitas karir, dan relasi B2B Anda secara instan." />
+    <meta name="keywords" content="jasa like linkedin, beli like linkedin, optimasi profil linkedin, tambah like postingan linkedin, jasalike" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/like-linkedin/" />
 
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="https://jasalike.my.id/like-linkedin/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Jasa Like LinkedIn Profesional, Cepat & Aman | Jasalike" />
+    <meta property="og:description" content="Tingkatkan kredibilitas karir dan bisnis B2B Anda dengan suntikan Like LinkedIn pada postingan atau artikel. 100% aman tanpa password." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Jasa Like LinkedIn",
-      "provider": {
-        "@type": "Organization",
-        "name": "Jasalike",
-        "url": "https://jasalike.my.id"
-      },
-      "description": "Layanan penambah interaksi Like di LinkedIn untuk membangun otoritas profesional dan kredibilitas brand.",
-      "url": "https://jasalike.my.id/like-linkedin/",
-      "offers": {
-        "@type": "Offer",
-        "price": "25000",
-        "priceCurrency": "IDR",
-        "description": "Harga per 10 Like Profesional",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Jasalike"
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
+            { "@type": "ListItem", "position": 3, "name": "Like LinkedIn", "item": "https://jasalike.my.id/like-linkedin/" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Jasa Like LinkedIn",
+          "description": "Layanan penambah Like untuk Postingan dan Artikel di LinkedIn untuk membangun otoritas profesional.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Jasalike",
+            "url": "https://jasalike.my.id/"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "30000",
+            "priceCurrency": "IDR",
+            "url": "https://jasalike.my.id/like-linkedin/",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "87"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah aman untuk profil profesional atau karir saya?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat aman. Kami menggunakan metode pengiriman yang natural dan tidak membutuhkan akses login (password), sehingga reputasi akun LinkedIn Anda tetap terjaga."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah bisa untuk artikel LinkedIn (Pulse)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu saja. Anda bisa menyuntikkan Like baik pada postingan status biasa maupun Artikel LinkedIn panjang yang Anda terbitkan."
+              }
+            }
+          ]
         }
-      }
+      ]
     })} />
   </Fragment>
 
