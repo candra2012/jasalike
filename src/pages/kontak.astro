@@ -1,0 +1,110 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<DefaultLayout title="Hubungi Kami | Jasalike - Layanan Pelanggan">
+  
+  <!-- ============== SEO & SCHEMA (DIRECT VERSION) ============== -->
+  <Fragment slot="head">
+    <meta name="description" content="Hubungi Customer Service Jasalike untuk konsultasi gratis, pemesanan, atau pertanyaan seputar layanan optimasi sosial media." />
+    <meta name="keywords" content="kontak jasalike, hubungi jasalike, customer service jasalike, admin jasalike, konsultasi sosmed" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jasalike.my.id/kontak/" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jasalike.my.id/kontak/" />
+    <meta property="og:site_name" content="Jasalike" />
+    <meta property="og:title" content="Hubungi Kami | Jasalike" />
+    <meta property="og:description" content="Butuh bantuan atau ingin konsultasi? Hubungi Customer Service Jasalike sekarang." />
+    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
+
+    <!-- JSON-LD Schema (ContactPage) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
+            { "@type": "ListItem", "position": 2, "name": "Kontak", "item": "https://jasalike.my.id/kontak/" }
+          ]
+        },
+        {
+          "@type": "ContactPage",
+          "url": "https://jasalike.my.id/kontak/",
+          "name": "Kontak Jasalike",
+          "description": "Halaman informasi kontak dan layanan pelanggan Jasalike."
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://jasalike.my.id/#organization",
+          "name": "Jasalike",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+62-896-3474-0308",
+            "contactType": "Customer Service",
+            "areaServed": "ID",
+            "availableLanguage": "Indonesian"
+          }
+        }
+      ]
+    })} />
+  </Fragment>
+
+  <!-- ============== ISI KONTEN HALAMAN ============== -->
+  <section class="container my-24">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Hubungi <span class="text-primary-500">Kami</span></h1>
+      <p class="text-2xl opacity-80 leading-relaxed">
+        Punya pertanyaan seputar layanan kami atau ingin konsultasi paket mana yang cocok untuk akun Anda? Tim kami siap membantu!
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Kartu WhatsApp -->
+      <article class="p-8 rounded-3xl border border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-900/10 text-center shadow-sm hover:shadow-md transition-shadow">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 mb-6">
+          <Icon name="lucide:message-circle" size="32" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-3">WhatsApp</h3>
+        <p class="opacity-80 mb-6">Respon paling cepat untuk pemesanan dan konsultasi.</p>
+        <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20ingin%20bertanya%20seputar%20layanan." target="_blank" rel="noopener" class="inline-block px-6 py-3 font-semibold rounded-xl bg-green-500 hover:bg-green-600 text-white transition-colors w-full">
+          Chat Admin
+        </a>
+      </article>
+
+      <!-- Kartu Jam Operasional -->
+      <article class="p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center shadow-sm">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 mb-6">
+          <Icon name="lucide:clock" size="32" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-3">Jam Operasional</h3>
+        <p class="opacity-80 mb-2"><strong>Senin - Minggu</strong></p>
+        <p class="opacity-80">08:00 - 22:00 WIB</p>
+        <p class="text-sm opacity-60 mt-4">*Sistem kami tetap memproses order 24 jam</p>
+      </article>
+
+      <!-- Kartu Area Layanan -->
+      <article class="p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center shadow-sm">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 mb-6">
+          <Icon name="lucide:map-pin" size="32" />
+        </div>
+        <h3 class="text-2xl font-semibold mb-3">Area Layanan</h3>
+        <p class="opacity-80 mb-2"><strong>Seluruh Indonesia</strong></p>
+        <p class="opacity-80">Layanan digital tanpa batas wilayah.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container my-24 max-w-4xl mx-auto">
+    <div class="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 rounded-3xl p-10 border border-primary-100 dark:border-primary-800/50 text-center">
+      <h2 class="text-3xl font-semibold mb-4">Peringatan Keamanan</h2>
+      <p class="text-lg opacity-80 leading-relaxed mb-0">
+        Admin Jasalike yang resmi <strong>hanya membalas melalui nomor WhatsApp +62-896-3474-0308</strong>. Kami tidak pernah meminta password atau data login sosial media Anda dalam situasi apa pun.
+      </p>
+    </div>
+  </section>
+
+</DefaultLayout>
