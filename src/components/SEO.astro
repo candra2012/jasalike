@@ -3,13 +3,17 @@
 const { 
   title, 
   description, 
+  keywords = "jasa like, jasalike, beli like, like murah, tambah like, like instagram, like tiktok, like facebook, like twitter", like youtube, jasa like terpercaya, jasa like aktif, jasa like cepat, jasa like aman, jasa like asli, jasa like real,// 100% murni fokus LIKE
+  robots = "index, follow", 
   url = Astro.url.href, 
-  image = "/images/og-image.png" // Gambar default pratinjau jasalike kalau di-share ke WA/FB
+  image = "/images/og-image.png" 
 } = Astro.props;
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="robots" content={robots} />
 <link rel="canonical" href={url} />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
@@ -19,6 +23,8 @@ const {
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:site_name" content="JasaLike" />
+<meta property="og:locale" content="id_ID" />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={url} />
