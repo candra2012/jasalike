@@ -13,6 +13,45 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <DefaultLayout title="Jasa Like Terpercaya | Tambah Like Media Sosial Cepat & Aman">
+
+ <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://jasalike.com/#website",
+          "url": "https://jasalike.com",
+          "name": "Jasalike",
+          "description": "Spesialis Jasa Like Sosial Media Terpercaya No. 1",
+          "inLanguage": "id-ID"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://jasalike.com/#organization",
+          "name": "Jasalike",
+          "url": "https://jasalike.com",
+          "logo": "https://jasalike.com/logo-jasalike.png",
+          "image": "https://jasalike.com/images/og-image.png",
+          "description": "Layanan spesialis jasa like sosial media terbaik dan terpercaya untuk Instagram, TikTok, Facebook, dan Twitter. Proses cepat, aman tanpa password, murah, dan bergaransi penuh.",
+          "telephone": "+6289634740308",
+          "priceRange": "RP",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID"
+          },
+          "knowsAbout": [
+            "Jasa Like Instagram",
+            "Jasa Like TikTok",
+            "Jasa Like Facebook",
+            "Jasa Like Twitter"
+          ]
+        }
+      ]
+    }
+  </script>
+
+
   <!-- ✅ Konten halaman -->
   <!-- Catatan: Anda perlu mengedit teks pada komponen Hero ini di dalam file src/components/Hero.astro -->
   <Hero />
