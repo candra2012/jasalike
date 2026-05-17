@@ -5,7 +5,7 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 
 <DefaultLayout title="Jasa Optimasi Like Instagram Profesional | Interaksi Real & Alami">
 
-  <script type="application/ld+json" slot="head">
+    <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -32,41 +32,55 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
           "areaServed": {
             "@type": "Country",
             "name": "ID"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Katalog Optimasi Instagram",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Optimasi Post & Carousel",
-                  "description": "Meningkatkan interaksi visual pada publikasi foto tunggal maupun multi-slide."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Optimasi Instagram Reels",
-                  "description": "Memicu performa distribusi video pendek pada sistem rekomendasi Explore."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Manajemen Auto Like Berkala",
-                  "description": "Distribusi interaksi otomatis secara bertahap setiap kali mempublikasikan konten baru."
-                }
-              }
-            ]
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://jasalike.com/like-instagram/#faq",
+          "isPartOf": {
+            "@id": "https://jasalike.com/like-instagram/#webpage"
+          },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah layanan ini dijamin aman?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat aman. Kami menggunakan metode pengiriman natural yang mematuhi batas wajar algoritma Instagram terbaru. Postingan Anda tidak akan dihapus dan akun Anda 100% terlindungi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah bisa dipecah untuk banyak foto?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu saja bisa! Anda bisa membagi jumlah target order Like ke beberapa postingan foto atau video yang berbeda sesuai kebutuhan. Silakan infokan detail linknya kepada admin kami saat pemesanan lewat WhatsApp."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jasalike.com/like-instagram/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Optimasi Like Instagram",
+              "item": "https://jasalike.com/like-instagram/"
+            }
+          ]
         }
       ]
     }
   </script>
+
 
 
   <section class="container my-24 text-center">
