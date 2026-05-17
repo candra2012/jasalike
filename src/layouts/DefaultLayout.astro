@@ -6,12 +6,13 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { ClientRouter } from 'astro:transitions'
 
+// 1. Import komponen SEO khusus yang murni fokus Jasa Like
+import SEO from '@components/SEO.astro'
+
 const {
-  title = 'Jasalike - Spesialis Jasa Like Sosial Media', // Ganti default title
-  description = 'Jasa Like sosial media aman, cepat, dan terpercaya.', // Ganti default desc
-  url = Astro.site,
-  image = '/logo-jasalike.png', // Sesuaikan path logo
-  author = 'Jasalike', // Ganti author
+  title = 'Jasa Like Terpercaya No. 1 | Tambah Likes Media Sosial Cepat & Aman', 
+  description = 'Layanan jasa like terbaik untuk Instagram, TikTok, Facebook, dan Twitter. Proses cepat, aman tanpa password, murah, dan bergaransi penuh.', 
+  image = '/logo-jasalike.png', // Sesuaikan path logo jasalike
 } = Astro.props
 ---
 
@@ -22,10 +23,10 @@ const {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- ✅ Semua meta/schema per halaman masuk dari slot head -->
+    <SEO title={title} description={description} image={image} />
+
     <slot name="head" />
 
-    <!-- Enable Astro View Transitions (opsional) -->
     <ClientRouter />
   </head>
   <body>
