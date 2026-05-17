@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jasalike.my.id/sitemap-index.xml
+Sitemap: https://jasalike.com/sitemap-index.xml
