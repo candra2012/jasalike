@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
 
 export default defineConfig({
-  site: 'https://jasalike.my.id',
+  site: 'https://jasalike.com',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [
