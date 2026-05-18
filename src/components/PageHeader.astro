@@ -3,50 +3,24 @@ import { Avatar, Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-component
 import { Image } from 'astro:assets'
 import sanitizeHtml from 'sanitize-html'
 
-/**
- * PageHeader Component
- *
- * @description PageHeader description
- */
 interface Props {
-  /**
-   * Additional classes to apply to the PageHeader
-   */
   class?: string
-  /**
-   * The featured image of the page
-   */
   featuredImage?: string
-  /**
-   * The title of the page
-   */
   title: string
-  /**
-   * The subtitle of the page
-   * @description Can contain HTML content (will be sanitized)
-   */
   subtitle?: string
-  /**
-   * The background color of the page header
-   * @type {'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered' | undefined}
-   * @default undefined - Uses the default background color
-   */
-  /**
-   * The author of the page
-   */
   author?: {
     name: string
     image: string
     bio: string
   }
   bgType?: 'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered'
-  /**
-   * Whether to show the breadcrumbs
-   */
   showBreadcrumbs?: boolean
 }
 
 const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, author } = Astro.props
+
+// Cek apakah ini halaman utama daftar blog
+const isBlogMainPage = title === "Blog Jasalike"
 
 // Sanitize subtitle HTML if present
 const sanitizedSubtitle: string = subtitle
@@ -60,7 +34,7 @@ const sanitizedSubtitle: string = subtitle
   : ''
 ---
 
-<section class:list={[className, 'page-header']}>
+<section class:list={[className, 'page-header', { 'blog-main-header': isBlogMainPage }]}>
   <div class="container my-3">
     {
       showBreadcrumbs &&
@@ -69,7 +43,7 @@ const sanitizedSubtitle: string = subtitle
           const segments = path.split('/').filter(Boolean)
 
           if (segments.length === 0) {
-            return null // No breadcrumbs on homepage
+            return null
           }
 
           return (
@@ -90,23 +64,18 @@ const sanitizedSubtitle: string = subtitle
         })()
     }
   </div>
+  
   <div class:list={['py-16', bgType && `bg-${bgType}`]}>
-    <div class="space-content container">
-      {
-        featuredImage && (
-          <div class="featured-image-container mb-8">
-            <Image
-              src={featuredImage}
-              alt=""
-              width={1200}
-              height={250}
-              class="h-[250px] w-full rounded-lg object-cover"
-            />
-          </div>
-        )
-      }
+    <div class:list={["container", isBlogMainPage ? "text-center-custom" : "space-content"]}>
+      
+      {isBlogMainPage && <span class="blog-badge">Aura Digital Insight</span>}
+
       <h1>{title}</h1>
-      {sanitizedSubtitle && <p class="text-2xl" set:html={sanitizedSubtitle} />}
+      
+      {sanitizedSubtitle && <p class="text-2xl subtitle-text" set:html={sanitizedSubtitle} />}
+      
+      {isBlogMainPage && <div class="blog-hero-divider" />}
+
       {
         author && (
           <div class="mt-6 flex items-center">
@@ -118,7 +87,7 @@ const sanitizedSubtitle: string = subtitle
   </div>
 </section>
 
-<style>
+<style is:global>
   .page-header {
     .bg-primary {
       background-color: light-dark(var(--color-primary-100), var(--color-primary-500));
@@ -150,5 +119,56 @@ const sanitizedSubtitle: string = subtitle
       max-height: 500px;
       overflow: hidden;
     }
+
+    // STYLING TAMBAHAN UNTUK HALAMAN BLOG AGAR PREMIUM
+    &.blog-main-header {
+      background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+      
+      .text-center-custom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .blog-badge {
+        display: inline-block;
+        background-color: #dbeafe;
+        color: #1d4ed8;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 0.35rem 1rem;
+        border-radius: 9999px;
+        margin-bottom: 1.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        line-height: 1.1;
+        color: var(--neutral-900, #111827);
+        margin-bottom: 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .subtitle-text {
+        font-size: clamp(1.1rem, 2vw, 1.25rem) !important;
+        line-height: 1.6;
+        color: var(--neutral-600, #4b5563);
+        max-width: 720px;
+        margin: 0 auto 2rem auto;
+      }
+
+      .blog-hero-divider {
+        width: 60px;
+        height: 4px;
+        background-color: #3b82f6;
+        margin: 1.5rem auto 0 auto;
+        border-radius: 2px;
+      }
+    }
   }
 </style>
+
