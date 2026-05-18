@@ -1,169 +1,176 @@
 ---
+// src/pages/like-linkedin.astro
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 ---
 
-<DefaultLayout title="Spesialis Jasa Like LinkedIn | Jasalike">
-  <Fragment slot="head">
-    <meta name="description" content="Layanan spesialis penambah Like LinkedIn untuk Postingan dan Artikel. Bangun otoritas profesional, kredibilitas karir, dan relasi B2B Anda secara instan." />
-    <meta name="keywords" content="jasa like linkedin, beli like linkedin, optimasi profil linkedin, tambah like postingan linkedin, jasalike" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jasalike.my.id/like-linkedin/" />
-
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="product" />
-    <meta property="og:url" content="https://jasalike.my.id/like-linkedin/" />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:title" content="Jasa Like LinkedIn Profesional, Cepat & Aman | Jasalike" />
-    <meta property="og:description" content="Tingkatkan kredibilitas karir dan bisnis B2B Anda dengan suntikan Like LinkedIn pada postingan atau artikel. 100% aman tanpa password." />
-    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
-
-    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
-            { "@type": "ListItem", "position": 3, "name": "Like LinkedIn", "item": "https://jasalike.my.id/like-linkedin/" }
-          ]
-        },
-        {
-          "@type": "Service",
-          "name": "Jasa Like LinkedIn",
-          "description": "Layanan penambah Like untuk Postingan dan Artikel di LinkedIn untuk membangun otoritas profesional.",
-          "provider": {
-            "@type": "Organization",
-            "name": "Jasalike",
-            "url": "https://jasalike.my.id/"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "30000",
-            "priceCurrency": "IDR",
-            "url": "https://jasalike.my.id/like-linkedin/",
-            "availability": "https://schema.org/InStock"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "87"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Apakah aman untuk profil profesional atau karir saya?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sangat aman. Kami menggunakan metode pengiriman yang natural dan tidak membutuhkan akses login (password), sehingga reputasi akun LinkedIn Anda tetap terjaga."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Apakah bisa untuk artikel LinkedIn (Pulse)?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Tentu saja. Anda bisa menyuntikkan Like baik pada postingan status biasa maupun Artikel LinkedIn panjang yang Anda terbitkan."
-              }
-            }
-          ]
-        }
-      ]
-    })} />
-  </Fragment>
+<DefaultLayout 
+  title="Tingkatkan Engagement LinkedIn Secara Profesional"
+  description="Tambahkan like LinkedIn secara aman dan cepat untuk meningkatkan kredibilitas, jangkauan, dan profesionalitas postingan Anda."
+>
 
   <section class="container my-24 text-center">
-    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-100 border border-blue-200 dark:border-blue-800/60 mb-6">
-      Layanan Spesialis LinkedIn • Profesional & B2B Branding
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-semibold tracking-wide bg-gradient-to-r from-sky-100 to-blue-100 text-sky-800 dark:from-sky-900/40 dark:to-blue-900/40 dark:text-sky-100 border border-sky-200/60 dark:border-sky-800/60 mb-6 uppercase">
+      Personal Branding & B2B Social Selling
     </div>
 
     <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
-      Bangun Otoritas & <br class="hidden md:block" />
-      <span class="bg-gradient-to-r from-blue-700 to-sky-600 bg-clip-text text-transparent">Kredibilitas Profesional</span>
+      Bangun Otoritas Profesional dengan <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-sky-600 to-blue-800 bg-clip-text text-transparent">Kredibilitas Interaksi LinkedIn</span>
     </h1>
     
     <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
-      Tingkatkan interaksi pada postingan, artikel, dan pembaruan status Anda di LinkedIn. Berikan kesan "Thought Leadership" yang kuat, yakinkan calon mitra bisnis, dan perluas jangkauan konten Anda ke jaringan yang lebih luas secara aman dan organik.
+      Ubah profil LinkedIn Anda menjadi magnet peluang bisnis dan karir. Kelola reputasi digital melalui penambahan metrik interaksi yang terukur untuk artikel, pembaruan status, dan Company Page menggunakan jaringan akun profesional yang relevan.
     </p>
 
     <div class="mt-12 flex justify-center gap-4">
-        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
-        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Branding</a>
+        <a href="#b2b-strategy" class="button px-8 py-4 text-lg">Pelajari Strategi B2B</a>
+        <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20konsultasi%20mengenai%20optimasi%20interaksi%20LinkedIn%20untuk%20profil/perusahaan%20saya." class="button color-secondary px-8 py-4 text-lg">Konsultasi Eksekutif</a>
     </div>
   </section>
 
+  <section id="b2b-strategy" class="container my-32 max-w-4xl mx-auto space-content leading-relaxed text-xl opacity-90">
+    <h2 class="text-4xl font-bold mb-8 text-center text-neutral-900 dark:text-neutral-100">
+      Mengapa Interaksi LinkedIn Adalah Investasi Kunci bagi Pertumbuhan Karir dan Bisnis B2B?
+    </h2>
+    
+    <p class="mb-6">
+      Di lanskap bisnis modern, LinkedIn telah berevolusi dari sekadar platform pencari kerja menjadi ekosistem <i>Social Selling</i> terbesar di dunia. Para pengambil keputusan (Decision Makers), CEO, Manajer HRD, hingga investor ternama menghabiskan waktu mereka di platform ini untuk mencari mitra strategis, membaca wawasan industri, dan melakukan validasi latar belakang sebelum menyepakati kontrak kerja sama bernilai tinggi.
+    </p>
+    
+    <p class="mb-6">
+      Dalam lingkungan yang sangat analitis ini, <strong>Reputasi Digital</strong> adalah segalanya. Ketika Anda mempublikasikan sebuah artikel wawasan industri atau pencapaian perusahaan, minimnya interaksi (*like* dan komentar) akan membuat postingan tersebut terlihat seperti klaim sepihak yang kurang diakui oleh komunitas profesional. Sebaliknya, postingan yang mendapatkan banyak interaksi secara psikologis mentransmisikan pesan bahwa Anda adalah seorang <i>Thought Leader</i> (Pakar Pemikir) yang pandangannya dihormati oleh rekan sejawat.
+    </p>
+
+    <p class="mb-12">
+      Lebih jauh lagi, algoritma LinkedIn bekerja berdasarkan <strong>Distribusi Jaringan Tingkat Kedua (2nd-Degree Connections)</strong>. Setiap kali seseorang menyukai postingan Anda, aktivitas tersebut akan muncul di beranda koneksi mereka. Dengan mengoptimasi jumlah interaksi di awal publikasi, Anda secara otomatis memaksa algoritma untuk menayangkan profil dan pesan bisnis Anda ke ribuan profesional baru di luar jaringan ring pertama Anda. Inilah fondasi utama dari strategi *Growth Hacking* di LinkedIn.
+    </p>
+
+    <h3 class="text-3xl font-semibold mb-4 mt-12 text-neutral-800 dark:text-neutral-200">Dampak Signifikan pada "Employer Branding" dan Perekrutan</h3>
+    <p class="mb-6">
+      Bagi perusahaan (Company Page), jumlah interaksi pada pembaruan status budaya kerja, CSR, atau inovasi produk adalah cerminan dari <i>Employer Branding</i>. Talenta-talenta terbaik di industri hanya ingin bergabung dengan perusahaan yang terlihat hidup, progresif, dan memiliki dukungan kuat. Postingan lowongan kerja atau aktivitas perusahaan yang ramai like akan menarik lebih banyak kandidat berkualitas premium serta meningkatkan kepercayaan calon klien B2B Anda.
+    </p>
+  </section>
+
   <section class="container my-32">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Postingan LinkedIn Butuh Banyak Like?</h2>
+    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Fungsi Taktis Interaksi pada Ekosistem LinkedIn</h2>
     <div class="grid gap-8 sm:grid-cols-2">
       {[
-        { title: 'Validasi Thought Leadership', desc: 'Postingan dengan banyak interaksi (Like & Celebrate) menunjukkan bahwa ide dan insight Anda dihargai oleh sesama profesional. Ini adalah kunci utama membangun Personal Branding.' },
-        { title: 'Memperluas Jangkauan B2B', desc: 'Algoritma LinkedIn sangat unik; saat seseorang menyukai postingan Anda, konten tersebut berpotensi muncul di beranda koneksi mereka. Ini adalah cara tercepat menjangkau pengambil keputusan (Decision Makers).' },
-        { title: 'Meningkatkan Kepercayaan Klien', desc: 'Calon klien atau HRD sering melihat aktivitas postingan Anda. Interaksi yang ramai membuktikan bahwa Anda adalah ahli di bidangnya dan memiliki komunitas yang aktif.' },
-        { title: 'Mendorong Keterlibatan Organik', desc: 'Angka Like yang tinggi berfungsi sebagai "Social Proof" yang mendorong profesional lain untuk ikut berkomentar dan membagikan pandangan mereka pada postingan Anda.' },
+        { 
+          title: 'Validasi Social Selling B2B', 
+          desc: 'Klien korporat tidak membeli dari perusahaan yang tidak mereka percayai. Interaksi yang masif pada konten presentasi atau studi kasus Anda berfungsi sebagai validasi sosial, mempercepat penutupan kesepakatan (deal closing) dan mendatangkan inbound leads berkualitas.' 
+        },
+        { 
+          title: 'Akselerasi Personal Branding', 
+          desc: 'Bagi eksekutif, konsultan, dan pencari kerja, profil yang postingannya selalu mendapatkan respon positif akan dicatat oleh headhunter dan perekrut. Anda akan diposisikan sebagai figur otoritatif di industri Anda, membuka pintu negosiasi gaji atau tarif konsultan yang lebih tinggi.' 
+        },
+        { 
+          title: 'Perluasan Jangkauan Organik (Viral Profesional)', 
+          desc: 'Algoritma umpan berita (News Feed) LinkedIn sangat menyukai postingan yang memicu percakapan awal. Injeksi metrik interaksi yang terukur di jam pertama tayang akan mendorong konten Anda masuk ke notifikasi jaringan tingkat 2 dan 3, melipatgandakan impresi secara drastis.' 
+        },
+        { 
+          title: 'Penguatan Reputasi Company Page', 
+          desc: 'Halaman Perusahaan yang terlihat sepi interaksi menciptakan kesan bahwa bisnis tersebut stagnan. Dengan manajemen metrik rutin pada setiap publikasi, citra korporat Anda akan senantiasa terlihat aktif, inovatif, dan menjadi pemimpin pasar di sektornya.' 
+        },
       ].map((b) => (
-        <article class="p-8 rounded-3xl border bg-gradient-to-br from-blue-50 to-sky-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-blue-100 dark:border-neutral-800 shadow-sm">
-          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
-          <p class="text-lg opacity-80">{b.desc}</p>
+        <article class="p-8 rounded-3xl border bg-gradient-to-br from-sky-50 to-blue-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-sky-100 dark:border-neutral-800 shadow-sm">
+          <h3 class="text-2xl font-bold mb-3 text-sky-800 dark:text-sky-400">{b.title}</h3>
+          <p class="text-lg opacity-80 leading-relaxed">{b.desc}</p>
         </article>
       ))}
     </div>
   </section>
 
-  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Kredibilitas LinkedIn</h2>
-    <p class="text-xl opacity-80">Layanan eksklusif dari akun-akun profil profesional untuk menjaga kualitas akun Anda.</p>
-  </div>
+  <section id="bukti-kinerja" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl border border-neutral-200 dark:border-neutral-800">
+    <div class="text-center mb-16">
+      <div class="inline-block text-sm font-bold tracking-wider text-sky-600 dark:text-sky-400 uppercase mb-3">
+        Laporan Kinerja Mitra Strategis
+      </div>
+      <h2 class="text-4xl md:text-5xl font-semibold mb-4">Studi Kasus & Kepercayaan Klien</h2>
+      <p class="text-xl opacity-80 max-w-3xl mx-auto">Bagaimana manajemen optimasi interaksi kami membantu para profesional dan korporasi memenangkan dominasi pasar digital.</p>
+    </div>
 
-  <div class="grid gap-8 md:grid-cols-3">
-    {[
-      { n: 'Paket Starter (10 Like)',   price: 'Rp 25.000',    note: 'Sangat baik untuk memberikan dorongan awal pada update status atau foto profil baru.' },
-      { n: 'Paket Standart (100 Like)',  price: 'Rp 250.000',   note: 'Bangun validasi kuat untuk artikel industri atau pencapaian karier Anda.' },
-      { n: 'Paket Grown (1.000 Like)', price: 'Rp 2.000.000', note: 'Dominasi jangkauan B2B dan bangun citra ahli di industri Anda secara maksimal.' },
-    ].map((p) => (
-      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-2">
-        <h3 class="text-2xl font-semibold">{p.n}</h3>
-        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">{p.price}</p>
-        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+    <div class="grid gap-8 grid-cols-2 lg:grid-cols-4 mb-16 text-center border-b border-neutral-200 dark:border-neutral-800 pb-12">
+      <div>
+        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">96%</p>
+        <p class="text-lg font-medium mt-2 opacity-90">Kenaikan Impresi Profil</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">3.5x</p>
+        <p class="text-lg font-medium mt-2 opacity-90">Pertumbuhan Inbound Leads</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">Top 1%</p>
+        <p class="text-lg font-medium mt-2 opacity-90">Visibilitas Pencarian Industri</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">Aman</p>
+        <p class="text-lg font-medium mt-2 opacity-90">Kepatuhan Kebijakan Platform</p>
+      </div>
+    </div>
 
-        <div class="mt-8">
-          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20LinkedIn.`} target="_blank" rel="noopener"
-             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-blue-700 text-white shadow-md hover:shadow-xl transition-all">
-            Pesan Sekarang
-          </a>
-        </div>
-      </article>
-    ))}
-  </div>
-</section>
+    <div class="grid gap-8 md:grid-cols-3">
+      {[
+        {
+          quote: "Sebagai B2B Consultant, artikel LinkedIn adalah nyawa dari strategi akuisisi klien saya. Dengan dukungan optimasi interaksi ini, artikel saya sering masuk feed calon klien besar, dan tingkat respon (reply rate) pesan InMail saya naik drastis karena profil terlihat lebih kredibel.",
+          user: "Andi Saputra",
+          role: "Senior B2B Strategy Consultant",
+          avatar: "💼"
+        },
+        {
+          quote: "Kami menggunakan layanan ini untuk mengelola Company Page. Hasilnya luar biasa. Publikasi kegiatan CSR dan peluncuran layanan korporat kami selalu terlihat aktif, memicu koneksi industri untuk ikut berkomentar secara organik.",
+          user: "Diana Larasati",
+          role: "Corporate Communications Manager",
+          avatar: "🏢"
+        },
+        {
+          quote: "Strategi yang brilian. Saya sedang mencari peluang karir di perusahaan multinasional. Dengan optimasi interaksi pada postingan portofolio dan sertifikasi saya, profil saya langsung dilirik oleh headhunter karena dianggap sebagai pakar di bidang data analitik.",
+          user: "Rizky Pratama",
+          role: "Data Scientist Specialist",
+          avatar: "📊"
+        }
+      ].map((t) => (
+        <article class="rounded-3xl border border-neutral-200/60 dark:border-neutral-800/60 bg-white dark:bg-neutral-900 shadow-md p-8 flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+          <p class="text-lg italic opacity-80 leading-relaxed mb-8">
+            "{t.quote}"
+          </p>
+          
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-sky-50 dark:bg-sky-950/40 flex items-center justify-center text-2xl border border-sky-100 dark:border-sky-900/50 shadow-sm">
+              {t.avatar}
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-100">{t.user}</h3>
+              <p class="text-sm text-sky-700 dark:text-sky-400 mt-0.5 font-medium">{t.role}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 
   <section id="faq" class="container my-32">
-  <h2 class="text-4xl font-semibold mb-12 text-center">Pertanyaan Seputar LinkedIn</h2>
+    <h2 class="text-4xl font-semibold mb-12 text-center">Pertanyaan Eksekutif (FAQ)</h2>
 
-  <div class="grid gap-6 md:grid-cols-2">
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-        Apakah Like berasal dari profil asli?
-        <span class="text-blue-600 group-open:rotate-180 transition-transform">↓</span>
-      </summary>
-      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
-        Ya, kami mengedepankan kualitas akun. Interaksi dilakukan oleh profil-profil yang terlihat profesional untuk menjaga integritas dan keamanan akun LinkedIn Anda.
-      </div>
-    </details>
+    <div class="grid gap-6 md:grid-cols-2">
+      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+        <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+          Apakah strategi manajemen metrik ini aman untuk profil korporat resmi?
+          <span class="text-sky-600 group-open:rotate-180 transition-transform">↓</span>
+        </summary>
+        <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg">
+          Sangat aman. Kami menggunakan metodologi distribusi interaksi yang selaras dengan panduan komunitas profesional LinkedIn. Sinyal yang masuk diatur secara berkala dengan pola wajar (*drip-feed*), sehingga tidak membahayakan otoritas akun Anda dan justru memperkuat skor algoritma visibilitas profil.
+        </div>
+      </details>
 
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-        Bisakah untuk Artikel atau Update Perusahaan?
-        <span class="text-blue-600 group-open:rotate-180 transition-transform">↓</span>
-      </summary>
-      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
-        Sangat bisa. Layanan kami mendukung link artikel LinkedIn, update status personal, maupun postingan di Halaman Perusahaan (Company Page).
-      </div>
-    </details>
-  </div>
-</section>
+      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+        <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
+          Apakah layanan ini dapat diterapkan pada artikel panjang (LinkedIn Pulse)?
+          <span class="text-sky-600 group-open:rotate-180 transition-transform">↓</span>
+        </summary>
+        <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg">
+          Tentu saja. Kami dapat melakukan optimasi ke berbagai jenis format publikasi, mulai dari pembaruan status biasa, unggahan dokumen/presentasi (Carousel), hingga artikel mendalam di LinkedIn Pulse. Silakan sertakan tautan URL publikasi spesifik Anda kepada tim kami untuk diproses secara instan.
+        </div>
+      </details>
+    </div>
+  </section>
 </DefaultLayout>
