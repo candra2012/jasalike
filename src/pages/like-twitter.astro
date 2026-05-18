@@ -1,169 +1,282 @@
 ---
+// src/pages/like-twitter.astro
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 ---
 
-<DefaultLayout title="Spesialis Jasa Like Twitter (X) | Jasalike">
-  <Fragment slot="head">
-    <meta name="description" content="Layanan spesialis penambah Like Twitter (X) untuk Tweet dan Balasan (Reply). Tingkatkan kredibilitas cuitan Anda, dorong hype, dan dominasi obrolan secara instan." />
-    <meta name="keywords" content="jasa like twitter, beli like x, tambah like tweet, jasa like balasan twitter, jasalike" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jasalike.my.id/like-twitter/" />
+<DefaultLayout 
+  title="Jasa Like Twitter Murah & Berkualitas"
+  description="Bantu tweet Anda tampil lebih populer dengan layanan like Twitter berkualitas, aman, dan terpercaya."
+>
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="product" />
-    <meta property="og:url" content="https://jasalike.my.id/like-twitter/" />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:title" content="Jasa Like Twitter (X) Murah, Cepat & Aman | Jasalike" />
-    <meta property="og:description" content="Suntik Like untuk Tweet dan Reply Anda. Bangun opini yang kredibel dan dorong cuitan Anda menjadi viral." />
-    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
-
-    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+   <script type="application/ld+json" slot="head">
+    {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
-            { "@type": "ListItem", "position": 3, "name": "Like Twitter", "item": "https://jasalike.my.id/like-twitter/" }
-          ]
+          "@type": "WebPage",
+          "@id": "https://jasalike.com/like-twitter/#webpage",
+          "url": "https://jasalike.com/like-twitter/",
+          "name": "Jasa Optimasi Like Twitter (X) | Dominasi Algoritma For You & Thread",
+          "description": "Kendalikan opini publik dan dorong visibilitas Thread Anda di X (Twitter). Manajemen metrik like untuk memicu algoritma For You secara organik, cepat, dan aman.",
+          "isPartOf": {
+            "@id": "https://jasalike.com/#website"
+          },
+          "inLanguage": "id-ID"
         },
         {
           "@type": "Service",
-          "name": "Jasa Like Twitter (X)",
-          "description": "Layanan penambah Like untuk Tweet dan Balasan (Reply) di Twitter/X. Aman dan instan.",
+          "@id": "https://jasalike.com/like-twitter/#service",
+          "name": "Jasa Like Twitter Cepat & Terpercaya)",
+          "description": "Layanan manajemen distribusi interaksi real-time untuk memicu algoritma For You, meningkatkan visibilitas Thread, dan mendominasi opini publik di platform X (Twitter).",
           "provider": {
-            "@type": "Organization",
-            "name": "Jasalike",
-            "url": "https://jasalike.my.id/"
+            "@id": "https://jasalike.com/#organization"
           },
-          "offers": {
-            "@type": "Offer",
-            "price": "20000",
-            "priceCurrency": "IDR",
-            "url": "https://jasalike.my.id/like-twitter/",
-            "availability": "https://schema.org/InStock"
+          "serviceType": "Twitter (X) Engagement & Growth Optimization",
+          "areaServed": {
+            "@type": "Country",
+            "name": "ID"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "165"
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Katalog Optimasi Twitter (X)",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Akselerasi Algoritma For You",
+                  "description": "Injeksi metrik interaksi pada menit pertama untuk memicu distribusi tayangan organik ke audiens baru."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Optimasi Utas (Thread)",
+                  "description": "Meningkatkan retensi dan otoritas cuitan utama pada Thread panjang agar dibaca secara utuh."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Dominasi Opini Balasan (Reply)",
+                  "description": "Manajemen interaksi pada cuitan balasan untuk menduduki posisi teratas dalam sebuah diskusi populer."
+                }
+              }
+            ]
           }
         },
         {
           "@type": "FAQPage",
+          "@id": "https://jasalike.com/like-twitter/#faq",
+          "isPartOf": {
+            "@id": "https://jasalike.com/like-twitter/#webpage"
+          },
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Apakah bisa menyuntik Like untuk balasan (Reply) orang lain?",
+              "name": "Apakah sistem manajemen interaksi ini aman dari suspensi atau de-boost Twitter?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Bisa. Anda cukup memberikan link spesifik dari balasan (reply) tersebut. Like yang banyak akan membuat balasan Anda menduduki posisi teratas di kolom komentar."
+                "text": "Keamanan akun adalah standar operasional kami. Metode penambahan metrik dilakukan secara bertahap dan terukur menyerupai kurva lonjakan viralitas organik. Kami mematuhi batasan keamanan algoritma X terbaru untuk memastikan profil Anda aman dari shadowban, label spam, maupun suspensi."
               }
             },
             {
               "@type": "Question",
-              "name": "Apakah akun Twitter saya bisa kena suspend?",
+              "name": "Bisakah interaksi ini difokuskan pada cuitan balasan (Reply)?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Tidak akan. Kami tidak membutuhkan akses login atau password Anda, sehingga akun Anda 100% aman dari risiko suspend akibat aktivitas tidak wajar dari dalam akun."
+                "text": "Tentu saja. Anda dapat menyertakan tautan langsung (URL spesifik) dari sebuah cuitan balasan atau cuitan kutipan (Quote Tweet). Optimasi pada balasan sangat efektif untuk memastikan argumen atau opini Anda mendominasi puncak percakapan pada sebuah Thread populer."
               }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jasalike.com/like-twitter/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Optimasi Like Twitter (X)",
+              "item": "https://jasalike.com/like-twitter/"
             }
           ]
         }
       ]
-    })} />
-  </Fragment>
+    }
+  </script>
 
   <section class="container my-24 text-center">
-    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 mb-6">
-      Layanan Spesialis Twitter (X) • Ciptakan Hype Instan
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-bold tracking-widest bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 border border-neutral-700 dark:border-neutral-300 mb-6 uppercase shadow-lg">
+      Akselerasi Opini Publik • Dominasi Algoritma X
     </div>
 
-    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8 italic">
-      Dominasi Tren & Buat <br class="hidden md:block" />
-      <span class="bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">Tweet Anda Viral</span>
+    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-tight">
+      Boost Like Twitter untuk Tweet <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-sky-400 to-neutral-900 dark:to-neutral-100 bg-clip-text text-transparent">Lebih Viral</span>
     </h1>
     
-    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
-      Tingkatkan interaksi cuitan, thread, hingga balasan (reply) Anda dengan penambahan Like instan. Bangun validasi sosial agar opini Anda lebih didengar dan perbesar jangkauan algoritma "For You" Twitter tanpa butuh password.
+    <p class="text-2xl font-medium opacity-85 max-w-4xl mx-auto leading-relaxed mb-12">
+      Jangan biarkan opini dan <i>Thread</i> Anda tenggelam dalam lautan linimasa. Picu momentum viral dan paksa algoritma "For You" mendistribusikan cuitan Anda ke jutaan audiens baru melalui manajemen metrik <i>Like</i> dan <i>Repost</i> yang presisi.
     </p>
 
-    <div class="mt-12 flex justify-center gap-4">
-        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
-        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Viral</a>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#twitter-algorithm" class="button bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 px-8 py-4 text-lg font-bold border-none">Bedah Algoritma X</a>
+        <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20konsultasi%20strategi%20optimasi%20like%20untuk%20Thread/Cuitan%20Twitter." class="button color-secondary px-8 py-4 text-lg font-bold">Amankan Visibilitas Cuitan</a>
     </div>
   </section>
 
+  <section id="twitter-algorithm" class="container my-32 max-w-4xl mx-auto space-content leading-relaxed text-xl opacity-90">
+    <h2 class="text-4xl font-extrabold mb-8 text-center text-neutral-900 dark:text-neutral-100 tracking-tight">
+      Mengapa Metrik Awal Adalah Nyawa di Ekosistem Algoritma X (Twitter)?
+    </h2>
+    
+    <p class="mb-6">
+      Twitter, di bawah kepemimpinan era baru sebagai X, telah mengubah cara informasi didistribusikan. Linimasa kini terbagi menjadi dua tab utama: <strong>"Following"</strong> (Mengikuti) dan <strong>"For You"</strong> (Untuk Anda). Tab <i>For You</i> adalah mesin penemuan tanpa batas yang digerakkan 100% oleh kecerdasan buatan (AI). Jika Anda ingin cuitan Anda dibaca oleh massa di luar pengikut Anda, menembus tab ini adalah harga mati.
+    </p>
+    
+    <p class="mb-6">
+      Sistem penyaringan X bekerja dengan kecepatan milidetik. Ketika Anda mempublikasikan sebuah opini, promosi produk, atau utas (<i>Thread</i>) edukasi yang panjang, sistem akan mengukur <i>Velocity of Engagement</i> (Kecepatan Interaksi). Jika sebuah cuitan gagal mendapatkan volume <i>Like</i>, <i>Bookmark</i>, dan balasan yang signifikan dalam 30 hingga 60 menit pertama, status tersebut akan dianggap "kusam" dan seketika dicabut dari antrean distribusi prioritas algoritma.
+    </p>
+
+    <p class="mb-12">
+      Inilah alasan mengapa strategi <strong>Manajemen Interaksi Terstruktur</strong> sangat krusial. Dengan memberikan suntikan metrik yang solid dari akun-akun berkualitas sesaat setelah tombol <i>Post</i> ditekan, Anda meretas sistem keamanan AI X. Anda memberikan sinyal bahwa konten tersebut sedang menjadi pusat perhatian publik, sehingga sistem akan secara otomatis melipatgandakan jangkauan tayangan (<i>Impressions</i>) Anda secara eksponensial.
+    </p>
+
+    <h3 class="text-3xl font-bold mb-4 mt-12 text-neutral-800 dark:text-neutral-200">Kekuatan "Social Proof" dalam Membentuk Opini Publik</h3>
+    <p class="mb-6">
+      Di X, angka menentukan kebenaran (<i>Numbers validate opinions</i>). Dalam perdebatan opini, rilis proyek Web3/Crypto, atau kampanye kesadaran merek (<i>Brand Awareness</i>), audiens cenderung akan lebih setuju, mempercayai, dan membagikan ulang cuitan yang sudah memiliki ribuan tanda suka. Metrik yang tinggi bukan sekadar angka kosong; itu adalah instrumen validasi sosial (<i>Social Proof</i>) yang membungkam keraguan dan merangsang efek ikut-ikutan (<i>Bandwagon Effect</i>) dari pengguna organik.
+    </p>
+  </section>
+
   <section class="container my-32">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Tweet Anda Butuh Banyak Like?</h2>
+    <h2 class="text-4xl md:text-5xl font-black mb-12 text-center tracking-tight">Katalisator Pertumbuhan Profil X Anda</h2>
     <div class="grid gap-8 sm:grid-cols-2">
       {[
-        { title: 'Validasi Sosial & Opini', desc: 'Cuitan dengan ribuan Like memberikan kesan bahwa pendapat Anda didukung oleh banyak orang. Ini sangat penting untuk membangun otoritas di Twitter.' },
-        { title: 'Memicu Algoritma "For You"', desc: 'Twitter memprioritaskan cuitan dengan interaksi cepat untuk muncul di tab "For You". Semakin banyak Like, semakin besar peluang cuitan Anda menjangkau audiens di luar follower.' },
-        { title: 'Mendorong Retweet Organik', desc: 'Pengguna Twitter cenderung ragu melakukan Retweet pada cuitan yang sepi. Like yang banyak berfungsi sebagai pemancing agar orang lain mau ikut menyebarkan cuitan Anda.' },
-        { title: 'Dominasi Kolom Balasan', desc: 'Ingin balasan (reply) Anda berada di posisi paling atas pada cuitan tokoh besar? Tambahan Like pada balasan Anda adalah cara paling efektif untuk mencapainya.' },
+        { 
+          title: 'Retensi Algoritma "For You"', 
+          desc: 'Rasio like berbanding tayangan (Likes-to-Views ratio) adalah metrik terpenting X saat ini. Distribusi interaksi yang rapi memastikan rasio tersebut tetap tinggi, memaksa cuitan Anda bertahan lebih lama di layar beranda jutaan pengguna.' 
+        },
+        { 
+          title: 'Otoritas Thread (Utas Panjang)', 
+          desc: 'Thread yang informatif tidak akan dibaca hingga akhir jika cuitan pertamanya terlihat sepi. Angka interaksi yang dominan pada "Kepala Thread" mengunci perhatian pembaca untuk terus menggulir dan menyerap materi kampanye Anda secara utuh.' 
+        },
+        { 
+          title: 'Dominasi Diskusi & Balasan (Replies)', 
+          desc: 'X adalah medan pertempuran teks. Opini atau klarifikasi brand di kolom balasan yang dibekali dengan interaksi tinggi akan otomatis merangsek naik ke posisi teratas (Top Replies), memastikan suara Anda menjadi hal pertama yang dibaca audiens.' 
+        },
+        { 
+          title: 'Pengungkit Visibilitas Web3 & Bisnis', 
+          desc: 'Untuk ekosistem yang bergerak sangat cepat seperti proyek NFT, kripto, atau peluncuran produk digital, visibilitas awal menentukan kelangsungan proyek. Cuitan yang ramai adalah garansi kredibilitas di mata komunitas global maupun investor.' 
+        },
       ].map((b) => (
-        <article class="p-8 rounded-3xl border bg-gradient-to-br from-slate-50 to-neutral-100 dark:from-neutral-900/60 dark:to-neutral-900/20 border-slate-200 dark:border-neutral-800 shadow-sm">
-          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
-          <p class="text-lg opacity-80">{b.desc}</p>
+        <article class="p-8 rounded-3xl border bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 shadow-sm hover:border-sky-400 dark:hover:border-sky-500 transition-colors duration-300">
+          <h3 class="text-2xl font-bold mb-3 text-sky-500 dark:text-sky-400">{b.title}</h3>
+          <p class="text-lg opacity-85 leading-relaxed font-medium">{b.desc}</p>
         </article>
       ))}
     </div>
   </section>
 
-  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Hype Twitter (X)</h2>
-    <p class="text-xl opacity-80">Proses kilat, aman, dan meningkatkan jangkauan profil Anda.</p>
-  </div>
+  <section id="bukti-kinerja" class="container my-32 py-16 bg-sky-50 dark:bg-neutral-900/50 rounded-3xl relative overflow-hidden">
+    <div class="text-center mb-16 relative z-10 px-4">
+      <div class="inline-block text-sm font-black tracking-widest text-sky-600 dark:text-sky-400 uppercase mb-3">
+        Dampak Algoritma Maksimal
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Kinerja & Amplifikasi Konten</h2>
+      <p class="text-xl opacity-80 max-w-3xl mx-auto">Kami tidak sekadar menaikkan angka, kami merancang skenario pertumbuhan yang memicu audiens organik untuk ikut meramaikan percakapan Anda.</p>
+    </div>
 
-  <div class="grid gap-8 md:grid-cols-3">
-    {[
-      { n: 'Paket Basic (10 Like)',   price: 'Rp 20.0000',    note: 'Cocok untuk memperkuat validasi cuitan harian atau opini singkat.' },
-      { n: 'Paket Standart (100 Like)',  price: 'Rp 200.000',   note: 'Dorongan kuat agar cuitan masuk ke radar algoritma For You.' },
-      { n: 'Paket grown (1.000 Like)', price: 'Rp 2.000.000', note: 'Bangun otoritas maksimal untuk thread edukasi atau promosi brand.' },
-    ].map((p) => (
-      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-slate-500 transition-all duration-300 transform hover:-translate-y-2">
-        <h3 class="text-2xl font-semibold">{p.n}</h3>
-        <p class="mt-4 text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">{p.price}</p>
-        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+    <div class="grid gap-8 grid-cols-2 lg:grid-cols-4 mb-16 text-center border-b border-sky-200 dark:border-neutral-800 pb-12 relative z-10">
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-sky-500">15x</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Lonjakan Impresi (Views)</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-sky-500">85%</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Efektivitas For You Page</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-sky-500">2.4x</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Kenaikan Follower Organik</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-sky-500">Real</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Kualitas Sinyal Interaksi</p>
+      </div>
+    </div>
 
-        <div class="mt-8">
-          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20Twitter.`} target="_blank" rel="noopener"
-             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-slate-900 dark:bg-white dark:text-black text-white shadow-md hover:shadow-xl transition-all">
-            Pesan Sekarang
-          </a>
-        </div>
-      </article>
-    ))}
-  </div>
-</section>
+    <div class="grid gap-8 md:grid-cols-3 relative z-10 px-4 md:px-8">
+      {[
+        {
+          quote: "Sebagai pembuat Thread edukasi, tulisan sepanjang apapun sia-sia kalau tidak ada yang baca. Semenjak menggunakan taktik push interaksi di 30 menit pertama, Thread saya selalu konsisten masuk ke beranda audiens baru dan viral.",
+          user: "Bima Arya",
+          role: "Tech & Finance Thread Maker",
+          avatar: "🧵"
+        },
+        {
+          quote: "X adalah medan yang keras untuk brand. Saat melakukan klarifikasi isu atau promosi campaign baru, kami wajib terlihat mendominasi sentimen positif. Layanan optimasi metrik ini bekerja sempurna untuk mengamankan kredibilitas opini brand kami.",
+          user: "Sisca Melati",
+          role: "Public Relations Officer",
+          avatar: "🎙️"
+        },
+        {
+          quote: "Kami menjalankan startup rilis produk digital di ekosistem global. Kepercayaan komunitas adalah segalanya. Interaksi masif dari Jasalike membuat peluncuran produk kami terlihat hype, memancing FOMO, dan meningkatkan konversi klik link.",
+          user: "Kevin Sanjaya",
+          role: "Web3 Project Manager",
+          avatar: "🌐"
+        }
+      ].map((t) => (
+        <article class="rounded-3xl border border-sky-100 dark:border-neutral-800 bg-white dark:bg-black shadow-xl p-8 flex flex-col justify-between">
+          <p class="text-lg italic opacity-90 leading-relaxed mb-8 font-medium">
+            "{t.quote}"
+          </p>
+          
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-sky-50 dark:bg-neutral-800 flex items-center justify-center text-2xl border border-sky-100 dark:border-neutral-700 shadow-sm">
+              {t.avatar}
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">{t.user}</h3>
+              <p class="text-sm text-sky-500 mt-0.5 font-semibold">{t.role}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 
   <section id="faq" class="container my-32">
-  <h2 class="text-4xl font-semibold mb-12 text-center">Tanya Jawab Jasa Like Twitter</h2>
+    <h2 class="text-4xl font-black mb-12 text-center tracking-tight">Klarifikasi Sistem (FAQ)</h2>
 
-  <div class="grid gap-6 md:grid-cols-2">
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-        Apakah Like Twitter (X) ini permanen?
-        <span class="text-slate-600 group-open:rotate-180 transition-transform">↓</span>
-      </summary>
-      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
-        Ya, Like yang kami kirimkan bersifat permanen. Kami menggunakan akun-akun berkualitas untuk memastikan interaksi tetap stabil pada cuitan Anda.
-      </div>
-    </details>
+    <div class="grid gap-6 md:grid-cols-2">
+      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+        <summary class="cursor-pointer text-xl font-bold list-none flex justify-between items-center text-neutral-800 dark:text-neutral-100">
+          Apakah sistem manajemen interaksi ini aman dari suspensi atau de-boost Twitter?
+          <span class="text-sky-500 group-open:rotate-180 transition-transform text-2xl">↓</span>
+        </summary>
+        <div class="mt-4 opacity-85 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg font-medium">
+          Keamanan akun adalah standar operasional kami. Metode penambahan metrik dilakukan secara bertahap dan terukur menyerupai kurva lonjakan viralitas organik. Kami mematuhi batasan keamanan algoritma X terbaru untuk memastikan profil Anda aman dari <i>shadowban</i>, label <i>spam</i>, maupun suspensi.
+        </div>
+      </details>
 
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-        Bisa untuk Like Thread atau Balasan (Reply)?
-        <span class="text-slate-600 group-open:rotate-180 transition-transform">↓</span>
-      </summary>
-      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
-        Tentu saja bisa! Layanan kami fleksibel untuk link cuitan utama (tweet), link thread, maupun link balasan spesifik Anda.
-      </div>
-    </details>
-  </div>
-</section>
+      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+        <summary class="cursor-pointer text-xl font-bold list-none flex justify-between items-center text-neutral-800 dark:text-neutral-100">
+          Bisakah interaksi ini difokuskan pada cuitan balasan (Reply)?
+          <span class="text-sky-500 group-open:rotate-180 transition-transform text-2xl">↓</span>
+        </summary>
+        <div class="mt-4 opacity-85 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg font-medium">
+          Tentu saja. Anda dapat menyertakan tautan langsung (URL spesifik) dari sebuah cuitan balasan atau cuitan kutipan (Quote Tweet). Optimasi pada balasan sangat efektif untuk memastikan argumen atau opini Anda mendominasi puncak percakapan pada sebuah Thread populer.
+        </div>
+      </details>
+    </div>
+  </section>
 </DefaultLayout>
