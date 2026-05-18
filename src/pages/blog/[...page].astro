@@ -24,30 +24,22 @@ const title = "Blog Edukasi & Strategi Media Sosial | JasaLike";
 const description = "Kupas tuntas rahasia algoritma terbaru, tips meningkatkan engagement, dan strategi optimasi likes untuk melejitkan bisnis digital Anda.";
 ---
 
-<DefaultLayout title={title} description={description}>
+  <DefaultLayout title="Blog Jasalike - Edukasi & Tips Sosial Media" description={description}>
   
-  <header class="blog-hero">
-    <div class="container text-center">
-      <span class="badge">Aura Digital Insight</span>
-      <h1 class="hero-title">Blog Jasalike</h1>
-      <p class="hero-subtitle">Kumpulan artikel edukasi dan tips seputar optimasi sosial media untuk meningkatkan bisnis Anda.</p>
-      <div class="hero-divider"></div>
-    </div>
-  </header>
+  <PageHeader
+    title="Blog Jasalike"
+    subtitle="Kumpulan artikel edukasi dan tips seputar optimasi sosial media untuk meningkatkan bisnis Anda."
+    bgType="bordered"
+  />
 
-  <main class="blog-main-content">
+  <section class="my-12">
     <div class="container">
+      <p class="text-sm opacity-70"><em>Halaman {page.currentPage} dari {page.lastPage}</em></p>
       
-      <div class="blog-meta-info">
-        <p class="text-sm">
-          Menampilkan artikel teratas <span class="highlight">Halaman {page.currentPage}</span> dari {page.lastPage}
-        </p>
-      </div>
-      
-      <ul class="blog-grid">
+      <ul class="my-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {
           page.data.map((post) => (
-            <li class="blog-grid-item">
+            <li class="list-none">
               <Card
                 imageComponent={post.frontmatter.heroImage || post.frontmatter.image || '/logo-jasalike.png'}
                 url={post.url}
@@ -65,7 +57,7 @@ const description = "Kupas tuntas rahasia algoritma terbaru, tips meningkatkan e
         }
       </ul>
 
-      <div class="blog-pagination-wrapper">
+      <div class="mt-16 grid place-content-center">
         <Pagination
           firstPage={page.url.prev ? '/blog' : null}
           previousPage={page.url.prev ? page.url.prev : null}
@@ -73,100 +65,16 @@ const description = "Kupas tuntas rahasia algoritma terbaru, tips meningkatkan e
           lastPage={page.url.next ? `/blog/${page.lastPage}` : null}
           currentPage={`${page.currentPage}`}
           totalPages={`${page.lastPage}`}
-          ariaLabel="Navigasi Halaman Blog"
+          ariaLabel="Navigasi Blog"
         />
       </div>
     </div>
-  </main>
+  </section>
 </DefaultLayout>
 
-    <style lang="scss" is:global>
+<style lang="scss" is:global>
   @use '../../assets/scss/base/mixins' as *;
 
-  // 1. DESAIN AREA ATAS (HEADLINE & DESKRIPSI BLOG) - TETAP MEWAH
-  .blog-hero {
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
-    padding: 5rem 0 3.5rem 0;
-    border-bottom: 1px solid var(--neutral-100, #f3f4f6);
-    
-    .badge {
-      display: inline-block;
-      background-color: #dbeafe;
-      color: #1d4ed8;
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 0.35rem 1rem;
-      border-radius: 9999px;
-      margin-bottom: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--neutral-900, #111827);
-      margin-bottom: 1rem;
-      letter-spacing: -0.03em;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 2vw, 1.25rem);
-      line-height: 1.6;
-      color: var(--neutral-600, #4b5563);
-      max-width: 720px;
-      margin: 0 auto 2rem auto;
-    }
-
-    .hero-divider {
-      width: 60px;
-      height: 4px;
-      background-color: #3b82f6;
-      margin: 0 auto;
-      border-radius: 2px;
-    }
-  }
-
-  // 2. STYLING AREA KONTEN UTAMA & GRID
-  .blog-main-content {
-    padding: 3.5rem 0 6rem 0;
-
-    .blog-meta-info {
-      margin-bottom: 2rem;
-      border-bottom: 1px dashed var(--neutral-200, #e5e7eb);
-      padding-bottom: 1rem;
-      color: var(--neutral-500, #6b7280);
-
-      .highlight {
-        color: var(--neutral-900, #111827);
-        font-weight: 600;
-      }
-    }
-  }
-
-  .blog-grid {
-    display: grid;
-    grid-template-cols: 1fr;
-    gap: 2.5rem;
-    padding: 0;
-    margin: 0;
-
-    @media (min-width: 768px) {
-      grid-template-cols: repeat(2, 1fr);
-    }
-
-    @media (min-width: 1024px) {
-      grid-template-cols: repeat(3, 1fr);
-    }
-  }
-
-  .blog-grid-item {
-    list-style: none;
-    display: flex;
-  }
-
-  // 3. KEMBALIKAN KARTU KE TAMPILAN AWALNYA (HANYA MERAPIKAN JARAK TEKS)
   .card {
     h3 {
       margin-block-end: var(--space-xs);
@@ -175,11 +83,5 @@ const description = "Kupas tuntas rahasia algoritma terbaru, tips meningkatkan e
     a {
       @include text-decoration(transparent, var(--foreground-color), 4px, 2px);
     }
-  }
-
-  .blog-pagination-wrapper {
-    margin-top: 5rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--neutral-200, #e5e7eb);
   }
 </style>
