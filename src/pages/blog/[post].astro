@@ -24,6 +24,9 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, frontmatter } = post;
 
+// 1. Ambil judul, deskripsi, tanggal, dan heroImage dari frontmatter artikel
+const { title, description, pubDate, updatedDate, heroImage } = frontmatter;
+
 // Menyesuaikan author ke Jasalike
 const author = {
   name: frontmatter.author || 'Tim Jasalike',
