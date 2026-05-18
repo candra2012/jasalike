@@ -186,18 +186,23 @@ const description = "Kupas tuntas rahasia algoritma terbaru, tips meningkatkan e
       border-color: #93c5fd !important;
     }
 
-        .card__image {
-      height: 250px !important; // Tinggi kita naikkan sedikit agar ruangnya lebih lega
+            // MEMBONGKAR KUNCIAN GAMBAR BAWAAN KOMPONEN CARD
+    :global(.card__image) {
+      height: 240px !important;
+      background-color: #111827 !important; // Latar belakang gelap estetik agar menyatu dengan nuansa neon ungu gambar kamu
       overflow: hidden;
-      background-color: #f9fafb; // Memberi latar belakang abu-abu lembut jika gambar tidak penuh
+      display: flex;
+      align-items: center;
+      justify-content: center;
       
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain !important; // 👈 GANTI INI DARI cover MENJADI contain
-        padding: 1rem; // Memberi jarak napas di pinggiran kartu agar gambar tidak menempel ke garis tepi
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important; // Memaksa gambar HP masuk utuh tanpa buntung
+        padding: 0.75rem !important; // Jarak aman dari tepi bingkai kartu
       }
     }
+
 
 
     .card__content {
