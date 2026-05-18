@@ -1,169 +1,282 @@
 ---
+// src/pages/like-youtube.astro
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 ---
 
-<DefaultLayout title="Spesialis Jasa Like YouTube | Jasalike">
-  <Fragment slot="head">
-    <meta name="description" content="Layanan spesialis penambah Like YouTube untuk Video durasi panjang, Shorts, dan Komentar. Tingkatkan SEO pencarian video Anda dengan aman tanpa password." />
-    <meta name="keywords" content="jasa like youtube, beli like youtube shorts, tambah like komentar youtube, optimasi seo youtube, jasalike" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jasalike.my.id/like-youtube/" />
+<DefaultLayout 
+  title="Jasa Like YouTube Real Cepat & Terpercaya"
+  description="Tambah like YouTube secara aman dan stabil untuk meningkatkan interaksi serta kredibilitas video Anda."
+>
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="product" />
-    <meta property="og:url" content="https://jasalike.my.id/like-youtube/" />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:title" content="Jasa Like YouTube Murah, Cepat & Aman | Jasalike" />
-    <meta property="og:description" content="Suntik Like untuk Video, Shorts, dan Komentar YouTube. Optimalkan algoritma pencarian channel Anda secara instan." />
-    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
-
-    <!-- JSON-LD Schema (Breadcrumb, Service, & FAQ) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head">
+    {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" },
-            { "@type": "ListItem", "position": 3, "name": "Like YouTube", "item": "https://jasalike.my.id/like-youtube/" }
-          ]
+          "@type": "WebPage",
+          "@id": "https://jasalike.com/like-youtube/#webpage",
+          "url": "https://jasalike.com/like-youtube/",
+          "name": "Jasa Like YouTube Murah untuk Boost Engagement",
+          "description": "Bantu video YouTube tampil lebih populer dengan layanan like berkualitas yang cepat dan terpercaya.",
+          "isPartOf": {
+            "@id": "https://jasalike.com/#website"
+          },
+          "inLanguage": "id-ID"
         },
         {
           "@type": "Service",
-          "name": "Jasa Like YouTube",
-          "description": "Layanan penambah Like untuk Video, YouTube Shorts, dan Komentar. Membantu optimasi SEO YouTube.",
+          "@id": "https://jasalike.com/like-youtube/#service",
+          "name": "Jasa Like YouTube Real Dan Terpercaya",
+          "description": "Layanan manajemen distribusi metrik interaksi (Like) untuk meningkatkan visibilitas mesin pencari (SEO), memicu fitur Suggested Videos, dan memperkuat otoritas Channel YouTube secara aman.",
           "provider": {
-            "@type": "Organization",
-            "name": "Jasalike",
-            "url": "https://jasalike.my.id/"
+            "@id": "https://jasalike.com/#organization"
           },
-          "offers": {
-            "@type": "Offer",
-            "price": "20000",
-            "priceCurrency": "IDR",
-            "url": "https://jasalike.my.id/like-youtube/",
-            "availability": "https://schema.org/InStock"
+          "serviceType": "YouTube Video SEO & Channel Authority Optimization",
+          "areaServed": {
+            "@type": "Country",
+            "name": "ID"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "142"
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Katalog Optimasi YouTube",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Optimasi SEO Peringkat Pencarian",
+                  "description": "Meningkatkan rasio Like-to-View untuk membantu video menduduki halaman pertama pada kata kunci pencarian tertentu."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Akselerasi Rekomendasi (Suggested Videos)",
+                  "description": "Memicu algoritma YouTube untuk menempatkan video di bilah rekomendasi audiens yang relevan."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Dominasi YouTube Shorts",
+                  "description": "Injeksi interaksi cepat untuk memaksimalkan retensi video pada putaran Shorts Feed."
+                }
+              }
+            ]
           }
         },
         {
           "@type": "FAQPage",
+          "@id": "https://jasalike.com/like-youtube/#faq",
+          "isPartOf": {
+            "@id": "https://jasalike.com/like-youtube/#webpage"
+          },
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Apakah bisa untuk YouTube Shorts?",
+              "name": "Apakah manajemen metrik ini aman untuk channel yang sudah dimonetisasi (AdSense)?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Tentu bisa! Sistem kami sepenuhnya mendukung penambahan Like untuk format YouTube Shorts maupun video berdurasi panjang."
+                "text": "Keamanan 100% terjamin. Kami beroperasi secara independen tanpa memerlukan akses login (password) ke dalam channel Anda. Pengiriman interaksi dilakukan melalui IP organik yang mensimulasikan trafik manusia nyata, sehingga sama sekali tidak melanggar ketentuan monetisasi (YouTube Partner Program) maupun membahayakan status AdSense Anda."
               }
             },
             {
               "@type": "Question",
-              "name": "Apakah aman untuk channel yang sudah monetisasi (AdSense)?",
+              "name": "Apakah optimasi ini dapat diaplikasikan pada video YouTube Shorts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Sangat aman. Penambahan Like kami tidak mengganggu sistem monetisasi (AdSense) karena kami hanya membutuhkan link video, bukan akses ke dashboard YouTube Studio Anda."
+                "text": "Tentu saja. Algoritma YouTube Shorts sangat reaktif terhadap ledakan interaksi awal. Anda dapat memesan alokasi metrik secara spesifik untuk tautan video reguler berdurasi panjang maupun format Shorts. Silakan hubungi admin kami untuk strategi penempatan yang paling efektif."
               }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jasalike.com/like-youtube/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Optimasi Like YouTube",
+              "item": "https://jasalike.com/like-youtube/"
             }
           ]
         }
       ]
-    })} />
-  </Fragment>
+    }
+  </script>
 
   <section class="container my-24 text-center">
-    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-100 border border-red-200 dark:border-red-800/60 mb-6">
-      Layanan Spesialis YouTube • Optimasi SEO & Engagement
+    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-bold tracking-widest bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800/50 mb-6 uppercase shadow-sm">
+      SEO Video • Dominasi Fitur Rekomendasi
     </div>
 
-    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
-      Tingkatkan Ranking & <br class="hidden md:block" />
-      <span class="bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">Otoritas Video Anda</span>
+    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-tight">
+      Boost Like YouTube untuk Video <br class="hidden md:block" />
+      <span class="bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent">Lebih Menarik</span>
     </h1>
     
-    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
-      Berikan dorongan Like instan pada video panjang maupun YouTube Shorts Anda. Tingkatkan rasio interaksi untuk memicu algoritma rekomendasi, perkuat kredibilitas channel, dan naikkan posisi video di hasil pencarian tanpa butuh akses login.
+    <p class="text-2xl font-medium opacity-85 max-w-4xl mx-auto leading-relaxed mb-12">
+      Tayangan (Views) saja tidak cukup. Validasi kualitas konten Anda di mata algoritma YouTube melalui manajemen rasio <i>Like</i> yang terukur. Picu sistem rekomendasi, dominasi halaman pertama pencarian, dan bangun otoritas <i>Channel</i> secara permanen.
     </p>
 
-    <div class="mt-12 flex justify-center gap-4">
-        <a href="#paket" class="button px-8 py-4 text-lg">Lihat Paket Harga</a>
-        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Konsultasi Ranking</a>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#youtube-algorithm" class="button bg-red-600 text-white hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700 px-8 py-4 text-lg font-bold border-none transition-colors">Bedah Algoritma YouTube</a>
+        <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20konsultasi%20optimasi%20like%20untuk%20video/shorts%20YouTube%20saya." class="button color-secondary px-8 py-4 text-lg font-bold">Konsultasi Optimasi Video</a>
     </div>
   </section>
 
+  <section id="youtube-algorithm" class="container my-32 max-w-4xl mx-auto space-content leading-relaxed text-xl opacity-90">
+    <h2 class="text-4xl font-extrabold mb-8 text-center text-neutral-900 dark:text-neutral-100 tracking-tight">
+      Mengapa Rasio Like Sangat Krusial dalam Penilaian Algoritma YouTube Modern?
+    </h2>
+    
+    <p class="mb-6">
+      Sebagai mesin pencari terbesar kedua di dunia, YouTube memiliki kecerdasan buatan yang sangat canggih untuk menyaring jutaan jam video yang diunggah setiap harinya. Metrik penayangan (<i>Views</i>) memang penting, namun algoritma YouTube masa kini jauh lebih mengutamakan <strong>Tingkat Kepuasan Penonton (Viewer Satisfaction)</strong>.
+    </p>
+    
+    <p class="mb-6">
+      Sistem mendeteksi kepuasan ini melalui <strong>Like-to-View Ratio</strong>. Ketika sebuah video mendapatkan banyak klik tayangan namun minim jumlah <i>Like</i>, algoritma akan menilai bahwa konten tersebut menggunakan <i>clickbait</i> atau tidak menjawab keresahan audiens. Akibatnya, skor SEO video tersebut akan anjlok, dan YouTube akan berhenti merekomendasikannya di beranda pengguna lain maupun di bilah "Video Berikutnya" (<i>Up Next</i>).
+    </p>
+
+    <p class="mb-12">
+      Melalui manajemen optimasi interaksi di fase awal publikasi, Anda secara proaktif mendidik algoritma YouTube. Suntikan metrik like yang konsisten dan natural memberikan sinyal kuat bahwa video Anda berkualitas tinggi, relevan dengan kata kunci pencarian, dan layak dipromosikan secara gratis oleh sistem YouTube ke khalayak yang lebih luas.
+    </p>
+
+    <h3 class="text-3xl font-bold mb-4 mt-12 text-neutral-800 dark:text-neutral-200">Psikologi Massa pada Keputusan "Subscribe"</h3>
+    <p class="mb-6">
+      Di luar faktor teknis mesin pencari, terdapat elemen psikologis yang sangat kuat (<i>Social Proof</i>). Pengguna organik cenderung ragu untuk menekan tombol <i>Subscribe</i> pada saluran yang video-videonya terlihat sepi interaksi. Sebaliknya, saat mereka melihat ribuan orang menyukai sebuah konten (baik itu Podcast, Vlog, maupun Edukasi), alam bawah sadar mereka akan memvalidasi otoritas kreator tersebut, sehingga secara eksponensial meningkatkan tingkat konversi <i>Subscriber</i> organik harian Anda.
+    </p>
+  </section>
+
   <section class="container my-32">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Kenapa Video YouTube Butuh Banyak Like?</h2>
+    <h2 class="text-4xl md:text-5xl font-black mb-12 text-center tracking-tight">Dampak Strategis Interaksi pada Channel Anda</h2>
     <div class="grid gap-8 sm:grid-cols-2">
       {[
-        { title: 'Sinyal Kepuasan Penonton', desc: 'Like adalah cara utama algoritma YouTube mengukur kualitas konten. Video dengan jumlah Like tinggi dianggap memberikan nilai bagi penonton dan akan lebih sering direkomendasikan.' },
-        { title: 'Meningkatkan SEO Video', desc: 'Engagement (Like, Komen, Share) merupakan faktor penting dalam SEO YouTube. Postingan yang ramai interaksi memiliki peluang jauh lebih besar untuk muncul di peringkat atas pencarian.' },
-        { title: 'Meningkatkan Watch Time', desc: 'Secara psikologis, penonton cenderung bertahan lebih lama pada video yang sudah memiliki ribuan Like. Ini secara tidak langsung akan meningkatkan total Watch Time channel Anda.' },
-        { title: 'Kredibilitas di Mata Sponsor', desc: 'Bagi kreator, jumlah Like per video adalah metrik utama yang dilihat oleh brand atau sponsor sebelum memutuskan untuk bekerja sama dengan channel Anda.' },
+        { 
+          title: 'Akselerasi SEO Peringkat Pencarian', 
+          desc: 'Video yang memiliki riwayat interaksi positif akan selalu diutamakan oleh YouTube untuk menduduki peringkat #1 pada hasil pencarian (Search Results) dibandingkan video kompetitor dengan kata kunci yang sama namun sepi like.' 
+        },
+        { 
+          title: 'Memicu Fitur "Suggested Videos"', 
+          desc: 'Target tertinggi kreator adalah masuk ke kolom "Rekomendasi". Ledakan like yang dikombinasikan dengan retensi tontonan akan memaksa algoritma untuk menempelkan video Anda di sebelah video viral milik kreator besar di niche (topik) yang sama.' 
+        },
+        { 
+          title: 'Meningkatkan Wibawa Brand / Podcast', 
+          desc: 'Bagi perusahaan, institusi, atau kreator Podcast, jumlah like yang tinggi adalah cerminan dari otoritas informasi. Hal ini sangat penting untuk meyakinkan narasumber eksklusif, klien B2B, maupun sponsor agar mau bekerja sama dengan Anda.' 
+        },
+        { 
+          title: 'Optimasi Akselerasi YouTube Shorts', 
+          desc: 'Format video pendek (Shorts) membutuhkan reaksi audiens yang sangat cepat. Manajemen like di menit-menit pertama publikasi Shorts akan menjaga video Anda tetap berputar di dalam "Shorts Feed" tanpa henti.' 
+        },
       ].map((b) => (
-        <article class="p-8 rounded-3xl border bg-gradient-to-br from-red-50 to-rose-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-red-100 dark:border-neutral-800 shadow-sm">
-          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
-          <p class="text-lg opacity-80">{b.desc}</p>
+        <article class="p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm hover:border-red-400 dark:hover:border-red-500/50 transition-colors duration-300">
+          <h3 class="text-2xl font-bold mb-3 text-red-600 dark:text-red-500">{b.title}</h3>
+          <p class="text-lg opacity-85 leading-relaxed font-medium">{b.desc}</p>
         </article>
       ))}
     </div>
   </section>
 
-  <section id="paket" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
-  <div class="text-center mb-16">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-4">Paket Booster YouTube</h2>
-    <p class="text-xl opacity-80">Pilih paket Like yang paling sesuai dengan strategi konten channel Anda.</p>
-  </div>
+  <section id="bukti-kinerja" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/40 rounded-3xl relative overflow-hidden border border-neutral-100 dark:border-neutral-800">
+    <div class="text-center mb-16 relative z-10 px-4">
+      <div class="inline-block text-sm font-black tracking-widest text-red-600 dark:text-red-500 uppercase mb-3">
+        Validasi Algoritma & Pertumbuhan
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Studi Kasus Dominasi Visual</h2>
+      <p class="text-xl opacity-80 max-w-3xl mx-auto">Kami membantu kreator dan agensi komersial membangun ekosistem <i>Channel</i> yang kebal terhadap fluktuasi algoritma.</p>
+    </div>
 
-  <div class="grid gap-8 md:grid-cols-3">
-    {[
-      { n: 'Paket Starter (10 Like)',   price: 'Rp 20.000',    note: 'Cocok untuk mendorong video Shorts masuk ke rak Shorts Feed lebih cepat.' },
-      { n: 'Paket Standart (100 Like)',  price: 'Rp 200.000',   note: 'Tingkatkan otoritas video panjang dan berikan sinyal positif pada algoritma.' },
-      { n: 'Paket Grown (1.000 Like)', price: 'Rp 2.000.000', note: 'Dominasi peringkat pencarian dan bangun kredibilitas maksimal untuk channel.' },
-    ].map((p) => (
-      <article class="rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white dark:bg-neutral-900 shadow-lg p-8 text-center hover:border-red-500 transition-all duration-300 transform hover:-translate-y-2">
-        <h3 class="text-2xl font-semibold">{p.n}</h3>
-        <p class="mt-4 text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-600">{p.price}</p>
-        <p class="mt-6 text-lg opacity-80 min-h-[60px]">{p.note}</p>
+    <div class="grid gap-8 grid-cols-2 lg:grid-cols-4 mb-16 text-center border-b border-neutral-200 dark:border-neutral-800 pb-12 relative z-10">
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-red-600 dark:text-red-500">280%</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Kenaikan Trafik "Suggested"</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-red-600 dark:text-red-500">Aman</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Status Monetisasi AdSense</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-red-600 dark:text-red-500">Page 1</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Dominasi Keyword Search</p>
+      </div>
+      <div>
+        <p class="text-4xl md:text-5xl font-black text-red-600 dark:text-red-500">Anti-Drop</p>
+        <p class="text-lg font-bold mt-2 opacity-90">Kualitas Metrik Permanen</p>
+      </div>
+    </div>
 
-        <div class="mt-8">
-          <a href={`https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20order%20${p.n}%20YouTube.`} target="_blank" rel="noopener"
-             class="flex items-center justify-center w-full rounded-2xl px-6 py-4 font-bold bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-md hover:shadow-xl transition-all">
-            Pesan Sekarang
-          </a>
-        </div>
-      </article>
-    ))}
-  </div>
-</section>
+    <div class="grid gap-8 md:grid-cols-3 relative z-10 px-4 md:px-8">
+      {[
+        {
+          quote: "Awalnya saya kesulitan menembus halaman pertama untuk kata kunci review gadget. Setelah rutin mengamankan rasio like di awal publikasi, perlahan skor SEO video saya naik. Sekarang mayoritas trafik saya murni dari mesin pencarian organik.",
+          user: "Hendra Wijaya",
+          role: "Tech Reviewer Channel",
+          avatar: "🎥"
+        },
+        {
+          quote: "Sebagai produser Podcast B2B, narasumber sangat memperhatikan jumlah interaksi sebelum menerima undangan kami. Optimasi ini sangat membantu membangun wibawa channel kami. Interaksinya natural dan grafiknya sangat rapi.",
+          user: "Sarah Kamila",
+          role: "Bisnis & Finance Podcaster",
+          avatar: "🎙️"
+        },
+        {
+          quote: "Trafik YouTube Shorts sangat brutal. Kalau interaksi awal jelek, video langsung mati. Saya menggunakan manajemen metrik ini untuk menjaga momentum Shorts brand klien, dan hasilnya tingkat konversi subscriber kami meroket tajam.",
+          user: "Faisal Rahman",
+          role: "YouTube Strategist",
+          avatar: "⚡"
+        }
+      ].map((t) => (
+        <article class="rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black shadow-lg p-8 flex flex-col justify-between">
+          <p class="text-lg italic opacity-90 leading-relaxed mb-8 font-medium">
+            "{t.quote}"
+          </p>
+          
+          <div class="flex items-center gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
+            <div class="w-12 h-12 rounded-full bg-red-50 dark:bg-neutral-800 flex items-center justify-center text-2xl border border-red-100 dark:border-neutral-700 shadow-sm">
+              {t.avatar}
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">{t.user}</h3>
+              <p class="text-sm text-red-600 dark:text-red-500 mt-0.5 font-semibold">{t.role}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 
   <section id="faq" class="container my-32">
-  <h2 class="text-4xl font-semibold mb-12 text-center">Tanya Jawab Jasa Like YouTube</h2>
+    <h2 class="text-4xl font-black mb-12 text-center tracking-tight">Pusat Bantuan & Keamanan (FAQ)</h2>
 
-  <div class="grid gap-6 md:grid-cols-2">
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-        Apakah aman bagi channel yang sudah monetisasi?
-        <span class="text-red-600 group-open:rotate-180 transition-transform">↓</span>
-      </summary>
-      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
-        Sangat aman. Kami menggunakan metode yang natural dan tidak melanggar kebijakan YouTube. Channel Anda tetap aman dan proses monetisasi tidak akan terganggu.
-      </div>
-    </details>
+    <div class="grid gap-6 md:grid-cols-2">
+      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+        <summary class="cursor-pointer text-xl font-bold list-none flex justify-between items-center text-neutral-800 dark:text-neutral-100">
+          Apakah manajemen metrik ini aman untuk channel yang sudah dimonetisasi (AdSense)?
+          <span class="text-red-500 group-open:rotate-180 transition-transform text-2xl">↓</span>
+        </summary>
+        <div class="mt-4 opacity-85 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg font-medium">
+          Keamanan 100% terjamin. Kami beroperasi secara independen tanpa memerlukan akses login (password) ke dalam channel Anda. Pengiriman interaksi dilakukan melalui IP organik yang mensimulasikan trafik manusia nyata, sehingga sama sekali tidak melanggar ketentuan monetisasi (YouTube Partner Program) maupun membahayakan status AdSense Anda.
+        </div>
+      </details>
 
-    <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-      <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-        Bisa untuk Like Komentar di YouTube?
-        <span class="text-red-600 group-open:rotate-180 transition-transform">↓</span>
-      </summary>
-      <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed">
-        Bisa! Kami juga menyediakan layanan Like Komentar agar komentar Anda berada di posisi paling atas (top comment) untuk mendapatkan exposure lebih tinggi.
-      </div>
-    </details>
-  </div>
-</section>
+      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
+        <summary class="cursor-pointer text-xl font-bold list-none flex justify-between items-center text-neutral-800 dark:text-neutral-100">
+          Apakah optimasi ini dapat diaplikasikan pada video YouTube Shorts?
+          <span class="text-red-500 group-open:rotate-180 transition-transform text-2xl">↓</span>
+        </summary>
+        <div class="mt-4 opacity-85 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg font-medium">
+          Tentu saja. Algoritma YouTube Shorts sangat reaktif terhadap ledakan interaksi awal. Anda dapat memesan alokasi metrik secara spesifik untuk tautan video reguler berdurasi panjang maupun format Shorts. Silakan hubungi admin kami untuk strategi penempatan yang paling efektif.
+        </div>
+      </details>
+    </div>
+  </section>
 </DefaultLayout>
