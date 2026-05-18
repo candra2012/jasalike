@@ -32,58 +32,46 @@ const author = {
 };
 
 // URL Dinamis untuk artikel ini
-const currentUrl = `https://jasalike.my.id/blog/${Astro.params.post}/`;
+const currentUrl = `https://jasalike.com/blog/${Astro.params.post}/`;
 ---
 
 <DefaultLayout title={`${frontmatter.title} | Blog Jasalike`}>
   
-  <!-- ============== SEO & SCHEMA DINAMIS (DIRECT VERSION) ============== -->
-  <Fragment slot="head">
-    <meta name="description" content={frontmatter.description} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={currentUrl} />
-
-    <!-- Open Graph (Untuk dibagikan ke sosmed) -->
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content={currentUrl} />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:title" content={frontmatter.title} />
-    <meta property="og:description" content={frontmatter.description} />
-    <meta property="og:image" content={frontmatter.image ? `https://jasalike.my.id${frontmatter.image}` : "https://jasalike.my.id/logo-jasalike.png"} />
-    
-    <!-- Tag Artikel -->
-    <meta property="article:published_time" content={frontmatter.pubDate} />
-    <meta property="article:author" content={author.name} />
-
-    <!-- JSON-LD Schema (BlogPosting & Breadcrumb) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jasalike.my.id/blog/" },
-            { "@type": "ListItem", "position": 3, "name": frontmatter.title, "item": currentUrl }
-          ]
-        },
-        {
-          "@type": "BlogPosting",
-          "mainEntityOfPage": { "@type": "WebPage", "@id": currentUrl },
-          "headline": frontmatter.title,
-          "description": frontmatter.description,
-          "image": frontmatter.image ? `https://jasalike.my.id${frontmatter.image}` : "https://jasalike.my.id/logo-jasalike.png",
-          "author": { "@type": "Person", "name": author.name },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Jasalike",
-            "logo": { "@type": "ImageObject", "url": "https://jasalike.my.id/logo-jasalike.png" }
-          },
-          "datePublished": frontmatter.pubDate
-        }
-      ]
-    })} />
-  </Fragment>
+ <script type="application/ld+json" is:inline define:vars={{ 
+  title, 
+  description, 
+  pubDate, 
+  updatedDate: updatedDate || pubDate, 
+  heroImage: heroImage || '/default-og-image.jpg', // Gambar default jika artikel tidak ada gambar
+  canonicalURL: canonicalURL.href 
+}}>
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalURL
+    },
+    "headline": title,
+    "description": description,
+    "image": heroImage,
+    "datePublished": pubDate,
+    "dateModified": updatedDate,
+    "author": {
+      "@type": "Organization",
+      "name": "Aura Digital Team",
+      "url": "https://jasalike.com/tentang-kami/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aura Digital",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://jasalike.com/logo.png"
+      }
+    }
+  }
+</script>
 
   <!-- ============== ISI KONTEN ============== -->
   <PageHeader
