@@ -2,50 +2,36 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 ---
 
-<DefaultLayout title="Tentang Kami | Jasalike - Spesialis Jasa Like Sosial Media">
+<DefaultLayout title="Tentang Kami | Jasalike - Layanan Jasa Like Sosial Media">
   
-  <!-- ============== SEO & SCHEMA (DIRECT VERSION) ============== -->
-  <Fragment slot="head">
-    <meta name="description" content="Kenali Jasalike lebih dekat. Kami adalah platform spesialis layanan optimasi sosial media yang fokus memberikan interaksi berkualitas, aman, dan instan." />
-    <meta name="keywords" content="tentang jasalike, profil jasalike, spesialis jasa like, jasa sosial media terpercaya, layanan optimasi sosmed" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jasalike.my.id/tentang-kami/" />
-
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jasalike.my.id/tentang-kami/" />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:title" content="Tentang Kami | Jasalike" />
-    <meta property="og:description" content="Platform spesialis jasa Like sosial media yang aman, cepat, dan terpercaya." />
-    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
-
-    <!-- JSON-LD Schema (AboutPage & Organization) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head">
+    {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Tentang Kami", "item": "https://jasalike.my.id/tentang-kami/" }
-          ]
-        },
-        {
           "@type": "AboutPage",
-          "url": "https://jasalike.my.id/tentang-kami/",
-          "name": "Tentang Jasalike",
-          "description": "Informasi profil dan visi misi Jasalike sebagai penyedia layanan optimasi sosial media.",
-          "publisher": {
-            "@id": "https://jasalike.my.id/#organization"
-          }
+          "@id": "https://jasalike.com/tentang-kami/#webpage",
+          "url": "https://jasalike.com/tentang-kami/",
+          "name": "Tentang Kami | Profil Agensi Optimasi Aura Digital",
+          "description": "Pelajari lebih lanjut tentang dedikasi dan perjalanan kami sebagai agensi manajemen metrik sosial media profesional yang berfokus pada pertumbuhan brand Anda.",
+          "isPartOf": {
+            "@id": "https://jasalike.com/#website"
+          },
+          "inLanguage": "id-ID"
         },
         {
           "@type": "Organization",
-          "@id": "https://jasalike.my.id/#organization",
-          "name": "Jasalike",
-          "url": "https://jasalike.my.id/",
-          "logo": "https://jasalike.my.id/logo-jasalike.png",
-          "description": "Spesialis layanan interaksi sosial media untuk Instagram, TikTok, Facebook, Twitter, YouTube, dan LinkedIn.",
+          "@id": "https://jasalike.com/#organization",
+          "name": "Aura Digital",
+          "alternateName": "Jasa Like",
+          "url": "https://jasalike.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://jasalike.com/logo-utama.png",
+            "width": 512,
+            "height": 512
+          },
+          "description": "Aura Digital adalah agensi penyedia layanan optimasi media sosial dan manajemen interaksi digital untuk platform Instagram, TikTok, Facebook, YouTube, LinkedIn, dan X (Twitter).",
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+62-896-3474-0308",
@@ -53,10 +39,28 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
             "areaServed": "ID",
             "availableLanguage": "Indonesian"
           }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jasalike.com/tentang-kami/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Tentang Kami",
+              "item": "https://jasalike.com/tentang-kami/"
+            }
+          ]
         }
       ]
-    })} />
-  </Fragment>
+    }
+  </script>
 
   <!-- ============== ISI KONTEN HALAMAN ============== -->
   <section class="container my-24">
