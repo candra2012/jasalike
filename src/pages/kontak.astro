@@ -5,53 +5,69 @@ import { Icon } from 'astro-icon/components'
 
 <DefaultLayout title="Hubungi Kami | Jasalike - Layanan Pelanggan">
   
-  <!-- ============== SEO & SCHEMA (DIRECT VERSION) ============== -->
-  <Fragment slot="head">
-    <meta name="description" content="Hubungi Customer Service Jasalike untuk konsultasi gratis, pemesanan, atau pertanyaan seputar layanan optimasi sosial media." />
-    <meta name="keywords" content="kontak jasalike, hubungi jasalike, customer service jasalike, admin jasalike, konsultasi sosmed" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jasalike.my.id/kontak/" />
-
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jasalike.my.id/kontak/" />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:title" content="Hubungi Kami | Jasalike" />
-    <meta property="og:description" content="Butuh bantuan atau ingin konsultasi? Hubungi Customer Service Jasalike sekarang." />
-    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
-
-    <!-- JSON-LD Schema (ContactPage) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head">
+    {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Kontak", "item": "https://jasalike.my.id/kontak/" }
-          ]
-        },
-        {
           "@type": "ContactPage",
-          "url": "https://jasalike.my.id/kontak/",
-          "name": "Kontak Jasalike",
-          "description": "Halaman informasi kontak dan layanan pelanggan Jasalike."
+          "@id": "https://jasalike.com/kontak/#webpage",
+          "url": "https://jasalike.com/kontak/",
+          "name": "Hubungi Kami | Konsultasi Optimasi Media Sosial - Aura Digital",
+          "description": "Hubungi tim dukungan Aura Digital untuk konsultasi strategi optimasi metrik sosial media. Kami siap membantu pertumbuhan Instagram, TikTok, Facebook, dan platform lainnya.",
+          "isPartOf": {
+            "@id": "https://jasalike.com/#website"
+          },
+          "inLanguage": "id-ID"
         },
         {
           "@type": "Organization",
-          "@id": "https://jasalike.my.id/#organization",
-          "name": "Jasalike",
+          "@id": "https://jasalike.com/#organization",
+          "name": "Aura Digital",
+          "url": "https://jasalike.com/",
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+62-896-3474-0308",
             "contactType": "Customer Service",
             "areaServed": "ID",
-            "availableLanguage": "Indonesian"
+            "availableLanguage": "Indonesian",
+            "hoursAvailable": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "08:00",
+              "closes": "22:00"
+            }
           }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jasalike.com/kontak/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Hubungi Kami",
+              "item": "https://jasalike.com/kontak/"
+            }
+          ]
         }
       ]
-    })} />
-  </Fragment>
+    }
+  </script>
 
   <!-- ============== ISI KONTEN HALAMAN ============== -->
   <section class="container my-24">
