@@ -41,19 +41,19 @@ const currentUrl = `https://jasalike.com/blog/${Astro.params.post}/`;
 <DefaultLayout title={`${frontmatter.title} | Blog Jasalike`}>
   
  <script type="application/ld+json" is:inline define:vars={{ 
-  title, 
-  description, 
-  pubDate, 
-  updatedDate: updatedDate || pubDate, 
-  heroImage: heroImage || '/default-og-image.jpg', // Gambar default jika artikel tidak ada gambar
-  canonicalURL: canonicalURL.href 
+  title: frontmatter.title, 
+  description: frontmatter.description, 
+  pubDate: frontmatter.pubDate, 
+  updatedDate: frontmatter.updatedDate || frontmatter.pubDate, 
+  heroImage: frontmatter.heroImage || '/default-og-image.jpg', 
+  currentUrl // Kita lempar variabel currentUrl ke dalam script
 }}>
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": canonicalURL
+      "@id": currentUrl
     },
     "headline": title,
     "description": description,
