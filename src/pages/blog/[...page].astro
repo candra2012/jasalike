@@ -23,48 +23,10 @@ const { page } = Astro.props as Props
 
 const title = "Blog Seputar Optimasi Media Sosial | JasaLike";
 const description = "Temukan tips, trik, dan edukasi terbaru seputar algoritma Instagram, TikTok, dan Facebook untuk menaikkan engagement secara organik.";
-
 ---
 
-<DefaultLayout title="Blog Jasalike - Edukasi & Tips Sosial Media">
+<DefaultLayout title="Blog Jasalike - Edukasi & Tips Sosial Media" description={description}>
   
-<script type="application/ld+json" is:inline define:vars={{ 
-  title, 
-  description, 
-  pubDate, 
-  updatedDate: frontmatter.updatedDate || pubDate, 
-  heroImage: heroImage || '/default-og-image.jpg', 
-  currentUrl // Menggunakan currentUrl sesuai kodingan atasmu
-}}>
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": currentUrl
-    },
-    "headline": title,
-    "description": description,
-    "image": heroImage,
-    "datePublished": pubDate,
-    "dateModified": updatedDate,
-    "author": {
-      "@type": "Organization",
-      "name": "Aura Digital Team",
-      "url": "https://jasalike.com/tentang-kami/"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Aura Digital",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://jasalike.com/logo.png"
-      }
-    }
-  }
-</script>
-
-  <!-- ============== ISI KONTEN ============== -->
   <PageHeader
     title="Blog Jasalike"
     subtitle="Kumpulan artikel edukasi dan tips seputar optimasi sosial media untuk meningkatkan bisnis Anda."
@@ -80,7 +42,7 @@ const description = "Temukan tips, trik, dan edukasi terbaru seputar algoritma I
           page.data.map((post) => (
             <li class="list-none">
               <Card
-                imageComponent={post.frontmatter.image || '/logo-jasalike.png'}
+                imageComponent={post.frontmatter.heroImage || post.frontmatter.image || '/logo-jasalike.png'}
                 url={post.url}
                 title={post.frontmatter.title}
                 footer={post.frontmatter.pubDate}
