@@ -186,16 +186,19 @@ const description = "Kupas tuntas rahasia algoritma terbaru, tips meningkatkan e
       border-color: #93c5fd !important;
     }
 
-    .card__image {
-      height: 200px !important;
+        .card__image {
+      height: 250px !important; // Tinggi kita naikkan sedikit agar ruangnya lebih lega
       overflow: hidden;
+      background-color: #f9fafb; // Memberi latar belakang abu-abu lembut jika gambar tidak penuh
       
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain !important; // 👈 GANTI INI DARI cover MENJADI contain
+        padding: 1rem; // Memberi jarak napas di pinggiran kartu agar gambar tidak menempel ke garis tepi
       }
     }
+
 
     .card__content {
       padding: 1.5rem !important;
