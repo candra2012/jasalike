@@ -19,28 +19,29 @@ const { src = '/like-jasalike.png' }: Props = Astro.props
 
 <section class="hero my-24">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
-      <div class="flex flex-col items-center gap-8 md:items-start">
-        <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-gradient">Jasa Like Terpercaya</span> Cepat & Berkualitas</slot>
+    <div class="flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center gap-8">
+        
+        <h1 class="text-center text-6xl lg:text-8xl">
+          <slot><span class="text-gradient">Jasa Like Terpercaya</span> <br/> Cepat & Berkualitas</slot>
         </h1>
         
-        <p class="text-center text-2xl md:text-left">
-          Gunakan jasa like terpercaya untuk meningkatkan engagement dan popularitas akun sosial media Anda. cepat, aman, dan berkualitas
+        <p class="text-center text-2xl max-w-3xl">
+          Gunakan jasa like terpercaya untuk meningkatkan engagement dan popularitas akun sosial media Anda. Cepat, aman, dan berkualitas.
         </p>
 
-        <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a class="button has-icon" href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20order%20Jasa%20Like.%20Bisa%20minta%20pricelist?">
+        <div class="flex flex-col gap-3 min-[500px]:flex-row mt-4">
+          <a class="button has-icon" href="#layanan">
             <Icon name="lucide:list" />
-            Lihat Pricelist
+            Lihat Layanan
           </a>
-          <a class="button has-icon color-secondary" href="https://wa.me/6289634740308?text=Halo%20admin,%20saya%20mau%20konsultasi%20dulu%20soal%20Jasa%20Like.">
+          
+          <a class="button has-icon color-secondary" href="https://wa.me/6289634740308?text=Halo%20admin,%20saya%20mau%20konsultasi%20Jasa%20Like.">
             <Icon name="lucide:message-circle" />
             Konsultasi Gratis
           </a>
         </div>
       </div>
-      <Image class="hidden lg:block" src={src} alt="Ilustrasi Jasa Like" decoding="async" width={800} height={600} loading="eager" />
     </div>
   </div>
 </section>
