@@ -28,36 +28,38 @@ const description = "Temukan tips, trik, dan edukasi terbaru seputar algoritma I
 
 <DefaultLayout title="Blog Jasalike - Edukasi & Tips Sosial Media">
   
-<script type="application/ld+json" is:inline define:vars={{ title, description, pubDate, author, canonicalURL }}>
+<script type="application/ld+json" is:inline define:vars={{ 
+  title, 
+  description, 
+  pubDate, 
+  updatedDate: frontmatter.updatedDate || pubDate, 
+  heroImage: heroImage || '/default-og-image.jpg', 
+  currentUrl // Menggunakan currentUrl sesuai kodingan atasmu
+}}>
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": canonicalURL.href + "#blogposting",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": canonicalURL.href
+      "@id": currentUrl
     },
     "headline": title,
     "description": description,
+    "image": heroImage,
     "datePublished": pubDate,
-    "dateModified": pubDate, // Bisa disesuaikan jika ada variabel tanggal edit
+    "dateModified": updatedDate,
     "author": {
       "@type": "Organization",
       "name": "Aura Digital Team",
-      "url": "https://jasalike.com/"
+      "url": "https://jasalike.com/tentang-kami/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Aura Digital",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://jasalike.com/logo.png" // Sesuaikan dengan path logo aslimu
+        "url": "https://jasalike.com/logo.png"
       }
-    },
-    "isPartOf": {
-      "@type": "Blog",
-      "@id": "https://jasalike.com/blog/",
-      "name": "JasaLike Blog"
     }
   }
 </script>
