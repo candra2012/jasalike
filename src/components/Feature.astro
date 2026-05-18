@@ -20,11 +20,10 @@ interface Props {
 const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
 ---
 
-<div class="feature flex flex-col gap-4">
+<div class="feature flex flex-col gap-4 h-full">
   <Icon name={icon} />
-  <div class="content">
-    <h3 class="text-2xl font-bold">{title}</h3>
-    <p>
+  <div class="content flex-1"> <h3 class="text-2xl font-bold">{title}</h3>
+    <p class="mt-2">
       <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
     </p>
   </div>
@@ -37,6 +36,7 @@ const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
     position: relative;
     padding: var(--space-l);
     inline-size: calc(100% - var(--space-l));
+    height: 100%; /* Memaksa elemen flex memiliki tinggi penuh */
 
     > * {
       position: relative;
@@ -64,7 +64,8 @@ const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
 
     &::after {
       z-index: 0;
-      inset: var(--space-m) -0.85rem -0.85rem 1rem;
+      /* Mengubah parameter inset agar background ungu mengikuti tinggi 100% border utama */
+      inset: var(--space-m) -0.85rem -0.85rem var(--space-m);
       border-radius: var(--radius-l);
       background-color: var(--link-color);
     }
