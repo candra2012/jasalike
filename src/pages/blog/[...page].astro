@@ -45,7 +45,12 @@ const description = "Temukan tips, trik, dan edukasi terbaru seputar algoritma I
                 imageComponent={post.frontmatter.heroImage || post.frontmatter.image || '/logo-jasalike.png'}
                 url={post.url}
                 title={post.frontmatter.title}
-                footer={post.frontmatter.pubDate}
+                /* SEKARANG SUDAH DIUBAH MENJADI FORMAT INDONESIA YANG RAPI */
+                footer={new Date(post.frontmatter.pubDate).toLocaleDateString('id-ID', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
               >
                 {post.frontmatter.description}
               </Card>
@@ -82,3 +87,4 @@ const description = "Temukan tips, trik, dan edukasi terbaru seputar algoritma I
     }
   }
 </style>
+
