@@ -56,10 +56,36 @@ Header Component
   
 <style lang="scss" is:global>
   header {
+    /* 1. PAKSA SEMUA TEKS DAN ICON MENJADI PUTIH */
+    --font-color: #ffffff;
+    --action-color: #ffffff;
+    color: #ffffff !important;
+
+    a, button, span, .logo {
+      color: #ffffff !important;
+    }
+
+    /* Memaksa icon garis tiga (hamburger) dan logo menjadi putih */
+    svg {
+      color: #ffffff !important;
+    }
+
+    /* 2. BACKGROUND MENU DROPDOWN JADI GELAP */
+    /* Karena teksnya kita buat putih semua, kita harus pastikan background 
+       kotak menu dropdown-nya gelap, agar teks putihnya tidak hilang di background putih */
+    .dropdown-menu {
+      background-color: #0f172a !important; 
+      border: 1px solid #1e293b;
+    }
+    
+    .dropdown-menu a {
+      color: #ffffff !important;
+    }
+
+    /* Mengatur ukuran icon dark mode */
     .type-icon {
       display: block;
       margin-inline: -7px;
-
       svg { 
         inline-size: 30px; 
         block-size: 30px; 
@@ -78,27 +104,23 @@ Header Component
       border-radius: 9999px;
       font-weight: 700;
       text-decoration: none;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-color, transparent);
       box-shadow: 0 6px 18px rgb(0 0 0 / .08);
       background-image: linear-gradient(135deg, #22c55e, #06b6d4);
-      color: #fff;
+      color: #ffffff !important;
       transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
     }
+    
     .menu-item.cta a [data-icon] {
       inline-size: 20px; 
       block-size: 20px;
     }
+    
     .menu-item.cta a:hover,
     .menu-item.cta a:focus-visible {
       transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgb(0 0 0 / .12);
+      box-shadow: 0 10px 22px rgb(0 0 0 / .2);
       opacity: .95;
-    }
-    
-    /* Memastikan teks dropdown tetap terbaca jika background menu gelap */
-    .dropdown-menu a {
-      color: #1e293b; 
     }
   }
 </style>
-
