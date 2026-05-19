@@ -1,6 +1,12 @@
 ---
+// src/pages/layanan.astro
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import { Icon } from 'astro-icon/components'
+
+// 1. Variabel SEO halaman Layanan (Murni fokus Jasa Like)
+const title = "Daftar Layanan Jasa Like Lengkap | Jasalike";
+const description = "Pusat layanan spesialis Jasa Like untuk Instagram, TikTok, Facebook, YouTube, Twitter, dan LinkedIn. Proses instan, 100% aman, dan bergaransi.";
+const keywords = "layanan jasa like, daftar harga jasa like, jasa like instagram, jasa like tiktok, jasa like facebook, jasalike";
 
 // ====== DATA LAYANAN PER PLATFORM (FOKUS 100% LIKE) ======
 const sections = [
@@ -68,89 +74,88 @@ const sections = [
 ]
 ---
 
-<DefaultLayout title="Daftar Layanan Jasa Like Lengkap | Jasalike">
+<DefaultLayout title={title} description={description} keywords={keywords}>
 
-    <script type="application/ld+json" slot="head">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://jasalike.com/layanan/#webpage",
-        "url": "https://jasalike.com/layanan/",
-        "name": "Daftar Layanan Jasa Like Spesialis Terlengkap | JasaLike",
-        "description": "Pusat layanan spesialis Jasa Like untuk Instagram, TikTok, Facebook, YouTube, Twitter, dan LinkedIn. Proses instan, 100% aman, dan bergaransi.",
-        "isPartOf": {
-          "@id": "https://jasalike.com/#website"
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://jasalike.com/layanan/#webpage",
+          "url": "https://jasalike.com/layanan/",
+          "name": "Daftar Layanan Jasa Like Spesialis Terlengkap | JasaLike",
+          "description": "Pusat layanan spesialis Jasa Like untuk Instagram, TikTok, Facebook, YouTube, Twitter, dan LinkedIn. Proses instan, 100% aman, dan bergaransi.",
+          "isPartOf": {
+            "@id": "https://jasalike.com/#website"
+          },
+          "inLanguage": "id-ID"
         },
-        "inLanguage": "id-ID"
-      },
-      {
-        "@type": "ItemList",
-        "@id": "https://jasalike.com/layanan/#itemlist",
-        "name": "Katalog Layanan JasaLike",
-        "description": "Daftar lengkap layanan optimasi like media sosial yang kami sediakan.",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "url": "https://jasalike.com/like-instagram/",
-            "name": "Jasa Like Instagram"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "url": "https://jasalike.com/like-tiktok/",
-            "name": "Jasa Like TikTok"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "url": "https://jasalike.com/like-facebook/",
-            "name": "Jasa Like Facebook"
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "url": "https://jasalike.com/like-twitter/",
-            "name": "Jasa Like Twitter"
-          },
-          {
-            "@type": "ListItem",
-            "position": 5,
-            "url": "https://jasalike.com/like-youtube/",
-            "name": "Jasa Like YouTube"
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
-            "url": "https://jasalike.com/like-linkedin/",
-            "name": "Jasa Like LinkedIn"
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://jasalike.com/layanan/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Beranda",
-            "item": "https://jasalike.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Layanan",
-            "item": "https://jasalike.com/layanan/"
-          }
-        ]
-      }
-    ]
-  }
-</script>
-
+        {
+          "@type": "ItemList",
+          "@id": "https://jasalike.com/layanan/#itemlist",
+          "name": "Katalog Layanan JasaLike",
+          "description": "Daftar lengkap layanan optimasi like media sosial yang kami sediakan.",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://jasalike.com/like-instagram/",
+              "name": "Jasa Like Instagram"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://jasalike.com/like-tiktok/",
+              "name": "Jasa Like TikTok"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://jasalike.com/like-facebook/",
+              "name": "Jasa Like Facebook"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "url": "https://jasalike.com/like-twitter/",
+              "name": "Jasa Like Twitter"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "url": "https://jasalike.com/like-youtube/",
+              "name": "Jasa Like YouTube"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "url": "https://jasalike.com/like-linkedin/",
+              "name": "Jasa Like LinkedIn"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://jasalike.com/layanan/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Layanan",
+              "item": "https://jasalike.com/layanan/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
 
   <section class="container my-12">
     <h1 class="text-5xl md:text-6xl font-bold text-gradient">Katalog Layanan Like</h1>
@@ -205,3 +210,4 @@ const sections = [
     }
   </style>
 </DefaultLayout>
+
