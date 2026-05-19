@@ -1,21 +1,15 @@
 ---
-
 import Navigation from '../components/Navigation.astro'
 import { DarkMode, SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
 /**
-
 Header Component
-
 @description A component that displays the header of the website
 */
-
-
-
 ---
 
-<header>
+<header class="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md text-white shadow-lg transition-all duration-300">
   <SkipLink />
   <Navigation>
     <li class="menu-item"><a href="/">Home</a></li>
@@ -24,13 +18,12 @@ Header Component
     <li class="menu-item"><a href="/blog/">Blog</a></li>
     <li class="menu-item"><a href="/kontak/">Kontak</a></li>
 
-    <!-- Dropdown -->
     <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false">
         Produk & Jasa
         <Icon name="lucide:chevron-down" size="32" />
       </button>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu text-slate-800">
         <li class="submenu-item"><a href="/like-instagram/">Liker Instagram</a></li>
         <li class="submenu-item"><a href="/like-tiktok/">Like TikTok</a></li>
         <li class="submenu-item"><a href="/like-facebook/">Like Facebook</a></li>
@@ -40,10 +33,8 @@ Header Component
       </ul>
     </li>
 
-    <!-- SPACER: dorong item berikutnya ke kanan -->
     <li class="menu-spacer" aria-hidden="true"></li>
 
-    <!-- CTA WhatsApp di kanan -->
     <li class="menu-item cta">
       <a
         href="https://wa.me/6289634740308?text=Halo%20admin%2C%20saya%20ingin%20konsultasi%20layanan%20like."
@@ -54,7 +45,6 @@ Header Component
       </a>
     </li>
 
-    <!-- Dark mode toggle -->
     <li class="menu-item type-icon animate-rotate">
       <DarkMode>
         <Icon name="lucide:moon" slot="light" />
@@ -104,5 +94,11 @@ Header Component
       box-shadow: 0 10px 22px rgb(0 0 0 / .12);
       opacity: .95;
     }
+    
+    /* Memastikan teks dropdown tetap terbaca jika background menu gelap */
+    .dropdown-menu a {
+      color: #1e293b; 
+    }
   }
 </style>
+
