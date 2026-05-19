@@ -9,10 +9,12 @@ import { ClientRouter } from 'astro:transitions'
 // 1. Import komponen SEO khusus yang murni fokus Jasa Like
 import SEO from '@components/SEO.astro'
 
+// 👇 TAMBAHKAN 'keywords' DI DALAM SINI, CAN!
 const {
   title = 'Jasa Like Terpercaya No. 1 | Tambah Likes Media Sosial Cepat & Aman', 
   description = 'Layanan jasa like terbaik untuk Instagram, TikTok, Facebook, dan Twitter. Proses cepat, aman tanpa password, murah, dan bergaransi penuh.', 
-  image = '/logo-auradigital.png', // Sesuaikan path logo jasalike
+  keywords, // <--- Ini kunci utamanya agar tidak kosong!
+  image = '/logo-auradigital.png', 
 } = Astro.props
 ---
 
@@ -23,7 +25,7 @@ const {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <SEO title={title} description={description} image={image} />
+    <SEO title={title} description={description} keywords={keywords} image={image} />
 
     <slot name="head" />
 
@@ -45,3 +47,4 @@ const {
     </style>
   </body>
 </html>
+
