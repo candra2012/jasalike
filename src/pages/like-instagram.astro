@@ -2,20 +2,15 @@
 // src/pages/like-instagram.astro
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 
-// Kita siapkan kata kunci (keywords) murni Like Instagram di sini
+// 1. Siapkan semua data SEO khusus Instagram di sini
+const title = "Jasa Like IG Real Indonesia Cepat & Terpercaya";
+const description = "Tingkatkan engagement postingan dengan jasa like IG real Indonesia yang cepat, aman, terpercaya, dan cocok untuk personal maupun bisnis.";
 const keywords = "jasa like instagram, beli likes ig, like instagram aktif, jasa like reels, tambah like ig murah, jasalike instagram, beli like instagram terpercaya";
 ---
 
-<DefaultLayout 
-  title="Jasa Like IG Real Indonesia Cepat & Terpercaya"
-  description="Tingkatkan engagement postingan dengan jasa like IG real Indonesia yang cepat, aman, terpercaya, dan cocok untuk personal maupun bisnis."
->
+<DefaultLayout title={title} description={description} keywords={keywords}>
   
-  <meta name="keywords" content={keywords} slot="head" />
-  <meta name="robots" content="index, follow" slot="head" />
-
   <script type="application/ld+json" slot="head">
-
     {
       "@context": "https://schema.org",
       "@graph": [
