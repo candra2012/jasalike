@@ -11,17 +11,15 @@ import ContentMedia from '@components/ContentMedia.astro'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
-// Kita hapus import SiteMetaHome yang gaib, lalu deskripsi & keywords kita siapkan di sini
-const description = "jasa like media sosial terlengkap. Tingkatkan interaksi postingan dan video Anda di TikTok, Instagram, dan Facebook secara instan, aman, dan terpercaya.";
-const keywords = "jasa like, beli like instagram, jasa like tiktok, tempat beli like facebook, jasa like tiktok, jasalike, jasa like instagram, jasa like facebook, jasa like youtube, jasa like twitter, jasa like asli, jasa like terpercaya, jasa like aktif, jasa like murah, tambah like";
+// 1. Daftarkan title, description, dan keywords murni Like di sini
+const title = "Jasa Like Terpercaya | Tambah Like Media Sosial Cepat & Aman";
+const description = "Jasa like media sosial terlengkap. Tingkatkan interaksi postingan dan video Anda di TikTok, Instagram, dan Facebook secara instan, aman, dan terpercaya.";
+const keywords = "jasa like, beli like instagram, jasa like tiktok, tempat beli like facebook, jasalike, jasa like asli, jasa like murah, tambah like";
 ---
 
-<DefaultLayout 
-  title="Jasa Like Terpercaya | Tambah Like Media Sosial Cepat & Aman"
-  description={description}
->
-  <meta name="keywords" content={keywords} slot="head" />
-  <meta name="robots" content="index, follow" slot="head" />
+<DefaultLayout title={title}>
+  
+  <SEO title={title} description={description} keywords={keywords} />
 
   <script type="application/ld+json" slot="head">
     {
