@@ -1,6 +1,5 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
-import SiteMetaHome from '@components/SiteMetaHome.astro'
 import HomeSchemas from '@components/HomeSchemas.astro'
 import OrganizationSchema from '@components/OrganizationSchema.astro'
 
@@ -10,11 +9,20 @@ import Counter from '@components/Counter.astro'
 import ContentMedia from '@components/ContentMedia.astro'
 import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
+
+// Kita hapus import SiteMetaHome yang gaib, lalu deskripsi & keywords kita siapkan di sini
+const description = "jasa like media sosial terlengkap. Tingkatkan interaksi postingan dan video Anda di TikTok, Instagram, dan Facebook secara instan, aman, dan terpercaya.";
+const keywords = "jasa like, beli like instagram, jasa like tiktok, tempat beli like facebook, jasa like tiktok, jasalike, jasa like instagram, jasa like facebook, jasa like youtube, jasa like twitter, jasa like asli, jasa like terpercaya, jasa like aktif, jasa like murah, tambah like";
 ---
 
-<DefaultLayout title="Jasa Like Terpercaya | Tambah Like Media Sosial Cepat & Aman">
+<DefaultLayout 
+  title="Jasa Like Terpercaya | Tambah Like Media Sosial Cepat & Aman"
+  description={description}
+>
+  <meta name="keywords" content={keywords} slot="head" />
+  <meta name="robots" content="index, follow" slot="head" />
 
- <script type="application/ld+json" slot="head">
+  <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@graph": [
