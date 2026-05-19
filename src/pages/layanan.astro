@@ -69,51 +69,88 @@ const sections = [
 ---
 
 <DefaultLayout title="Daftar Layanan Jasa Like Lengkap | Jasalike">
-  
-    <Fragment slot="head">
-    <meta name="description" content="Pusat spesialis layanan Like untuk Instagram, TikTok, Facebook, Twitter (X), YouTube, dan LinkedIn. Proses instan, aman tanpa password." />
-    <meta name="keywords" content="jasa like instagram, jasa like tiktok, beli like facebook, jasa like youtube, jasa like twitter, like linkedin" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jasalike.my.id/layanan/" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jasalike.my.id/layanan/" />
-    <meta property="og:site_name" content="Jasalike" />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:title" content="Daftar Layanan Jasa Like Lengkap | Jasalike" />
-    <meta property="og:description" content="Pusat spesialis layanan Like sosial media. Proses instan, aman, dan tanpa password." />
-    <meta property="og:image" content="https://jasalike.my.id/logo-jasalike.png" />
-    <meta property="og:image:alt" content="Katalog Layanan Jasalike" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Daftar Layanan Jasa Like Lengkap | Jasalike" />
-    <meta name="twitter:description" content="Pusat spesialis layanan Like sosial media. Proses instan, aman, dan tanpa password." />
-    <meta name="twitter:image" content="https://jasalike.my.id/logo-jasalike.png" />
-
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://jasalike.my.id/" },
-            { "@type": "ListItem", "position": 2, "name": "Layanan", "item": "https://jasalike.my.id/layanan/" }
-          ]
+    <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://jasalike.com/layanan/#webpage",
+        "url": "https://jasalike.com/layanan/",
+        "name": "Daftar Layanan Jasa Like Spesialis Terlengkap | JasaLike",
+        "description": "Pusat layanan spesialis Jasa Like untuk Instagram, TikTok, Facebook, YouTube, Twitter, dan LinkedIn. Proses instan, 100% aman, dan bergaransi.",
+        "isPartOf": {
+          "@id": "https://jasalike.com/#website"
         },
-        {
-          "@type": "ItemList",
-          "name": "Katalog Jasa Like Jasalike",
-          "url": "https://jasalike.my.id/layanan/",
-          "itemListElement": sections.map((sec, index) => ({
+        "inLanguage": "id-ID"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://jasalike.com/layanan/#itemlist",
+        "name": "Katalog Layanan JasaLike",
+        "description": "Daftar lengkap layanan optimasi like media sosial yang kami sediakan.",
+        "itemListElement": [
+          {
             "@type": "ListItem",
-            "position": index + 1,
-            "name": `Jasa Like ${sec.title}`,
-            "url": `https://jasalike.my.id/${sec.id === 'twitter' ? 'like-twitter' : 'like-' + sec.id}/`
-          }))
-        }
-      ]
-    })} />
-  </Fragment>
+            "position": 1,
+            "url": "https://jasalike.com/like-instagram/",
+            "name": "Jasa Like Instagram"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://jasalike.com/like-tiktok/",
+            "name": "Jasa Like TikTok"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://jasalike.com/like-facebook/",
+            "name": "Jasa Like Facebook"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://jasalike.com/like-twitter/",
+            "name": "Jasa Like Twitter"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://jasalike.com/like-youtube/",
+            "name": "Jasa Like YouTube"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://jasalike.com/like-linkedin/",
+            "name": "Jasa Like LinkedIn"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://jasalike.com/layanan/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://jasalike.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Layanan",
+            "item": "https://jasalike.com/layanan/"
+          }
+        ]
+      }
+    ]
+  }
+</script>
+
 
   <section class="container my-12">
     <h1 class="text-5xl md:text-6xl font-bold text-gradient">Katalog Layanan Like</h1>
