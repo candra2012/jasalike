@@ -1,0 +1,82 @@
+---
+// src/components/Manfaat.astro
+---
+<section class="py-24 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="text-center mb-20">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+        Manfaat Nyata yang <span class="text-blue-600">Anda Dapatkan</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Bukan sekadar kosmetik digital. Optimasi interaksi yang tepat akan membuka keran potensi organik akun media sosial Anda secara masif.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <div class="animate-on-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white transition-shadow">
+        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">01</div>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">Algoritma Membaik</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Sinyal interaksi yang tinggi memicu algoritma platform untuk merekomendasikan konten Anda ke audiens yang lebih luas secara organik.
+        </p>
+      </div>
+
+      <div class="animate-on-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out delay-100 bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white transition-shadow">
+        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">02</div>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">Meningkatkan Closing</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Akun jualan yang ramai interaksi secara psikologis menurunkan keraguan calon pembeli, sehingga konversi penjualan Anda meningkat.
+        </p>
+      </div>
+
+      <div class="animate-on-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out delay-200 bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white transition-shadow">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">03</div>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">Efisiensi Waktu</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Anda tidak perlu stres menunggu interaksi pertama berhari-hari. Biarkan kami yang memicu keramaian di awal postingan Anda.
+        </p>
+      </div>
+
+      <div class="animate-on-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out delay-300 bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white transition-shadow">
+        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">04</div>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">Brand Authority</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Membangun citra bahwa *brand* atau diri Anda adalah pemain besar yang diminati dan diperhatikan oleh banyak netizen.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Fungsi ini berjalan otomatis setelah halaman selesai dimuat
+  const initScrollAnimation = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new Intersection Observer((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Ketika discroll dan kotak masuk ke layar, hapus efek sembunyi dan geser
+          entry.target.classList.remove('opacity-0', 'translate-y-12');
+          // Tambahkan efek timbul permanen
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          // Berhenti mengamati jika sudah animasi sekali (biar performa enteng)
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1 // Animasi mulai jalan saat 10% bagian kotak sudah masuk layar
+    });
+
+    elements.forEach((el) => observer.observe(el));
+  };
+
+  // Mendukung sistem transisi halaman Astro View Transitions
+  document.addEventListener('astro:page-load', initScrollAnimation);
+  // Fallback jika tidak pakai View Transitions
+  initScrollAnimation();
+</script>
+
