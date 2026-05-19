@@ -1,13 +1,16 @@
 ---
-// src/pages/like-facebook.astro
+// src/pages/like-instagram.astro
 import DefaultLayout from '@layouts/DefaultLayout.astro'
+
+// 1. Siapkan semua data SEO khusus Instagram di sini
+const title = "Jasa Like FB Aktif dan Terpercaya";
+const description = "Tingkatkan Popularitas postingan dengan jasa like Facebook aktif dan Terpercaya";
+const keywords = "jasa like facebook, jasa like postingan facebook, jasa like komen facebook, jasa like facebook indonesia, jasa like fb, jasa like halaman facebook";
 ---
 
-<DefaultLayout title="Jasa Like Facebook Murah Cepat & Terpercaya"
-  description="Tingkatkan like Facebook dengan layanan murah, cepat, dan terpercaya untuk membuat postingan lebih ramai, menarik, dan dipercaya audiens."
->
-
-      <script type="application/ld+json" slot="head">
+<DefaultLayout title={title} description={description} keywords={keywords}>
+  
+  <script type="application/ld+json" slot="head">
     {
       "@context": "https://schema.org",
       "@graph": [
