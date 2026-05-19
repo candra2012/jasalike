@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownPostLayout.astro
+layout: ../../layouts/MarkdownLayout.astro
 title: "Rahasia Algoritma TikTok 2026: Mengapa Rasio Likes dan Views Menentukan Konten Anda Masuk FYP"
 pubDate: "2026-05-19"
 description: "Ingin tahu cara agar video TikTok Anda tidak mentok di 200 views? Pelajari bagaimana metrik likes bekerja dalam algoritma TikTok terbaru dan strategi menaikkan interaksi secara instan."
