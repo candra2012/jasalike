@@ -56,7 +56,8 @@
   const initScrollAnimation = () => {
     const elements = document.querySelectorAll('.animate-on-scroll');
     
-    const observer = new Intersection Observer((entries) => {
+    // Perbaikan: IntersectionObserver digabung tanpa spasi
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Ketika discroll dan kotak masuk ke layar, hapus efek sembunyi dan geser
@@ -79,4 +80,3 @@
   // Fallback jika tidak pakai View Transitions
   initScrollAnimation();
 </script>
-
