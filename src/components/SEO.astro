@@ -1,33 +1,24 @@
 ---
-// src/components/SEO.astro
-const { 
-  title, 
-  description, 
-  keywords = "jasa like, jasalike, beli like, like murah, tambah like, jasa like instagram, jasa like tiktok, jasa like facebook, jasa like twitter, jasa like youtube, jasa like terpercaya, jasa like aktif, jasa like cepat, jasa like aman, jasa like asli, jasa like real, jasa like roblox",// 100% murni fokus LIKE
-  robots = "index, follow", 
-  url = Astro.url.href, 
-  image = "/images/og-image.png" 
-} = Astro.props;
+// src/components/SiteMetaHome.astro
+// Komponen ini bertugas menangkap data dari Frontmatter index.astro
+const { title, description, keywords } = Astro.props
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="keywords" content={keywords} />
-<meta name="robots" content={robots} />
-<link rel="canonical" href={url} />
-
-<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="keywords" content={keywords} /> <meta name="robots" content="index, follow" />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={url} />
+<meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
-<meta property="og:site_name" content="JasaLike" />
-<meta property="og:locale" content="id_ID" />
+<meta property="og:image" content={new URL('/social-preview.webp', Astro.url)} />
 
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={url} />
+<meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL('/social-preview.webp', Astro.url)} />
+
+<link rel="canonical" href={Astro.url} />
+
