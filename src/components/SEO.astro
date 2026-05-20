@@ -1,8 +1,20 @@
 ---
-// src/components/SiteMetaHome.astro
-// Komponen ini bertugas menangkap data dari Frontmatter index.astro
-const { title, description, keywords } = Astro.props
+// src/components/SEO.astro
+
+// 1. Tangkap data dari DefaultLayout
+const {
+  title,
+  description,
+  keywords, // <--- Pastikan kata ini ada di sini!
+  url = Astro.url,
+  image,
+} = Astro.props;
 ---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+{keywords && <meta name="keywords" content={keywords} />}
 
 <title>{title}</title>
 <meta name="description" content={description} />
