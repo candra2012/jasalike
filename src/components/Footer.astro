@@ -1,5 +1,4 @@
 ---
-import CallToAction from './CallToAction.astro'
 import ExternalLink from './ExternalLink.astro'
 import Logo from './Logo.astro'
 import { Icon } from 'astro-icon/components'
@@ -8,13 +7,10 @@ const currentYear = new Date().getFullYear()
 ---
 
 <footer>
-  <CallToAction />
-
   <section class="py-20">
     <h2 class="sr-only">Footer</h2>
     <div class="container grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
       
-      <!-- Navigation -->
       <div class="flex flex-col gap-4">
         <h3 class="text-2xl font-bold">Navigation</h3>
         <ul class="flex flex-col gap-2">
@@ -26,7 +22,6 @@ const currentYear = new Date().getFullYear()
         </ul>
       </div>
 
-      <!-- Layanan -->
       <div class="flex flex-col gap-4">
         <h3 class="text-2xl font-bold">Layanan</h3>
         <ul class="flex flex-col gap-2">
@@ -39,7 +34,6 @@ const currentYear = new Date().getFullYear()
         </ul>
       </div>
 
-      <!-- Kontak -->
       <div class="flex flex-col gap-4">
         <h3 class="text-2xl font-bold">Kontak</h3>
         <ul class="flex flex-col gap-2">
@@ -50,10 +44,16 @@ const currentYear = new Date().getFullYear()
           </li>
           <li><a href="mailto:bisnis@jasalike.com">Email: jasalike@gmail.com</a></li>
           <li>Jam kerja: 09.00–22.00 WIB (darurat 24/7)</li>
+          
+          <li class="mt-3 mb-1 text-sm leading-relaxed opacity-90 border-l-2 border-blue-500 pl-3">
+            <strong>Kantor AuraDigital:</strong><br />
+            Jl. Contoh Alamat Kantor No. 123,<br />
+            Kecamatan, Kota,<br />
+            Provinsi, Kode Pos 12345
+          </li>
         </ul>
 
-        <!-- Sosmed icons -->
-        <div class="mt-4 flex items-center gap-3" aria-label="Ikuti kami di media sosial">
+        <div class="mt-2 flex items-center gap-3" aria-label="Ikuti kami di media sosial">
           <a class="soc" href="https://wa.me/6289634740308" aria-label="WhatsApp">
             <Icon name="lucide:phone" size="18" />
           </a>
@@ -63,7 +63,7 @@ const currentYear = new Date().getFullYear()
           <a class="soc" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
             <Icon name="lucide:music-2" size="18" />
           </a>
-          <a class="soc" href="jasalike@gmail.com" aria-label="Email">
+          <a class="soc" href="mailto:jasalike@gmail.com" aria-label="Email">
             <Icon name="lucide:mail" size="18" />
           </a>
           <a class="soc" href="https://t.me/auradigitalID" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
@@ -75,7 +75,6 @@ const currentYear = new Date().getFullYear()
         </div>
       </div>
 
-      <!-- Brand -->
       <div class="flex flex-col gap-4">
         <Logo loading="lazy" />
         <p class="leading-[1.75] opacity-80">
@@ -85,7 +84,6 @@ const currentYear = new Date().getFullYear()
     </div>
   </section>
 
-  <!-- Bottom bar -->
   <section class="py-8">
     <div class="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <p>&copy; {currentYear} – <strong>jasa like</strong>. All rights reserved.</p>
@@ -124,3 +122,4 @@ const currentYear = new Date().getFullYear()
     }
   }
 </style>
+
