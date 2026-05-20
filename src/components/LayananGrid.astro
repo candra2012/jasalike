@@ -2,7 +2,6 @@
 // src/components/LayananGrid.astro
 import { Icon } from 'astro-icon/components';
 
-// Kita tambahkan properti "link" untuk mengarahkan ke halaman masing-masing
 const platforms = [
   { name: 'Instagram', icon: 'lucide:instagram', color: 'bg-pink-500', desc: 'Like, Followers, Reels & View Instan.', link: '/like-instagram/' },
   { name: 'TikTok', icon: 'lucide:music-2', color: 'bg-slate-900', desc: 'Like & Views untuk dorongan FYP.', link: '/like-tiktok/' },
@@ -16,18 +15,16 @@ const platforms = [
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {platforms.map((p) => (
-        /* Perhatikan: Tag <div> diganti jadi <a> dengan class "block" agar satu kotak full bisa diklik */
-        <a href={p.link} class="group block p-8 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+        <a href={p.link} class="group block p-8 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 !no-underline">
           
           <div class={`${p.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
             <Icon name={p.icon} class="w-8 h-8" />
           </div>
           
-          <h3 class="text-2xl font-bold text-slate-900 mb-3">{p.name}</h3>
-          <p class="text-slate-600 mb-6 leading-relaxed">{p.desc}</p>
+          <h3 class="text-2xl font-bold !text-slate-900 mb-3">{p.name}</h3>
+          <p class="!text-slate-600 mb-6 leading-relaxed">{p.desc}</p>
           
-          /* Teks CTA diganti jadi span agar tidak ada link di dalam link */
-          <span class="inline-flex items-center gap-2 font-bold text-blue-600 group-hover:text-blue-800 transition-colors">
+          <span class="inline-flex items-center gap-2 font-bold !text-blue-600 group-hover:!text-blue-800 transition-colors">
             Lihat Detail Layanan
             <Icon name="lucide:chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </span>
