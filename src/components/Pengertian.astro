@@ -1,0 +1,73 @@
+---
+// src/components/Pengertian.astro
+import { Icon } from 'astro-icon/components'
+---
+<section class="py-24 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-16 items-center">
+      
+      <div class="lg:w-1/2 animate-on-scroll-pengertian opacity-0 -translate-x-12 transform transition-all duration-700 ease-out">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          Memahami Kekuatan <span class="text-blue-600">Sebuah "Like"</span>
+        </h2>
+        
+        <div class="space-y-8 text-slate-600 leading-relaxed">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <Icon name="lucide:heart" class="w-6 h-6 text-red-500" />
+              Apa Itu "Like" di Era Digital?
+            </h3>
+            <p>
+              Di dunia media sosial, <em>Like</em> bukan sekadar angka untuk pamer gengsi. <em>Like</em> adalah <strong>mata uang kepercayaan (Social Proof)</strong>. Secara psikologis, saat seseorang melihat postingan dengan ribuan <em>like</em>, otak mereka otomatis berasumsi bahwa konten, produk, atau jasa tersebut bernilai, aman, dan telah disukai banyak orang.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <Icon name="lucide:rocket" class="w-6 h-6 text-blue-500" />
+              Lalu, Apa Itu Jasa Like?
+            </h3>
+            <p>
+              Seringkali, konten yang sangat bagus tenggelam hanya karena akun tersebut masih baru atau belum punya <em>followers</em> aktif. <strong>Jasa Like hadir sebagai katalis (pendorong).</strong> Kami menyuntikkan interaksi awal agar algoritma (seperti FYP TikTok atau Explore IG) "terpancing" untuk menyebarkan konten Anda ke audiens organik yang jauh lebih luas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:w-1/2 animate-on-scroll-pengertian opacity-0 translate-x-12 transform transition-all duration-700 ease-out delay-200 relative w-full">
+        <div class="absolute inset-0 bg-blue-100 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+        
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-lg relative z-10">
+           <div class="aspect-video bg-slate-200 rounded-xl flex items-center justify-center mb-6 overflow-hidden relative">
+              <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-500 opacity-10"></div>
+              <Icon name="lucide:thumbs-up" class="w-20 h-20 text-blue-300" />
+              </div>
+           <p class="text-center text-sm text-slate-500 font-medium italic">
+             "Jasa Like memberikan dorongan momentum awal agar konten Anda mampu menembus batas algoritma."
+           </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Menghapus efek transparan dan pergeseran awal
+          entry.target.classList.remove('opacity-0', '-translate-x-12', 'translate-x-12');
+          // Memaksa elemen ke posisi asli (0) dengan opacity penuh
+          entry.target.classList.add('opacity-100', 'translate-x-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const boxes = document.querySelectorAll('.animate-on-scroll-pengertian');
+    boxes.forEach((box) => observer.observe(box));
+  });
+</script>
+
