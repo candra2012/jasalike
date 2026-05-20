@@ -1,102 +1,49 @@
 ---
-// src/pages/like-instagram.astro
-import DefaultLayout from '@layouts/DefaultLayout.astro'
+// src/pages/like-facebook.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon/components'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
 
-// 1. Siapkan semua data SEO khusus Instagram di sini
-const title = "Jasa Like FB Aktif dan Terpercaya";
-const description = "Tingkatkan Popularitas postingan dengan jasa like Facebook aktif dan Terpercaya";
+const title = "Jasa Like Facebook Aktif dan Terpercaya";
+const description = "Tingkatkan like Facebook lebih cepat dengan layanan aktif, aman, dan terpercaya. Cocok untuk akun personal, bisnis, hingga promosi";
 const keywords = "jasa like facebook, jasa like postingan facebook, jasa like komen facebook, jasa like facebook indonesia, jasa like fb, jasa like halaman facebook";
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
-  
-  <script type="application/ld+json" slot="head">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
+
+     <Fragment slot="head">
+    <script type="application/ld+json">
+      [
         {
-          "@type": "WebPage",
-          "@id": "https://jasalike.com/like-facebook/#webpage",
-          "url": "https://jasalike.com/like-facebook/",
-          "name": "Boost Like Facebook Cepat & Terpercaya",
-          "description": "Buat postingan Facebook lebih ramai dan menarik dengan layanan like berkualitas yang cepat dan terpercaya.",
-          "isPartOf": {
-            "@id": "https://jasalike.com/#website"
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": "Jasa Like Facebook",
+          "image": "https://jasalike.com/image/hero-jasalike.png",
+          "description": "Layanan like Facebook terpercaya untuk membantu postingan terlihat lebih ramai, aktif, dan meningkatkan daya tarik akunmu",
+          "brand": {
+            "@type": "Brand",
+            "name": "JasaLike"
           },
-          "inLanguage": "id-ID"
-        },
-        {
-          "@type": "Service",
-          "@id": "https://jasalike.com/like-facebook/#service",
-          "name": "Jasa Like Facebook Real Murah & Aman",
-          "description": "Tambah like Facebook real dengan proses cepat, aman, dan stabil untuk meningkatkan engagement serta kepercayaan akun Anda.",
-          "provider": {
-            "@id": "https://jasalike.com/#organization"
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "1250"
           },
-          "serviceType": "Social Media Engagement Optimization",
-          "areaServed": {
-            "@type": "Country",
-            "name": "ID"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Katalog Optimasi Facebook",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Optimasi Postingan Biasa",
-                  "description": "Meningkatkan interaksi visual pada status, artikel, dan foto produk."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Optimasi Video Reels Facebook",
-                  "description": "Memicu performa distribusi video pendek pada sistem algoritma tontonan Facebook."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Optimasi Interaksi Fanpage",
-                  "description": "Manajemen reputasi interaksi khusus untuk Halaman Bisnis (Fanpage) agar terlihat tepercaya."
-                }
-              }
-            ]
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "200000",
+            "highPrice": "2000000",
+            "priceCurrency": "IDR",
+            "offerCount": "4"
           }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://jasalike.com/like-facebook/#faq",
-          "isPartOf": {
-            "@id": "https://jasalike.com/like-facebook/#webpage"
-          },
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Bagaimana sistem ini menjaga kelayakan akun terhadap ketentuan Facebook?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Seluruh pengerjaan dijalankan secara manual dan profesional menggunakan infrastruktur manajemen pengiriman berkala yang terukur. Kami sepenuhnya mematuhi batasan wajar sistem keamanan algoritma Facebook terbaru, sehingga grafik interaksi akun Anda tumbuh secara wajar, aman, dan terhindar dari risiko pembatasan halaman."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Apakah kuota distribusi interaksi ini dapat dialokasikan ke beberapa unggahan?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sangat bisa. Konsep manajemen kami fleksibel dan berorientasi pada kebutuhan taktis klien. Anda diizinkan untuk membagi target alokasi interaksi ke beberapa tautan postingan foto produk, artikel, maupun video Reels yang berbeda guna memastikan keharmonisan grafik aktivitas di seluruh beranda Anda. Silakan koordinasikan rincian tautan tersebut secara langsung dengan tim layanan admin kami."
-              }
-            }
-          ]
-        },
-        {
+          "@context": "https://schema.org",
           "@type": "BreadcrumbList",
-          "@id": "https://jasalike.com/like-facebook/#breadcrumb",
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -107,182 +54,351 @@ const keywords = "jasa like facebook, jasa like postingan facebook, jasa like ko
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Optimasi Like Facebook",
-              "item": "https://jasalike.com/like-facebook/"
+              "name": "Layanan",
+              "item": "https://jasalike.com/layanan/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Like Facebook"
             }
           ]
         }
       ]
-    }
-  </script>
-
-
-  <section class="container my-24 text-center">
-    <div class="inline-flex items-center gap-2 rounded-full px-4 py-1 text-sm font-medium bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-800 dark:from-blue-900/40 dark:to-cyan-900/40 dark:text-blue-100 border border-blue-200/60 dark:border-blue-800/60 mb-6">
-      Manajemen Metrik Facebook • Akun Real & Distribusi Alami
+    </script>
+  </Fragment>
+  
+  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-950 overflow-hidden flex items-center">
+    
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/image/hero-jasalike-facebook.png" 
+        alt="Background Jasa Like Facebook" 
+        class="w-full h-full object-contain object-center opacity-40 block" 
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
+      <div class="absolute inset-0 bg-slate-950/40"></div> <div class="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
     </div>
 
-    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8">
-      Optimasi Like Facebook untuk <br class="hidden md:block" />
-      <span class="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Meningkatkan Kredibilitas Brand Secara Permanen</span>
-    </h1>
-    
-    <p class="text-2xl opacity-80 max-w-4xl mx-auto leading-relaxed">
-      Perkuat interaksi beranda, galeri produk, video Reels, hingga Fanpage Bisnis Anda melalui manajemen metrik yang terukur. Bangun ekosistem halaman yang tepercaya, konversi penjualan yang tinggi, dan perluas jangkauan organik melalui jaringan akun aktif dan berkualitas.
-    </p>
+    <div class="relative z-10 container mx-auto px-6 text-center max-w-5xl animate-fade-in-up mt-10 lg:mt-0">
+      
+      <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
+        <Icon name="lucide:facebook" class="w-4 h-4" />
+        Layanan Facebook Premium
+      </span>
+      
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold !text-white leading-[1.1] mb-8 tracking-tight">
+        Jasa Like Facebook <br class="hidden md:block" /> <span class="text-blue-500">Terpercaya & Instan</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+  Stop biarkan postingan Facebook kamu sepi kayak kuburan! Lewat layanan <strong>Jasa Like Facebook</strong> kami, bersiaplah melihat notifikasi kamu jebol. Kami bantu pancing algoritma <strong class="text-white">News Feed</strong> agar post kamu makin viral, bangun <em class="text-blue-300 not-italic">Social Proof</em> yang meyakinkan, dan bikin brand kamu makin dikenal luas. <br class="hidden md:block mt-2" />
+  <span class="text-blue-400 font-semibold block mt-4">✓ 100% Super Aman &nbsp; ✓ Cukup Drop URL (Privasi Absolute) &nbsp; ✓ Garansi Full Senyum</span>
+</p>
 
-    <div class="mt-12 flex justify-center gap-4">
-        <a href="#edukasi-mendalam" class="button px-8 py-4 text-lg">Pelajari Strategi Metrik</a>
-        <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20mau%20konsultasi%20mengenai%20strategi%20optimasi%20like%20Facebook." class="button color-secondary px-8 py-4 text-lg">Konsultasi Gratis</a>
     </div>
   </section>
 
-  <section id="edukasi-mendalam" class="container my-32 max-w-4xl mx-auto space-content leading-relaxed text-xl opacity-90">
-    <h2 class="text-4xl font-bold mb-8 text-center text-neutral-900 dark:text-neutral-100">
-      Mengapa Pengelolaan Metrik Interaksi Facebook Sangat Vital dalam Dunia Bisnis Digital?
-    </h2>
-    
-    <p class="mb-6">
-      Di era transformasi digital yang semakin kompetitif, media sosial bukan lagi sekadar tempat berbagi momen personal, melainkan telah menjelma menjadi infrastruktur utama bagi perkembangan bisnis, baik skala mikro maupun korporasi besar. Facebook, sebagai salah satu pelopor platform media sosial global dengan miliaran pengguna aktif bulanan, tetap memegang kendali atas ekosistem periklanan dan pembentukan opini publik yang sangat masif.
-    </p>
-    
-    <p class="mb-6">
-      Dalam dinamika pemasaran digital, terdapat satu hukum psikologis mendasar yang tidak pernah berubah, yaitu <strong>Social Proof (Validasi Sosial)</strong>. Ketika seorang pengguna internet mengunjungi sebuah Fanpage atau melihat postingan produk di beranda Facebook mereka, hal pertama yang dianalisis oleh alam bawah sadar mereka adalah seberapa ramai konten tersebut berinteraksi. Tingkat interaksi, yang direpresentasikan melalui volume pulasan <i>like</i>, komentar, dan bagikan, menjadi tolak ukur instan apakah brand Anda layak dipercaya atau justru ditinggalkan.
-    </p>
+  <section class="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="order-2 lg:order-1 reveal-left">
+        <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl">
+          <img src="/image/apaitu-likefacebook.png" alt="Ilustrasi Jasa Like" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity" />
+        </div>
+      </div>
 
-    <p class="mb-12">
-      Oleh karena itu, melakukan optimasi interaksi secara terstruktur bukan lagi sebuah pilihan pelengkap, melainkan bagian dari manajemen strategi aset digital yang wajib dikelola dengan penuh ketelitian. Membiarkan halaman bisnis Anda terlihat sepi tanpa adanya grafik interaksi yang sehat akan memicu keraguan psikologis bagi calon konsumen, yang pada akhirnya menurunkan tingkat konversi penjualan produk Anda.
-    </p>
+     <div class="order-1 lg:order-2 reveal-right">
+  <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Apa Itu Jasa Like Facebook Sebenarnya?</h2>
+  <p class="text-slate-400 text-lg leading-relaxed mb-6">
+    Sering bingung kenapa postingan FB Anda tenggelam begitu saja? Nah, layanan ini ibarat <em>'booster'</em> rahasia untuk mendongkrak <strong>engagement (reaksi & like)</strong> secara instan. Karena algoritma Facebook sekarang sangat kompetitif, konten yang memiliki banyak like di awal akan jauh lebih mudah direkomendasikan masuk ke beranda orang lain hingga viral di <em>Facebook Reels</em>!
+  </p>
 
-    <h3 class="text-3xl font-semibold mb-4 mt-12 text-neutral-800 dark:text-neutral-200">Cara Kerja Algoritma Distribusi Konten Facebook (News Feed Algorithm)</h3>
-    <p class="mb-6">
-      Algoritma penataan beranda Facebook bekerja menggunakan sistem penilaian skor relevansi yang sangat ketat terhadap setiap konten yang dipublikasikan. Ketika Anda mengunggah sebuah foto produk, artikel edukasi, atau video pendek di Fanpage bisnis, Facebook tidak langsung membagikannya ke seluruh pengikut (*followers*) Anda. Sistem akan menguji konten tersebut ke sekelompok kecil audiens terlebih dahulu untuk melihat respon awal mereka.
-    </p>
-    <p class="mb-6">
-      Jika dalam interval waktu emas (beberapa jam pertama setelah publikasi) konten Anda berhasil memicu sinyal engagement yang positif berupa penambahan kuantitas <i>like aktif</i> secara konsisten, algoritma akan menilai bahwa informasi tersebut bernilai tinggi bagi pembaca. Efek dominonya, sistem akan melipatgandakan skor distribusi konten Anda, memicunya naik ke posisi atas beranda pengguna lain, serta memperluas peluang penayangan secara organik secara berantai.
-    </p>
-  </section>
-
-  <section class="container my-32">
-    <h2 class="text-4xl md:text-5xl font-semibold mb-12 text-center">Fungsi Strategis Metrik Like bagi Kesehatan Akun Facebook</h2>
-    <div class="grid gap-8 sm:grid-cols-2">
-      {[
-        { 
-          title: 'Akselerasi Kepercayaan Konsumen (Social Proof)', 
-          desc: 'Secara statistik, lebih dari 85% konsumen mengambil keputusan pembelian setelah melihat reputasi interaksi halaman penjual. Akun bisnis yang didukung oleh sebaran like permanen dari profil akun real akan mengeliminasi rasa ragu calon pembeli, menaikkan wibawa brand, dan mempercepat proses closing transaksi bisnis Anda.' 
-        },
-        { 
-          title: 'Optimalisasi Nilai Relevansi Iklan', 
-          desc: 'Bagi para praktisi periklanan digital yang sering memanfaatkan Facebook Ads, postingan iklan yang sudah memiliki basis interaksi awal cenderung menghasilkan biaya per klik (CPC) yang jauh lebih murah. Google dan Facebook menyukai konten yang aktif, sehingga skor kualitas iklan Anda akan meningkat secara drastis.' 
-        },
-        { 
-          title: 'Keamanan Grafik Jangka Panjang (Anti Drop)', 
-          desc: 'Kami sangat memahami pentingnya aset investasi digital Anda. Melalui pengelolaan distribusi interaksi alami yang seimbang, kesehatan grafik pertumbuhan halaman Anda akan terjaga secara stabil. Pengiriman berkala yang diatur dengan rapi mencegah terjadinya penurunan metrik yang mendadak di mata sistem pengawas platform.' 
-        },
-        { 
-          title: 'Efek Berantai Aktivitas Organik', 
-          desc: 'Postingan yang terlihat ramai secara visual memiliki daya tarik magnetis yang tinggi bagi audiens organik. Pengguna beranda yang tadinya hanya sekadar lewat akan terpancing untuk berhenti meluangkan waktu membaca materi edukasi Anda, memberikan reaksi balik, hingga ikut menyebarkan informasi produk.' 
-        },
-      ].map((b) => (
-        <article class="p-8 rounded-3xl border bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-neutral-900/60 dark:to-neutral-900/20 border-blue-100 dark:border-neutral-800 shadow-sm">
-          <h3 class="text-2xl font-semibold mb-3">{b.title}</h3>
-          <p class="text-lg opacity-80 leading-relaxed">{b.desc}</p>
-        </article>
-      ))}
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3 text-slate-300 font-medium">
+            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
+            Meningkatkan peluang masuk Explore Page
+          </li>
+          <li class="flex items-center gap-3 text-slate-300 font-medium">
+            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
+            Membangun Social Proof untuk bisnis online
+          </li>
+          <li class="flex items-center gap-3 text-slate-300 font-medium">
+            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
+            Interaksi berkualitas dan terlihat natural
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="social-proof" class="container my-32 py-16 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl">
-    <div class="text-center mb-16">
-      <div class="inline-block text-sm font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase mb-3">
-        Dampak Nyata & Validasi Data
+  <section class="py-24 bg-slate-950 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Masalah Kreator & Pebisnis</h2>
+        <p class="text-slate-400 text-lg">Hambatan yang sering membuat akun sulit berkembang.</p>
       </div>
-      <h2 class="text-4xl md:text-5xl font-semibold mb-4">Studi Kasus & Reputasi Pengguna Halaman</h2>
-      <p class="text-xl opacity-80 max-w-3xl mx-auto">Bagaimana penataan distribusi interaksi secara teratur berhasil mentransformasi performa bisnis para mitra kami.</p>
-    </div>
-
-    <div class="grid gap-8 grid-cols-2 lg:grid-cols-4 mb-16 text-center border-b border-neutral-200 dark:border-neutral-800 pb-12">
-      <div>
-        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">91%</p>
-        <p class="text-lg font-medium mt-2 opacity-90">Kenaikan Kepercayaan Profil</p>
-      </div>
-      <div>
-        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">2.8x</p>
-        <p class="text-lg font-medium mt-2 opacity-90">Jangkauan Beranda Organik</p>
-      </div>
-      <div>
-        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">100%</p>
-        <p class="text-lg font-medium mt-2 opacity-90">Sistem Akun Berkualitas</p>
-      </div>
-      <div>
-        <p class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Permanen</p>
-        <p class="text-lg font-medium mt-2 opacity-90">Jaminan Kestabilan Grafik</p>
-      </div>
-    </div>
-
-    <div class="grid gap-8 md:grid-cols-3">
-      {[
-        {
-          quote: "Sejak mengalihkan fokus manajemen interaksi ke arah pengelolaan berkala, Fanpage perusahaan kami terlihat jauh lebih bonafit dan profesional di mata klien lokal maupun nasional. Distribusi interaksi yang natural menjaga wibawa profil bisnis kami tetap berkelas.",
-          user: "Bambang Kurnia",
-          role: "Direktur Agensi Pemasaran Properti",
-          avatar: "🏢"
-        },
-        {
-          quote: "Menjalankan optimasi interaksi pada materi iklan katalog Facebook terbukti mampu menekan biaya cost per click secara signifikan. Audiens baru jauh lebih mudah melakukan konversi transaksi karena melihat postingan kami selalu ramai respons positif.",
-          user: "Dewi Lestari",
-          role: "Pemilik Toko Online Kosmetik Digital",
-          avatar: "💄"
-        },
-        {
-          quote: "Sistem auto interaksi bulanan yang diterapkan sangat menghemat waktu operasional tim kami. Setiap kali merilis video edukasi atau promosi layanan baru di Facebook, pertumbuhan reaksinya berjalan stabil tanpa ada indikasi grafik yang mencurigakan.",
-          user: "Rian Hidayat",
-          role: "Social Media Specialist Startup",
-          avatar: "💻"
-        }
-      ].map((t) => (
-        <article class="rounded-3xl border border-neutral-200/60 dark:border-neutral-800/60 bg-white dark:bg-neutral-900 shadow-md p-8 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
-          <p class="text-lg italic opacity-80 leading-relaxed mb-8">
-            "{t.quote}"
-          </p>
-          
-          <div class="flex items-center gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800">
-            <div class="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-950/40 flex items-center justify-center text-2xl border border-blue-100 dark:border-blue-900/50 shadow-sm">
-              {t.avatar}
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-neutral-800 dark:text-neutral-100">{t.user}</h3>
-              <p class="text-sm opacity-70 mt-0.5">{t.role}</p>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up">
+          <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
+            <Icon name="lucide:trending-down" class="w-7 h-7" />
           </div>
-        </article>
-      ))}
+          <h3 class="text-xl font-bold text-white mb-3">Sepi Interaksi</h3>
+          <p class="text-slate-400 leading-relaxed">Konten bagus tapi tidak ada yang merespons karena belum punya audiens awal.</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-100">
+          <div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6">
+            <Icon name="lucide:user-x" class="w-7 h-7" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Krisis Kepercayaan</h3>
+          <p class="text-slate-400 leading-relaxed">Calon pembeli ragu bertransaksi karena postingan produk minim like.</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-200">
+          <div class="w-14 h-14 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-6">
+            <Icon name="lucide:compass" class="w-7 h-7" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Gagal Explore</h3>
+          <p class="text-slate-400 leading-relaxed">Algoritma mengabaikan postingan karena kurang momentum interaksi di awal.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="faq" class="container my-32">
-    <h2 class="text-4xl font-semibold mb-12 text-center">Panduan Informasi & Pertanyaan Umum (FAQ)</h2>
-
-    <div class="grid gap-6 md:grid-cols-2">
-      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-        <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-          Bagaimana sistem ini menjaga kelayakan akun terhadap ketentuan Facebook?
-          <span class="text-blue-600 group-open:rotate-180 transition-transform">↓</span>
-        </summary>
-        <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg">
-          Seluruh pengerjaan dijalankan secara manual dan profesional menggunakan infrastruktur manajemen pengiriman berkala yang terukur. Kami sepenuhnya mematuhi batasan wajar sistem keamanan algoritma Facebook terbaru, sehingga grafik interaksi akun Anda tumbuh secara wajar, aman, dan terhindar dari risiko pembatasan halaman.
+  <section class="py-24 bg-blue-900 text-white overflow-hidden relative">
+    <div class="absolute inset-0 bg-[url('/image/hero-jasalike.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal-up">Manfaat Menggunakan Jasa Kami</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="reveal-up">
+          <Icon name="lucide:shield-check" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
+          <h4 class="text-xl font-bold mb-2">Social Proof</h4>
+          <p class="text-blue-200 text-sm">Akun terlihat jauh lebih kredibel & profesional.</p>
         </div>
-      </details>
-
-      <details class="rounded-2xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 p-6 group">
-        <summary class="cursor-pointer text-xl font-semibold list-none flex justify-between items-center">
-          Apakah kuota distribusi interaksi ini dapat dialokasikan ke beberapa unggahan?
-          <span class="text-blue-600 group-open:rotate-180 transition-transform">↓</span>
-        </summary>
-        <div class="mt-4 opacity-80 pt-4 border-t border-neutral-200 dark:border-neutral-700 leading-relaxed text-lg">
-          Sangat bisa. Konsep manajemen kami fleksibel dan berorientasi pada kebutuhan taktis klien. Anda diizinkan untuk membagi target alokasi interaksi ke beberapa tautan postingan foto produk, artikel, maupun video Reels yang berbeda guna memastikan keharmonisan grafik aktivitas di seluruh beranda Anda. Silakan koordinasikan rincian tautan tersebut secara langsung dengan tim layanan admin kami.
+        <div class="reveal-up delay-100">
+          <Icon name="lucide:zap" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
+          <h4 class="text-xl font-bold mb-2">Algoritma Aktif</h4>
+          <p class="text-blue-200 text-sm">Memicu Instagram untuk menyebarkan konten Anda.</p>
         </div>
-      </details>
+        <div class="reveal-up delay-200">
+          <Icon name="lucide:users" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
+          <h4 class="text-xl font-bold mb-2">Pancingan Organik</h4>
+          <p class="text-blue-200 text-sm">Orang lebih suka nge-like post yang sudah banyak like-nya.</p>
+        </div>
+        <div class="reveal-up delay-300">
+          <Icon name="lucide:briefcase" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
+          <h4 class="text-xl font-bold mb-2">Brand Awareness</h4>
+          <p class="text-blue-200 text-sm">Memperkuat identitas brand di mata kompetitor.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Mengapa Memilih JasaLike.com?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="reveal-up">
+          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">100% Aman</h3>
+          <p class="text-slate-400">Pengerjaan hanya butuh link / URL postingan. dan kita langsung buatkan brief.</p>
+        </div>
+        <div class="reveal-up delay-100">
+          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Proses Super Cepat</h3>
+          <p class="text-slate-400">Orderan langsung dieksekusi oleh real talent dan bukti pekerjaan lewat google drive setelah pembayaran dikonfirmasi.</p>
+        </div>
+        <div class="reveal-up delay-200">
+          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Garansi Layanan</h3>
+          <p class="text-slate-400">Beberapa paket kami dilengkapi dengan fitur garansi isi ulang (refill) jika terjadi drop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-slate-950 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Cara Kerja Kami</h2>
+        <p class="text-slate-400">Proses sederhana untuk hasil yang maksimal.</p>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between gap-8 relative">
+        <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-slate-800 reveal-up"></div>
+        
+        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up">
+          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">1</div>
+          <h4 class="text-lg font-bold text-white mb-2">Pilih Paket</h4>
+          <p class="text-slate-400 text-sm">Sesuaikan jumlah like dengan target strategi konten Anda.</p>
+        </div>
+        
+        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-100">
+          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">2</div>
+          <h4 class="text-lg font-bold text-white mb-2">Kirim Tautan & Bayar</h4>
+          <p class="text-slate-400 text-sm">Berikan link foto/video, lalu selesaikan pembayaran via bank/e-wallet.</p>
+        </div>
+
+        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-200">
+          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">3</div>
+          <h4 class="text-lg font-bold text-white mb-2">Proses & Selesai</h4>
+          <p class="text-slate-400 text-sm">Santai dan lihat notifikasi like di aplikasi Instagram mulai berdatangan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga" class="py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pilihan Paket Favorit</h2>
+        <p class="text-slate-400">Mulai tingkatkan engagement Instagram Anda hari ini.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="reveal-up bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
+          
+          <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
+            <img 
+              src="/image/jasa-like-instagram-organik-100like.png" 
+              alt="Paket 100 Like Instagram" 
+              class="mx-auto h-auto object-contain"
+              style="max-height: 200px;" 
+            />
+          </div>
+          
+          <div class="p-8 pt-6 flex-1 flex flex-col">
+            <h3 class="text-2xl font-bold text-white mb-6">Paket 100 Like Instagram</h3>
+            <ul class="space-y-4 mb-8 flex-1">
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
+                <span class="text-lg">Proses Pengerjaan Cepat</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
+                <span class="text-lg">Aman 100% Real Talent</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
+                <span class="text-lg">Cocok untuk Akun Personal</span>
+              </li>
+            </ul>
+            
+            <div class="mb-6 border-t border-slate-800 pt-6">
+              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-4xl font-extrabold text-white">Rp 200.000</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20100%20Like%20Instagram" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
+              Pesan Sekarang
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal-up delay-200 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
+          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">TERLARIS</div>
+          
+          <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
+            <img 
+              src="/image/jasa-like-instagram-organik-1000like.png" 
+              alt="Paket 1000 Like Instagram" 
+              class="mx-auto h-auto object-contain"
+              style="max-height: 200px;" 
+            />
+          </div>
+          
+          <div class="p-8 pt-6 flex-1 flex flex-col">
+            <h3 class="text-2xl font-bold text-white mb-6">Paket 1000 Like Instagram</h3>
+            <ul class="space-y-4 mb-8 flex-1">
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
+                <span class="text-lg">Masuk Secara Natural</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
+                <span class="text-lg">Aman 100% Real Talent</span>
+              </li>
+              <li class="flex items-start gap-3 text-slate-300">
+                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
+                <span class="text-lg">Cocok Untuk Bisnis / Brand</span>
+              </li>
+            </ul>
+            
+            <div class="mb-6 border-t border-slate-800 pt-6">
+              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-4xl font-extrabold text-white">Rp 2.000.000</span>
+                <span class="text-lg text-slate-500 line-through">Rp 2.500.000</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%201000%20Like%20Instagram" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
+              Pesan Sekarang
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-white">
+    <Testimonials />
+  </div>
+  <DaftarHarga />
+  <MetodePembayaran />
+
 </DefaultLayout>
+
+<style>
+  /* Hero Animasi Load */
+  .animate-fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Animasi Scroll: Sembunyi Dulu */
+  .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
+  .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
+  .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+  
+  /* Delay untuk efek berurutan */
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+
+  /* Class aktif yang disuntikkan oleh JavaScript pas di-scroll */
+  .reveal-left.is-visible,
+  .reveal-right.is-visible,
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: translate(0);
+  }
+</style>
+
+<script>
+  // Script untuk memantau kapan elemen masuk ke layar
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1 // Memicu animasi ketika 10% elemen sudah terlihat di layar
+    });
+
+    // Minta script untuk mengawasi semua elemen yang punya class reveal
+    document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach((el) => {
+      observer.observe(el);
+    });
+  });
+</script>
