@@ -1,28 +1,75 @@
 ---
 // src/components/Hero.astro
+// Kita import fotonya dari folder assets agar dioptimasi oleh Astro
+import heroImage from '../assets/hero-jasalike.png';
+import { Icon } from 'astro-icon/components';
 ---
-<section class="relative min-h-[90vh] flex items-center justify-center text-white overflow-hidden bg-slate-900">
-  
-  <div class="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900">
+
+<section class="relative py-32 lg:py-40 bg-slate-950 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600 rounded-full blur-[160px] opacity-20"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600 rounded-full blur-[200px] opacity-10"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-28 lg:pt-10">
+
+    <div class="text-center lg:text-left animate-fade-in-up">
+      <div class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        <Icon name="lucide:sparkles" class="w-4 h-4" />
+        Spesialis Optimasi Interaksi Sosial Media No. 1
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+        Tumbuh <span class="text-blue-500">Lebih Percaya Diri</span> di Dunia Digital
+      </h1>
+
+      <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+        Jasalike membantu meningkatkan kredibilitas akun Anda melalui interaksi nyata (Like) yang aman, cepat, dan bergaransi. Saatnya tampil profesional dan menjangkau audiens lebih luas.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20order%20Jasa%20Like.%20Bisa%20info%20pricelist%3F" class="inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all duration-300 hover:scale-105">
+          Konsultasi via WhatsApp
+          <Icon name="lucide:arrow-right" class="w-5 h-5" />
+        </a>
+        <a href="#masalah" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/10 transition-all">
+          Pelajari Dulu
+        </a>
+      </div>
     </div>
 
-  <div class="relative z-10 max-w-4xl px-6 text-center mt-10">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
-      Tumbuh Lebih Percaya Diri di <span class="text-blue-400">Media Sosial</span>
-    </h1>
-    <p class="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl mx-auto leading-relaxed">
-      Bangun kredibilitas dan interaksi organik tanpa ribet. Solusi aman untuk kreator dan bisnis yang ingin memperluas jangkauan digital dengan integritas.
-    </p>
-    
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        <span>Konsultasi via WhatsApp</span>
-      </a>
-      <a href="#mengenal-kami" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-bold transition-all hover:scale-105 flex items-center justify-center">
-        Mengenal Lebih Dekat
-      </a>
+    <div class="w-full flex justify-center lg:justify-end animate-fade-in-right delay-200">
+      <img
+        src={heroImage.src}
+        alt="Ilustrasi Jasa Like Sosial Media Terpercaya"
+        width={heroImage.width}
+        height={heroImage.height}
+        loading="eager"
+        decoding="async"
+        class="rounded-3xl shadow-2xl shadow-blue-500/20 border border-slate-700 w-full max-w-lg lg:max-w-none transform lg:rotate-2 hover:rotate-0 transition-all duration-500 ease-out object-cover"
+      />
     </div>
+
   </div>
 </section>
 
+<style>
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+  }
+  .animate-fade-in-right {
+    animation: fadeInRight 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+</style>
