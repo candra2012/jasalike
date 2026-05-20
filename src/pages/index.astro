@@ -75,209 +75,67 @@ const keywords = "jasa like, beli like instagram, jasa like tiktok, jasa like fa
   <MetodePembayaran />
   <DaftarHarga />
 
+   <section id="faq" class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        
+        <div class="flex flex-col gap-6 lg:sticky lg:top-32">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Pertanyaan Seputar <br/>
+            <span class="text-blue-600">Layanan JasaLike</span>
+          </h2>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            Menemukan kendala atau butuh informasi lebih lanjut? Berikut adalah hal-hal yang paling sering ditanyakan oleh klien kami sebelum menggunakan layanan.
+          </p>
+          <div class="mt-4">
+            <a
+              class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-1 transition-all duration-300"
+              href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20punya%20pertanyaan%20tentang%20JasaLike..."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="lucide:message-circle" class="w-5 h-5" />
+              Tanya Admin via WhatsApp
+            </a>
+          </div>
+        </div>
 
-  <section class="my-64">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Spesialis Layanan Like Kami</h2>
-      <p class="text-2xl mb-12">Sebagai spesialis, kami fokus memberikan layanan Like berkualitas tinggi untuk berbagai kebutuhan platform sosial media Anda.</p>
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100">
+          <Accordion>
+            <AccordionItem name="faq1" title="Apakah aman? Bagaimana privasi data saya?" open>
+              <p class="text-slate-600 leading-relaxed pt-2">
+                100% Aman. Kami <strong>tidak pernah meminta password</strong> akun media sosial Anda. Pengerjaan murni menggunakan tautan (URL) postingan Anda. Selain itu, riwayat pesanan dan identitas klien kami jaga kerahasiaannya dengan ketat.
+              </p>
+            </AccordionItem>
 
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-        <a href="/like-instagram/" class="block no-underline text-inherit hover:scale-[1.01] transition-transform">
-          <Feature icon="lucide:instagram" title="Like Instagram (Post & Reels)">
-            Tingkatkan jumlah Like pada postingan foto, carousel, maupun Reels Anda untuk memperbesar peluang masuk ke halaman Explore.
-          </Feature>
-        </a>
+            <AccordionItem name="faq2" title="Apakah like-nya bisa hilang (drop)?">
+              <p class="text-slate-600 leading-relaxed pt-2">
+                Layanan organik kami sangat stabil dan permanen. Sedangkan untuk layanan bot kualitas tinggi, sangat jarang mengalami <em>drop</em> drastis. Kami juga memberikan <strong>Garansi Refill</strong> pada paket-paket tertentu jika sewaktu-waktu ada penurunan jumlah like.
+              </p>
+            </AccordionItem>
 
-        <a href="/like-tiktok/" class="block no-underline text-inherit hover:scale-[1.01] transition-transform">
-          <Feature icon="lucide:music" title="Like TikTok (Video)">
-            Tingkatkan potensi viral video TikTok secara cepat. Lonjakan like awal adalah kunci utama menembus algoritma rekomendasi FYP Anda
-          </Feature>
-        </a>
+            <AccordionItem name="faq3" title="Berapa lama proses masuknya like?">
+              <p class="text-slate-600 leading-relaxed pt-2">
+                Karena kami adalah spesialis jasa like, server kami dirancang untuk eksekusi yang super cepat. Rata-rata orderan akan mulai diproses dan like masuk ke postingan Anda dalam estimasi waktu <strong>1 hingga 5 jam</strong> setelah order dikonfirmasi admin.
+              </p>
+            </AccordionItem>
 
-        <a href="/like-facebook/" class="block no-underline text-inherit hover:scale-[1.01] transition-transform">
-          <Feature icon="lucide:facebook" title="Like Facebook (Foto & Fanpage)">
-            Layanan Like untuk foto profil, postingan status, hingga Like untuk postingan di Fanpage Bisnis Anda agar terlihat lebih profesional.
-          </Feature>
-        </a>
+            <AccordionItem name="faq4" title="Berapa minimal jumlah pesanan like?">
+              <p class="text-slate-600 leading-relaxed pt-2">
+                Kami siap melayani kebutuhan dari skala kecil hingga masif. Anda bisa memesan mulai dari <strong>100 like</strong> hingga puluhan ribu like per postingannya. Info detail kuota per platform bisa dicek pada spreadsheet daftar harga kami.
+              </p>
+            </AccordionItem>
 
-        <a href="/like-twitter/" class="block no-underline text-inherit hover:scale-[1.01] transition-transform">
-          <Feature icon="lucide:twitter" title="Like Twitter / X">
-            Tingkatkan interaksi (Favorites/Likes) pada cuitan/Tweet Anda agar memancing audiens lain untuk ikut berinteraksi dan retweet.
-          </Feature>
-        </a>
+            <AccordionItem name="faq5" title="Apakah bisa membagi order like ke beberapa foto?">
+              <p class="text-slate-600 leading-relaxed pt-2">
+                Tentu bisa! Kami punya fleksibilitas. Misalnya Anda order paket 100 Like, Anda bisa memintanya untuk disebar ke 10 foto berbeda (masing-masing mendapat 10 Like). Silakan infokan tautan lengkapnya ke admin saat pemesanan.
+              </p>
+            </AccordionItem>
+          </Accordion>
+        </div>
 
-        <a href="/like-youtube/" class="block no-underline text-inherit hover:scale-[1.01] transition-transform">
-          <Feature icon="lucide:youtube" title="Like YouTube (Video & Shorts)">
-            Dorong popularitas video panjang maupun YouTube Shorts Anda dengan tambahan Like untuk meningkatkan sinyal SEO di algoritma YouTube.
-          </Feature>
-        </a>
-
-        <a href="/like-linkedin/" class="block no-underline text-inherit hover:scale-[1.01] transition-transform">
-          <Feature icon="lucide:linkedin" title="Optimasi Like LinkedIn">
-            Tingkatkan otoritas profil B2B dan Company Page Anda. Dapatkan interaksi dari jaringan profesional untuk memperkuat personal branding, validasi sosial, dan jangkauan karir Anda.
-          </Feature>
-        </a>
       </div>
     </div>
   </section>
-
-  <ContentMedia imgSrc="/like-aktif.webp">
-    <h2>Pilih Platform & Jumlah Like</h2>
-    <p class="text-2xl">
-        Karena kami fokus 100% pada layanan Like, prosesnya jauh lebih simpel. Anda cukup tentukan platform sosial media yang digunakan dan berapa target jumlah Like yang ingin dicapai pada postingan tersebut.
-    </p>
-  </ContentMedia>
-
-  <ContentMedia imgSrc="/kirim-link.webp" reverseImg={true}>
-    <h2>Kirim Tautan (URL) Target</h2>
-    <p class="text-2xl">
-      Proses eksekusi sangat mudah dan instan. Cukup salin dan kirimkan tautan spesifik dari postingan, foto, atau video yang ingin Anda optimasi kepada tim admin kami melalui WhatsApp.
-    </p>
-  </ContentMedia>
-
-  <ContentMedia imgSrc="/proses-pembayaran.webp">
-    <h2>Proses Pembayaran Mudah</h2>
-    <p class="text-2xl">
-      Kami menerima pembayaran melalui berbagai metode yang praktis seperti QRIS, DANA, OVO, GoPay, dan Transfer Bank. Segera setelah dibayar, sistem kami langsung bekerja.
-    </p>
-  </ContentMedia>
-
-  <ContentMedia imgSrc="/proses-cepat.webp" reverseImg={true}>
-    <h2>Like Masuk dalam Hitungan Menit</h2>
-    <p class="text-2xl">
-      Sistem spesialis kami dirancang untuk kecepatan. Rata-rata Like akan mulai bertambah di postingan Anda hanya dalam waktu 1 hingga 5 jam setelah order diproses oleh admin.
-    </p>
-  </ContentMedia>
-
-  <ContentMedia imgSrc="/like-aman.webp">
-    <h2>100% Aman & Natural</h2>
-    <p class="text-2xl">
-      Kami mengatur kecepatan pengiriman Like agar tetap mematuhi batas aman algoritma setiap aplikasi. Postingan Anda akan mendapatkan Like dengan pola yang natural sehingga akun dijamin bebas dari blokir/banned.
-    </p>
-  </ContentMedia>
-
-  <ContentMedia imgSrc="/like-meningkat.webp" reverseImg={true}>
-    <h2>Tingkatkan Kredibilitas Instan</h2>
-    <p class="text-2xl">
-      Postingan dengan ribuan Like terbukti secara psikologis lebih menarik perhatian audiens baru, membuat bisnis Anda terlihat lebih terpercaya, dan menaikkan *social proof* Anda secara drastis.
-    </p>
-  </ContentMedia>
-
-  <section class="my-64">
-    <div class="container grid grid-cols-1 gap-12 md:grid-cols-2">
-      <div class="flex flex-col items-start gap-4">
-        <h2 class="text-6xl">FAQ Jasa Like</h2>
-        <p class="text-2xl">
-          Hal-hal yang sering ditanyakan seputar layanan spesialis Like kami.
-        </p>
-        <a
-          class="button bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl shadow-md transition"
-          href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20order%20Jasa%20Like.%20Bisa%20minta%20pricelist?"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Chat Admin via WhatsApp
-        </a>
-      </div>
-
-      <div class="space-content">
-        <Accordion>
-          <AccordionItem name="faq1" title="Apakah privasi dan data klien terjaga?" open>
-            <p>
-              Sangat terjamin. Seluruh identitas, riwayat pesanan, dan tautan target optimasi klien dirahasiakan sepenuhnya. Kami tidak akan pernah membagikan atau membocorkan data kampanye Anda ke pihak ketiga.
-            </p>
-          </AccordionItem>
-
-          <AccordionItem name="faq2" title="Kenapa web ini hanya menyediakan layanan Like?">
-            <p>
-              Kami sengaja fokus hanya pada layanan Like agar bisa memberikan kualitas server terbaik, proses pengiriman yang paling cepat, dan harga yang paling murah di pasaran karena kami adalah spesialisnya. Jika butuh layanan lain (followers, dll), kami mengelola platform lain yaitu Aura Digital.
-            </p>
-          </AccordionItem>
-
-          <AccordionItem name="faq3" title="Apakah Like-nya bisa hilang (drop)?">
-            <p>
-              Layanan Like cenderung sangat stabil dan jarang mengalami *drop* drastis. Namun, kami tetap memberikan jaminan/garansi *Refill* pada paket tertentu jika Like berkurang dalam masa garansi.
-            </p>
-          </AccordionItem>
-
-          <AccordionItem name="faq4" title="Berapa minimal order Like?">
-            <p>
-              Kami melayani order kecil maupun besar. Anda bisa order mulai dari 100 Like hingga puluhan ribu Like per postingan, tergantung kebutuhan platform Anda.
-            </p>
-          </AccordionItem>
-
-          <AccordionItem name="faq5" title="Apakah bisa membagi Like ke beberapa postingan?">
-            <p>
-              Tentu bisa! Misalnya Anda order 100 Like, Anda bisa memintanya untuk dibagi ke 10 foto berbeda (masing-masing 10 Like). Silakan infokan ke admin saat memesan.
-            </p>
-          </AccordionItem>
-        </Accordion>
-      </div>
-    </div>
-  </section>
-
-  <section class="my-64">
-    <div class="space-content container text-center">
-      <h2 class="text-6xl mb-8">Keunggulan Spesialis Jasa Like</h2>
-      <p class="text-2xl mb-16">
-        Fokus melayani satu hal, membuat kami mampu memberikannya dengan sempurna.
-      </p>
-
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        <div class="p-8 rounded-2xl shadow-lg bg-gradient-to-br from-purple-500 to-pink-400 text-white">
-          <Icon name="lucide:crosshair" size="40" class="mb-4 mx-auto" />
-          <h3 class="text-2xl font-bold mb-3">Sangat Fokus</h3>
-          <p class="text-lg opacity-90">
-            Server kami didedikasikan khusus untuk memproses Like, menjadikannya jauh lebih stabil tanpa gangguan dari beban layanan lain.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-2xl shadow-lg bg-gradient-to-br from-green-500 to-emerald-400 text-white">
-          <Icon name="lucide:zap" size="40" class="mb-4 mx-auto" />
-          <h3 class="text-2xl font-bold mb-3">Super Cepat</h3>
-          <p class="text-lg opacity-90">
-            Pesanan Like diproses secara instan (1-5 jam) karena sistem tidak perlu mengantre dengan pesanan *followers* atau *views*.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-2xl shadow-lg bg-gradient-to-br from-blue-500 to-cyan-400 text-white">
-          <Icon name="lucide:lock" size="40" class="mb-4 mx-auto" />
-          <h3 class="text-2xl font-bold mb-3">Privasi Terjaga</h3>
-          <p class="text-lg opacity-90">
-            Transaksi 100% rahasia. Tidak ada yang tahu Anda menggunakan Jasa Like karena kami menjaga data privasi klien dengan ketat.
-          </p>
-        </div>
-
-        <div class="p-8 rounded-2xl shadow-lg bg-gradient-to-br from-yellow-500 to-orange-400 text-white">
-          <Icon name="lucide:percent" size="40" class="mb-4 mx-auto" />
-          <h3 class="text-2xl font-bold mb-3">Harga Spesial</h3>
-          <p class="text-lg opacity-90">
-            Karena kami menyetok layanan Like dalam skala masif, kami bisa menekan harga jual menjadi sangat murah untuk Anda.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="mt-64 mb-32">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Statistik Pengiriman Like Kami</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="5 Juta+" title="Like Terkirim" sub="Ke berbagai platform" />
-        <Counter count="20K+" title="Postingan" sub="Telah dioptimasi" />
-        <Counter count="99.9%" title="Tingkat Sukses" sub="Server stabil" />
-        <Counter count="24/7" title="Siap Melayani" sub="Order kapan saja" />
-      </div>
-    </div>
-  </section>
-  
 </DefaultLayout>
-
-<style>
-  .avatar {
-    border: 1px solid var(--border-color-subtle);
-    border-radius: var(--radius-md);
-    padding: var(--space-s);
-  }
-</style>
-
