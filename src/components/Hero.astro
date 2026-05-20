@@ -1,7 +1,5 @@
 ---
 // src/components/Hero.astro
-// Kita import fotonya dari folder assets agar dioptimasi oleh Astro
-import heroImage from '../assets/hero-jasalike.png';
 import { Icon } from 'astro-icon/components';
 ---
 
@@ -41,10 +39,8 @@ import { Icon } from 'astro-icon/components';
 
     <div class="w-full flex justify-center lg:justify-end animate-fade-in-right delay-200">
       <img
-        src={heroImage.src}
+        src="/image/hero-jasalike.png"
         alt="Ilustrasi Jasa Like Sosial Media Terpercaya"
-        width={heroImage.width}
-        height={heroImage.height}
         loading="eager"
         decoding="async"
         class="rounded-3xl shadow-2xl shadow-blue-500/20 border border-slate-700 w-full max-w-lg lg:max-w-none transform lg:rotate-2 hover:rotate-0 transition-all duration-500 ease-out object-cover"
