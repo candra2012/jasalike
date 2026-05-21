@@ -51,8 +51,9 @@
   </div>
 </section>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+<script>
+  // 👇 is:inline dihapus, dan pelatuk diganti jadi astro:page-load
+  document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -73,4 +74,3 @@
     boxes.forEach((box) => observer.observe(box));
   });
 </script>
-
