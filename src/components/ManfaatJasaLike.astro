@@ -1,15 +1,23 @@
 ---
-// src/components/Manfaat.astro
+// src/components/ManfaatJasaLike.astro
+
+// 👇 1. Tangkap variabel dari Frontmatter luar
+const {
+  judulUtama,
+  deskripsiUtama,
+  m1Judul, m1Teks,
+  m2Judul, m2Teks,
+  m3Judul, m3Teks,
+  m4Judul, m4Teks
+} = Astro.props;
 ---
 <section class="py-24 bg-white overflow-hidden">
   <div class="max-w-6xl mx-auto px-6">
     
     <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-        Manfaat Nyata yang <span class="text-blue-600">Anda Dapatkan</span>
-      </h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight" set:html={judulUtama}></h2>
       <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-        Bukan sekadar kosmetik digital. Optimasi interaksi yang tepat akan membuka keran potensi organik akun media sosial Anda secara masif.
+        {deskripsiUtama}
       </p>
     </div>
 
@@ -17,34 +25,26 @@
       
       <div class="animate-on-scroll opacity-0 translate-y-12 transform transition-all duration-700 ease-out bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white">
         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">01</div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">Algoritma Membaik</h3>
-        <p class="text-slate-600 leading-relaxed text-sm">
-          Sinyal interaksi yang tinggi memicu algoritma platform untuk merekomendasikan konten Anda ke audiens yang lebih luas secara organik.
-        </p>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">{m1Judul}</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">{m1Teks}</p>
       </div>
 
       <div class="animate-on-scroll opacity-0 translate-y-12 transform transition-all duration-700 ease-out delay-150 bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white">
         <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">02</div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">Meningkatkan Closing</h3>
-        <p class="text-slate-600 leading-relaxed text-sm">
-          Akun jualan yang ramai interaksi secara psikologis menurunkan keraguan calon pembeli, sehingga konversi penjualan Anda meningkat.
-        </p>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">{m2Judul}</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">{m2Teks}</p>
       </div>
 
       <div class="animate-on-scroll opacity-0 translate-y-12 transform transition-all duration-700 ease-out delay-300 bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white">
         <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">03</div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">Efisiensi Waktu</h3>
-        <p class="text-slate-600 leading-relaxed text-sm">
-          Anda tidak perlu stres menunggu interaksi pertama berhari-hari. Biarkan kami yang memicu keramaian di awal postingan Anda.
-        </p>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">{m3Judul}</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">{m3Teks}</p>
       </div>
 
       <div class="animate-on-scroll opacity-0 translate-y-12 transform transition-all duration-700 ease-out delay-[450ms] bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl hover:bg-white">
         <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 font-bold text-xl">04</div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">Brand Authority</h3>
-        <p class="text-slate-600 leading-relaxed text-sm">
-          Membangun citra bahwa *brand* atau diri Anda adalah pemain besar yang diminati dan diperhatikan oleh banyak netizen.
-        </p>
+        <h3 class="text-xl font-bold mb-3 text-slate-900">{m4Judul}</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">{m4Teks}</p>
       </div>
 
     </div>
@@ -52,16 +52,12 @@
 </section>
 
 <script>
-  // 👇 is:inline dihapus, dan pelatuk diganti jadi astro:page-load
   document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Hapus efek transparan dan posisi turun
           entry.target.classList.remove('opacity-0', 'translate-y-12');
-          // Paksa muncul (opacity-100) dan naik ke posisi awal (translate-y-0)
           entry.target.classList.add('opacity-100', 'translate-y-0');
-          // Stop memantau agar tidak jalan berulang-ulang
           observer.unobserve(entry.target);
         }
       });
@@ -69,8 +65,8 @@
       threshold: 0.1 
     });
 
-    // Cari semua kotak yang punya class animate-on-scroll
     const boxes = document.querySelectorAll('.animate-on-scroll');
     boxes.forEach((box) => observer.observe(box));
   });
 </script>
+
