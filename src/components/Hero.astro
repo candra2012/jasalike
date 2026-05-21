@@ -1,83 +1,66 @@
 ---
 // src/components/Hero.astro
-import { Icon } from 'astro-icon/components';
+import { Icon } from 'astro-icon/components'
+
+const { 
+  judulUtama, 
+  deskripsi, 
+  teksTombol1, linkTombol1, 
+  teksTombol2, linkTombol2, 
+  gambarHero,
+  tipe = "home" // 👈 Variabel penentu gaya layout (default-nya "home")
+} = Astro.props;
 ---
 
-<section class="relative py-32 lg:py-48 bg-slate-950 overflow-hidden">
-  <div class="absolute inset-0 z-0">
-    <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600 rounded-full blur-[180px] opacity-20"></div>
-  </div>
+{tipe === "home" ? (
+  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900 border-b border-slate-800">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-  <div class="relative z-10 container mx-auto px-6">
-    <div class="text-center max-w-4xl mx-auto mb-16 animate-fade-in-up">
-      <div class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-        <Icon name="lucide:sparkles" class="w-4 h-4" />
-        Spesialis Optimasi Interaksi Sosial Media No. 1
-      </div>
-
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-8 tracking-tight">
-        Tumbuh <span class="text-blue-500">Lebih Percaya Diri</span> <br class="hidden md:block"/> di Dunia Digital
-      </h1>
-
-      <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-        Jasalike membantu meningkatkan kredibilitas akun Anda melalui interaksi nyata yang aman, cepat, dan bergaransi. Saatnya tampil profesional sekarang juga.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20order%20Jasa%20Like.%3F" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 !text-white hover:!text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-600/30 transition-all duration-300 hover:scale-105 active:scale-95">
-          Konsultasi via WhatsApp
-          <Icon name="lucide:arrow-right" class="w-5 h-5" />
-        </a>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         
-        <a 
-          href="https://docs.google.com/spreadsheets/d/1BXtgxl_qcKRe4UOIm__BDH5DwufpyX-56Ru-NDDXMcI/edit?usp=sharing" 
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 !text-white hover:!text-white font-bold px-8 py-4 rounded-xl border border-white/20 transition-all hover:scale-105 active:scale-95"
-        >
-          <Icon name="lucide:file-spreadsheet" class="w-5 h-5 text-emerald-400" />
-          Pricelist Lengkap
-        </a>
-      </div>
-    </div>
+        <div class="text-center lg:text-left">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight" set:html={judulUtama}></h1>
+          <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">{deskripsi}</p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href={linkTombol1} class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+              {teksTombol1} <Icon name="lucide:rocket" class="w-5 h-5" />
+            </a>
+            <a href={linkTombol2} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2">
+              <Icon name="lucide:message-circle" class="w-5 h-5 text-emerald-400" /> {teksTombol2}
+            </a>
+          </div>
+        </div>
 
-    <div class="max-w-5xl mx-auto animate-fade-in-up delay-300">
-      <div class="relative group">
-        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-        
-        <div class="relative bg-slate-900 rounded-[2rem] p-2 border border-white/10 shadow-2xl overflow-hidden">
-          <img
-            src="/image/hero-beranda.png
-"
-            alt="Dashboard Jasa Like"
-            class="w-full h-auto rounded-[1.5rem] object-cover"
-            loading="eager"
-          />
+        <div class="relative mx-auto w-full max-w-md lg:max-w-full">
+          <img src={gambarHero} alt="Hero Banner" class="w-full h-auto drop-shadow-2xl relative z-10 transform hover:scale-105 transition-transform duration-700" />
         </div>
       </div>
     </div>
+  </section>
+) : (
+  
+  /* JIKA TIPE = "layanan" (Gambar jadi Background Full) */
+  <section class="relative pt-40 pb-32 lg:pt-56 lg:pb-40 overflow-hidden border-b border-slate-800 flex items-center justify-center">
+    
+    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={`background-image: url('${gambarHero}');`}></div>
+    
+    <div class="absolute inset-0 bg-slate-950/80 z-0"></div>
 
-  </div>
-</section>
+    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight" set:html={judulUtama}></h1>
+      <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">{deskripsi}</p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={linkTombol1} class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+          {teksTombol1} <Icon name="lucide:rocket" class="w-5 h-5" />
+        </a>
+        <a href={linkTombol2} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 border border-slate-600 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2">
+          <Icon name="lucide:message-circle" class="w-5 h-5 text-emerald-400" /> {teksTombol2}
+        </a>
+      </div>
+    </div>
+  </section>
+)}
 
-<style>
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-  }
-  .delay-300 {
-    animation-delay: 300ms;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
