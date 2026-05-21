@@ -1,61 +1,38 @@
 ---
 // src/components/Hero.astro
-
-// Tangkap pasokan data dari Frontmatter index.astro
 const {
   judulUtama,
   deskripsi,
-  teksTombol1,
-  linkTombol1,
-  teksTombol2,
-  linkTombol2,
   gambarHero
 } = Astro.props;
 ---
-<section class="relative py-32 md:py-40 bg-slate-950 text-white overflow-hidden">
+<section class="relative pt-32 pb-48 md:pt-40 md:pb-64 bg-[#0B1121] text-white overflow-hidden">
   
-  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:32px_32px] opacity-[0.15] z-0"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.25] z-0"></div>
   
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/60 to-slate-950 z-0"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-blue-600/20 blur-[140px] rounded-full pointer-events-none z-0"></div>
 
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+  <div class="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-white via-transparent to-transparent z-0"></div>
 
-  <div class="max-w-6xl mx-auto px-6 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+    <div class="flex flex-col items-center gap-12 md:gap-16">
       
-      <div class="animate-hero-left opacity-0 -translate-x-8 transform transition-all duration-1000 ease-out">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.15] tracking-tight text-white" set:html={judulUtama}>
+      <div class="animate-hero-text opacity-0 translate-y-8 transform transition-all duration-1000 ease-out max-w-3xl">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-[1.2] tracking-tight text-white" set:html={judulUtama}>
         </h1>
-        <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-normal">
+        <p class="text-base md:text-lg text-slate-400 leading-relaxed font-normal">
           {deskripsi}
         </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href={linkTombol1}
-            class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-300 text-center"
-          >
-            {teksTombol1}
-          </a>
-          <a
-            href={linkTombol2}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex justify-center items-center bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-full border border-slate-700 hover:border-slate-600 hover:-translate-y-0.5 transition-all duration-300 text-center shadow-lg"
-          >
-            {teksTombol2}
-          </a>
-        </div>
       </div>
 
-      <div class="animate-hero-right opacity-0 translate-x-8 transform transition-all duration-1000 ease-out delay-300 relative w-full">
+      <div class="animate-hero-image opacity-0 translate-y-8 transform transition-all duration-1000 ease-out delay-300 w-full max-w-3xl relative">
         <div class="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full transform scale-75 -z-10"></div>
         
-        <div class="bg-slate-900/60 backdrop-blur-md border border-slate-700 rounded-[2.5rem] p-4 shadow-2xl overflow-hidden relative group">
+        <div class="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-[2.5rem] p-4 shadow-2xl overflow-hidden relative group">
           <img
             src={gambarHero}
-            alt="Spesialis Jasa Like"
-            class="w-full h-auto rounded-[2rem] object-cover border border-slate-700/50 shadow-inner transform group-hover:scale-[1.02] transition-transform duration-500"
+            alt="Hero Image"
+            class="w-full h-auto rounded-[2rem] object-cover border border-slate-700/50 shadow-inner transform group-hover:scale-[1.01] transition-transform duration-500"
           />
         </div>
       </div>
@@ -66,16 +43,18 @@ const {
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const heroLeft = document.querySelector('.animate-hero-left');
-    if (heroLeft) {
-      heroLeft.classList.remove('opacity-0', '-translate-x-8');
-      heroLeft.classList.add('opacity-100', 'translate-x-0');
+    // Jalankan animasi teks
+    const heroText = document.querySelector('.animate-hero-text');
+    if (heroText) { 
+      heroText.classList.remove('opacity-0', 'translate-y-8'); 
+      heroText.classList.add('opacity-100', 'translate-y-0'); 
     }
 
-    const heroRight = document.querySelector('.animate-hero-right');
-    if (heroRight) {
-      heroRight.classList.remove('opacity-0', 'translate-x-8');
-      heroRight.classList.add('opacity-100', 'translate-x-0');
+    // Jalankan animasi gambar
+    const heroImage = document.querySelector('.animate-hero-image');
+    if (heroImage) { 
+      heroImage.classList.remove('opacity-0', 'translate-y-8'); 
+      heroImage.classList.add('opacity-100', 'translate-y-0'); 
     }
   });
 </script>
