@@ -1,48 +1,62 @@
 ---
-// src/components/ApaItu.astro
+// src/components/ApaItuJasaLike.astro
+import { Icon } from 'astro-icon/components'
+
+// 👇 Tangkap variabel dari Frontmatter
+const { 
+  judulUtama, 
+  deskripsiUtama, 
+  poin1, 
+  poin2, 
+  poin3, 
+  gambarSrc 
+} = Astro.props;
 ---
-<section class="py-24 bg-slate-50 border-y border-slate-200">
+<section class="py-24 bg-white overflow-hidden border-y border-slate-200">
   <div class="max-w-6xl mx-auto px-6">
     
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-        Lebih dari Sekadar <span class="text-blue-600">Angka di Layar</span>
-      </h2>
-      <p class="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-        JasaLike bukan sekadar bot penambah angka. Kami adalah strategi optimasi profil untuk memberikan dorongan awal agar akun Anda terlihat profesional, aktif, dan siap bersaing di algoritma.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
-      <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-        </div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">Membangun Social Proof</h3>
-        <p class="text-slate-600 leading-relaxed">
-          Secara psikologis, orang lebih percaya pada akun yang sudah memiliki banyak interaksi. Kami membantu Anda membangun fondasi "kepercayaan" pertama tersebut di mata calon klien/followers.
+      <div class="reveal-up">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight tracking-tight" set:html={judulUtama}>
+        </h2>
+        
+        <p class="text-slate-600 text-lg leading-relaxed mb-8">
+          {deskripsiUtama}
         </p>
+        
+        <ul class="space-y-5 text-slate-700 font-medium">
+          <li class="flex items-start gap-4">
+            <div class="bg-blue-100 p-1.5 rounded-full mt-1 shrink-0">
+              <Icon name="lucide:check" class="w-5 h-5 text-blue-600" />
+            </div>
+            <span class="leading-relaxed">{poin1}</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="bg-purple-100 p-1.5 rounded-full mt-1 shrink-0">
+              <Icon name="lucide:check" class="w-5 h-5 text-purple-600" />
+            </div>
+            <span class="leading-relaxed">{poin2}</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="bg-emerald-100 p-1.5 rounded-full mt-1 shrink-0">
+              <Icon name="lucide:check" class="w-5 h-5 text-emerald-600" />
+            </div>
+            <span class="leading-relaxed">{poin3}</span>
+          </li>
+        </ul>
       </div>
 
-      <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-        <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+      <div class="reveal-up delay-200 relative w-full">
+        <div class="absolute inset-0 bg-blue-600/10 blur-[80px] rounded-full transform scale-90 -z-10"></div>
+        
+        <div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-4 shadow-xl">
+           <img 
+             src={gambarSrc} 
+             alt="Ilustrasi JasaLike" 
+             class="w-full h-auto rounded-3xl object-cover"
+           />
         </div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">Pemicu Algoritma Organik</h3>
-        <p class="text-slate-600 leading-relaxed">
-          Postingan yang mendapat banyak interaksi di jam-jam awal tayang akan memberikan sinyal positif ke sistem algoritma, memperbesar peluang konten Anda didorong masuk ke Explore atau FYP.
-        </p>
-      </div>
-
-      <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-6">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
-        </div>
-        <h3 class="text-xl font-bold mb-3 text-slate-900">100% Aman & Praktis</h3>
-        <p class="text-slate-600 leading-relaxed">
-          Kami hanya membutuhkan Link/URL postingan Anda, tanpa pernah meminta password. Proses dilakukan dari luar sehingga privasi akun Anda tetap terjaga dengan aman.
-        </p>
       </div>
 
     </div>
