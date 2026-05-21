@@ -390,8 +390,8 @@ const keywords = "jasa like facebook, jasa like postingan facebook, jasa like ko
 </style>
 
 <script>
-  // Script untuk memantau kapan elemen masuk ke layar
-  document.addEventListener('DOMContentLoaded', () => {
+  // Ganti pelatuknya menjadi astro:page-load
+  document.addEventListener('astro:page-load', () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -399,12 +399,12 @@ const keywords = "jasa like facebook, jasa like postingan facebook, jasa like ko
         }
       });
     }, {
-      threshold: 0.1 // Memicu animasi ketika 10% elemen sudah terlihat di layar
+      threshold: 0.1 
     });
 
-    // Minta script untuk mengawasi semua elemen yang punya class reveal
     document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach((el) => {
       observer.observe(el);
     });
   });
 </script>
+
