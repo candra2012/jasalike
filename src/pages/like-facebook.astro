@@ -389,22 +389,3 @@ const keywords = "jasa like facebook, jasa like postingan facebook, jasa like ko
   }
 </style>
 
-<script>
-  // Ganti pelatuknya menjadi astro:page-load
-  document.addEventListener('astro:page-load', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.1 
-    });
-
-    document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach((el) => {
-      observer.observe(el);
-    });
-  });
-</script>
-
