@@ -60,8 +60,9 @@ import { Icon } from 'astro-icon/components'
   </div>
 </section>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+<script>
+  // 👇 is:inline dihapus, dan pelatuk diganti jadi astro:page-load
+  document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -76,4 +77,3 @@ import { Icon } from 'astro-icon/components'
     boxes.forEach((box) => observer.observe(box));
   });
 </script>
-
