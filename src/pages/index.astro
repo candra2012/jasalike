@@ -9,7 +9,7 @@ import Pengertian from '@components/Pengertian.astro'
 import ApaItuJasaLike from '@components/ApaItuJasaLike.astro'
 import Manfaat from '@components/Manfaat.astro'
 import ManfaatJasaLike from '@components/ManfaatJasaLike.astro'
-import MengapaKami from '@components/MengapaKami.astro' 
+import MengapaMemilihJasaLike from '@components/MengapaMemilihJasaLike.astro' 
 import Testimonials from '@components/Testimonials.astro'
 import MetodePembayaran from '@components/MetodePembayaran.astro'
 import DaftarHarga from '@components/DaftarHarga.astro' 
@@ -68,9 +68,11 @@ const keywords = "jasa like, beli like instagram, jasa like tiktok, jasa like fa
 
   <PainPoints />
    <Pengertian />
-     <ApaItu />
-    <Manfaat />
-   <MengapaKami />
+     <ApaItuJasaLike {...dataApaItu} />
+
+    <ManfaatJasaLike {...dataManfaat} />
+
+   <MengapaMemilihJasaLike {...dataMengapaMemilih} />
   <Testimonials />
   <MetodePembayaran />
   <DaftarHarga />
