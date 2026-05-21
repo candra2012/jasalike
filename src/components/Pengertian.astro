@@ -52,15 +52,16 @@ import { Icon } from 'astro-icon/components'
   </div>
 </section>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+<script>
+  // 👇 is:inline dihapus, dan pelatuk diganti jadi astro:page-load
+  document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Menghapus efek transparan dan pergeseran awal
           entry.target.classList.remove('opacity-0', '-translate-x-12', 'translate-x-12');
           // Memaksa elemen ke posisi asli (0) dengan opacity penuh
-          entry.target.classList.add('opacity-100', 'translate-x-0');
+          entry.target.classList.add('opacity-100', 'translate-y-0'); // Pakai translate-y-0 atau tanpa translate agar kembali ke posisi normal Tailwind
           observer.unobserve(entry.target);
         }
       });
@@ -70,4 +71,3 @@ import { Icon } from 'astro-icon/components'
     boxes.forEach((box) => observer.observe(box));
   });
 </script>
-
