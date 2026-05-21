@@ -45,6 +45,24 @@ const {
       footer { flex-shrink: 0; }
       pre { border: 2px solid var(--link-color); border-radius: .35rem; padding: 1rem; }
     </style>
-  </body>
-</html>
 
+    <script>
+      document.addEventListener('astro:page-load', () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            }
+          });
+        }, {
+          threshold: 0.1 // Memicu animasi ketika 10% elemen sudah terlihat di layar
+        });
+
+        // Minta script untuk mengawasi semua elemen yang punya class reveal di seluruh website
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+    </body>
+</html>
