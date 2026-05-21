@@ -2,65 +2,82 @@
 // src/components/Hero.astro
 import { Icon } from 'astro-icon/components'
 
-const { 
-  judulUtama, 
-  deskripsi, 
-  teksTombol1, linkTombol1, 
-  teksTombol2, linkTombol2, 
-  gambarHero,
-  tipe = "home" // 👈 Variabel penentu gaya layout (default-nya "home")
+const {
+  judulUtama,
+  deskripsi,
+  teksTombol1,
+  linkTombol1,
+  teksTombol2,
+  linkTombol2,
+  gambarHero
 } = Astro.props;
 ---
 
-{tipe === "home" ? (
-  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900 border-b border-slate-800">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        
-        <div class="text-center lg:text-left">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight" set:html={judulUtama}></h1>
-          <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">{deskripsi}</p>
-          
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href={linkTombol1} class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-              {teksTombol1} <Icon name="lucide:rocket" class="w-5 h-5" />
-            </a>
-            <a href={linkTombol2} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2">
-              <Icon name="lucide:message-circle" class="w-5 h-5 text-emerald-400" /> {teksTombol2}
-            </a>
-          </div>
-        </div>
-
-        <div class="relative mx-auto w-full max-w-md lg:max-w-full">
-          <img src={gambarHero} alt="Hero Banner" class="w-full h-auto drop-shadow-2xl relative z-10 transform hover:scale-105 transition-transform duration-700" />
-        </div>
-      </div>
-    </div>
-  </section>
-) : (
+<section class="relative py-32 md:py-40 bg-slate-950 text-white overflow-hidden">
   
-  /* JIKA TIPE = "layanan" (Gambar jadi Background Full) */
-  <section class="relative pt-40 pb-32 lg:pt-56 lg:pb-40 overflow-hidden border-b border-slate-800 flex items-center justify-center">
-    
-    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style={`background-image: url('${gambarHero}');`}></div>
-    
-    <div class="absolute inset-0 bg-slate-950/80 z-0"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60 z-0"></div>
+  
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-blue-600/10 blur-[140px] rounded-full pointer-events-none z-0"></div>
 
-    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight" set:html={judulUtama}></h1>
-      <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">{deskripsi}</p>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href={linkTombol1} class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-          {teksTombol1} <Icon name="lucide:rocket" class="w-5 h-5" />
-        </a>
-        <a href={linkTombol2} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 border border-slate-600 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2">
-          <Icon name="lucide:message-circle" class="w-5 h-5 text-emerald-400" /> {teksTombol2}
-        </a>
+      <div class="animate-hero-left opacity-0 -translate-x-8 transform transition-all duration-1000 ease-out">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.15] tracking-tight text-white" set:html={judulUtama}>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed font-normal">
+          {deskripsi}
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href={linkTombol1}
+            class="inline-flex justify-center items-center bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-300 text-center"
+          >
+            {teksTombol1}
+          </a>
+          <a
+            href={linkTombol2}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex justify-center items-center bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-bold px-8 py-4 rounded-full border border-slate-800 hover:border-slate-700 hover:-translate-y-0.5 transition-all duration-300 text-center"
+          >
+            {teksTombol2}
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-)}
 
+      <div class="animate-hero-right opacity-0 translate-x-8 transform transition-all duration-1000 ease-out delay-300 relative w-full">
+        <div class="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full transform scale-75 -z-10"></div>
+        
+        <div class="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-[2.5rem] p-4 shadow-2xl">
+          <img
+            src={gambarHero}
+            alt="Spesialis Jasa Like"
+            class="w-full h-auto rounded-[2rem] object-cover border border-slate-800/50"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    // Pemicu Kolom Kiri
+    const heroLeft = document.querySelector('.animate-hero-left');
+    if (heroLeft) {
+      heroLeft.classList.remove('opacity-0', '-translate-x-8');
+      heroLeft.classList.add('opacity-100', 'translate-x-0');
+    }
+
+    // Pemicu Kolom Kanan
+    const heroRight = document.querySelector('.animate-hero-right');
+    if (heroRight) {
+      heroRight.classList.remove('opacity-0', 'translate-x-8');
+      heroRight.classList.add('opacity-100', 'translate-x-0');
+    }
+  });
+</script>
