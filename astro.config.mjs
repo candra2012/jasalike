@@ -11,6 +11,14 @@ export default defineConfig({
   site: 'https://jasalike.com',
   output: 'static',
   trailingSlash: 'ignore',
+  
+  // 👇 TAMBAHKAN FITUR PREFETCH DI SINI 👇
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover'
+  },
+  // 👆 SELESAI 👆
+
   integrations: [
     mdx(), 
     icon(), 
