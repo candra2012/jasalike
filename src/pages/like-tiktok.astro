@@ -104,6 +104,32 @@ const dataSolusi = {
   sol3Teks: "Mendorong nilai konversi ketertarikan publik demi menciptakan ruang bertumbuh bagi konten Anda."
 };
 
+const dataHargaPaket = {
+  judulHarga: "Pilihan Skala Boost Engagement TikTok",
+  deskripsiHarga: "Segera amankan posisi video Anda di beranda FYP audiens hari ini juga.",
+  
+  // Paket 1 (Kiri)
+  p1Gambar: "/image/harga-paket-tiktok.png", // Pastikan nama file gambarnya sesuai yang ada di folder public/image
+  p1Nama: "Paket Trigger 100 Like",
+  p1Fitur1: "Distribusi interaksi responsif",
+  p1Fitur2: "Murni dikelola akun aktif manusia",
+  p1Fitur3: "Amunisi pas buat kreator pemula",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20order%20Paket%20Trigger%20100%20Like%20TikTok",
+  
+  // Paket 2 (Kanan)
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/harga-paket-1000like-tiktok.png", // Pastikan nama file gambarnya sesuai
+  p2Nama: "Paket Dominasi 1000 Like",
+  p2Fitur1: "Distribusi algoritma sangat natural",
+  p2Fitur2: "Jaminan 100% jejak interaksi nyata",
+  p2Fitur3: "Andalan utama seller TikTok Shop",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20order%20Paket%20Dominasi%201000%20Like%20TikTok"
+};
+
+
 const dataCaraOrder = {
   judulUtama: 'Cara Order <span class="text-blue-500">Jasa Like TikTok</span>',
   deskripsiUtama: 'Alur administrasi pemesanan yang ringkas, transparan, dan mudah dipahami.',
@@ -150,7 +176,7 @@ const dataFaq = {
           "@context": "https://schema.org/",
           "@type": "Product",
           "name": "Jasa Like TikTok Terpercaya Untuk Video FYP",
-          "image": "https://jasalike.com/image/logo-hero-jasalike.png",
+          "image": "https://jasalike.com/image/harga-paket-tiktok.png",
           "description": "Layanan optimasi interaksi video TikTok berkualitas untuk memperkuat kredibilitas, menaikkan metrik engagement, dan memicu jangkauan organik akun bisnis maupun personal.",
           "brand": {
             "@type": "Brand",
@@ -221,12 +247,19 @@ const dataFaq = {
                 "@type": "Answer",
                 "text": "Ya, kami menyediakan perlindungan asuransi pengisian kembali (refill) gratis untuk menjamin jumlah suka pada video Anda tetap stabil sesuai pesanan."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "Tautan jenis apa saja yang bisa diproses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Semua tautan unggahan video reguler maupun konten komersial di TikTok dapat kami optimasikan, dengan catatan pengaturan privasi akun tidak dikunci (publik)."
+              }
             }
           ]
         }
       ]
     </script>
-    <SchemaFaq faqList={dataFaq.faqList} />
   </Fragment>
 
   <Hero {...dataHero} />
