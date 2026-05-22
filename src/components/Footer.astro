@@ -5,20 +5,18 @@ import Logo from './Logo.astro'
 import { Icon } from 'astro-icon/components'
 ---
 
-<footer class="relative bg-slate-950 text-slate-300 overflow-hidden border-t border-slate-800">
+<footer class="relative bg-[#0B1121] text-slate-300 overflow-hidden border-t border-slate-800">
   
-  <div class="absolute inset-0 z-0 pointer-events-none">
-    <div class="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[180px] opacity-10"></div>
-  </div>
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.25] z-0 pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
-  <section class="py-20 relative z-10 border-b border-slate-800/50">
+  <section class="py-16 md:py-20 relative z-10 border-b border-slate-800/50">
     <h2 class="sr-only">Footer</h2>
     <div class="container grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 mx-auto px-6 max-w-7xl">
       
       <div class="flex flex-col gap-4">
-        <h3 class="text-2xl font-bold text-white">Navigation</h3>
-        <ul class="flex flex-col gap-2">
+        <h3 class="text-lg md:text-xl font-bold text-white">Navigation</h3>
+        <ul class="flex flex-col gap-2 text-sm text-slate-400">
           <li><a href="/" class="hover:text-blue-400 transition-colors">Home</a></li>
           <li><a href="/layanan/" class="hover:text-blue-400 transition-colors">Layanan</a></li>
           <li><a href="/blog/" class="hover:text-blue-400 transition-colors">Blog</a></li>
@@ -28,8 +26,8 @@ import { Icon } from 'astro-icon/components'
       </div>
 
       <div class="flex flex-col gap-4">
-        <h3 class="text-2xl font-bold text-white">Layanan</h3>
-        <ul class="flex flex-col gap-2">
+        <h3 class="text-lg md:text-xl font-bold text-white">Layanan</h3>
+        <ul class="flex flex-col gap-2 text-sm text-slate-400">
           <li><a href="/like-instagram/" class="hover:text-blue-400 transition-colors">Like Instagram</a></li>
           <li><a href="/like-tiktok/" class="hover:text-blue-400 transition-colors">Like Tiktok</a></li>
           <li><a href="/like-facebook/" class="hover:text-blue-400 transition-colors">Like Facebook</a></li>
@@ -41,8 +39,8 @@ import { Icon } from 'astro-icon/components'
       </div>
 
       <div class="flex flex-col gap-4">
-        <h3 class="text-2xl font-bold text-white">Kontak</h3>
-        <ul class="flex flex-col gap-2">
+        <h3 class="text-lg md:text-xl font-bold text-white">Kontak</h3>
+        <ul class="flex flex-col gap-2 text-sm text-slate-400">
           <li>
             <a href="https://wa.me/6289634740308" aria-label="WhatsApp jasa like" class="hover:text-blue-400 transition-colors">
               WhatsApp: +62 896-3474-0308
@@ -51,7 +49,7 @@ import { Icon } from 'astro-icon/components'
           <li><a href="mailto:bisnis@jasalike.com" class="hover:text-blue-400 transition-colors">Email: jasalike@gmail.com</a></li>
           <li>Jam kerja: 09.00–22.00 WIB (darurat 24/7)</li>
           
-          <li class="mt-3 mb-1 text-sm leading-relaxed opacity-90 border-l-2 border-blue-500 pl-3 text-slate-400">
+          <li class="mt-2 text-xs md:text-sm leading-relaxed opacity-90 border-l-2 border-blue-500 pl-3 text-slate-400">
             <strong class="text-white">Kantor AuraDigital:</strong><br />
             Jl. Palabuan subang No. 15,<br />
             Kecamatan, Subang Kota, Subang<br />
@@ -59,44 +57,44 @@ import { Icon } from 'astro-icon/components'
           </li>
         </ul>
 
-        <div class="mt-2 flex items-center gap-3" aria-label="Ikuti kami di media sosial">
+        <div class="mt-2 flex items-center gap-2.5" aria-label="Ikuti kami di media sosial">
           <a class="soc" href="https://wa.me/6289634740308" aria-label="WhatsApp">
-            <Icon name="lucide:phone" size="18" />
+            <Icon name="lucide:phone" size="16" />
           </a>
           <a class="soc" href="https://www.instagram.com/jasa.like.asli" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <Icon name="lucide:instagram" size="18" />
+            <Icon name="lucide:instagram" size="16" />
           </a>
           <a class="soc" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <Icon name="lucide:music-2" size="18" />
+            <Icon name="lucide:music-2" size="16" />
           </a>
           <a class="soc" href="mailto:jasalike@gmail.com" aria-label="Email">
-            <Icon name="lucide:mail" size="18" />
+            <Icon name="lucide:mail" size="16" />
           </a>
           <a class="soc" href="https://t.me/auradigitalID" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-            <Icon name="lucide:send" size="18" />
+            <Icon name="lucide:send" size="16" />
           </a>
           <a class="soc" href="https://twitter.com/auradigitalID" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <Icon name="lucide:twitter" size="18" />
+            <Icon name="lucide:twitter" size="16" />
           </a>
         </div>
       </div>
 
       <div class="flex flex-col gap-4">
-        <div class="brightness-0 invert w-fit">
+        <div class="brightness-0 invert w-fit transform scale-90 origin-left">
           <Logo loading="lazy" />
         </div>
-        <p class="leading-[1.75] opacity-80 text-slate-400 mt-2">
+        <p class="leading-relaxed text-sm opacity-80 text-slate-400 mt-2">
           <strong class="text-white">jasa like</strong> – JasaLike adalah bagian dari jaringan agensi Aura Digital. Kami menghadirkan solusi optimasi interaksi media sosial yang aman, cepat, dan profesional.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="py-8 relative z-10">
+  <section class="py-6 relative z-10">
     <div class="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between mx-auto px-6 max-w-7xl">
-      <p>&copy; 2025 – <strong class="text-white">jasa like</strong>. All rights reserved.</p>
+      <p class="text-xs md:text-sm text-slate-400">&copy; 2026 – <strong class="text-white">jasa like</strong>. All rights reserved.</p>
       <nav aria-label="Legal links">
-        <ul class="flex flex-wrap items-center gap-4 text-sm">
+        <ul class="flex flex-wrap items-center gap-4 text-xs md:text-sm text-slate-400">
           <li><a href="/privacy/" class="hover:text-white transition-colors">Privacy Policy</a></li>
           <li><a href="/terms/" class="hover:text-white transition-colors">Terms of Service</a></li>
         </ul>
@@ -106,13 +104,13 @@ import { Icon } from 'astro-icon/components'
 </footer>
 
 <style lang="scss">
-  /* Mengubah desain tombol sosmed agar cocok dengan background gelap */
+  /* Ukuran tombol sosmed sedikit dikecilkan agar proporsional dengan font baru */
   .soc {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 40px;
-    block-size: 40px;
+    inline-size: 36px;
+    block-size: 36px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
@@ -129,3 +127,4 @@ import { Icon } from 'astro-icon/components'
     }
   }
 </style>
+
