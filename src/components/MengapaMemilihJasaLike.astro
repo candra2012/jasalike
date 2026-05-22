@@ -16,7 +16,7 @@ const {
 ---
 <section class="relative py-20 md:py-24 bg-[#0B1121] text-white overflow-hidden border-t border-slate-800">
   
-  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.25] z-0"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] z-0 animate-twinkle"></div>
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-[500px] bg-blue-600/20 blur-[140px] rounded-full pointer-events-none z-0"></div>
 
   <div class="max-w-6xl mx-auto px-6 relative z-10">
@@ -98,4 +98,15 @@ const {
     boxes.forEach((box) => observer.observe(box));
   });
 </script>
+
+<style>
+  @keyframes smooth-twinkle {
+    0%, 100% { opacity: 0.12; }
+    50% { opacity: 0.35; } 
+  }
+  .animate-twinkle {
+    animation: smooth-twinkle 8s ease-in-out infinite;
+  }
+</style>
+
 
