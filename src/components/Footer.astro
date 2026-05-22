@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon/components'
 
 <footer class="relative bg-[#0B1121] text-slate-300 overflow-hidden border-t border-slate-800">
   
-  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.25] z-0 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] z-0 animate-twinkle"></div>
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
   <section class="py-16 md:py-20 relative z-10 border-b border-slate-800/50">
@@ -127,4 +127,15 @@ import { Icon } from 'astro-icon/components'
     }
   }
 </style>
+
+<style>
+  @keyframes smooth-twinkle {
+    0%, 100% { opacity: 0.12; }
+    50% { opacity: 0.35; } 
+  }
+  .animate-twinkle {
+    animation: smooth-twinkle 8s ease-in-out infinite;
+  }
+</style>
+
 
