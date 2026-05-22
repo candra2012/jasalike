@@ -4,7 +4,6 @@ import HomeSchemas from '@components/HomeSchemas.astro'
 import OrganizationSchema from '@components/OrganizationSchema.astro'
 
 import Hero from '@components/Hero.astro'
-import Pengertian from '@components/Pengertian.astro'
 import MasalahJasaLike from '@components/MasalahJasaLike.astro'
 import ApaItuJasaLike from '@components/ApaItuJasaLike.astro'
 import ManfaatJasaLike from '@components/ManfaatJasaLike.astro'
@@ -13,9 +12,6 @@ import Testimonials from '@components/Testimonials.astro'
 import FaqJasaLike from '@components/FaqJasaLike.astro'
 import MetodePembayaran from '@components/MetodePembayaran.astro'
 import DaftarHarga from '@components/DaftarHarga.astro' 
-import Feature from '@components/Feature.astro'
-import Counter from '@components/Counter.astro'
-import ContentMedia from '@components/ContentMedia.astro'
 
 // ==========================================
 // 1. DATA SEO
@@ -42,26 +38,20 @@ const dataHero = {
 const dataMasalah = {
   judulUtama: 'Familiar dengan <span class="text-blue-600">Situasi Ini?</span>',
   deskripsiUtama: "Membangun audiens dari nol memang tidak mudah. Banyak kreator dan pebisnis tertahan potensinya karena kendala-kendala ini:",
-
   ms1Teks: 'Calon pembeli ragu bertransaksi karena <strong class="text-blue-600 font-bold">jumlah interaksi</strong> profil bisnis Anda masih sangat sedikit.',
   ms2Teks: 'Konten susah viral dan <strong class="text-blue-600 font-bold">kalah saing di algoritma</strong> karena minimnya pancingan *like* di awal.',
   ms3Teks: 'Sudah capek membuat konten dan rajin upload, tapi <strong class="text-blue-600 font-bold">postingan selalu sepi</strong> pengunjung.',
   ms4Teks: 'Susah membangun <strong class="text-blue-600 font-bold">otoritas brand</strong> yang berujung pada lambatnya konversi penjualan.'
 };
 
-
 const dataApaItu = {
   judulUtama: 'Lebih dari Sekadar <span class="text-blue-500">Angka di Layar</span>',
   deskripsiUtama: "JasaLike bukan sekadar penambah metrik pasif. Kami adalah pendorong awal agar akun Anda terlihat profesional, aktif, dan siap bersaing di sistem algoritma.",
-  
-  // Data Kotak 1
   k1Judul: "Mata Uang Kepercayaan",
-  k1Teks: "Secara psikologis, saat seseorang melihat postingan dengan ribuan *like*, otak mereka otomatis berasumsi bahwa konten atau produk tersebut bernilai, aman, dan telah disukai banyak orang (<strong class='text-blue-600'>Social Proof</strong>).",  
-  // Data Kotak 2
+  k1Teks: "Secara psikologis, saat seseorang melihat postingan dengan ribuan <em>like</em>, otak mereka otomatis berasumsi bahwa konten atau produk tersebut bernilai, aman, dan telah disukai banyak orang (<strong class='text-blue-600'>Social Proof</strong>).",
   k2Judul: "Katalis Algoritma",
   k2Teks: "Seringkali konten yang bagus tenggelam karena akun masih baru. Kami hadir menyuntikkan interaksi awal agar sistem algoritma platform <strong class='text-blue-600'>terpancing menyebarkan konten</strong> Anda lebih luas."
 };
-
 
 const dataManfaat = {
   judulUtama: 'Manfaat Nyata yang <span class="text-blue-600">Anda Dapatkan</span>',
@@ -129,8 +119,6 @@ const dataFaq = {
   <Hero {...dataHero} />
   
   <MasalahJasaLike {...dataMasalah} />
-  
-  <Pengertian />
   
   <ApaItuJasaLike {...dataApaItu} />
 
