@@ -22,7 +22,7 @@ const {
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
       
-      <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out bg-slate-900 rounded-[2rem] border border-slate-700 overflow-hidden flex flex-col shadow-xl">
+      <div class="no-tap animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out bg-slate-900 rounded-[2rem] border border-slate-700 overflow-hidden flex flex-col shadow-xl">
         
         <div class="w-full bg-slate-800/50 p-6 border-b border-slate-700/50 flex justify-center items-center h-[220px]">
           <img src={p1Gambar} alt={p1Nama} class="w-auto h-full max-h-[160px] object-contain drop-shadow-md" />
@@ -53,14 +53,14 @@ const {
               </div>
             </div>
             
-            <a href={p1Link} class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-3.5 rounded-xl transition-colors text-sm md:text-base shadow-md">
+            <a href={p1Link} class="no-tap block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white visited:!text-white no-underline font-bold py-3.5 rounded-xl transition-all text-sm md:text-base shadow-md active:scale-95">
               Pesan Sekarang
             </a>
           </div>
         </div>
       </div>
 
-      <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 bg-slate-900 rounded-[2rem] border-2 border-blue-500/60 overflow-hidden flex flex-col relative shadow-2xl shadow-blue-900/30 mt-0 md:-mt-4">
+      <div class="no-tap animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 bg-slate-900 rounded-[2rem] border-2 border-blue-500/60 overflow-hidden flex flex-col relative shadow-2xl shadow-blue-900/30 mt-0 md:-mt-4">
         
         <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-black px-4 py-1.5 rounded-full z-10 shadow-md tracking-wider">
           {p2Label}
@@ -96,7 +96,7 @@ const {
               </div>
             </div>
             
-            <a href={p2Link} class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors text-sm md:text-base shadow-lg">
+            <a href={p2Link} class="no-tap block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white visited:!text-white no-underline font-bold py-4 rounded-xl transition-all text-sm md:text-base shadow-lg active:scale-95">
               Pesan Sekarang
             </a>
           </div>
@@ -106,6 +106,13 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+  /* Kunci pembasmi efek kedip abu-abu di layar sentuh HP */
+  .no-tap {
+    -webkit-tap-highlight-color: transparent;
+  }
+</style>
 
 <script>
   document.addEventListener("astro:page-load", () => {
