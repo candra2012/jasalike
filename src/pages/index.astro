@@ -4,6 +4,7 @@ import HomeSchemas from '@components/HomeSchemas.astro'
 import OrganizationSchema from '@components/OrganizationSchema.astro'
 
 import Hero from '@components/Hero.astro'
+import Pengertian from '@components/Pengertian.astro'
 import MasalahJasaLike from '@components/MasalahJasaLike.astro'
 import ApaItuJasaLike from '@components/ApaItuJasaLike.astro'
 import ManfaatJasaLike from '@components/ManfaatJasaLike.astro'
@@ -38,7 +39,7 @@ const dataHero = {
   gambarHero: "/image/hero-beranda.png"
 };
 
-const dataMasalahJasaLike = {
+const dataMasalah = {
   judulUtama: 'Familiar dengan <span class="text-blue-600">Situasi Ini?</span>',
   deskripsiUtama: "Membangun audiens dari nol memang tidak mudah. Banyak kreator dan pebisnis tertahan potensinya karena kendala-kendala ini.",
   ms1Judul: "Susah Masuk FYP / Explore",
@@ -49,13 +50,13 @@ const dataMasalahJasaLike = {
   ms3Teks: "Calon klien ragu untuk bertransaksi karena melihat jumlah followers atau interaksi yang masih sangat sedikit di profil bisnis Anda."
 };
 
-const dataApaItuJasaLike = {
+const dataApaItu = {
   judulUtama: 'Lebih dari Sekadar <span class="text-blue-600">Angka di Layar</span>',
   deskripsiUtama: "JasaLike bukan sekadar bot penambah angka. Kami adalah strategi optimasi profil untuk memberikan dorongan awal agar akun Anda terlihat profesional, aktif, dan siap bersaing di algoritma media sosial.",
   poin1: "Membangun Social Proof: Orang lebih percaya pada akun yang sudah ramai interaksi.",
   poin2: "Pemicu Algoritma Organik: Dorongan interaksi awal memperbesar peluang masuk Explore/FYP.",
   poin3: "100% Aman & Praktis: Hanya butuh Link postingan, tanpa pernah meminta password Anda.",
-  gambarSrc: "/og-home.png" 
+  gambarSrc: "/image/hero-beranda.png" 
 };
 
 const dataManfaat = {
@@ -125,7 +126,9 @@ const dataFaq = {
   
   <MasalahJasaLike {...dataMasalah} />
   
-  <ApaItuJasaLike {...dataApaItuJasaLike} />
+  <Pengertian />
+  
+  <ApaItuJasaLike {...dataApaItu} />
 
   <ManfaatJasaLike {...dataManfaat} />
 
