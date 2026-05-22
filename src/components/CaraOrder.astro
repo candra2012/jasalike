@@ -20,26 +20,34 @@ import { Icon } from 'astro-icon/components';
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 lg:gap-8">
       
-      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out text-center p-4">
-        <div class="text-4xl font-black text-blue-500/20 mb-3 italic tracking-wider">01</div>
+      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out flex flex-col items-center text-center p-4">
+        <div class="w-16 h-16 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center mb-5 shadow-lg shadow-blue-500/10">
+          <Icon name="lucide:mouse-pointer-click" class="w-8 h-8" />
+        </div>
         <h4 class="text-base md:text-lg font-bold mb-2 text-white">Pilih Layanan</h4>
         <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Tentukan pilihan layanan like dan jumlah target like yang Anda butuhkan.</p>
       </div>
 
-      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 text-center p-4">
-        <div class="text-4xl font-black text-blue-500/20 mb-3 italic tracking-wider">02</div>
+      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 flex flex-col items-center text-center p-4">
+        <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mb-5 shadow-lg shadow-emerald-500/10">
+          <Icon name="lucide:message-circle" class="w-8 h-8" />
+        </div>
         <h4 class="text-base md:text-lg font-bold mb-2 text-white">Chat Tim Admin</h4>
         <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Hubungi dan konsultasikan pesanan Anda langsung ke chat tim JasaLike.</p>
       </div>
 
-      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-300 text-center p-4">
-        <div class="text-4xl font-black text-blue-500/20 mb-3 italic tracking-wider">03</div>
+      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-300 flex flex-col items-center text-center p-4">
+        <div class="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mb-5 shadow-lg shadow-amber-500/10">
+          <Icon name="lucide:wallet" class="w-8 h-8" />
+        </div>
         <h4 class="text-base md:text-lg font-bold mb-2 text-white">Lakukan Pembayaran</h4>
         <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Selesaikan transaksi pembayaran melalui berbagai metode aman yang tersedia.</p>
       </div>
 
-      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-[450ms] text-center p-4">
-        <div class="text-4xl font-black text-blue-500/20 mb-3 italic tracking-wider">04</div>
+      <div class="animate-on-scroll-order opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-[450ms] flex flex-col items-center text-center p-4">
+        <div class="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center mb-5 shadow-lg shadow-purple-500/10">
+          <Icon name="lucide:rocket" class="w-8 h-8" />
+        </div>
         <h4 class="text-base md:text-lg font-bold mb-2 text-white">Proses Pesanan</h4>
         <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Tim JasaLike akan langsung memproses pesanan Anda secara instan dan natural.</p>
       </div>
