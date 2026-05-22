@@ -1,3 +1,4 @@
+---
 // src/pages/like-tiktok.astro
 
 import DefaultLayout from '../layouts/DefaultLayout.astro'
@@ -19,256 +20,228 @@ import MetodePembayaran from '../components/MetodePembayaran.astro'
 import FaqJasaLike from '../components/FaqJasaLike.astro'
 
 // ==========================================
-// SEO
+// SEO & METADATA
 // ==========================================
-
 const title = "Jasa Like TikTok Terpercaya Untuk Video FYP & Engagement";
-const description = "Jasa like TikTok terpercaya untuk meningkatkan engagement video, memperkuat social proof, membantu performa FYP, aman dan proses cepat.";
-const keywords = "jasa like tiktok terpercaya, jasa like video tiktok indonesia, jasa tambah like tiktok permanen, jasa like tiktok untuk fyp, jasa like tiktok cepat dan aman, jasa like tiktok real";
+const description = "Optimasi engagement video TikTok secara natural untuk memperkuat social proof, membangun kredibilitas, dan mendukung performa konten di halaman rekomendasi secara aman.";
+const keywords = "jasa like tiktok terpercaya, jasa interaksi video tiktok indonesia, optimasi engagement tiktok permanen, langkah video tiktok masuk fyp, jasa optimasi tiktok aman, pengembangan akun tiktok bisnis";
 
 // ==========================================
-// HERO
+// DATA PROPS UNTUK KOMPONEN
 // ==========================================
-
 const dataHero = {
-tipe:"service",
-labelTeks:"Layanan TikTok Premium",
-labelIcon:"lucide:music4",
-
-judulUtama:'Jasa Like TikTok <br class="hidden md:block"/> <span class="text-blue-500">Cepat & Terpercaya</span>',
-
-deskripsi:"Tingkatkan performa video TikTok dengan layanan optimasi interaksi yang dirancang untuk membantu memperkuat engagement, meningkatkan daya tarik konten, dan mendukung peluang video menjangkau audiens lebih luas melalui sistem rekomendasi TikTok.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Aman & Stabil ✓ Proses Cepat ✓ Garansi Refill</span>",
-
-teksTombol1:"Lihat Harga Paket",
-linkTombol1:"#harga-paket",
-
-teksTombol2:"Konsultasi Gratis",
-linkTombol2:"https://wa.me/6289634740308",
-
-gambarHero:"/image/logo-hero-jasalike.png"
-}
-
-
-// ==========================================
-// MASALAH
-// ==========================================
+  tipe: "service",
+  labelTeks: "Layanan TikTok Premium",
+  labelIcon: "lucide:music4",
+  judulUtama: 'Jasa Like TikTok <br class="hidden md:block"/> <span class="text-blue-500">Cepat & Terpercaya</span>',
+  deskripsi: "Tingkatkan performa video TikTok dengan layanan optimasi interaksi yang dirancang untuk membantu memperkuat engagement, meningkatkan daya tarik konten, dan mendukung peluang video menjangkau audiens lebih luas melalui sistem rekomendasi TikTok.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Sistem Aman & Stabil ✓ Proses Efisien ✓ Garansi Proteksi Kualitas</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png"
+};
 
 const dataMasalah = {
-
-judulUtama:'Masalah Kreator <span class="text-blue-500">& Seller TikTok</span>',
-
-deskripsiUtama:'Kendala yang sering menyebabkan video sulit berkembang meski kualitas konten sudah maksimal.',
-
-ms1Teks:'<strong class="text-blue-600">Engagement Rendah:</strong> Video memiliki penonton namun interaksi tidak cukup kuat untuk membantu distribusi konten.',
-
-ms2Teks:'<strong class="text-blue-600">Sulit Masuk FYP:</strong> Konten gagal memperoleh momentum pada jam-jam awal tayang.',
-
-ms3Teks:'<strong class="text-blue-600">Social Proof Lemah:</strong> Jumlah like minim membuat audiens baru kurang tertarik.',
-
-ms4Teks:'<strong class="text-blue-600">Persaingan Ketat:</strong> Kreator dan seller TikTok harus bersaing dengan ribuan konten baru setiap hari.'
-
-}
-
-
-// ==========================================
-// APA ITU
-// ==========================================
-
-const dataApaItu={
-
-judulUtama:'Apa Itu <span class="text-blue-500">Jasa Like TikTok?</span>',
-
-deskripsiUtama:'Layanan optimasi engagement TikTok yang membantu meningkatkan interaksi awal pada video sehingga performa konten terlihat lebih aktif.',
-
-k1Judul:'Mendukung Distribusi Konten',
-
-k1Teks:'Interaksi awal yang baik membantu video memperoleh sinyal positif terhadap sistem rekomendasi TikTok.',
-
-k2Judul:'Membangun Social Proof',
-
-k2Teks:'Jumlah like yang terlihat aktif dapat meningkatkan kepercayaan audiens terhadap konten maupun produk.'
-}
-
-
-// ==========================================
-// MANFAAT
-// ==========================================
-
-const dataManfaat={
-
-judulUtama:'Manfaat <span class="text-blue-600">Untuk Akun TikTok</span>',
-
-deskripsiUtama:'Optimasi engagement yang tepat membantu memperkuat performa akun secara keseluruhan.',
-
-m1Judul:'Meningkatkan Kredibilitas',
-m1Teks:'Konten terlihat lebih aktif dan menarik perhatian audiens.',
-
-m2Judul:'Engagement Lebih Baik',
-m2Teks:'Membantu memperkuat performa interaksi video.',
-
-m3Judul:'Memancing Interaksi Organik',
-m3Teks:'Konten yang ramai cenderung lebih menarik pengguna lain.',
-
-m4Judul:'Meningkatkan Brand Awareness',
-m4Teks:'Membantu memperluas eksposur personal branding maupun bisnis.'
-
-}
-
-
-// ==========================================
-// MENGAPA MEMILIH
-// ==========================================
-
-const dataMengapaMemilih={
-
-judulUtama:'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
-
-deskripsiUtama:'Alasan kreator TikTok mempercayakan kebutuhan engagement mereka kepada kami.',
-
-mk1Judul:"Proses Cepat",
-mk1Teks:"Pesanan diproses segera setelah pembayaran dikonfirmasi.",
-
-mk2Judul:"Privasi Aman",
-mk2Teks:"Proses hanya memerlukan tautan video yang ingin diproses.",
-
-mk3Judul:"Garansi Refill",
-mk3Teks:"Tersedia perlindungan isi ulang jika terjadi penurunan layanan.",
-
-mk4Judul:"Harga Kompetitif",
-mk4Teks:"Pilihan paket fleksibel sesuai kebutuhan.",
-
-mk5Judul:"Distribusi Natural",
-mk5Teks:"Pola interaksi dibuat lebih stabil dan bertahap.",
-
-mk6Judul:"Customer Support",
-mk6Teks:"Tim siap membantu kebutuhan pelanggan."
-}
-
-
-// ==========================================
-// SOLUSI
-// ==========================================
-
-const dataSolusi={
-
-judulUtama:'Solusi Tepat <span class="text-blue-500">Untuk Video TikTok</span>',
-
-deskripsiUtama:'Layanan yang dirancang untuk membantu meningkatkan performa konten secara aman dan profesional.',
-
-sol1Icon:"lucide:shield",
-
-sol1Judul:"Distribusi Aman",
-
-sol1Teks:"Pola interaksi dirancang lebih stabil agar tetap terlihat natural.",
-
-sol2Icon:"lucide:refresh-cw",
-
-sol2Judul:"Garansi Refill",
-
-sol2Teks:"Tersedia perlindungan layanan untuk menjaga kualitas interaksi.",
-
-sol3Icon:"lucide:trending-up",
-
-sol3Judul:"Dorong Engagement",
-
-sol3Teks:"Membantu memperkuat performa video dan meningkatkan daya tarik konten."
-
-}
-
-
-// ==========================================
-// CARA ORDER
-// ==========================================
-
-const dataCaraOrder={
-
-judulUtama:'Cara Order <span class="text-blue-500">Jasa Like TikTok</span>',
-
-deskripsiUtama:'Proses pemesanan cepat dan sederhana.',
-
-co1Judul:"Pilih Paket",
-
-co1Teks:"Tentukan jumlah like sesuai kebutuhan.",
-
-co2Judul:"Hubungi Admin",
-
-co2Teks:"Konsultasikan kebutuhan melalui WhatsApp.",
-
-co3Judul:"Kirim Link & Pembayaran",
-
-co3Teks:"Kirim tautan video dan selesaikan pembayaran.",
-
-co4Judul:"Pesanan Diproses",
-
-co4Teks:"Tim akan segera memproses layanan."
-}
-
-
-// FAQ + schema juga ditambahkan
-const dataFaq={
-
-judulUtama:'FAQ Jasa Like <span class="text-blue-500">TikTok</span>',
-
-deskripsiUtama:'Pertanyaan umum seputar layanan.',
-
-faq1Judul:"Apakah aman?",
-faq1Teks:"Ya. Proses dirancang dengan sistem yang aman.",
-
-faq2Judul:"Berapa lama prosesnya?",
-faq2Teks:"Biasanya beberapa menit hingga beberapa jam.",
-
-faq3Judul:"Apakah ada garansi refill?",
-faq3Teks:"Ya tersedia sesuai ketentuan layanan.",
-
-faq4Judul:"Apakah mendukung semua video TikTok?",
-faq4Teks:"Ya mendukung berbagai jenis video publik."
-}
+  judulUtama: 'Masalah Kreator <span class="text-blue-500">& Seller TikTok</span>',
+  deskripsiUtama: 'Kendala utama yang sering menyebabkan video sulit berkembang meski kualitas produksi konten sudah maksimal.',
+  ms1Teks: '<strong class="text-blue-600">Engagement Rendah:</strong> Video memiliki penonton namun rasio interaksi kurang seimbang untuk memicu penyebaran lebih luas.',
+  ms2Teks: '<strong class="text-blue-600">Akselerasi Lambat:</strong> Konten gagal memperoleh traksi positif yang krusial pada jam-jam awal setelah tayang.',
+  ms3Teks: '<strong class="text-blue-600">Social Proof Lemah:</strong> Jumlah reaksi yang minim membuat audiens baru cenderung melewati video begitu saja.',
+  ms4Teks: '<strong class="text-blue-600">Persaingan Ketat:</strong> Kreator dan pelaku bisnis harus berhadapan dengan algoritma yang mengkurasi ribuan video baru setiap detiknya.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Apa Itu <span class="text-blue-500">Jasa Like TikTok?</span>',
+  deskripsiUtama: 'Layanan pengembangan metrik interaksi yang membantu memberikan respons awal pada video agar distribusi konten berjalan lebih optimal.',
+  k1Judul: 'Sinyal Positif Distribusi',
+  k1Teks: 'Interaksi awal yang konsisten memberikan sinyal kualitas yang baik kepada sistem penataan linimasa TikTok.',
+  k2Judul: 'Meningkatkan Kredibilitas',
+  k2Teks: 'Kombinasi jumlah suka yang meyakinkan membangun kepercayaan spontan dari pemirsa maupun calon pembeli.'
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat <span class="text-blue-600">Untuk Akun TikTok</span>',
+  deskripsiUtama: 'Langkah optimasi interaksi secara terukur untuk menaikkan performa portofolio akun Anda.',
+  m1Judul: 'Validasi Kredibilitas',
+  m1Teks: 'Konten Anda terlihat bernilai, populer, dan lebih mudah menahan perhatian pengguna.',
+  m2Judul: 'Rasio Respon Sehat',
+  m2Teks: 'Membantu menjaga dan menyeimbangkan performa interaksi antar unggahan konten.',
+  m3Judul: 'Efek Daya Tarik Organik',
+  m3Teks: 'Unggahan yang sudah ramai secara alami merangsang pemirsa baru untuk ikut berkomentar atau menyukai.',
+  m4Judul: 'Dukungan Brand Awareness',
+  m4Teks: 'Mempercepat perluasan jangkauan publikasi bagi akun personal branding maupun etalase komersial.'
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: 'Alasan utama para profesional dan kreator mempercayakan kebutuhan ekosistem akun mereka kepada kami.',
+  mk1Judul: "Proses Sistematis",
+  mk1Teks: "Antrean pengerjaan berjalan tertib dan segera aktif setelah detail divalidasi.",
+  mk2Judul: "Jaminan Privasi",
+  mk2Teks: "Prosedur pengerjaan sepenuhnya eksternal, hanya berbasis pada tautan video publik.",
+  mk3Judul: "Garansi Pemeliharaan",
+  mk3Teks: "Fasilitas asuransi isi ulang berkala demi memastikan volume interaksi tetap konsisten.",
+  mk4Judul: "Pilihan Fleksibel",
+  mk4Teks: "Tersedia ragam variasi skala paket penawaran yang dapat disesuaikan dengan target Anda.",
+  mk5Judul: "Aliran Natural",
+  mk5Teks: "Skema penambahan interaksi diatur secara bertahap demi menjaga keamanan ekosistem.",
+  mk6Judul: "Dukungan Responsif",
+  mk6Teks: "Layanan bantuan pelanggan siap memberikan solusi teknis yang ramah kapan pun dibutuhkan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-500">Untuk Video TikTok</span>',
+  deskripsiUtama: "Formula taktis yang dirancang untuk mendukung performa visual dan keterbacaan konten Anda oleh sistem rekomendasi.",
+  sol1Icon: "lucide:shield",
+  sol1Judul: "Metode Aman",
+  sol1Teks: "Pola distribusi interaksi diatur selaras dengan aktivitas natural agar integritas video tetap aman.",
+  sol2Icon: "lucide:refresh-cw",
+  sol2Judul: "Perlindungan Kualitas",
+  sol2Teks: "Kenyamanan Anda terproteksi penuh lewat mekanisme pemantauan stabilitas jumlah berkala.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Penguatan Interaksi",
+  sol3Teks: "Mendorong nilai konversi ketertarikan publik demi menciptakan ruang bertumbuh bagi konten Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Order <span class="text-blue-500">Jasa Like TikTok</span>',
+  deskripsiUtama: 'Alur administrasi pemesanan yang ringkas, transparan, dan mudah dipahami.',
+  co1Judul: "Pilih Skala Paket",
+  co1Teks: "Tentukan kuantitas target interaksi yang ideal bagi video Anda.",
+  co2Judul: "Konfirmasi Pesanan",
+  co2Teks: "Hubungi tim helpdesk kami melalui akses tombol WhatsApp.",
+  co3Judul: "Validasi Tautan",
+  co3Teks: "Kirim tautan video publik Anda dan tuntaskan administrasi pembayaran.",
+  co4Judul: "Pemantauan Hasil",
+  co4Teks: "Sistem internal kami segera bergerak menyelesaikan antrean secara berkala."
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Like <span class="text-blue-500">TikTok</span>',
+  deskripsiUtama: 'Jawaban ringkas atas berbagai pertanyaan yang paling sering diajukan pelanggan.',
+  faqList: [
+    {
+      question: "Apakah proses ini aman untuk kelangsungan akun?",
+      answer: "Sangat aman. Sistem kami beroperasi menggunakan jaringan penonton eksternal yang diatur secara bertahap, sehingga tidak memicu batasan atau pelanggaran pada akun Anda."
+    },
+    {
+      question: "Berapa lama waktu pengerjaan yang dibutuhkan?",
+      answer: "Pengerjaan umumnya memakan waktu beberapa menit hingga beberapa jam secara berkala, bergantung pada besaran volume paket yang Anda pilih."
+    },
+    {
+      question: "Apakah tersedia jaminan jika terjadi penurunan?",
+      answer: "Ya, kami menyediakan perlindungan asuransi pengisian kembali (refill) gratis untuk menjamin jumlah suka pada video Anda tetap stabil sesuai pesanan."
+    },
+    {
+      question: "Tautan jenis apa saja yang bisa diproses?",
+      answer: "Semua tautan unggahan video reguler maupun konten komersial di TikTok dapat kami optimasikan, dengan catatan pengaturan privasi akun tidak dikunci (publik)."
+    }
+  ]
+};
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
-<Fragment slot="head">
-<script type="application/ld+json">
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      [
+        {
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": "Jasa Like TikTok Terpercaya Untuk Video FYP",
+          "image": "https://jasalike.com/image/logo-hero-jasalike.png",
+          "description": "Layanan optimasi interaksi video TikTok berkualitas untuk memperkuat kredibilitas, menaikkan metrik engagement, dan memicu jangkauan organik akun bisnis maupun personal.",
+          "brand": {
+            "@type": "Brand",
+            "name": "JasaLike"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "1420"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "200000",
+            "highPrice": "2000000",
+            "priceCurrency": "IDR",
+            "offerCount": "4"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://jasalike.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Layanan",
+              "item": "https://jasalike.com/layanan/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Like TikTok"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah proses ini aman untuk kelangsungan akun?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat aman. Sistem kami beroperasi menggunakan jaringan penonton eksternal yang diatur secara bertahap, sehingga tidak memicu batasan atau pelanggaran pada akun Anda."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Berapa lama waktu pengerjaan yang dibutuhkan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pengerjaan umumnya memakan waktu beberapa menit hingga beberapa jam secara berkala, bergantung pada besaran volume paket yang Anda pilih."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah tersedia jaminan jika terjadi penurunan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya, kami menyediakan perlindungan asuransi pengisian kembali (refill) gratis untuk menjamin jumlah suka pada video Anda tetap stabil sesuai pesanan."
+              }
+            }
+          ]
+        }
+      ]
+    </script>
+    <SchemaFaq faqList={dataFaq.faqList} />
+  </Fragment>
 
-[
-{
-"@context":"https://schema.org",
-"@type":"FAQPage",
-"mainEntity":[
-{
-"@type":"Question",
-"name":"Apakah aman?",
-"acceptedAnswer":{
-"@type":"Answer",
-"text":"Ya layanan dirancang aman dan stabil."
-}
-},
-{
-"@type":"Question",
-"name":"Berapa lama prosesnya?",
-"acceptedAnswer":{
-"@type":"Answer",
-"text":"Beberapa menit sampai beberapa jam."
-}
-}
-]
-}
-]
-
-</script>
-</Fragment>
-
-<Hero {...dataHero}/>
-<MasalahJasaLike {...dataMasalah}/>
-<ApaItuJasaLike {...dataApaItu}/>
-<ManfaatJasaLike {...dataManfaat}/>
-<MengapaMemilihJasaLike {...dataMengapaMemilih}/>
-<Solusi {...dataSolusi}/>
-<CaraOrder {...dataCaraOrder}/>
-<DaftarHarga/>
-<HargaPaket />
-<Testimonials/>
-<MetodePembayaran/>
-<FaqJasaLike {...dataFaq}/>
+  <Hero {...dataHero} />
+  <MasalahJasaLike {...dataMasalah} />
+  <ApaItuJasaLike {...dataApaItu} />
+  <ManfaatJasaLike {...dataManfaat} />
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+  <Solusi {...dataSolusi} />
+  <CaraOrder {...dataCaraOrder} />
+  
+  <DaftarHarga />
+  <HargaPaket />
+  <Testimonials />
+  <MetodePembayaran />
+  
+  <FaqJasaLike {...dataFaq} />
 
 </DefaultLayout>
