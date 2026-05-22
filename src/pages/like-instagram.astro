@@ -11,6 +11,7 @@ import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
 import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
 import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
 import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
 import HargaPaket from '../components/HargaPaket.astro'
 import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
@@ -88,6 +89,20 @@ const dataMengapaMemilih = {
   mk5Teks: "Like masuk secara bertahap dan rapi, meniru pola interaksi manusia asli agar aman dari deteksi spam.",
   mk6Judul: "Support 24/7",
   mk6Teks: "Tim admin kami selalu siap merespons dan membantu konsultasi strategi engagement Anda kapan pun."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-600">Melejitkan Akun Anda</span>',
+  deskripsiUtama: "Kami menghadirkan formula optimasi terbaik untuk mendorong interaksi akun secara sehat, instan, dan bergaransi.",
+  sol1Icon: "lucide:zap",
+  sol1Judul: "Injeksi Instan & Aman",
+  sol1Teks: "Sistem pengiriman metrik dirancang sangat halus meniru aktivitas manusia asli sehingga akun Anda terhindar dari bendera spam algoritma.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Garansi Anti-Drop",
+  sol2Teks: "Tidak perlu khawatir interaksi berkurang. Seluruh layanan premium kami diproteksi oleh garansi suntik ulang (refill) otomatis.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Mendorong Jangkauan Organik",
+  sol3Teks: "Dengan modal interaksi yang tinggi di awal, postingan Anda akan memicu algoritma untuk merekomendasikannya ke halaman Explore."
 };
 
 const dataCaraOrder = {
@@ -214,13 +229,15 @@ const dataFaq = {
 
   <MengapaMemilihJasaLike {...dataMengapaMemilih} />
 
-  <DaftarHarga />
-  
+  <Solusi {...dataSolusi} />
+
   <CaraOrder {...dataCaraOrder} />
 
-  <Testimonials />
+  <DaftarHarga />
 
   <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
   
   <MetodePembayaran />
   
