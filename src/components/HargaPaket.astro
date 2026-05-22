@@ -1,7 +1,6 @@
 ---
 // src/components/HargaPaket.astro
 
-// 👇 Tangkap semua data dinamis dari luar (supaya bisa beda-beda per halaman)
 const {
   judulHarga = "Pilihan Paket Favorit",
   deskripsiHarga,
@@ -13,77 +12,84 @@ const {
   p2Label = "TERLARIS", p2Gambar, p2Nama, p2Fitur1, p2Fitur2, p2Fitur3, p2HargaCoret, p2Harga, p2Link
 } = Astro.props;
 ---
-<section id="harga-paket" class="py-20 md:py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
+<section id="harga-paket" class="py-20 md:py-24 bg-slate-50 border-y border-slate-200 overflow-hidden">
   <div class="max-w-4xl mx-auto px-6">
     
     <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out text-center mb-14">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-4 tracking-tight">{judulHarga}</h2>
-      <p class="text-sm md:text-base text-slate-400">{deskripsiHarga}</p>
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">{judulHarga}</h2>
+      <p class="text-sm md:text-base text-slate-600">{deskripsiHarga}</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       
-      <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
-        <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
-          <img src={p1Gambar} alt={p1Nama} class="mx-auto h-auto object-contain" style="max-height: 200px;" />
+      <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out bg-white rounded-[2rem] border border-slate-200 overflow-hidden flex flex-col hover:border-blue-300 hover:shadow-2xl transition-all shadow-lg">
+        
+        <div class="w-full bg-slate-100/50 p-6 border-b border-slate-100 flex justify-center items-center h-[220px]">
+          <img src={p1Gambar} alt={p1Nama} class="w-auto h-full max-h-[160px] object-contain drop-shadow-md" />
         </div>
+        
         <div class="p-8 pt-6 flex-1 flex flex-col">
-          <h3 class="text-xl md:text-2xl font-bold text-white mb-6">{p1Nama}</h3>
+          <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-6">{p1Nama}</h3>
           <ul class="space-y-4 mb-8 flex-1">
-            <li class="flex items-start gap-3 text-slate-300">
+            <li class="flex items-start gap-3 text-slate-600">
               <span class="text-blue-500 text-xl leading-none mt-1">●</span>
               <span class="text-sm md:text-base">{p1Fitur1}</span>
             </li>
-            <li class="flex items-start gap-3 text-slate-300">
+            <li class="flex items-start gap-3 text-slate-600">
               <span class="text-blue-500 text-xl leading-none mt-1">●</span>
               <span class="text-sm md:text-base">{p1Fitur2}</span>
             </li>
-            <li class="flex items-start gap-3 text-slate-300">
+            <li class="flex items-start gap-3 text-slate-600">
               <span class="text-blue-500 text-xl leading-none mt-1">●</span>
               <span class="text-sm md:text-base">{p1Fitur3}</span>
             </li>
           </ul>
-          <div class="mb-6 border-t border-slate-800 pt-6">
-            <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
+          <div class="mb-6 border-t border-slate-100 pt-6">
+            <p class="text-sm text-slate-500 mb-1">Harga Spesial</p>
             <div class="flex items-baseline gap-2">
-              <span class="text-3xl md:text-4xl font-extrabold text-white">{p1Harga}</span>
+              <span class="text-3xl md:text-4xl font-black text-slate-900">{p1Harga}</span>
             </div>
           </div>
-          <a href={p1Link} class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-3.5 rounded-xl transition-colors text-sm md:text-base">
+          <a href={p1Link} class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-3.5 rounded-xl transition-colors text-sm md:text-base shadow-md hover:shadow-blue-500/30">
             Pesan Sekarang
           </a>
         </div>
       </div>
 
-      <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
-        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">{p2Label}</div>
-        <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
-          <img src={p2Gambar} alt={p2Nama} class="mx-auto h-auto object-contain" style="max-height: 200px;" />
+      <div class="animate-on-scroll-hargapaket opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 bg-white rounded-[2rem] border-2 border-blue-200 overflow-hidden flex flex-col relative hover:border-blue-400 hover:shadow-2xl transition-all shadow-xl shadow-blue-900/5 mt-0 md:-mt-4 mb-0 md:-mb-4 z-10">
+        
+        <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full z-20 shadow-md tracking-wider">
+          {p2Label}
         </div>
+        
+        <div class="w-full bg-blue-50/50 p-6 border-b border-blue-100 flex justify-center items-center h-[220px]">
+          <img src={p2Gambar} alt={p2Nama} class="w-auto h-full max-h-[180px] object-contain drop-shadow-lg transform scale-105" />
+        </div>
+        
         <div class="p-8 pt-6 flex-1 flex flex-col">
-          <h3 class="text-xl md:text-2xl font-bold text-white mb-6">{p2Nama}</h3>
+          <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-6">{p2Nama}</h3>
           <ul class="space-y-4 mb-8 flex-1">
-            <li class="flex items-start gap-3 text-slate-300">
-              <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-              <span class="text-sm md:text-base">{p2Fitur1}</span>
+            <li class="flex items-start gap-3 text-slate-600">
+              <span class="text-blue-600 text-xl leading-none mt-1">●</span>
+              <span class="text-sm md:text-base font-medium">{p2Fitur1}</span>
             </li>
-            <li class="flex items-start gap-3 text-slate-300">
-              <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-              <span class="text-sm md:text-base">{p2Fitur2}</span>
+            <li class="flex items-start gap-3 text-slate-600">
+              <span class="text-blue-600 text-xl leading-none mt-1">●</span>
+              <span class="text-sm md:text-base font-medium">{p2Fitur2}</span>
             </li>
-            <li class="flex items-start gap-3 text-slate-300">
-              <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-              <span class="text-sm md:text-base">{p2Fitur3}</span>
+            <li class="flex items-start gap-3 text-slate-600">
+              <span class="text-blue-600 text-xl leading-none mt-1">●</span>
+              <span class="text-sm md:text-base font-medium">{p2Fitur3}</span>
             </li>
           </ul>
-          <div class="mb-6 border-t border-slate-800 pt-6">
-            <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
+          <div class="mb-6 border-t border-slate-100 pt-6">
+            <p class="text-sm text-slate-500 mb-1">Harga Spesial</p>
             <div class="flex items-baseline gap-2">
-              <span class="text-3xl md:text-4xl font-extrabold text-white">{p2Harga}</span>
-              {p2HargaCoret && <span class="text-base md:text-lg text-slate-500 line-through">{p2HargaCoret}</span>}
+              <span class="text-3xl md:text-4xl font-black text-slate-900">{p2Harga}</span>
+              {p2HargaCoret && <span class="text-sm md:text-base text-slate-400 line-through font-medium">{p2HargaCoret}</span>}
             </div>
           </div>
-          <a href={p2Link} class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-3.5 rounded-xl transition-colors text-sm md:text-base">
+          <a href={p2Link} class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors text-sm md:text-base shadow-lg hover:shadow-blue-600/40">
             Pesan Sekarang
           </a>
         </div>
