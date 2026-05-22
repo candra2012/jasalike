@@ -2,58 +2,80 @@
 // src/components/MengapaMemilihJasaLike.astro
 import { Icon } from 'astro-icon/components'
 
-// 👇 Tangkap variabel dari luar
+// 👇 Tangkap 6 variabel dari luar
 const {
   judulUtama,
   deskripsiUtama,
   mk1Judul, mk1Teks,
   mk2Judul, mk2Teks,
   mk3Judul, mk3Teks,
-  mk4Judul, mk4Teks
+  mk4Judul, mk4Teks,
+  mk5Judul, mk5Teks,
+  mk6Judul, mk6Teks
 } = Astro.props;
 ---
-<section class="py-24 bg-slate-900 text-white overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
+<section class="relative py-20 md:py-24 bg-[#0B1121] text-white overflow-hidden border-t border-slate-800">
+  
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.25] z-0"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-[500px] bg-blue-600/20 blur-[140px] rounded-full pointer-events-none z-0"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
     
-    <div class="text-center mb-20">
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight" set:html={judulUtama}></h2>
-      <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+    <div class="text-center mb-16">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight" set:html={judulUtama}></h2>
+      <p class="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
         {deskripsiUtama}
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       
-      <div class="animate-on-scroll-dark opacity-0 translate-y-12 transform transition-all duration-700 ease-out p-8 rounded-2xl shadow-lg bg-slate-800 border border-slate-700 hover:border-blue-500 hover:-translate-y-2">
-        <div class="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-6">
-          <Icon name="lucide:crosshair" class="w-8 h-8" />
+      <div class="animate-on-scroll-dark opacity-0 translate-y-8 transform transition-all duration-700 ease-out p-6 md:p-8 rounded-2xl shadow-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 hover:border-blue-500 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center mb-5">
+          <Icon name="lucide:crosshair" class="w-6 h-6" />
         </div>
-        <h3 class="text-xl font-bold mb-3">{mk1Judul}</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">{mk1Teks}</p>
+        <h3 class="text-base md:text-lg font-bold mb-2 text-white">{mk1Judul}</h3>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">{mk1Teks}</p>
       </div>
 
-      <div class="animate-on-scroll-dark opacity-0 translate-y-12 transform transition-all duration-700 ease-out delay-150 p-8 rounded-2xl shadow-lg bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:-translate-y-2">
-        <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center mb-6">
-          <Icon name="lucide:zap" class="w-8 h-8" />
+      <div class="animate-on-scroll-dark opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 p-6 md:p-8 rounded-2xl shadow-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 hover:border-emerald-500 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center mb-5">
+          <Icon name="lucide:zap" class="w-6 h-6" />
         </div>
-        <h3 class="text-xl font-bold mb-3">{mk2Judul}</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">{mk2Teks}</p>
+        <h3 class="text-base md:text-lg font-bold mb-2 text-white">{mk2Judul}</h3>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">{mk2Teks}</p>
       </div>
 
-      <div class="animate-on-scroll-dark opacity-0 translate-y-12 transform transition-all duration-700 ease-out delay-300 p-8 rounded-2xl shadow-lg bg-slate-800 border border-slate-700 hover:border-purple-500 hover:-translate-y-2">
-        <div class="w-14 h-14 bg-purple-500/20 text-purple-400 rounded-xl flex items-center justify-center mb-6">
-          <Icon name="lucide:lock" class="w-8 h-8" />
+      <div class="animate-on-scroll-dark opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-300 p-6 md:p-8 rounded-2xl shadow-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 hover:border-purple-500 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-xl flex items-center justify-center mb-5">
+          <Icon name="lucide:lock" class="w-6 h-6" />
         </div>
-        <h3 class="text-xl font-bold mb-3">{mk3Judul}</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">{mk3Teks}</p>
+        <h3 class="text-base md:text-lg font-bold mb-2 text-white">{mk3Judul}</h3>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">{mk3Teks}</p>
       </div>
 
-      <div class="animate-on-scroll-dark opacity-0 translate-y-12 transform transition-all duration-700 ease-out delay-[450ms] p-8 rounded-2xl shadow-lg bg-slate-800 border border-slate-700 hover:border-amber-500 hover:-translate-y-2">
-        <div class="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center mb-6">
-          <Icon name="lucide:percent" class="w-8 h-8" />
+      <div class="animate-on-scroll-dark opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-[450ms] p-6 md:p-8 rounded-2xl shadow-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 hover:border-amber-500 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-xl flex items-center justify-center mb-5">
+          <Icon name="lucide:percent" class="w-6 h-6" />
         </div>
-        <h3 class="text-xl font-bold mb-3">{mk4Judul}</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">{mk4Teks}</p>
+        <h3 class="text-base md:text-lg font-bold mb-2 text-white">{mk4Judul}</h3>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">{mk4Teks}</p>
+      </div>
+
+      <div class="animate-on-scroll-dark opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-[600ms] p-6 md:p-8 rounded-2xl shadow-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 hover:border-rose-500 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-rose-500/20 text-rose-400 rounded-xl flex items-center justify-center mb-5">
+          <Icon name="lucide:shield-check" class="w-6 h-6" />
+        </div>
+        <h3 class="text-base md:text-lg font-bold mb-2 text-white">{mk5Judul}</h3>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">{mk5Teks}</p>
+      </div>
+
+      <div class="animate-on-scroll-dark opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-[750ms] p-6 md:p-8 rounded-2xl shadow-xl bg-slate-800/80 backdrop-blur-sm border border-slate-700 hover:border-cyan-500 hover:-translate-y-1">
+        <div class="w-12 h-12 bg-cyan-500/20 text-cyan-400 rounded-xl flex items-center justify-center mb-5">
+          <Icon name="lucide:headphones" class="w-6 h-6" />
+        </div>
+        <h3 class="text-base md:text-lg font-bold mb-2 text-white">{mk6Judul}</h3>
+        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">{mk6Teks}</p>
       </div>
 
     </div>
@@ -65,7 +87,7 @@ const {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove('opacity-0', 'translate-y-12');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
           entry.target.classList.add('opacity-100', 'translate-y-0');
           observer.unobserve(entry.target);
         }
