@@ -11,10 +11,10 @@ const {
   ms4Teks
 } = Astro.props;
 ---
-<section id="masalah" class="py-24 bg-white border-b border-slate-100">
+<section id="masalah" class="py-24 bg-white border-b border-slate-100 overflow-hidden">
   <div class="max-w-4xl mx-auto px-6">
     
-    <div class="text-center mb-16">
+    <div class="animate-masalah-judul opacity-0 translate-y-8 transform transition-all duration-700 ease-out text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight" set:html={judulUtama}></h2>
       <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
         {deskripsiUtama}
@@ -23,28 +23,28 @@ const {
 
     <div class="flex flex-col gap-10 max-w-2xl mx-auto">
       
-      <div class="flex items-center gap-6 group">
+      <div class="animate-masalah-list opacity-0 translate-y-8 transform transition-all duration-700 ease-out flex items-center gap-6 group">
         <div class="w-20 h-20 shrink-0 bg-[#0B1B42] rounded-2xl flex items-center justify-center text-white shadow-md transform group-hover:-translate-y-1 transition-all duration-300">
           <Icon name="lucide:presentation" class="w-10 h-10" />
         </div>
         <p class="text-lg md:text-xl text-slate-700 leading-relaxed" set:html={ms1Teks}></p>
       </div>
 
-      <div class="flex items-center gap-6 group">
+      <div class="animate-masalah-list opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-150 flex items-center gap-6 group">
         <div class="w-20 h-20 shrink-0 bg-[#0B1B42] rounded-2xl flex items-center justify-center text-white shadow-md transform group-hover:-translate-y-1 transition-all duration-300">
           <Icon name="lucide:message-square" class="w-10 h-10" />
         </div>
         <p class="text-lg md:text-xl text-slate-700 leading-relaxed" set:html={ms2Teks}></p>
       </div>
 
-      <div class="flex items-center gap-6 group">
+      <div class="animate-masalah-list opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-300 flex items-center gap-6 group">
         <div class="w-20 h-20 shrink-0 bg-[#0B1B42] rounded-2xl flex items-center justify-center text-white shadow-md transform group-hover:-translate-y-1 transition-all duration-300">
           <Icon name="lucide:users" class="w-10 h-10" />
         </div>
         <p class="text-lg md:text-xl text-slate-700 leading-relaxed" set:html={ms3Teks}></p>
       </div>
 
-      <div class="flex items-center gap-6 group">
+      <div class="animate-masalah-list opacity-0 translate-y-8 transform transition-all duration-700 ease-out delay-[500ms] flex items-center gap-6 group">
         <div class="w-20 h-20 shrink-0 bg-[#0B1B42] rounded-2xl flex items-center justify-center text-white shadow-md transform group-hover:-translate-y-1 transition-all duration-300">
           <Icon name="lucide:megaphone" class="w-10 h-10" />
         </div>
