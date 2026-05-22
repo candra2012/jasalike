@@ -1,25 +1,160 @@
 ---
 // src/pages/like-instagram.astro
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon/components'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import HargaPaket from '../components/HargaPaket.astro'
 import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
 
+// ==========================================
+// 2. DATA SEO
+// ==========================================
 const title = "Jasa Like Instagram Terpercaya & Aman - JasaLike";
 const description = "Tingkatkan interaksi dan kredibilitas akun dengan Jasa Like Instagram dari JasaLike. 100% aman, proses cepat, garansi permanen.";
 const keywords = "jasa like instagram, jasa like instagram private, jasa like instagram murah, jasa like ig terpercaya, harga jasa like instagram, beli jasa like instagram, jasa like reels instagram";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS INSTAGRAM
+// ==========================================
+
+const dataHero = {
+  tipe: "service", 
+  labelTeks: "Layanan Instagram Premium", 
+  labelIcon: "lucide:instagram",          
+  judulUtama: 'Jasa Like Instagram <br class="hidden md:block"/> <span class="text-blue-500">Terpercaya & Instan</span>',
+  deskripsi: "Tingkatkan kredibilitas dan visibilitas profil Instagram Anda seketika. Memicu algoritma <strong class='text-white'>Explore</strong>, membangun kepercayaan audiens <em class='text-blue-300 not-italic'>(Social Proof)</em>, dan memperkuat pesona bisnis Anda di dunia digital. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ 100% Aman & Natural &nbsp; ✓ Tanpa Perlu Password &nbsp; ✓ Bergaransi Penuh</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Masalah Kreator & <span class="text-blue-600">Pebisnis IG</span>',
+  deskripsiUtama: "Hambatan yang sering membuat akun Instagram sulit berkembang meskipun kualitas konten sudah sangat bagus.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Sepi Interaksi:</strong> Konten bagus tapi tidak ada yang merespons karena belum punya audiens awal.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Krisis Kepercayaan:</strong> Calon pembeli ragu bertransaksi karena postingan produk di feed minim like.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Gagal Explore:</strong> Algoritma mengabaikan postingan Reels/Feed karena kurang momentum interaksi di awal.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Kalah Saing:</strong> Susah membangun otoritas brand dibandingkan kompetitor yang like-nya puluhan ribu.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Apa Itu Jasa Like <span class="text-blue-500">Instagram?</span>',
+  deskripsiUtama: "Layanan ini adalah solusi cerdas untuk memberikan dorongan interaksi (engagement) awal pada postingan feed maupun reels Anda.",
+  k1Judul: "Memicu Algoritma Explore",
+  k1Teks: "Di tengah ketatnya algoritma Instagram, postingan dengan pancingan like tinggi di awal akan jauh lebih mudah direkomendasikan ke Explore Page.",
+  k2Judul: "Membangun Social Proof",
+  k2Teks: "Interaksi berkualitas yang terlihat natural akan membangun kepercayaan calon pembeli atau followers baru saat melihat profil Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Nyata <span class="text-blue-600">Untuk Akun Anda</span>',
+  deskripsiUtama: "Optimasi interaksi yang tepat akan membuka keran potensi organik akun Instagram Anda secara masif.",
+  m1Judul: "Social Proof Kuat",
+  m1Teks: "Akun bisnis atau personal Anda terlihat jauh lebih kredibel, profesional, dan meyakinkan di mata audiens.",
+  m2Judul: "Algoritma Aktif",
+  m2Teks: "Memicu sistem Instagram untuk menyebarkan konten Feed atau Reels Anda ke audiens yang lebih luas.",
+  m3Judul: "Pancingan Organik",
+  m3Teks: "Orang cenderung lebih suka ikut nge-like atau berinteraksi pada postingan yang sudah terlihat ramai.",
+  m4Judul: "Brand Awareness",
+  m4Teks: "Memperkuat identitas dan visibilitas brand Anda untuk memenangkan persaingan di pasar digital."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: "Alasan ratusan kreator dan pebisnis online mempercayakan akun Instagram-nya pada layanan kami.",
+  mk1Judul: "100% Aman",
+  mk1Teks: "Pengerjaan hanya membutuhkan link/URL postingan Instagram Anda. Kami tidak akan pernah meminta password.",
+  mk2Judul: "Proses Super Cepat",
+  mk2Teks: "Orderan langsung dieksekusi instan oleh sistem setelah pembayaran dikonfirmasi tanpa antre panjang.",
+  mk3Judul: "Garansi Refill",
+  mk3Teks: "Layanan kami dilengkapi garansi isi ulang otomatis apabila terjadi penurunan jumlah (drop) akibat update Instagram.",
+  mk4Judul: "Harga Termurah",
+  mk4Teks: "Dapatkan harga tangan pertama yang sangat terjangkau, cocok untuk kebutuhan personal maupun agensi.",
+  mk5Judul: "Kualitas Natural",
+  mk5Teks: "Like masuk secara bertahap dan rapi, meniru pola interaksi manusia asli agar aman dari deteksi spam.",
+  mk6Judul: "Support 24/7",
+  mk6Teks: "Tim admin kami selalu siap merespons dan membantu konsultasi strategi engagement Anda kapan pun."
+};
+
+const dataCaraOrder = {
+  judulUtama: '4 Langkah Mudah <span class="text-blue-400">Cara Order</span>',
+  deskripsiUtama: "Proses transaksi Jasa Like Instagram yang simpel, aman, dan transparan.",
+  co1Judul: "Pilih Paket IG",
+  co1Teks: "Sesuaikan pilihan paket Like Instagram dengan kebutuhan target strategi konten Anda.",
+  co2Judul: "Chat Tim Admin",
+  co2Teks: "Konsultasikan pesanan Anda langsung ke WhatsApp admin JasaLike.",
+  co3Judul: "Kirim Link & Bayar",
+  co3Teks: "Cukup berikan link foto/reels (tanpa password) dan selesaikan pembayaran.",
+  co4Judul: "Proses Selesai",
+  co4Teks: "Santai dan lihat notifikasi like di aplikasi Instagram Anda mulai berdatangan."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket Favorit",
+  deskripsiHarga: "Mulai tingkatkan engagement Instagram Anda hari ini.",
+  
+  // Data Paket Kiri
+  p1Gambar: "/image/jasa-like-instagram-organik-100like.png",
+  p1Nama: "Paket 100 Like Instagram",
+  p1Fitur1: "Proses Pengerjaan Cepat",
+  p1Fitur2: "Aman 100% Real Talent",
+  p1Fitur3: "Cocok untuk Akun Personal",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20100%20Like%20Instagram",
+
+  // Data Paket Kanan
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/jasa-like-instagram-organik-1000like.png",
+  p2Nama: "Paket 1000 Like Instagram",
+  p2Fitur1: "Masuk Secara Natural",
+  p2Fitur2: "Aman 100% Real Talent",
+  p2Fitur3: "Cocok Untuk Bisnis / Brand",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%201000%20Like%20Instagram"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Like <br/> <span class="text-blue-600">Instagram</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering diajukan seputar layanan optimasi Instagram kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20tanya%20seputar%20Jasa%20Like%20Instagram...",
+  faq1Judul: "Apakah aman untuk akun Instagram saya?",
+  faq1Teks: "100% Aman. Kami hanya membutuhkan Link URL postingan Anda. Tanpa meminta password atau akses login, sehingga tidak melanggar kebijakan keamanan akun Anda.",
+  faq2Judul: "Apakah like-nya bisa hilang atau drop?",
+  faq2Teks: "Sangat stabil. Namun jika ada update algoritma Instagram yang menyebabkan drop, kami memberikan Garansi Refill (Isi Ulang) sesuai dengan ketentuan paket yang Anda beli.",
+  faq3Judul: "Berapa lama proses masuknya like?",
+  faq3Teks: "Proses biasanya dimulai dalam beberapa menit hingga beberapa jam setelah pembayaran terkonfirmasi. Kecepatan masuknya like diatur se-natural mungkin.",
+  faq4Judul: "Apakah akun IG saya harus publik?",
+  faq4Teks: "Ya, wajib. Selama proses pengerjaan, pastikan akun Instagram Anda disetting <strong>Publik</strong> (tidak di-private) agar sistem kami dapat memproses link URL Anda.",
+  faq5Judul: "Bisa dibagi ke beberapa foto/video?",
+  faq5Teks: "Tentu bisa! Tergantung paket yang diambil. Silakan sampaikan ke admin jika ingin membagi jumlah like ke beberapa link postingan berbeda.",
+  faq6Judul: "Apakah berlaku untuk Reels dan IGTV?",
+  faq6Teks: "Iya, layanan like kami mendukung semua format postingan Instagram, termasuk Feed Foto, Carousel, Video, Reels, hingga IGTV."
+};
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
-     <Fragment slot="head">
+  <Fragment slot="head">
     <script type="application/ld+json">
       [
         {
           "@context": "https://schema.org/",
           "@type": "Product",
-          "name": "Jasa Like Instagram",
+          "name": "Jasa Like Instagram Terpercaya Murah Dan Cepat",
           "image": "https://jasalike.com/image/jasa-like-instagram-organik-100like.png",
           "description": "Layanan optimasi penambah like Instagram secara instan, aman, dan tanpa password. Bergaransi penuh untuk meningkatkan interaksi dan masuk Explore.",
           "brand": {
@@ -68,315 +203,29 @@ const keywords = "jasa like instagram, jasa like instagram private, jasa like in
     </script>
   </Fragment>
   
-  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-950 overflow-hidden flex items-center">
-    
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="/image/logo-hero-jasalike.png" 
-        alt="Background Jasa Like Instagram" 
-        class="w-full h-full object-contain object-center opacity-40 block" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
-      <div class="absolute inset-0 bg-slate-950/40"></div> <div class="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-    </div>
+  <Hero {...dataHero} />
+  
+  <MasalahJasaLike {...dataMasalah} />
+  
+  <ApaItuJasaLike {...dataApaItu} />
 
-    <div class="relative z-10 container mx-auto px-6 text-center max-w-5xl animate-fade-in-up mt-10 lg:mt-0">
-      
-      <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-        <Icon name="lucide:instagram" class="w-4 h-4" />
-        Layanan Instagram Premium
-      </span>
-      
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold !text-white leading-[1.1] mb-8 tracking-tight">
-        Jasa Like Instagram <br class="hidden md:block" /> <span class="text-blue-500">Terpercaya & Instan</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Tingkatkan kredibilitas dan visibilitas profil Instagram Anda seketika. Layanan optimasi kami dirancang khusus untuk memicu algoritma <strong class="text-white">Explore</strong>, membangun kepercayaan audiens <em class="text-blue-300 not-italic">(Social Proof)</em>, dan memperkuat pesona bisnis Anda di dunia digital. <br class="hidden md:block mt-2" />
-        <span class="text-blue-400 font-semibold block mt-4">✓ 100% Aman & Natural &nbsp; ✓ Tanpa Perlu Password &nbsp; ✓ Bergaransi Penuh</span>
-      </p>
+  <ManfaatJasaLike {...dataManfaat} />
 
-    </div>
-  </section>
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+  
+  <CaraOrder {...dataCaraOrder} />
 
-  <section class="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1 reveal-left">
-        <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl">
-          <img src="/image/logo-apaitujasalike.png" alt="Ilustrasi Jasa Like" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity" />
-        </div>
-      </div>
-      <div class="order-1 lg:order-2 reveal-right">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Apa Itu Jasa Like Instagram?</h2>
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Layanan ini adalah solusi cerdas untuk memberikan <strong>dorongan interaksi (engagement)</strong> pada postingan feed maupun reels Anda. Di tengah ketatnya algoritma Instagram, postingan dengan like tinggi akan lebih mudah direkomendasikan.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Meningkatkan peluang masuk Explore Page
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Membangun Social Proof untuk bisnis online
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Interaksi berkualitas dan terlihat natural
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Masalah Kreator & Pebisnis</h2>
-        <p class="text-slate-400 text-lg">Hambatan yang sering membuat akun sulit berkembang.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up">
-          <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:trending-down" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Sepi Interaksi</h3>
-          <p class="text-slate-400 leading-relaxed">Konten bagus tapi tidak ada yang merespons karena belum punya audiens awal.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-100">
-          <div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:user-x" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Krisis Kepercayaan</h3>
-          <p class="text-slate-400 leading-relaxed">Calon pembeli ragu bertransaksi karena postingan produk minim like.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-200">
-          <div class="w-14 h-14 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:compass" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Gagal Explore</h3>
-          <p class="text-slate-400 leading-relaxed">Algoritma mengabaikan postingan karena kurang momentum interaksi di awal.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-blue-900 text-white overflow-hidden relative">
-    <div class="absolute inset-0 bg-[url('/image/manfaat-jasalike-instagram.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal-up">Manfaat Menggunakan Jasa Kami</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="reveal-up">
-          <Icon name="lucide:shield-check" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Social Proof</h4>
-          <p class="text-blue-200 text-sm">Akun terlihat jauh lebih kredibel & profesional.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <Icon name="lucide:zap" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Algoritma Aktif</h4>
-          <p class="text-blue-200 text-sm">Memicu Instagram untuk menyebarkan konten Anda.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <Icon name="lucide:users" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Pancingan Organik</h4>
-          <p class="text-blue-200 text-sm">Orang lebih suka nge-like post yang sudah banyak like-nya.</p>
-        </div>
-        <div class="reveal-up delay-300">
-          <Icon name="lucide:briefcase" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Brand Awareness</h4>
-          <p class="text-blue-200 text-sm">Memperkuat identitas brand di mata kompetitor.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Mengapa Memilih JasaLike.com?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="reveal-up">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">100% Aman</h3>
-          <p class="text-slate-400">Pengerjaan hanya butuh link / URL postingan. dan kita langsung buatkan brief.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Proses Super Cepat</h3>
-          <p class="text-slate-400">Orderan langsung dieksekusi oleh real talent dan bukti pekerjaan lewat google drive setelah pembayaran dikonfirmasi.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Garansi Layanan</h3>
-          <p class="text-slate-400">Beberapa paket kami dilengkapi dengan fitur garansi isi ulang (refill) jika terjadi drop.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Cara Kerja Kami</h2>
-        <p class="text-slate-400">Proses sederhana untuk hasil yang maksimal.</p>
-      </div>
-      <div class="flex flex-col md:flex-row justify-between gap-8 relative">
-        <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-slate-800 reveal-up"></div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">1</div>
-          <h4 class="text-lg font-bold text-white mb-2">Pilih Paket</h4>
-          <p class="text-slate-400 text-sm">Sesuaikan jumlah like dengan target strategi konten Anda.</p>
-        </div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-100">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">2</div>
-          <h4 class="text-lg font-bold text-white mb-2">Kirim Tautan & Bayar</h4>
-          <p class="text-slate-400 text-sm">Berikan link foto/video, lalu selesaikan pembayaran via bank/e-wallet.</p>
-        </div>
-
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-200">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">3</div>
-          <h4 class="text-lg font-bold text-white mb-2">Proses & Selesai</h4>
-          <p class="text-slate-400 text-sm">Santai dan lihat notifikasi like di aplikasi Instagram mulai berdatangan.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="harga" class="py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pilihan Paket Favorit</h2>
-        <p class="text-slate-400">Mulai tingkatkan engagement Instagram Anda hari ini.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="reveal-up bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
-            <img 
-              src="/image/jasa-like-instagram-organik-100like.png" 
-              alt="Paket 100 Like Instagram" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket 100 Like Instagram</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Proses Pengerjaan Cepat</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Aman 100% Real Talent</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Cocok untuk Akun Personal</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 200.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20100%20Like%20Instagram" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal-up delay-200 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
-          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">TERLARIS</div>
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
-            <img 
-              src="/image/jasa-like-instagram-organik-1000like.png" 
-              alt="Paket 1000 Like Instagram" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket 1000 Like Instagram</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Masuk Secara Natural</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Aman 100% Real Talent</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Cocok Untuk Bisnis / Brand</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 2.000.000</span>
-                <span class="text-lg text-slate-500 line-through">Rp 2.500.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%201000%20Like%20Instagram" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <HargaPaket {...dataHargaPaket} />
 
   <div class="bg-white">
     <Testimonials />
   </div>
+  
   <DaftarHarga />
+  
   <MetodePembayaran />
+  
+  <FaqJasaLike {...dataFaq} />
 
 </DefaultLayout>
 
-<style>
-  /* Hero Animasi Load */
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Animasi Scroll: Sembunyi Dulu */
-  .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
-  .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
-  .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-  
-  /* Delay untuk efek berurutan */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-
-  /* Class aktif yang disuntikkan oleh JavaScript pas di-scroll */
-  .reveal-left.is-visible,
-  .reveal-right.is-visible,
-  .reveal-up.is-visible {
-    opacity: 1;
-    transform: translate(0);
-  }
-</style>
