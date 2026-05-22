@@ -1,389 +1,274 @@
----
 // src/pages/like-tiktok.astro
+
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon/components'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
 import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
 
-const title = "Beli Jasa Tambah Like TikTok Premium - Cepat & Aman";
-const description = "Layanan jasa tambah like TikTok terbaik untuk mendongkrak video masuk FYP. Dikerjakan oleh real talent via sistem injeksi URL. Interaksi natural & bergaransi";
-const keywords = "jasa like tiktok, jasa like tiktok murah, jasa like tiktok permanen, jasa like comment tiktok, jasa like live tiktok, beli jasa jual beli like tiktok, jasa tambah like tiktok";
+// ==========================================
+// SEO
+// ==========================================
+
+const title = "Jasa Like TikTok Terpercaya Untuk Video FYP & Engagement";
+const description = "Jasa like TikTok terpercaya untuk meningkatkan engagement video, memperkuat social proof, membantu performa FYP, aman dan proses cepat.";
+const keywords = "jasa like tiktok terpercaya, jasa like video tiktok indonesia, jasa tambah like tiktok permanen, jasa like tiktok untuk fyp, jasa like tiktok cepat dan aman, jasa like tiktok real";
+
+// ==========================================
+// HERO
+// ==========================================
+
+const dataHero = {
+tipe:"service",
+labelTeks:"Layanan TikTok Premium",
+labelIcon:"lucide:music4",
+
+judulUtama:'Jasa Like TikTok <br class="hidden md:block"/> <span class="text-blue-500">Cepat & Terpercaya</span>',
+
+deskripsi:"Tingkatkan performa video TikTok dengan layanan optimasi interaksi yang dirancang untuk membantu memperkuat engagement, meningkatkan daya tarik konten, dan mendukung peluang video menjangkau audiens lebih luas melalui sistem rekomendasi TikTok.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Aman & Stabil ✓ Proses Cepat ✓ Garansi Refill</span>",
+
+teksTombol1:"Lihat Harga Paket",
+linkTombol1:"#harga-paket",
+
+teksTombol2:"Konsultasi Gratis",
+linkTombol2:"https://wa.me/6289634740308",
+
+gambarHero:"/image/logo-hero-jasalike.png"
+}
+
+
+// ==========================================
+// MASALAH
+// ==========================================
+
+const dataMasalah = {
+
+judulUtama:'Masalah Kreator <span class="text-blue-500">& Seller TikTok</span>',
+
+deskripsiUtama:'Kendala yang sering menyebabkan video sulit berkembang meski kualitas konten sudah maksimal.',
+
+ms1Teks:'<strong class="text-blue-600">Engagement Rendah:</strong> Video memiliki penonton namun interaksi tidak cukup kuat untuk membantu distribusi konten.',
+
+ms2Teks:'<strong class="text-blue-600">Sulit Masuk FYP:</strong> Konten gagal memperoleh momentum pada jam-jam awal tayang.',
+
+ms3Teks:'<strong class="text-blue-600">Social Proof Lemah:</strong> Jumlah like minim membuat audiens baru kurang tertarik.',
+
+ms4Teks:'<strong class="text-blue-600">Persaingan Ketat:</strong> Kreator dan seller TikTok harus bersaing dengan ribuan konten baru setiap hari.'
+
+}
+
+
+// ==========================================
+// APA ITU
+// ==========================================
+
+const dataApaItu={
+
+judulUtama:'Apa Itu <span class="text-blue-500">Jasa Like TikTok?</span>',
+
+deskripsiUtama:'Layanan optimasi engagement TikTok yang membantu meningkatkan interaksi awal pada video sehingga performa konten terlihat lebih aktif.',
+
+k1Judul:'Mendukung Distribusi Konten',
+
+k1Teks:'Interaksi awal yang baik membantu video memperoleh sinyal positif terhadap sistem rekomendasi TikTok.',
+
+k2Judul:'Membangun Social Proof',
+
+k2Teks:'Jumlah like yang terlihat aktif dapat meningkatkan kepercayaan audiens terhadap konten maupun produk.'
+}
+
+
+// ==========================================
+// MANFAAT
+// ==========================================
+
+const dataManfaat={
+
+judulUtama:'Manfaat <span class="text-blue-600">Untuk Akun TikTok</span>',
+
+deskripsiUtama:'Optimasi engagement yang tepat membantu memperkuat performa akun secara keseluruhan.',
+
+m1Judul:'Meningkatkan Kredibilitas',
+m1Teks:'Konten terlihat lebih aktif dan menarik perhatian audiens.',
+
+m2Judul:'Engagement Lebih Baik',
+m2Teks:'Membantu memperkuat performa interaksi video.',
+
+m3Judul:'Memancing Interaksi Organik',
+m3Teks:'Konten yang ramai cenderung lebih menarik pengguna lain.',
+
+m4Judul:'Meningkatkan Brand Awareness',
+m4Teks:'Membantu memperluas eksposur personal branding maupun bisnis.'
+
+}
+
+
+// ==========================================
+// MENGAPA MEMILIH
+// ==========================================
+
+const dataMengapaMemilih={
+
+judulUtama:'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+
+deskripsiUtama:'Alasan kreator TikTok mempercayakan kebutuhan engagement mereka kepada kami.',
+
+mk1Judul:"Proses Cepat",
+mk1Teks:"Pesanan diproses segera setelah pembayaran dikonfirmasi.",
+
+mk2Judul:"Privasi Aman",
+mk2Teks:"Proses hanya memerlukan tautan video yang ingin diproses.",
+
+mk3Judul:"Garansi Refill",
+mk3Teks:"Tersedia perlindungan isi ulang jika terjadi penurunan layanan.",
+
+mk4Judul:"Harga Kompetitif",
+mk4Teks:"Pilihan paket fleksibel sesuai kebutuhan.",
+
+mk5Judul:"Distribusi Natural",
+mk5Teks:"Pola interaksi dibuat lebih stabil dan bertahap.",
+
+mk6Judul:"Customer Support",
+mk6Teks:"Tim siap membantu kebutuhan pelanggan."
+}
+
+
+// ==========================================
+// SOLUSI
+// ==========================================
+
+const dataSolusi={
+
+judulUtama:'Solusi Tepat <span class="text-blue-500">Untuk Video TikTok</span>',
+
+deskripsiUtama:'Layanan yang dirancang untuk membantu meningkatkan performa konten secara aman dan profesional.',
+
+sol1Icon:"lucide:shield",
+
+sol1Judul:"Distribusi Aman",
+
+sol1Teks:"Pola interaksi dirancang lebih stabil agar tetap terlihat natural.",
+
+sol2Icon:"lucide:refresh-cw",
+
+sol2Judul:"Garansi Refill",
+
+sol2Teks:"Tersedia perlindungan layanan untuk menjaga kualitas interaksi.",
+
+sol3Icon:"lucide:trending-up",
+
+sol3Judul:"Dorong Engagement",
+
+sol3Teks:"Membantu memperkuat performa video dan meningkatkan daya tarik konten."
+
+}
+
+
+// ==========================================
+// CARA ORDER
+// ==========================================
+
+const dataCaraOrder={
+
+judulUtama:'Cara Order <span class="text-blue-500">Jasa Like TikTok</span>',
+
+deskripsiUtama:'Proses pemesanan cepat dan sederhana.',
+
+co1Judul:"Pilih Paket",
+
+co1Teks:"Tentukan jumlah like sesuai kebutuhan.",
+
+co2Judul:"Hubungi Admin",
+
+co2Teks:"Konsultasikan kebutuhan melalui WhatsApp.",
+
+co3Judul:"Kirim Link & Pembayaran",
+
+co3Teks:"Kirim tautan video dan selesaikan pembayaran.",
+
+co4Judul:"Pesanan Diproses",
+
+co4Teks:"Tim akan segera memproses layanan."
+}
+
+
+// FAQ + schema juga ditambahkan
+const dataFaq={
+
+judulUtama:'FAQ Jasa Like <span class="text-blue-500">TikTok</span>',
+
+deskripsiUtama:'Pertanyaan umum seputar layanan.',
+
+faq1Judul:"Apakah aman?",
+faq1Teks:"Ya. Proses dirancang dengan sistem yang aman.",
+
+faq2Judul:"Berapa lama prosesnya?",
+faq2Teks:"Biasanya beberapa menit hingga beberapa jam.",
+
+faq3Judul:"Apakah ada garansi refill?",
+faq3Teks:"Ya tersedia sesuai ketentuan layanan.",
+
+faq4Judul:"Apakah mendukung semua video TikTok?",
+faq4Teks:"Ya mendukung berbagai jenis video publik."
+}
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
-     <Fragment slot="head">
-    <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org/",
-          "@type": "Product",
-          "name": "Jasa Like tiktok",
-          "image": "https://jasalike.com/image/harga-paket-1000like-tiktok.png",
-          "description": "Layanan jasa like TikTok premium kami dirancang khusus untuk mendongkrak algoritma FYP. Eksekusi cepat dari manusia asli. Cukup drop URL, privasi absolut terjaga.",
-          "brand": {
-            "@type": "Brand",
-            "name": "JasaLike"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "1250"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "200000",
-            "highPrice": "2000000",
-            "priceCurrency": "IDR",
-            "offerCount": "4"
-          }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Beranda",
-              "item": "https://jasalike.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Layanan",
-              "item": "https://jasalike.com/layanan/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Like Tiktok"
-            }
-          ]
-        }
-      ]
-    </script>
-  </Fragment>
-  
-  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-950 overflow-hidden flex items-center">
-    
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="/image/hero-jasalike-Tiktok.png" 
-        alt="Background Jasa Like Tiktok" 
-        class="w-full h-full object-contain object-center opacity-40 block" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
-      <div class="absolute inset-0 bg-slate-950/40"></div> <div class="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-    </div>
+<Fragment slot="head">
+<script type="application/ld+json">
 
-    <div class="relative z-10 container mx-auto px-6 text-center max-w-5xl animate-fade-in-up mt-10 lg:mt-0">
-      
-      <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-        <Icon name="lucide:play-circle" class="w-4 h-4" />
-        Layanan Boost Engagement TikTok
-      </span>
-      
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold !text-white leading-[1.1] mb-8 tracking-tight">
-        Jasa Like TikTok <br class="hidden md:block" /> <span class="text-blue-500">Spesialis Tembus FYP</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Capek bikin VT tapi responnya gitu-gitu aja? Layanan <strong>jasa tambah like video TikTok</strong> ini siap jadi jalan pintas buat bantu kontenmu dapet sorotan penuh. Kami fokus memberikan suntikan interaksi di menit-menit krusial untuk memancing matriks <strong class="text-white">For You Page (FYP)</strong>. Efeknya? Skor <em>engagement rate</em> langsung naik, penonton baru makin <em>trust</em>, dan pastinya bikin personal branding kamu makin meroket tanpa ribet. <br class="hidden md:block mt-2" />
-        <span class="text-blue-400 font-semibold block mt-4">✓ 100% Interaksi Real &nbsp; ✓ Cukup Drop Link (Privasi Aman) &nbsp; ✓ Garansi Refill Penuh</span>
-      </p>
+[
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+{
+"@type":"Question",
+"name":"Apakah aman?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Ya layanan dirancang aman dan stabil."
+}
+},
+{
+"@type":"Question",
+"name":"Berapa lama prosesnya?",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"Beberapa menit sampai beberapa jam."
+}
+}
+]
+}
+]
 
-    </div>
-  </section>
+</script>
+</Fragment>
 
-
-  <section class="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1 reveal-left">
-        <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl">
-          <img src="/image/apaitu-jasalike-tiktok.png" alt="Ilustrasi Layanan Tambah Like TikTok" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity" />
-        </div>
-      </div>
-      <div class="order-1 lg:order-2 reveal-right">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Membongkar Rahasia Jasa Like TikTok</h2>
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Layanan optimasi video ini ibarat <em>booster</em> andalan bagi kreator yang lelah mencari cara agar VT masuk FYP. Karena sistem penyebaran konten di platform ini sangat mendewakan <strong>reaksi awal penonton (engagement rate)</strong>, jumlah tombol hati yang berdatangan secara cepat akan otomatis memberikan sinyal lampu hijau ke mesin kurasi mereka untuk terus mempromosikan videomu.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Memperbesar probabilitas videomu disebar luaskan oleh bot algoritma FYP.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Menciptakan validasi instan agar calon buyer di TikTok Shop tidak ragu bertransaksi.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Distribusi likes disetting super mulus layaknya pengguna organik, bebas dari ancaman shadowban.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Drama Kreator & Seller TikTok Hari Ini</h2>
-        <p class="text-slate-400 text-lg">Fase stagnan yang bikin views mentok dan konversi jualan macet total.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up">
-          <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:trending-down" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Kutukan 200 Views</h3>
-          <p class="text-slate-400 leading-relaxed">Effort bikin video udah maksimal, tapi penyebaran berhenti mendadak gara-gara VT kamu kurang dapet pancingan reaksi di <em>golden hour</em> penayangan.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-100">
-          <div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:user-x" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Keranjang Kuning Sepi</h3>
-          <p class="text-slate-400 leading-relaxed">Audiens sekadar lewat dan ragu buat <em>checkout</em> pesanan. Kenapa? Karena video produkmu terlihat kurang kredibel akibat sepinya apresiasi berupa tombol hati.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-200">
-          <div class="w-14 h-14 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:compass" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Gagal Nembus FYP</h3>
-          <p class="text-slate-400 leading-relaxed">Sistem distribusi konten TikTok enggan merekomendasikan videomu ke audiens baru karena kehilangan momentum sinyal positif dari penonton awal.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="py-24 bg-blue-900 text-white overflow-hidden relative">
-    <div class="absolute inset-0 bg-[url('/image/manfaat-jasalike-tiktok.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal-up">Dampak Masif Suntikan Engagement Kami</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="reveal-up">
-          <Icon name="lucide:shield-check" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Validasi Publik</h4>
-          <p class="text-blue-200 text-sm">Bikin profil memancarkan aura kreator papan atas, sehingga audiens baru auto-segan dan betah <em>scroll</em>.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <Icon name="lucide:zap" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Radar Mesin Kurasi</h4>
-          <p class="text-blue-200 text-sm">Memaksa sistem TikTok untuk mengkategorikan videomu sebagai tayangan potensial yang wajib disebar luaskan.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <Icon name="lucide:users" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Trigger Psikologis</h4>
-          <p class="text-blue-200 text-sm">Faktanya, netizen jauh lebih gampang ikut-ikutan ninggalin jejak organik di konten yang angkanya udah ribuan.</p>
-        </div>
-        <div class="reveal-up delay-300">
-          <Icon name="lucide:briefcase" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Dominasi Niche</h4>
-          <p class="text-blue-200 text-sm">Mengamankan eksistensi toko atau personal brand Anda di kolom pencarian TikTok, bikin saingan gigit jari!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Kenapa Para TikToker Pro Mengandalkan JasaLike.com?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="reveal-up">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Privasi Tingkat Dewa</h3>
-          <p class="text-slate-400">Nggak ada ceritanya minta akses login. Cukup setor tautan video TikTok kesayanganmu, tim kami siap memprosesnya dari luar sistem dengan aman dan rahasia.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Eksekusi Sat-Set & Transparan</h3>
-          <p class="text-slate-400">Digerakkan oleh pasukan buzzer manusia nyata, bukan program bot murahan. Laporan pekerjaannya pun bisa langsung kamu pantau secara jujur via Google Drive.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Proteksi Angka Stabil</h3>
-          <p class="text-slate-400">Takut statistik interaksinya tiba-tiba merosot? Tenang, tersedia fasilitas klaim garansi isi ulang (refill) agar performa kontenmu selalu terlihat meyakinkan.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tahapan Push Notifikasi TikTok</h2>
-        <p class="text-slate-400">Cuma butuh 3 langkah praktis buat mulai meroketkan performa videomu.</p>
-      </div>
-      <div class="flex flex-col md:flex-row justify-between gap-8 relative">
-        <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-slate-800 reveal-up"></div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">1</div>
-          <h4 class="text-lg font-bold text-white mb-2">Pilih Amunisi Engagement</h4>
-          <p class="text-slate-400 text-sm">Tentukan besaran volume tombol hati yang paling pas untuk mendukung <em>campaign</em> atau target jualanmu saat ini.</p>
-        </div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-100">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">2</div>
-          <h4 class="text-lg font-bold text-white mb-2">Drop Link & Konfirmasi</h4>
-          <p class="text-slate-400 text-sm">Cukup salin URL spesifik VT yang ingin di-boost, kemudian bereskan transaksi lewat transfer bank atau e-wallet favorit.</p>
-        </div>
-
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-200">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">3</div>
-          <h4 class="text-lg font-bold text-white mb-2">Pantau Ledakan Interaksi</h4>
-          <p class="text-slate-400 text-sm">Siapkan kopi, santai sejenak, dan perhatikan indikator notifikasi di aplikasi TikTok kamu yang mulai dibanjiri respon positif.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-       <section id="harga" class="py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pilihan Skala Boost Engagement TikTok</h2>
-        <p class="text-slate-400">Segera amankan posisi video Anda di beranda FYP audiens hari ini juga.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="reveal-up bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
-            <img 
-              src="/image/harga-paket-tiktok.png" 
-              alt="Paket Pancingan 100 Like TikTok" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Trigger 100 Like TikTok</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Suntikan interaksi responsif</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Murni dikelola akun aktif manusia</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Amunisi pas buat kreator pemula</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 200.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20order%20Paket%20Trigger%20100%20Like%20TikTok" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal-up delay-200 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
-          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">TERLARIS</div>
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
-            <img 
-              src="/image/harga-paket-1000like-tiktok.png" 
-              alt="Paket Dominasi 1000 Like TikTok" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Dominasi 1000 Like TikTok</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Distribusi algoritma sangat natural</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Jaminan 100% jejak organik</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Andalan utama seller TikTok Shop</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 2.000.000</span>
-                <span class="text-lg text-slate-500 line-through">Rp 2.500.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20order%20Paket%20Dominasi%201000%20Like%20TikTok" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-            
-  <div class="bg-white">
-    <Testimonials />
-  </div>
-  <DaftarHarga />
-  <MetodePembayaran />
+<Hero {...dataHero}/>
+<MasalahJasaLike {...dataMasalah}/>
+<ApaItuJasaLike {...dataApaItu}/>
+<ManfaatJasaLike {...dataManfaat}/>
+<MengapaMemilihJasaLike {...dataMengapaMemilih}/>
+<Solusi {...dataSolusi}/>
+<CaraOrder {...dataCaraOrder}/>
+<DaftarHarga/>
+<HargaPaket />
+<Testimonials/>
+<MetodePembayaran/>
+<FaqJasaLike {...dataFaq}/>
 
 </DefaultLayout>
-
-<style>
-  /* Hero Animasi Load */
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Animasi Scroll: Sembunyi Dulu */
-  .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
-  .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
-  .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-  
-  /* Delay untuk efek berurutan */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-
-  /* Class aktif yang disuntikkan oleh JavaScript pas di-scroll */
-  .reveal-left.is-visible,
-  .reveal-right.is-visible,
-  .reveal-up.is-visible {
-    opacity: 1;
-    transform: translate(0);
-  }
-</style>
