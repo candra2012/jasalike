@@ -1,27 +1,172 @@
 ---
 // src/pages/like-twitter.astro
+
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon/components'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
 import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
 
-const title = "Jasa Like Instagram Terpercaya & Aman - JasaLike";
-const description = "Maksimalkan impresi tweet Anda dengan jasa like Twitter terpercaya. Interaksi organik manusia asli bantu dorong algoritma. Privasi aman, cukup setor tautan.";
+// ==========================================
+// SEO & METADATA
+// ==========================================
+const title = "Jasa Like Twitter (X) Terpercaya & Aman | Optimasi Utas";
+const description = "Maksimalkan impresi cuitan dan utas Anda dengan jasa like Twitter terpercaya. Interaksi organik bantu dorong algoritma For You. Privasi aman, cukup setor tautan.";
 const keywords = "jasa like twitter, jasa like retweet, jasa like retweet twitter, jasa like postingan, jasa like komen twitter, jasa like postingan twitter, jasa like twitter terpercaya";
+
+// ==========================================
+// DATA PROPS UNTUK KOMPONEN
+// ==========================================
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Amplifikasi Cuitan Premium",
+  labelIcon: "lucide:twitter",
+  judulUtama: 'Jasa Like Twitter <br class="hidden md:block"/> <span class="text-blue-500">Rajai Arus Percakapan</span>',
+  deskripsi: "Kerap merasa cuitan atau utas berbobot Anda tenggelam di lautan timeline? Layanan optimasi interaksi X (Twitter) ini hadir sebagai solusi mutakhir untuk menciptakan resonansi tinggi dan mengunci panggung di tab For You.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Keterlibatan Akun Aktif ✓ Hanya Butuh Tautan Publik ✓ Proteksi Performa Optimal</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-twitter.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Problematika <span class="text-blue-500">Akun X & Pelaku Bisnis</span>',
+  deskripsiUtama: 'Fakta pahit mengapa opini dan promosi Anda sering kali lenyap tanpa jejak di linimasa algoritma modern.',
+  ms1Teks: '<strong class="text-blue-600">Utas Berbobot tapi Flop:</strong> Sudah menyusun thread edukatif yang panjang, tapi kandas tak berbekas karena gagal mendapat traksi di detik-detik awal tayang.',
+  ms2Teks: '<strong class="text-blue-600">Diabaikan Calon Klien:</strong> Audiens ragu untuk berbisnis dengan Anda mengingat minimnya jejak validasi publik (social proof) pada etalase profil.',
+  ms3Teks: '<strong class="text-blue-600">Terpental dari Tab For You:</strong> Mesin kurasi melewatkan konten Anda akibat absennya dorongan interaksi, membuatnya mustahil menjangkau audiens di luar followers.',
+  ms4Teks: '<strong class="text-blue-600">Kalah Cepat di Trending:</strong> Topik yang Anda angkat tenggelam oleh cuitan kompetitor yang memiliki basis pasukan interaksi lebih solid.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Lebih Dalam <span class="text-blue-500">Jasa Like Twitter</span>',
+  deskripsiUtama: 'Fasilitas eskalasi jangkauan yang diformulasikan khusus untuk menyelamatkan konten Anda dari kebisingan platform mikroblog.',
+  k1Judul: 'Bahan Bakar Algoritma',
+  k1Teks: 'Akumulasi tombol suka di menit-menit awal bertindak sebagai sinyal kuat untuk mendorong cuitan menembus sekat pengikut inti.',
+  k2Judul: 'Validasi Reputasi Digital',
+  k2Teks: 'Membangun impresi otoritatif yang meyakinkan netizen untuk ikut membagikan (retweet) atau merespons opini Anda.'
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Strategis <span class="text-blue-600">Optimasi Impresi</span>',
+  deskripsiUtama: 'Dampak nyata dari penguatan metrik interaksi terhadap visibilitas profil X Anda.',
+  m1Judul: 'Validasi Komunitas',
+  m1Teks: 'Postingan terlihat mendapat dukungan penuh, memposisikan profil Anda sebagai figur otoritatif di mata netizen.',
+  m2Judul: 'Lonjakan Visibilitas',
+  m2Teks: 'Memberikan sinyal ke sistem rekomendasi agar cuitan Anda merajai layar beranda (For You) pengguna baru.',
+  m3Judul: 'Efek Reaksi Berantai',
+  m3Teks: 'Angka metrik yang tinggi otomatis memancing rasa penasaran audiens organik untuk berhenti scrolling dan merespons.',
+  m4Judul: 'Sorotan Promosi Ekstra',
+  m4Teks: 'Mengamankan posisi eksklusif untuk kampanye produk atau tautan afiliasi Anda di tengah perputaran topik yang cepat.'
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: 'Alasan utama para pegiat media sosial menjadikan kami andalan optimasi interaksi X (Twitter).',
+  mk1Judul: "Keamanan Otentikasi",
+  mk1Teks: "Kami beroperasi murni dari luar tanpa menuntut data kredensial. Cukup serahkan tautan cuitan target Anda.",
+  mk2Judul: "Kecepatan Eksekusi",
+  mk2Teks: "Armada jaringan kami langsung bermanuver memberikan apresiasi begitu rincian pesanan divalidasi.",
+  mk3Judul: "Proteksi Fluktuasi",
+  mk3Teks: "Dilengkapi asuransi pengisian kembali (refill) agar impresi cuitan Anda tetap stabil dari evaluasi algoritma.",
+  mk4Judul: "Distribusi Terukur",
+  mk4Teks: "Proses penambahan diatur ritmenya selaras dengan regulasi pembatasan (rate limit) ekosistem X.",
+  mk5Judul: "Layanan Responsif",
+  mk5Teks: "Tim bantuan selalu siaga memberikan pendampingan teknis yang transparan dan bersahabat.",
+  mk6Judul: "Paket Skalabel",
+  mk6Teks: "Pilihan volume interaksi yang fleksibel, mulai dari pemanasan akun hingga kebutuhan kampanye trending."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-500">Untuk Dominasi Linimasa</span>',
+  deskripsiUtama: "Pendekatan strategis kami untuk memastikan performa konten Anda terus melesat secara organik.",
+  sol1Icon: "lucide:shield",
+  sol1Judul: "Metode Aman & Privasi",
+  sol1Teks: "Pola distribusi interaksi diatur secara bertahap (drip-feed) untuk menjamin keamanan dari risiko pembatasan (shadowban).",
+  sol2Icon: "lucide:refresh-cw",
+  sol2Judul: "Jaminan Kestabilan",
+  sol2Teks: "Ketenangan pikiran Anda terproteksi lewat mekanisme pemantauan stabilitas jumlah interaksi pasca-kampanye.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Akselerasi Jangkauan",
+  sol3Teks: "Mengonversi ketertarikan publik awal menjadi daya dorong eksposur yang meluas ke audiens non-pengikut."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Taktis <span class="text-blue-500">Kuasai Percakapan</span>',
+  deskripsiUtama: 'Hanya butuh tiga fase singkat untuk memicu ledakan interaksi di akun X Anda.',
+  co1Judul: "Tentukan Skala Eksposur",
+  co1Teks: "Sesuaikan besaran target kuota dukungan dengan sasaran kampanye atau agenda promosi Anda.",
+  co2Judul: "Konsultasi & Konfirmasi",
+  co2Teks: "Hubungi tim helpdesk kami dan selesaikan administrasi melalui metode transaksi digital andalan.",
+  co3Judul: "Delegasikan Tautan",
+  co3Teks: "Cukup salin dan kirimkan tautan publik (URL) cuitan atau utas yang ingin didongkrak.",
+  co4Judul: "Nikmati Hujan Interaksi",
+  co4Teks: "Bersantai dan pantau notifikasi profil Anda yang mulai dibanjiri lonjakan apresiasi secara sistematis."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Katalog Investasi Amplifikasi X (Twitter)",
+  deskripsiHarga: "Pilih amunisi yang paling ideal untuk mulai mendominasi arus percakapan di linimasa hari ini.",
+  p1Gambar: "/image/harga-paket-100like-twitter.png",
+  p1Nama: "Paket Pemanasan 100 Like",
+  p1Fitur1: "Pemicu traksi algoritma awal",
+  p1Fitur2: "Reaksi dari pengguna X sungguhan",
+  p1Fitur3: "Pas untuk validasi cuitan personal",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Pemanasan%20100%20Like%20Twitter",
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/harga-paket-1000like-twitter.png",
+  p2Nama: "Paket Trending 1000 Like",
+  p2Fitur1: "Distribusi ritmis anti-shadowban",
+  p2Fitur2: "Tingkatkan kemunculan tab For You",
+  p2Fitur3: "Senjata utama untuk utas (thread)",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Trending%201000%20Like%20Twitter"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Like <span class="text-blue-500">Twitter (X)</span>',
+  deskripsiUtama: 'Jawaban ringkas atas berbagai pertanyaan yang paling sering diajukan seputar optimasi linimasa.',
+  faq1Judul: "Apakah proses ini aman dari risiko pembatasan (shadowban)?",
+  faq1Teks: "Sangat aman. Kami menggunakan metode distribusi bertahap yang selaras dengan kecepatan organik, sehingga akun Anda terlindungi dari deteksi spam atau pembatasan algoritma X.",
+  faq2Judul: "Data apa saja yang diperlukan untuk memproses pesanan?",
+  faq2Teks: "Kami menjunjung tinggi keamanan privasi. Anda cukup melampirkan tautan (URL) dari cuitan publik yang ingin dioptimasi tanpa perlu memberikan informasi akses akun sama sekali.",
+  faq3Judul: "Apakah layanan ini berlaku untuk format utas (thread) dan balasan (reply)?",
+  faq3Teks: "Ya, sistem kami dapat memproses berbagai jenis tautan. Anda dapat meningkatkan interaksi pada cuitan tunggal, utas panjang (thread), hingga balasan spesifik pada percakapan tertentu.",
+  faq4Judul: "Berapa estimasi waktu pengerjaan yang dibutuhkan?",
+  faq4Teks: "Kecepatan distribusi bergantung pada volume paket yang dipilih. Eksekusi umumnya memakan waktu dari hitungan menit hingga beberapa jam untuk menjaga ritme yang natural.",
+  faq5Judul: "Apakah ada jaminan jika jumlah interaksi menurun setelah pengerjaan?",
+  faq5Teks: "Tentu. Jika terjadi fluktuasi akibat pembersihan sistem, kami menyediakan garansi pengisian kembali (refill) secara gratis untuk memastikan angka apresiasi tetap stabil.",
+  faq6Judul: "Bisakah layanan ini membantu cuitan masuk ke tab For You?",
+  faq6Teks: "Sangat direkomendasikan. Akumulasi apresiasi awal yang solid merupakan indikator krusial bagi mesin kurasi X untuk mempromosikan konten Anda ke halaman rekomendasi (For You)."
+};
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
-     <Fragment slot="head">
+  <Fragment slot="head">
     <script type="application/ld+json">
       [
         {
           "@context": "https://schema.org/",
           "@type": "Product",
-          "name": "Jasa Like Twitter",
+          "name": "Jasa Like Twitter Terpercaya",
           "image": "https://jasalike.com/image/harga-paket-100like-twitter.png",
-          "description": "Layanan optimasi penambah like Instagram secara instan, aman, dan tanpa password. Bergaransi penuh untuk meningkatkan interaksi dan masuk Explore.",
+          "description": "Layanan optimasi impresi Twitter (X) untuk mendorong visibilitas cuitan dan utas ke tab For You. Interaksi natural dengan garansi privasi penuh tanpa meminta informasi kredensial.",
           "brand": {
             "@type": "Brand",
             "name": "JasaLike"
@@ -63,321 +208,78 @@ const keywords = "jasa like twitter, jasa like retweet, jasa like retweet twitte
               "name": "Like Twitter"
             }
           ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah proses ini aman dari risiko pembatasan (shadowban)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat aman. Kami menggunakan metode distribusi bertahap yang selaras dengan kecepatan organik, sehingga akun Anda terlindungi dari deteksi spam atau pembatasan algoritma X."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Data apa saja yang diperlukan untuk memproses pesanan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kami menjunjung tinggi keamanan privasi. Anda cukup melampirkan tautan (URL) dari cuitan publik yang ingin dioptimasi tanpa perlu memberikan informasi akses akun sama sekali."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah layanan ini berlaku untuk format utas (thread) dan balasan (reply)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ya, sistem kami dapat memproses berbagai jenis tautan. Anda dapat meningkatkan interaksi pada cuitan tunggal, utas panjang (thread), hingga balasan spesifik pada percakapan tertentu."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Berapa estimasi waktu pengerjaan yang dibutuhkan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kecepatan distribusi bergantung pada volume paket yang dipilih. Eksekusi umumnya memakan waktu dari hitungan menit hingga beberapa jam untuk menjaga ritme yang natural."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah ada jaminan jika jumlah interaksi menurun setelah pengerjaan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu. Jika terjadi fluktuasi akibat pembersihan sistem, kami menyediakan garansi pengisian kembali (refill) secara gratis untuk memastikan angka apresiasi tetap stabil."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Bisakah layanan ini membantu cuitan masuk ke tab For You?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat direkomendasikan. Akumulasi apresiasi awal yang solid merupakan indikator krusial bagi mesin kurasi X untuk mempromosikan konten Anda ke halaman rekomendasi (For You)."
+              }
+            }
+          ]
         }
       ]
     </script>
   </Fragment>
+
+  <Hero {...dataHero} />
+  <MasalahJasaLike {...dataMasalah} />
+  <ApaItuJasaLike {...dataApaItu} />
+  <ManfaatJasaLike {...dataManfaat} />
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+  <Solusi {...dataSolusi} />
+  <CaraOrder {...dataCaraOrder} />
   
-  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-950 overflow-hidden flex items-center">
-    
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="/image/hero-jasalike-twitter.png" 
-        alt="Background Layanan Jasa Tambah Like Twitter" 
-        class="w-full h-full object-contain object-center opacity-40 block" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
-      <div class="absolute inset-0 bg-slate-950/40"></div> <div class="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-    </div>
-
-    <div class="relative z-10 container mx-auto px-6 text-center max-w-5xl animate-fade-in-up mt-10 lg:mt-0">
-      
-      <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-        <Icon name="lucide:twitter" class="w-4 h-4" />
-        Layanan Amplifikasi Cuitan Premium
-      </span>
-      
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold !text-white leading-[1.1] mb-8 tracking-tight">
-        Jasa Like Twitter <br class="hidden md:block" /> <span class="text-blue-500">Rajai Arus Percakapan</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Kerap merasa cuitan atau utas berbobot Anda tenggelam di lautan <em>timeline</em>? Layanan <strong>jasa tambah like Twitter</strong> ini merupakan solusi mutakhir untuk menciptakan resonansi tinggi dan mengunci panggung di tab <strong class="text-white">For You</strong>. Lewat amplifikasi metrik interaksi yang masif, kami membantu memperluas jangkauan profil Anda, memicu keterlibatan audiens organik, serta mendongkrak otoritas opini di ekosistem X. <br class="hidden md:block mt-2" />
-        <span class="text-blue-400 font-semibold block mt-4">✓ 100% Keterlibatan Akun Aktif &nbsp; ✓ Hanya Butuh URL Cuitan &nbsp; ✓ Perlindungan Performa Optimal</span>
-      </p>
-
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1 reveal-left">
-        <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl">
-          <img src="/image/apaitu-jasalike-twitter.png" alt="Ilustrasi Layanan Eskalasi Jangkauan Twitter" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity" />
-        </div>
-      </div>
-      <div class="order-1 lg:order-2 reveal-right">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Mengenal Lebih Dalam Jasa Like Twitter</h2>
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Fasilitas eskalasi jangkauan ini diformulasikan untuk menyelamatkan konten Anda dari kebisingan <em>platform mikroblog</em>. Mengingat persaingan atensi di X sangat brutal, akumulasi tombol suka yang hadir di menit-menit awal bertindak sebagai <strong>bahan bakar utama</strong> yang meyakinkan sistem untuk mendorong cuitan Anda menembus sekat pengikut (<em>followers</em>) inti.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Memaksimalkan potensi kemunculan di radar tab <em>For You</em> audiens yang lebih luas.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Menancapkan reputasi digital yang kuat untuk memvalidasi opini atau promosi produk Anda.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Distribusi apresiasi dijalankan sistematis, selaras dengan regulasi pembatasan (<em>rate limit</em>) X.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Problematika Akun X & Pelaku Bisnis</h2>
-        <p class="text-slate-400 text-lg">Fakta pahit mengapa opini dan promosi Anda sering kali lenyap tanpa jejak di linimasa.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up">
-          <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:trending-down" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Utas Berbobot tapi Flop</h3>
-          <p class="text-slate-400 leading-relaxed">Sudah menghabiskan banyak waktu menyusun <em>thread</em> yang edukatif dan menarik, tapi kandas tak berbekas karena gagal mendapatkan traksi di detik-detik krusial penayangan.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-100">
-          <div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:user-x" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Diabaikan Calon Klien</h3>
-          <p class="text-slate-400 leading-relaxed">Audiens ragu untuk mengeklik tautan afiliasi atau berbisnis dengan Anda, mengingat minimnya jejak validasi publik yang terlihat pada etalase profil Anda.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-200">
-          <div class="w-14 h-14 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:compass" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Terpental dari Tab For You</h3>
-          <p class="text-slate-400 leading-relaxed">Mesin kurasi melewatkan konten Anda begitu saja akibat absennya dorongan interaksi awal, membuat cuitan mustahil menjangkau target market di luar lingkar pengikut.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-blue-900 text-white overflow-hidden relative">
-    <div class="absolute inset-0 bg-[url('/image/manfaat-jasalike-instagram.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal-up">Keuntungan Strategis Optimasi Impresi Twitter</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="reveal-up">
-          <Icon name="lucide:shield-check" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Validasi Komunitas</h4>
-          <p class="text-blue-200 text-sm">Postingan terlihat mendapat dukungan penuh, membuat netizen X lebih segan dan memandang profil Anda sebagai figur otoritatif.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <Icon name="lucide:zap" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Lonjakan Visibilitas</h4>
-          <p class="text-blue-200 text-sm">Memberikan sinyal kuat ke sistem algoritma rekomendasi cuitan agar post Anda merajai layar beranda pengguna baru.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <Icon name="lucide:users" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Efek Reaksi Berantai</h4>
-          <p class="text-blue-200 text-sm">Angka metrik yang tinggi otomatis memancing rasa penasaran audiens organik aktif untuk berhenti <em>scrolling</em> dan ikut merespons.</p>
-        </div>
-        <div class="reveal-up delay-300">
-          <Icon name="lucide:briefcase" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Sorotan Ekstra</h4>
-          <p class="text-blue-200 text-sm">Mengamankan posisi eksklusif untuk persona atau kampanye produk Anda di tengah sengitnya perputaran topik hangat harian.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Alasan JasaLike Menjadi Andalan Optimasi Interaksi X (Twitter)</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="reveal-up">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Keamanan Otentikasi Terjamin</h3>
-          <p class="text-slate-400">Kami beroperasi mutlak tanpa menuntut data kredensial masuk akun Anda. Cukup serahkan tautan cuitan target, dan sistem kami akan bekerja dari luar dengan protokol kerahasiaan tingkat tinggi.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Kecepatan Eksekusi Transparan</h3>
-          <p class="text-slate-400">Begitu transaksi divalidasi, armada akun pendukung kami langsung bermanuver memberikan apresiasi. Bukti penyelesaian tugas pun diserahkan secara akuntabel melalui akses tautan penyimpanan awan terpadu.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Proteksi Fluktuasi Angka</h3>
-          <p class="text-slate-400">Khawatir metrik suka menyusut akibat pembersihan sistem algoritma X secara berkala? Sebagian besar paket kami telah dilindungi oleh asuransi pengisian kembali (refill) agar impresi cuitan Anda senantiasa kokoh.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
- <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Langkah Taktis Kuasai Linimasa</h2>
-        <p class="text-slate-400">Hanya butuh tiga fase singkat untuk memicu ledakan interaksi di akun X Anda.</p>
-      </div>
-      <div class="flex flex-col md:flex-row justify-between gap-8 relative">
-        <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-slate-800 reveal-up"></div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">1</div>
-          <h4 class="text-lg font-bold text-white mb-2">Tentukan Skala Eksposur</h4>
-          <p class="text-slate-400 text-sm">Sesuaikan besaran target kuota dukungan dengan sasaran kampanye utas atau agenda promosi yang sedang Anda susun.</p>
-        </div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-100">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">2</div>
-          <h4 class="text-lg font-bold text-white mb-2">Input URL & Konfirmasi</h4>
-          <p class="text-slate-400 text-sm">Cukup salin tautan publik cuitan yang ingin didongkrak, lalu selesaikan pelunasan melalui perbankan maupun dompet digital andalan.</p>
-        </div>
-
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-200">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">3</div>
-          <h4 class="text-lg font-bold text-white mb-2">Nikmati Hujan Interaksi</h4>
-          <p class="text-slate-400 text-sm">Siapkan secangkir kopi, bersantai, dan pantau bilah pemberitahuan di aplikasi X Anda yang mulai dibanjiri lonjakan apresiasi positif.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="harga" class="py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Katalog Investasi Amplifikasi X (Twitter)</h2>
-        <p class="text-slate-400">Pilih amunisi yang paling ideal untuk mulai mendominasi arus percakapan di linimasa hari ini.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="reveal-up bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
-            <img 
-              src="/image/harga-paket-100like-twitter.png" 
-              alt="Paket Pemanasan 100 Like Twitter Organik" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Pemanasan 100 Like Twitter</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Pemicu traksi algoritma awal</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Reaksi dari pengguna X sungguhan</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Pas untuk validasi cuitan personal</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 250.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Pemanasan%20100%20Like%20Twitter" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal-up delay-200 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
-          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">TERLARIS</div>
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
-            <img 
-              src="/image/harga-paket-1000like-twitter.png" 
-              alt="Paket Trending 1000 Like Twitter Premium" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Trending 1000 Like Twitter</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Distribusi ritmis anti-shadowban</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Tingkatkan rasio kemunculan For You</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Senjata utama untuk utas (thread) promosi</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 2.500.000</span>
-                <span class="text-lg text-slate-500 line-through">Rp 3.000.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Trending%201000%20Like%20Twitter" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <div class="bg-white">
-    <Testimonials />
-  </div>
   <DaftarHarga />
+  <HargaPaket {...dataHargaPaket} />
+  <Testimonials />
   <MetodePembayaran />
+  
+  <FaqJasaLike {...dataFaq} />
 
 </DefaultLayout>
-
-<style>
-  /* Hero Animasi Load */
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Animasi Scroll: Sembunyi Dulu */
-  .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
-  .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
-  .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-  
-  /* Delay untuk efek berurutan */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-
-  /* Class aktif yang disuntikkan oleh JavaScript pas di-scroll */
-  .reveal-left.is-visible,
-  .reveal-right.is-visible,
-  .reveal-up.is-visible {
-    opacity: 1;
-    transform: translate(0);
-  }
-</style>
