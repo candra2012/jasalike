@@ -12,7 +12,7 @@ const {
 ---
 <section class="relative pt-32 pb-48 md:pt-40 md:pb-64 bg-[#0B1121] text-white overflow-hidden">
   
-  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-[0.25] z-0"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] z-0 animate-twinkle"></div>
   
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-blue-600/20 blur-[140px] rounded-full pointer-events-none z-0"></div>
 
@@ -49,15 +49,12 @@ const {
       </div>
 
       <div class="animate-hero-image opacity-0 translate-y-8 transform transition-all duration-1000 ease-out delay-300 w-full max-w-3xl relative mt-16 md:mt-20">
-        
         <div class="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full transform scale-75 -z-10"></div>
-        
         <img
           src={gambarHero}
           alt="Hero Image"
           class="w-full h-auto rounded-2xl md:rounded-[2rem] object-cover shadow-2xl transform hover:scale-[1.01] transition-transform duration-500"
         />
-        
       </div>
 
     </div>
@@ -79,4 +76,15 @@ const {
     }
   });
 </script>
+
+<style>
+  @keyframes smooth-twinkle {
+    0%, 100% { opacity: 0.12; }
+    50% { opacity: 0.35; } 
+  }
+  .animate-twinkle {
+    animation: smooth-twinkle 8s ease-in-out infinite;
+  }
+</style>
+
 
