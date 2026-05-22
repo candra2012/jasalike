@@ -1,27 +1,172 @@
 ---
 // src/pages/like-youtube.astro
+
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon/components'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
 import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
 
+// ==========================================
+// SEO & METADATA
+// ==========================================
 const title = "Beli Jasa Tambah Like YouTube Terpercaya | Boost Ranking";
 const description = "Layanan jasa tambah like YouTube terbaik untuk optimasi SEO channel. Dikerjakan oleh audiens asli. Proses aman cukup setor tautan, reaksi natural & stabil.";
-const keywords = "jasa beli like youtube, jasa like youtube, jasalike, jasa like video youtube, beli like youtube, jasa tambah like youtube, jasa like komen youtube";
+const keywords = "jual jasa like youtube, jasa like youtube, jasalike, jasa like video youtube, beli like youtube, jasa tambah like youtube, jasa like komen youtube";
+
+// ==========================================
+// DATA PROPS UNTUK KOMPONEN
+// ==========================================
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi SEO Channel",
+  labelIcon: "lucide:youtube",
+  judulUtama: 'Jasa Like YouTube <br class="hidden md:block"/> <span class="text-blue-500">Kuasai Halaman Pencarian</span>',
+  deskripsi: "Layanan optimasi interaksi YouTube terpercaya sebagai katalisator jitu untuk menggenjot performa SEO channel Anda. Kami memberikan sinyal positif agar karya Anda lebih gampang menembus deretan fitur Rekomendasi Beranda.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Interaksi Audiens Asli ✓ Cukup Setor Tautan Video ✓ Garansi Perlindungan Penuh</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Realita Pahit <span class="text-blue-500">Kreator & Brand Hari Ini</span>',
+  deskripsiUtama: 'Kendala utama yang membuat channel sulit berkembang meski kualitas produksi sudah maksimal.',
+  ms1Teks: '<strong class="text-blue-600">Editing Lelah, Hasil Nihil:</strong> Sudah merakit visual dan audio memukau, namun grafik penayangan tetap datar karena kurangnya pengungkit awal.',
+  ms2Teks: '<strong class="text-blue-600">Retensi Penonton Rendah:</strong> Audiens organik ragu untuk menetap saat melihat rasio apresiasi yang minim pada menit-menit pertama.',
+  ms3Teks: '<strong class="text-blue-600">Terkubur di Dasar Pencarian:</strong> Sistem sangat kompetitif; tanpa sinyal positif awal, video mudah tertumpuk oleh ratusan unggahan dari kreator besar.',
+  ms4Teks: '<strong class="text-blue-600">Sulit Memikat Sponsor:</strong> Kredibilitas channel terlihat kurang meyakinkan di mata calon mitra bisnis karena metrik interaksi yang tidak seimbang.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengupas Tuntas <span class="text-blue-500">Jasa Like YouTube</span>',
+  deskripsiUtama: 'Strategi akselerasi yang dirancang khusus untuk memoles performa vlog, podcast, hingga YouTube Shorts Anda di mata algoritma pencarian.',
+  k1Judul: 'Sinyal Positif Algoritma',
+  k1Teks: 'Distribusi apresiasi yang solid sejak awal tayang dinilai sebagai tontonan bernilai tinggi oleh sistem pencari YouTube.',
+  k2Judul: 'Membangun Otoritas Spontan',
+  k2Teks: 'Menciptakan impresi positif seketika yang memancing penonton baru untuk menekan tombol berlangganan (Subscribe).'
+};
+
+const dataManfaat = {
+  judulUtama: 'Transformasi Spektakuler <span class="text-blue-600">Performa Channel</span>',
+  deskripsiUtama: 'Langkah taktis untuk mendongkrak visibilitas dan kredibilitas karya visual Anda.',
+  m1Judul: 'Otoritas Visual',
+  m1Teks: 'Menghasilkan kesan pertama yang mengagumkan, meyakinkan pemirsa bahwa karya Anda sangat layak ditonton.',
+  m2Judul: 'Sinyal Mesin Pencari',
+  m2Teks: 'Memberikan indikator krusial ke sistem agar video Anda segera dipromosikan melintasi beranda utama.',
+  m3Judul: 'Efek Bola Salju',
+  m3Teks: 'Akumulasi apresiasi yang masif akan memicu respons psikologis penonton organik untuk ikut berinteraksi.',
+  m4Judul: 'Magnet Peluang Bisnis',
+  m4Teks: 'Membangun fondasi reputasi yang solid guna memikat perhatian sponsor potensial di ceruk pasar Anda.'
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: 'Alasan utama para kreator dan agensi mempercayakan optimasi YouTube mereka kepada kami.',
+  mk1Judul: "Proteksi Aset Digital",
+  mk1Teks: "Prosedur pengerjaan sepenuhnya eksternal, hanya berbasis pada tautan video publik tanpa memerlukan detail privasi.",
+  mk2Judul: "Kinerja Terukur",
+  mk2Teks: "Manuver optimasi digerakkan secara bertahap oleh jaringan audiens nyata demi menjaga keamanan metrik.",
+  mk3Judul: "Garansi Pemeliharaan",
+  mk3Teks: "Fasilitas pemulihan interaksi (refill) berkala untuk memastikan reputasi karya tetap paripurna.",
+  mk4Judul: "Dukungan Responsif",
+  mk4Teks: "Layanan bantuan siap memberikan panduan teknis yang ramah kapan pun Anda butuhkan.",
+  mk5Judul: "Proses Sistematis",
+  mk5Teks: "Antrean pengerjaan berjalan tertib dan segera aktif setelah detail tautan divalidasi.",
+  mk6Judul: "Pilihan Skala Fleksibel",
+  mk6Teks: "Tersedia ragam variasi paket penawaran yang dapat disesuaikan dengan fase pertumbuhan channel Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-500">Untuk Optimasi YouTube</span>',
+  deskripsiUtama: "Formula taktis yang dirancang untuk mendukung performa tayangan dan keterbacaan konten Anda oleh sistem penelusuran.",
+  sol1Icon: "lucide:shield",
+  sol1Judul: "Metode Aman & Rahasia",
+  sol1Teks: "Pola distribusi interaksi diatur selaras dengan aktivitas natural agar integritas channel tetap terjaga.",
+  sol2Icon: "lucide:refresh-cw",
+  sol2Judul: "Stabilitas Jangka Panjang",
+  sol2Teks: "Investasi Anda terproteksi penuh lewat mekanisme pemantauan jumlah apresiasi secara berkala.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Akselerasi Pertumbuhan",
+  sol3Teks: "Mendorong nilai retensi dan daya tarik publik demi menciptakan ruang bertumbuh yang optimal."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Skema Praktis <span class="text-blue-500">Dominasi Pencarian</span>',
+  deskripsiUtama: 'Cuma butuh tiga manuver singkat untuk mulai menguasai halaman utama YouTube.',
+  co1Judul: "Tentukan Skala Kampanye",
+  co1Teks: "Sesuaikan volume apresiasi dengan strategi optimasi penelusuran yang sedang Anda bangun.",
+  co2Judul: "Hubungi Tim Layanan",
+  co2Teks: "Konsultasikan kebutuhan Anda kepada helpdesk kami melalui akses tombol WhatsApp.",
+  co3Judul: "Delegasikan Tautan",
+  co3Teks: "Tempelkan link video publik Anda dan tuntaskan administrasi pembayaran.",
+  co4Judul: "Pantau Dasbor Analitik",
+  co4Teks: "Perhatikan pergerakan grafik di dasbor analitik seiring masuknya gelombang apresiasi baru."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Katalog Investasi Pertumbuhan Channel",
+  deskripsiHarga: "Pilih amunisi yang paling relevan untuk mulai mendominasi algoritma penelusuran hari ini.",
+  p1Gambar: "/image/harga-paket-100like-youtube.png",
+  p1Nama: "Paket Starter 100 Like",
+  p1Fitur1: "Distribusi interaksi responsif",
+  p1Fitur2: "Berasal dari akun pemirsa nyata",
+  p1Fitur3: "Ideal untuk tes pasar kreator baru",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Starter%20100%20Like%20YouTube",
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/harga-paket-1000like-youtube.png",
+  p2Nama: "Paket Otoritas 1000 Like",
+  p2Fitur1: "Pola masuk bertahap (Drip-feed)",
+  p2Fitur2: "Aman dari filter evaluasi platform",
+  p2Fitur3: "Direkomendasikan untuk vlogger & podcast",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Otoritas%201000%20Like%20YouTube"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Like <span class="text-blue-500">YouTube</span>',
+  deskripsiUtama: 'Jawaban ringkas atas berbagai pertanyaan yang paling sering diajukan pelanggan.',
+  faq1Judul: "Apakah aman untuk monetisasi channel YouTube?",
+  faq1Teks: "Sangat aman. Sistem kami mendistribusikan interaksi secara natural sehingga tidak bertentangan dengan pedoman komunitas maupun syarat monetisasi YouTube Partner Program.",
+  faq2Judul: "Berapa lama estimasi penyelesaiannya?",
+  faq2Teks: "Kecepatan distribusi bergantung pada besaran paket. Umumnya berjalan secara bertahap (drip-feed) dalam hitungan jam hingga beberapa hari demi menjaga pola organik.",
+  faq3Judul: "Apakah video YouTube Shorts juga bisa diproses?",
+  faq3Teks: "Tentu bisa. Layanan kami mendukung semua format tayangan, baik video durasi panjang (reguler), podcast, maupun YouTube Shorts.",
+  faq4Judul: "Data apa saja yang perlu saya siapkan?",
+  faq4Teks: "Kami mengutamakan privasi Anda. Cukup lampirkan tautan (URL) publik dari video yang ingin dioptimasi. Seluruh prosedur berjalan secara eksternal.",
+  faq5Judul: "Bagaimana jika jumlah apresiasinya menurun setelah proses selesai?",
+  faq5Teks: "Anda mendapatkan jaminan proteksi penuh. Kami menyediakan asuransi pengisian kembali (refill) gratis untuk memastikan metrik video Anda tetap stabil.",
+  faq6Judul: "Apakah layanan ini membantu algoritma rekomendasi YouTube?",
+  faq6Teks: "Sangat membantu. Akumulasi interaksi yang positif di awal penayangan adalah salah satu indikator kuat bagi algoritma untuk mempromosikan video Anda ke audiens yang lebih luas."
+};
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
-     <Fragment slot="head">
+  <Fragment slot="head">
     <script type="application/ld+json">
       [
         {
           "@context": "https://schema.org/",
           "@type": "Product",
-          "name": "Jasa Like Instagram",
+          "name": "Jasa Like YouTube Terpercaya",
           "image": "https://jasalike.com/image/harga-paket-100like-youtube.png",
-          "description": "Optimalkan SEO video dengan jasa like YouTube terpercaya. Interaksi organik manusia asli bantu tingkatkan ranking. Privasi 100% aman, cukup drop link URL.",
+          "description": "Layanan optimasi SEO video YouTube dengan distribusi interaksi natural. Membantu meningkatkan peringkat penelusuran, membangun otoritas channel, dan mempercepat pertumbuhan metrik secara aman.",
           "brand": {
             "@type": "Brand",
             "name": "JasaLike"
@@ -31,7 +176,7 @@ const keywords = "jasa beli like youtube, jasa like youtube, jasalike, jasa like
             "ratingValue": "4.9",
             "bestRating": "5",
             "worstRating": "1",
-            "ratingCount": "1250"
+            "ratingCount": "1350"
           },
           "offers": {
             "@type": "AggregateOffer",
@@ -60,323 +205,82 @@ const keywords = "jasa beli like youtube, jasa like youtube, jasalike, jasa like
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Like Youtube"
+              "name": "Like YouTube"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Apakah aman untuk monetisasi channel YouTube?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat aman. Sistem kami mendistribusikan interaksi secara natural sehingga tidak bertentangan dengan pedoman komunitas maupun syarat monetisasi YouTube Partner Program."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Berapa lama estimasi penyelesaiannya?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kecepatan distribusi bergantung pada besaran paket. Umumnya berjalan secara bertahap (drip-feed) dalam hitungan jam hingga beberapa hari demi menjaga pola organik."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah video YouTube Shorts juga bisa diproses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tentu bisa. Layanan kami mendukung semua format tayangan, baik video durasi panjang (reguler), podcast, maupun YouTube Shorts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Data apa saja yang perlu saya siapkan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kami mengutamakan privasi Anda. Cukup lampirkan tautan (URL) publik dari video yang ingin dioptimasi. Seluruh prosedur berjalan secara eksternal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Bagaimana jika jumlah apresiasinya menurun setelah proses selesai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anda mendapatkan jaminan proteksi penuh. Kami menyediakan asuransi pengisian kembali (refill) gratis untuk memastikan metrik video Anda tetap stabil."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Apakah layanan ini membantu algoritma rekomendasi YouTube?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sangat membantu. Akumulasi interaksi yang positif di awal penayangan adalah salah satu indikator kuat bagi algoritma untuk mempromosikan video Anda ke audiens yang lebih luas."
+              }
             }
           ]
         }
       ]
     </script>
   </Fragment>
+
+  <Hero {...dataHero} />
+  <MasalahJasaLike {...dataMasalah} />
+  <ApaItuJasaLike {...dataApaItu} />
+  <ManfaatJasaLike {...dataManfaat} />
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+  <Solusi {...dataSolusi} />
+  <CaraOrder {...dataCaraOrder} />
   
-  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-950 overflow-hidden flex items-center">
-    
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="/image/hero-jasalike-youtube.png" 
-        alt="Background Jasa Tambah Like Video YouTube" 
-        class="w-full h-full object-contain object-center opacity-40 block" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
-      <div class="absolute inset-0 bg-slate-950/40"></div> <div class="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-    </div>
-
-    <div class="relative z-10 container mx-auto px-6 text-center max-w-5xl animate-fade-in-up mt-10 lg:mt-0">
-      
-      <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-        <Icon name="lucide:youtube" class="w-4 h-4" />
-        Layanan Optimasi SEO Channel
-      </span>
-      
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold !text-white leading-[1.1] mb-8 tracking-tight">
-        Jasa Like YouTube <br class="hidden md:block" /> <span class="text-blue-500">Kuasai Halaman Pencarian</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Frustrasi konten tertimbun ribuan video lain? Layanan <strong>jasa tambah like video YouTube</strong> ini hadir sebagai katalisator jitu untuk menggenjot skor SEO channel Anda. Kami memberikan sinyal interaksi positif agar mahakarya Anda lebih gampang masuk ke deretan <strong class="text-white">Suggested Videos (Rekomendasi Beranda)</strong>. Hasilnya, otoritas akun terbangun, penonton baru lebih mudah menemukan Anda, dan jalan menuju target monetisasi makin mulus. <br class="hidden md:block mt-2" />
-        <span class="text-blue-400 font-semibold block mt-4">✓ 100% Interaksi Manusia Asli &nbsp; ✓ Cukup Setor Tautan Video &nbsp; ✓ Garansi Perlindungan Penuh</span>
-      </p>
-
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1 reveal-left">
-        <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl">
-          <img src="/image/apaitu-jasalike-youtube.png" alt="Ilustrasi Layanan Tambah Like Video YouTube" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity" />
-        </div>
-      </div>
-      <div class="order-1 lg:order-2 reveal-right">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Mengupas Tuntas Jasa Like YouTube</h2>
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Layanan ini merupakan strategi akselerasi yang dirancang khusus untuk memoles performa <em>vlog</em>, <em>podcast</em>, hingga <em>YouTube Shorts</em> Anda. Mengingat <strong>algoritma penelusuran YouTube</strong> sangat ketat dalam menyeleksi konten, video dengan akumulasi jempol ke atas yang solid sejak awal tayang akan dinilai sebagai tontonan bernilai tinggi oleh sistem pencari.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Mendongkrak probabilitas video nangkring di halaman pertama pencarian dan fitur.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Menciptakan impresi positif seketika yang memancing penonton baru untuk menekan tombol Subscribe.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Distribusi apresiasi masuk dengan ritme terukur, aman 100% dari radar penyaringan platform.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Realita Pahit YouTuber & Brand Hari Ini</h2>
-        <p class="text-slate-400 text-lg">Faktor tersembunyi yang bikin channel jalan di tempat dan grafiknya terus merosot.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up">
-          <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:trending-down" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Editing Lelah, Hasil Nihil</h3>
-          <p class="text-slate-400 leading-relaxed">Sudah begadang merakit visual dan audio yang memukau, namun grafik penayangan tetap datar. Penyebabnya simpel: tidak ada pengungkit awal yang membuat sistem melirik karyamu.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-100">
-          <div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:user-x" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Penonton Baru Auto-Skip</h3>
-          <p class="text-slate-400 leading-relaxed">Calon sponsor dan audiens organik ragu untuk menetap. Video dengan rasio apresiasi yang minim sering dianggap membosankan, membuat mereka malas menekan tombol langganan (subscribe).</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-200">
-          <div class="w-14 h-14 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:compass" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Terkubur di Dasar Pencarian</h3>
-          <p class="text-slate-400 leading-relaxed">Sistem YouTube sangat kejam dan selektif. Tanpa adanya sinyal positif di jam pertama tayang, videomu akan langsung ditumpuk oleh ratusan unggahan dari kreator raksasa lainnya.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-blue-900 text-white overflow-hidden relative">
-    <div class="absolute inset-0 bg-[url('/image/manfaat-jasalike-instagram.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal-up">Transformasi Spektakuler untuk Performa Channel Anda</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="reveal-up">
-          <Icon name="lucide:shield-check" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Otoritas Visual</h4>
-          <p class="text-blue-200 text-sm">Menghasilkan kesan pertama yang mengagumkan, meyakinkan pemirsa bahwa karya Anda sangat layak ditonton hingga detik terakhir.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <Icon name="lucide:zap" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Sinyal Positif Mesin Pencari</h4>
-          <p class="text-blue-200 text-sm">Memberikan indikator krusial ke sistem YouTube agar video Anda segera dipromosikan melintasi beranda utama.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <Icon name="lucide:users" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Efek Bola Salju</h4>
-          <p class="text-blue-200 text-sm">Akumulasi jempol yang masif akan memicu respons psikologis, memancing penonton organik untuk ikut berinteraksi secara sukarela.</p>
-        </div>
-        <div class="reveal-up delay-300">
-          <Icon name="lucide:briefcase" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Magnet Peluang Bisnis</h4>
-          <p class="text-blue-200 text-sm">Membangun fondasi reputasi yang solid guna memikat perhatian sponsor potensial sekaligus mengamankan takhta di ceruk pasar Anda.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Mengapa JasaLike.com Jadi Pilihan Utama Layanan Tambah Like YouTube?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="reveal-up">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Proteksi Aset Digital</h3>
-          <p class="text-slate-400">Kami pantang menanyakan email atau detail login channel Anda. Cukup setor URL spesifik dari tayangan yang ingin dimaksimalkan, dan tim kami akan beroperasi murni dari luar dengan sangat rahasia.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Kinerja Kilat & Terbuka</h3>
-          <p class="text-slate-400">Manuver optimasi seketika digerakkan oleh jaringan audiens sungguhan. Validasi hasil pekerjaan pun diserahkan secara jujur dan transparan melalui tautan <em>cloud storage</em>.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Jaminan Metrik Stabil</h3>
-          <p class="text-slate-400">Takut angka apresiasi menyusut pasca evaluasi pedoman komunitas platform? Kami membackup investasi Anda lewat program pemulihan interaksi (refill) agar reputasi karya tetap paripurna.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Skema Praktis Dominasi Pencarian</h2>
-        <p class="text-slate-400">Cuma butuh tiga manuver singkat untuk mulai menguasai halaman utama.</p>
-      </div>
-      <div class="flex flex-col md:flex-row justify-between gap-8 relative">
-        <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-slate-800 reveal-up"></div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">1</div>
-          <h4 class="text-lg font-bold text-white mb-2">Tentukan Skala Kampanye</h4>
-          <p class="text-slate-400 text-sm">Sesuaikan volume jempol positif dengan <em>strategi optimasi algoritma penelusuran</em> yang sedang Anda bangun untuk tayangan tersebut.</p>
-        </div>
-        
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-100">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">2</div>
-          <h4 class="text-lg font-bold text-white mb-2">Delegasikan Tautan</h4>
-          <p class="text-slate-400 text-sm">Tempelkan <em>link video YouTube Shorts</em> atau vlog durasi panjang Anda, kemudian validasi tagihan melalui metode transaksi digital pilihan.</p>
-        </div>
-
-        <div class="relative z-10 bg-slate-900 p-8 rounded-3xl border border-slate-800 flex-1 text-center reveal-up delay-200">
-          <div class="w-12 h-12 bg-blue-600 text-white font-bold text-xl rounded-full flex items-center justify-center mx-auto mb-6 ring-8 ring-slate-950">3</div>
-          <h4 class="text-lg font-bold text-white mb-2">Pantau Dasbor Analitik</h4>
-          <p class="text-slate-400 text-sm">Duduk manis dan perhatikan pergerakan grafik di <em>dasbor analitik YouTube Studio</em> Anda seiring masuknya gelombang apresiasi baru.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="harga" class="py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Katalog Investasi Pertumbuhan Channel</h2>
-        <p class="text-slate-400">Pilih amunisi yang paling relevan untuk mulai mendominasi algoritma penelusuran hari ini.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="reveal-up bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
-            <img 
-              src="/image/harga-paket-100like-youtube.png" 
-              alt="Paket Starter 100 Like YouTube Organik" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Starter 100 Like YouTube</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Distribusi interaksi responsif</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Berasal dari akun pemirsa sungguhan</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Ideal untuk tes pasar kreator baru</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 200.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Starter%20100%20Like%20YouTube" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal-up delay-200 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
-          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">TERLARIS</div>
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
-            <img 
-              src="/image/harga-paket-1000like-youtube.png" 
-              alt="Paket Otoritas 1000 Like YouTube Premium" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Otoritas 1000 Like YouTube</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Pola masuk bertahap (Drip-feed)</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Aman dari filter evaluasi platform</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Direkomendasikan untuk vlogger & podcast</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 2.000.000</span>
-                <span class="text-lg text-slate-500 line-through">Rp 2.500.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Otoritas%201000%20Like%20YouTube" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="bg-white">
-    <Testimonials />
-  </div>
   <DaftarHarga />
+  <HargaPaket {...dataHargaPaket} />
+  <Testimonials />
   <MetodePembayaran />
+  
+  <FaqJasaLike {...dataFaq} />
 
 </DefaultLayout>
 
-<style>
-  /* Hero Animasi Load */
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Animasi Scroll: Sembunyi Dulu */
-  .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
-  .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
-  .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-  
-  /* Delay untuk efek berurutan */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-
-  /* Class aktif yang disuntikkan oleh JavaScript pas di-scroll */
-  .reveal-left.is-visible,
-  .reveal-right.is-visible,
-  .reveal-up.is-visible {
-    opacity: 1;
-    transform: translate(0);
-  }
-</style>
