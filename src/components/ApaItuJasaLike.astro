@@ -69,13 +69,13 @@ const {
 
 <style>
   @keyframes smooth-twinkle {
-    0%, 100% { opacity: 0.12; } /* Paling redup (masih kelihatan samar) */
-    50% { opacity: 0.35; }      /* Paling terang (tidak terlalu mencolok) */
+    0%, 100% { opacity: 0.10; } /* Paling redup */
+    50% { opacity: 0.40; }      /* Paling terang */
   }
   .animate-twinkle {
-    /* 👇 Durasinya kita ubah ke 8s atau 10s biar lambat dan super smooth 👇 */
-    animation: smooth-twinkle 8s ease-in-out infinite;
+    /* 4s = Durasi siklus animasi dari redup ke terang kembali ke redup */
+    /* ease-in-out = Membuat transisi perubahannya sangat halus */
+    animation: smooth-twinkle 5s ease-in-out infinite;
   }
 </style>
-
 
