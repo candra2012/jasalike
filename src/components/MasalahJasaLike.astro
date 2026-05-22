@@ -55,3 +55,26 @@ const {
   </div>
 </section>
 
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          // Unobserve agar animasi hanya jalan 1x saat pertama kali di-scroll
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observasi Judul
+    const judul = document.querySelector('.animate-masalah-judul');
+    if (judul) observer.observe(judul);
+
+    // Observasi List Poin-Poin
+    const lists = document.querySelectorAll('.animate-masalah-list');
+    lists.forEach((list) => observer.observe(list));
+  });
+</script>
+
