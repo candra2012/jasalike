@@ -27,39 +27,55 @@ Header Component
             <div class="mega-title">
               <Icon name="lucide:instagram" /> Instagram
             </div>
-            <a href="/like-instagram/">Like Postingan / Reels</a>
-            <a href="/like-komentar-instagram/">Like Komentar IG</a>
+            <a href="/like-instagram/">Like Instagram</a>
+            <a href="/like-instagram/">Like Reels Instagram</a>
+            <a href="/like-komentar-instagram/">Like Komentar Instagram</a>
           </div>
 
           <div class="mega-column">
             <div class="mega-title">
               <Icon name="lucide:music-2" /> TikTok
             </div>
-            <a href="/like-tiktok/">Like Video FYP</a>
+            <a href="/like-tiktok/">Like TikTok</a>
             <a href="/like-komentar-tiktok/">Like Komentar TikTok</a>
           </div>
 
           <div class="mega-column">
             <div class="mega-title">
-              <Icon name="lucide:facebook" /> Meta Ekosistem
+              <Icon name="lucide:facebook" /> Facebook
             </div>
-            <a href="/like-facebook/">Like FB / Fanpage</a>
-            <a href="/like-threads/">Like Threads</a>
+            <a href="/like-facebook/">Like Facebook</a>
+            <a href="/like-facebook/">Like Reels Facebook</a>
           </div>
 
           <div class="mega-column">
             <div class="mega-title">
-              <Icon name="lucide:briefcase" /> Karir & Media
+              <Icon name="lucide:at-sign" /> Threads
             </div>
-            <a href="/like-linkedin/">Like LinkedIn B2B</a>
+            <a href="/like-threads/">Like Threads</a>
+            <a href="/like-komentar-threads/">Like Komentar Threads</a>
+          </div>
+
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:youtube" /> YouTube
+            </div>
             <a href="/like-youtube/">Like YouTube</a>
+            <a href="/like-youtube/">Like Shorts YouTube</a>
           </div>
           
           <div class="mega-column">
             <div class="mega-title">
               <Icon name="lucide:twitter" /> Twitter / X
             </div>
-            <a href="/like-twitter/">Like Tweet Aktif</a>
+            <a href="/like-twitter/">Like Twitter / X</a>
+          </div>
+
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:linkedin" /> LinkedIn
+            </div>
+            <a href="/like-linkedin/">Like LinkedIn</a>
           </div>
 
           <div class="mega-column mega-view-all">
@@ -99,7 +115,7 @@ Header Component
   
 <style lang="scss" is:global>
   header {
-    /* 1. PAKSA SEMUA TEKS DAN ICON MENJADI PUTIH */
+    /* PAKSA SEMUA TEKS DAN ICON MENJADI PUTIH */
     --font-color: #ffffff;
     --action-color: #ffffff;
     color: #ffffff !important;
@@ -112,28 +128,34 @@ Header Component
       color: #ffffff !important;
     }
 
-    /* 2. STYLING KHUSUS MEGA MENU */
+    /* STYLING KHUSUS MEGA MENU */
     .dropdown-menu.mega-menu {
       background-color: #0f172a !important; 
       border: 1px solid #1e293b;
-      padding: 1.5rem !important;
+      padding: 2rem !important;
       border-radius: 1rem;
-      /* Membuat kotak menjadi lebar */
       width: max-content !important;
-      max-width: 90vw;
+      max-width: 95vw;
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
     }
     
     .mega-menu-container {
       display: grid;
-      grid-template-columns: repeat(3, minmax(200px, 1fr));
-      gap: 2rem;
+      /* Dibuat 4 kolom menyamping agar rapi */
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      gap: 2rem 2.5rem;
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    /* Responsif di HP, grid berubah menjadi 1 kolom ke bawah */
+    /* Responsif menyesuaikan layar */
+    @media (max-width: 1200px) {
+      .mega-menu-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
     @media (max-width: 1024px) {
       .mega-menu-container {
         grid-template-columns: 1fr 1fr;
@@ -141,13 +163,14 @@ Header Component
       }
       .dropdown-menu.mega-menu {
         width: 100% !important;
+        padding: 1.5rem !important;
       }
     }
     
     @media (max-width: 640px) {
       .mega-menu-container {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
       }
     }
 
@@ -157,7 +180,7 @@ Header Component
       gap: 0.5rem;
       font-size: 1.05rem;
       font-weight: 700;
-      color: #3b82f6 !important; /* Biru mencolok untuk judul */
+      color: #3b82f6 !important; 
       margin-bottom: 0.75rem;
       border-bottom: 1px solid #1e293b;
       padding-bottom: 0.5rem;
@@ -170,39 +193,45 @@ Header Component
 
     .mega-column a {
       display: block;
-      padding: 0.35rem 0;
+      padding: 0.4rem 0;
       font-size: 0.95rem;
-      color: #cbd5e1 !important; /* Warna abu-abu terang */
+      color: #cbd5e1 !important; 
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
     .mega-column a:hover {
-      color: #ffffff !important; /* Putih terang saat disorot */
-      padding-left: 5px; /* Efek geser sedikit ke kanan */
+      color: #ffffff !important; 
+      padding-left: 6px; 
     }
 
-    /* Tombol Lihat Semua Layanan di pojok */
+    /* Tombol Lihat Semua Layanan */
     .mega-view-all {
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
+      margin-top: 1rem;
     }
 
     .mega-view-all .view-all-btn {
-      display: inline-block;
-      padding: 0.5rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.75rem 1rem;
       background-color: #1e293b;
       border-radius: 0.5rem;
       color: #60a5fa !important;
       font-weight: 600;
       font-size: 0.9rem;
-      text-align: center;
+      transition: all 0.2s ease;
     }
     
     .mega-view-all .view-all-btn:hover {
       background-color: #3b82f6;
       color: #ffffff !important;
+      padding-left: 1rem; 
     }
 
     /* Mengatur ukuran icon dark mode */
