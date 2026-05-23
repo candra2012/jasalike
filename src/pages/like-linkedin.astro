@@ -1,381 +1,275 @@
 ---
 // src/pages/like-linkedin.astro
 import DefaultLayout from '../layouts/DefaultLayout.astro'
-import { Icon } from 'astro-icon/components'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
 import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
 
+// ==========================================
+// 2. DATA SEO
+// ==========================================
 const title = "Jasa Tambah Like LinkedIn | Dominasi Feed & Perluas Koneksi";
 const description = "Solusi optimasi engagement untuk jangkau rekruter & klien potensial. Jasa like LinkedIn organik, 100% aman beroperasi dari luar sistem. Terbukti bergaransi";
 const keywords = "jasa linkedin, jasa linkedin premium, jasa like postingan, jasa profil linkedin, jasa isi linkedin, jasa rekomendasi linkedin, website like linkedin";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS LINKEDIN
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi B2B & Personal Branding",
+  labelIcon: "lucide:linkedin",
+  judulUtama: 'Jasa Like LinkedIn <br class="hidden md:block"/> <span class="text-blue-500">Bangun Otoritas Karier</span>',
+  deskripsi: "Tingkatkan visibilitas postingan korporat Anda dan perkuat fondasi kredibilitas reputasi seketika. Layanan optimasi kami dirancang untuk mendominasi <em>feed</em> profesional, memperluas jangkauan networking, serta menarik perhatian recruiter (HRD) dan klien potensial lewat dukungan validasi publik yang solid. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Interaksi Murni Akun Profesional &nbsp; ✓ Beroperasi Dari Luar Sistem &nbsp; ✓ Perlindungan Reputasi Terjamin</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-linkedin.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Realita Tantangan Profesional & <span class="text-blue-600">Perusahaan B2B</span>',
+  deskripsiUtama: "Faktor krusial yang sering kali menenggelamkan pencapaian dan reputasi karier Anda di linimasa profesional LinkedIn.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Insight Industri Terabaikan:</strong> Sudah membagikan artikel mendalam atau portofolio memukau, namun nihil apresiasi akibat kurangnya traksi awal.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Krisis Validasi Profil B2B:</strong> Klien potensial maupun HRD ragu menawarkan peluang kolaborasi saat melihat jejak publikasi yang minim dukungan kolega.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Mentok di Koneksi Pertama:</strong> Mesin kurasi LinkedIn enggan menyebarkan status Anda ke jaringan tingkat kedua (2nd-degree connections).',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Kalah Persaingan Brand:</strong> Kompetitor bisnis terlihat lebih unggul karena Company Page mereka jauh lebih aktif berinteraksi dengan audiens.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Lebih Dekat Jasa Like <span class="text-blue-500">LinkedIn</span>',
+  deskripsiUtama: "Fasilitas optimasi strategis untuk mendongkrak metrik interaksi profesional pada pembaruan status, artikel, maupun Company Page Anda.",
+  k1Judul: "Memperluas Jangkauan Networking",
+  k1Teks: "Publikasi dengan rasio apresiasi tinggi akan lebih cepat didistribusikan hingga ke jaringan tingkat kedua dan ketiga, menjangkau klien baru dan HRD.",
+  k2Judul: "Memvalidasi Personal Branding",
+  k2Teks: "Distribusi apresiasi digerakkan oleh profil organik, memastikan kredibilitas karier Anda tetap aman, berwibawa, dan natural di mata kolega industri."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keunggulan Strategis Optimasi <span class="text-blue-600">Reputasi Profesional</span>',
+  deskripsiUtama: "Berbagai keuntungan esensial yang bisa Anda dapatkan dengan mengoptimalkan engagement di platform B2B terbesar.",
+  m1Judul: "Validasi B2B Kuat",
+  m1Teks: "Membangun persepsi positif yang meyakinkan prospek klien bahwa Anda adalah talenta atau mitra bisnis yang kredibel.",
+  m2Judul: "Eskalasi Algoritma",
+  m2Teks: "Memicu sistem distribusi LinkedIn untuk menyebarkan publikasi Anda jauh melampaui batas koneksi tingkat pertama.",
+  m3Judul: "Pemantik Relasi Organik",
+  m3Teks: "Akumulasi impresi awal yang solid akan memancing kolega industri lainnya untuk ikut merespons dan berdiskusi secara sukarela.",
+  m4Judul: "Dominasi Company Branding",
+  m4Teks: "Mengukuhkan eksistensi halaman perusahaan (Company Page) serta memperkuat top of mind di tengah sengitnya persaingan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: "Alasan mengapa profesional dan korporasi selalu mengandalkan layanan JasaLike.com untuk optimasi LinkedIn.",
+  mk1Judul: "Integritas Akses Terjaga",
+  mk1Teks: "Kami beroperasi eksternal tanpa meminta password. Cukup lampirkan tautan publikasi, dan tim kami mengeksekusi kampanye Anda.",
+  mk2Judul: "Proses Transparan",
+  mk2Teks: "Orderan dieksekusi oleh real talent dan bukti penyelesaian akan disajikan secara transparan melalui tautan Google Drive.",
+  mk3Judul: "Asuransi Stabilitas Reputasi",
+  mk3Teks: "Paket kami dibekali perlindungan pemulihan (garansi refill) agar portofolio digital Anda tetap impresif permanen.",
+  mk4Judul: "Eksekusi Taktis",
+  mk4Teks: "Begitu transaksi divalidasi, jaringan profil pendukung kami akan langsung memberikan apresiasi secara elegan.",
+  mk5Judul: "Interaksi Profesional",
+  mk5Teks: "Like disalurkan secara perlahan agar tetap terlihat natural dan selaras dengan standar profesionalisme platform LinkedIn.",
+  mk6Judul: "Layanan Konsultatif",
+  mk6Teks: "Tim spesialis kami siap membantu Anda menyusun strategi optimasi sesuai dengan profil target perusahaan/klien Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-600">Untuk Engagement LinkedIn</span>',
+  deskripsiUtama: "Kami membantu mendominasi feed LinkedIn dengan sistem pengerjaan yang memenuhi standar korporat tertinggi.",
+  sol1Icon: "lucide:shield-check",
+  sol1Judul: "Proses Aman & Rahasia",
+  sol1Teks: "Kerahasiaan strategi marketing B2B Anda terjamin penuh karena seluruh eksekusi dilakukan di luar sistem akun Anda.",
+  sol2Icon: "lucide:briefcase",
+  sol2Judul: "Mendukung Jangkauan Klien & HRD",
+  sol2Teks: "Engagement kuat akan memperbesar peluang publikasi Anda dilirik oleh headhunter dan calon mitra bisnis besar.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Meningkatkan Otoritas Diskusi",
+  sol3Teks: "Artikel dan pembaruan status dengan engagement yang aktif akan memancing diskusi tingkat tinggi antar sesama profesional."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Order <span class="text-blue-400">Jasa Like LinkedIn</span>',
+  deskripsiUtama: "Proses pemesanan cepat, rahasia, dan transparan untuk meningkatkan performa karir digital Anda.",
+  co1Judul: "Pilih Paket Profesional",
+  co1Teks: "Tentukan paket optimasi sesuai dengan skala kebutuhan personal branding atau perusahaan Anda.",
+  co2Judul: "Hubungi Spesialis Kami",
+  co2Teks: "Lakukan konsultasi dan konfirmasi pemesanan melalui layanan WhatsApp admin JasaLike.",
+  co3Judul: "Kirim Tautan (URL)",
+  co3Teks: "Serahkan link URL postingan atau artikel LinkedIn tanpa perlu memberikan akses login akun Anda.",
+  co4Judul: "Eksekusi & Laporan",
+  co4Teks: "Pesanan segera diproses, dan Anda akan menerima bukti pengerjaan via tautan dokumen awan (Google Drive)."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Katalog Investasi Otoritas Profesional",
+  deskripsiHarga: "Pilih paket optimasi yang paling tepat untuk mendongkrak kredibilitas karier dan bisnis B2B Anda hari ini.",
+
+  // Paket Kiri
+  p1Gambar: "/image/jasa-like-linkedin-organik-100like.png",
+  p1Nama: "Paket Starter 100 Like LinkedIn",
+  p1Fitur1: "Memicu eksposur koneksi tingkat pertama",
+  p1Fitur2: "Apresiasi murni dari akun profesional",
+  p1Fitur3: "Sangat tepat untuk validasi profil karier",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Starter%20100%20Like%20LinkedIn",
+
+  // Paket Kanan
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/jasa-like-linkedin-organik-1000like.png",
+  p2Nama: "Paket Korporat 1000 Like LinkedIn",
+  p2Fitur1: "Distribusi interaksi elegan & anti-spam",
+  p2Fitur2: "Perluas jangkauan ke koneksi tingkat kedua",
+  p2Fitur3: "Senjata utama bagi Company Page & CEO",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Korporat%201000%20Like%20LinkedIn"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Like <br/> <span class="text-blue-600">LinkedIn</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering diajukan terkait layanan optimasi profesional B2B kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20Jasa%20Like%20LinkedIn",
+  faq1Judul: "Apakah keamanan akun LinkedIn saya terjamin?",
+  faq1Teks: "Sangat terjamin. Kami tidak pernah meminta password atau akses login Anda. Semua interaksi dikirim dari luar sistem menggunakan URL publik postingan Anda.",
+  faq2Judul: "Siapa yang akan menyukai postingan saya?",
+  faq2Teks: "Postingan Anda akan disukai oleh jaringan akun dengan profil yang sesuai dan relevan, menjaga agar audiens di postingan Anda tetap terlihat kredibel dan profesional.",
+  faq3Judul: "Apakah bisa memperbesar peluang dilirik HRD/Klien?",
+  faq3Teks: "Tentu. Algoritma LinkedIn sangat menyukai konten dengan tingkat engagement (interaksi) tinggi. Postingan yang ramai lebih mudah muncul di feed koneksi tingkat kedua dan ketiga (2nd & 3rd degree).",
+  faq4Judul: "Apakah tersedia garansi jika jumlah like turun?",
+  faq4Teks: "Ya, sebagian besar paket premium kami sudah dilengkapi dengan asuransi stabilitas (garansi refill). Tim kami siap memulihkan jumlah jika terjadi penurunan akibat update sistem LinkedIn.",
+  faq5Judul: "Berapa lama proses pengerjaan selesai?",
+  faq5Teks: "Setelah pembayaran tervalidasi, sistem kami akan langsung menyalurkan interaksi secara bertahap agar tidak terdeteksi sebagai aktivitas mencurigakan (anti-spam).",
+  faq6Judul: "Apakah paket bisa dibagi ke beberapa postingan?",
+  faq6Teks: "Bisa. Anda bisa mendistribusikan jumlah like ke beberapa artikel atau status berbeda. Silakan diskusikan rasio pembagiannya dengan tim spesialis kami via WhatsApp."
+};
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
-     <Fragment slot="head">
-    <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org/",
-          "@type": "Product",
-          "name": "Jasa Like LinkedIn",
-          "image": "https://jasalike.com/image/jasa-like-linkedin-organik-100like.png",
-          "description": "Beli jasa like LinkedIn terbaik untuk boost reputasi karir & B2B. Digerakkan manusia asli, perluas jangkauan networking secara natural. Privasi data terjaga",
-          "brand": {
-            "@type": "Brand",
-            "name": "JasaLike"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "1250"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "250000",
-            "highPrice": "2500000",
-            "priceCurrency": "IDR",
-            "offerCount": "4"
-          }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Beranda",
-              "item": "https://jasalike.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Layanan",
-              "item": "https://jasalike.com/layanan/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Like Linkedin"
-            }
-          ]
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like LinkedIn Profesional",
+    "image": "https://jasalike.com/image/jasa-like-linkedin-organik-100like.png",
+    "description": "Beli jasa like LinkedIn terbaik untuk boost reputasi karir & B2B. Digerakkan manusia asli, perluas jangkauan networking secara natural. Privasi data terjaga",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1250"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "250000",
+      "highPrice": "2500000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Like LinkedIn"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah keamanan akun LinkedIn saya terjamin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat terjamin. Kami tidak pernah meminta password atau akses login Anda. Semua interaksi dikirim dari luar sistem menggunakan URL publik postingan Anda."
         }
-      ]
-    </script>
-  </Fragment>
-  
-  <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-slate-950 overflow-hidden flex items-center">
-     <div class="absolute inset-0 z-0">
-      <img 
-        src="/image/hero-jasalike-linkedin.png" 
-        alt="Background Layanan Jasa Like LinkedIn Profesional" 
-        class="w-full h-full object-contain object-center opacity-40 block" 
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
-      <div class="absolute inset-0 bg-slate-950/40"></div> <div class="absolute top-1/4 left-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-    </div>
+      },
+      {
+        "@type": "Question",
+        "name": "Siapa yang akan menyukai postingan saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Postingan Anda akan disukai oleh jaringan akun dengan profil yang sesuai dan relevan, menjaga agar audiens di postingan Anda tetap terlihat kredibel dan profesional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia garansi jika jumlah like turun?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, sebagian besar paket premium kami sudah dilengkapi dengan asuransi stabilitas (garansi refill). Tim kami siap memulihkan jumlah jika terjadi penurunan akibat update sistem LinkedIn."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
 
-    <div class="relative z-10 container mx-auto px-6 text-center max-w-5xl animate-fade-in-up mt-10 lg:mt-0">
-      
-      <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-8">
-        <Icon name="lucide:linkedin" class="w-4 h-4" />
-        Layanan Optimasi B2B & Personal Branding
-      </span>
-      
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold !text-white leading-[1.1] mb-8 tracking-tight">
-        Jasa Like LinkedIn <br class="hidden md:block" /> <span class="text-blue-500">Bangun Otoritas Karier</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Tingkatkan visibilitas postingan korporat Anda dan perkuat fondasi kredibilitas reputasi seketika. Layanan optimasi kami dirancang untuk mendominasi <em>feed</em> profesional, memperluas jangkauan <strong class="text-white">networking</strong>, serta menarik perhatian <em>recruiter (HRD)</em> dan klien potensial lewat dukungan validasi publik (<em>Social Proof B2B</em>) yang solid. <br class="hidden md:block mt-2" />
-        <span class="text-blue-400 font-semibold block mt-4">✓ Interaksi Murni Akun Profesional &nbsp; ✓ Beroperasi Dari Luar Sistem (Cukup Setor URL) &nbsp; ✓ Perlindungan Reputasi Terjamin</span>
-      </p>
+  <Hero {...dataHero} />
 
-    </div>
-  </section>
+  <MasalahJasaLike {...dataMasalah} />
 
-  <section class="py-24 bg-slate-900 border-t border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1 reveal-left">
-        <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl">
-          <img src="/image/apaitu-jasalike-linkedin.png" alt="Ilustrasi Jasa Like LinkedIn Profesional" class="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity" />
-        </div>
-      </div>
-      <div class="order-1 lg:order-2 reveal-right">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Mengenal Lebih Dekat Jasa Like LinkedIn</h2>
-        <p class="text-slate-400 text-lg leading-relaxed mb-6">
-          Fasilitas optimasi ini merupakan strategi esensial untuk mendongkrak <strong>metrik interaksi profesional</strong> pada pembaruan status, artikel, maupun halaman perusahaan (Company Page) Anda. Di tengah ketatnya kurasi algoritma LinkedIn, publikasi dengan rasio apresiasi tinggi akan lebih cepat didistribusikan hingga ke jaringan koneksi tingkat kedua dan ketiga.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Memperluas jangkauan <em>networking</em> hingga ke beranda klien potensial dan recruiter (HRD).
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Memvalidasi <em>personal branding</em> dan membangun otoritas B2B di mata kolega industri.
-          </li>
-          <li class="flex items-center gap-3 text-slate-300 font-medium">
-            <Icon name="lucide:check-circle-2" class="w-6 h-6 text-blue-500 shrink-0" />
-            Distribusi apresiasi digerakkan oleh profil organik, memastikan kredibilitas karier tetap aman dan natural.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <ApaItuJasaLike {...dataApaItu} />
 
-  <section class="py-24 bg-slate-950 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Realita Tantangan Profesional & Perusahaan B2B</h2>
-        <p class="text-slate-400 text-lg">Faktor krusial yang sering kali menenggelamkan pencapaian dan reputasi karier Anda di linimasa profesional.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up">
-          <div class="w-14 h-14 bg-red-500/10 text-red-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:trending-down" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Insight Industri Terabaikan</h3>
-          <p class="text-slate-400 leading-relaxed">Sudah membagikan artikel mendalam atau portofolio memukau, namun nihil apresiasi akibat kurangnya pengungkit traksi awal dari koneksi Anda.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-100">
-          <div class="w-14 h-14 bg-orange-500/10 text-orange-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:user-x" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Krisis Validasi Profil B2B</h3>
-          <p class="text-slate-400 leading-relaxed">Klien potensial maupun recruiter (HRD) ragu untuk menawarkan peluang kolaborasi saat melihat jejak publikasi korporat yang minim dukungan kolega.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 hover:border-blue-500/50 transition-colors reveal-up delay-200">
-          <div class="w-14 h-14 bg-purple-500/10 text-purple-500 rounded-2xl flex items-center justify-center mb-6">
-            <Icon name="lucide:compass" class="w-7 h-7" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Mentok di Koneksi Pertama</h3>
-          <p class="text-slate-400 leading-relaxed">Mesin kurasi LinkedIn enggan menyebarkan pembaruan status Anda ke jaringan tingkat kedua (2nd-degree connections), membuat ekspansi relasi jalan di tempat.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ManfaatJasaLike {...dataManfaat} />
 
-  <section class="py-24 bg-blue-900 text-white overflow-hidden relative">
-    <div class="absolute inset-0 bg-[url('/image/manfaat-jasalike-facebook.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-16 reveal-up">Keunggulan Strategis Optimasi Reputasi Profesional</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="reveal-up">
-          <Icon name="lucide:shield-check" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Validasi B2B</h4>
-          <p class="text-blue-200 text-sm">Membangun persepsi positif yang meyakinkan prospek klien dan recruiter bahwa Anda adalah talenta atau mitra bisnis yang kredibel.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <Icon name="lucide:zap" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Eskalasi Algoritma</h4>
-          <p class="text-blue-200 text-sm">Memicu sistem distribusi LinkedIn untuk menyebarkan publikasi Anda jauh melampaui batas koneksi tingkat pertama.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <Icon name="lucide:users" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Pemantik Relasi Organik</h4>
-          <p class="text-blue-200 text-sm">Akumulasi impresi awal yang solid akan memancing kolega industri lainnya untuk ikut merespons dan berdiskusi secara sukarela.</p>
-        </div>
-        <div class="reveal-up delay-300">
-          <Icon name="lucide:briefcase" class="w-12 h-12 text-blue-300 mx-auto mb-4" />
-          <h4 class="text-xl font-bold mb-2">Dominasi Company Branding</h4>
-          <p class="text-blue-200 text-sm">Mengukuhkan eksistensi halaman perusahaan (Company Page) serta memperkuat <em>top of mind</em> di tengah sengitnya persaingan industri.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
 
-  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Mengapa Memilih JasaLike.com?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="reveal-up">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">100% Aman</h3>
-          <p class="text-slate-400">Pengerjaan hanya butuh link / URL postingan. dan kita langsung buatkan brief.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Proses Super Cepat</h3>
-          <p class="text-slate-400">Orderan langsung dieksekusi oleh real talent dan bukti pekerjaan lewat google drive setelah pembayaran dikonfirmasi.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Garansi Layanan</h3>
-          <p class="text-slate-400">Beberapa paket kami dilengkapi dengan fitur garansi isi ulang (refill) jika terjadi drop.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Solusi {...dataSolusi} />
 
-  <section class="py-24 bg-slate-900 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 reveal-up">Mengapa Profesional & Korporasi Mengandalkan JasaLike.com?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="reveal-up">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:lock" class="w-10 h-10 text-emerald-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Integritas Akses Terjaga</h3>
-          <p class="text-slate-400">Kami beroperasi secara eksternal mutlak tanpa menuntut detail autentikasi akun Anda. Cukup lampirkan tautan publikasi, dan spesialis kami akan mengeksekusi kampanye dengan standar privasi korporat.</p>
-        </div>
-        <div class="reveal-up delay-100">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:timer" class="w-10 h-10 text-blue-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Eksekusi Taktis & Akuntabel</h3>
-          <p class="text-slate-400">Begitu transaksi divalidasi, jaringan profil pendukung kami akan langsung memberikan apresiasi. Bukti penyelesaian kinerja akan disajikan secara transparan melalui tautan dokumen awan.</p>
-        </div>
-        <div class="reveal-up delay-200">
-          <div class="bg-slate-800 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
-            <Icon name="lucide:refresh-cw" class="w-10 h-10 text-purple-400" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Asuransi Stabilitas Reputasi</h3>
-          <p class="text-slate-400">Khawatir angka metrik menyusut akibat pembaruan sistem internal platform? Sebagian besar paket kami dibekali perlindungan pemulihan (refill) agar portofolio digital Anda tetap impresif secara permanen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <CaraOrder {...dataCaraOrder} />
 
-  <section id="harga" class="py-24 bg-slate-900 border-y border-slate-800 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 reveal-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Katalog Investasi Otoritas Profesional</h2>
-        <p class="text-slate-400">Pilih paket optimasi yang paling tepat untuk mendongkrak kredibilitas karier dan B2B Anda hari ini.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="reveal-up bg-slate-950 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col hover:border-blue-500/50 transition-colors shadow-xl">
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-slate-800">
-            <img 
-              src="/image/jasa-like-linkedin-organik-100like.png" 
-              alt="Paket Starter 100 Like LinkedIn Profesional" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Starter 100 Like LinkedIn</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Memicu eksposur ke koneksi tingkat pertama</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Apresiasi murni dari akun profesional</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Sangat tepat untuk validasi profil karier</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 250.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Starter%20100%20Like%20LinkedIn" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-
-        <div class="reveal-up delay-200 bg-slate-950 rounded-[2rem] border border-blue-500/30 overflow-hidden flex flex-col relative hover:border-blue-500 transition-colors shadow-2xl shadow-blue-900/20">
-          <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20">TERLARIS</div>
-          
-          <div class="w-full bg-slate-800 p-6 border-b border-blue-900/50">
-            <img 
-              src="/image/jasa-like-linkedin-organik-1000like.png" 
-              alt="Paket Korporat 1000 Like LinkedIn Premium" 
-              class="mx-auto h-auto object-contain"
-              style="max-height: 200px;" 
-            />
-          </div>
-          
-          <div class="p-8 pt-6 flex-1 flex flex-col">
-            <h3 class="text-2xl font-bold text-white mb-6">Paket Korporat 1000 Like LinkedIn</h3>
-            <ul class="space-y-4 mb-8 flex-1">
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Distribusi interaksi elegan & anti-spam</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Perluas jangkauan ke koneksi tingkat kedua</span>
-              </li>
-              <li class="flex items-start gap-3 text-slate-300">
-                <span class="text-blue-500 text-xl leading-none mt-1">●</span>
-                <span class="text-lg">Senjata utama bagi <em>Company Page</em> & CEO</span>
-              </li>
-            </ul>
-            
-            <div class="mb-6 border-t border-slate-800 pt-6">
-              <p class="text-sm text-slate-400 mb-1">Harga Spesial</p>
-              <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-extrabold text-white">Rp 2.500.000</span>
-                <span class="text-lg text-slate-500 line-through">Rp 3.000.000</span>
-              </div>
-            </div>
-
-            <a href="https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20mau%20pesan%20Paket%20Korporat%201000%20Like%20LinkedIn" class="block w-full text-center bg-blue-600 hover:bg-blue-700 !text-white font-bold py-4 rounded-xl transition-colors">
-              Pesan Sekarang
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <div class="bg-white">
-    <Testimonials />
-  </div>
   <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
   <MetodePembayaran />
 
+  <FaqJasaLike {...dataFaq} />
+
 </DefaultLayout>
-
-<style>
-  /* Hero Animasi Load */
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Animasi Scroll: Sembunyi Dulu */
-  .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
-  .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
-  .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-  
-  /* Delay untuk efek berurutan */
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-
-  /* Class aktif yang disuntikkan oleh JavaScript pas di-scroll */
-  .reveal-left.is-visible,
-  .reveal-right.is-visible,
-  .reveal-up.is-visible {
-    opacity: 1;
-    transform: translate(0);
-  }
-</style>
