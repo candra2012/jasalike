@@ -1,0 +1,245 @@
+---
+// src/pages/like-threads.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Threads Aktif & Terpercaya | Optimasi Engagement Premium";
+const description = "Layanan jasa like Threads terpercaya untuk eskalasi engagement dan otoritas akun Anda. Optimasi interaksi aman secara eksternal untuk hasil berkualitas dan natural.";
+const keywords = "jasa like threads, jasa like threads aktif, jasa like threads terpercaya, optimasi engagement threads, beli like threads indonesia, layanan interaksi threads premium, cara meningkatkan like threads, jasa engagement threads berkualitas";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FORMAL & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Interaksi Threads",
+  labelIcon: "lucide:at-sign",
+  judulUtama: 'Jasa Like Threads <br class="hidden md:block"/> <span class="text-blue-500">Otoritas & Engagement</span>',
+  deskripsi: "Eskalasi visibilitas utas Anda dengan dukungan interaksi yang berkualitas. Layanan optimasi kami dirancang untuk memperkuat kredibilitas akun secara profesional, membantu konten menjangkau audiens yang lebih luas, serta membangun persepsi positif di mata kolega maupun klien potensial. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Rekonsiliasi Algoritma Natural &nbsp; ✓ Proses Berbasis URL Publik &nbsp; ✓ Jaminan Kualitas & Stabilitas</span>",
+  teksTombol1: "Eksplorasi Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-threads.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan <span class="text-blue-600">Engagement</span> di Threads',
+  deskripsiUtama: "Beberapa kendala yang sering menghambat pertumbuhan akun dan efektivitas pesan Anda di linimasa Threads.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Respons Awal yang Minim:</strong> Utas berkualitas sering kali gagal mendapatkan perhatian karena kurangnya dorongan interaksi pada jam-jam pertama.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kredibilitas Profil Baru:</strong> Akun yang belum memiliki banyak dukungan interaksi cenderung lebih sulit meyakinkan audiens baru.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Visibilitas Terbatas:</strong> Tanpa akumulasi apresiasi yang solid, sistem Threads cenderung membatasi penyebaran konten Anda.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Persaingan Opini:</strong> Di tengah ramainya diskusi, utas Anda membutuhkan validasi sosial agar tetap menonjol dan diperhatikan.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Tentang Jasa Like <span class="text-blue-500">Threads</span>',
+  deskripsiUtama: "Solusi taktis untuk memvalidasi setiap pemikiran dan promosi Anda lewat distribusi apresiasi yang teratur dan profesional.",
+  k1Judul: "Memperkuat Validasi Sosial",
+  k1Teks: "Setiap like yang masuk berfungsi sebagai tanda bahwa konten Anda berbobot dan layak untuk diikuti oleh audiens lainnya.",
+  k2Judul: "Memicu Distribusi Algoritma",
+  k2Teks: "Sistem Threads akan memprioritaskan utas dengan tingkat interaksi aktif untuk ditampilkan di halaman 'For You' audiens global."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keunggulan <span class="text-blue-600">Layanan Threads</span>',
+  deskripsiUtama: "Membangun ekosistem akun yang lebih hidup dan bereputasi tinggi dengan strategi optimasi yang tepat sasaran.",
+  m1Judul: "Peningkatan Citra Digital",
+  m1Teks: "Membantu profil Anda terlihat lebih berpengaruh dan memiliki basis pendukung yang aktif di setiap publikasi.",
+  m2Judul: "Memperluas Jangkauan Utas",
+  m2Teks: "Meningkatkan peluang konten Anda untuk disebarkan secara organik oleh algoritma ke luar jaringan pengikut saat ini.",
+  m3Judul: "Efisien dalam Promosi",
+  m3Teks: "Sangat efektif untuk mendukung kampanye produk, pengumuman bisnis, maupun personal branding secara cepat.",
+  m4Judul: "Privasi Secara Menyeluruh",
+  m4Teks: "Seluruh pengerjaan dilakukan melalui sistem eksternal yang hanya membutuhkan tautan publik, menjamin integritas akun Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Layanan <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa para profesional dan pengusaha mempercayakan strategi interaksi mereka kepada sistem kami?",
+  mk1Judul: "Keamanan Akuntabel",
+  mk1Teks: "Kami menjamin keamanan penuh karena proses pengerjaan sama sekali tidak menyentuh akses internal akun Anda.",
+  mk2Judul: "Proses Terukur",
+  mk2Teks: "Setiap pesanan diproses secara sistematis sesuai antrean untuk menjaga stabilitas dan kualitas hasil akhir.",
+  mk3Judul: "Layanan Bergaransi",
+  mk3Teks: "Kami menyertakan fitur pemulihan (refill) untuk memastikan paket yang Anda pilih tetap pada jumlah yang optimal.",
+  mk4Judul: "Metode Pengerjaan Halus",
+  mk4Teks: "Like disalurkan dengan ritme yang terjaga agar selaras dengan aktivitas natural di dalam ekosistem Threads.",
+  mk5Judul: "Spesialisasi Platform",
+  mk5Teks: "Tim kami memahami mekanisme platform Meta sehingga strategi yang diberikan selalu relevan dengan kebutuhan pasar.",
+  mk6Judul: "Dukungan Responsif",
+  mk6Teks: "Layanan konsultasi tersedia setiap saat untuk membantu Anda memilih strategi optimasi yang paling efektif."
+};
+
+const dataSolusi = {
+  judulUtama: 'Transformasi <span class="text-blue-600">Engagement Threads</span>',
+  deskripsiUtama: "Beralih dari akun yang statis menjadi pusat interaksi yang dinamis dengan solusi dari JasaLike.",
+  sol1Icon: "lucide:trending-up",
+  sol1Judul: "Boosting Reputasi Instan",
+  sol1Teks: "Mendongkrak persepsi positif audiens terhadap utas Anda hanya dalam waktu singkat setelah publikasi.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Metode Aman Eksternal",
+  sol2Teks: "Menjaga reputasi akun Anda tetap bersih dengan sistem boosting yang beroperasi sepenuhnya di luar akun.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Mancing Interaksi Organik",
+  sol3Teks: "Angka interaksi yang baik akan menarik pengguna lain secara psikologis untuk ikut memberikan respons sukarela."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Pemesanan <span class="text-blue-400">Jasa Like Threads</span>',
+  deskripsiUtama: "Prosedur sederhana untuk memulai transformasi akun Threads Anda hari ini.",
+  co1Judul: "Seleksi Paket Kebutuhan",
+  co1Teks: "Pilih kategori jumlah like yang sesuai dengan target strategi engagement yang ingin Anda capai.",
+  co2Judul: "Konfirmasi Via WhatsApp",
+  co2Teks: "Hubungi tim admin untuk melakukan validasi pesanan dan mendapatkan panduan pembayaran.",
+  co3Judul: "Lampirkan Tautan Utas",
+  co3Teks: "Kirimkan URL publikasi Threads Anda untuk memulai proses sinkronisasi interaksi.",
+  co4Judul: "Pantau Hasil Pengerjaan",
+  co4Teks: "Tim kami akan segera memproses dan memberikan laporan hasil akhir setelah target tercapai."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket Like Threads",
+  deskripsiHarga: "Investasikan reputasi digital Anda dengan paket engagement Threads terbaik.",
+
+  // Paket Kiri
+  p1Gambar: "/image/jasa-like-threads-organik-100like.png",
+  p1Nama: "Paket Starter 100 Like Threads",
+  p1Fitur1: "Ideal untuk Aktivasi Profil",
+  p1Fitur2: "Distribusi Stabil & Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 150.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Threads",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI",
+  p2Gambar: "/image/jasa-like-threads-organik-1000like.png",
+  p2Nama: "Paket Business 1000 Like Threads",
+  p2Fitur1: "Boost Otoritas Skala Besar",
+  p2Fitur2: "Prioritas Kecepatan Pengerjaan",
+  p2Fitur3: "Mendukung Jangkauan Global",
+  p2HargaCoret: "Rp 1.500.000",
+  p2Harga: "Rp 1.250.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Business%201000%20Like%20Threads"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Like <br/> <span class="text-blue-600">Threads</span>',
+  deskripsiUtama: "Hal-hal umum yang sering menjadi pertimbangan klien sebelum memesan layanan Threads.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Threads",
+  faq1Judul: "Bagaimana sistem pengerjaan Jasa Like Threads ini?",
+  faq1Teks: "Kami menggunakan infrastruktur eksternal yang didesain untuk menyalurkan apresiasi (like) secara bertahap pada tautan utas yang Anda kirimkan.",
+  faq2Judul: "Apakah keamanan data pribadi saya tetap terlindungi?",
+  faq2Teks: "Sangat terlindungi. Karena layanan kami berbasis URL publik, kami tidak membutuhkan kredensial rahasia apa pun dari akun Anda.",
+  faq3Judul: "Apakah bisa digunakan untuk kebutuhan bisnis?",
+  faq3Teks: "Tentu. Sangat direkomendasikan untuk menunjang branding perusahaan maupun promosi produk agar terlihat lebih dipercaya.",
+  faq4Judul: "Kapan saya bisa melihat hasilnya?",
+  faq4Teks: "Estimasi awal pengerjaan biasanya dimulai dalam hitungan menit hingga jam setelah data tervalidasi oleh sistem kami.",
+  faq5Judul: "Apakah jumlah interaksi bersifat permanen?",
+  faq5Teks: "Kami mengusahakan kualitas terbaik yang stabil. Jika terjadi fluktuasi, paket kami umumnya sudah menyertakan asuransi isi ulang.",
+  faq6Judul: "Apakah paket bisa dibagi ke beberapa utas berbeda?",
+  faq6Teks: "Bisa. Silakan komunikasikan preferensi pembagian jumlah like Anda kepada admin kami saat melakukan pemesanan."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Threads Terpercaya",
+    "image": "https://jasalike.com/image/jasa-like-threads-organik-100like.png",
+    "description": "Layanan optimasi engagement Threads premium untuk membantu meningkatkan otoritas dan kredibilitas utas Anda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "850"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "150000",
+      "highPrice": "1250000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Threads"
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
