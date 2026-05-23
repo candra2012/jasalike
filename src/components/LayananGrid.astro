@@ -2,14 +2,14 @@
 // src/components/LayananGrid.astro
 import { Icon } from 'astro-icon/components'
 
-// DATA SEMUA LAYANAN 
+// DATA SEMUA LAYANAN (FOKUS 100% JASA LIKE)
 const allServices = [
   {
     name: "Instagram",
     icon: "lucide:instagram",
     color: "text-pink-600",
     bg: "bg-pink-600/10",
-    desc: "Like, Followers, Reels, & View Instan untuk menaikkan jangkauan konten.",
+    desc: "Jasa Like Instagram aktif untuk postingan dan Reels agar konten terlihat lebih kredibel.",
     link: "/like-instagram", 
   },
   {
@@ -17,7 +17,7 @@ const allServices = [
     icon: "lucide:music-2",
     color: "text-slate-900", 
     bg: "bg-slate-900/10",
-    desc: "Like & Views kualitas premium untuk mendorong konten masuk FYP.",
+    desc: "Jasa Like TikTok premium untuk mendorong video Anda lebih cepat dan mudah masuk FYP.",
     link: "/like-tiktok",
   },
   {
@@ -25,7 +25,7 @@ const allServices = [
     icon: "lucide:facebook",
     color: "text-blue-600",
     bg: "bg-blue-600/10",
-    desc: "Optimasi Like Postingan, Fanpage, hingga Facebook Reels.",
+    desc: "Optimasi Jasa Like Facebook untuk Postingan, Fanpage, dan Reels secara natural.",
     link: "/like-facebook",
   },
   {
@@ -33,7 +33,7 @@ const allServices = [
     icon: "lucide:linkedin",
     color: "text-blue-700",
     bg: "bg-blue-700/10",
-    desc: "Bangun otoritas B2B & tarik perhatian HRD dengan engagement profesional.",
+    desc: "Jasa Like LinkedIn untuk membangun otoritas B2B & menarik perhatian HRD secara profesional.",
     link: "/like-linkedin",
   },
   {
@@ -41,7 +41,7 @@ const allServices = [
     icon: "lucide:youtube",
     color: "text-red-600",
     bg: "bg-red-600/10",
-    desc: "Boost Views & Like untuk meningkatkan ranking video di pencarian.",
+    desc: "Jasa Like YouTube organik untuk meningkatkan metrik interaksi dan ranking video di pencarian.",
     link: "/like-youtube",
   },
   {
@@ -49,7 +49,7 @@ const allServices = [
     icon: "lucide:twitter",
     color: "text-slate-800", 
     bg: "bg-slate-800/10",
-    desc: "Tingkatkan interaksi tweet agar lebih mudah masuk ke jajaran Trending Topic.",
+    desc: "Jasa Like Twitter/X untuk meramaikan interaksi Tweet agar lebih mudah menjadi Trending Topic.",
     link: "/like-twitter",
   }
 ];
@@ -63,18 +63,20 @@ const allServices = [
   <div class="container relative z-10 mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {allServices.map((item) => (
-        <a href={item.link} class="group bg-white border border-slate-200 p-8 rounded-[2rem] hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+        /* Tambahan class "block" dan "no-underline" agar rapi dan tidak bergaris bawah */
+        <a href={item.link} class="group block no-underline bg-white border border-slate-200 p-8 rounded-[2rem] hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
           <div class={`w-16 h-16 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
             <Icon name={item.icon} class="w-8 h-8" />
           </div>
           
-          <h3 class="text-2xl font-bold text-slate-900 mb-3">{item.name}</h3>
+          /* Tambahan no-underline di tiap teks untuk keamanan ekstra */
+          <h3 class="text-2xl font-bold text-slate-900 mb-3 no-underline">{item.name}</h3>
           
-          <p class="text-slate-600 leading-relaxed mb-6">
+          <p class="text-slate-600 leading-relaxed mb-6 no-underline">
             {item.desc}
           </p>
           
-          <div class="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all">
+          <div class="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all no-underline">
             Lihat Detail Layanan <Icon name="lucide:arrow-right" class="w-5 h-5" />
           </div>
         </a>
