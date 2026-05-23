@@ -1,13 +1,12 @@
 ---
 // src/components/FaqJasaLike.astro
-import { Accordion, AccordionItem } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
 
-// 👇 Tangkap semua pasokan teks data FAQ dari luar
+// Menangkap data yang dikirim dari halaman (layanan.astro, dll)
 const {
-  judulUtama,
-  deskripsiUtama,
-  linkWhatsapp,
+  judulUtama = "Pertanyaan Seputar <br/> <span class='text-blue-600'>Layanan JasaLike</span>",
+  deskripsiUtama = "Menemukan kendala atau butuh informasi lebih lanjut? Berikut adalah hal-hal yang paling sering ditanyakan oleh klien kami.",
+  linkWhatsapp = "https://wa.me/6289634740308",
   faq1Judul, faq1Teks,
   faq2Judul, faq2Teks,
   faq3Judul, faq3Teks,
@@ -15,61 +14,62 @@ const {
   faq5Judul, faq5Teks,
   faq6Judul, faq6Teks
 } = Astro.props;
+
+// Menyusun array FAQ agar rapi dan mengabaikan yang kosong
+const faqs = [
+  { q: faq1Judul, a: faq1Teks },
+  { q: faq2Judul, a: faq2Teks },
+  { q: faq3Judul, a: faq3Teks },
+  { q: faq4Judul, a: faq4Teks },
+  { q: faq5Judul, a: faq5Teks },
+  { q: faq6Judul, a: faq6Teks },
+].filter(faq => faq.q && faq.a);
 ---
 
-<section id="faq" class="py-20 md:py-24 bg-slate-50 border-t border-slate-200">
-  <div class="max-w-6xl mx-auto px-6">
+<section class="py-24 bg-slate-50 relative">
+  <div class="container mx-auto px-6 max-w-4xl relative z-10">
     
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <div class="mb-12 text-left">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight" set:html={judulUtama}></h2>
+      <p class="text-slate-600 text-lg mb-8 max-w-2xl leading-relaxed">{deskripsiUtama}</p>
       
-      <div class="flex flex-col gap-5 lg:sticky lg:top-32">
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight" set:html={judulUtama}>
-        </h2>
-        <p class="text-sm md:text-base text-slate-600 leading-relaxed">
-          {deskripsiUtama}
-        </p>
-        <div class="mt-4">
-          <a
-            class="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold text-sm md:text-base px-6 py-3.5 md:px-8 md:py-4 rounded-full shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:-translate-y-1 transition-all duration-300 w-fit"
-            href={linkWhatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="lucide:message-circle" class="w-5 h-5" />
-            Tanya Admin via WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-100">
-        <Accordion>
-          <AccordionItem name="faq1" title={faq1Judul}>
-            <p class="text-sm text-slate-600 leading-relaxed pt-2" set:html={faq1Teks}></p>
-          </AccordionItem>
-
-          <AccordionItem name="faq2" title={faq2Judul}>
-            <p class="text-sm text-slate-600 leading-relaxed pt-2" set:html={faq2Teks}></p>
-          </AccordionItem>
-
-          <AccordionItem name="faq3" title={faq3Judul}>
-            <p class="text-sm text-slate-600 leading-relaxed pt-2" set:html={faq3Teks}></p>
-          </AccordionItem>
-
-          <AccordionItem name="faq4" title={faq4Judul}>
-            <p class="text-sm text-slate-600 leading-relaxed pt-2" set:html={faq4Teks}></p>
-          </AccordionItem>
-
-          <AccordionItem name="faq5" title={faq5Judul}>
-            <p class="text-sm text-slate-600 leading-relaxed pt-2" set:html={faq5Teks}></p>
-          </AccordionItem>
-
-          <AccordionItem name="faq6" title={faq6Judul}>
-            <p class="text-sm text-slate-600 leading-relaxed pt-2" set:html={faq6Teks}></p>
-          </AccordionItem>
-        </Accordion>
-      </div>
-
+      <a href={linkWhatsapp} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebd5b] text-white font-bold py-3.5 px-7 rounded-full transition-all hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+        <Icon name="lucide:message-circle" class="w-5 h-5" />
+        Tanya Admin via WhatsApp
+      </a>
     </div>
+
+    <div class="bg-white rounded-[2rem] shadow-sm border border-slate-200 p-6 md:p-10">
+      <div class="space-y-6">
+        
+        {faqs.map((faq) => (
+          <details class="group border-b border-slate-100 last:border-0 pb-6 last:pb-0">
+            
+            <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-900 text-lg hover:text-blue-600 transition-colors">
+              <span class="pr-6 leading-snug">{faq.q}</span>
+              
+              <span class="transition-transform duration-300 group-open:rotate-180 bg-slate-50 text-slate-500 p-2 rounded-full group-hover:bg-blue-50 group-hover:text-blue-600 flex-shrink-0">
+                <Icon name="lucide:chevron-down" class="w-5 h-5" />
+              </span>
+            </summary>
+            
+            <div class="text-slate-600 mt-4 leading-relaxed pl-4 border-l-2 border-blue-500 ml-2">
+              {faq.a}
+            </div>
+            
+          </details>
+        ))}
+
+      </div>
+    </div>
+    
   </div>
 </section>
+
+<style>
+  /* Menghilangkan tanda panah (segitiga) default bawaan browser Chrome/Safari */
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
 
