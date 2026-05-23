@@ -2,72 +2,79 @@
 // src/components/LayananGrid.astro
 import { Icon } from 'astro-icon/components'
 
-// DATA SEMUA LAYANAN (Edit teks di sini saja kalau mau nambah/ubah)
+// DATA SEMUA LAYANAN 
 const allServices = [
   {
     name: "Instagram",
     icon: "lucide:instagram",
-    color: "text-pink-500",
-    bg: "bg-pink-500/10",
+    color: "text-pink-600",
+    bg: "bg-pink-600/10",
     desc: "Like, Followers, Reels, & View Instan untuk menaikkan jangkauan konten.",
-    link: "/like-instagram", // Sesuaikan dengan nama file astro kamu
+    link: "/like-instagram", 
   },
   {
     name: "TikTok",
     icon: "lucide:music-2",
-    color: "text-cyan-400",
-    bg: "bg-cyan-400/10",
+    color: "text-slate-900", 
+    bg: "bg-slate-900/10",
     desc: "Like & Views kualitas premium untuk mendorong konten masuk FYP.",
     link: "/like-tiktok",
   },
   {
     name: "Facebook",
     icon: "lucide:facebook",
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
+    color: "text-blue-600",
+    bg: "bg-blue-600/10",
     desc: "Optimasi Like Postingan, Fanpage, hingga Facebook Reels.",
     link: "/like-facebook",
   },
   {
     name: "LinkedIn",
     icon: "lucide:linkedin",
-    color: "text-blue-600",
-    bg: "bg-blue-600/10",
+    color: "text-blue-700",
+    bg: "bg-blue-700/10",
     desc: "Bangun otoritas B2B & tarik perhatian HRD dengan engagement profesional.",
     link: "/like-linkedin",
   },
   {
     name: "YouTube",
     icon: "lucide:youtube",
-    color: "text-red-500",
-    bg: "bg-red-500/10",
+    color: "text-red-600",
+    bg: "bg-red-600/10",
     desc: "Boost Views & Like untuk meningkatkan ranking video di pencarian.",
     link: "/like-youtube",
   },
   {
     name: "Twitter / X",
     icon: "lucide:twitter",
-    color: "text-slate-200",
-    bg: "bg-slate-200/10",
+    color: "text-slate-800", 
+    bg: "bg-slate-800/10",
     desc: "Tingkatkan interaksi tweet agar lebih mudah masuk ke jajaran Trending Topic.",
     link: "/like-twitter",
   }
 ];
 ---
 
-<section class="py-24 bg-slate-950">
-  <div class="container mx-auto px-6">
+<section class="relative py-24 bg-[#0B1121] overflow-hidden">
+  
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] [background-position:16px_16px] z-0 animate-twinkle opacity-30"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-[600px] bg-blue-600/20 blur-[140px] rounded-full pointer-events-none z-0"></div>
+
+  <div class="container relative z-10 mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {allServices.map((item) => (
-        <a href={item.link} class="group bg-slate-900 border border-slate-800 p-8 rounded-[2rem] hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20">
+        <a href={item.link} class="group bg-white border border-slate-200 p-8 rounded-[2rem] hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
           <div class={`w-16 h-16 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
             <Icon name={item.icon} class="w-8 h-8" />
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3">{item.name}</h3>
-          <p class="text-slate-400 leading-relaxed mb-6">
+          
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">{item.name}</h3>
+          
+          <p class="text-slate-600 leading-relaxed mb-6">
             {item.desc}
           </p>
-          <div class="flex items-center gap-2 text-blue-500 font-semibold group-hover:gap-4 transition-all">
+          
+          <div class="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all">
             Lihat Detail Layanan <Icon name="lucide:arrow-right" class="w-5 h-5" />
           </div>
         </a>
