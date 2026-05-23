@@ -63,20 +63,18 @@ const allServices = [
   <div class="container relative z-10 mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {allServices.map((item) => (
-        /* Tambahan class "block" dan "no-underline" agar rapi dan tidak bergaris bawah */
-        <a href={item.link} class="group block no-underline bg-white border border-slate-200 p-8 rounded-[2rem] hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+        <a href={item.link} class="group block !no-underline hover:!no-underline bg-white border border-slate-200 p-8 rounded-[2rem] hover:border-blue-500 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
           <div class={`w-16 h-16 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
             <Icon name={item.icon} class="w-8 h-8" />
           </div>
           
-          /* Tambahan no-underline di tiap teks untuk keamanan ekstra */
-          <h3 class="text-2xl font-bold text-slate-900 mb-3 no-underline">{item.name}</h3>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3 !no-underline">{item.name}</h3>
           
-          <p class="text-slate-600 leading-relaxed mb-6 no-underline">
+          <p class="text-slate-600 leading-relaxed mb-6 !no-underline">
             {item.desc}
           </p>
           
-          <div class="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all no-underline">
+          <div class="flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-4 transition-all !no-underline">
             Lihat Detail Layanan <Icon name="lucide:arrow-right" class="w-5 h-5" />
           </div>
         </a>
