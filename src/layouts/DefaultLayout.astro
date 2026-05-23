@@ -4,6 +4,7 @@ import '../styles/tailwind.css'
 import '../assets/scss/index.scss'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import FloatingCS from '../components/FloatingCS.astro'
 import { ClientRouter } from 'astro:transitions'
 
 // 1. Import komponen SEO khusus yang murni fokus Jasa Like
@@ -37,6 +38,7 @@ const {
       <slot />
     </main>
     <Footer />
+    <FloatingCS />
 
     <style lang="scss" is:global>
       html, body { height: 100%; }
