@@ -28,7 +28,7 @@ Header Component
               <Icon name="lucide:instagram" /> Instagram
             </div>
             <a href="/like-instagram/">Like Instagram</a>
-            <a href="/like-instagram/">Like Reels Instagram</a>
+            <a href="/like-instagram/">Like Instagram Reels</a>
             <a href="/like-komentar-instagram/">Like Komentar Instagram</a>
           </div>
 
@@ -45,15 +45,7 @@ Header Component
               <Icon name="lucide:facebook" /> Facebook
             </div>
             <a href="/like-facebook/">Like Facebook</a>
-            <a href="/like-facebook/">Like Reels Facebook</a>
-          </div>
-
-          <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:at-sign" /> Threads
-            </div>
-            <a href="/like-threads/">Like Threads</a>
-            <a href="/like-komentar-threads/">Like Komentar Threads</a>
+            <a href="/like-komentar-facebook/">Like Komentar Facebook</a>
           </div>
 
           <div class="mega-column">
@@ -61,14 +53,15 @@ Header Component
               <Icon name="lucide:youtube" /> YouTube
             </div>
             <a href="/like-youtube/">Like YouTube</a>
-            <a href="/like-youtube/">Like Shorts YouTube</a>
+            <a href="/like-komentar-youtube/">Like Komentar YouTube</a>
           </div>
-          
+
           <div class="mega-column">
             <div class="mega-title">
-              <Icon name="lucide:twitter" /> Twitter / X
+              <Icon name="lucide:twitter" /> Twitter
             </div>
-            <a href="/like-twitter/">Like Twitter / X</a>
+            <a href="/like-twitter/">Like Twitter</a>
+            <a href="/like-komentar-twitter/">Like Komentar Twitter</a>
           </div>
 
           <div class="mega-column">
@@ -76,6 +69,15 @@ Header Component
               <Icon name="lucide:linkedin" /> LinkedIn
             </div>
             <a href="/like-linkedin/">Like LinkedIn</a>
+            <a href="/like-komentar-linkedin/">Like Komentar LinkedIn</a>
+          </div>
+          
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:at-sign" /> Threads
+            </div>
+            <a href="/like-threads/">Like Threads</a>
+            <a href="/like-komentar-threads/">Like Komentar Threads</a>
           </div>
 
           <div class="mega-column mega-view-all">
@@ -135,35 +137,43 @@ Header Component
       padding: 2rem !important;
       border-radius: 1rem;
       width: max-content !important;
-      max-width: 95vw;
+      max-width: 90vw; /* Dibatasi agar tidak menyentuh ujung layar */
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+      
+      /* FIX POSISI: Paksa berada di tengah persis di bawah tombol */
+      left: 50% !important;
+      transform: translateX(-50%) !important;
     }
     
     .mega-menu-container {
       display: grid;
-      /* Dibuat 4 kolom menyamping agar rapi */
-      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      /* 4 kolom menyamping di Desktop */
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
       gap: 2rem 2.5rem;
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    /* Responsif menyesuaikan layar */
+    /* Responsif menyesuaikan layar Tablet / Xpad */
     @media (max-width: 1200px) {
       .mega-menu-container {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     
+    /* FIX HP & TABLET PORTRAIT: Kembalikan posisi ke kiri agar tidak terpotong */
     @media (max-width: 1024px) {
+      .dropdown-menu.mega-menu {
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100vw;
+        padding: 1.5rem !important;
+      }
       .mega-menu-container {
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
-      }
-      .dropdown-menu.mega-menu {
-        width: 100% !important;
-        padding: 1.5rem !important;
       }
     }
     
