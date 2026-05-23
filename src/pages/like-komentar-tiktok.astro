@@ -1,0 +1,298 @@
+---
+// src/pages/like-komentar-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar TikTok Aktif | Optimasi Top Comment FYP";
+const description = "Layanan jasa like komentar TikTok profesional untuk mendominasi FYP dan mencapai posisi Top Comment. Tingkatkan visibilitas opini dan brand Anda dengan interaksi aman.";
+const keywords = "jasa like komentar tiktok, beli like komen tiktok, optimasi top comment fyp tiktok, layanan like komentar tiktok aktif, cara menaikkan like komentar tiktok, jasa interaksi komentar video tiktok";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS ALGORITMA TIKTOK)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Comment TikTok",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like Komentar <br class="hidden md:block"/> <span class="text-blue-500">TikTok Teratas</span>',
+  deskripsi: "Dominasi arus lalu lintas For You Page (FYP) dengan menempatkan komentar Anda di posisi puncak. Solusi taktis untuk memastikan pesan, *branding*, atau tautan afiliasi Anda mendapatkan eksposur maksimal dari jutaan penonton video viral secara instan. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Boost Eksposur Organik &nbsp; ✓ Proses 100% Eksternal &nbsp; ✓ Reputasi Terjaga</span>",
+  teksTombol1: "Lihat Pilihan Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Target FYP",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-Tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Arus <span class="text-blue-600">Komentar TikTok</span>',
+  deskripsiUtama: "Mengapa komentar Anda sering kali gagal mendapat sorotan di tengah cepatnya perputaran konten FYP?",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Tertimbun Sangat Cepat:</strong> Algoritma TikTok memunculkan ribuan komentar dalam hitungan menit pada video viral, menenggelamkan opini yang tidak memiliki traksi awal.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kehilangan Momen Konversi:</strong> Upaya edukasi atau promosi (*soft-selling*) Anda terlewatkan begitu saja karena audiens lebih tertarik membaca komentar di barisan teratas.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Kalah Interaksi Visual:</strong> Pengguna TikTok cenderung hanya memberikan apresiasi pada komentar yang sudah memiliki *like* tinggi (efek ikut-ikutan/bandwagon).',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Krisis Otoritas Akun:</strong> Tanpa adanya dukungan interaksi dari pengguna lain, argumen atau klarifikasi Anda sering dianggap kurang kredibel.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Optimasi <span class="text-blue-500">Komentar TikTok</span>',
+  deskripsiUtama: "Sebuah pendekatan strategis untuk merekayasa posisi komentar Anda agar selalu berada di bawah pandangan pertama audiens.",
+  k1Judul: "Eskalasi Algoritmik",
+  k1Teks: "Kami menyuplai volume apresiasi (*like*) secara terukur pada komentar spesifik Anda, mengirimkan sinyal positif ke sistem TikTok bahwa komentar tersebut sangat relevan dan disukai audiens.",
+  k2Judul: "Pemikat Kunjungan Profil",
+  k2Teks: "Menempati posisi *Top Comment* di video dengan jutaan *views* adalah strategi paling efektif untuk memancing penonton mengeklik profil Anda dan melihat konten Anda yang lain."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Menjadi <span class="text-blue-600">Top Comment FYP</span>',
+  deskripsiUtama: "Dampak eksponensial yang akan Anda rasakan saat memanfaatkan layanan jasa like komentar TikTok dari JasaLike.",
+  m1Judul: "Pembajakan Trafik Viral",
+  m1Teks: "Mendapatkan porsi eksposur gratis dari video kreator lain yang sedang meledak (*trending*), mengarahkan sebagian penonton mereka ke profil Anda.",
+  m2Judul: "Katalisator Partisipasi",
+  m2Teks: "Komentar dengan metrik *like* yang tinggi secara psikologis akan memicu audiens organik untuk ikut membalas dan berinteraksi di *thread* Anda.",
+  m3Judul: "Keunggulan Kompetitif",
+  m3Teks: "Memastikan Anda selalu memenangkan kontes, *giveaway*, atau *voting* opini yang mendasarkan penilaiannya pada jumlah *like* terbanyak di kolom komentar.",
+  m4Judul: "Privasi Mutlak",
+  m4Teks: "Proses optimasi hanya memerlukan tautan (URL) video dan *username* penulis komentar, menjamin keamanan akun Anda dari risiko kompromi."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Infrastruktur <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa para afiliator dan pebisnis digital mempercayakan kampanye TikTok mereka kepada kami?",
+  mk1Judul: "100% Tanpa Kredensial",
+  mk1Teks: "Kami tidak pernah dan tidak akan meminta kata sandi (password) akun Anda. Seluruh distribusi berjalan secara eksternal.",
+  mk2Judul: "Fokus Titik Target",
+  mk2Teks: "Sistem mendeteksi dan mengarahkan seluruh interaksi secara presisi hanya pada satu komentar yang Anda tentukan.",
+  mk3Judul: "Akselerasi Cepat",
+  mk3Teks: "Kami memahami bahwa siklus FYP TikTok sangat cepat. Antrean diprioritaskan agar momentum komentar Anda tidak kehilangan panggung.",
+  mk4Judul: "Pola Interaksi Wajar",
+  mk4Teks: "Distribusi *like* diatur sedemikian rupa agar tidak memicu deteksi anomali pada sistem keamanan TikTok.",
+  mk5Judul: "Proteksi Garansi",
+  mk5Teks: "Tersedia fasilitas pengisian ulang (*refill*) sesuai dengan ketentuan paket untuk menjaga stabilitas metrik komentar Anda.",
+  mk6Judul: "Pendampingan Ahli",
+  mk6Teks: "Representatif kami siap memberikan saran taktis mengenai waktu terbaik dan jumlah volume interaksi yang ideal."
+};
+
+const dataSolusi = {
+  judulUtama: 'Kuasai Panggung <span class="text-blue-600">Diskusi Video</span>',
+  deskripsiUtama: "Ubah komentar yang tenggelam menjadi aset penarik perhatian yang mendatangkan nilai bisnis dan otoritas.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Dominasi Visibilitas",
+  sol1Teks: "Memastikan opini Anda adalah hal pertama yang dilihat saat penonton membuka kolom diskusi di video FYP.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Aman & Kredibel",
+  sol2Teks: "Dieksekusi dengan standar operasional yang menjaga integritas akun dan komentar Anda tetap bersih di mata publik.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Bangun Interaksi Lanjutan",
+  sol3Teks: "Memancing diskusi organik yang panjang di bawah komentar Anda, meningkatkan otoritas profil Anda secara keseluruhan."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-blue-400">Pemesanan</span>',
+  deskripsiUtama: "Empat langkah efisien untuk memulai eskalasi komentar TikTok Anda.",
+  co1Judul: "Pilih Kapasitas",
+  co1Teks: "Tentukan paket volume *like* yang rasional dengan melihat rata-rata interaksi pada komentar pesaing di video tersebut.",
+  co2Judul: "Konsultasi Tim JasaLike",
+  co2Teks: "Hubungi kontak WhatsApp kami untuk memastikan ketersediaan jalur dan administrasi layanan.",
+  co3Judul: "Serahkan Data Target",
+  co3Teks: "Berikan tautan (URL) lengkap video TikTok beserta *username* dari komentar yang ingin didorong ke atas.",
+  co4Judul: "Eksekusi & Laporan",
+  co4Teks: "Sistem kami akan segera bekerja, dan tim akan mengabari Anda setelah seluruh target interaksi sukses disalurkan."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Top Comment TikTok",
+  deskripsiHarga: "Pilih paket interaksi yang sesuai untuk mengamankan posisi teratas di FYP.",
+
+  p1Gambar: "/image/harga-paket-tiktok.png",
+  p1Nama: "Paket Starter 100 Like Komentar",
+  p1Fitur1: "Ideal untuk Video Kelas Menengah",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Komentar%20TikTok",
+
+  p2Label: "REKOMENDASI FYP",
+  p2Gambar: "/image/harga-paket-1000like-tiktok.png",
+  p2Nama: "Paket Dominasi 1000 Like Komentar",
+  p2Fitur1: "Boost untuk Video Viral / Trending",
+  p2Fitur2: "Prioritas Kecepatan Antrean",
+  p2Fitur3: "Dukungan Layanan CS Prioritas",
+  p2HargaCoret: "Rp 2.250.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Komentar%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-blue-600">Komentar TikTok</span>',
+  deskripsiUtama: "Jawaban komprehensif atas pertanyaan yang sering diajukan seputar optimasi komentar TikTok.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20TikTok",
+  faq1Judul: "Apakah membutuhkan akses password akun TikTok saya?",
+  faq1Teks: "Sama sekali tidak. Proses kami berjalan secara eksternal. Kami hanya membutuhkan tautan (URL) dari video TikTok tersebut dan *username* akun yang menulis komentarnya.",
+  faq2Judul: "Apakah dijamin komentar saya pasti berada di urutan pertama?",
+  faq2Teks: "Posisi sangat bergantung pada ketatnya persaingan *like* di video tersebut. Semakin tinggi paket yang Anda ambil dibanding pesaing, semakin besar peluang algoritma TikTok mengunci komentar Anda di urutan teratas.",
+  faq3Judul: "Apakah ini aman untuk akun kreator atau afiliator?",
+  faq3Teks: "Sangat aman. Kami menerapkan protokol kecepatan distribusi yang diadaptasi dari pola interaksi audiens asli, sehingga metrik akun Anda tetap terjaga kredibilitasnya di mata algoritma TikTok.",
+  faq4Judul: "Berapa estimasi waktu pengerjaan layanannya?",
+  faq4Teks: "Setelah konfirmasi data, proses akan segera dimasukkan ke dalam antrean. Kecepatan penyelesaian bervariasi bergantung pada skala paket dan lalu lintas *server* pada jam tersebut.",
+  faq5Judul: "Bagaimana jika komentar saya tiba-tiba dihapus oleh pemilik video?",
+  faq5Teks: "Jika penghapusan terjadi sebelum proses kami mulai, kami dapat menyesuaikan pesanan. Namun, apabila sistem distribusi kami telah berjalan atau selesai, maka layanan dianggap telah tertunaikan.",
+  faq6Judul: "Bolehkah saya memesan like untuk komentar di video orang lain (bukan video saya sendiri)?",
+  faq6Teks: "Tentu saja. Strategi ini justru sangat direkomendasikan untuk menumpang eksposur (*hijacking traffic*) pada video yang sedang viral masuk FYP agar penonton mereka melirik komentar dan profil Anda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar TikTok Aktif",
+    "image": "https://jasalike.com/image/harga-paket-tiktok.png",
+    "description": "Layanan optimasi engagement untuk mendominasi arus FYP dan mencapai posisi Top Comment di TikTok secara profesional.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "845"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah membutuhkan akses password akun TikTok saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Proses kami berjalan secara eksternal. Kami hanya membutuhkan tautan (URL) dari video TikTok tersebut dan username akun yang menulis komentarnya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah dijamin komentar saya pasti berada di urutan pertama?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Posisi sangat bergantung pada ketatnya persaingan like di video tersebut. Semakin tinggi paket yang Anda ambil dibanding pesaing, semakin besar peluang algoritma TikTok mengunci komentar Anda di urutan teratas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah ini aman untuk akun kreator atau afiliator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menerapkan protokol kecepatan distribusi yang diadaptasi dari pola interaksi audiens asli, sehingga metrik akun Anda tetap terjaga kredibilitasnya di mata algoritma TikTok."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa estimasi waktu pengerjaan layanannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Setelah konfirmasi data, proses akan segera dimasukkan ke dalam antrean. Kecepatan penyelesaian bervariasi bergantung pada skala paket dan lalu lintas server pada jam tersebut."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana jika komentar saya tiba-tiba dihapus oleh pemilik video?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Jika penghapusan terjadi sebelum proses kami mulai, kami dapat menyesuaikan pesanan. Namun, apabila sistem distribusi kami telah berjalan atau selesai, maka layanan dianggap telah tertunaikan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bolehkah saya memesan like untuk komentar di video orang lain (bukan video saya sendiri)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu saja. Strategi ini justru sangat direkomendasikan untuk menumpang eksposur (hijacking traffic) pada video yang sedang viral masuk FYP agar penonton mereka melirik komentar dan profil Anda."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
