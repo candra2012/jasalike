@@ -1,0 +1,247 @@
+---
+// src/pages/like-komentar-instagram.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar Instagram Terpercaya | Optimasi Top Comment IG";
+const description = "Layanan jasa like komentar Instagram premium untuk mendominasi diskusi dan meraih posisi Top Comment. Proses aman secara eksternal untuk hasil interaksi yang natural.";
+const keywords = "jasa like komentar instagram, beli like komen ig, optimasi top comment instagram, layanan like komentar ig aktif, cara menaikkan like komentar instagram, jasa interaksi komentar instagram terpercaya";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FORMAL & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Comment IG",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like Komentar <br class="hidden md:block"/> <span class="text-blue-500">Instagram Teratas</span>',
+  deskripsi: "Dominasi kolom diskusi pada postingan populer dengan layanan optimasi interaksi komentar kami. Solusi taktis untuk memastikan opini, *branding*, atau partisipasi kuis Anda meraih sorotan utama (Top Comment) dan menjangkau ribuan audiens baru secara efektif. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Peningkatan Visibilitas Instan &nbsp; ✓ Proses Berbasis Tautan Publik &nbsp; ✓ Reputasi Terjaga</span>",
+  teksTombol1: "Eksplorasi Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Mencapai <span class="text-blue-600">Top Comment</span>',
+  deskripsiUtama: "Mengapa komentar Anda sering kali gagal mendapatkan perhatian di tengah ketatnya algoritma Instagram?",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Tenggelam oleh Ribuan Pengguna:</strong> Pada akun publikatur atau *influencer* besar, komentar yang tidak segera mendapat respons akan tergeser ke bawah dalam hitungan detik.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kehilangan Eksposur Bisnis:</strong> Momen numpang promosi (*soft-selling*) di postingan viral menjadi sia-sia jika opini Anda tidak terlihat oleh audiens lain.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Sulit Memenangkan Kontes:</strong> Banyak kompetisi atau *giveaway* yang menentukan pemenang berdasarkan jumlah apresiasi (like) terbanyak pada kolom komentar.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Krisis Validasi Opini:</strong> Pandangan atau klarifikasi yang Anda berikan sulit dipercaya jika tidak didukung oleh validasi sosial dari pengguna lainnya.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan Like <span class="text-blue-500">Komentar IG</span>',
+  deskripsiUtama: "Sebuah pendekatan sistematis untuk menempatkan suara Anda di barisan terdepan kolom diskusi Instagram.",
+  k1Judul: "Rekayasa Posisi Hierarki",
+  k1Teks: "Algoritma Instagram menyusun komentar berdasarkan tingkat interaksinya. Kami menyuplai volume apresiasi yang cukup agar komentar Anda dikategorikan sebagai konten paling relevan.",
+  k2Judul: "Magnet Kunjungan Profil",
+  k2Teks: "Komentar yang berada di posisi puncak (*Pinned/Top*) secara otomatis akan memancing rasa penasaran audiens untuk mengunjungi profil bisnis maupun personal Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keunggulan Menguasai <span class="text-blue-600">Kolom Komentar</span>',
+  deskripsiUtama: "Dampak positif yang akan langsung Anda rasakan ketika menggunakan strategi optimasi apresiasi komentar dari JasaLike.",
+  m1Judul: "Dominasi Diskusi Publik",
+  m1Teks: "Memastikan pesan, *branding*, atau klarifikasi Anda menjadi hal pertama yang dibaca oleh setiap orang yang membuka kolom komentar.",
+  m2Judul: "Meningkatkan Trafik Kunjungan",
+  m2Teks: "Bertindak sebagai saluran pemasaran tidak langsung; audiens yang menyukai opini Anda akan terdorong untuk mengeklik dan melihat profil Anda.",
+  m3Judul: "Potensi Kemenangan Kuis",
+  m3Teks: "Memberikan keunggulan kompetitif yang mutlak bagi Anda yang sedang mengikuti ajang penghargaan atau *giveaway* berbasis *engagement* komentar.",
+  m4Judul: "Privasi Sangat Terjamin",
+  m4Teks: "Seluruh pengerjaan hanya memerlukan tautan (URL) postingan dan nama pengguna (*username*), tanpa pernah menyentuh akses internal akun Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Mutu <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa agensi pemasaran dan figur publik mempercayakan kebutuhan interaksi mereka kepada infrastruktur kami?",
+  mk1Judul: "Keamanan Eksternal",
+  mk1Teks: "Kami menjamin integritas akun Anda karena seluruh sistem bekerja dari luar, tanpa membutuhkan kredensial apa pun.",
+  mk2Judul: "Presisi Target",
+  mk2Teks: "Apresiasi disalurkan secara spesifik hanya pada satu komentar yang Anda tentukan, menjamin efektivitas layanan.",
+  mk3Judul: "Kecepatan Respons",
+  mk3Teks: "Sistem kami dirancang untuk memproses antrean dengan sigap agar momentum *Top Comment* Anda tidak hilang.",
+  mk4Judul: "Distribusi Natural",
+  mk4Teks: "Jumlah *like* diberikan dengan ritme yang diatur agar selaras dengan pola interaksi organik Instagram.",
+  mk5Judul: "Garansi Pemulihan",
+  mk5Teks: "Untuk menjaga stabilitas, kami menyediakan fasilitas *refill* sesuai dengan spesifikasi paket yang Anda pilih.",
+  mk6Judul: "Layanan Konsultasi",
+  mk6Teks: "Tim ahli kami siap mendampingi Anda untuk menentukan seberapa banyak volume interaksi yang ideal untuk kompetisi tertentu."
+};
+
+const dataSolusi = {
+  judulUtama: 'Eskalasi <span class="text-blue-600">Interaksi Anda</span>',
+  deskripsiUtama: "Ubah komentar biasa menjadi pusat perhatian yang menarik partisipasi audiens organik secara masif.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Meroket ke Posisi Puncak",
+  sol1Teks: "Menyiasati algoritma untuk menempatkan tulisan Anda tepat di bawah takarir (caption) postingan utama.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Prosedur Aman & Akuntabel",
+  sol2Teks: "Dikerjakan oleh sistem profesional yang menjaga reputasi Anda tetap bersih dan berwibawa.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Pancing Reaksi Lanjutan",
+  sol3Teks: "Komentar dengan *like* tinggi secara psikologis akan mendorong audiens lain untuk ikut menyukai dan membalas komentar tersebut."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Mudah <span class="text-blue-400">Pemesanan</span>',
+  deskripsiUtama: "Prosedur sistematis untuk memulai optimasi komentar Instagram Anda bersama JasaLike.",
+  co1Judul: "Pilih Skala Layanan",
+  co1Teks: "Tentukan jumlah *like* yang Anda butuhkan berdasarkan tingkat persaingan di postingan target.",
+  co2Judul: "Koordinasi Via WhatsApp",
+  co2Teks: "Hubungi representatif kami untuk melakukan validasi ketersediaan dan detail administrasi.",
+  co3Judul: "Lampirkan Data Publik",
+  co3Teks: "Kirimkan tautan (URL) postingan Instagram beserta *username* dari komentar yang ingin dioptimasi.",
+  co4Judul: "Proses & Pelaporan",
+  co4Teks: "Tim kami akan segera mengeksekusi pesanan dan memberikan laporan setelah target interaksi terpenuhi."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi Komentar IG",
+  deskripsiHarga: "Pilih paket yang paling sesuai untuk mengamankan posisi Top Comment Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/jasa-like-komentar-ig-100.png",
+  p1Nama: "Paket Starter 100 Like Komentar",
+  p1Fitur1: "Ideal untuk Persaingan Ringan",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Komentar%20IG",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI",
+  p2Gambar: "/image/jasa-like-instagram-organik-1000like.png",
+  p2Nama: "Paket Dominasi 1000 Like Komentar",
+  p2Fitur1: "Boost untuk Akun Publik / Viral",
+  p2Fitur2: "Prioritas Kecepatan Antrean",
+  p2Fitur3: "Dukungan Layanan 24/7",
+  p2HargaCoret: "Rp 2.000.000",
+  p2Harga: "Rp 1.250.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Komentar%20IG"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-blue-600">Komentar IG</span>',
+  deskripsiUtama: "Informasi krusial yang perlu Anda ketahui sebelum melakukan pemesanan layanan interaksi komentar.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20IG",
+  faq1Judul: "Data apa saja yang perlu saya serahkan?",
+  faq1Teks: "Kami hanya membutuhkan dua hal: Tautan (Link URL) dari postingan Instagram tersebut, dan *Username* akun yang menulis komentar. Kami beroperasi secara eksternal sehingga privasi Anda terjamin 100%.",
+  faq2Judul: "Apakah bisa dipastikan komentar saya menjadi nomor 1 (Top Comment)?",
+  faq2Teks: "Posisi sangat bergantung pada jumlah interaksi yang Anda miliki dibandingkan pesaing lainnya di kolom komentar tersebut. Tim kami siap membantu Anda menganalisis dan menyarankan jumlah paket yang tepat untuk mendominasi.",
+  faq3Judul: "Apakah aman jika digunakan untuk memenangkan kompetisi/giveaway?",
+  faq3Teks: "Sangat aman. Sistem kami menyalurkan apresiasi dengan ritme yang diatur agar metrik pertumbuhannya terlihat natural dan wajar oleh sistem evaluasi kompetisi.",
+  faq4Judul: "Berapa lama waktu yang dibutuhkan hingga target tercapai?",
+  faq4Teks: "Proses biasanya diinisiasi segera setelah validasi data. Waktu penyelesaian bervariasi tergantung pada jumlah paket yang dipesan dan antrean pada sistem saat itu.",
+  faq5Judul: "Bisakah pesanan dibatalkan jika komentar dihapus oleh pemilik postingan?",
+  faq5Teks: "Jika komentar Anda dihapus oleh pemilik akun atau Instagram sebelum proses dimulai, kami dapat melakukan penyesuaian. Namun jika proses sudah berjalan, layanan akan dianggap selesai sesuai jumlah yang disalurkan.",
+  faq6Judul: "Apakah layanan ini tersedia untuk postingan Reels?",
+  faq6Teks: "Ya, layanan optimasi komentar ini berlaku dan bekerja secara efektif baik untuk postingan foto biasa, *carousel*, maupun video Reels."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar Instagram Terpercaya",
+    "image": "https://jasalike.com/image/jasa-like-instagram-organik-100like.png",
+    "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi dan mencapai posisi Top Comment di Instagram.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "920"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "150000",
+      "highPrice": "1250000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar Instagram"
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
+
