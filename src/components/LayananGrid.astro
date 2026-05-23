@@ -3,79 +3,79 @@
 import { Icon } from 'astro-icon/components'
 
 // DATA SEMUA LAYANAN (FOKUS 100% JASA LIKE - TERBARU)
-const allServices = [
+const layananGrid = [
   {
-    name: "Instagram",
+    nama: "Instagram",
     icon: "lucide:instagram",
-    color: "text-pink-600",
-    bg: "bg-pink-600/10",
-    desc: "Jasa Like Instagram aktif untuk postingan dan Reels agar konten terlihat lebih kredibel.",
+    colorClass: "text-pink-600",
+    bgClass: "bg-pink-600/10",
+    deskripsi: "Jasa Like Instagram aktif untuk postingan dan Reels agar konten terlihat lebih kredibel.",
     link: "/like-instagram", 
   },
   {
-    name: "TikTok",
+    nama: "TikTok",
     icon: "lucide:music-2",
-    color: "text-slate-900", 
-    bg: "bg-slate-900/10",
-    desc: "Jasa Like TikTok premium untuk mendorong video Anda lebih cepat dan mudah masuk FYP.",
+    colorClass: "text-slate-900", 
+    bgClass: "bg-slate-900/10",
+    deskripsi: "Jasa Like TikTok premium untuk mendorong video Anda lebih cepat dan mudah masuk FYP.",
     link: "/like-tiktok",
   },
   {
-    name: "Facebook",
+    nama: "Facebook",
     icon: "lucide:facebook",
-    color: "text-blue-600",
-    bg: "bg-blue-600/10",
-    desc: "Optimasi Jasa Like Facebook untuk Postingan, Fanpage, dan Reels secara natural.",
+    colorClass: "text-blue-600",
+    bgClass: "bg-blue-600/10",
+    deskripsi: "Optimasi Jasa Like Facebook untuk Postingan, Fanpage, dan Reels secara natural.",
     link: "/like-facebook",
   },
   {
-    name: "LinkedIn",
+    nama: "LinkedIn",
     icon: "lucide:linkedin",
-    color: "text-blue-700",
-    bg: "bg-blue-700/10",
-    desc: "Jasa Like LinkedIn untuk membangun otoritas B2B & menarik perhatian HRD secara profesional.",
+    colorClass: "text-blue-700",
+    bgClass: "bg-blue-700/10",
+    deskripsi: "Jasa Like LinkedIn untuk membangun otoritas B2B & menarik perhatian HRD secara profesional.",
     link: "/like-linkedin",
   },
   {
-    name: "YouTube",
+    nama: "YouTube",
     icon: "lucide:youtube",
-    color: "text-red-600",
-    bg: "bg-red-600/10",
-    desc: "Jasa Like YouTube organik untuk meningkatkan metrik interaksi dan ranking video di pencarian.",
+    colorClass: "text-red-600",
+    bgClass: "bg-red-600/10",
+    deskripsi: "Jasa Like YouTube organik untuk meningkatkan metrik interaksi dan ranking video di pencarian.",
     link: "/like-youtube",
   },
   {
-    name: "Twitter / X",
+    nama: "Twitter / X",
     icon: "lucide:twitter",
-    color: "text-slate-800", 
-    bg: "bg-slate-800/10",
-    desc: "Jasa Like Twitter/X untuk meramaikan interaksi Tweet agar lebih mudah menjadi Trending Topic.",
+    colorClass: "text-slate-800", 
+    bgClass: "bg-slate-800/10",
+    deskripsi: "Jasa Like Twitter/X untuk meramaikan interaksi Tweet agar lebih mudah menjadi Trending Topic.",
     link: "/like-twitter",
   },
   {
-    name: "Threads",
-    icon: "lucide:at-sign", // Menggunakan ikon '@' khas Threads
-    color: "text-neutral-900", 
-    bg: "bg-neutral-900/10",
-    desc: "Jasa Like Threads aktif untuk mendongkrak popularitas dan engagement postingan Threads Anda.",
+    nama: "Threads",
+    icon: "lucide:at-sign", 
+    colorClass: "text-neutral-900", 
+    bgClass: "bg-neutral-900/10",
+    deskripsi: "Jasa Like Threads aktif untuk mendongkrak popularitas dan engagement postingan Threads Anda.",
     link: "/like-threads",
   },
   {
-    name: "Like Komentar Instagram",
-    icon: "lucide:instagram", // Ikon balon obrolan komentar
-    color: "text-emerald-600", 
-    bg: "bg-emerald-600/10",
-    desc: "Jasa Like Komentar khusus untuk menaikkan posisi komentar Anda menjadi urutan teratas (Top Comment).",
+    nama: "Like Komentar Instagram",
+    icon: "lucide:instagram", 
+    colorClass: "text-emerald-600", 
+    bgClass: "bg-emerald-600/10",
+    deskripsi: "Jasa Like Komentar khusus untuk menaikkan posisi komentar Anda menjadi urutan teratas (Top Comment).",
     link: "/like-komentar-instagram",
   },
-{
-    name: "Like Komentar TikTok",
+  {
+    nama: "Like Komentar TikTok",
     icon: "lucide:music-2",
-    color: "text-slate-900", 
-    bg: "bg-slate-900/10",
-    desc: "Jasa like komentar TikTok cepat & aman untuk membantu komentar tampil lebih menonjol.",
+    colorClass: "text-slate-900", 
+    bgClass: "bg-slate-900/10",
+    deskripsi: "Jasa like komentar TikTok cepat & aman untuk membantu komentar tampil lebih menonjol.",
     link: "/like-komentar-tiktok",
-  },
+  }
 ];
 ---
 
@@ -85,14 +85,13 @@ const allServices = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 mt-10">
       
       {layananGrid.map((item) => (
-        /* Padding diperkecil jadi p-6 (sebelumnya p-8/p-10), rounded lebih kecil */
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
           
           <div class={`w-12 h-12 rounded-[1rem] flex items-center justify-center mb-4 ${item.bgClass || 'bg-blue-50'} ${item.colorClass || 'text-blue-600'}`}>
             <Icon name={item.icon || 'lucide:box'} class="w-6 h-6" />
           </div>
 
-          <h3 class="text-xl font-bold text-slate-900 mb-2">{item.platform || item.nama}</h3>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">{item.nama}</h3>
 
           <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
             {item.deskripsi}
