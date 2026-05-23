@@ -4,18 +4,19 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 
 // IMPORT KOMPONEN
 import Hero from '../components/Hero.astro'
-import ManfaatJasaLike from '../components/ManfaatJasaLike.astro' // -> Tambahan import baru
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
 import LayananGrid from '../components/LayananGrid.astro'
 import CaraOrder from '../components/CaraOrder.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import Testimonials from '../components/Testimonials.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro' // -> Tambahan import komponen FAQ
 
 // SEO DATA
 const title = "Layanan Optimasi Sosmed Lengkap - JasaLike";
 const description = "Pusat layanan optimasi engagement untuk semua platform sosial media. Tingkatkan kredibilitas akun Anda dengan proses aman dan hasil organik.";
 
-// DATA HERO (Menggunakan tipe Service agar seragam)
+// DATA HERO
 const dataHero = {
   tipe: "service",
   labelTeks: "Solusi Optimasi Lengkap",
@@ -29,7 +30,7 @@ const dataHero = {
   gambarHero: "/image/hero-layanan-lengkap.png" 
 };
 
-// DATA MANFAAT LENGKAF (MULTI-PLATFORM) -> Tambahan data baru
+// DATA MANFAAT
 const dataManfaat = {
   judulUtama: 'Manfaat Optimasi <span class="text-blue-600">Multi-Platform</span>',
   deskripsiUtama: "Satu solusi cerdas untuk mendorong pertumbuhan, kredibilitas, dan interaksi di seluruh akun media sosial bisnis Anda.",
@@ -41,6 +42,25 @@ const dataManfaat = {
   m3Teks: "Anda bisa fokus pada pembuatan konten berkualitas atau operasional bisnis, sementara kami mengoptimalkan metrik interaksinya.",
   m4Judul: "Keamanan Privasi Terjamin",
   m4Teks: "Seluruh layanan diproses dari luar sistem tanpa membutuhkan password, menjaga keamanan aset digital Anda tetap aman 100%."
+};
+
+// DATA FAQ (UMUM & PENEGASAN FOKUS JASA LIKE) -> Tambahan data baru
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-blue-600">JasaLike</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering diajukan seputar layanan optimasi Jasa Like kami untuk berbagai platform.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20Layanan%20Jasa%20Like",
+  faq1Judul: "Apakah keamanan privasi akun saya terjamin?",
+  faq1Teks: "Sangat terjamin 100%. Kami hanya membutuhkan link/tautan postingan target, tanpa pernah meminta password atau data login akun Anda.",
+  faq2Judul: "Apakah JasaLike menyediakan layanan Followers atau Views?",
+  faq2Teks: "Tidak. Sesuai dengan nama brand kami, JasaLike fokus 100% sebagai spesialis penyedia layanan Like. Ini komitmen kami untuk memberikan kualitas interaksi (like) yang paling maksimal dan natural dibanding layanan palugada lainnya.",
+  faq3Judul: "Berapa lama proses masuknya like?",
+  faq3Teks: "Pesanan akan langsung diproses ke dalam antrean sistem setelah pembayaran terkonfirmasi. Waktu masuknya like bervariasi mulai dari hitungan menit hingga beberapa jam agar terlihat natural.",
+  faq4Judul: "Platform apa saja yang bisa dioptimasi?",
+  faq4Teks: "Kami menyediakan layanan Jasa Like lengkap untuk Instagram, TikTok, Facebook, LinkedIn, YouTube, hingga Twitter (X).",
+  faq5Judul: "Apakah tersedia garansi jika terjadi drop?",
+  faq5Teks: "Ya, kami menyediakan garansi isi ulang (refill) sesuai dengan ketentuan masing-masing paket untuk memastikan jumlah interaksi Anda tetap stabil.",
+  faq6Judul: "Apakah jumlah like bisa dibagi ke banyak postingan?",
+  faq6Teks: "Tentu bisa! Anda bisa mendistribusikan pesanan like ke beberapa postingan berbeda sekaligus. Silakan hubungi admin WhatsApp kami untuk mengatur pembagian jumlahnya."
 };
 ---
 
@@ -58,10 +78,10 @@ const dataManfaat = {
 
   <CaraOrder />
   
-  
   <Testimonials />
- 
 
   <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
 
 </DefaultLayout>
