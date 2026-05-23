@@ -13,32 +13,74 @@ Header Component
   <SkipLink />
   <Navigation>
     <li class="menu-item"><a href="/">Home</a></li>
-    <li class="menu-item"><a href="/layanan/">Layanan</a></li>
+    
+    <li class="menu-item has-dropdown">
+      <button aria-haspopup="true" aria-expanded="false">
+        Layanan Kami
+        <Icon name="lucide:chevron-down" size="20" class="ml-1" />
+      </button>
+      
+      <ul class="dropdown-menu mega-menu text-slate-800">
+        <li class="mega-menu-container">
+          
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:instagram" /> Instagram
+            </div>
+            <a href="/like-instagram/">Like Postingan / Reels</a>
+            <a href="/like-komentar-instagram/">Like Komentar IG</a>
+          </div>
+
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:music-2" /> TikTok
+            </div>
+            <a href="/like-tiktok/">Like Video FYP</a>
+            <a href="/like-komentar-tiktok/">Like Komentar TikTok</a>
+          </div>
+
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:facebook" /> Meta Ekosistem
+            </div>
+            <a href="/like-facebook/">Like FB / Fanpage</a>
+            <a href="/like-threads/">Like Threads</a>
+          </div>
+
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:briefcase" /> Karir & Media
+            </div>
+            <a href="/like-linkedin/">Like LinkedIn B2B</a>
+            <a href="/like-youtube/">Like YouTube</a>
+          </div>
+          
+          <div class="mega-column">
+            <div class="mega-title">
+              <Icon name="lucide:twitter" /> Twitter / X
+            </div>
+            <a href="/like-twitter/">Like Tweet Aktif</a>
+          </div>
+
+          <div class="mega-column mega-view-all">
+            <a href="/layanan/" class="view-all-btn">
+              Lihat Semua Layanan <Icon name="lucide:arrow-right" class="inline w-4 h-4" />
+            </a>
+          </div>
+
+        </li>
+      </ul>
+    </li>
+
     <li class="menu-item"><a href="/tentang-kami/">Tentang Kami</a></li>
     <li class="menu-item"><a href="/blog/">Blog</a></li>
     <li class="menu-item"><a href="/kontak/">Kontak</a></li>
-
-    <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">
-        Produk & Jasa
-        <Icon name="lucide:chevron-down" size="32" />
-      </button>
-      <ul class="dropdown-menu text-slate-800">
-        <li class="submenu-item"><a href="/like-instagram/">Liker Instagram</a></li>
-        <li class="submenu-item"><a href="/like-tiktok/">Like TikTok</a></li>
-        <li class="submenu-item"><a href="/like-facebook/">Like Facebook</a></li>
-        <li class="submenu-item"><a href="/like-twitter/">Like Twitter</a></li>
-        <li class="submenu-item"><a href="/like-youtube/">Like YouTube</a></li>
-        <li class="submenu-item"><a href="/like-linkedin/">Like LinkedIn</a></li>
-        <li class="submenu-item"><a href="/like-thread/">Like Thread</a></li>
-      </ul>
-    </li>
 
     <li class="menu-spacer" aria-hidden="true"></li>
 
     <li class="menu-item cta">
       <a
-        href="https://wa.me/6289634740308?text=Halo%20admin%2C%20saya%20ingin%20konsultasi%20layanan%20like."
+        href="https://wa.me/6289634740308?text=Halo%20admin%2C%20saya%20ingin%20konsultasi%20strategi%20layanan%20like."
         aria-label="Chat Admin via WhatsApp"
       >
         <Icon name="lucide:phone" />
@@ -66,20 +108,100 @@ Header Component
       color: #ffffff !important;
     }
 
-    /* Memaksa icon garis tiga (hamburger) dan logo menjadi putih */
     svg {
       color: #ffffff !important;
     }
 
-    /* 2. BACKGROUND MENU DROPDOWN JADI GELAP */
-    /* Karena teksnya kita buat putih semua, kita harus pastikan background 
-       kotak menu dropdown-nya gelap, agar teks putihnya tidak hilang di background putih */
-    .dropdown-menu {
+    /* 2. STYLING KHUSUS MEGA MENU */
+    .dropdown-menu.mega-menu {
       background-color: #0f172a !important; 
       border: 1px solid #1e293b;
+      padding: 1.5rem !important;
+      border-radius: 1rem;
+      /* Membuat kotak menjadi lebar */
+      width: max-content !important;
+      max-width: 90vw;
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
     }
     
-    .dropdown-menu a {
+    .mega-menu-container {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Responsif di HP, grid berubah menjadi 1 kolom ke bawah */
+    @media (max-width: 1024px) {
+      .mega-menu-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .dropdown-menu.mega-menu {
+        width: 100% !important;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .mega-menu-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .mega-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #3b82f6 !important; /* Biru mencolok untuk judul */
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 0.5rem;
+    }
+
+    .mega-title svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .mega-column a {
+      display: block;
+      padding: 0.35rem 0;
+      font-size: 0.95rem;
+      color: #cbd5e1 !important; /* Warna abu-abu terang */
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .mega-column a:hover {
+      color: #ffffff !important; /* Putih terang saat disorot */
+      padding-left: 5px; /* Efek geser sedikit ke kanan */
+    }
+
+    /* Tombol Lihat Semua Layanan di pojok */
+    .mega-view-all {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .mega-view-all .view-all-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #1e293b;
+      border-radius: 0.5rem;
+      color: #60a5fa !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    .mega-view-all .view-all-btn:hover {
+      background-color: #3b82f6;
       color: #ffffff !important;
     }
 
@@ -125,3 +247,4 @@ Header Component
     }
   }
 </style>
+
