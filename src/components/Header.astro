@@ -149,7 +149,6 @@ Header Component
   
 <style lang="scss" is:global>
   header {
-    /* PAKSA SEMUA TEKS DAN ICON MENJADI PUTIH */
     --font-color: #ffffff;
     --action-color: #ffffff;
     color: #ffffff !important;
@@ -166,20 +165,37 @@ Header Component
     .dropdown-menu.mega-menu {
       background-color: #0f172a !important; 
       border: 1px solid #1e293b;
-      padding: 2rem !important;
+      padding: 1.5rem !important;
       border-radius: 1rem;
       width: max-content !important;
-      max-width: 90vw; /* Dibatasi agar tidak menyentuh ujung layar */
+      max-width: 90vw; 
       box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
       
-      /* FIX POSISI TENGAH */
       left: 50% !important;
       transform: translateX(-50%) !important;
+
+      /* FIX MENTOK: Batasi tinggi maksimal agar bisa di-scroll */
+      max-height: 75vh; 
+      overflow-y: auto; 
+    }
+
+    /* Desain Scrollbar Elegan untuk Mega Menu */
+    .dropdown-menu.mega-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+    .dropdown-menu.mega-menu::-webkit-scrollbar-track {
+      background: transparent; 
+    }
+    .dropdown-menu.mega-menu::-webkit-scrollbar-thumb {
+      background: #3b82f6; 
+      border-radius: 10px;
+    }
+    .dropdown-menu.mega-menu::-webkit-scrollbar-thumb:hover {
+      background: #2563eb; 
     }
     
     .mega-menu-container {
       display: grid;
-      /* 4 kolom menyamping di Desktop */
       grid-template-columns: repeat(4, minmax(180px, 1fr));
       gap: 2rem 2.5rem;
       list-style: none;
@@ -187,14 +203,14 @@ Header Component
       margin: 0;
     }
 
-    /* Responsif menyesuaikan layar Tablet / Xpad */
+    /* Responsif Tablet / Xpad */
     @media (max-width: 1200px) {
       .mega-menu-container {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     
-    /* FIX HP & TABLET PORTRAIT: Kembalikan posisi ke kiri agar tidak terpotong */
+    /* FIX HP & TABLET PORTRAIT */
     @media (max-width: 1024px) {
       .dropdown-menu.mega-menu {
         left: 0 !important;
@@ -202,6 +218,7 @@ Header Component
         width: 100% !important;
         max-width: 100vw;
         padding: 1.5rem !important;
+        max-height: 65vh; /* Sedikit lebih pendek di HP agar tidak tertutup header HP */
       }
       .mega-menu-container {
         grid-template-columns: 1fr 1fr;
@@ -276,7 +293,6 @@ Header Component
       padding-left: 1rem; 
     }
 
-    /* Mengatur ukuran icon dark mode */
     .type-icon {
       display: block;
       margin-inline: -7px;
@@ -286,10 +302,8 @@ Header Component
       }
     }
 
-    /* Spacer dorong CTA ke kanan */
     .menu-spacer { flex: 1 1 auto; }
 
-    /* Tombol WhatsApp */
     .menu-item.cta a {
       display: inline-flex;
       align-items: center;
