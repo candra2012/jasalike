@@ -161,7 +161,7 @@ Header Component
       color: #ffffff !important;
     }
 
-    /* STYLING KHUSUS MEGA MENU DESKTOP */
+    /* STYLING KHUSUS MEGA MENU */
     .dropdown-menu.mega-menu {
       background-color: #0f172a !important; 
       border: 1px solid #1e293b;
@@ -173,6 +173,25 @@ Header Component
       
       left: 50% !important;
       transform: translateX(-50%) !important;
+
+      /* FIX MENTOK: Batasi tinggi maksimal agar bisa di-scroll */
+      max-height: 75vh; 
+      overflow-y: auto; 
+    }
+
+    /* Desain Scrollbar Elegan untuk Mega Menu */
+    .dropdown-menu.mega-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+    .dropdown-menu.mega-menu::-webkit-scrollbar-track {
+      background: transparent; 
+    }
+    .dropdown-menu.mega-menu::-webkit-scrollbar-thumb {
+      background: #3b82f6; 
+      border-radius: 10px;
+    }
+    .dropdown-menu.mega-menu::-webkit-scrollbar-thumb:hover {
+      background: #2563eb; 
     }
     
     .mega-menu-container {
@@ -184,69 +203,35 @@ Header Component
       margin: 0;
     }
 
-    /* Responsif Tablet Landscape */
+    /* Responsif Tablet / Xpad */
     @media (max-width: 1200px) {
       .mega-menu-container {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     
-    /* ==========================================
-       FITUR SCROLL LANDSCAPE/MENYAMPING DI HP
-       ========================================== */
+    /* FIX HP & TABLET PORTRAIT */
     @media (max-width: 1024px) {
       .dropdown-menu.mega-menu {
         left: 0 !important;
         transform: none !important;
         width: 100% !important;
         max-width: 100vw;
-        padding: 1.5rem 0.5rem !important;
+        padding: 1.5rem !important;
+        max-height: 65vh; /* Sedikit lebih pendek di HP agar tidak tertutup header HP */
       }
-      
-      /* Ubah dari Grid berdiri menjadi Flex menyamping (Carousel) */
       .mega-menu-container {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
+        grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
-        padding-bottom: 1rem; /* Ruang untuk scrollbar bawah */
-        
-        /* Efek mulus saat di-swipe di HP */
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-      }
-      
-      /* Lebar masing-masing kotak platform di HP */
-      .mega-column {
-        flex: 0 0 220px; 
-        scroll-snap-align: start;
-        background: #1e293b; /* Beri sedikit background agar kotak terpisah jelas */
-        padding: 1rem;
-        border-radius: 0.75rem;
-      }
-
-      /* Desain Scrollbar Menyamping */
-      .mega-menu-container::-webkit-scrollbar {
-        height: 6px;
-      }
-      .mega-menu-container::-webkit-scrollbar-track {
-        background: transparent; 
-      }
-      .mega-menu-container::-webkit-scrollbar-thumb {
-        background: #3b82f6; 
-        border-radius: 10px;
       }
     }
     
-    /* HP Layar Kecil */
     @media (max-width: 640px) {
-      .mega-column {
-        flex: 0 0 85vw; /* Satu kotak platform memakan 85% lebar layar HP */
+      .mega-menu-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
-
-    /* ========================================== */
 
     .mega-title {
       display: flex;
@@ -282,8 +267,9 @@ Header Component
     /* Tombol Lihat Semua Layanan */
     .mega-view-all {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-end;
+      justify-content: flex-start;
+      margin-top: 1rem;
     }
 
     .mega-view-all .view-all-btn {
@@ -292,19 +278,19 @@ Header Component
       justify-content: center;
       gap: 0.5rem;
       width: 100%;
-      height: 100%;
-      min-height: 100px;
       padding: 0.75rem 1rem;
-      background-color: #3b82f6;
+      background-color: #1e293b;
       border-radius: 0.5rem;
-      color: #ffffff !important;
-      font-weight: 700;
-      font-size: 1rem;
+      color: #60a5fa !important;
+      font-weight: 600;
+      font-size: 0.9rem;
       transition: all 0.2s ease;
     }
     
     .mega-view-all .view-all-btn:hover {
-      background-color: #2563eb;
+      background-color: #3b82f6;
+      color: #ffffff !important;
+      padding-left: 1rem; 
     }
 
     .type-icon {
@@ -346,4 +332,3 @@ Header Component
     }
   }
 </style>
-
