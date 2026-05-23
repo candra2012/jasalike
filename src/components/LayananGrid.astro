@@ -1,34 +1,75 @@
 ---
 // src/components/LayananGrid.astro
-import { Icon } from 'astro-icon/components';
+import { Icon } from 'astro-icon/components'
 
-const platforms = [
-  { name: 'Instagram', icon: 'lucide:instagram', color: 'bg-pink-500', desc: 'Like, Followers, Reels & View Instan.', link: '/like-instagram/' },
-  { name: 'TikTok', icon: 'lucide:music-2', color: 'bg-slate-900', desc: 'Like & Views untuk dorongan FYP.', link: '/like-tiktok/' },
-  { name: 'Facebook', icon: 'lucide:facebook', color: 'bg-blue-600', desc: 'Like Postingan & Fanspage Page.', link: '/like-facebook/' },
-  { name: 'YouTube', icon: 'lucide:youtube', color: 'bg-red-600', desc: 'Like Video & YouTube Shorts View.', link: '/like-youtube/' },
-  { name: 'Twitter / X', icon: 'lucide:twitter', color: 'bg-sky-500', desc: 'Like & Retweet untuk trending.', link: '/like-twitter/' },
-  { name: 'LinkedIn', icon: 'lucide:linkedin', color: 'bg-blue-700', desc: 'Like & Koneksi Profesional.', link: '/like-linkedin/' },
+// DATA SEMUA LAYANAN (Edit teks di sini saja kalau mau nambah/ubah)
+const allServices = [
+  {
+    name: "Instagram",
+    icon: "lucide:instagram",
+    color: "text-pink-500",
+    bg: "bg-pink-500/10",
+    desc: "Like, Followers, Reels, & View Instan untuk menaikkan jangkauan konten.",
+    link: "/like-instagram", // Sesuaikan dengan nama file astro kamu
+  },
+  {
+    name: "TikTok",
+    icon: "lucide:music-2",
+    color: "text-cyan-400",
+    bg: "bg-cyan-400/10",
+    desc: "Like & Views kualitas premium untuk mendorong konten masuk FYP.",
+    link: "/like-tiktok",
+  },
+  {
+    name: "Facebook",
+    icon: "lucide:facebook",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+    desc: "Optimasi Like Postingan, Fanpage, hingga Facebook Reels.",
+    link: "/like-facebook",
+  },
+  {
+    name: "LinkedIn",
+    icon: "lucide:linkedin",
+    color: "text-blue-600",
+    bg: "bg-blue-600/10",
+    desc: "Bangun otoritas B2B & tarik perhatian HRD dengan engagement profesional.",
+    link: "/like-linkedin",
+  },
+  {
+    name: "YouTube",
+    icon: "lucide:youtube",
+    color: "text-red-500",
+    bg: "bg-red-500/10",
+    desc: "Boost Views & Like untuk meningkatkan ranking video di pencarian.",
+    link: "/like-youtube",
+  },
+  {
+    name: "Twitter / X",
+    icon: "lucide:twitter",
+    color: "text-slate-200",
+    bg: "bg-slate-200/10",
+    desc: "Tingkatkan interaksi tweet agar lebih mudah masuk ke jajaran Trending Topic.",
+    link: "/like-twitter",
+  }
 ];
 ---
-<section class="py-24 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {platforms.map((p) => (
-        <a href={p.link} class="group block p-8 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 !no-underline">
-          
-          <div class={`${p.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
-            <Icon name={p.icon} class="w-8 h-8" />
-          </div>
-          
-          <h3 class="text-2xl font-bold !text-slate-900 mb-3">{p.name}</h3>
-          <p class="!text-slate-600 mb-6 leading-relaxed">{p.desc}</p>
-          
-          <span class="inline-flex items-center gap-2 font-bold !text-blue-600 group-hover:!text-blue-800 transition-colors">
-            Lihat Detail Layanan
-            <Icon name="lucide:chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </span>
 
+<section class="py-24 bg-slate-950">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {allServices.map((item) => (
+        <a href={item.link} class="group bg-slate-900 border border-slate-800 p-8 rounded-[2rem] hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20">
+          <div class={`w-16 h-16 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+            <Icon name={item.icon} class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">{item.name}</h3>
+          <p class="text-slate-400 leading-relaxed mb-6">
+            {item.desc}
+          </p>
+          <div class="flex items-center gap-2 text-blue-500 font-semibold group-hover:gap-4 transition-all">
+            Lihat Detail Layanan <Icon name="lucide:arrow-right" class="w-5 h-5" />
+          </div>
         </a>
       ))}
     </div>
