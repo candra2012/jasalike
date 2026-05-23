@@ -24,90 +24,68 @@ Header Component
         <li class="mega-menu-container">
           
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:instagram" /> Instagram
-            </div>
+            <div class="mega-title"><Icon name="lucide:instagram" /> Instagram</div>
             <a href="/like-instagram/">Like Instagram</a>
             <a href="/like-instagram/">Like Instagram Reels</a>
             <a href="/like-komentar-instagram/">Like Komentar Instagram</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:music-2" /> TikTok
-            </div>
+            <div class="mega-title"><Icon name="lucide:music-2" /> TikTok</div>
             <a href="/like-tiktok/">Like TikTok</a>
             <a href="/like-komentar-tiktok/">Like Komentar TikTok</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:facebook" /> Facebook
-            </div>
+            <div class="mega-title"><Icon name="lucide:facebook" /> Facebook</div>
             <a href="/like-facebook/">Like Facebook</a>
             <a href="/like-komentar-facebook/">Like Komentar Facebook</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:youtube" /> YouTube
-            </div>
+            <div class="mega-title"><Icon name="lucide:youtube" /> YouTube</div>
             <a href="/like-youtube/">Like YouTube</a>
             <a href="/like-komentar-youtube/">Like Komentar YouTube</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:twitter" /> Twitter / X
-            </div>
+            <div class="mega-title"><Icon name="lucide:twitter" /> Twitter / X</div>
             <a href="/like-twitter/">Like Twitter / X</a>
             <a href="/like-komentar-twitter/">Like Komentar Twitter</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:linkedin" /> LinkedIn
-            </div>
+            <div class="mega-title"><Icon name="lucide:linkedin" /> LinkedIn</div>
             <a href="/like-linkedin/">Like LinkedIn</a>
             <a href="/like-komentar-linkedin/">Like Komentar LinkedIn</a>
           </div>
           
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:at-sign" /> Threads
-            </div>
+            <div class="mega-title"><Icon name="lucide:at-sign" /> Threads</div>
             <a href="/like-threads/">Like Threads</a>
             <a href="/like-komentar-threads/">Like Komentar Threads</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:shopping-bag" /> Marketplace
-            </div>
+            <div class="mega-title"><Icon name="lucide:shopping-bag" /> Marketplace</div>
             <a href="/like-marketplace/">Like Produk Marketplace</a>
             <a href="/like-komentar-marketplace/">Like Ulasan (Top Review)</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:message-square" /> Reddit
-            </div>
+            <div class="mega-title"><Icon name="lucide:message-square" /> Reddit</div>
             <a href="/like-reddit/">Like / Upvote Reddit</a>
             <a href="/like-komentar-reddit/">Like Komentar Reddit</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:pin" /> Pinterest
-            </div>
+            <div class="mega-title"><Icon name="lucide:pin" /> Pinterest</div>
             <a href="/like-pinterest/">Like Pinterest</a>
             <a href="/like-komentar-pinterest/">Like Komentar Pinterest</a>
           </div>
 
           <div class="mega-column">
-            <div class="mega-title">
-              <Icon name="lucide:book-open" /> Webtoon & Wattpad
-            </div>
+            <div class="mega-title"><Icon name="lucide:book-open" /> Webtoon & Wattpad</div>
             <a href="/like-webtoon/">Like Episode / Cerita</a>
             <a href="/like-komentar-webtoon/">Like Komentar (Top Komen)</a>
           </div>
@@ -127,16 +105,6 @@ Header Component
     <li class="menu-item"><a href="/kontak/">Kontak</a></li>
 
     <li class="menu-spacer" aria-hidden="true"></li>
-
-    <li class="menu-item cta">
-      <a
-        href="https://wa.me/6289634740308?text=Halo%20admin%2C%20saya%20ingin%20konsultasi%20strategi%20layanan%20like."
-        aria-label="Chat Admin via WhatsApp"
-      >
-        <Icon name="lucide:phone" />
-        <span>Chat Admin</span>
-      </a>
-    </li>
 
     <li class="menu-item type-icon animate-rotate">
       <DarkMode>
@@ -161,7 +129,6 @@ Header Component
       color: #ffffff !important;
     }
 
-    /* STYLING KHUSUS MEGA MENU */
     .dropdown-menu.mega-menu {
       background-color: #0f172a !important; 
       border: 1px solid #1e293b;
@@ -174,16 +141,13 @@ Header Component
       left: 50% !important;
       transform: translateX(-50%) !important;
 
-      /* FIX MENTOK: Batasi tinggi maksimal agar bisa di-scroll */
       max-height: 75vh; 
       overflow-y: auto; 
       
-      /* MANTRA ANTI MACET DI LAYAR SENTUH HP */
       -webkit-overflow-scrolling: touch;
       overscroll-behavior: contain;
     }
 
-    /* Desain Scrollbar Elegan untuk Mega Menu */
     .dropdown-menu.mega-menu::-webkit-scrollbar {
       width: 6px;
     }
@@ -207,14 +171,12 @@ Header Component
       margin: 0;
     }
 
-    /* Responsif Tablet / Xpad */
     @media (max-width: 1200px) {
       .mega-menu-container {
         grid-template-columns: repeat(3, 1fr);
       }
     }
     
-    /* FIX HP & TABLET PORTRAIT */
     @media (max-width: 1024px) {
       .dropdown-menu.mega-menu {
         left: 0 !important;
@@ -225,17 +187,11 @@ Header Component
         max-height: 70vh; 
       }
       .mega-menu-container {
-        /* Tetap 2 kolom sesuai screenshot kamu */
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
       }
     }
     
-    /* =========================================================
-       FIX HP LANDSCAPE (SAAT HP DIPUTAR MENYAMPING)
-       Jika tinggi layar sangat pendek (< 600px), paksa 
-       kotak menunya mengecil supaya scroll tidak nyangkut.
-       ========================================================= */
     @media (max-height: 600px) {
       .dropdown-menu.mega-menu {
         max-height: 55vh !important; 
@@ -286,7 +242,6 @@ Header Component
       padding-left: 6px; 
     }
 
-    /* Tombol Lihat Semua Layanan */
     .mega-view-all {
       display: flex;
       align-items: flex-end;
@@ -325,33 +280,6 @@ Header Component
     }
 
     .menu-spacer { flex: 1 1 auto; }
-
-    .menu-item.cta a {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .55rem .9rem;
-      border-radius: 9999px;
-      font-weight: 700;
-      text-decoration: none;
-      border: 1px solid var(--border-color, transparent);
-      box-shadow: 0 6px 18px rgb(0 0 0 / .08);
-      background-image: linear-gradient(135deg, #22c55e, #06b6d4);
-      color: #ffffff !important;
-      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-    }
-    
-    .menu-item.cta a [data-icon] {
-      inline-size: 20px; 
-      block-size: 20px;
-    }
-    
-    .menu-item.cta a:hover,
-    .menu-item.cta a:focus-visible {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgb(0 0 0 / .2);
-      opacity: .95;
-    }
   }
 </style>
 
