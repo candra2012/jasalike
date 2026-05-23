@@ -4,6 +4,7 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 
 // IMPORT KOMPONEN
 import Hero from '../components/Hero.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro' // -> Tambahan import baru
 import LayananGrid from '../components/LayananGrid.astro'
 import CaraOrder from '../components/CaraOrder.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
@@ -27,11 +28,27 @@ const dataHero = {
   linkTombol2: "https://wa.me/6289634740308",
   gambarHero: "/image/hero-layanan-lengkap.png" 
 };
+
+// DATA MANFAAT LENGKAF (MULTI-PLATFORM) -> Tambahan data baru
+const dataManfaat = {
+  judulUtama: 'Manfaat Optimasi <span class="text-blue-600">Multi-Platform</span>',
+  deskripsiUtama: "Satu solusi cerdas untuk mendorong pertumbuhan, kredibilitas, dan interaksi di seluruh akun media sosial bisnis Anda.",
+  m1Judul: "Kredibilitas Meningkat Instan",
+  m1Teks: "Akun dan postingan yang ramai interaksi membangun impresi pertama yang profesional dan meyakinkan di mata calon pelanggan.",
+  m2Judul: "Mendorong Performa Algoritma",
+  m2Teks: "Traksi awal yang kuat membantu memicu algoritma tiap platform (Instagram, TikTok, FB) untuk mendistribusikan konten Anda lebih luas.",
+  m3Judul: "Hemat Waktu & Efisien",
+  m3Teks: "Anda bisa fokus pada pembuatan konten berkualitas atau operasional bisnis, sementara kami mengoptimalkan metrik interaksinya.",
+  m4Judul: "Keamanan Privasi Terjamin",
+  m4Teks: "Seluruh layanan diproses dari luar sistem tanpa membutuhkan password, menjaga keamanan aset digital Anda tetap aman 100%."
+};
 ---
 
 <DefaultLayout title={title} description={description}>
   
   <Hero {...dataHero} />
+
+  <ManfaatJasaLike {...dataManfaat} />
 
   <section id="grid-layanan">
     <LayananGrid />
