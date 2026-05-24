@@ -1,0 +1,297 @@
+---
+// src/pages/like-komentar-twitter.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar Twitter Aktif | Optimasi Top Reply X Terpercaya";
+const description = "Layanan jasa like komentar Twitter (X) premium untuk mendominasi kolom diskusi tweet viral. Tingkatkan visibilitas opini, branding, dan traffic Anda secara aman.";
+const keywords = "jasa like komentar twitter, beli like komen twitter, optimasi top comment twitter, layanan like reply x aktif, cara menaikkan like komentar twitter, jasa interaksi reply twitter terpercaya";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS ALGORITMA TWITTER / X)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Reply Twitter / X",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like Komentar <br class="hidden md:block"/> <span class="text-sky-400">Twitter / X Teratas</span>',
+  deskripsi: "Kuasai linimasa percakapan publik yang sedang tren. Layanan optimasi interaksi *reply* kami memastikan argumen, ulasan produk, atau promosi bisnis Anda berada di peringkat teratas (Top Reply) cuitan viral, menjangkau ribuan pembaca baru secara instan. <br class='hidden md:block mt-2' /> <span class='text-sky-400 font-semibold block mt-4'>✓ Dominasi Cuitan Viral &nbsp; ✓ Proses 100% Aman & Eksternal &nbsp; ✓ Melejitkan Impressions</span>",
+  teksTombol1: "Pilih Paket X",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi X",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-twitter.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Menembus <span class="text-sky-400">Top Reply X</span>',
+  deskripsiUtama: "Mengapa cuitan balasan Anda selalu tenggelam di bawah, bahkan sebelum dibaca oleh audiens target?",
+  ms1Teks: '<strong class="text-sky-400 font-bold">Arus Algoritma yang Cepat:</strong> Ribuan akun membalas sebuah *trending topic* dalam hitungan detik. Tanpa traksi awal, tulisan Anda akan langsung disembunyikan oleh sistem X.',
+  ms2Teks: '<strong class="text-sky-400 font-bold">Kalah Prioritas Akun Premium:</strong> X secara bawaan menempatkan akun dengan verifikasi (Centang Biru) di posisi atas, membuat akun reguler terkubur di dasar kolom diskusi.',
+  ms3Teks: '<strong class="text-sky-400 font-bold">Kehilangan Peluang Aliran Trafik:</strong> Momen berharga untuk menyisipkan tautan penawaran (*affiliate/website*) hilang sia-sia karena tidak ada audiens yang menggulir layar hingga ke bawah.',
+  ms4Teks: '<strong class="text-sky-400 font-bold">Rendahnya Validasi Publik:</strong> Netizen di platform X sangat kritis. Argumen atau klarifikasi Anda dinilai tidak memiliki pengaruh jika tidak didukung oleh indikator apresiasi (*likes*).'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Sistem Optimasi <span class="text-sky-400">Reply Twitter / X</span>',
+  deskripsiUtama: "Metode rekayasa interaksi eksternal untuk menaikkan peringkat relevansi komentar Anda di mata algoritma X.",
+  k1Judul: "Peningkatan Bobot Relevansi",
+  k1Teks: "Sistem kami menyalurkan volume apresiasi (*like*) secara presisi ke ulasan balasan Anda, mengirimkan sinyal kuat ke server X bahwa komentar tersebut berbobot tinggi dan layak diprioritaskan.",
+  k2Judul: "Pemicu Pertumbuhan Organik",
+  k2Teks: "Menempati posisi *Top Reply* di bawah figur publik dengan jutaan pengikut adalah taktik tercepat untuk menaikkan *profile visits* dan pertumbuhan pengikut (*followers*) baru Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Strategis Menguasai <span class="text-sky-400">Kolom Diskusi X</span>',
+  deskripsiUtama: "Dampak eksponensial bagi reputasi personal dan konversi bisnis Anda melalui optimasi dari JasaLike.",
+  m1Judul: "Eksposur Skala Masif",
+  m1Teks: "Menumpang ketenaran (*hijacking traffic*) dari cuitan yang sedang viral, membuat ulasan Anda dibaca oleh ratusan ribu pengguna unik secara gratis.",
+  m2Judul: "Otoritas Narasi Publik",
+  m2Teks: "Komentar dengan *like* yang masif secara psikologis membentuk opini bahwa argumen atau klarifikasi Anda disetujui dan didukung oleh mayoritas netizen.",
+  m3Judul: "Optimalisasi Tautan Promosi",
+  m3Teks: "Sangat efektif untuk mengamankan klik pada *link* jualan atau pendaftaran yang Anda sematkan pada baris komentar pertama.",
+  m4Judul: "Perlindungan Akun Maksimal",
+  m4Teks: "Prosedur pengerjaan bersifat eksternal tanpa menyentuh privasi data sensitif atau membutuhkan hak akses masuk ke akun Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Infrastruktur Unggulan <span class="text-sky-400">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa para agensi, praktisi politik, dan pebisnis digital mempercayakan metrik interaksi X mereka kepada kami?",
+  mk1Judul: "Tanpa Kredensial Login",
+  mk1Teks: "Integritas akun Anda aman. Kami tidak meminta kata sandi (password). Kami hanya membutuhkan tautan cuitan balasan Anda.",
+  mk2Judul: "Deteksi Target Akurat",
+  mk2Teks: "Teknologi kami memetakan dan menyalurkan interaksi secara akurat ke satu target komentar yang ditunjuk tanpa meleset.",
+  mk3Judul: "Akselerasi Momentum",
+  mk3Teks: "Siklus viralitas X berjalan sangat pendek. Kami mengutamakan kecepatan pemrosesan agar ulasan Anda langsung naik saat tren masih hangat.",
+  mk4Judul: "Ritme Penyaluran Wajar",
+  mk4Teks: "Volume *like* diberikan secara berkala mengikuti pola interaksi manusia asli guna menjaga ulasan tetap aman dari sistem moderasi X.",
+  mk5Judul: "Jaminan Pemulihan metrik",
+  mk5Teks: "Kami memberikan proteksi berupa garansi isi ulang (*refill*) berkala untuk menjaga stabilitas jumlah interaksi ulasan Anda.",
+  mk6Judul: "Analisis Kebutuhan",
+  mk6Teks: "Tim berpengalaman kami siap memberikan saran mengenai volume interaksi yang dibutuhkan untuk memenangkan posisi *Top Reply*."
+};
+
+const dataSolusi = {
+  judulUtama: 'Tempatkan Suara Anda di <span class="text-sky-400">Garis Terdepan</span>',
+  deskripsiUtama: "Ubah cuitan balasan yang tersembunyi menjadi pusat perhatian utama bagi jutaan pengguna aktif X.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Meroket ke Barisan Teratas",
+  sol1Teks: "Menembus batasan algoritma penataan komentar standar untuk mengunci ulasan Anda tepat di bawah cuitan utama.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Prosedur Terlindungi",
+  sol2Teks: "Mendongkrak indikator interaksi dengan metode aman yang menjaga reputasi nama baik akun Anda tetap bersih.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Pancing Diskusi Lanjutan",
+  sol3Teks: "Komentar dengan *like* melimpah secara alami akan memancing netizen lain untuk ikut berdiskusi dan menyukai cuitan Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Mudah <span class="text-sky-400">Pemesanan Layanan</span>',
+  deskripsiUtama: "Sistem pemesanan praktis untuk mengamankan eksposur percakapan Anda di platform X.",
+  co1Judul: "Analisis Target Kompetisi",
+  co1Teks: "Periksa jumlah *like* ulasan kompetitor pada cuitan target, lalu pilih paket kami yang kapasitasnya berada di atas mereka.",
+  co2Judul: "Koordinasi WhatsApp",
+  co2Teks: "Hubungi representatif JasaLike untuk melakukan verifikasi tautan cuitan dan kelayakan pengerjaan.",
+  co3Judul: "Kirim Tautan Publik",
+  co3Teks: "Salin dan berikan tautan (URL) langsung dari cuitan balasan (*reply*) Anda yang ingin ditingkatkan jumlah interaksinya.",
+  co4Judul: "Pelaporan Hasil",
+  co4Teks: "Sistem kami akan segera memproses antrean, dan kami akan mengirimkan laporan setelah seluruh target volume terpenuhi."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Top Reply Twitter / X",
+  deskripsiHarga: "Pilih paket eskalasi interaksi yang paling sesuai untuk mendominasi narasi linimasa.",
+
+  p1Gambar: "/image/harga-paket-100like-twitter.png",
+  p1Nama: "Paket Starter 100 Like Reply X",
+  p1Fitur1: "Ideal untuk Cuitan Niche / Skala Kecil",
+  p1Fitur2: "Distribusi Teratur & Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Komentar%20Twitter",
+
+  p2Label: "REKOMENDASI VIRAL",
+  p2Gambar: "/image/harga-paket-1000like-twitter.png",
+  p2Nama: "Paket Dominasi 1000 Like Reply X",
+  p2Fitur1: "Boost Maksimal untuk Akun Besar / Viral",
+  p2Fitur2: "Prioritas Kecepatan Antrean Utama",
+  p2Fitur3: "Dukungan Layanan CS Prioritas 24/7",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Komentar%20Twitter"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-sky-400">Komentar Twitter / X</span>',
+  deskripsiUtama: "Informasi teknis penting yang perlu Anda pahami sebelum melakukan order layanan interaksi Twitter / X.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20Twitter",
+  faq1Judul: "Apakah aman bagi keberlangsungan akun X saya?",
+  faq1Teks: "Sangat aman. Kami menerapkan protokol eksternal yang tidak melanggar batasan sistem X. Kami juga tidak membutuhkan informasi *login* atau kata sandi Anda sama sekali.",
+  faq2Judul: "Apakah akun saya atau tweet utamanya boleh digembok (private)?",
+  faq2Teks: "Tidak boleh. Baik akun Anda maupun cuitan utama tempat Anda menaruh komentar harus tersetting untuk 'Publik' agar sistem kami bisa membaca data dan mendistribusikan interaksi *like* ke target.",
+  faq3Judul: "Bagaimana cara menyalin tautan (link) ulasan balasan saya?",
+  faq3Teks: "Jika menggunakan HP, klik ikon bagikan (*share*) tepat di bawah cuitan balasan Anda, lalu pilih 'Salin Tautan' (*Copy Link*). Tautan itulah yang dikirimkan kepada tim kami.",
+  faq4Judul: "Apakah ulasan saya dijamin langsung menempati posisi nomor satu?",
+  faq4Teks: "Posisi sangat dipengaruhi oleh algoritma internal X, status centang akun, dan intensitas persaingan *like* ulasan lain. Menggunakan paket dengan kapasitas tinggi akan memperbesar peluang ulasan Anda mengunci peringkat atas.",
+  faq5Judul: "Berapa lama estimasi pengerjaan hingga selesai?",
+  faq5Teks: "Antrean akan segera diproses begitu validasi pembayaran selesai. Kecepatan pengerjaan diatur sedemikian rupa agar pergerakan penambahan grafik interaksi terbaca wajar oleh platform X.",
+  faq6Judul: "Apakah layanan ini bisa bekerja pada cuitan format Quote Tweet?",
+  faq6Teks: "Layanan ini khusus didesain untuk mendongkrak performa cuitan di dalam kolom komentar (*reply thread*). Jika Anda membutuhkan interaksi untuk postingan utama atau *Quote Tweet*, silakan hubungi admin untuk paket khusus lainnya."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar Twitter Aktif",
+    "image": "https://jasalike.com/image/harga-paket-100like-twitter.png",
+    "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi dan meraih posisi Top Reply di Twitter / X secara profesional.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "612"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar Twitter"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman bagi keberlangsungan akun X saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menerapkan protokol eksternal yang tidak melanggar batasan sistem X. Kami juga tidak membutuhkan informasi login atau kata sandi Anda sama sekali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah akun saya atau tweet utamanya boleh digembok (private)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak boleh. Baik akun Anda maupun cuitan utama tempat Anda menaruh komentar harus tersetting untuk 'Publik' agar sistem kami bisa membaca data dan mendistribusikan interaksi like ke target."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara menyalin tautan (link) ulasan balasan saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Jika menggunakan HP, klik ikon bagikan (share) tepat di bawah cuitan balasan Anda, lalu pilih 'Salin Tautan' (Copy Link). Tautan itulah yang dikirimkan kepada tim kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah ulasan saya dijamin langsung menempati posisi nomor satu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Posisi sangat dipengaruhi oleh algoritma internal X, status centang akun, dan intensitas persaingan like ulasan lain. Menggunakan paket dengan kapasitas tinggi akan memperbesar peluang ulasan Anda mengunci peringkat atas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama estimasi pengerjaan hingga selesai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Antrean akan segera diproses begitu validasi pembayaran selesai. Kecepatan pengerjaan diatur sedemikian rupa agar pergerakan penambahan grafik interaksi terbaca wajar oleh platform X."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini bisa bekerja pada cuitan format Quote Tweet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan ini khusus didesain untuk mendongkrak performa cuitan di dalam kolom komentar (reply thread). Jika Anda membutuhkan interaksi untuk postingan utama atau Quote Tweet, silakan hubungi admin untuk paket khusus lainnya."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
