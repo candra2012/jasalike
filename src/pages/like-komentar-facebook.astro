@@ -1,0 +1,297 @@
+---
+// src/pages/like-komentar-facebook.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar Facebook Aktif | Optimasi Top Comment FB";
+const description = "Layanan jasa like komentar Facebook terpercaya untuk mendominasi filter 'Paling Relevan' di Fanpage dan Grup Publik. Tingkatkan otoritas argumen dan branding Anda.";
+const keywords = "jasa like komentar facebook, beli like komen fb, optimasi top comment facebook, layanan like komentar facebook aktif, cara menaikkan like komentar facebook, jasa interaksi komentar fanpage fb";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS ALGORITMA FACEBOOK)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Comment FB",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like Komentar <br class="hidden md:block"/> <span class="text-blue-600">Facebook Teratas</span>',
+  deskripsi: "Kuasai ruang diskusi publik di Facebook. Layanan optimasi kami memastikan komentar Anda menjadi yang 'Paling Relevan' di postingan viral, Fanpage, atau Grup, sehingga opini maupun penawaran bisnis Anda langsung terlihat oleh ribuan pengguna lainnya. <br class='hidden md:block mt-2' /> <span class='text-blue-500 font-semibold block mt-4'>✓ Dominasi Diskusi Publik &nbsp; ✓ 100% Eksternal & Aman &nbsp; ✓ Validasi Sosial Instan</span>",
+  teksTombol1: "Lihat Pilihan Paket FB",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Target Diskusi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-facebook.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Diskusi di <span class="text-blue-600">Facebook</span>',
+  deskripsiUtama: "Mengapa suara Anda sering tenggelam di tengah ramainya kolom komentar postingan Facebook yang viral?",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Filter "Paling Relevan":</strong> Algoritma Facebook secara otomatis menyembunyikan komentar biasa dan hanya menampilkan komentar dengan interaksi tinggi di posisi teratas.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kalah Otoritas dari Akun Bercentang:</strong> Pengguna sering kali lebih memperhatikan komentar dari kreator atau akun besar, membuat akun standar sulit mendapatkan sorotan.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Sulit Memenangkan Debat/Opini:</strong> Argumen atau klarifikasi yang kuat tidak akan efektif jika audiens tidak melihat adanya dukungan (*likes*) dari pengguna lain.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Kehilangan Leads Bisnis:</strong> Promosi halus (*soft-selling*) Anda di kolom komentar Fanpage kompetitor atau grup jual beli menjadi sia-sia karena tertimbun di bawah.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Optimasi <span class="text-blue-500">Komentar FB</span>',
+  deskripsiUtama: "Strategi digital untuk merekayasa urutan visibilitas komentar Anda agar selalu berada di bawah pandangan pertama audiens.",
+  k1Judul: "Eskalasi Interaksi Tertarget",
+  k1Teks: "Kami mendistribusikan apresiasi (*like/reactions*) dalam jumlah masif ke komentar spesifik Anda, memicu sistem Facebook untuk mengkategorikan komentar tersebut sebagai konten berkualitas tinggi.",
+  k2Judul: "Mendominasi Penyortiran Default",
+  k2Teks: "Dengan metrik interaksi yang meroket, komentar Anda akan secara otomatis terkunci di posisi puncak saat pengguna membuka kolom diskusi dengan pengaturan standar 'Paling Relevan'."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Siginifikan <span class="text-blue-600">Top Comment FB</span>',
+  deskripsiUtama: "Keuntungan strategis yang akan Anda nikmati dengan memanfaatkan layanan optimasi komentar Facebook kami.",
+  m1Judul: "Kredibilitas Argumen Maksimal",
+  m1Teks: "Komentar dengan ratusan *like* secara psikologis dianggap sebagai suara mayoritas, membuat pandangan atau klarifikasi Anda dipercaya oleh publik.",
+  m2Judul: "Tangkapan Trafik (Hijacking)",
+  m2Teks: "Dapatkan eksposur gratis dengan menempatkan komentar cerdas atau tautan bisnis Anda di barisan teratas pada postingan Fanpage viral.",
+  m3Judul: "Unggul di Kompetisi / Giveaway",
+  m3Teks: "Solusi mutlak bagi Anda yang sedang mengikuti kontes foto atau ulasan berhadiah yang penilaiannya dihitung dari jumlah *like* pada komentar.",
+  m4Judul: "Privasi Akun Terlindungi",
+  m4Teks: "Sistem eksekusi kami tidak memerlukan email atau *password* Facebook Anda, menjaga akun tetap aman dari risiko peretasan atau blokir."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Kualitas Premium <span class="text-blue-500">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa pebisnis dan figur publik mempercayakan optimasi interaksi Facebook mereka kepada kami?",
+  mk1Judul: "Prosedur 100% Aman",
+  mk1Teks: "Beroperasi murni sebagai pihak ketiga (eksternal). Anda hanya cukup memberikan tautan spesifik dari komentar yang ingin dioptimasi.",
+  mk2Judul: "Dukungan Multi-Format",
+  mk2Teks: "Layanan kami berlaku untuk komentar di postingan teks, foto, video biasa, hingga format Facebook Reels yang sedang tren.",
+  mk3Judul: "Distribusi Realistis",
+  mk3Teks: "Kecepatan masuknya *like* diatur agar terlihat selaras dengan pertumbuhan interaksi organik di postingan tersebut.",
+  mk4Judul: "Fokus Akurasi",
+  mk4Teks: "Tidak akan salah sasaran. Sistem kami menjamin interaksi hanya masuk ke satu komentar spesifik yang Anda instruksikan.",
+  mk5Judul: "Proteksi Stabilitas",
+  mk5Teks: "Fasilitas *refill* (pengisian ulang) tersedia penuh sesuai ketentuan paket untuk menjaga posisi Anda tetap aman.",
+  mk6Judul: "Responsivitas Layanan",
+  mk6Teks: "Tim ahli kami memprioritaskan pengerjaan yang efisien agar momentum diskusi Anda tidak hilang dimakan waktu."
+};
+
+const dataSolusi = {
+  judulUtama: 'Kuasai Narasi di <span class="text-blue-600">Kolom Komentar</span>',
+  deskripsiUtama: "Tinggalkan komentar biasa di belakang dan jadikan ulasan Anda sebagai pusat perhatian utama.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Tembus Filter Paling Relevan",
+  sol1Teks: "Mengamankan posisi tertinggi agar ulasan atau argumen Anda dibaca oleh 90% audiens yang membuka kolom komentar.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Amanah & Terpercaya",
+  sol2Teks: "Mendongkrak metrik interaksi tanpa perlu khawatir melanggar aturan internal profil personal atau Fanpage Anda.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Pancing Reaksi Berantai",
+  sol3Teks: "Komentar dengan *like* melimpah akan mengundang audiens lain untuk ikut memberikan *reply* (balasan), memperluas jangkauan Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Cepat <span class="text-blue-500">Pemesanan</span>',
+  deskripsiUtama: "Prosedur sederhana untuk mulai mendominasi diskusi publik di Facebook.",
+  co1Judul: "Pilih Target Interaksi",
+  co1Teks: "Sesuaikan jumlah paket dengan melihat seberapa besar interaksi *like* pada komentar pesaing di postingan tersebut.",
+  co2Judul: "Hubungi Tim Layanan",
+  co2Teks: "Mulai obrolan via WhatsApp untuk validasi status postingan (harus publik) dan persiapan eksekusi.",
+  co3Judul: "Kirim Tautan (URL) Spesifik",
+  co3Teks: "Berikan *link* langsung menuju komentar Anda, atau *link* postingan utama disertai nama profil pembuat komentar.",
+  co4Judul: "Eksekusi & Pantau Hasil",
+  co4Teks: "Sistem kami akan mendistribusikan interaksi, dan Anda bisa melihat komentar Anda perlahan naik ke posisi puncak."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Top Comment Facebook",
+  deskripsiHarga: "Tentukan paket volume interaksi yang paling rasional untuk mengungguli pesaing Anda.",
+
+  p1Gambar: "/image/jasa-like-facebook-organik-100like.png",
+  p1Nama: "Paket Starter 100 Like Komentar",
+  p1Fitur1: "Ideal untuk Postingan Skala Kecil",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 150.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Komentar%20Facebook",
+
+  p2Label: "REKOMENDASI DEBAT",
+  p2Gambar: "/image/jasa-like-facebook-organik-1000like.png",
+  p2Nama: "Paket Dominasi 1000 Like Komentar",
+  p2Fitur1: "Boost untuk Fanpage / Grup Publik",
+  p2Fitur2: "Prioritas Kecepatan Antrean",
+  p2Fitur3: "Dukungan Layanan CS Prioritas",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Komentar%20Facebook"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-blue-600">Komentar Facebook</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering ditanyakan mengenai teknis layanan optimasi komentar Facebook.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20Facebook",
+  faq1Judul: "Apakah postingan atau grupnya harus bersifat Publik?",
+  faq1Teks: "Ya, ini sangat wajib. Karena sistem kami bekerja secara eksternal, postingan Fanpage atau Grup tempat Anda berkomentar harus berstatus 'Publik' agar sistem dapat menemukan dan mendistribusikan *like* ke komentar tersebut.",
+  faq2Judul: "Apakah membutuhkan akses login ke akun Facebook saya?",
+  faq2Teks: "Sama sekali tidak. Kami sangat menjaga privasi klien. Kami hanya membutuhkan tautan (URL) publik dari postingan/komentar tersebut untuk menjalankan eskalasi interaksi.",
+  faq3Judul: "Bagaimana cara menyalin tautan (URL) komentar yang spesifik?",
+  faq3Teks: "Anda bisa mengklik keterangan waktu (misalnya tulisan '2 jam yang lalu') di bawah komentar Anda melalui browser PC/Laptop untuk mendapatkan URL spesifik. Jika kesulitan, Anda cukup mengirim link postingan utamanya beserta *screenshot* komentar Anda kepada admin.",
+  faq4Judul: "Apakah dijamin komentar akan selalu berada di urutan paling atas?",
+  faq4Teks: "Algoritma Facebook (Paling Relevan) menempatkan komentar berdasarkan jumlah interaksi. Selama jumlah *like* pada komentar Anda lebih tinggi dari pesaing lainnya di postingan tersebut, maka komentar Anda akan terkunci di posisi teratas.",
+  faq5Judul: "Berapa lama waktu yang dibutuhkan hingga target interaksi tercapai?",
+  faq5Teks: "Setelah validasi data selesai, proses antrean akan segera berjalan. Durasi penyelesaian bergantung pada besaran paket yang Anda pilih, demi menjaga laju interaksi tetap terlihat wajar dan natural oleh algoritma Facebook.",
+  faq6Judul: "Apakah layanan ini bisa digunakan untuk kompetisi foto balita / audisi?",
+  faq6Teks: "Tentu bisa. Layanan kami sering kali diandalkan oleh peserta kontes *voting* di Facebook untuk mengamankan kemenangan mutlak secara cepat dan aman tanpa terdeteksi sebagai anomali."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar Facebook Aktif",
+    "image": "https://jasalike.com/image/jasa-like-facebook-organik-100like.png",
+    "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi dan mencapai filter 'Paling Relevan' di Facebook secara profesional.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "685"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar Facebook"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah postingan atau grupnya harus bersifat Publik?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, ini sangat wajib. Karena sistem kami bekerja secara eksternal, postingan Fanpage atau Grup tempat Anda berkomentar harus berstatus 'Publik' agar sistem dapat menemukan dan mendistribusikan like ke komentar tersebut."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah membutuhkan akses login ke akun Facebook saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kami sangat menjaga privasi klien. Kami hanya membutuhkan tautan (URL) publik dari postingan/komentar tersebut untuk menjalankan eskalasi interaksi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara menyalin tautan (URL) komentar yang spesifik?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anda bisa mengklik keterangan waktu (misalnya tulisan '2 jam yang lalu') di bawah komentar Anda melalui browser PC/Laptop untuk mendapatkan URL spesifik. Jika kesulitan, Anda cukup mengirim link postingan utamanya beserta screenshot komentar Anda kepada admin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah dijamin komentar akan selalu berada di urutan paling atas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Algoritma Facebook (Paling Relevan) menempatkan komentar berdasarkan jumlah interaksi. Selama jumlah like pada komentar Anda lebih tinggi dari pesaing lainnya di postingan tersebut, maka komentar Anda akan terkunci di posisi teratas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama waktu yang dibutuhkan hingga target interaksi tercapai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Setelah validasi data selesai, proses antrean akan segera berjalan. Durasi penyelesaian bergantung pada besaran paket yang Anda pilih, demi menjaga laju interaksi tetap terlihat wajar dan natural oleh algoritma Facebook."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini bisa digunakan untuk kompetisi foto balita / audisi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu bisa. Layanan kami sering kali diandalkan oleh peserta kontes voting di Facebook untuk mengamankan kemenangan mutlak secara cepat dan aman tanpa terdeteksi sebagai anomali."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
