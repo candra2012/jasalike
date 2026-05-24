@@ -1,11 +1,13 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
+// Import disesuaikan dengan struktur terbaru
+import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { Icon } from 'astro-icon/components'
 ---
 
-<DefaultLayout title="Hubungi Kami | Jasalike - Layanan Pelanggan">
+<DefaultLayout title="Hubungi Kami | JasaLike - Layanan B2B & Konsultasi">
   
-  <script type="application/ld+json" slot="head">
+  <Fragment slot="head">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -13,8 +15,8 @@ import { Icon } from 'astro-icon/components'
           "@type": "ContactPage",
           "@id": "https://jasalike.com/kontak/#webpage",
           "url": "https://jasalike.com/kontak/",
-          "name": "Hubungi Kami | Konsultasi Optimasi Media Sosial - Aura Digital",
-          "description": "Hubungi tim dukungan Aura Digital untuk konsultasi strategi optimasi metrik sosial media. Kami siap membantu pertumbuhan Instagram, TikTok, Facebook, dan platform lainnya.",
+          "name": "Hubungi Kami | Konsultasi Optimasi Media Sosial - JasaLike",
+          "description": "Hubungi tim representatif JasaLike (Aura Digital) untuk konsultasi strategi optimasi metrik sosial media dan marketplace. Kami siap membantu eskalasi bisnis Anda.",
           "isPartOf": {
             "@id": "https://jasalike.com/#website"
           },
@@ -23,7 +25,7 @@ import { Icon } from 'astro-icon/components'
         {
           "@type": "Organization",
           "@id": "https://jasalike.com/#organization",
-          "name": "Aura Digital",
+          "name": "JasaLike by Aura Digital",
           "url": "https://jasalike.com/",
           "contactPoint": {
             "@type": "ContactPoint",
@@ -45,6 +47,14 @@ import { Icon } from 'astro-icon/components'
               "opens": "08:00",
               "closes": "22:00"
             }
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Palabuan subang No. 15",
+            "addressLocality": "Subang Kota, Subang",
+            "addressRegion": "Jawa Barat",
+            "postalCode": "41211",
+            "addressCountry": "ID"
           }
         },
         {
@@ -68,59 +78,86 @@ import { Icon } from 'astro-icon/components'
       ]
     }
   </script>
+  </Fragment>
 
-  <!-- ============== ISI KONTEN HALAMAN ============== -->
-  <section class="container my-24">
-    <div class="max-w-4xl mx-auto text-center mb-16">
-      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Hubungi <span class="text-primary-500">Kami</span></h1>
-      <p class="text-2xl opacity-80 leading-relaxed">
-        Punya pertanyaan seputar layanan kami atau ingin konsultasi paket mana yang cocok untuk akun Anda? Tim kami siap membantu!
+  <section class="py-20 md:py-32 bg-slate-900 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+    
+    <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Hubungi <span class="text-blue-500">Tim Ahli Kami</span></h1>
+      <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Konsultasikan kebutuhan eskalasi digital Anda. Tim representatif kami siap memandu Anda memilih strategi optimasi yang paling tepat.
       </p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      <!-- Kartu WhatsApp -->
-      <article class="p-8 rounded-3xl border border-green-200 dark:border-green-900 bg-green-50 dark:bg-green-900/10 text-center shadow-sm hover:shadow-md transition-shadow">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 mb-6">
-          <Icon name="lucide:message-circle" size="32" />
-        </div>
-        <h3 class="text-2xl font-semibold mb-3">WhatsApp</h3>
-        <p class="opacity-80 mb-6">Respon paling cepat untuk pemesanan dan konsultasi.</p>
-        <a href="https://wa.me/6289634740308?text=Halo%20Admin%20Jasalike,%20saya%20ingin%20bertanya%20seputar%20layanan." target="_blank" rel="noopener" class="inline-block px-6 py-3 font-semibold rounded-xl bg-green-500 hover:bg-green-600 text-white transition-colors w-full">
-          Chat Admin
-        </a>
-      </article>
-
-      <!-- Kartu Jam Operasional -->
-      <article class="p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center shadow-sm">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 mb-6">
-          <Icon name="lucide:clock" size="32" />
-        </div>
-        <h3 class="text-2xl font-semibold mb-3">Jam Operasional</h3>
-        <p class="opacity-80 mb-2"><strong>Senin - Minggu</strong></p>
-        <p class="opacity-80">08:00 - 22:00 WIB</p>
-        <p class="text-sm opacity-60 mt-4">*Sistem kami tetap memproses order 24 jam</p>
-      </article>
-
-      <!-- Kartu Area Layanan -->
-      <article class="p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-center shadow-sm">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 mb-6">
-          <Icon name="lucide:map-pin" size="32" />
-        </div>
-        <h3 class="text-2xl font-semibold mb-3">Area Layanan</h3>
-        <p class="opacity-80 mb-2"><strong>Seluruh Indonesia</strong></p>
-        <p class="opacity-80">Layanan digital tanpa batas wilayah.</p>
-      </article>
     </div>
   </section>
 
-  <section class="container my-24 max-w-4xl mx-auto">
-    <div class="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 rounded-3xl p-10 border border-primary-100 dark:border-primary-800/50 text-center">
-      <h2 class="text-3xl font-semibold mb-4">Peringatan Keamanan</h2>
-      <p class="text-lg opacity-80 leading-relaxed mb-0">
-        Admin Jasalike yang resmi <strong>hanya membalas melalui nomor WhatsApp +62-896-3474-0308 dan +62-813-1045-778</strong>. Kami tidak pernah menghungi anda duluan admin kami atau CS kami dan meminta dana tanpa ada kerjasama dan kesepakatan dalam situasi apa pun.
-      </p>
+  <section class="py-16 md:py-24 bg-slate-50 dark:bg-[#0B1121]">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <article class="p-8 md:p-10 rounded-3xl border border-blue-200 dark:border-blue-900/50 bg-white dark:bg-slate-900/50 text-center shadow-lg hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative z-10">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 mb-6">
+              <Icon name="lucide:message-circle" class="w-8 h-8" />
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">WhatsApp Sales</h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+              Jalur komunikasi utama untuk respons cepat, pemesanan paket, dan konsultasi teknis.
+            </p>
+            <a href="https://wa.me/6289634740308?text=Halo%20Admin%20JasaLike,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20optimasi." target="_blank" rel="noopener" class="inline-flex items-center justify-center px-6 py-3.5 font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-colors w-full shadow-md shadow-blue-600/20">
+              Mulai Obrolan
+              <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2" />
+            </a>
+          </div>
+        </article>
+
+        <article class="p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 text-center shadow-sm hover:shadow-md transition-shadow">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mb-6">
+            <Icon name="lucide:clock" class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Jam Operasional</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-2"><strong>Senin - Minggu</strong></p>
+          <p class="text-slate-600 dark:text-slate-400 text-lg">09:00 - 22:00 WIB</p>
+          <div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+            <p class="text-sm text-amber-600 dark:text-amber-400 font-medium">
+              <Icon name="lucide:zap" class="w-4 h-4 inline-block mr-1 -mt-0.5" />
+              Sistem memproses pesanan 24 Jam
+            </p>
+          </div>
+        </article>
+
+        <article class="p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 text-center shadow-sm hover:shadow-md transition-shadow">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mb-6">
+            <Icon name="lucide:map-pin" class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Kantor Pusat</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-2 leading-relaxed">
+            <strong>AuraDigital (JasaLike)</strong><br />
+            Jl. Palabuan subang No. 15,<br />
+            Kec. Subang Kota, Subang<br />
+            Jawa Barat - 41211
+          </p>
+          <a href="mailto:jasalike@gmail.com" class="inline-block mt-4 text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline">
+            jasalike@gmail.com
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-slate-50 dark:bg-[#0B1121] pb-24">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="bg-red-50 dark:bg-red-900/10 rounded-3xl p-8 md:p-10 border border-red-200 dark:border-red-900/30 text-center relative overflow-hidden">
+        <Icon name="lucide:shield-alert" class="w-12 h-12 text-red-500 mx-auto mb-4 opacity-80" />
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Peringatan Keamanan Transaksi</h2>
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-0">
+          Representatif resmi JasaLike <strong>hanya berkomunikasi melalui nomor WhatsApp +62-896-3474-0308 dan +62-813-1045-778</strong>. Kami tidak pernah menghubungi Anda lebih dulu atau meminta transfer dana tanpa adanya kesepakatan transaksi yang sah dalam situasi apa pun. Mohon berhati-hati terhadap penipuan yang mengatasnamakan Aura Digital.
+        </p>
+      </div>
     </div>
   </section>
 
 </DefaultLayout>
+
