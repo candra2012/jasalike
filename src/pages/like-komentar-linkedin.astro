@@ -1,0 +1,297 @@
+---
+// src/pages/like-komentar-linkedin.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar LinkedIn Aktif | Bangun Otoritas Profesional";
+const description = "Layanan jasa like komentar LinkedIn premium untuk mendominasi diskusi B2B dan menarik perhatian HRD serta koneksi industri. Aman, terpercaya, dan profesional.";
+const keywords = "jasa like komentar linkedin, beli like komen linkedin, optimasi top comment linkedin, layanan interaksi linkedin aktif, cara menaikkan reputasi profil linkedin, jasa like linkedin terpercaya";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS ALGORITMA & B2B LINKEDIN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Comment LinkedIn",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like Komentar <br class="hidden md:block"/> <span class="text-blue-700">LinkedIn Teratas</span>',
+  deskripsi: "Tingkatkan nilai profil profesional Anda di mata perekrut dan mitra B2B. Layanan optimasi kami menempatkan gagasan dan wawasan Anda di posisi teratas (Top Comment) pada postingan tokoh industri, memperluas jangkauan *networking* Anda secara elegan dan terukur. <br class='hidden md:block mt-2' /> <span class='text-blue-600 font-semibold block mt-4'>✓ Magnet Perhatian HRD &nbsp; ✓ 100% Eksternal & Privat &nbsp; ✓ Validasi Otoritas B2B</span>",
+  teksTombol1: "Eksplorasi Paket LinkedIn",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Karir & B2B",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-linkedin.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Visibilitas di <span class="text-blue-700">Jejaring Profesional</span>',
+  deskripsiUtama: "Mengapa wawasan cerdas Anda sering diabaikan di tengah riuhnya linimasa para profesional?",
+  ms1Teks: '<strong class="text-blue-700 font-bold">Tertutup oleh Akun Korporat:</strong> LinkedIn cenderung memprioritaskan komentar dari level eksekutif (C-Level) atau akun dengan koneksi masif, membuat profil standar sulit tampil.',
+  ms2Teks: '<strong class="text-blue-700 font-bold">Krisis Validasi Ahli:</strong> Sebuah argumen atau solusi teknis sering dianggap kurang kredibel jika tidak mendapatkan dukungan (*likes* atau *insightful*) dari rekan seprofesi.',
+  ms3Teks: '<strong class="text-blue-700 font-bold">Kehilangan Kesempatan Rekrutmen:</strong> Komentar Anda di postingan lowongan kerja atau *update* perusahaan target tertimbun, membuat HRD gagal melihat profil Anda.',
+  ms4Teks: '<strong class="text-blue-700 font-bold">Gagal Menarik Leads B2B:</strong> *Soft-selling* atau penawaran kerja sama di kolom komentar tidak membuahkan hasil karena tidak berada di jangkauan pandang pengambil keputusan.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Eskalasi <span class="text-blue-700">Komentar LinkedIn</span>',
+  deskripsiUtama: "Pendekatan strategis untuk memanipulasi hierarki komentar guna membangun *Personal Branding* yang kuat.",
+  k1Judul: "Injeksi Validasi Profesional",
+  k1Teks: "Kami menyuplai volume apresiasi yang terukur pada opini atau komentar spesifik Anda, memberikan sinyal kepada algoritma LinkedIn bahwa wawasan Anda sangat bernilai bagi komunitas profesional.",
+  k2Judul: "Katalis Kunjungan Profil",
+  k2Teks: "Komentar yang berada di posisi *Top Comment* akan memancing rasa penasaran eksekutif dan HRD, mendorong mereka untuk mengklik dan meninjau portofolio atau CV di profil Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Eksklusif <span class="text-blue-700">Top Comment B2B</span>',
+  deskripsiUtama: "Benefit jangka panjang bagi karir dan perkembangan bisnis Anda dengan memanfaatkan optimasi LinkedIn kami.",
+  m1Judul: "Magnet Perekrut (HRD)",
+  m1Teks: "Tampil menonjol di postingan perusahaan idaman Anda, meningkatkan persentase profil Anda dilirik oleh manajer perekrutan.",
+  m2Judul: "Membangun Otoritas Pemikiran",
+  m2Teks: "Wawasan yang divalidasi oleh banyak interaksi akan menaikkan status Anda sebagai *Thought Leader* (Pakar) di industri Anda.",
+  m3Judul: "Perluasan Koneksi Berkualitas",
+  m3Teks: "Komentar teratas selalu mengundang permintaan koneksi (*Connection Requests*) organik dari sesama profesional di bidang yang sama.",
+  m4Judul: "Keamanan Profil Eksekutif",
+  m4Teks: "Sistem kami beroperasi secara anonim dari luar tanpa perlu kredensial *login*, menjaga reputasi digital Anda tetap sempurna."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Korporat <span class="text-blue-700">JasaLike.com</span>',
+  deskripsiUtama: "Alasan mengapa para eksekutif dan pencari kerja mempercayakan optimasi profil LinkedIn mereka kepada kami.",
+  mk1Judul: "Privasi Tingkat Tinggi",
+  mk1Teks: "Kerahasiaan klien adalah absolut. Kami memproses semuanya melalui tautan (URL) publik tanpa meminta hak akses akun LinkedIn Anda.",
+  mk2Judul: "Targeting Super Presisi",
+  mk2Teks: "Interaksi disalurkan secara spesifik hanya pada *thread* komentar yang Anda tentukan, menjamin akurasi kampanye.",
+  mk3Judul: "Distribusi Terjadwal",
+  mk3Teks: "Kecepatan *like* diatur dengan algoritma *drip-feed* agar selaras dengan ritme interaksi manusia profesional di jam kerja.",
+  mk4Judul: "Aman dari Restriksi",
+  mk4Teks: "Metode eksekusi kami sepenuhnya mematuhi batas wajar interaksi, menjaga *Social Selling Index* (SSI) Anda tetap sehat.",
+  mk5Judul: "Jaminan Stabilitas",
+  mk5Teks: "Fasilitas *refill* tersedia untuk memastikan angka apresiasi pada komentar Anda tidak mengalami penyusutan.",
+  mk6Judul: "Konsultan Berpengalaman",
+  mk6Teks: "Tim ahli kami siap mendampingi Anda merumuskan volume interaksi yang paling pas untuk target industri yang spesifik."
+};
+
+const dataSolusi = {
+  judulUtama: 'Kuasai Panggung <span class="text-blue-700">Diskusi Industri</span>',
+  deskripsiUtama: "Jadikan setiap kata yang Anda tulis sebagai investasi *branding* yang dilihat oleh para pengambil keputusan.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Merajai Kolom Relevansi",
+  sol1Teks: "Memaksa algoritma LinkedIn untuk mengunci wawasan Anda di posisi teratas, menggeser komentar dari akun-akun besar lainnya.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Kredibilitas Terjaga",
+  sol2Teks: "Dieksekusi dengan protokol keamanan maksimal untuk menjaga nama baik perusahaan dan rekam jejak karir Anda.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Memicu Diskusi Konstruktif",
+  sol3Teks: "Komentar dengan dukungan *like* tinggi akan memancing profesional lain untuk ikut membalas, menciptakan diskusi yang memperkuat profil Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Cepat <span class="text-blue-700">Kemitraan</span>',
+  deskripsiUtama: "Langkah elegan untuk memulai eskalasi profil profesional Anda bersama JasaLike.",
+  co1Judul: "Tentukan Skala Eksposur",
+  co1Teks: "Pilih paket interaksi yang sesuai dengan seberapa ketat persaingan di kolom komentar postingan incaran Anda.",
+  co2Judul: "Diskusi via WhatsApp",
+  co2Teks: "Hubungi representatif kami untuk memvalidasi kelayakan tautan dan melakukan administrasi secara profesional.",
+  co3Judul: "Serahkan URL Publik",
+  co3Teks: "Cukup berikan tautan langsung (*Copy Link to Comment*) dari opini yang ingin Anda tingkatkan visibilitasnya.",
+  co4Judul: "Proses & Eksekusi",
+  co4Teks: "Tim kami akan menjalankan prosedur optimasi dan memberikan laporan komprehensif setelah target tercapai."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Branding LinkedIn",
+  deskripsiHarga: "Pilih kapasitas interaksi untuk memaksimalkan kehadiran digital Anda di mata korporat.",
+
+  p1Gambar: "/image/jasa-like-linkedin-organik-100like.png",
+  p1Nama: "Paket Executive 100 Like Komentar",
+  p1Fitur1: "Ideal untuk Eksposur Karir Awal",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Executive%20100%20Like%20Komentar%20LinkedIn",
+
+  p2Label: "REKOMENDASI B2B",
+  p2Gambar: "/image/jasa-like-linkedin-organik-1000like.png",
+  p2Nama: "Paket Corporate 1000 Like Komentar",
+  p2Fitur1: "Boost Maksimal untuk Leads B2B",
+  p2Fitur2: "Prioritas Kecepatan Antrean",
+  p2Fitur3: "Dukungan Layanan CS Prioritas",
+  p2HargaCoret: "Rp 3.500.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Corporate%201000%20Like%20Komentar%20LinkedIn"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-blue-700">Komentar LinkedIn</span>',
+  deskripsiUtama: "Informasi teknis yang sering ditanyakan oleh klien korporat dan profesional mengenai optimasi LinkedIn.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20LinkedIn",
+  faq1Judul: "Apakah aman untuk profil karir atau perusahaan saya?",
+  faq1Teks: "Sangat aman. Eksekusi kami dilakukan seratus persen secara eksternal ke tautan publik Anda. Kami mematuhi standar *rate-limit* LinkedIn sehingga profil Anda terbebas dari risiko penangguhan (suspend).",
+  faq2Judul: "Apakah membutuhkan email atau password LinkedIn saya?",
+  faq2Teks: "Sama sekali tidak. Kami tidak memerlukan hak akses masuk. Cukup kirimkan *Link to Comment* (Tautan menuju komentar Anda) melalui WhatsApp admin kami.",
+  faq3Judul: "Bagaimana cara menyalin tautan komentar LinkedIn?",
+  faq3Teks: "Klik ikon tiga titik (...) di pojok kanan atas kotak komentar Anda, kemudian pilih opsi 'Copy link to comment' (Salin tautan ke komentar). Tautan inilah yang akan menjadi target optimasi kami.",
+  faq4Judul: "Apakah bisa untuk komentar yang berisi link portofolio / website?",
+  faq4Teks: "Bisa, asalkan komentar Anda tidak ditandai sebagai *spam* oleh algoritma LinkedIn atau pemilik postingan. Selama komentar tersebut bisa dilihat oleh publik, sistem kami dapat mendistribusikan interaksi.",
+  faq5Judul: "Berapa lama proses pengerjaan layanannya?",
+  faq5Teks: "Inisiasi antrean dilakukan segera setelah konfirmasi pesanan. Durasi penyelesaian akan disesuaikan dengan skala paket Anda agar pertumbuhan organik profil Anda tetap terlihat profesional dan logis.",
+  faq6Judul: "Apakah ini efektif untuk menarik perhatian HRD?",
+  faq6Teks: "Sangat efektif. Perekrut dan manajer HRD selalu memperhatikan komentar yang berada di posisi teratas pada postingan industri. Dengan berada di *Top Comment*, Anda meningkatkan rasio profil Anda dikunjungi secara signifikan."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar LinkedIn Aktif",
+    "image": "https://jasalike.com/image/jasa-like-linkedin-organik-100like.png",
+    "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi profesional B2B dan mencapai posisi Top Comment di LinkedIn.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "542"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "250000",
+      "highPrice": "2500000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar LinkedIn"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman untuk profil karir atau perusahaan saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Eksekusi kami dilakukan seratus persen secara eksternal ke tautan publik Anda. Kami mematuhi standar rate-limit LinkedIn sehingga profil Anda terbebas dari risiko penangguhan (suspend)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah membutuhkan email atau password LinkedIn saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kami tidak memerlukan hak akses masuk. Cukup kirimkan Link to Comment (Tautan menuju komentar Anda) melalui WhatsApp admin kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara menyalin tautan komentar LinkedIn?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Klik ikon tiga titik (...) di pojok kanan atas kotak komentar Anda, kemudian pilih opsi 'Copy link to comment' (Salin tautan ke komentar). Tautan inilah yang akan menjadi target optimasi kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa untuk komentar yang berisi link portofolio / website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bisa, asalkan komentar Anda tidak ditandai sebagai spam oleh algoritma LinkedIn atau pemilik postingan. Selama komentar tersebut bisa dilihat oleh publik, sistem kami dapat mendistribusikan interaksi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses pengerjaan layanannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Inisiasi antrean dilakukan segera setelah konfirmasi pesanan. Durasi penyelesaian akan disesuaikan dengan skala paket Anda agar pertumbuhan organik profil Anda tetap terlihat profesional dan logis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah ini efektif untuk menarik perhatian HRD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat efektif. Perekrut dan manajer HRD selalu memperhatikan komentar yang berada di posisi teratas pada postingan industri. Dengan berada di Top Comment, Anda meningkatkan rasio profil Anda dikunjungi secara signifikan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
