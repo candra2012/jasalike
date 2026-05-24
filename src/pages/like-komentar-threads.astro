@@ -1,0 +1,298 @@
+---
+// src/pages/like-komentar-threads.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar Threads Aktif | Optimasi Top Reply Terpercaya";
+const description = "Layanan jasa like komentar Threads premium untuk mendominasi percakapan viral di ekosistem Meta. Tingkatkan visibilitas opini dan tarik pengikut organik ke profil Anda.";
+const keywords = "jasa like komentar threads, beli like komen threads, optimasi top reply threads, layanan interaksi threads aktif, cara menaikkan like komentar threads, jasa like balasan threads terpercaya";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS ALGORITMA THREADS & META)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Reply Threads",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like Komentar <br class="hidden md:block"/> <span class="text-neutral-800">Threads Top Comment</span>',
+  deskripsi: "Kuasai arus percakapan di platform teks paling dinamis dari Meta. Layanan optimasi kami memastikan ulasan atau balasan Anda mengunci posisi teratas (Top Reply) pada utas viral, memberikan eksposur maksimal yang berdampak langsung pada pertumbuhan audiens Anda. <br class='hidden md:block mt-2' /> <span class='text-neutral-700 font-semibold block mt-4'>✓ Dominasi Utas Viral &nbsp; ✓ 100% Terlindungi & Eksternal &nbsp; ✓ Dorong Kunjungan Profil</span>",
+  teksTombol1: "Lihat Pilihan Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-threads.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Interaksi di <span class="text-neutral-800">Ekosistem Threads</span>',
+  deskripsiUtama: "Mengapa opini atau ulasan kritis Anda sulit mendapatkan daya tarik di tengah cepatnya arus diskusi Threads?",
+  ms1Teks: '<strong class="text-neutral-800 font-bold">Tenggelam dalam Hitungan Menit:</strong> Karakteristik Threads yang *real-time* membuat balasan baru tanpa interaksi awal langsung tergeser ke bawah oleh ribuan komentar lain.',
+  ms2Teks: '<strong class="text-neutral-800 font-bold">Bayang-bayang Akun Besar:</strong> Algoritma secara natural memprioritaskan balasan dari akun terverifikasi atau tokoh publik, menyulitkan akun reguler untuk tampil menonjol.',
+  ms3Teks: '<strong class="text-neutral-800 font-bold">Krisis Validasi Sosial:</strong> Sebaik apa pun argumen atau penawaran Anda, audiens cenderung mengabaikannya jika tidak melihat adanya dukungan (*like*) yang masif.',
+  ms4Teks: '<strong class="text-neutral-800 font-bold">Kehilangan Momentum Konversi:</strong> Peluang untuk mempromosikan tautan (*link*) atau menarik *followers* baru hilang ketika balasan Anda berada di luar area pandang pembaca.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Optimasi <span class="text-neutral-800">Balasan Threads</span>',
+  deskripsiUtama: "Sebuah rekayasa interaksi terstruktur untuk memanipulasi penyortiran algoritma demi keuntungan visibilitas Anda.",
+  k1Judul: "Eskalasi Bobot Komentar",
+  k1Teks: "Kami mendistribusikan apresiasi (*like*) secara terukur pada balasan spesifik Anda, mengirimkan sinyal kuat kepada sistem Threads bahwa opini Anda berbobot dan sangat relevan.",
+  k2Judul: "Jembatan Lalu Lintas Organik",
+  k2Teks: "Menempati posisi teratas di Threads tidak hanya meningkatkan interaksi pada ulasan tersebut, tetapi juga merupakan strategi paling ampuh untuk memancing pengguna mengunjungi profil utama Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Strategis <span class="text-neutral-800">Top Reply Threads</span>',
+  deskripsiUtama: "Keunggulan kompetitif yang akan Anda nikmati dengan memanfaatkan layanan optimasi komentar Threads dari JasaLike.",
+  m1Judul: "Pembajakan Trafik Viral",
+  m1Teks: "Menumpang momentum dari utas (thread) akun populer untuk mendapatkan ratusan ribu *impressions* gratis bagi opini atau *brand* Anda.",
+  m2Judul: "Efek Ganda Profil IG",
+  m2Teks: "Karena ekosistem yang terhubung, peningkatan kunjungan pada profil Threads Anda sering kali berdampak positif pada pertumbuhan pengikut Instagram Anda.",
+  m3Judul: "Dominasi Pembentukan Opini",
+  m3Teks: "Komentar dengan dukungan *like* tertinggi secara psikologis akan diterima sebagai konsensus atau kebenaran oleh mayoritas pembaca.",
+  m4Judul: "Keamanan Ekosistem Meta",
+  m4Teks: "Layanan kami dieksekusi 100% dari luar (eksternal) tanpa *login*, menjaga profil Threads dan Instagram Anda tetap bersih dari risiko pembatasan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Mutu <span class="text-neutral-800">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa kreator konten dan *brand* mempercayakan performa metrik Threads mereka kepada kami?",
+  mk1Judul: "Tanpa Akses Sandi",
+  mk1Teks: "Kerahasiaan data Anda adalah prioritas. Kami hanya memerlukan tautan (URL) dari balasan yang ingin Anda distribusikan interaksinya.",
+  mk2Judul: "Akurasi Titik Target",
+  mk2Teks: "Sistem pendeteksi kami memastikan volume *like* masuk dengan presisi hanya ke satu ulasan spesifik tanpa meleset.",
+  mk3Judul: "Pemrosesan Sigap",
+  mk3Teks: "Merespons cepatnya tren di Threads, kami memprioritaskan kecepatan antrean agar komentar Anda segera memanjat naik ke urutan pertama.",
+  mk4Judul: "Distribusi Logis",
+  mk4Teks: "Pola penyaluran interaksi dirancang menyerupai ritme aktivitas manusia asli untuk menjaga stabilitas akun di mata sistem Meta.",
+  mk5Judul: "Fasilitas Perlindungan",
+  mk5Teks: "Setiap paket didukung oleh garansi pengisian ulang (*refill*) untuk memastikan jumlah interaksi pada balasan Anda tetap kokoh.",
+  mk6Judul: "Saran Taktis Berpengalaman",
+  mk6Teks: "Tim layanan pelanggan kami siap membantu Anda menganalisis jumlah volume yang rasional untuk menaklukkan ulasan kompetitor."
+};
+
+const dataSolusi = {
+  judulUtama: 'Jadilah Pusat <span class="text-neutral-800">Perhatian Diskusi</span>',
+  deskripsiUtama: "Ubah balasan biasa menjadi magnet interaksi yang tidak bisa dilewatkan oleh pengguna Threads.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Kunci Posisi Puncak",
+  sol1Teks: "Menyingkirkan ulasan lama dan memaksa algoritma untuk menempatkan suara Anda persis di bawah utas utama.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Amanah & Profesional",
+  sol2Teks: "Mengembangkan metrik visibilitas Anda tanpa perlu khawatir melanggar pedoman komunitas internal platform.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Pemantik Percakapan Berantai",
+  sol3Teks: "Komentar yang validasinya tinggi akan mengundang pengguna lain untuk ikut membalas, menciptakan interaksi organik yang panjang."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-neutral-800">Pemesanan</span>',
+  deskripsiUtama: "Langkah-langkah efisien untuk memulai eskalasi komentar Threads Anda hari ini.",
+  co1Judul: "Evaluasi Kompetisi Utas",
+  co1Teks: "Periksa komentar teratas di utas target Anda, lalu pilih paket kami yang kapasitasnya cukup untuk melampaui metrik pesaing.",
+  co2Judul: "Verifikasi via WhatsApp",
+  co2Teks: "Hubungi tim admin kami untuk memastikan akun dan tautan sudah bersifat publik serta siap untuk diproses.",
+  co3Judul: "Salin Tautan Target",
+  co3Teks: "Berikan *link* spesifik dari ulasan/balasan Anda di aplikasi Threads (menggunakan fitur *Copy Link* pada komentar Anda).",
+  co4Judul: "Pantau Eskalasi",
+  co4Teks: "Sistem kami akan mengeksekusi pesanan dengan cepat, dan Anda bisa melihat balasan Anda merangkak naik memimpin diskusi."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Top Reply Threads",
+  deskripsiHarga: "Pilih skala interaksi yang tepat untuk mendominasi narasi di platform berbasis teks Meta.",
+
+  p1Gambar: "/image/jasa-like-threads-organik-100like.png",
+  p1Nama: "Paket Starter 100 Like Reply",
+  p1Fitur1: "Ideal untuk Utas Skala Menengah",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Komentar%20Threads",
+
+  p2Label: "REKOMENDASI VIRAL",
+  p2Gambar: "/image/jasa-like-threads-organik-1000like.png",
+  p2Nama: "Paket Dominasi 1000 Like Reply",
+  p2Fitur1: "Boost Kuat untuk Utas Akun Besar",
+  p2Fitur2: "Prioritas Kecepatan Antrean",
+  p2Fitur3: "Dukungan Layanan CS Prioritas",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Komentar%20Threads"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-neutral-800">Komentar Threads</span>',
+  deskripsiUtama: "Informasi teknis penting untuk klien yang akan melakukan eskalasi interaksi pada platform Threads.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20Threads",
+  faq1Judul: "Apakah proses ini membahayakan akun Instagram yang tertaut?",
+  faq1Teks: "Sama sekali tidak. Proses kami berjalan murni secara eksternal. Kami tidak meminta kata sandi atau *login* ke akun Anda, sehingga tidak ada pelanggaran privasi yang dapat berdampak pada profil Threads maupun Instagram Anda.",
+  faq2Judul: "Apakah akun Threads saya harus berstatus publik?",
+  faq2Teks: "Ya, ini adalah syarat wajib. Profil Threads Anda dan akun pemilik utas (postingan utama) harus bersifat 'Publik'. Sistem kami tidak dapat membaca atau mendistribusikan interaksi pada tautan yang dikunci (Private).",
+  faq3Judul: "Bagaimana cara mendapatkan link komentar saya di Threads?",
+  faq3Teks: "Pada balasan/komentar Anda, ketuk ikon 'Bagikan' (biasanya berupa ikon pesawat kertas kecil di bawah teks Anda), kemudian pilih opsi 'Salin Tautan' (Copy Link). Kirimkan tautan tersebut ke admin kami.",
+  faq4Judul: "Apakah ini menjamin komentar saya tidak akan turun posisinya?",
+  faq4Teks: "Layanan kami meningkatkan metrik interaksi ke titik yang ditargetkan. Jika di kemudian hari ada balasan organik lain yang mendapatkan jumlah *like* melampaui total interaksi komentar Anda, posisinya tentu bisa bergeser. Kami menyarankan paket kapasitas tinggi untuk mengunci posisi lebih aman.",
+  faq5Judul: "Berapa estimasi kecepatan pengerjaannya?",
+  faq5Teks: "Pemrosesan awal berjalan cepat setelah verifikasi data selesai. Namun kecepatan selesainya pesanan bergantung pada kuantitas paket yang Anda pilih, demi menjaga agar pola penambahannya tetap natural di mata sistem Threads.",
+  faq6Judul: "Apakah bisa untuk komentar yang mengandung tautan (link) afiliasi?",
+  faq6Teks: "Bisa, asalkan komentar Anda telah berhasil diunggah (terlihat oleh publik) dan tidak disembunyikan oleh filter *spam* otomatis dari Threads. Selama komentar dapat diakses secara publik, optimasi siap dijalankan."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar Threads Aktif",
+    "image": "https://jasalike.com/image/jasa-like-threads-organik-100like.png",
+    "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi dan meraih posisi Top Reply di Threads secara profesional.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "512"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "150000",
+      "highPrice": "1250000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar Threads"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah proses ini membahayakan akun Instagram yang tertaut?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Proses kami berjalan murni secara eksternal. Kami tidak meminta kata sandi atau login ke akun Anda, sehingga tidak ada pelanggaran privasi yang dapat berdampak pada profil Threads maupun Instagram Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah akun Threads saya harus berstatus publik?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, ini adalah syarat wajib. Profil Threads Anda dan akun pemilik utas (postingan utama) harus bersifat 'Publik'. Sistem kami tidak dapat membaca atau mendistribusikan interaksi pada tautan yang dikunci (Private)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara mendapatkan link komentar saya di Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pada balasan/komentar Anda, ketuk ikon 'Bagikan' (biasanya berupa ikon pesawat kertas kecil di bawah teks Anda), kemudian pilih opsi 'Salin Tautan' (Copy Link). Kirimkan tautan tersebut ke admin kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah ini menjamin komentar saya tidak akan turun posisinya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan kami meningkatkan metrik interaksi ke titik yang ditargetkan. Jika di kemudian hari ada balasan organik lain yang mendapatkan jumlah like melampaui total interaksi komentar Anda, posisinya tentu bisa bergeser. Kami menyarankan paket kapasitas tinggi untuk mengunci posisi lebih aman."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa estimasi kecepatan pengerjaannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pemrosesan awal berjalan cepat setelah verifikasi data selesai. Namun kecepatan selesainya pesanan bergantung pada kuantitas paket yang Anda pilih, demi menjaga agar pola penambahannya tetap natural di mata sistem Threads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa untuk komentar yang mengandung tautan (link) afiliasi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bisa, asalkan komentar Anda telah berhasil diunggah (terlihat oleh publik) dan tidak disembunyikan oleh filter spam otomatis dari Threads. Selama komentar dapat diakses secara publik, optimasi siap dijalankan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
