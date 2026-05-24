@@ -1,0 +1,298 @@
+---
+// src/pages/like-marketplace.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Produk Marketplace | Optimasi Algoritma Shopee, Lazada & TikTok Shop";
+const description = "Layanan jasa like produk dan wishlist marketplace terpercaya. Tingkatkan konversi penjualan, validasi sosial, dan ranking pencarian toko Anda secara aman.";
+const keywords = "jasa like produk marketplace, beli like produk shopee, jasa wishlist lazada, optimasi algoritma tiktok shop, jasa like blibli, cara menaikkan pencarian produk marketplace";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS SELLER & KONVERSI PENJUALAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Konversi Marketplace",
+  labelIcon: "lucide:shopping-bag",
+  judulUtama: 'Jasa Like Produk <br class="hidden md:block"/> <span class="text-orange-500">Marketplace Teratas</span>',
+  deskripsi: "Dominasi hasil pencarian dan raih kepercayaan pembeli seketika. Layanan injeksi validasi sosial kami dirancang untuk mendongkrak angka *Like/Wishlist* produk Anda di Shopee, TikTok Shop, Lazada, dan Blibli, mengirimkan sinyal positif ke algoritma bahwa produk Anda adalah produk terlaris. <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Tingkatkan Konversi Pembeli &nbsp; ✓ 100% Aman untuk Toko &nbsp; ✓ Optimasi Multi-Platform</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Optimasi Toko",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-marketplace.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Persaingan di <span class="text-orange-500">Marketplace</span>',
+  deskripsiUtama: "Mengapa produk berkualitas Anda sepi pembeli dan kalah bersaing dari toko kompetitor?",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Krisis Kepercayaan Pembeli:</strong> Secara psikologis, calon pembeli ragu untuk melakukan *checkout* pada produk baru yang belum memiliki riwayat apresiasi (*0 Likes/Wishlists*).',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Tenggelam di Pencarian Bawah:</strong> Algoritma marketplace memprioritaskan produk dengan interaksi tinggi untuk tampil di halaman pertama pencarian.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Biaya Iklan (Ads) yang Membengkak:</strong> Membakar uang untuk fitur *Ads/Boost* menjadi tidak efisien (ROI rendah) jika tampilan etalase produk Anda belum terlihat meyakinkan.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Kalah Perang Harga:</strong> Toko yang sudah memiliki puluhan ribu *likes* dapat menjual dengan harga lebih mahal karena sudah memiliki otoritas pasar.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Optimasi <span class="text-orange-500">Katalog Produk</span>',
+  deskripsiUtama: "Strategi cerdas untuk merekayasa indikator popularitas produk guna memenangkan persaingan algoritma toko online.",
+  k1Judul: "Stimulasi Sinyal Algoritma",
+  k1Teks: "Kami memberikan pasokan metrik apresiasi (*Like/Wishlist/Favorit*) yang masif pada tautan produk Anda, menginformasikan ke sistem marketplace bahwa barang tersebut sedang menjadi tren.",
+  k2Judul: "Rekayasa Persepsi (Social Proof)",
+  k2Teks: "Etalase produk dengan ribuan *like* akan menciptakan efek psikologis (FOMO) yang meyakinkan calon pelanggan bahwa produk Anda adalah pilihan utama banyak orang."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Eskalasi pada <span class="text-orange-500">Omzet Toko</span>',
+  deskripsiUtama: "Keunggulan kompetitif yang langsung dirasakan oleh *seller* saat menggunakan layanan optimasi marketplace kami.",
+  m1Judul: "Rasio Konversi Meningkat",
+  m1Teks: "Pengunjung yang datang ke toko Anda akan lebih mudah mengubah niat beli menjadi transaksi (*checkout*) karena melihat tingginya minat produk.",
+  m2Judul: "Boost SEO Internal Platform",
+  m2Teks: "Memperbaiki skor relevansi produk Anda, membantunya merangkak naik ke posisi atas tanpa harus terus bergantung pada biaya iklan (CPAS/Ads).",
+  m3Judul: "Efisiensi Biaya Pemasaran",
+  m3Teks: "Meningkatkan daya tarik visual etalase dengan biaya investasi yang jauh lebih terjangkau dibandingkan membuang anggaran untuk promosi tidak tertarget.",
+  m4Judul: "Aman dari Poin Penalti",
+  m4Teks: "Prosedur interaksi dilakukan secara eksternal murni, menjamin akun *Seller Center* Anda 100% aman dari risiko pembatasan (banned/poin penalti)."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Dukungan Infrastruktur <span class="text-orange-500">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa *Brand/Official Store* dan UMKM mengandalkan layanan metrik kami untuk menopang penjualan?",
+  mk1Judul: "Tanpa Akses Seller Center",
+  mk1Teks: "Rahasia dapur bisnis Anda aman. Kami hanya membutuhkan *Link URL* publik dari produk yang Anda jual di aplikasi.",
+  mk2Judul: "Dukungan Lintas Platform",
+  mk2Teks: "Infrastruktur kami mendukung optimasi untuk berbagai raksasa e-commerce: Shopee, TikTok Shop, Lazada, hingga Blibli.",
+  mk3Judul: "Distribusi Stabil & Organik",
+  mk3Teks: "Laju masuknya interaksi dikontrol ketat secara berkala agar selaras dengan pola kunjungan trafik alami (*natural traffic*) ke toko Anda.",
+  mk4Judul: "Akurasi Targeting",
+  mk4Teks: "Kami menjamin suplai metrik masuk ke varian atau tautan produk yang spesifik sesuai instruksi kampanye Anda.",
+  mk5Judul: "Garansi Stabilitas Angka",
+  mk5Teks: "Untuk memastikan investasi Anda terjaga, kami memberikan garansi pemulihan (*refill*) apabila terjadi penyesuaian oleh sistem marketplace.",
+  mk6Judul: "Layanan Eksekutif B2B",
+  mk6Teks: "Tim ahli kami siap membantu Anda menyusun strategi pembagian (*split*) jumlah like untuk ratusan SKU produk yang berbeda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Etalase Menjadi <span class="text-orange-500">Mesin Penjualan</span>',
+  deskripsiUtama: "Jangan biarkan pembeli kabur ke toko sebelah hanya karena produk Anda terlihat sepi peminat.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Tingkatkan Peringkat Pencarian",
+  sol1Teks: "Bantu produk Anda menggeser posisi kompetitor pada halaman hasil pencarian (*Search Result Page*) di dalam aplikasi.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Metode Aman & Tersertifikasi",
+  sol2Teks: "Diproses oleh jaringan terpercaya tanpa menggunakan metode invasif, menjaga reputasi nama baik toko/brand Anda.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Bangun Loyalitas Pelanggan",
+  sol3Teks: "Produk yang terlihat populer secara otomatis akan lebih mudah mendapatkan ulasan (review) positif dari pembeli nyata."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Empat langkah efisien untuk meroketkan kredibilitas toko online Anda hari ini.",
+  co1Judul: "Tentukan Volume Kebutuhan",
+  co1Teks: "Analisis rata-rata *likes/wishlists* pada produk kompetitor di kategori yang sama, lalu pilih paket kami untuk mengungguli mereka.",
+  co2Judul: "Konsultasi Penjadwalan",
+  co2Teks: "Hubungi tim admin representatif kami via WhatsApp untuk menentukan platform target (Shopee/TikTok/dll) dan teknis pengerjaan.",
+  co3Judul: "Serahkan Tautan Produk",
+  co3Teks: "Salin dan kirimkan tautan langsung (*Copy Link*) dari halaman produk yang ada di etalase marketplace Anda.",
+  co4Judul: "Eksekusi & Pelaporan",
+  co4Teks: "Sistem kami akan mulai mendistribusikan interaksi, dan tim akan melaporkan progresnya setelah target validasi tercapai."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi Toko Online",
+  deskripsiHarga: "Pilih paket yang paling efisien untuk mendongkrak performa SKU produk unggulan Anda.",
+
+  p1Gambar: "/image/jasa-like-marketplace-100.png",
+  p1Nama: "Paket Tester 100 Like Produk",
+  p1Fitur1: "Ideal untuk Produk Baru / Testing",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Tester%20100%20Like%20Produk%20Marketplace",
+
+  p2Label: "REKOMENDASI SELLER",
+  p2Gambar: "/image/jasa-like-marketplace-1000.png",
+  p2Nama: "Paket Dominasi 1000 Like Produk",
+  p2Fitur1: "Boost untuk Flash Sale / Campaign",
+  p2Fitur2: "Bisa Dipecah (Split) ke 5 Produk",
+  p2Fitur3: "Dukungan Layanan CS Prioritas B2B",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Produk%20Marketplace"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-orange-500">Produk Marketplace</span>',
+  deskripsiUtama: "Kumpulan jawaban strategis atas pertanyaan teknis dari para pemilik toko online dan agen distributor.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Produk%20Marketplace",
+  faq1Judul: "Apakah aman bagi toko saya dari sanksi pelanggaran (banned)?",
+  faq1Teks: "Sangat aman. Kami menggunakan metode eksternal di mana interaksi masuk persis seperti pengunjung biasa yang melihat etalase Anda. Tidak ada indikasi pelanggaran sistem (fraud) karena kami tidak membutuhkan akses masuk ke dasbor *Seller Center* Anda.",
+  faq2Judul: "Data apa yang perlu saya siapkan?",
+  faq2Teks: "Kami hanya membutuhkan Tautan Publik (*URL / Link Produk*) dari barang yang Anda jual. Anda bisa mendapatkannya dengan mengklik tombol 'Bagikan' (Share) pada halaman produk di aplikasi marketplace Anda.",
+  faq3Judul: "Apakah jumlah Like ini akan meningkatkan penjualan secara instan?",
+  faq3Teks: "Layanan ini bertugas meroketkan **Kepercayaan (Trust)** dan **Visibilitas Algoritma**. Konversi penjualan akhir tetap bergantung pada faktor internal produk Anda (Kualitas gambar, deskripsi, harga, dan layanan *chat* pelanggan Anda).",
+  faq4Judul: "Apakah paket Like bisa dibagi-bagi ke beberapa produk?",
+  faq4Teks: "Ya, bisa! Untuk pengambilan paket dalam jumlah besar (misal: 1000 Like), Anda bisa memecahnya (*split*) ke maksimal 5 URL produk yang berbeda agar etalase toko Anda terlihat ramai secara merata.",
+  faq5Judul: "Platform marketplace mana saja yang didukung layanan ini?",
+  faq5Teks: "Saat ini, infrastruktur kami melayani optimasi interaksi (*Like / Favorit / Wishlist*) untuk platform Shopee, TikTok Shop (TikTok Commerce), Lazada, dan Blibli.",
+  faq6Judul: "Bagaimana jika produk kehabisan stok atau terhapus saat pengerjaan?",
+  faq6Teks: "Apabila tautan produk menjadi tidak valid (terhapus/arsip) di tengah pengerjaan karena kesalahan *seller*, maka sisa pesanan dianggap hangus. Pastikan status produk dalam keadaan aktif dan stok tersedia sebelum Anda melakukan pemesanan."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Produk Marketplace Aktif",
+    "image": "https://jasalike.com/image/jasa-like-marketplace-100.png",
+    "description": "Layanan optimasi engagement untuk mendongkrak popularitas produk di algoritma pencarian Shopee, TikTok Shop, Lazada, dan Blibli.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "980"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Produk Marketplace"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman bagi toko saya dari sanksi pelanggaran (banned)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menggunakan metode eksternal di mana interaksi masuk persis seperti pengunjung biasa yang melihat etalase Anda. Tidak ada indikasi pelanggaran sistem (fraud) karena kami tidak membutuhkan akses masuk ke dasbor Seller Center Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Data apa yang perlu saya siapkan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami hanya membutuhkan Tautan Publik (URL / Link Produk) dari barang yang Anda jual. Anda bisa mendapatkannya dengan mengklik tombol 'Bagikan' (Share) pada halaman produk di aplikasi marketplace Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah Like ini akan meningkatkan penjualan secara instan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan ini bertugas meroketkan Kepercayaan (Trust) dan Visibilitas Algoritma. Konversi penjualan akhir tetap bergantung pada faktor internal produk Anda (Kualitas gambar, deskripsi, harga, dan layanan chat pelanggan Anda)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah paket Like bisa dibagi-bagi ke beberapa produk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, bisa! Untuk pengambilan paket dalam jumlah besar (misal: 1000 Like), Anda bisa memecahnya (split) ke maksimal 5 URL produk yang berbeda agar etalase toko Anda terlihat ramai secara merata."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Platform marketplace mana saja yang didukung layanan ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Saat ini, infrastruktur kami melayani optimasi interaksi (Like / Favorit / Wishlist) untuk platform Shopee, TikTok Shop (TikTok Commerce), Lazada, dan Blibli."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana jika produk kehabisan stok atau terhapus saat pengerjaan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Apabila tautan produk menjadi tidak valid (terhapus/arsip) di tengah pengerjaan karena kesalahan seller, maka sisa pesanan dianggap hangus. Pastikan status produk dalam keadaan aktif dan stok tersedia sebelum Anda melakukan pemesanan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
