@@ -1,10 +1,13 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
+// Import disesuaikan dengan struktur terbaru
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
-<DefaultLayout title="Tentang Kami | Jasalike - Layanan Jasa Like Sosial Media">
+<DefaultLayout title="Tentang Kami | JasaLike by AuraDigital - Agensi Eskalasi Digital">
   
-  <script type="application/ld+json" slot="head">
+  <Fragment slot="head">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -13,7 +16,7 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
           "@id": "https://jasalike.com/tentang-kami/#webpage",
           "url": "https://jasalike.com/tentang-kami/",
           "name": "Tentang Kami | Profil Agensi Optimasi Aura Digital",
-          "description": "Pelajari lebih lanjut tentang dedikasi dan perjalanan kami sebagai agensi manajemen metrik sosial media profesional yang berfokus pada pertumbuhan brand Anda.",
+          "description": "Pelajari dedikasi dan infrastruktur JasaLike (Aura Digital) sebagai agensi manajemen metrik sosial media profesional yang berfokus pada dominasi algoritma dan konversi brand Anda.",
           "isPartOf": {
             "@id": "https://jasalike.com/#website"
           },
@@ -23,21 +26,29 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
           "@type": "Organization",
           "@id": "https://jasalike.com/#organization",
           "name": "Aura Digital",
-          "alternateName": "Jasa Like",
+          "alternateName": "JasaLike",
           "url": "https://jasalike.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://jasalike.com/logo-utama.png",
+            "url": "https://jasalike.com/image/logo-sosmed.jpg",
             "width": 512,
             "height": 512
           },
-          "description": "Aura Digital adalah agensi penyedia layanan optimasi media sosial dan manajemen interaksi digital untuk platform Instagram, TikTok, Facebook, YouTube, LinkedIn, dan X (Twitter).",
+          "description": "Aura Digital adalah agensi penyedia layanan optimasi media sosial, e-commerce, dan manajemen interaksi digital premium untuk korporat dan kreator di Indonesia.",
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+62-896-3474-0308",
             "contactType": "Customer Service",
             "areaServed": "ID",
             "availableLanguage": "Indonesian"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Palabuan subang No. 15",
+            "addressLocality": "Subang Kota, Subang",
+            "addressRegion": "Jawa Barat",
+            "postalCode": "41211",
+            "addressCountry": "ID"
           }
         },
         {
@@ -61,66 +72,116 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
       ]
     }
   </script>
+  </Fragment>
 
-  <!-- ============== ISI KONTEN HALAMAN ============== -->
-  <section class="container my-24">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-  Mengenal <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Jasalike</span>
-</h1>
-      <p class="text-2xl opacity-80 leading-relaxed mb-12">
-        Kami hadir untuk membantu individu, kreator konten, dan pemilik bisnis membangun kehadiran digital yang kuat, meyakinkan, dan profesional.
+  <section class="py-20 md:py-32 bg-slate-900 border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-cyan-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+    
+    <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        Di Balik <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">JasaLike</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Kami adalah bagian dari jaringan agensi <strong>AuraDigital</strong> yang berdedikasi membangun otoritas digital, kredibilitas *brand*, dan dominasi algoritma untuk bisnis Anda.
       </p>
     </div>
   </section>
 
-  <section class="container my-20">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      <div class="p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900/40 border border-neutral-200 dark:border-neutral-800">
-        <h2 class="text-3xl font-semibold mb-6">Visi Kami</h2>
-        <p class="text-lg opacity-80 leading-relaxed">
-          Menjadi platform spesialis layanan optimasi interaksi sosial media nomor satu di Indonesia yang mengedepankan keamanan akun pengguna, kecepatan layanan, dan kualitas interaksi yang natural.
-        </p>
-      </div>
-      <div>
-        <h2 class="text-4xl font-semibold mb-6">Fokus Pada Solusi, Bukan Sekadar Angka</h2>
-        <p class="text-lg opacity-80 leading-relaxed mb-6">
-          Di era digital saat ini, kredibilitas sangat ditentukan oleh interaksi pertama. Audiens lebih mudah percaya pada akun atau postingan yang sudah memiliki banyak interaksi (*Social Proof*).
-        </p>
-        <p class="text-lg opacity-80 leading-relaxed">
-          Oleh karena itu, Jasalike tidak sekadar menjual "angka" Like. Kami memberikan solusi bagi Anda untuk melewati rintangan algoritma awal, membangun kepercayaan calon pelanggan, dan mempercepat pertumbuhan akun Anda tanpa cara-cara yang membahayakan privasi Anda.
-        </p>
+  <section class="py-16 md:py-24 bg-slate-50 dark:bg-[#0B1121]">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        
+        <div class="p-10 md:p-12 rounded-3xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-xl relative overflow-hidden group">
+          <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500">
+            <Icon name="lucide:target" class="w-32 h-32 text-blue-600" />
+          </div>
+          <div class="relative z-10">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Visi Utama Kami</h2>
+            <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+              Menjadi infrastruktur eskalasi metrik digital terdepan di Indonesia yang memberikan solusi peningkatan *engagement* paling aman, organik, dan berdampak langsung pada tingkat konversi bisnis klien kami.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+            Eskalasi Strategis, Bukan Sekadar Angka
+          </h2>
+          <div class="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p>
+              Di era kompetisi digital yang agresif, kualitas produk saja tidak cukup. Calon pembeli dan audiens membutuhkan validasi awal (*Social Proof*) sebelum mereka memberikan kepercayaan.
+            </p>
+            <p>
+              JasaLike merancang sistem rekayasa interaksi yang selaras dengan cara kerja algoritma modern (TikTok, Instagram, hingga Marketplace). Kami membantu *brand* Anda melewati rintangan algoritma awal (*cold start*), menenggelamkan sentimen negatif, dan mempercepat pertumbuhan organik tanpa membahayakan aset digital Anda.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="container my-32">
-    <h2 class="text-4xl font-semibold mb-16 text-center">Nilai Inti Kami</h2>
-    <div class="grid sm:grid-cols-3 gap-8">
-      {[
-        { title: '100% Aman & Privat', desc: 'Kami tidak akan pernah meminta password, email, atau akses login ke akun sosial media Anda.' },
-        { title: 'Proses Instan', desc: 'Sistem kami bekerja secara otomatis untuk memastikan pesanan Anda diproses sesegera mungkin setelah konfirmasi.' },
-        { title: 'Dukungan Penuh', desc: 'Tim Customer Service kami siap membantu Anda melalui WhatsApp untuk konsultasi dan pelacakan pesanan.' },
-      ].map((val) => (
-        <article class="p-8 rounded-3xl border border-neutral-200/70 dark:border-neutral-800/70 bg-white/60 dark:bg-neutral-900/60 shadow-sm text-center">
-          <h3 class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400">{val.title}</h3>
-          <p class="opacity-80 leading-relaxed">{val.desc}</p>
+  <section class="py-16 md:py-24 bg-white dark:bg-slate-900/20 border-y border-slate-200 dark:border-slate-800/50">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center text-slate-900 dark:text-white">Infrastruktur Premium Kami</h2>
+      
+      <div class="grid sm:grid-cols-3 gap-8">
+        <article class="p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 shadow-sm hover:shadow-lg transition-shadow text-center">
+          <div class="mx-auto w-16 h-16 rounded-2xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6">
+            <Icon name="lucide:shield-check" class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Privasi Absolut</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Beroperasi 100% secara eksternal. Kami tidak akan pernah meminta kata sandi, email, atau kredensial *login* sistem klien kami.
+          </p>
         </article>
-      ))}
+
+        <article class="p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 shadow-sm hover:shadow-lg transition-shadow text-center">
+          <div class="mx-auto w-16 h-16 rounded-2xl bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6">
+            <Icon name="lucide:zap" class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Distribusi Logis</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Sistem eksekusi yang dijadwalkan secara sistematis (*drip-feed*) agar laju interaksi terbaca natural oleh mesin moderasi *platform*.
+          </p>
+        </article>
+
+        <article class="p-8 md:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 shadow-sm hover:shadow-lg transition-shadow text-center">
+          <div class="mx-auto w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6">
+            <Icon name="lucide:users" class="w-8 h-8" />
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Layanan Eksekutif</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Tim analis kami senantiasa siap memberikan konsultasi strategis dan pendampingan pasca-pembelian secara responsif.
+          </p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="container my-24">
-    <div class="bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 rounded-3xl p-12 text-center border border-neutral-300 dark:border-neutral-700">
-      <h2 class="text-3xl md:text-4xl font-semibold mb-6">Siap Meningkatkan Kredibilitas Anda?</h2>
-      <p class="text-xl opacity-80 mb-10 max-w-2xl mx-auto">
-        Jangan biarkan konten berkualitas Anda tenggelam karena kurangnya interaksi awal. Mari tumbuh bersama Jasalike.
-      </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="/layanan/" class="button px-8 py-4 text-lg">Lihat Layanan Kami</a>
-        <a href="https://wa.me/6289634740308" class="button color-secondary px-8 py-4 text-lg">Hubungi CS Kami</a>
+  <section class="py-16 md:py-24 bg-slate-50 dark:bg-[#0B1121]">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl p-10 md:p-16 text-center shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+        
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Amankan Pangsa Pasar Anda Hari Ini</h2>
+          <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Jangan biarkan penawaran brilian Anda terabaikan hanya karena kalah validasi sosial dari kompetitor. Mari bangun dominasi bersama kami.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/layanan/" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-blue-600 hover:bg-slate-50 transition-colors shadow-lg">
+              Jelajahi Solusi Kami
+            </a>
+            <a href="https://wa.me/6289634740308" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-blue-700/50 text-white hover:bg-blue-800 transition-colors border border-blue-400/30 backdrop-blur-sm">
+              Mulai Konsultasi Gratis
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 </DefaultLayout>
+
