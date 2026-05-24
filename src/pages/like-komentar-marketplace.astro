@@ -1,0 +1,298 @@
+---
+// src/pages/like-komentar-marketplace.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Ulasan & Komentar Marketplace | Optimasi Top Review";
+const description = "Layanan jasa like ulasan produk marketplace untuk mendongkrak review positif ke urutan teratas. Tenggelamkan ulasan negatif dan tingkatkan konversi penjualan Anda.";
+const keywords = "jasa like komentar marketplace, beli like ulasan shopee, optimasi top review tokopedia, jasa like review lazada, cara menaikkan ulasan positif shopee, jasa like komentar tiktok shop";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS ALGORITMA ULASAN & KONVERSI B2B)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Top Review E-Commerce",
+  labelIcon: "lucide:message-square",
+  judulUtama: 'Jasa Like Ulasan <br class="hidden md:block"/> <span class="text-amber-500">Marketplace Teratas</span>',
+  deskripsi: "Kendalikan persepsi calon pembeli di etalase Anda. Layanan optimasi kami mendongkrak jumlah Like / 'Membantu' pada ulasan bintang 5 terbaik Anda, menguncinya di posisi Top Review, sekaligus menenggelamkan ulasan buruk secara natural. <br class='hidden md:block mt-2' /> <span class='text-amber-400 font-semibold block mt-4'>✓ Dominasi Ulasan Teratas &nbsp; ✓ Tenggelamkan Bintang 1 &nbsp; ✓ Tingkatkan Kepercayaan Beli</span>",
+  teksTombol1: "Lihat Pilihan Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Optimasi Review",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-marketplace.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Reputasi di <span class="text-amber-500">Kolom Ulasan</span>',
+  deskripsiUtama: "Mengapa konversi produk Anda sering terhambat, meskipun sudah membakar *budget* iklan yang besar?",
+  ms1Teks: '<strong class="text-amber-500 font-bold">Ulasan Buruk di Posisi Atas:</strong> Sistem marketplace sering kali menampilkan ulasan negatif atau komplain pelanggan (bintang 1-3) di urutan pertama karena mendapatkan interaksi tinggi dari pembeli lain.',
+  ms2Teks: '<strong class="text-amber-500 font-bold">Ulasan Terbaik Tertimbun:</strong> Testimoni bintang 5 yang memiliki foto dan video menarik sering kali tidak terlihat karena berada di halaman belakang kolom ulasan.',
+  ms3Teks: '<strong class="text-amber-500 font-bold">Calon Pembeli Ragu (Bounce Rate Tinggi):</strong> 90% calon pembeli membaca ulasan sebelum menekan tombol *Checkout*. Ulasan teratas yang kurang meyakinkan akan membuat mereka membatalkan niat beli.',
+  ms4Teks: '<strong class="text-amber-500 font-bold">Serangan Ulasan Kompetitor:</strong> Persaingan tidak sehat di mana kompetitor sengaja memberikan ulasan palsu (Spam Review) untuk merusak reputasi produk unggulan Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Manajemen <span class="text-amber-500">Top Review</span>',
+  deskripsiUtama: "Strategi digital untuk merekayasa urutan tampilan testimoni pelanggan pada kolom ulasan produk Anda.",
+  k1Judul: "Injeksi Interaksi 'Membantu'",
+  k1Teks: "Kami menyuplai volume klik Like / 'Membantu' (*Helpful*) secara masif pada ulasan positif yang Anda pilih, memberikan sinyal kuat ke algoritma bahwa ulasan tersebut sangat bermanfaat bagi pembeli lain.",
+  k2Judul: "Pergeseran Posisi Algoritmik",
+  k2Teks: "Ulasan dengan jumlah klik 'Membantu' terbanyak akan secara otomatis terkunci sebagai *Top Review* (Ulasan Teratas), menggeser ulasan lain (termasuk yang negatif) ke posisi paling bawah."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Eskalasi <span class="text-amber-500">Ulasan Produk</span>',
+  deskripsiUtama: "Keuntungan langsung yang akan meningkatkan rasio konversi toko online Anda secara signifikan.",
+  m1Judul: "Menenggelamkan Ulasan Negatif",
+  m1Teks: "Cara paling elegan dan aman untuk menutupi komplain atau ulasan bintang 1 tanpa harus berdebat dengan pembeli atau melanggar aturan platform.",
+  m2Judul: "Membangun Social Proof Sempurna",
+  m2Teks: "Menyajikan testimoni bintang 5 dengan visual (foto/video) terbaik sebagai hal pertama yang dilihat calon pelanggan saat mereka menggulir layar ke bawah.",
+  m3Judul: "Memaksimalkan ROI Iklan",
+  m3Teks: "Trafik mahal yang Anda dapatkan dari fitur iklan (Shopee Ads/TopAds) tidak akan terbuang sia-sia karena etalase ulasan Anda sudah terlihat sangat meyakinkan.",
+  m4Judul: "Proteksi Etalase Bebas Risiko",
+  m4Teks: "Proses ini 100% aman karena hanya menyuplai interaksi pada kolom ulasan yang sudah ada secara eksternal, tanpa campur tangan langsung ke *Seller Center*."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Solusi B2B Terpercaya <span class="text-amber-500">JasaLike.com</span>',
+  deskripsiUtama: "Alasan mengapa agen distributor dan penjual besar mempercayakan manajemen reputasi ulasan mereka kepada kami.",
+  mk1Judul: "Privasi Toko Terjamin",
+  mk1Teks: "Tidak diperlukan akses ke *dashboard* penjual. Kami hanya membutuhkan tautan produk dan identitas *username* pembeli yang ulasannya ingin dinaikkan.",
+  mk2Judul: "Kompatibilitas Lintas Platform",
+  mk2Teks: "Infrastruktur kami siap mengamankan kolom ulasan di Shopee, Tokopedia, Lazada, hingga TikTok Shop.",
+  mk3Judul: "Fokus Akurasi Target",
+  mk3Teks: "Sistem pendeteksi kami memastikan interaksi Like / *Helpful* hanya masuk ke ulasan spesifik yang Anda instruksikan, bukan secara acak.",
+  mk4Judul: "Pola Interaksi Organik",
+  mk4Teks: "Distribusi klik dilakukan secara bertahap untuk menjaga keamanan metrik di mata mesin pendeteksi *fraud* marketplace.",
+  mk5Judul: "Garansi Pemeliharaan",
+  mk5Teks: "Kami memberikan perlindungan *refill* sesuai paket untuk menjaga ulasan positif Anda tetap aman di posisi teratas.",
+  mk6Judul: "Pendampingan Strategis",
+  mk6Teks: "Tim ahli kami siap memberikan analisis gratis mengenai berapa volume Like yang dibutuhkan untuk menggeser ulasan negatif di toko Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Bentuk Ulang Persepsi <span class="text-amber-500">Pembeli Anda</span>',
+  deskripsiUtama: "Jangan biarkan satu ulasan buruk menghancurkan potensi penjualan dari ratusan trafik yang masuk.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Naikkan Bintang 5 ke Puncak",
+  sol1Teks: "Pastikan testimoni paling positif dan menarik selalu menjadi sapaan pertama bagi pengunjung etalase Anda.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Sistem Terlindungi",
+  sol2Teks: "Metode eskalasi yang dirancang khusus untuk mematuhi regulasi ketat keamanan platform e-commerce di Indonesia.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Tingkatkan Kepercayaan Instan",
+  sol3Teks: "Ulasan yang disukai oleh ratusan pengguna lain akan langsung menghapus keraguan dari pikiran calon pembeli baru."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-amber-500">Manajemen Ulasan</span>',
+  deskripsiUtama: "Prosedur praktis untuk merebut kembali kendali atas kolom ulasan toko Anda.",
+  co1Judul: "Identifikasi Target Ulasan",
+  co1Teks: "Cari satu atau dua ulasan bintang 5 di produk Anda yang kalimatnya bagus dan memiliki foto/video menarik.",
+  co2Judul: "Tentukan Volume Interaksi",
+  co2Teks: "Pilih paket yang jumlah Like-nya mampu melampaui jumlah Like pada ulasan negatif yang ingin Anda geser ke bawah.",
+  co3Judul: "Kirim Data ke Admin",
+  co3Teks: "Hubungi WhatsApp kami, kirimkan Link Produk, beserta nama *username* pembeli yang ulasannya ingin dijadikan Top Review.",
+  co4Judul: "Eksekusi & Monitoring",
+  co4Teks: "Sistem kami akan segera memproses antrean, perlahan ulasan positif Anda akan merangkak naik dan menggeser ulasan lainnya."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Top Review Marketplace",
+  deskripsiHarga: "Pilih paket kapasitas yang tepat untuk mengunci posisi ulasan positif di etalase Anda.",
+
+  p1Gambar: "/image/jasa-like-marketplace-100.png",
+  p1Nama: "Paket Starter 100 Like Ulasan",
+  p1Fitur1: "Ideal untuk Etalase Produk Baru",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Like%20Ulasan%20Marketplace",
+
+  p2Label: "REKOMENDASI SELLER",
+  p2Gambar: "/image/jasa-like-marketplace-1000.png",
+  p2Nama: "Paket Dominasi 1000 Like Ulasan",
+  p2Fitur1: "Boost untuk Menenggelamkan Ulasan Buruk",
+  p2Fitur2: "Prioritas Kecepatan Antrean",
+  p2Fitur3: "Dukungan Layanan CS Prioritas",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Like%20Ulasan%20Marketplace"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-amber-500">Ulasan Marketplace</span>',
+  deskripsiUtama: "Kumpulan panduan teknis bagi penjual online mengenai optimasi visibilitas kolom komentar (review).",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Ulasan%20Marketplace",
+  faq1Judul: "Apakah bisa untuk benar-benar menghapus ulasan negatif?",
+  faq1Teks: "Layanan ini tidak bisa menghapus ulasan dari database (*karena itu melanggar sistem marketplace*). Sistem kami bekerja dengan cara 'menenggelamkan' ulasan negatif tersebut ke posisi paling bawah dengan cara menaikkan ulasan positif ke urutan teratas menggunakan injeksi fitur Like / 'Membantu'.",
+  faq2Judul: "Apakah aman bagi reputasi dan sistem poin toko saya?",
+  faq2Teks: "Sangat aman 100%. Kami tidak memerlukan akses ke akun *Seller Center* Anda. Semua proses Like dilakukan secara eksternal pada halaman etalase publik yang bisa diakses oleh siapa saja.",
+  faq3Judul: "Data apa yang harus saya berikan ke admin?",
+  faq3Teks: "Kami membutuhkan dua hal: 1) Tautan (Link URL) halaman produk Anda, dan 2) Nama *username* / inisial pembeli yang menulis ulasan bintang 5 incaran Anda (contoh: a***4 atau budi.santoso).",
+  faq4Judul: "Berapa banyak Like yang dibutuhkan untuk menggeser ulasan buruk?",
+  faq4Teks: "Tergantung pada ulasan buruk tersebut. Jika ulasan bintang 1 itu memiliki 50 Like, Anda harus memesan paket minimal 100 Like untuk ulasan positif Anda agar bisa melampaui dan menggeser posisinya.",
+  faq5Judul: "Apakah bisa ulasannya saya buat sendiri (Fake Order)?",
+  faq5Teks: "Bisa saja, asalkan ulasan tersebut sudah berhasil *published* (tampil secara publik) di kolom komentar produk Anda dan bisa dibaca oleh orang lain. Selama ulasan itu nyata ada di aplikasi, kami bisa memprosesnya.",
+  faq6Judul: "Platform apa saja yang bisa dilayani untuk Like Ulasan ini?",
+  faq6Teks: "Saat ini infrastruktur JasaLike.com dapat memproses optimasi Like Ulasan (Komentar Review) untuk platform Shopee, Tokopedia, Lazada, dan TikTok Shop."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Ulasan Komentar Marketplace",
+    "image": "https://jasalike.com/image/jasa-like-marketplace-100.png",
+    "description": "Layanan optimasi engagement untuk mendongkrak ulasan positif menjadi Top Review di Shopee, Tokopedia, Lazada, dan TikTok Shop.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "892"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar Marketplace"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah bisa untuk benar-benar menghapus ulasan negatif?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan ini tidak bisa menghapus ulasan dari database. Sistem kami bekerja dengan cara menenggelamkan ulasan negatif tersebut ke posisi paling bawah dengan cara menaikkan ulasan positif ke urutan teratas menggunakan injeksi fitur Like / Membantu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah aman bagi reputasi dan sistem poin toko saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman 100%. Kami tidak memerlukan akses ke akun Seller Center Anda. Semua proses Like dilakukan secara eksternal pada halaman etalase publik yang bisa diakses oleh siapa saja."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Data apa yang harus saya berikan ke admin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami membutuhkan dua hal: 1) Tautan (Link URL) halaman produk Anda, dan 2) Nama username / inisial pembeli yang menulis ulasan bintang 5 incaran Anda (contoh: a***4 atau budi.santoso)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa banyak Like yang dibutuhkan untuk menggeser ulasan buruk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tergantung pada ulasan buruk tersebut. Jika ulasan bintang 1 itu memiliki 50 Like, Anda harus memesan paket minimal 100 Like untuk ulasan positif Anda agar bisa melampaui dan menggeser posisinya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa ulasannya saya buat sendiri (Fake Order)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bisa saja, asalkan ulasan tersebut sudah berhasil published (tampil secara publik) di kolom komentar produk Anda dan bisa dibaca oleh orang lain. Selama ulasan itu nyata ada di aplikasi, kami bisa memprosesnya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Platform apa saja yang bisa dilayani untuk Like Ulasan ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Saat ini infrastruktur JasaLike.com dapat memproses optimasi Like Ulasan (Komentar Review) untuk platform Shopee, Tokopedia, Lazada, dan TikTok Shop."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
