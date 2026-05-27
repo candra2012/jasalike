@@ -4,6 +4,7 @@ title: "Strategi Optimasi Sinyal Interaksi di Platform X: Memahami Peran 'Like' 
 description: "Panduan edukasi mendalam mengenai cara kerja algoritma X (Twitter), psikologi social proof, dan solusi strategis mempercepat pertumbuhan reputasi digital Anda."
 pubDate: 2026-05-27
 author: "Tim Edukasi Jasalike"
+image: "/image/apaitu-liketwitter.png"
 tags: ["Twitter Marketing", "Algoritma X", "Social Proof", "Strategi Konten"]
 ---
 
