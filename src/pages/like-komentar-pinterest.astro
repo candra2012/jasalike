@@ -1,0 +1,273 @@
+---
+// src/pages/like-komentar-pinterest.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Komentar Pinterest | Layanan Optimasi Diskusi Visual";
+const description = "Jasa like komentar Pinterest untuk optimasi diskusi visual, meningkatkan interaksi, engagement, dan visibilitas komentar secara aman cepat.";
+const keywords = "jasa like komentar pinterest, layanan optimasi komentar pinterest, cara agar komentar pinterest paling atas, jasa optimasi diskusi visual terpercaya, layanan pendorong visibilitas komentar pin, upvote komentar pinterest aman";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS DISKUSI, OPINI & REKOMENDASI PADA PIN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Diskusi Komunitas Visual",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Like & Eskalasi <br class="hidden md:block"/> <span class="text-orange-500">Komentar Pinterest</span>',
+  deskripsi: "Jadikan ulasan, rekomendasi produk, atau opini Anda sebagai pusat perhatian di setiap Pin yang viral. Layanan optimasi metrik kami memastikan komentar Anda menempati posisi teratas, menarik jutaan pasang mata yang mencari inspirasi tambahan. <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Dominasi Top Comment &nbsp; ✓ 100% Privasi Terjaga &nbsp; ✓ Tingkatkan Klik Rekomendasi</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-pinterest-comment.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Interaksi di <span class="text-orange-500">Kolom Pin Populer</span>',
+  deskripsiUtama: "Mengapa ulasan berharga atau tautan rekomendasi Anda terabaikan oleh audiens Pinterest?",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Tertimbun di Dasar Diskusi:</strong> Pada Pin yang memiliki trafik tinggi, komentar baru tanpa apresiasi akan langsung tenggelam oleh ratusan balasan dari pengguna lain.',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Kurangnya Validasi Sosial:</strong> Audiens cenderung hanya membaca dan mempercayai segelintir komentar teratas yang sudah divalidasi dengan angka "Like/Love" yang tinggi.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Kehilangan Potensi Afiliasi:</strong> Jika Anda menyisipkan informasi produk atau inspirasi tambahan di kolom komentar, posisi bawah berarti hilangnya potensi klik dari calon pembeli.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Gagal Menarik Perhatian Kreator:</strong> Pemilik Pin raksasa jarang membalas atau menyematkan (*pin*) komentar yang tidak memiliki interaksi menonjol dari komunitas.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Memahami Optimasi <span class="text-orange-500">Komentar Pinterest</span>',
+  deskripsiUtama: "Solusi taktis untuk merekayasa indikator popularitas pada opini atau balasan spesifik Anda di dalam sebuah Pin.",
+  k1Judul: "Injeksi Validasi Metrik",
+  k1Teks: "Kami mendistribusikan sinyal apresiasi (*Like/Heart*) secara terfokus pada tautan komentar Anda, memberikan indikasi kepada algoritma bahwa ulasan Anda adalah yang paling bermanfaat.",
+  k2Judul: "Eskalasi Peringkat Komentar",
+  k2Teks: "Sistem kurasi Pinterest menyortir komentar berdasarkan relevansi dan jumlah interaksi. Metrik yang tinggi akan memaksa komentar Anda naik ke urutan paling atas secara instan."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Menduduki <span class="text-orange-500">Posisi Teratas</span>',
+  deskripsiUtama: "Nilai tambah strategis bagi merek, afiliator, dan kreator dalam mendominasi percakapan visual.",
+  m1Judul: "Visibilitas Maksimal (100% Read Rate)",
+  m1Teks: "Komentar teratas adalah hal pertama yang dilihat pengguna setelah mereka selesai mengamati gambar atau video Pin utama.",
+  m2Judul: "Otoritas Rekomendasi",
+  m2Teks: "Opini atau saran produk yang Anda tulis akan dianggap sebagai konsensus komunitas karena didukung oleh ratusan validasi positif.",
+  m3Judul: "Mengundang Interaksi Organik",
+  m3Teks: "Komentar yang terlihat populer secara psikologis akan memicu audiens lain untuk ikut membalas, bertanya, dan menyetujui opini Anda.",
+  m4Judul: "Meningkatkan Trafik Profil",
+  m4Teks: "Pengguna yang terkesan dengan komentar teratas Anda akan cenderung mengklik nama profil Anda untuk melihat *board* dan koleksi Pin pribadi Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Operasional <span class="text-orange-500">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa para afiliator dan agensi komunikasi digital memilih layanan eskalasi kami?",
+  mk1Judul: "Privasi Akun Terjamin Mutlak",
+  mk1Teks: "Keamanan Anda tidak bisa dikompromikan. Kami memproses interaksi murni dari luar sistem (eksternal) bermodalkan tautan publik, tanpa pernah meminta akses login Anda.",
+  mk2Judul: "Tepat Sasaran (Spesifik)",
+  mk2Teks: "Sistem kami mampu mendistribusikan apresiasi secara presisi tinggi pada komentar target Anda, tanpa meleset ke balasan pengguna lain di utas yang sama.",
+  mk3Judul: "Laju Distribusi Natural",
+  mk3Teks: "Pasokan metrik dikalibrasi agar menyerupai pertumbuhan audiens organik. Jeda waktu yang wajar melindungi reputasi komentar Anda dari deteksi anomali.",
+  mk4Judul: "Dukungan Berbagai Format Pin",
+  mk4Teks: "Mampu mengoptimalkan komentar baik pada *Standard Pin* (gambar statis), *Video Pin*, maupun *Idea Pin* dengan efektivitas yang konsisten.",
+  mk5Judul: "Ketahanan Metrik Optimal",
+  mk5Teks: "Kami menggunakan infrastruktur berkualitas tinggi yang dilengkapi dengan jaminan pemulihan (*refill*) untuk memastikan angka validasi Anda tetap stabil.",
+  mk6Judul: "Konsultasi Tim Ahli B2B",
+  mk6Teks: "Layanan pelanggan prioritas yang siap membantu Anda merencanakan waktu penyuntikan metrik terbaik agar sejalan dengan peluncuran kampanye Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Ulasan Menjadi <span class="text-orange-500">Pusat Perhatian</span>',
+  deskripsiUtama: "Pastikan suara dan opini Anda menjadi bagian penting dari viralitas sebuah Pin Pinterest.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Kuasai Kolom Diskusi",
+  sol1Teks: "Pastikan komentar Anda menjadi kalimat pertama yang menginspirasi audiens sebelum mereka beralih ke Pin lainnya.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Metodologi Terenkripsi",
+  sol2Teks: "Pengerjaan melalui rute pelaporan yang aman dan selaras dengan kebijakan platform, menjaga agar profil Anda tidak masuk dalam filter pembatasan.",
+  sol3Icon: "lucide:link",
+  sol3Judul: "Optimalkan Konversi Klik",
+  sol3Teks: "Bagi Anda yang memberikan edukasi atau tautan solusi, posisi teratas akan melipatgandakan peluang pengunjung untuk mengikuti arahan Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Empat tahap efisien untuk meroketkan visibilitas komentar Anda di Pinterest hari ini.",
+  co1Judul: "Pilih Volume Interaksi",
+  co1Teks: "Tentukan jumlah dukungan metrik yang Anda butuhkan untuk bisa melampaui angka apresiasi pada komentar kompetitor di Pin tersebut.",
+  co2Judul: "Koordinasi via WhatsApp",
+  co2Teks: "Hubungi konsultan representatif kami untuk memastikan komentar yang Anda buat sudah berstatus publik dan siap menerima distribusi.",
+  co3Judul: "Salin Tautan Komentar",
+  co3Teks: "Dapatkan tautan langsung (*Share Link/Copy Link*) dari balasan spesifik Anda di kolom komentar Pin target.",
+  co4Judul: "Proses & Pemantauan",
+  co4Teks: "Sistem distribusi kami akan bekerja secara bertahap, dan Anda dapat memantau pergerakan komentar Anda naik ke urutan teratas."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi Diskusi Visual",
+  deskripsiHarga: "Pilih paket yang paling relevan untuk menempatkan opini Anda di puncak audiens Pinterest.",
+
+  p1Gambar: "/image/harga-paket-likekomenpinterest.png",
+  p1Nama: "Paket Rekomendasi 100 Like",
+  p1Fitur1: "Cocok untuk Pin Menengah",
+  p1Fitur2: "Laju Distribusi Terukur Alami",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Rekomendasi%20100%20Like%20Komentar%20Pinterest",
+
+  p2Label: "DOMINASI KOLOM KOMENTAR",
+  p2Gambar: "/image/harga-paket-likekomenpinterest.png",
+  p2Nama: "Paket Otoritas 1000 Like",
+  p2Fitur1: "Target Pin Viral / Global",
+  p2Fitur2: "Daya Tarik Sosial (*Social Proof*) Maksimal",
+  p2Fitur3: "Layanan Konsultan Prioritas B2B",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Otoritas%201000%20Like%20Komentar%20Pinterest"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-orange-500">Like Komentar Pinterest</span>',
+  deskripsiUtama: "Jawaban komprehensif atas pertanyaan teknis seputar pengelolaan reputasi di kolom diskusi Pinterest.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Komentar%20Pinterest",
+  faq1Judul: "Apakah tim Anda memerlukan akses ke akun Pinterest saya?",
+  faq1Teks: "Sama sekali tidak. Prinsip kerja kami didasarkan pada jalur eksternal. Kami hanya membutuhkan tautan publik (URL) dari komentar spesifik Anda. Keamanan privasi dan kredensial akun Anda terjamin 100%.",
+  faq2Judul: "Bagaimana cara menyalin tautan (URL) komentar yang benar?",
+  faq2Teks: "Pada kolom komentar di bawah Pin, temukan komentar yang Anda tulis. Klik ikon tiga titik (...) di sebelah komentar Anda, lalu pilih opsi 'Copy Link' atau 'Share'. Tautan ini yang memastikan distribusi metrik tepat sasaran.",
+  faq3Judul: "Apakah jaminan komentar saya akan berada di urutan pertama?",
+  faq3Teks: "Layanan kami meroketkan peluang tersebut secara masif dengan memberikan injeksi interaksi tinggi. Namun, posisi akhir di algoritma juga dipengaruhi oleh seberapa banyak interaksi yang dimiliki oleh komentar pesaing pada Pin yang sama.",
+  faq4Judul: "Bisakah paket 1000 Like dibagi ke beberapa komentar berbeda?",
+  faq4Teks: "Untuk menjaga kekuatan pendorongan algoritma (*ranking force*) tetap maksimal, satu paket pesanan difokuskan seluruhnya untuk satu tautan komentar. Ini memastikan efek dominasi visibilitas tercapai.",
+  faq5Judul: "Apakah penambahan interaksi ini aman dari filter spam?",
+  faq5Teks: "Sangat aman. Kami menggunakan sistem manajemen antrean yang mendistribusikan apresiasi secara bertahap. Pola natural ini selaras dengan aktivitas komunitas biasa, sehingga reputasi komentar dan profil Anda tetap bersih.",
+  faq6Judul: "Bagaimana jika komentar saya dihapus oleh pemilik Pin?",
+  faq6Teks: "Apabila pemilik Pin (Kreator) menghapus komentar Anda atau mematikan fitur diskusi di tengah berjalannya proses, maka sisa pesanan tidak dapat dilanjutkan dan dianggap hangus. Pastikan komentar Anda bersifat positif dan tidak melanggar aturan kreator."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Komentar Pinterest & Optimasi Diskusi",
+    "image": "https://jasalike.com/image/harga-paket-likekomenpinterest.png",
+    "description": "Layanan optimasi upvote komentar Pinterest untuk mendominasi diskusi, meningkatkan kredibilitas opini, dan mengamankan posisi Top Comment secara profesional.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "512"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "250000",
+      "highPrice": "2500000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like Komentar Pinterest"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah tim Anda memerlukan akses ke akun Pinterest saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Prinsip kerja kami didasarkan pada jalur eksternal. Kami hanya membutuhkan tautan publik (URL) dari komentar spesifik Anda. Keamanan privasi dan kredensial akun Anda terjamin 100%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara menyalin tautan (URL) komentar yang benar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pada kolom komentar di bawah Pin, temukan komentar yang Anda tulis. Klik ikon tiga titik (...) di sebelah komentar Anda, lalu pilih opsi 'Copy Link' atau 'Share'. Tautan ini yang memastikan distribusi metrik tepat sasaran."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah penambahan interaksi ini aman dari filter spam?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menggunakan sistem manajemen antrean yang mendistribusikan apresiasi secara bertahap. Pola natural ini selaras dengan aktivitas komunitas biasa, sehingga reputasi komentar dan profil Anda tetap bersih."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
