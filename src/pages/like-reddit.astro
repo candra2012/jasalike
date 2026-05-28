@@ -1,0 +1,273 @@
+---
+// src/pages/like-reddit.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Reddit & Layanan Upvote | Optimasi Postingan Terpercaya";
+const description = "Jasa like Reddit & layanan upvote terpercaya untuk bantu optimasi postingan, meningkatkan interaksi, traffic, dan visibilitas akun Reddit.";
+const keywords = "jasa like reddit, layanan upvote reddit, optimasi reddit, cara masuk halaman depan reddit, jasa optimasi postingan reddit terpercaya, layanan pendorong visibilitas subreddit, optimasi karma akun reddit";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS VISIBILITAS & UPVOTE)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Pendorong Visibilitas Subreddit",
+  labelIcon: "lucide:arrow-big-up",
+  judulUtama: 'Jasa Like & Upvote <br class="hidden md:block"/> <span class="text-orange-500">Reddit Teratas</span>',
+  deskripsi: "Dominasi diskusi komunitas dan raih jangkauan masif. Jasa optimasi postingan Reddit terpercaya kami dirancang khusus untuk menembus algoritma kurasi ketat dan membawa konten Anda melesat menuju halaman depan (*Front Page*). <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Cara Masuk Halaman Depan Reddit &nbsp; ✓ 100% Integritas Akun Terjaga &nbsp; ✓ Optimasi Multi-Subreddit</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-reddit.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Kurasi di <span class="text-orange-500">Ekosistem Reddit</span>',
+  deskripsiUtama: "Mengapa thread Anda sering kali tenggelam dan gagal mendapatkan sorotan dari komunitas?",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Terjebak di Tab "New":</strong> Tanpa dorongan awal, postingan berkualitas sekalipun akan cepat tertimbun oleh ribuan utas baru dalam hitungan menit.',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Filter Subreddit Ketat:</strong> Moderator dan sistem algoritma cenderung meredam jangkauan postingan yang memiliki metrik apresiasi (*upvote*) rendah.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Krisis Kredibilitas Awal:</strong> Pengguna secara psikologis jarang mau berpartisipasi dalam diskusi yang belum divalidasi oleh anggota komunitas lainnya.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Karma Profil Stagnan:</strong> Pertumbuhan otoritas akun tertahan karena konten gagal menjangkau audiens organik secara luas.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Optimasi <span class="text-orange-500">Upvote Reddit</span>',
+  deskripsiUtama: "Strategi akselerasi interaksi eksternal yang dirancang presisi untuk memicu algoritma kurasi konten di platform Reddit.",
+  k1Judul: "Eskalasi Sinyal Positif",
+  k1Teks: "Kami memberikan suplai metrik apresiasi secara terukur pada utas Anda, menyuntikkan sinyal kuat kepada algoritma bahwa topik tersebut sangat relevan dan disukai banyak orang.",
+  k2Judul: "Pemicu Efek Bola Salju",
+  k2Teks: "Utas dengan rasio upvote yang melonjak di menit-menit pertama akan memicu fenomena *social proof*, menarik partisipasi organik yang melipatgandakan jangkauan diskusi secara otomatis."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Layanan pada <span class="text-orange-500">Visibilitas Thread</span>',
+  deskripsiUtama: "Keunggulan kompetitif bagi entitas bisnis maupun personal dalam mendominasi topik obrolan di dunia maya.",
+  m1Judul: "Potensi Front Page Maksimal",
+  m1Teks: "Membuka peluang terbesar untuk tampil di halaman utama platform atau bertengger di puncak tab 'Hot' pada subreddit target Anda.",
+  m2Judul: "Pertumbuhan Karma Instan",
+  m2Teks: "Meningkatkan skor Karma profil secara signifikan, membuka akses untuk memposting di subreddit eksklusif yang mensyaratkan batas minimal interaksi.",
+  m3Judul: "Kepercayaan Audiens Tinggi",
+  m3Teks: "Thread promosi bisnis, tautan eksternal, atau informasi edukasi akan lebih dipercaya dan diklik saat didukung oleh ratusan upvote positif.",
+  m4Judul: "Standar Keamanan Prioritas",
+  m4Teks: "Setiap laju interaksi didistribusikan melalui infrastruktur profesional yang meniru pola perilaku audiens komunitas natural."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Infrastruktur <span class="text-orange-500">JasaLike.com</span>',
+  deskripsiUtama: "Alasan mengapa kreator dan pengelola kampanye mengandalkan layanan pendorong visibilitas subreddit kami.",
+  mk1Judul: "Privasi Data Internal Mutlak",
+  mk1Teks: "Kerahasiaan Anda adalah prioritas. Proses ini hanya memerlukan tautan publik (URL) dari postingan Anda, memastikan tidak ada intervensi terhadap kredensial profil Anda.",
+  mk2Judul: "Sistem Eksternal Aman",
+  mk2Teks: "Dikelola oleh jaringan profesional yang selaras dengan pedoman keamanan platform, secara ketat menghindari pola anomali interaksi.",
+  mk3Judul: "Distribusi Trafik Organik",
+  mk3Teks: "Laju masuknya upvote dikalibrasi secara berkala agar menyerupai lonjakan keterlibatan (*engagement*) yang alami dari anggota komunitas.",
+  mk4Judul: "Dukungan Multi-Subreddit",
+  mk4Teks: "Mampu memproses dan mengoptimalkan utas di berbagai kategori komunitas, mulai dari kripto, teknologi, hingga forum hobi.",
+  mk5Judul: "Jaminan Stabilitas Metrik",
+  mk5Teks: "Kami menyajikan kualitas metrik yang solid, dilengkapi dengan garansi pemulihan (*refill*) untuk memproteksi nilai investasi kampanye Anda.",
+  mk6Judul: "Layanan Konsultasi B2B",
+  mk6Teks: "Tim ahli kami siap mengarahkan strategi penayangan konten agar sinkron dengan momen masuknya interaksi demi hasil yang efisien."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Utas Menjadi <span class="text-orange-500">Pusat Perhatian</span>',
+  deskripsiUtama: "Jangan biarkan ide cemerlang Anda terabaikan di forum diskusi terbesar internet.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Kuasai Ranking Teratas",
+  sol1Teks: "Amankan posisi puncak di kategori 'Top' atau 'Trending' untuk memastikan eksposur ke puluhan ribu anggota grup secara langsung.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Prosedur Eksekutif Terlindungi",
+  sol2Teks: "Pengerjaan melalui rute perlindungan tingkat tinggi yang menjaga reputasi akun Anda dari risiko filter spam komunitas.",
+  sol3Icon: "lucide:message-square",
+  sol3Judul: "Stimulasi Komentar Nyata",
+  sol3Teks: "Postingan yang memiliki validasi angka tinggi secara otomatis memancing rasa penasaran audiens organik untuk menyuarakan pendapat mereka."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Empat langkah taktis untuk memulai kampanye visibilitas konten Anda hari ini.",
+  co1Judul: "Tentukan Skala Kampanye",
+  co1Teks: "Pilih volume metrik upvote yang sesuai dengan ukuran dan tingkat persaingan di subreddit yang Anda sasar.",
+  co2Judul: "Koordinasi Penjadwalan",
+  co2Teks: "Hubungi konsultan representatif kami via WhatsApp untuk memastikan postingan Anda sudah tayang secara publik dan siap diproses.",
+  co3Judul: "Lampirkan Tautan Postingan",
+  co3Teks: "Salin dan kirimkan tautan langsung (*URL Thread*) dari postingan Reddit yang ingin Anda optimasi.",
+  co4Judul: "Eksekusi & Pemantauan",
+  co4Teks: "Sistem terpadu kami akan mulai mendistribusikan interaksi, memungkinkan Anda memantau kenaikan posisi utas secara real-time."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi Reddit",
+  deskripsiHarga: "Pilih paket akselerasi yang dirancang khusus untuk memicu algoritma Front Page.",
+
+  p1Gambar: "/image/harga-paket-reddit.png",
+  p1Nama: "Paket Momentum 100 Upvote",
+  p1Fitur1: "Ideal untuk Thread Baru",
+  p1Fitur2: "Distribusi Pola Natural",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Momentum%20100%20Upvote%20Reddit",
+
+  p2Label: "DOMINASI FRONT PAGE",
+  p2Gambar: "/image/harga-paket-reddit.png",
+  p2Nama: "Paket Viral 1000 Upvote",
+  p2Fitur1: "Target Halaman Depan Teratas",
+  p2Fitur2: "Bisa Dipecah (Split) ke 3 Thread",
+  p2Fitur3: "Layanan CS Prioritas B2B",
+  p2HargaCoret: "Rp 3.500.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Viral%201000%20Upvote%20Reddit"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-orange-500">Upvote Reddit</span>',
+  deskripsiUtama: "Kumpulan jawaban strategis atas pertanyaan teknis terkait optimasi algoritma komunitas.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Upvote%20Reddit",
+  faq1Judul: "Apakah saya perlu memberikan informasi kredensial akun?",
+  faq1Teks: "Sama sekali tidak. Kami menerapkan sistem privasi tingkat tinggi. Anda cukup menyerahkan tautan publik (URL) dari utas Reddit Anda. Tim kami tidak akan pernah meminta data profil internal Anda.",
+  faq2Judul: "Apakah metode ini mematuhi standar keamanan akun?",
+  faq2Teks: "Ya, kami menggunakan pendekatan eksternal yang dioptimalkan agar menyerupai pola interaksi alami manusia. Metrik didistribusikan secara terukur, menjaga reputasi profil dan postingan Anda tetap unggul.",
+  faq3Judul: "Apakah pasti masuk halaman depan (Front Page)?",
+  faq3Teks: "Layanan ini meroketkan probabilitas secara drastis melalui injeksi metrik awal. Namun, posisi akhir juga sangat bergantung pada faktor internal seperti relevansi topik, waktu penayangan, dan persaingan di dalam subreddit tersebut.",
+  faq4Judul: "Apakah bisa digunakan untuk optimasi komentar (Comment Upvote)?",
+  faq4Teks: "Tentu bisa. Selain optimasi utas utama, layanan kami juga dapat dikonfigurasi untuk mendongkrak visibilitas komentar spesifik agar tampil di urutan teratas dalam sebuah diskusi yang padat.",
+  faq5Judul: "Berapa lama proses distribusi metrik berlangsung?",
+  faq5Teks: "Proses dieksekusi setelah pemesanan dikonfirmasi. Kecepatan laju distribusi akan dikalibrasi menyesuaikan dengan volume paket pesanan untuk menjaga kewajaran trafik di mata sistem kurasi platform.",
+  faq6Judul: "Apa syarat utas yang bisa dioptimasi?",
+  faq6Teks: "Pastikan utas Anda dipublikasikan di komunitas (subreddit) yang bersifat publik. Utas yang berada di dalam grup privat, sedang dikunci (locked), atau dihapus oleh moderator tidak dapat kami proses."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Reddit & Layanan Upvote Terpercaya",
+    "image": "https://jasalike.com/image/harga-paket-reddit.png",
+    "description": "Layanan pendorong visibilitas subreddit untuk menaikkan otoritas postingan. Solusi cara masuk halaman depan Reddit yang aman dan profesional.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "845"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "250000",
+      "highPrice": "2500000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like & Upvote Reddit"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah saya perlu memberikan informasi kredensial akun?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kami menerapkan sistem privasi tingkat tinggi. Anda cukup menyerahkan tautan publik (URL) dari utas Reddit Anda. Tim kami tidak akan pernah meminta data profil internal Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah metode ini mematuhi standar keamanan akun?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, kami menggunakan pendekatan eksternal yang dioptimalkan agar menyerupai pola interaksi alami manusia. Metrik didistribusikan secara terukur, menjaga reputasi profil dan postingan Anda tetap unggul."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah pasti masuk halaman depan (Front Page)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan ini meroketkan probabilitas secara drastis melalui injeksi metrik awal. Namun, posisi akhir juga sangat bergantung pada faktor internal seperti relevansi topik, waktu penayangan, dan persaingan di dalam subreddit tersebut."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
