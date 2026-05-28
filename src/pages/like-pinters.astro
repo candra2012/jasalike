@@ -1,0 +1,273 @@
+---
+// src/pages/like-pinterest.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Like Pinterest | Layanan Optimasi Pin & Visual Board Terpercaya";
+const description = "Jasa like Pinterest terpercaya untuk optimasi pin dan visual board, membantu meningkatkan engagement, impresi, dan jangkauan akun Pinterest.";
+const keywords = "jasa like pinterest, optimasi pin pinterest, layanan reaksi pinterest, cara agar pin fyp di pinterest, jasa optimasi engagement visual board, layanan pendorong visibilitas portofolio pinterest, optimasi algoritma pencarian visual";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS VISIBILITAS VISUAL & INSPIRASI)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Pencarian Visual",
+  labelIcon: "lucide:image",
+  judulUtama: 'Jasa Like & Optimasi Pin <br class="hidden md:block"/> <span class="text-orange-500">Pinterest Teratas</span>',
+  deskripsi: "Dominasi pencarian visual dan raih perhatian audiens global. Layanan pendorong *engagement* kami dirancang khusus untuk memicu algoritma, memastikan karya, produk, atau desain Anda mendominasi *mood board* calon pelanggan dengan validasi sosial yang kuat. <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Rekomendasi Smart Feed &nbsp; ✓ 100% Integritas Akun Terjaga &nbsp; ✓ Eskalasi Visibilitas Organik</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-pinterest.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Kurasi di <span class="text-orange-500">Algoritma Pinterest</span>',
+  deskripsiUtama: "Mengapa desain atau katalog produk memukau Anda gagal mendatangkan trafik ke situs web?",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Terjebak di Luar Smart Feed:</strong> Algoritma Pinterest sangat mengandalkan interaksi awal. Pin yang tidak mendapatkan apresiasi di awal publikasi jarang direkomendasikan ke beranda pengguna lain.',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Krisis Validasi Karya:</strong> Audiens secara psikologis cenderung melewatkan Pin yang belum memiliki metrik reaksi (*Like/Love*) karena dianggap kurang menginspirasi atau kurang berkualitas.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Kalah di Pencarian Visual:</strong> Saat pengguna mencari kata kunci tertentu, sistem akan memprioritaskan Pin dengan rasio interaksi tertinggi untuk tampil di baris teratas.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Rasio Klik Keluar (CTR) Rendah:</strong> Tanpa adanya *social proof* berupa metrik interaksi, pengguna ragu untuk mengklik tautan keluar (outbound link) menuju website bisnis Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Memahami Optimasi <span class="text-orange-500">Engagement Pinterest</span>',
+  deskripsiUtama: "Strategi terukur untuk meroketkan otoritas karya visual Anda di hadapan jutaan pengguna yang mencari inspirasi.",
+  k1Judul: "Injeksi Sinyal Algoritma",
+  k1Teks: "Kami menyuplai metrik reaksi positif secara langsung pada Pin Anda, memberikan indikator kuat kepada sistem kurasi bahwa konten visual tersebut memiliki nilai estetika atau edukasi yang tinggi.",
+  k2Judul: "Rekayasa Persepsi (Social Proof)",
+  k2Teks: "Visual board atau Pin yang dihiasi dengan ratusan interaksi apresiasi akan membangun kredibilitas instan, meyakinkan pengguna organik untuk ikut menyimpan (*Save/Repin*) dan mengunjungi tautan Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Layanan pada <span class="text-orange-500">Performa Visual</span>',
+  deskripsiUtama: "Keunggulan kompetitif bagi desainer, merek gaya hidup, dan kreator konten dalam mendominasi platform inspirasi.",
+  m1Judul: "Distribusi Smart Feed Maksimal",
+  m1Teks: "Membuka gerbang visibilitas yang lebih lebar agar Pin Anda terus didistribusikan ke beranda audiens yang memiliki minat serupa selama berbulan-bulan.",
+  m2Judul: "Peningkatan Trafik Website",
+  m2Teks: "Pin dengan validasi tinggi akan memancing rasa penasaran audiens, secara langsung mendongkrak rasio klik tautan keluar (*Outbound Clicks*) menuju situs bisnis Anda.",
+  m3Judul: "Otoritas Brand Meningkat",
+  m3Teks: "Katalog produk atau *mood board* yang memiliki angka apresiasi solid akan mengukuhkan posisi merek Anda sebagai pemimpin tren (*trendsetter*) di industri Anda.",
+  m4Judul: "Proteksi Standar Keamanan",
+  m4Teks: "Metodologi eskalasi kami beroperasi dari eksternal, memastikan integritas akun Pinterest Anda tetap selaras dengan pedoman keamanan komunitas."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Infrastruktur <span class="text-orange-500">JasaLike.com</span>',
+  deskripsiUtama: "Mengapa para profesional kreatif dan manajer pemasaran mempercayakan portofolio Pinterest mereka kepada kami?",
+  mk1Judul: "Privasi Data Internal Mutlak",
+  mk1Teks: "Kami menjunjung tinggi kerahasiaan Anda. Sistem kami murni menggunakan metode tautan publik (URL Pin) tanpa pernah menyentuh kredensial login atau ruang internal akun Anda.",
+  mk2Judul: "Distribusi Terkalibrasi Alami",
+  mk2Teks: "Laju penyaluran interaksi diatur secara sistematis dengan jeda yang wajar, meniru pola eksplorasi dan apresiasi audiens organik di Pinterest.",
+  mk3Judul: "Dukungan Berbagai Format",
+  mk3Teks: "Infrastruktur kami mampu memproses dan mengoptimalkan berbagai format konten, mulai dari *Standard Pin*, *Idea Pin*, hingga *Video Pin* dengan performa yang sama kuatnya.",
+  mk4Judul: "Targeting Aset Spesifik",
+  mk4Teks: "Interaksi disalurkan dengan akurasi presisi tinggi, memastikan apresiasi masuk tepat pada Pin yang Anda promosikan tanpa mengganggu *board* yang lain.",
+  mk5Judul: "Garansi Ketahanan Metrik",
+  mk5Teks: "Kami melindungi investasi *branding* Anda dengan jaminan pemulihan (*refill*) untuk memastikan angka validasi pada Pin Anda tetap stabil dalam jangka panjang.",
+  mk6Judul: "Layanan Konsultasi Kreatif",
+  mk6Teks: "Dukungan tim profesional yang siap membantu merumuskan strategi alokasi metrik terbaik untuk kampanye produk atau peluncuran katalog baru Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Jadikan Karya Anda <span class="text-orange-500">Inspirasi Utama</span>',
+  deskripsiUtama: "Jangan biarkan aset visual bernilai tinggi Anda tenggelam tanpa jejak di lautan desain kompetitor.",
+  sol1Icon: "lucide:arrow-up-circle",
+  sol1Judul: "Dominasi Mesin Pencari",
+  sol1Teks: "Amankan posisi Pin Anda di baris teratas hasil pencarian visual Pinterest untuk menangkap audiens dengan niat beli (*buyer intent*) tinggi.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Operasional Eksekutif Terlindungi",
+  sol2Teks: "Proses pengerjaan dijalankan melalui protokol yang menghormati standar keamanan ekosistem Pinterest, menjaga portofolio Anda tetap aman.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Katalisator Interaksi Nyata",
+  sol3Teks: "Pin yang populer secara otomatis akan memicu audiens organik untuk menyematkan (*Repin*) konten Anda ke dalam *board* pribadi mereka."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Empat langkah esensial untuk mendongkrak popularitas *visual board* Anda hari ini.",
+  co1Judul: "Tentukan Skala Metrik",
+  co1Teks: "Evaluasi tingkat persaingan visual di ceruk pasar Anda dan pilih paket volume interaksi yang paling ideal untuk mendorong Pin Anda.",
+  co2Judul: "Koordinasi Penjadwalan",
+  co2Teks: "Hubungi representatif kami melalui WhatsApp untuk memastikan Pin Anda telah dipublikasikan dan siap menerima eskalasi trafik.",
+  co3Judul: "Serahkan Tautan Publik",
+  co3Teks: "Salin dan lampirkan tautan URL langsung dari Pin (gambar/video) spesifik yang ingin Anda jadikan pusat perhatian.",
+  co4Judul: "Eksekusi & Pantau Hasil",
+  co4Teks: "Sistem distribusi kami akan segera memproses metrik, memungkinkan Anda melihat peningkatan performa visibilitas konten secara bertahap."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi Pinterest",
+  deskripsiHarga: "Pilih paket eskalasi yang dirancang khusus untuk memicu algoritma Smart Feed secara efisien.",
+
+  p1Gambar: "/image/harga-paket-likepinters.png",
+  p1Nama: "Paket Estetika 100 Like",
+  p1Fitur1: "Ideal untuk Pin / Produk Baru",
+  p1Fitur2: "Laju Distribusi Terukur Alami",
+  p1Fitur3: "Dukungan Garansi Refill",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Estetika%20100%20Like%20Pinterest",
+
+  p2Label: "DOMINASI SMART FEED",
+  p2Gambar: "/image/harga-paket-likepinters.png",
+  p2Nama: "Paket Viralitas 1000 Like",
+  p2Fitur1: "Target Maksimal Pencarian Visual",
+  p2Fitur2: "Daya Tarik Sosial (*Social Proof*) Tinggi",
+  p2Fitur3: "Layanan Konsultan Prioritas B2B",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Viralitas%201000%20Like%20Pinterest"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-orange-500">Optimasi Pinterest</span>',
+  deskripsiUtama: "Panduan informatif untuk menjawab pertanyaan teknis seputar eskalasi performa portofolio visual Anda.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Like%20Pinterest",
+  faq1Judul: "Apakah kerahasiaan dan keamanan profil Pinterest saya terjamin?",
+  faq1Teks: "Sangat terjamin. Layanan ini sepenuhnya menggunakan pendekatan jalur eksternal. Kami tidak akan pernah meminta kata sandi, alamat surel, atau hak akses administratif ke dalam akun kreator Anda. Kami hanya butuh tautan publik.",
+  faq2Judul: "Bagaimana cara menyalin tautan (URL) Pin yang benar?",
+  faq2Teks: "Buka Pin (gambar/video) yang ingin Anda optimasi melalui aplikasi atau web Pinterest. Klik ikon 'Share' (Bagikan) atau ikon tiga titik, lalu pilih opsi 'Copy Link'. Tautan tersebutlah yang Anda kirimkan kepada kami.",
+  faq3Judul: "Apakah interaksi ini akan meningkatkan klik ke website saya?",
+  faq3Teks: "Layanan kami bertugas meroketkan visibilitas algoritma dan kredibilitas visual (*social proof*). Pin yang terlihat populer secara alami akan memancing audiens organik untuk mengklik tautan keluar (outbound link) menuju website Anda.",
+  faq4Judul: "Bisakah paket 1000 Like dipecah untuk beberapa gambar/Pin?",
+  faq4Teks: "Untuk menjaga kekuatan dorongan algoritma secara maksimal, kami merekomendasikan injeksi penuh pada satu tautan Pin. Namun, untuk paket volume besar (1000 ke atas), Anda dapat berkonsultasi dengan tim kami untuk opsi pemecahan distribusi.",
+  faq5Judul: "Berapa lama proses penyaluran metrik berlangsung?",
+  faq5Teks: "Sistem akan mulai memproses setelah konfirmasi pemesanan. Kecepatan laju masuknya interaksi dikalibrasi sedemikian rupa agar menyerupai pertumbuhan audiens organik, menjaga keamanan portofolio visual Anda.",
+  faq6Judul: "Apakah bisa untuk Pin di dalam Secret Board (Papan Rahasia)?",
+  faq6Teks: "Tidak bisa. Sistem kami hanya dapat mengakses dan memproses Pin yang bersifat publik (terbuka untuk umum). Pastikan Pin dan Board Anda tidak dalam status 'Secret' atau dibatasi selama proses layanan berlangsung."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like Pinterest & Optimasi Pin Terpercaya",
+    "image": "https://jasalike.com/image/harga-paket-likepinters.png",
+    "description": "Layanan optimasi engagement visual Pinterest untuk mendongkrak visibilitas algoritma Smart Feed dan memperkuat otoritas portofolio desain atau produk.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "715"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "250000",
+      "highPrice": "2500000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Like & Optimasi Pinterest"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah kerahasiaan dan keamanan profil Pinterest saya terjamin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat terjamin. Layanan ini sepenuhnya menggunakan pendekatan jalur eksternal. Kami tidak akan pernah meminta kata sandi, alamat surel, atau hak akses administratif ke dalam akun kreator Anda. Kami hanya butuh tautan publik."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana cara menyalin tautan (URL) Pin yang benar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Buka Pin (gambar/video) yang ingin Anda optimasi melalui aplikasi atau web Pinterest. Klik ikon 'Share' (Bagikan) atau ikon tiga titik, lalu pilih opsi 'Copy Link'. Tautan tersebutlah yang Anda kirimkan kepada kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah interaksi ini akan meningkatkan klik ke website saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan kami bertugas meroketkan visibilitas algoritma dan kredibilitas visual (social proof). Pin yang terlihat populer secara alami akan memancing audiens organik untuk mengklik tautan keluar (outbound link) menuju website Anda."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
