@@ -19,12 +19,13 @@ const {
 
 // ==========================================
 // TRIK SAKTI: AMBIL GAMBAR DARI ASSETS OTOMATIS
+// Menyesuaikan dengan folder src/assets/img/ milik Akang
 // ==========================================
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/*.{jpeg,jpg,png,gif,webp}');
 const namaFile = gambarHero ? gambarHero.split('/').pop() : '';
-const imagePath = `/src/assets/images/${namaFile}`;
+const imagePath = `/src/assets/img/${namaFile}`;
 
-// Jika gambar dipindah ke folder src/assets/images/, Astro akan mengompresnya otomatis!
+// Jika gambar terdeteksi di folder src/assets/img/, Astro akan mengompresnya otomatis!
 const optimizedImage = images[imagePath] ? images[imagePath]() : null;
 ---
 
@@ -36,7 +37,7 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
       <div class="flex flex-col items-center">
         
-        {/* 👇 CLASS ANIMASI DIGANTI KE CSS MURNI (hero-fade-in) AGAR LCP HIJAU */}
+        {/* CLASS ANIMASI DIGANTI KE CSS MURNI AGAR LCP HIJAU */}
         <div class="hero-fade-in max-w-3xl flex flex-col items-center">
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-[1.2] tracking-tight text-white" set:html={judulUtama}></h1>
           <p class="text-sm md:text-base text-slate-400 leading-relaxed font-normal max-w-2xl" set:html={deskripsi}></p>
@@ -58,7 +59,7 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
         <div class="hero-fade-in delay-300 w-full max-w-3xl relative mt-16 md:mt-20">
           <div class="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full transform scale-75 -z-10"></div>
           
-          {/* 👇 OPTIMASI GAMBAR HOME (Eager Load & Astro Image) */}
+          {/* OPTIMASI GAMBAR HOME */}
           {optimizedImage ? (
             <Image src={optimizedImage} alt="Hero Image" width={800} loading="eager" fetchpriority="high" class="w-full h-auto rounded-2xl md:rounded-[2rem] object-cover shadow-2xl transform hover:scale-[1.01] transition-transform duration-500" />
           ) : (
@@ -76,7 +77,7 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
   <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-[#0B1121] overflow-hidden flex items-center border-b border-slate-800/50">
     
     <div class="absolute inset-0 z-0">
-      {/* 👇 OPTIMASI GAMBAR SERVICE (Eager Load & Astro Image) */}
+      {/* OPTIMASI GAMBAR SERVICE */}
       {optimizedImage ? (
         <Image src={optimizedImage} alt="Background" width={800} loading="eager" fetchpriority="high" class="w-full h-full object-contain object-center opacity-30 block" />
       ) : (
@@ -88,7 +89,6 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
       <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[400px] bg-blue-600/20 blur-[150px] rounded-full pointer-events-none"></div>
     </div>
 
-    {/* 👇 CLASS ANIMASI DIGANTI KE CSS MURNI (hero-fade-in) */}
     <div class="relative z-10 container mx-auto px-6 text-center max-w-4xl hero-fade-in mt-10 lg:mt-0">
       
       {labelTeks && (
@@ -116,7 +116,7 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
 )}
 
 <script>
-  // Script ini dibiarkan untuk animasi bagian bawah web (yang bukan Hero)
+  // Script ini dibiarkan untuk elemen selain Hero agar tetap ada efek scroll
   document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -128,7 +128,6 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
       });
     }, { threshold: 0.1 });
 
-    // Mencari elemen animasi lain jika ada
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach((el) => observer.observe(el));
   });
@@ -143,7 +142,7 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
     animation: smooth-twinkle 8s ease-in-out infinite;
   }
 
-  /* 👇 Animasi CSS Murni yang langsung jalan (Tanpa halangi LCP Google) */
+  /* Animasi CSS Murni untuk LCP Cepat */
   @keyframes heroFadeInUp {
     from {
       opacity: 0;
@@ -156,7 +155,7 @@ const optimizedImage = images[imagePath] ? images[imagePath]() : null;
   }
   .hero-fade-in {
     animation: heroFadeInUp 1s ease-out forwards;
-    opacity: 0; /* Mulai dari transparan sebelum animasi jalan sepersekian detik */
+    opacity: 0; 
   }
   .delay-300 {
     animation-delay: 0.3s;
