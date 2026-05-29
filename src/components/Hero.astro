@@ -1,6 +1,8 @@
 ---
 // src/components/Hero.astro
 import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
 
 const {
   tipe = "home", 
@@ -14,6 +16,16 @@ const {
   linkTombol2,
   gambarHero
 } = Astro.props;
+
+// ==========================================
+// TRIK SAKTI: AMBIL GAMBAR DARI ASSETS OTOMATIS
+// ==========================================
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
+const namaFile = gambarHero ? gambarHero.split('/').pop() : '';
+const imagePath = `/src/assets/images/${namaFile}`;
+
+// Jika gambar dipindah ke folder src/assets/images/, Astro akan mengompresnya otomatis!
+const optimizedImage = images[imagePath] ? images[imagePath]() : null;
 ---
 
 {tipe === "home" && (
@@ -23,25 +35,37 @@ const {
 
     <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
       <div class="flex flex-col items-center">
-        <div class="animate-hero-text opacity-0 translate-y-8 transform transition-all duration-1000 ease-out max-w-3xl flex flex-col items-center">
+        
+        {/* 👇 CLASS ANIMASI DIGANTI KE CSS MURNI (hero-fade-in) AGAR LCP HIJAU */}
+        <div class="hero-fade-in max-w-3xl flex flex-col items-center">
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-[1.2] tracking-tight text-white" set:html={judulUtama}></h1>
           <p class="text-sm md:text-base text-slate-400 leading-relaxed font-normal max-w-2xl" set:html={deskripsi}></p>
           
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10 w-full sm:w-auto">
-            <a href={linkTombol1} class="inline-flex justify-center items-center !bg-transparent hover:!bg-white hover:!text-blue-600 !text-white font-bold px-8 py-3.5 rounded-full border-2 !border-white/50 transition-all text-sm md:text-base min-w-[200px] !no-underline shadow-lg shadow-blue-900/20">
-              {teksTombol1}
-            </a>
-            
-            <a href={linkTombol2} target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center !bg-white/10 hover:!bg-white hover:!text-blue-800 !text-white font-bold px-8 py-3.5 rounded-full border-2 !border-white/20 transition-all text-sm md:text-base min-w-[200px] backdrop-blur-sm !no-underline">
-              {teksTombol2}
-            </a>
+            {teksTombol1 && linkTombol1 && (
+              <a href={linkTombol1} class="inline-flex justify-center items-center !bg-transparent hover:!bg-white hover:!text-blue-600 !text-white font-bold px-8 py-3.5 rounded-full border-2 !border-white/50 transition-all text-sm md:text-base min-w-[200px] !no-underline shadow-lg shadow-blue-900/20">
+                {teksTombol1}
+              </a>
+            )}
+            {teksTombol2 && linkTombol2 && (
+              <a href={linkTombol2} target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center !bg-white/10 hover:!bg-white hover:!text-blue-800 !text-white font-bold px-8 py-3.5 rounded-full border-2 !border-white/20 transition-all text-sm md:text-base min-w-[200px] backdrop-blur-sm !no-underline">
+                {teksTombol2}
+              </a>
+            )}
           </div>
+        </div>
 
-        </div>
-        <div class="animate-hero-image opacity-0 translate-y-8 transform transition-all duration-1000 ease-out delay-300 w-full max-w-3xl relative mt-16 md:mt-20">
+        <div class="hero-fade-in delay-300 w-full max-w-3xl relative mt-16 md:mt-20">
           <div class="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full transform scale-75 -z-10"></div>
-          <img src={gambarHero} alt="Hero Image" class="w-full h-auto rounded-2xl md:rounded-[2rem] object-cover shadow-2xl transform hover:scale-[1.01] transition-transform duration-500" />
+          
+          {/* 👇 OPTIMASI GAMBAR HOME (Eager Load & Astro Image) */}
+          {optimizedImage ? (
+            <Image src={optimizedImage} alt="Hero Image" width={800} loading="eager" fetchpriority="high" class="w-full h-auto rounded-2xl md:rounded-[2rem] object-cover shadow-2xl transform hover:scale-[1.01] transition-transform duration-500" />
+          ) : (
+            <img src={gambarHero} alt="Hero Image" loading="eager" fetchpriority="high" class="w-full h-auto rounded-2xl md:rounded-[2rem] object-cover shadow-2xl transform hover:scale-[1.01] transition-transform duration-500" />
+          )}
         </div>
+
       </div>
     </div>
   </section>
@@ -52,14 +76,20 @@ const {
   <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-[#0B1121] overflow-hidden flex items-center border-b border-slate-800/50">
     
     <div class="absolute inset-0 z-0">
-      <img src={gambarHero} alt="Background" class="w-full h-full object-contain object-center opacity-30 block" />
+      {/* 👇 OPTIMASI GAMBAR SERVICE (Eager Load & Astro Image) */}
+      {optimizedImage ? (
+        <Image src={optimizedImage} alt="Background" width={800} loading="eager" fetchpriority="high" class="w-full h-full object-contain object-center opacity-30 block" />
+      ) : (
+        <img src={gambarHero} alt="Background" loading="eager" fetchpriority="high" class="w-full h-full object-contain object-center opacity-30 block" />
+      )}
       <div class="absolute inset-0 bg-gradient-to-b from-[#0B1121] via-transparent to-[#0B1121]"></div>
       <div class="absolute inset-0 bg-[#0B1121]/60"></div> 
       <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] [background-position:16px_16px] z-0 animate-twinkle mix-blend-overlay"></div>
       <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[400px] bg-blue-600/20 blur-[150px] rounded-full pointer-events-none"></div>
     </div>
 
-    <div class="relative z-10 container mx-auto px-6 text-center max-w-4xl animate-hero-text opacity-0 translate-y-8 transform transition-all duration-1000 ease-out mt-10 lg:mt-0">
+    {/* 👇 CLASS ANIMASI DIGANTI KE CSS MURNI (hero-fade-in) */}
+    <div class="relative z-10 container mx-auto px-6 text-center max-w-4xl hero-fade-in mt-10 lg:mt-0">
       
       {labelTeks && (
         <span class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-700/50 text-blue-300 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium mb-6">
@@ -85,8 +115,8 @@ const {
   </section>
 )}
 
-
 <script>
+  // Script ini dibiarkan untuk animasi bagian bawah web (yang bukan Hero)
   document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -98,8 +128,9 @@ const {
       });
     }, { threshold: 0.1 });
 
-    const heroElements = document.querySelectorAll('.animate-hero-text, .animate-hero-image');
-    heroElements.forEach((el) => observer.observe(el));
+    // Mencari elemen animasi lain jika ada
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach((el) => observer.observe(el));
   });
 </script>
 
@@ -110,6 +141,25 @@ const {
   }
   .animate-twinkle {
     animation: smooth-twinkle 8s ease-in-out infinite;
+  }
+
+  /* 👇 Animasi CSS Murni yang langsung jalan (Tanpa halangi LCP Google) */
+  @keyframes heroFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hero-fade-in {
+    animation: heroFadeInUp 1s ease-out forwards;
+    opacity: 0; /* Mulai dari transparan sebelum animasi jalan sepersekian detik */
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
   }
 </style>
 
