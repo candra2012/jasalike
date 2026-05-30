@@ -5,43 +5,80 @@ import Hero from '../components/Hero.astro'
 import { Icon } from 'astro-icon/components'
 
 // ==========================================
-// 1. DATA SEO DIREKTORI TIKTOK
+// 1. DATA SEO DIREKTORI GLOBAL (Lintas Platform)
 // ==========================================
-const title = "Peta Direktori Layanan JasaLike | Pusat Optimasi & Perlindungan TikTok";
-const description = "Pusat direktori JasaLike khusus layanan TikTok: melayani jasa report akun tiktok, jasa spam tiktok, hingga optimasi wilayah jasa tiktok bandung dan surabaya.";
-const keywords = "jasa like akun private, jasa auto like, jasa like and subscribe, jasa like album, jasa beli like youtube, jasa jual beli like tiktok, jasa beli like, jasa buzzer like instagram, jasa bot like, jasa buzzer like, jasa like comment instagram, jasa like comment tiktok, jasa like comment youtube, jasa tambah like tiktok, jasa like dan komen instagram, jasa like dan view tiktok, jasa like foto ig, jasa like google maps";
+// Title & Deskripsi diperbaiki agar merangkum semua, bukan cuma TikTok.
+const title = "Peta Direktori Semua Layanan JasaLike | Pusat Optimasi & Perlindungan Sosmed";
+const description = "Pusat direktori resmi JasaLike. Temukan semua layanan optimasi: jasa komentar YouTube indonesia, jasa report & hapus akun tiktok, hingga jasa trending topik twitter terbaik.";
+// Keywords diperbanyak dengan kata kunci "dewa" lintas platform
+const keywords = "jasa komentar YouTube indonesia, jasa report akun tiktok, jasa hapus akun tiktok, jasa spam tiktok, jasa trending topik twitter, fyp tiktok, jasa tiktok bandung, jasa tiktok surabaya, beli komentar YouTube, trending 1 today, usaha jasa terbaik, jasa like akun private";
 
 // ==========================================
-// 2. DATA KOMPONEN HERO (Pengganti Teks Atas)
+// 2. DATA KOMPONEN HERO (Sambutan Global Direktori)
 // ==========================================
 const dataHero = {
   tipe: "service",
-  labelTeks: "Layanan TikTok Premium",
-  labelIcon: "fa-brands:tiktok",
-  judulUtama: 'Jasa Like TikTok <br class="hidden md:block"/> <span class="text-blue-500">Cepat & Terpercaya</span>',
-  deskripsi: "Tingkatkan performa video TikTok dengan layanan optimasi interaksi yang dirancang untuk memperkuat engagement dan menembus <strong>fyp tiktok</strong>. Kami juga spesialis dalam <strong>jasa report akun tiktok</strong> & <strong>jasa hapus akun tiktok</strong>.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Sistem Aman & Stabil ✓ Proses Efisien ✓ Garansi Proteksi Kualitas</span>",
-  teksTombol1: "Lihat Harga Paket",
-  linkTombol1: "https://docs.google.com/spreadsheets/d/1BXtgxl_qcKRe4UOIm__BDH5DwufpyX-56Ru-NDDXMcI/edit?usp=drivesdk",
+  labelTeks: "Pusat Direktori JasaLike",
+  labelIcon: "lucide:layout-grid", // Ikon grid kotak-kotak
+  judulUtama: 'Pusat Layanan Optimasi <br class="hidden md:block"/> <span class="text-blue-500">Sosial Media Terlengkap</span>',
+  deskripsi: "Selamat datang di pusat layanan digital JasaLike. Kami siap membantu memperkuat aset digital Anda lintas platform, mulai dari eksekusi <strong>jasa komentar YouTube indonesia</strong>, manajemen krisis <strong>jasa report akun tiktok</strong> dan <strong>jasa hapus akun tiktok</strong>, hingga merajai pencarian lewat <strong>jasa trending topik twitter</strong>.<br class='hidden md:block mt-2'/><span class='text-blue-500 font-semibold block mt-4'>✓ Lintas Platform ✓ Eksekusi Cepat ✓ Privasi Klien Terjamin</span>",
+  teksTombol1: "Pilih Kategori Layanan",
+  linkTombol1: "#daftar-layanan", // Scroll ke area grid di bawah
   teksTombol2: "Konsultasi Gratis",
   linkTombol2: "https://wa.me/6289634740308",
-  gambarHero: "/image/hero-direktori.png"
+  gambarHero: "/image/hero-direktori.png" // Pastikan file ini ada, atau ganti ke hero-jasalike-Tiktok.png sementara
 };
 
 // ==========================================
-// 3. DATA KONTEN DIREKTORI (Grid di Bawah Hero)
+// 3. DATA KONTEN DIREKTORI (Dipisah per Platform)
 // ==========================================
 const direktoriKategori = [
+  // PLATFORM 1: TIKTOK
   {
     icon: "fa-brands:tiktok",
     bgImage: "/image/hero-jasalike-Tiktok.png", 
     colorClass: "text-slate-900", 
-    bgClass: "bg-slate-900/10",
-    namaKategori: "Manajemen & Perlindungan TikTok",
-    deskripsi: "Solusi lengkap dari optimasi FYP, manajemen krisis, hingga ekspansi lokal untuk <strong>jasa tiktok bandung</strong> dan <strong>jasa tiktok surabaya</strong>.",
+    namaKategori: "Optimasi & Perlindungan TikTok",
+    deskripsi: "Solusi lengkap pendorong interaksi untuk menembus <strong>fyp tiktok</strong>, manajemen krisis <strong>jasa report akun tiktok</strong>, <strong>jasa hapus akun tiktok</strong>, hingga ekspansi lokal untuk <strong>jasa tiktok bandung</strong> dan <strong>jasa tiktok surabaya</strong>.",
     links: [
-      { url: "/jasa-like-tiktok-permanen", label: "Pusat <strong>jasa suntik like tiktok</strong> & <strong>jasa jual beli like tiktok</strong> permanen" }
+      { url: "/jasa-like-tiktok-permanen", label: "Pusat Jasa Like, View, & Followers TikTok Permanen" },
+      { url: "/jasa-report-tiktok", label: "Layanan Specialis <strong>jasa report akun tiktok</strong> & Banned" }
     ],
-    catatan: "Butuh bantuan banding resmi? Hubungi email <strong>feedback@tiktok</strong> atau konsultasikan layanan <strong>jual jasa like tiktok</strong> bersama tim ahli kami."
+    catatan: "Gunakan layanan <strong>jasa spam tiktok</strong> untuk meningkatkan engagement atau perlindungan."
+  },
+  // PLATFORM 2: YOUTUBE
+  {
+    icon: "fa-brands:youtube",
+    // bgImage: "/image/bg-grid-youtube.jpg", // Buka komentar ini jika sudah ada fotonya
+    colorClass: "text-red-600", 
+    namaKategori: "Interaksi & Jam Tayang YouTube",
+    deskripsi: "Tingkatkan kredibilitas channel Anda dengan <strong>jasa komentar YouTube indonesia</strong> real dari pengguna aktif. Solusi instan bagi yang mencari <strong>cara beli komentar YouTube</strong> yang aman dan permanen.",
+    links: [
+      { url: "/jasa-komentar-youtube", label: "Pesan <strong>komentar YouTube murah</strong>, Subscriber, & Jam Tayang" }
+    ],
+    catatan: "Kami menjamin keamanan akun dengan metode eksekusi yang *safe* dari PC admin."
+  },
+  // PLATFORM 3: INSTAGRAM
+  {
+    icon: "fa-brands:instagram",
+    colorClass: "text-pink-600", 
+    namaKategori: "Engagement & Estetika Instagram",
+    deskripsi: "Layanan pendorong interaksi Feed, Reels, dan Story. Tingkatkan kepercayaan klien <strong>google maps bisnis</strong> Anda lewat interaksi Instagram. Sedia <strong>jasa like akun private</strong> untuk privasi total.",
+    links: [
+      { url: "/jasa-like-instagram", label: "Beli Like, Followers, Komen, & View Instagram" }
+    ],
+    catatan: "Cocok untuk akun bisnis, *influencer*, maupun akun pribadi."
+  },
+  // PLATFORM 4: TWITTER / X
+  {
+    icon: "fa-brands:twitter",
+    colorClass: "text-blue-400", 
+    namaKategori: "Viral Marketing & Trending Twitter",
+    deskripsi: "Kuasai opini publik dan jadilah perbincangan nasional. Gunakan layanan <strong>jasa trending topik twitter</strong> kami untuk mencapai target <strong>trending 1 today</strong> di Indonesia secara cepat dan organik.",
+    links: [
+      { url: "/jasa-trending-twitter", label: "Layanan <strong>buy trending topic twitter</strong> & Jasa Retweet Premium" }
+    ],
+    catatan: "Optimalkan kampanye *viral marketing* Anda di platform X bersama JasaLike."
   }
 ];
 ---
@@ -51,51 +88,60 @@ const direktoriKategori = [
   <!-- BAGIAN 1: HERO (Tampilan Atas Premium) -->
   <Hero {...dataHero} />
 
-  <!-- BAGIAN 2: GRID DIREKTORI -->
-  <main class="container mx-auto px-6 py-16 max-w-4xl min-h-screen" id="harga-paket">
+  <!-- BAGIAN 2: AREA GRID DIREKTORI DENGAN BACKGROUND TOTAL -->
+  <!-- ID daftar-layanan ditaruh di sini agar tombol Hero scroll ke sini -->
+  <div id="daftar-layanan" class="relative bg-slate-50 w-full overflow-hidden border-t border-gray-100">
     
-    <div class="space-y-12">
-      {direktoriKategori.map((kategori) => (
-        <section 
-          class="relative p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 overflow-hidden bg-white"
-          style={kategori.bgImage ? `background-image: url('${kategori.bgImage}'); background-size: cover; background-position: center;` : ""}
-        >
-          <!-- DARK OVERLAY (Hanya muncul jika diisi foto background) -->
-          {kategori.bgImage && (
-            <div class="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
-          )}
+    <!-- BACKGROUND PATTERN: Pola titik-titik modern samar di seluruh area grid -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
-          <!-- KONTEN GRID -->
-          <div class="relative z-10">
-            <div class="flex items-center gap-3 mb-4 border-b border-gray-200 pb-4">
-              <Icon name={kategori.icon} class={`text-3xl ${kategori.colorClass}`} />
-              <h2 class="text-2xl font-bold text-slate-800">{kategori.namaKategori}</h2>
-            </div>
-            
-            <p class="text-sm text-slate-700 mb-6" set:html={kategori.deskripsi}></p>
-            
-            <ul class="space-y-3 mb-6">
-              {kategori.links.map((link) => (
-                <li class="flex items-start gap-2">
-                  <span class="text-blue-600 mt-1">🔗</span>
-                  <a 
-                    href={link.url} 
-                    class="text-blue-700 font-medium hover:underline leading-relaxed"
-                    set:html={link.label}
-                  />
-                </li>
-              ))}
-            </ul>
-
-            {kategori.catatan && (
-              <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-slate-600 italic bg-gray-50/50 p-3 rounded-lg" set:html={kategori.catatan}></div>
+    <!-- KONTEN GRID (relative z-10 agar di atas pattern) -->
+    <main class="relative z-10 container mx-auto px-6 py-16 max-w-4xl min-h-screen">
+      
+      <div class="space-y-12">
+        {direktoriKategori.map((kategori) => (
+          <section 
+            class="relative p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
+            style={kategori.bgImage ? `background-image: url('${kategori.bgImage}'); background-size: cover; background-position: center;` : ""}
+          >
+            <!-- DARK OVERLAY (Hanya muncul jika ada foto background di kategori) -->
+            {kategori.bgImage && (
+              <div class="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
             )}
-          </div>
-        </section>
-      ))}
-    </div>
 
-  </main>
+            <!-- KONTEN DALAM KOTAK -->
+            <div class="relative z-10">
+              <div class="flex items-center gap-3 mb-4 border-b border-gray-200 pb-4">
+                <!-- Gunakan fa6-brands jika fa-brands tidak muncul -->
+                <Icon name={kategori.icon} class={`text-3xl ${kategori.colorClass}`} />
+                <h2 class="text-2xl font-bold text-slate-800">{kategori.namaKategori}</h2>
+              </div>
+              
+              <p class="text-sm text-slate-700 mb-6" set:html={kategori.deskripsi}></p>
+              
+              <ul class="space-y-3 mb-6">
+                {kategori.links.map((link) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-blue-600 mt-1">🔗</span>
+                    <a 
+                      href={link.url} 
+                      class="text-blue-700 font-medium hover:underline leading-relaxed"
+                      set:html={link.label}
+                    />
+                  </li>
+                ))}
+              </ul>
+
+              {kategori.catatan && (
+                <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-slate-600 italic bg-gray-50/50 p-3 rounded-lg" set:html={kategori.catatan}></div>
+              )}
+            </div>
+          </section>
+        ))}
+      </div>
+
+    </main>
+  </div>
 
 </DefaultLayout>
 
