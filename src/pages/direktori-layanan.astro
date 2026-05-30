@@ -1,6 +1,7 @@
 ---
 // src/pages/direktori-layanan.astro
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Hero from '../components/Hero.astro'
 import { Icon } from 'astro-icon/components'
 
 // ==========================================
@@ -11,17 +12,28 @@ const description = "Pusat direktori JasaLike khusus layanan TikTok: melayani ja
 const keywords = "jasa like akun private, jasa auto like, jasa like and subscribe, jasa like album, jasa beli like youtube, jasa jual beli like tiktok, jasa beli like, jasa buzzer like instagram, jasa bot like, jasa buzzer like, jasa like comment instagram, jasa like comment tiktok, jasa like comment youtube, jasa tambah like tiktok, jasa like dan komen instagram, jasa like dan view tiktok, jasa like foto ig, jasa like google maps";
 
 // ==========================================
-// 2. DATA KONTEN DIREKTORI
+// 2. DATA KOMPONEN HERO (Pengganti Teks Atas)
 // ==========================================
-const intro = {
-  judul: "Peta Direktori Layanan JasaLike",
-  teks: "Selamat datang di pusat layanan optimasi digital JasaLike. Saat ini kami memfokuskan direktori pada manajemen, interaksi, dan perlindungan aset TikTok untuk memudahkan Anda menjangkau <strong>fyp tiktok</strong> secara organik maupun terstruktur."
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan TikTok Premium",
+  labelIcon: "fa-brands:tiktok",
+  judulUtama: 'Jasa Like TikTok <br class="hidden md:block"/> <span class="text-blue-500">Cepat & Terpercaya</span>',
+  deskripsi: "Tingkatkan performa video TikTok dengan layanan optimasi interaksi yang dirancang untuk memperkuat engagement dan menembus <strong>fyp tiktok</strong>. Kami juga spesialis dalam <strong>jasa report akun tiktok</strong> & <strong>jasa hapus akun tiktok</strong>.<br class='hidden md:block mt-2'/><span class='text-blue-400 font-semibold block mt-4'>✓ Sistem Aman & Stabil ✓ Proses Efisien ✓ Garansi Proteksi Kualitas</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "https://docs.google.com/spreadsheets/d/1BXtgxl_qcKRe4UOIm__BDH5DwufpyX-56Ru-NDDXMcI/edit?usp=drivesdk",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-direktori.png"
 };
 
+// ==========================================
+// 3. DATA KONTEN DIREKTORI (Grid di Bawah Hero)
+// ==========================================
 const direktoriKategori = [
   {
-    icon: "fa-brands:tiktok", // Atau gunakan "fa6-brands:tiktok" jika tidak muncul
-    bgImage: "/image/hero-jasalike-Tiktok.png", // <--- Jalur lokal ke foto Akang
+    icon: "fa-brands:tiktok",
+    bgImage: "/image/hero-jasalike-Tiktok.png", 
     colorClass: "text-slate-900", 
     bgClass: "bg-slate-900/10",
     namaKategori: "Manajemen & Perlindungan TikTok",
@@ -36,15 +48,12 @@ const direktoriKategori = [
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
   
-  <main class="container mx-auto px-6 py-16 max-w-4xl min-h-screen">
-    
-    <!-- Bagian Header Direktori -->
-    <div class="mb-12 text-center md:text-left">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">{intro.judul}</h1>
-      <p class="text-gray-600 leading-relaxed max-w-3xl" set:html={intro.teks}></p>
-    </div>
+  <!-- BAGIAN 1: HERO (Tampilan Atas Premium) -->
+  <Hero {...dataHero} />
 
-    <!-- Mapping Data Kategori Silo -->
+  <!-- BAGIAN 2: GRID DIREKTORI -->
+  <main class="container mx-auto px-6 py-16 max-w-4xl min-h-screen" id="harga-paket">
+    
     <div class="space-y-12">
       {direktoriKategori.map((kategori) => (
         <section 
@@ -56,7 +65,7 @@ const direktoriKategori = [
             <div class="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
           )}
 
-          <!-- KONTEN (Harus pakai relative agar di atas background) -->
+          <!-- KONTEN GRID -->
           <div class="relative z-10">
             <div class="flex items-center gap-3 mb-4 border-b border-gray-200 pb-4">
               <Icon name={kategori.icon} class={`text-3xl ${kategori.colorClass}`} />
