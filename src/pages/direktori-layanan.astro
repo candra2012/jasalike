@@ -5,80 +5,97 @@ import Hero from '../components/Hero.astro'
 import { Icon } from 'astro-icon/components'
 
 // ==========================================
-// 1. DATA SEO DIREKTORI GLOBAL (Lintas Platform)
+// 1. DATA SEO DIREKTORI GLOBAL
 // ==========================================
-// Title & Deskripsi diperbaiki agar merangkum semua, bukan cuma TikTok.
 const title = "Peta Direktori Semua Layanan JasaLike | Pusat Optimasi & Perlindungan Sosmed";
 const description = "Pusat direktori resmi JasaLike. Temukan semua layanan optimasi: jasa komentar YouTube indonesia, jasa report & hapus akun tiktok, hingga jasa trending topik twitter terbaik.";
-// Keywords diperbanyak dengan kata kunci "dewa" lintas platform
 const keywords = "jasa komentar YouTube indonesia, jasa report akun tiktok, jasa hapus akun tiktok, jasa spam tiktok, jasa trending topik twitter, fyp tiktok, jasa tiktok bandung, jasa tiktok surabaya, beli komentar YouTube, trending 1 today, usaha jasa terbaik, jasa like akun private";
 
 // ==========================================
-// 2. DATA KOMPONEN HERO (Sambutan Global Direktori)
+// 2. DATA KOMPONEN HERO 
 // ==========================================
 const dataHero = {
   tipe: "service",
   labelTeks: "Pusat Direktori JasaLike",
-  labelIcon: "lucide:layout-grid", // Ikon grid kotak-kotak
+  labelIcon: "lucide:layout-grid", 
   judulUtama: 'Pusat Layanan Optimasi <br class="hidden md:block"/> <span class="text-blue-500">Sosial Media Terlengkap</span>',
-  deskripsi: "Selamat datang di pusat layanan digital JasaLike. Kami siap membantu memperkuat aset digital Anda lintas platform, mulai dari eksekusi <strong>jasa komentar YouTube indonesia</strong>, manajemen krisis <strong>jasa report akun tiktok</strong> dan <strong>jasa hapus akun tiktok</strong>, hingga merajai pencarian lewat <strong>jasa trending topik twitter</strong>.<br class='hidden md:block mt-2'/><span class='text-blue-500 font-semibold block mt-4'>✓ Lintas Platform ✓ Eksekusi Cepat ✓ Privasi Klien Terjamin</span>",
+  deskripsi: "Selamat datang di pusat layanan digital JasaLike. Kami siap membantu memperkuat aset digital Anda lintas platform, mulai dari eksekusi <strong>jasa komentar YouTube indonesia</strong>, manajemen krisis <strong>jasa report akun tiktok</strong>, hingga <strong>jasa trending topik twitter</strong>.<br class='hidden md:block mt-2'/><span class='text-blue-500 font-semibold block mt-4'>✓ Lintas Platform ✓ Eksekusi Cepat ✓ Privasi Klien Terjamin</span>",
   teksTombol1: "Pilih Kategori Layanan",
-  linkTombol1: "#daftar-layanan", // Scroll ke area grid di bawah
+  linkTombol1: "#daftar-layanan",
   teksTombol2: "Konsultasi Gratis",
   linkTombol2: "https://wa.me/6289634740308",
-  gambarHero: "/image/hero-direktori.png" // Pastikan file ini ada, atau ganti ke hero-jasalike-Tiktok.png sementara
+  gambarHero: "/image/hero-direktori.png" 
 };
 
 // ==========================================
-// 3. DATA KONTEN DIREKTORI (Dipisah per Platform)
+// 3. DATA KONTEN DIREKTORI (Daftar Layanan Spesifik)
 // ==========================================
 const direktoriKategori = [
   // PLATFORM 1: TIKTOK
   {
     icon: "fa-brands:tiktok",
-    bgImage: "/image/hero-jasalike-Tiktok.png", 
     colorClass: "text-slate-900", 
     namaKategori: "Optimasi & Perlindungan TikTok",
-    deskripsi: "Solusi lengkap pendorong interaksi untuk menembus <strong>fyp tiktok</strong>, manajemen krisis <strong>jasa report akun tiktok</strong>, <strong>jasa hapus akun tiktok</strong>, hingga ekspansi lokal untuk <strong>jasa tiktok bandung</strong> dan <strong>jasa tiktok surabaya</strong>.",
+    deskripsi: "Solusi lengkap pendorong interaksi untuk <strong>fyp tiktok</strong>, manajemen krisis <strong>jasa report akun tiktok</strong>, hingga ekspansi <strong>jasa tiktok bandung</strong> dan <strong>jasa surabaya</strong>.",
     links: [
-      { url: "/jasa-like-tiktok-permanen", label: "Pusat Jasa Like, View, & Followers TikTok Permanen" },
-      { url: "/jasa-report-tiktok", label: "Layanan Specialis <strong>jasa report akun tiktok</strong> & Banned" }
+      { url: "/jasa-like-tiktok", label: "Jasa Like TikTok" },
+      { url: "/jasa-follower-tiktok", label: "Jasa Follower TikTok" },
+      { url: "/jasa-view-tiktok", label: "Jasa View TikTok" },
+      { url: "/jasa-komentar-tiktok", label: "Jasa Komentar TikTok" },
+      { url: "/jasa-share-tiktok", label: "Jasa Share & Save" },
+      { url: "/jasa-report-tiktok", label: "Jasa Report Akun TikTok" },
+      { url: "/jasa-hapus-tiktok", label: "Jasa Hapus Akun TikTok" },
+      { url: "/jasa-spam-tiktok", label: "Jasa Spam TikTok" }
     ],
-    catatan: "Gunakan layanan <strong>jasa spam tiktok</strong> untuk meningkatkan engagement atau perlindungan."
+    catatan: "Butuh bantuan banding resmi? Hubungi email <strong>feedback@tiktok</strong> atau tim ahli kami."
   },
   // PLATFORM 2: YOUTUBE
   {
     icon: "fa-brands:youtube",
-    // bgImage: "/image/bg-grid-youtube.jpg", // Buka komentar ini jika sudah ada fotonya
     colorClass: "text-red-600", 
     namaKategori: "Interaksi & Jam Tayang YouTube",
-    deskripsi: "Tingkatkan kredibilitas channel Anda dengan <strong>jasa komentar YouTube indonesia</strong> real dari pengguna aktif. Solusi instan bagi yang mencari <strong>cara beli komentar YouTube</strong> yang aman dan permanen.",
+    deskripsi: "Tingkatkan kredibilitas channel Anda dengan <strong>jasa komentar YouTube indonesia</strong> real. Solusi instan bagi yang mencari <strong>cara beli komentar YouTube</strong> yang aman.",
     links: [
-      { url: "/jasa-komentar-youtube", label: "Pesan <strong>komentar YouTube murah</strong>, Subscriber, & Jam Tayang" }
+      { url: "/jasa-subscriber-youtube", label: "Jasa Subscriber" },
+      { url: "/jasa-jam-tayang", label: "Jasa Jam Tayang" },
+      { url: "/jasa-view-youtube", label: "Jasa View YouTube" },
+      { url: "/jasa-komentar-youtube", label: "Jasa Komentar YouTube" },
+      { url: "/jasa-like-youtube", label: "Jasa Like YouTube" },
+      { url: "/jasa-live-youtube", label: "Penonton Live Stream" }
     ],
-    catatan: "Kami menjamin keamanan akun dengan metode eksekusi yang *safe* dari PC admin."
+    catatan: "Kami menjamin keamanan akun dengan metode eksekusi dari PC admin."
   },
   // PLATFORM 3: INSTAGRAM
   {
     icon: "fa-brands:instagram",
     colorClass: "text-pink-600", 
     namaKategori: "Engagement & Estetika Instagram",
-    deskripsi: "Layanan pendorong interaksi Feed, Reels, dan Story. Tingkatkan kepercayaan klien <strong>google maps bisnis</strong> Anda lewat interaksi Instagram. Sedia <strong>jasa like akun private</strong> untuk privasi total.",
+    deskripsi: "Layanan pendorong interaksi Feed, Reels, dan Story. Tersedia juga layanan <strong>jasa like akun private</strong> untuk privasi klien secara total.",
     links: [
-      { url: "/jasa-like-instagram", label: "Beli Like, Followers, Komen, & View Instagram" }
+      { url: "/jasa-like-instagram", label: "Jasa Like Instagram" },
+      { url: "/jasa-follower-instagram", label: "Jasa Follower Aktif" },
+      { url: "/jasa-view-reels", label: "Jasa View Reels/Story" },
+      { url: "/jasa-komentar-instagram", label: "Jasa Komentar Custom" },
+      { url: "/jasa-save-instagram", label: "Jasa Save & Share" },
+      { url: "/jasa-vote-instagram", label: "Jasa Vote Polling Story" }
     ],
-    catatan: "Cocok untuk akun bisnis, *influencer*, maupun akun pribadi."
+    catatan: "Cocok untuk optimasi akun bisnis dan brand personal."
   },
   // PLATFORM 4: TWITTER / X
   {
     icon: "fa-brands:twitter",
     colorClass: "text-blue-400", 
     namaKategori: "Viral Marketing & Trending Twitter",
-    deskripsi: "Kuasai opini publik dan jadilah perbincangan nasional. Gunakan layanan <strong>jasa trending topik twitter</strong> kami untuk mencapai target <strong>trending 1 today</strong> di Indonesia secara cepat dan organik.",
+    deskripsi: "Kuasai opini publik dengan layanan <strong>jasa trending topik twitter</strong> kami untuk mencapai target <strong>trending 1 today</strong> secara organik.",
     links: [
-      { url: "/jasa-trending-twitter", label: "Layanan <strong>buy trending topic twitter</strong> & Jasa Retweet Premium" }
+      { url: "/jasa-trending-twitter", label: "Jasa Trending Topik" },
+      { url: "/jasa-retweet", label: "Jasa Retweet Premium" },
+      { url: "/jasa-like-twitter", label: "Jasa Like Twitter" },
+      { url: "/jasa-follower-twitter", label: "Jasa Follower Twitter" },
+      { url: "/jasa-reply-twitter", label: "Jasa Reply / Komentar" },
+      { url: "/jasa-vote-twitter", label: "Jasa Vote Polling" }
     ],
-    catatan: "Optimalkan kampanye *viral marketing* Anda di platform X bersama JasaLike."
+    catatan: "Optimalkan kampanye viral marketing Anda di platform X bersama kami."
   }
 ];
 ---
@@ -88,56 +105,55 @@ const direktoriKategori = [
   <!-- BAGIAN 1: HERO (Tampilan Atas Premium) -->
   <Hero {...dataHero} />
 
-  <!-- BAGIAN 2: AREA GRID DIREKTORI DENGAN BACKGROUND TOTAL -->
-  <!-- ID daftar-layanan ditaruh di sini agar tombol Hero scroll ke sini -->
-  <div id="daftar-layanan" class="relative bg-slate-50 w-full overflow-hidden border-t border-gray-100">
+  <!-- BAGIAN 2: AREA GRID DIREKTORI DENGAN BACKGROUND FOTO -->
+  <!-- Saya tambahkan bg-slate-900 dan pemanggilan foto background di sini -->
+  <div id="daftar-layanan" class="relative w-full overflow-hidden bg-slate-900 bg-[url('/image/hero-jasalike-Tiktok.png')] bg-cover bg-fixed bg-center">
     
-    <!-- BACKGROUND PATTERN: Pola titik-titik modern samar di seluruh area grid -->
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <!-- DARK OVERLAY: Agar background fotonya menjadi gelap elegan dan kotak layanannya tetap terbaca -->
+    <div class="absolute inset-0 bg-slate-900/85 backdrop-blur-sm"></div>
 
-    <!-- KONTEN GRID (relative z-10 agar di atas pattern) -->
-    <main class="relative z-10 container mx-auto px-6 py-16 max-w-4xl min-h-screen">
+    <!-- KONTEN GRID -->
+    <main class="relative z-10 container mx-auto px-6 py-20 max-w-5xl min-h-screen">
       
-      <div class="space-y-12">
+      <!-- Saya ubah gridnya menjadi 2 kolom jika di layar PC (md:grid-cols-2) biar lebih padat dan rapi -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
         {direktoriKategori.map((kategori) => (
-          <section 
-            class="relative p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
-            style={kategori.bgImage ? `background-image: url('${kategori.bgImage}'); background-size: cover; background-position: center;` : ""}
-          >
-            <!-- DARK OVERLAY (Hanya muncul jika ada foto background di kategori) -->
-            {kategori.bgImage && (
-              <div class="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
-            )}
-
-            <!-- KONTEN DALAM KOTAK -->
-            <div class="relative z-10">
-              <div class="flex items-center gap-3 mb-4 border-b border-gray-200 pb-4">
-                <!-- Gunakan fa6-brands jika fa-brands tidak muncul -->
-                <Icon name={kategori.icon} class={`text-3xl ${kategori.colorClass}`} />
-                <h2 class="text-2xl font-bold text-slate-800">{kategori.namaKategori}</h2>
+          <section class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100/50">
+            
+            <div class="flex items-center gap-4 mb-6 border-b border-gray-100 pb-5">
+              <div class={`p-3 rounded-xl bg-gray-50 ${kategori.colorClass}`}>
+                <Icon name={kategori.icon} class="text-4xl" />
               </div>
-              
-              <p class="text-sm text-slate-700 mb-6" set:html={kategori.deskripsi}></p>
-              
-              <ul class="space-y-3 mb-6">
-                {kategori.links.map((link) => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-blue-600 mt-1">🔗</span>
-                    <a 
-                      href={link.url} 
-                      class="text-blue-700 font-medium hover:underline leading-relaxed"
-                      set:html={link.label}
-                    />
-                  </li>
-                ))}
-              </ul>
-
-              {kategori.catatan && (
-                <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-slate-600 italic bg-gray-50/50 p-3 rounded-lg" set:html={kategori.catatan}></div>
-              )}
+              <h2 class="text-2xl font-bold text-slate-800">{kategori.namaKategori}</h2>
             </div>
+            
+            <p class="text-sm text-slate-600 mb-8 leading-relaxed" set:html={kategori.deskripsi}></p>
+            
+            <!-- LIST LAYANAN (Tanpa Garis Bawah, Grid 2 Kolom) -->
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-2 mb-8">
+              {kategori.links.map((link) => (
+                <li>
+                  <!-- Class "no-underline" mematikan garis bawah, teks berubah warna saat di-hover -->
+                  <a 
+                    href={link.url} 
+                    class="flex items-center gap-2 text-slate-700 hover:text-blue-600 font-medium no-underline group transition-colors"
+                  >
+                    <!-- Icon panah/centang kecil di samping text -->
+                    <Icon name="lucide:chevron-right" class="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" />
+                    <span>{link.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {kategori.catatan && (
+              <div class="pt-4 border-t border-gray-100 text-xs text-slate-500 italic bg-gray-50/50 p-4 rounded-xl" set:html={kategori.catatan}></div>
+            )}
+            
           </section>
         ))}
+
       </div>
 
     </main>
