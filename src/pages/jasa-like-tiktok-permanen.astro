@@ -1,0 +1,254 @@
+---
+// src/pages/jasa-like-tiktok-permanen.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa Like TikTok Permanen & Murah | Pusat Suntik Like TikTok";
+const description = "JasaLike adalah pusat jasa jual beli like tiktok, jasa suntik like tiktok, dan jasa like tiktok permanen. Kami membantu VT Anda tembus FYP dengan aman.";
+const keywords = "jasa like tiktok permanen, jasa jual beli like tiktok, jasa like comment tiktok, jasa tambah like tiktok, jasa like follow tiktok, jasa suntik like tiktok, jasa jual like tiktok, jasa like komen tiktok, jasa like live tiktok, jasa like tiktok murah";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS TIKTOK (Suntikan 10 Keyword)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan TikTok Premium",
+  labelIcon: "lucide:music-2",
+  judulUtama: 'Pusat <span class="text-blue-500">Jasa Like TikTok Permanen</span> & Aman',
+  deskripsi: "Bawa VT (Video TikTok) Anda menembus algoritma FYP. Kami adalah spesialis <strong>jasa suntik like tiktok</strong> super cepat untuk kreator dan afiliator online. Dapatkan interaksi organik tanpa risiko banned.<br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Anti Drop &nbsp; ✓ Proses Instan &nbsp; ✓ Tanpa Password</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-Tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala Utama Kreator <span class="text-blue-600">TikTok</span>',
+  deskripsiUtama: "Mengapa VT Anda sulit FYP dan tertahan di penayangan rendah?",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Susah Masuk FYP:</strong> Algoritma TikTok butuh pancingan interaksi di 1 jam pertama video di-upload.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kalah Bersaing:</strong> Kreator lain sering menggunakan <strong>jasa tambah like tiktok</strong> untuk mendongkrak video mereka ke atas.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Sepi Penonton Live:</strong> Siaran langsung terasa hampa tanpa ada yang memberi tap-tap layar atau *like*.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Kurang Meyakinkan:</strong> Penjualan afiliasi menurun karena audiens ragu melihat VT dengan jumlah *like* sedikit.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Solusi <span class="text-blue-500">Jasa Jual Beli Like TikTok</span>',
+  deskripsiUtama: "Kami adalah penyedia layanan optimasi algoritma yang berfokus pada kualitas dan kuantitas interaksi VT Anda.",
+  k1Judul: "Otoritas Jasa Jual Like TikTok",
+  k1Teks: "Kami merupakan pionir dalam <strong>jasa jual like tiktok</strong> di Indonesia. Sistem kami dirancang untuk mengirimkan like organik dari server yang sangat aman.",
+  k2Judul: "Sistem Eksekusi Multi-Interaksi",
+  k2Teks: "Sebagai pusat <strong>jasa jual beli like tiktok</strong>, kami tidak hanya mengirim like secara satuan, tetapi menggunakan pola interaksi natural layaknya pengguna asli."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat <span class="text-blue-600">Jasa Like TikTok Permanen</span>',
+  deskripsiUtama: "Investasi kecil untuk dominasi algoritma TikTok Anda dalam jangka panjang.",
+  m1Judul: "Garansi Anti-Drop",
+  m1Teks: "Layanan utama kami adalah <strong>jasa like tiktok permanen</strong>. Angka like Anda tidak akan merosot atau hilang keesokan harinya.",
+  m2Judul: "Optimasi Siaran Langsung (Live)",
+  m2Teks: "Kami menyediakan pasukan <strong>jasa like live tiktok</strong> untuk memberikan tap-tap layar, mengangkat *room* Anda di beranda pengikut.",
+  m3Judul: "Dongkrak Penjualan Afiliasi",
+  m3Teks: "VT keranjang kuning yang dioptimasi memiliki tingkat konversi penjualan berkali-kali lipat lebih tinggi.",
+  m4Judul: "Meningkatkan Daya Tarik",
+  m4Teks: "Postingan VT yang ramai like akan memancing efek psikologis pengguna lain untuk ikut menonton dan berinteraksi."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: "Kami mengutamakan keamanan akun dan kualitas server di atas segalanya.",
+  mk1Judul: "Harga Super Kompetitif",
+  mk1Teks: "Kami menawarkan <strong>jasa like tiktok murah</strong> dengan kualitas server premium setara agensi digital besar.",
+  mk2Judul: "Paket Bundle Interaksi",
+  mk2Teks: "Untuk efek FYP maksimal, gabungkan dengan paket <strong>jasa like komen tiktok</strong> kami.",
+  mk3Judul: "Privasi 100% Aman",
+  mk3Teks: "Proses pengerjaan hanya membutuhkan link tautan VT. Kami TIDAK PERNAH meminta password akun Anda.",
+  mk4Judul: "Sistem Suntik Otomatis",
+  mk4Teks: "Sebagai pakar <strong>jasa suntik like tiktok</strong>, pesanan diproses hitungan menit setelah pembayaran.",
+  mk5Judul: "Interaksi Bertahap",
+  mk5Teks: "Like masuk dengan jeda natural (drip-feed) layaknya manusia asli yang sedang scrolling beranda.",
+  mk6Judul: "Layanan Lintas Follower",
+  mk6Teks: "Sedia juga <strong>jasa like follow tiktok</strong> bagi Anda yang membutuhkan pertumbuhan akun secara menyeluruh."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Lengkap <span class="text-blue-600">Dominasi FYP</span>',
+  deskripsiUtama: "Apapun kebutuhan kampanye TikTok Anda, JasaLike memiliki formula interaksinya.",
+  sol1Icon: "lucide:message-circle",
+  sol1Judul: "Custom Interaksi Komen",
+  sol1Teks: "Gunakan <strong>jasa like comment tiktok</strong> agar VT Anda terlihat sangat interaktif dan memancing diskusi penonton.",
+  sol2Icon: "lucide:mouse-pointer-click",
+  sol2Judul: "Suntik Pertumbuhan Cepat",
+  sol2Teks: "Layanan <strong>jasa tambah like tiktok</strong> kami sangat cocok untuk kreator yang sedang mengejar *exposure* tinggi.",
+  sol3Icon: "lucide:radio",
+  sol3Judul: "Pancingan Ruang Live",
+  sol3Teks: "Pastikan Live Jualan Anda tidak pernah sepi dengan layanan <strong>jasa like live tiktok</strong> dari kami."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Pesan <span class="text-blue-400">Jasa Like TikTok</span>',
+  deskripsiUtama: "Proses pemesanan cepat, tanpa ribet, langsung masuk.",
+  co1Judul: "Pilih Paket TikTok",
+  co1Teks: "Tentukan layanan yang Anda butuhkan (VT Permanen, Live, atau Paket Bundle Komen).",
+  co2Judul: "Hubungi Admin via WA",
+  co2Teks: "Konsultasikan target jumlah like Anda kepada admin JasaLike.",
+  co3Judul: "Kirim Tautan (Link) VT",
+  co3Teks: "Cukup salin dan kirimkan tautan video TikTok Anda. Pastikan akun tidak di-Private.",
+  co4Judul: "Pesanan Masuk",
+  co4Teks: "Duduk manis, tim kami akan memproses suntikan like ke VT Anda secara profesional."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket TikTok Terbaik",
+  deskripsiHarga: "Tingkatkan performa VT dan Live TikTok Anda mulai hari ini.",
+
+  p1Gambar: "/image/harga-paket-tiktok.png",
+  p1Nama: "Paket TikTok Basic",
+  p1Fitur1: "Proses Cepat & Stabil",
+  p1Fitur2: "Like VT Permanen",
+  p1Fitur3: "Aman Untuk Akun Baru",
+  p1Harga: "Mulai Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%20Like%20TikTok%20Basic",
+
+  p2Label: "REKOMENDASI FYP",
+  p2Gambar: "/image/harga-paket-1000like-tiktok.png",
+  p2Nama: "Paket Bundle (Like + Komen)",
+  p2Fitur1: "Like + Custom Komen",
+  p2Fitur2: "Prioritas Algoritma FYP",
+  p2Fitur3: "Cocok untuk Jualan Afiliasi",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%20Bundle%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <br/> <span class="text-blue-600">TikTok Permanen</span>',
+  deskripsiUtama: "Pertanyaan seputar layanan optimasi algoritma TikTok kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20tanya%20Jasa%20Like%20TikTok",
+  faq1Judul: "Apakah jasa like tiktok murah ini aman?",
+  faq1Teks: "Ya, sangat aman. Kami menggunakan sistem suntik yang tidak melanggar panduan komunitas dan hanya memerlukan *link* VT, tanpa *password*.",
+  faq2Judul: "Apakah bisa untuk Live Streaming (Tap-tap layar)?",
+  faq2Teks: "Bisa! Kami melayani <strong>jasa like live tiktok</strong> untuk memastikan ruang siaran langsung Anda selalu ramai interaksi.",
+  faq3Judul: "Apakah tersedia garansi jika like hilang?",
+  faq3Teks: "Tentu. Layanan unggulan kami adalah <strong>jasa like tiktok permanen</strong>. Jika ada drop, kami memberikan garansi isi ulang (refill).",
+  faq4Judul: "Bisa pesan komentar sekaligus?",
+  faq4Teks: "Bisa, kami melayani <strong>jasa like comment tiktok</strong> dan <strong>jasa like komen tiktok</strong> secara bersamaan agar VT terlihat lebih meyakinkan.",
+  faq5Judul: "Berapa lama proses pengerjaannya?",
+  faq5Teks: "Karena kami adalah pusat <strong>jasa suntik like tiktok</strong>, pesanan biasanya mulai masuk dalam hitungan menit setelah pembayaran diverifikasi.",
+  faq6Judul: "Apakah harus mematikan fitur Private Akun?",
+  faq6Teks: "Betul, selama masa pengerjaan, akun TikTok Anda wajib dalam status Publik agar sistem kami bisa mengirimkan like."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Like TikTok Permanen dan Terpercaya",
+    "image": "https://jasalike.com/image/harga-paket-tiktok.png",
+    "description": "Layanan jasa jual beli like tiktok, jasa suntik like tiktok, dan interaksi FYP.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "2150"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Like TikTok Permanen"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah jasa like tiktok murah ini aman?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, sangat aman. Kami menggunakan sistem suntik yang tidak melanggar panduan komunitas dan hanya memerlukan link VT, tanpa password."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia garansi jika like hilang?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu. Layanan unggulan kami adalah jasa like tiktok permanen. Jika ada drop, kami memberikan garansi isi ulang (refill)."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+  <MasalahJasaLike {...dataMasalah} />
+  <ApaItuJasaLike {...dataApaItu} />
+  <ManfaatJasaLike {...dataManfaat} />
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+  <Solusi {...dataSolusi} />
+  <CaraOrder {...dataCaraOrder} />
+  <DaftarHarga />
+  <HargaPaket {...dataHargaPaket} />
+  <Testimonials />
+  <MetodePembayaran />
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
