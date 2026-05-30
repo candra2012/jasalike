@@ -44,38 +44,45 @@ const direktoriKategori = [
     </div>
 
     <!-- Mapping Data Kategori Silo -->
-    <div class="space-y-12">
-      {direktoriKategori.map((kategori) => (
-        <section class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-          <div class="flex items-center gap-3 mb-4 border-b border-gray-100 pb-4">
-            
-            <!-- Icon sudah dipanggil dengan benar di sini -->
-            <Icon name={kategori.icon} class={`text-3xl ${kategori.colorClass}`} />
-            
-            <h2 class="text-2xl font-bold text-slate-800">{kategori.namaKategori}</h2>
-          </div>
-          
-          <p class="text-sm text-gray-600 mb-6" set:html={kategori.deskripsi}></p>
-          
-          <ul class="space-y-3 mb-6">
-            {kategori.links.map((link) => (
-              <li class="flex items-start gap-2">
-                <span class="text-blue-500 mt-1">🔗</span>
-                <a 
-                  href={link.url} 
-                  class="text-blue-600 hover:text-blue-800 hover:underline leading-relaxed"
-                  set:html={link.label}
-                />
-              </li>
-            ))}
-          </ul>
+<div class="space-y-12">
+  {direktoriKategori.map((kategori) => (
+    <section 
+      class="relative p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+      style="background-image: url('/path-ke-foto-akang.jpg'); background-size: cover; background-position: center;"
+    >
+      <!-- DARK OVERLAY (Agar teks terbaca) -->
+      <div class="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
 
-          {kategori.catatan && (
-            <div class="mt-4 pt-4 border-t border-gray-50 text-xs text-gray-500 italic bg-gray-50 p-3 rounded-lg" set:html={kategori.catatan}></div>
-          )}
-        </section>
-      ))}
-    </div>
+      <!-- KONTEN (Harus pakai relative agar di atas background) -->
+      <div class="relative z-10">
+        <div class="flex items-center gap-3 mb-4 border-b border-gray-200 pb-4">
+          <Icon name={kategori.icon} class={`text-3xl ${kategori.colorClass}`} />
+          <h2 class="text-2xl font-bold text-slate-800">{kategori.namaKategori}</h2>
+        </div>
+        
+        <p class="text-sm text-slate-700 mb-6" set:html={kategori.deskripsi}></p>
+        
+        <ul class="space-y-3 mb-6">
+          {kategori.links.map((link) => (
+            <li class="flex items-start gap-2">
+              <span class="text-blue-600 mt-1">🔗</span>
+              <a 
+                href={link.url} 
+                class="text-blue-700 font-medium hover:underline leading-relaxed"
+                set:html={link.label}
+              />
+            </li>
+          ))}
+        </ul>
+
+        {kategori.catatan && (
+          <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-slate-600 italic bg-gray-50/50 p-3 rounded-lg" set:html={kategori.catatan}></div>
+        )}
+      </div>
+    </section>
+  ))}
+</div>
+
 
   </main>
 
