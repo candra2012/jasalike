@@ -1,0 +1,273 @@
+---
+// src/pages/komentar-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa Tambah Komentar TikTok Aktif & Berkualitas";
+const description = "Jasa tambah komentar TikTok terpercaya untuk meningkatkan interaksi konten, engagement akun, dan daya tarik video secara optimal.";
+const keywords = "jasa tambah komentar tiktok, beli komentar tiktok aktif, jasa spam komentar tiktok, jasa tambah komentar tiktk, jasa comment tiktok, jasa komentar akun tiktok, jasa komentar di tiktok, jasa komentar konten tiktok, jasa spam komentar, jasa komentar sosial media, jasa komentar live tiktok";
+
+// ==========================================
+// 3. KONTEN STRATEGIS
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimasi Interaksi Video TikTok",
+  labelIcon: "lucide:message-circle",
+  judulUtama: 'Jasa Tambah <br class="hidden md:block"/> <span class="text-orange-500">Komentar TikTok</span> Aktif',
+  deskripsi: "Bangun Interaksi TikTok yang Lebih Aktif dan Menarik! Komentar menjadi elemen penting dalam perkembangan sebuah konten. Video dengan interaksi ramai cenderung menarik perhatian dan memiliki peluang *engagement* ekstra. Layanan kami cocok untuk *creator*, promosi bisnis, hingga *campaign* produk. <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Komentar Aktif & Relevan &nbsp; ✓ Cocok untuk Berbagai Konten &nbsp; ✓ Pengerjaan Cepat</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala Utama di <span class="text-orange-500">TikTok</span>',
+  deskripsiUtama: "Banyak kreator rutin membuat konten menarik, namun tetap kesulitan membangun interaksi karena rendahnya aktivitas komentar.",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Minim Interaksi Publik:</strong> Video ramai ditonton tetapi minim komentar, sehingga audiens baru kurang tertarik untuk ikut berinteraksi.',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Konten Kurang Hidup:</strong> Tanpa adanya diskusi di kolom komentar, konten terlihat pasif dan gagal memancing rasa penasaran pengguna lain.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Sulit Membangun Komunitas:</strong> Engagement rate tidak berkembang maksimal, menghambat proses terbentuknya komunitas yang loyal di TikTok Anda.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Kurang Daya Tarik Promosi:</strong> Khusus untuk akun bisnis, kolom komentar yang sepi membuat produk terlihat kurang diminati (kurangnya *social proof*).'
+};
+
+const dataApaItu = {
+  judulUtama: 'Solusi Jasa <span class="text-orange-500">Komentar TikTok</span>',
+  deskripsiUtama: "Kami menghadirkan layanan yang dirancang untuk membantu meningkatkan aktivitas interaksi konten secara lebih profesional dan terarah.",
+  k1Judul: "Stimulasi Interaksi Organik",
+  k1Teks: "Semakin aktif diskusi pada postingan, semakin besar peluang video Anda mendapatkan perhatian tambahan dari pengguna lain. Kami menyuntikkan diskusi awal agar video terlihat ramai.",
+  k2Judul: "Fleksibilitas Campaign",
+  k2Teks: "Layanan ini dapat diandalkan untuk promosi produk, membangun branding, kampanye digital, hingga layanan *spam* komentar positif dalam jumlah besar sesuai arahan promosi Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Optimasi <span class="text-orange-500">Komentar</span>',
+  deskripsiUtama: "Menggunakan jasa tambah komentar dapat memberikan dampak positif terhadap perkembangan akun Anda.",
+  m1Judul: "Membuat Konten Lebih Interaktif",
+  m1Teks: "Video dengan komentar aktif terlihat jauh lebih menarik bagi pengguna lain dan memancing percakapan natural.",
+  m2Judul: "Mendukung Engagement Konten",
+  m2Teks: "Aktivitas komentar yang tinggi membantu memperkuat performa sinyal interaksi pada sistem algoritma TikTok.",
+  m3Judul: "Membantu Branding Akun",
+  m3Teks: "Akun dengan komunitas yang aktif cenderung terlihat lebih terpercaya, kredibel, dan profesional di mata audiens.",
+  m4Judul: "Mendukung Strategi Promosi",
+  m4Teks: "Sangat cocok untuk kebutuhan marketing. Komentar ulasan yang ramai memancing rasa penasaran audiens terhadap produk Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-orange-500">Layanan Kami?</span>',
+  deskripsiUtama: "Kami fokus memberikan layanan optimasi dengan kualitas terbaik dan proses kerja yang terstruktur.",
+  mk1Judul: "Pengerjaan Profesional",
+  mk1Teks: "Setiap pesanan komentar diproses dengan sistem kerja yang rapi, profesional, dan mengutamakan integritas konten Anda.",
+  mk2Judul: "Fokus pada Kualitas Interaksi",
+  mk2Teks: "Kami sangat mengutamakan kualitas layanan dengan memberikan komentar yang aktif dan relevan agar hasil lebih optimal.",
+  mk3Judul: "Pelayanan Responsif",
+  mk3Teks: "Tim dukungan layanan (support) kami selalu siap membantu memberikan informasi dengan cepat.",
+  mk4Judul: "Cocok untuk Semua Kebutuhan",
+  mk4Teks: "Fleksibel digunakan untuk akun *creator*, bisnis online, aktivasi *brand*, hingga berbagai kebutuhan *campaign* digital.",
+  mk5Judul: "Pilihan Paket Beragam",
+  mk5Teks: "Tersedia berbagai pilihan paket layanan volume kecil hingga besar untuk menyesuaikan skala kebutuhan akun Anda.",
+  mk6Judul: "Keamanan Akun Terjaga",
+  mk6Teks: "Proses murni menggunakan tautan eksternal video. Kami tidak pernah meminta *password* akun TikTok Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Lengkap <span class="text-orange-500">Sosial Media</span>',
+  deskripsiUtama: "Selain jasa tambah komentar TikTok, dukung performa akun Anda dengan ekosistem layanan JasaLike.",
+  sol1Icon: "lucide:play-circle",
+  sol1Judul: "Tingkatkan Metrik View & Like",
+  sol1Teks: "Lengkapi komentar Anda dengan layanan Jasa View dan Jasa Like TikTok agar rasio *engagement* video Anda terlihat proporsional.",
+  sol2Icon: "lucide:users",
+  sol2Judul: "Tingkatkan Pengikut (Followers)",
+  sol2Teks: "Sempurnakan profil Anda menggunakan Jasa Followers TikTok untuk membangun otoritas yang kuat saat pengunjung mengecek profil.",
+  sol3Icon: "lucide:share-2",
+  sol3Judul: "Perluas Distribusi (Share)",
+  sol3Teks: "Gunakan Jasa Share Konten untuk menyebarluaskan jangkauan video Anda ke audiens di luar lingkar pengikut Anda saat ini."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Proses pemesanan dibuat sangat sederhana dan mudah dipahami oleh siapa saja.",
+  co1Judul: "Pilih Paket Kebutuhan",
+  co1Teks: "Tentukan jumlah komentar yang sesuai dengan target promosi atau skala konten video Anda saat ini.",
+  co2Judul: "Kirim Link Video",
+  co2Teks: "Salin dan berikan tautan (URL) langsung dari video TikTok yang ingin Anda suntikkan interaksi komentarnya.",
+  co3Judul: "Tentukan Kebutuhan (Opsional)",
+  co3Teks: "Sampaikan kustomisasi atau arah isi komentar yang Anda inginkan (misal: fokus ke ulasan produk atau diskusi opini).",
+  co4Judul: "Proses Pengerjaan Dimulai",
+  co4Teks: "Segera setelah konfirmasi, sistem dan tim kami akan mendistribusikan komentar ke dalam video Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Harga Paket Komentar TikTok",
+  deskripsiHarga: "Pilih skala layanan yang paling optimal untuk mendukung kampanye konten video Anda.",
+
+  p1Gambar: "/image/harga-komentartiktok.png",
+  p1Nama: "Paket Pemula 100 Komentar",
+  p1Fitur1: "Komentar Relevan / Acak Positif",
+  p1Fitur2: "Proses Pengerjaan Cepat",
+  p1Fitur3: "Tanpa Akses Password",
+  p1Harga: "Rp XXX.XXX", // Sesuaikan dengan harga asli Anda
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Pemula%20100%20Komentar%20TikTok",
+
+  p2Label: "REKOMENDASI CREATOR",
+  p2Gambar: "/image/harga-komentartiktok.png",
+  p2Nama: "Paket Bisnis 1000 Komentar",
+  p2Fitur1: "Dukungan Custom / Arah Diskusi",
+  p2Fitur2: "Cocok untuk Campaign / Spam Positif",
+  p2Fitur3: "Layanan Support Prioritas",
+  p2HargaCoret: "Rp 2.750.000", // Sesuaikan
+  p2Harga: "Rp 2.000.000",       // Sesuaikan
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Bisnis%201000%20Komentar%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <span class="text-orange-500">Komentar TikTok</span>',
+  deskripsiUtama: "Jawaban cepat atas pertanyaan seputar pengelolaan interaksi konten di TikTok.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Komentar%20TikTok",
+  faq1Judul: "Apakah layanan ini cocok untuk akun baru?",
+  faq1Teks: "Ya, layanan ini dapat digunakan dengan aman untuk memancing interaksi awal pada akun baru maupun akun yang sedang berkembang.",
+  faq2Judul: "Apakah isi komentar bisa disesuaikan?",
+  faq2Teks: "Tentu. Tersedia pilihan layanan di mana teks komentar dapat disesuaikan (custom) mengikuti kebutuhan konten dan campaign Anda.",
+  faq3Judul: "Berapa lama proses pengerjaan pesanan?",
+  faq3Teks: "Pesanan biasanya mulai diproses dan dikerjakan secara bertahap langsung setelah konfirmasi pembayaran berhasil dilakukan.",
+  faq4Judul: "Apakah layanan ini cocok untuk promosi bisnis?",
+  faq4Teks: "Sangat cocok. Komentar positif akan membantu meningkatkan interaksi pada konten promosi maupun penguatan *branding* produk Anda.",
+  faq5Judul: "Apakah tersedia layanan dalam jumlah besar (spam komentar)?",
+  faq5Teks: "Ya, kami menyediakan berbagai pilihan paket, termasuk kebutuhan komentar dengan volume tinggi (*spam* positif) untuk promosi skala besar.",
+  faq6Judul: "Apakah akun saya aman dan perlu memberikan password?",
+  faq6Teks: "Sangat aman. Kami menggunakan metode operasional eksternal. Kami hanya membutuhkan link video tanpa pernah meminta akses/password akun Anda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Tambah Komentar TikTok Aktif & Berkualitas",
+    "image": "https://jasalike.com/image/harga-komentartitok.png",
+    "description": "Layanan tambah komentar TikTok terpercaya untuk meningkatkan interaksi konten, engagement, dan mendukung kebutuhan campaign bisnis Anda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "912"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Komentar TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini cocok untuk akun baru?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan ini dapat digunakan dengan aman untuk memancing interaksi awal pada akun baru maupun akun yang sedang berkembang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah isi komentar bisa disesuaikan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu. Tersedia pilihan layanan di mana teks komentar dapat disesuaikan (custom) mengikuti kebutuhan konten dan campaign Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia layanan dalam jumlah besar (spam komentar)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, kami menyediakan berbagai pilihan paket, termasuk kebutuhan komentar dengan volume tinggi (spam positif) untuk promosi skala besar."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
