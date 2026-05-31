@@ -101,7 +101,81 @@ const direktoriKategori = [
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
-  
+
+  <Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Peta Direktori Semua Layanan JasaLike",
+    "description": "Pusat direktori resmi JasaLike. Temukan semua layanan optimasi sosial media lintas platform secara lengkap, aman, dan terpercaya.",
+    "url": "https://jasalike.com/direktori-layanan",
+    "publisher": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://jasalike.com/image/hero-direktori.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Optimasi & Perlindungan TikTok",
+          "description": "Solusi pendorong interaksi untuk fyp tiktok, serta manajemen krisis meliputi jasa report akun tiktok, jasa hapus akun tiktok, dan jasa spam tiktok.",
+          "url": "https://jasalike.com/direktori-layanan#tiktok"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Interaksi & Jam Tayang YouTube",
+          "description": "Layanan optimasi kredibilitas channel melalui jasa komentar YouTube indonesia, penambah subscriber, view, dan jam tayang aman.",
+          "url": "https://jasalike.com/direktori-layanan#youtube"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Engagement & Estetika Instagram",
+          "description": "Layanan pendorong interaksi Feed, Reels, dan Story. Tersedia juga layanan jasa like akun private untuk privasi maksimal.",
+          "url": "https://jasalike.com/direktori-layanan#instagram"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Viral Marketing & Trending Twitter",
+          "description": "Kuasai opini publik dengan layanan jasa trending topik twitter kami untuk mencapai target trending 1 today secara organik.",
+          "url": "https://jasalike.com/direktori-layanan#twitter"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Direktori Layanan",
+        "item": "https://jasalike.com/direktori-layanan"
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
   <!-- BAGIAN 1: HERO -->
   <Hero {...dataHero} />
 
