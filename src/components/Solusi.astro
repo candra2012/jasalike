@@ -16,7 +16,6 @@ const {
     
     <!-- HEADER -->
     <div class="text-center mb-16 max-w-3xl mx-auto">
-      <!-- set:html di sini agar tag <span> warna biru di judul bisa terbaca -->
       <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6 leading-tight" set:html={judulUtama}></h2>
       <p class="text-slate-600 leading-relaxed" set:html={deskripsiUtama}></p>
     </div>
@@ -30,8 +29,8 @@ const {
           <Icon name={sol1Icon} class="w-8 h-8" />
         </div>
         <h3 class="text-xl font-bold text-slate-800 mb-4" set:html={sol1Judul}></h3>
-        <!-- INI KUNCI UTAMANYA: set:html dipasang di teks agar link tidak bocor -->
-        <p class="text-slate-600 leading-relaxed text-sm" set:html={sol1Teks}></p>
+        <!-- Tambahkan class clean-links di sini -->
+        <p class="clean-links text-slate-600 leading-relaxed text-sm" set:html={sol1Teks}></p>
       </div>
 
       <!-- KOTAK 2 -->
@@ -40,8 +39,8 @@ const {
           <Icon name={sol2Icon} class="w-8 h-8" />
         </div>
         <h3 class="text-xl font-bold text-slate-800 mb-4" set:html={sol2Judul}></h3>
-        <!-- INI KUNCI UTAMANYA: set:html dipasang di teks agar link tidak bocor -->
-        <p class="text-slate-600 leading-relaxed text-sm" set:html={sol2Teks}></p>
+        <!-- Tambahkan class clean-links di sini -->
+        <p class="clean-links text-slate-600 leading-relaxed text-sm" set:html={sol2Teks}></p>
       </div>
 
       <!-- KOTAK 3 -->
@@ -50,13 +49,33 @@ const {
           <Icon name={sol3Icon} class="w-8 h-8" />
         </div>
         <h3 class="text-xl font-bold text-slate-800 mb-4" set:html={sol3Judul}></h3>
-        <!-- INI KUNCI UTAMANYA: set:html dipasang di teks agar link tidak bocor -->
-        <p class="text-slate-600 leading-relaxed text-sm" set:html={sol3Teks}></p>
+        <!-- Tambahkan class clean-links di sini -->
+        <p class="clean-links text-slate-600 leading-relaxed text-sm" set:html={sol3Teks}></p>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- GAYA PAKSA (FORCE OVERRIDE) UNTUK MEMBUNUH CSS GLOBAL -->
+<style is:global>
+  /* Menargetkan semua link (tag <a>) yang ada di dalam class clean-links */
+  .clean-links a {
+    color: #2563eb !important; /* Memaksa warna menjadi biru Tailwind (text-blue-600) */
+    text-decoration: none !important; /* Membunuh garis bawah secara paksa */
+    border: none !important; 
+    box-shadow: none !important;
+    background: transparent !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Efek saat link disorot mouse */
+  .clean-links a:hover {
+    color: #1d4ed8 !important; /* Berubah jadi biru lebih gelap, bukan pink */
+  }
+</style>
+
 <script>
   document.addEventListener("astro:page-load", () => {
     const observer = new IntersectionObserver((entries) => {
@@ -73,4 +92,3 @@ const {
     items.forEach((item) => observer.observe(item));
   });
 </script>
-
