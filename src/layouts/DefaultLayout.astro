@@ -70,5 +70,29 @@ const {
         });
       });
     </script>
+<script>
+  // Script radar diam-diam JasaLike via Google Apps Script
+  document.addEventListener("astro:page-load", () => {
+    
+    // GANTI URL DI BAWAH INI DENGAN URL DARI GOOGLE APPS SCRIPT TADI
+    const webhookUrl = "https://script.google.com/macros/s/KODE_PANJANG_DARI_GOOGLE_TADI/exec"; 
+    
+    const dataPengunjung = {
+      halaman: window.location.pathname,
+      waktu: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
+    };
+    
+    // Tembakkan sinyal diam-diam
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" }, // Pakai text/plain agar tidak diblokir CORS Google
+      body: JSON.stringify(dataPengunjung)
+    }).catch(error => {
+      // Dibiarkan kosong agar tidak mengganggu pengunjung
+    });
+    
+  });
+</script>
+
     </body>
 </html>
