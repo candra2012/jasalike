@@ -34,6 +34,33 @@ const {
 
     <slot name="head" />
 
+<script is:inline>
+  // Radar akan langsung berjalan saat halaman dimuat
+  (function() {
+    // ⚠️ PASTIKAN AKANG MENGGANTI TULISAN DI BAWAH INI DENGAN URL GOOGLE SCRIPT AKANG
+    const webhookUrl = "https://script.google.com/macros/s/KODE_PANJANG_DARI_GOOGLE_TADI/exec"; 
+    
+    // Cegah radar jalan kalau URL belum diganti
+    if(webhookUrl.includes("KODE_PANJANG_DARI_GOOGLE_TADI")) return;
+
+    const dataPengunjung = {
+      halaman: window.location.pathname,
+      waktu: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
+    };
+    
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(dataPengunjung)
+    }).then(response => {
+      console.log("Radar terkirim!");
+    }).catch(error => {
+      console.log("Radar gagal:", error);
+    });
+  })();
+</script>
+
+
     <ClientRouter />
   </head>
   <body>
@@ -70,29 +97,7 @@ const {
         });
       });
     </script>
-<script>
-  // Script radar diam-diam JasaLike via Google Apps Script
-  document.addEventListener("astro:page-load", () => {
-    
-    // GANTI URL DI BAWAH INI DENGAN URL DARI GOOGLE APPS SCRIPT TADI
-    const webhookUrl = "https://script.google.com/macros/s/KODE_PANJANG_DARI_GOOGLE_TADI/exec"; 
-    
-    const dataPengunjung = {
-      halaman: window.location.pathname,
-      waktu: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
-    };
-    
-    // Tembakkan sinyal diam-diam
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, // Pakai text/plain agar tidak diblokir CORS Google
-      body: JSON.stringify(dataPengunjung)
-    }).catch(error => {
-      // Dibiarkan kosong agar tidak mengganggu pengunjung
-    });
-    
-  });
-</script>
+
 
     </body>
 </html>
