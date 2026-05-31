@@ -1,0 +1,276 @@
+---
+// src/pages/save-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS RETENSI & BOOKMARK TIKTOK)
+// ==========================================
+const title = "Jasa Save Video TikTok | Layanan Optimasi Bookmark & Koleksi Konten";
+const description = "Tingkatkan retensi dan nilai konten Anda dengan jasa save video TikTok. Solusi optimasi fitur bookmark (koleksi) untuk memberi sinyal positif pada algoritma FYP secara aman.";
+const keywords = "jasa save video tiktok, jasa save tiktok, optimasi bookmark tiktok, jasa tambah save tiktok, layanan save konten, jasa save video tiktok, jasa save konten tiktok, jasa save zone tiktok, jasa save tiktok murah, jasa save akun tiktok";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS EDUKASI, RETENSI & HIGH-VALUE CONTENT)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Solusi Optimasi Fitur Koleksi (Bookmark)",
+  labelIcon: "lucide:bookmark",
+  judulUtama: 'Jasa Save Video <br class="hidden md:block"/> <span class="text-orange-500">TikTok Profesional</span>',
+  deskripsi: "Tingkatkan nilai konten TikTok Anda di mata algoritma! Dalam sistem kurasi TikTok modern, fitur *Save* (Simpan/Koleksi) adalah indikator terkuat bahwa video Anda memiliki edukasi atau hiburan bernilai tinggi yang ingin ditonton ulang oleh audiens. Layanan kami hadir untuk menyuntikkan sinyal positif tersebut, memastikan karya Anda dinilai sebagai konten premium yang layak bertahan lama di *For You Page* (FYP). <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Sinyal Konten Berkualitas &nbsp; ✓ Umur Video Lebih Panjang &nbsp; ✓ Privasi 100% Terjaga</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Retensi di <span class="text-orange-500">Algoritma TikTok</span>',
+  deskripsiUtama: "Mengapa video edukasi, tips, atau katalog produk Anda cepat meredup meski sudah mendapat banyak penayangan awal?",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Kurangnya Sinyal "Tonton Ulang":</strong> Video yang hanya dilewati (scroll) tanpa disimpan ke dalam fitur Koleksi akan dinilai oleh sistem sebagai tren sesaat yang tidak memiliki nilai jangka panjang.',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Kalah Reputasi dari Kompetitor:</strong> Audiens secara psikologis lebih percaya pada rekomendasi produk yang memiliki riwayat indikator "Simpan" tinggi, karena dianggap sebagai referensi penting.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Durasi FYP Terlalu Singkat:</strong> Tanpa dukungan aktivitas *Bookmark*, siklus hidup sebuah konten di halaman rekomendasi utama akan berakhir lebih cepat.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Pertumbuhan Pengikut Stagnan:</strong> Pengunjung jarang menekan tombol ikuti (follow) jika mereka tidak merasa perlu menyimpan karya-karya Anda sebagai panduan di masa depan.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Memahami Optimasi <span class="text-orange-500">Fitur Save (Koleksi)</span>',
+  deskripsiUtama: "Edukasi strategis mengenai cara kerja indikator penyimpanan konten dalam mendongkrak popularitas akun.",
+  k1Judul: "Injeksi Sinyal Kualitas Tinggi",
+  k1Teks: "Layanan ini bertugas menyuplai aktivitas penyimpanan secara eksternal. Kami mengirimkan pesan ke pusat algoritma TikTok bahwa video Anda memuat informasi esensial yang layak diarsipkan oleh audiens.",
+  k2Judul: "Pemicu Rekomendasi Lanjutan",
+  k2Teks: "Akumulasi angka *Save* berfungsi selayaknya pengakuan kualitas. Sistem akan secara otomatis mendistribusikan ulang video tersebut ke lebih banyak pengguna dengan minat yang relevan."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keunggulan Sinyal <span class="text-orange-500">Bookmark Aktif</span>',
+  deskripsiUtama: "Berbagai keuntungan yang langsung dirasakan saat konten Anda diakui sebagai referensi bernilai tinggi.",
+  m1Judul: "Memperpanjang Umur Konten",
+  m1Teks: "Video yang banyak disimpan memiliki probabilitas lebih tinggi untuk terus direkomendasikan berminggu-minggu, bukan hanya di hari pertama penayangan.",
+  m2Judul: "Meningkatkan Kepercayaan Publik",
+  m2Teks: "Sangat krusial bagi akun bisnis dan afiliasi. Audiens baru akan jauh lebih yakin untuk bertransaksi saat melihat produk Anda diarsipkan oleh banyak orang.",
+  m3Judul: "Mendorong Interaksi Lanjutan",
+  m3Teks: "Pengguna yang menyimpan video Anda memiliki kecenderungan kuat untuk kembali mengunjungi profil Anda di lain hari, menciptakan trafik kunjungan berulang.",
+  m4Judul: "Otoritas Akun Menjadi Solid",
+  m4Teks: "Pertumbuhan interaksi yang sehat dan stabil membangun persepsi bahwa profil Anda dikelola secara profesional dan konsisten."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Operasional <span class="text-orange-500">Terpercaya</span>',
+  deskripsiUtama: "Komitmen kami dalam mengelola pertumbuhan interaksi digital secara aman, solutif, dan mengedepankan kualitas.",
+  mk1Judul: "Kerahasiaan Data Terjamin",
+  mk1Teks: "Kami menerapkan sistem perlindungan privasi yang sangat ketat. Seluruh proses hanya memerlukan tautan (URL) publik dari video, tanpa ada intervensi terhadap kredensial internal Anda.",
+  mk2Judul: "Distribusi Alami & Terkalibrasi",
+  mk2Teks: "Laju masuknya interaksi diatur secara bertahap menyerupai perilaku audiens organik, memastikan reputasi akun Anda tetap sejalan dengan pedoman platform.",
+  mk3Judul: "Edukasi & Konsultasi Ahli",
+  mk3Teks: "Tim representatif kami tidak hanya memproses pesanan, tetapi juga siap memberikan panduan penjadwalan agar hasil optimasi sejalan dengan peluncuran konten Anda.",
+  mk4Judul: "Kompabilitas Semua Niche",
+  mk4Teks: "Sangat adaptif untuk diaplikasikan pada konten tutorial, *review* produk, komedi, edukasi finansial, hingga katalog busana (fashion).",
+  mk5Judul: "Prosedur Kerja Terstruktur",
+  mk5Teks: "Setiap kampanye interaksi dijalankan dengan manajemen antrean yang rapi, memastikan target indikator yang Anda harapkan tercapai dengan akurat.",
+  mk6Judul: "Berfokus pada Hasil Berkelanjutan",
+  mk6Teks: "Kami merancang layanan ini untuk membantu membangun fondasi akun yang kompetitif agar mampu bertahan di tengah persaingan konten digital jangka panjang."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ekosistem <span class="text-orange-500">Optimasi Algoritma</span>',
+  // Internal link ke Share dan Like disisipkan secara halus di sini
+  deskripsiUtama: "Pusat dukungan interaksi menyeluruh untuk performa konten Anda. Padukan layanan penyimpan video ini dengan <a href='/share-tiktok' class='text-orange-500 font-semibold hover:underline'>jasa share TikTok</a> untuk memperluas distribusi, serta <a href='/like-tiktok' class='text-orange-500 font-semibold hover:underline'>jasa like TikTok</a> agar video Anda mendominasi sistem rekomendasi secara sempurna.",
+  sol1Icon: "lucide:message-square",
+  sol1Judul: "Stimulasi Diskusi Interaktif",
+  sol1Teks: "Gunakan jasa komentar kami untuk menghidupkan suasana di bawah video Anda, memancing audiens baru untuk ikut beropini dan bertanya seputar produk.",
+  sol2Icon: "lucide:users",
+  sol2Judul: "Pertumbuhan Otoritas Profil",
+  sol2Teks: "Perkuat kesan pertama pengunjung dengan dukungan pertumbuhan jumlah pengikut (followers) yang solid dan meyakinkan.",
+  sol3Icon: "lucide:eye",
+  sol3Judul: "Keseimbangan Rasio Tayangan",
+  sol3Teks: "Bantu visualisasi popularitas awal video Anda dengan injeksi angka penayangan (view) yang relevan, menyingkirkan keraguan audiens untuk menonton."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Mudah <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Alur kerja yang efisien untuk segera meningkatkan reputasi dan nilai konten visual Anda.",
+  co1Judul: "Tentukan Volume Target",
+  co1Teks: "Pilih skala paket penyimpanan (save/bookmark) yang paling proporsional dengan rata-rata penayangan video Anda saat ini.",
+  co2Judul: "Salin Tautan Video Publik",
+  co2Teks: "Dapatkan tautan langsung (*Copy Link*) dari video TikTok yang ingin Anda berikan dorongan indikator kualitas tinggi.",
+  co3Judul: "Diskusi & Penjadwalan",
+  co3Teks: "Hubungi tim konsultan kami untuk menyerahkan tautan tersebut, dan kami akan memberikan estimasi waktu pengerjaan terbaik.",
+  co4Judul: "Distribusi Terjadwal",
+  co4Teks: "Infrastruktur kami akan langsung memproses penyaluran interaksi secara bertahap, membuat video Anda semakin diperhitungkan oleh algoritma."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Nilai Konten TikTok",
+  deskripsiHarga: "Pilih paket indikator *Save* yang ideal untuk memperkuat performa retensi video unggulan Anda.",
+
+  p1Gambar: "/image/harga-savetiktok.png",
+  p1Nama: "Paket Retensi 100 Save",
+  p1Fitur1: "Ideal untuk Video Edukasi Baru",
+  p1Fitur2: "Distribusi Pola Organik",
+  p1Fitur3: "Kerahasiaan Privasi 100%",
+  p1Harga: "Rp 200.000", // Silakan sesuaikan harganya
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Retensi%20100%20Save%20TikTok",
+
+  p2Label: "REKOMENDASI KREATOR",
+  p2Gambar: "/image/harga-savetiktok.png",
+  p2Nama: "Paket Viralitas 1000 Save",
+  p2Fitur1: "Target Eksistensi FYP Jangka Panjang",
+  p2Fitur2: "Daya Tarik Produk / Afiliasi Maksimal",
+  p2Fitur3: "Layanan Edukasi & Support Prioritas",
+  p2HargaCoret: "Rp 2.500.000", // Silakan sesuaikan
+  p2Harga: "Rp 2.000.000",       // Silakan sesuaikan
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Viralitas%201000%20Save%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <span class="text-orange-500">Save TikTok</span>',
+  deskripsiUtama: "Kumpulan jawaban solutif mengenai cara mengoptimalkan fitur koleksi pada konten digital Anda.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Save%20TikTok",
+  faq1Judul: "Apakah keamanan data internal akun saya terjamin?",
+  faq1Teks: "Sangat terjamin. Kami menerapkan prinsip privasi yang kokoh dengan operasional murni dari jalur eksternal. Kami sama sekali tidak membutuhkan informasi kredensial atau akses masuk ke akun TikTok Anda.",
+  faq2Judul: "Apakah indikator *Save* lebih penting dari *Like*?",
+  faq2Teks: "Keduanya memiliki peran yang saling melengkapi. Namun dalam pembaruan algoritma terbaru, aktivitas *Save* memberikan bobot yang sangat besar karena menunjukkan bahwa konten Anda dianggap sebagai referensi jangka panjang oleh audiens.",
+  faq3Judul: "Apakah strategi ini efektif untuk akun bisnis dan jualan?",
+  faq3Teks: "Sangat efektif. Bagi akun promosi atau *affiliate*, angka *Save* yang tinggi menciptakan efek psikologis (social proof) yang meyakinkan calon pembeli bahwa produk Anda sangat diminati dan layak untuk dipertimbangkan.",
+  faq4Judul: "Berapa lama waktu yang dibutuhkan untuk melihat perubahannya?",
+  faq4Teks: "Sistem kami akan mulai bekerja setelah pesanan dikonfirmasi. Distribusi dilakukan secara bertahap dan berkesinambungan untuk menciptakan pola pertumbuhan interaksi yang wajar dan aman bagi akun Anda.",
+  faq5Judul: "Apakah konten yang sudah lama diunggah masih bisa dioptimasi?",
+  faq5Teks: "Tentu bisa. Memberikan injeksi interaksi baru pada video lama dapat membangkitkan kembali relevansinya di mata sistem kurasi pencarian (SEO TikTok).",
+  faq6Judul: "Bisakah saya memecah satu paket untuk beberapa video?",
+  faq6Teks: "Untuk memastikan dorongan algoritma berjalan maksimal, kami merekomendasikan pemusatan fokus pada satu tautan video spesifik per paket pesanan. Anda bisa berkonsultasi dengan tim kami untuk strategi alokasi terbaik."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Save Video TikTok & Optimasi Fitur Koleksi",
+    "image": "https://jasalike.com/image/harga-savetiktok.png",
+    "description": "Layanan optimasi indikator Save/Bookmark TikTok yang edukatif dan solutif. Bantu konten Anda bertahan lebih lama di algoritma FYP dengan interaksi berkualitas tinggi.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "720"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Save TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah keamanan data internal akun saya terjamin?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat terjamin. Kami menerapkan prinsip privasi yang kokoh dengan operasional murni dari jalur eksternal. Kami sama sekali tidak membutuhkan informasi kredensial atau akses masuk ke akun TikTok Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah indikator Save lebih penting dari Like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Keduanya memiliki peran yang saling melengkapi. Namun dalam pembaruan algoritma terbaru, aktivitas Save memberikan bobot yang sangat besar karena menunjukkan bahwa konten Anda dianggap sebagai referensi jangka panjang oleh audiens."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah strategi ini efektif untuk akun bisnis dan jualan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat efektif. Bagi akun promosi atau affiliate, angka Save yang tinggi menciptakan efek psikologis (social proof) yang meyakinkan calon pembeli bahwa produk Anda sangat diminati dan layak untuk dipertimbangkan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
+
