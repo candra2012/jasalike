@@ -1,0 +1,278 @@
+---
+// src/pages/jasa-tambah-follower-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa Tambah Follower TikTok Indonesia Murah & Berkualitas";
+const description = "Jasa tambah follower TikTok Indonesia murah dan berkualitas untuk membantu akun tampil lebih menarik, memperluas jangkauan, dan daya tarik.";
+const keywords = "jasa tambah follower tiktok, beli follower tiktok, follower tiktok indonesia, fyp tiktok, Jasa beli follower tiktok, jasa tambah follower Indonesia, jasa follower tiktok, jasa follower murah, jasa tambah follower murah, jasa follower organik";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS FOLLOWER TIKTOK
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan TikTok Premium",
+  labelIcon: "fa-brands:tiktok",
+  judulUtama: 'Jasa Tambah Follower TikTok <br class="hidden md:block"/> <span class="text-blue-500">Murah & Berkualitas</span>',
+  deskripsi: "Tingkatkan popularitas akun TikTok Anda secara profesional. Semakin banyak follower, semakin besar peluang konten Anda menjangkau audiens baru dan menembus <strong>fyp tiktok</strong>. Kami siap membantu memperkuat performa akun Anda. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Proses Cepat & Terstruktur &nbsp; ✓ Follower Berkualitas &nbsp; ✓ Cocok Untuk Personal & Bisnis</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-Tiktok.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala Umum Pengguna <span class="text-blue-600">TikTok</span>',
+  deskripsiUtama: "Masalah yang sering membuat akun TikTok sulit berkembang meskipun sudah rutin membuat konten.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Follower Stagnan:</strong> Jumlah follower sulit bertambah dan pertumbuhan akun berjalan sangat lambat.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Sepi Interaksi:</strong> Konten kurang mendapatkan engagement sehingga sulit menarik audiens baru.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Kurang Meyakinkan:</strong> Akun baru dengan follower sedikit sering dianggap kurang kredibel oleh calon audiens.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Sulit Branding:</strong> Persaingan yang tinggi membuat personal branding maupun bisnis sulit bersinar.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Solusi Jasa Tambah <span class="text-blue-500">Follower TikTok</span>',
+  deskripsiUtama: "Kami hadir sebagai solusi bagi Anda yang membutuhkan jasa beli follower TikTok dengan kualitas terbaik dan proses yang profesional.",
+  k1Judul: "Meningkatkan Tampilan Akun",
+  k1Teks: "Layanan ini dirancang untuk membantu akun Anda agar terlihat jauh lebih kredibel, meyakinkan, dan menarik di mata pengguna lainnya.",
+  k2Judul: "Berbagai Pilihan Layanan",
+  k2Teks: "Kami menyediakan jasa follower murah, jasa tambah follower cepat, hingga organik untuk menyesuaikan kebutuhan setiap pengguna."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Jasa Tambah <span class="text-blue-600">Follower</span>',
+  deskripsiUtama: "Menggunakan jasa tambah follower TikTok dapat memberikan berbagai dampak positif bagi perkembangan akun Anda.",
+  m1Judul: "Meningkatkan Kredibilitas",
+  m1Teks: "Akun dengan jumlah follower yang tinggi cenderung terlihat lebih profesional dan sangat terpercaya di mata audiens.",
+  m2Judul: "Membantu Personal Branding",
+  m2Teks: "Follower yang meningkat dapat memperkuat citra personal maupun bisnis Anda secara signifikan di TikTok.",
+  m3Judul: "Menarik Audiens Baru",
+  m3Teks: "Akun yang terlihat aktif biasanya lebih memicu rasa penasaran dan menarik pengguna baru untuk ikut berinteraksi.",
+  m4Judul: "Mendukung Strategi Marketing",
+  m4Teks: "Sangat cocok untuk promosi produk, jasa, event, maupun mempercepat campaign digital bisnis Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">Kami?</span>',
+  deskripsiUtama: "Kami berkomitmen memberikan layanan jasa tambah follower TikTok berkualitas dengan fokus pada kepuasan pelanggan.",
+  mk1Judul: "Layanan Profesional",
+  mk1Teks: "Setiap pesanan follower diproses dengan sistem kerja yang sangat terstruktur, aman, dan terpercaya.",
+  mk2Judul: "Harga Terjangkau",
+  mk2Teks: "Tersedia berbagai paket jasa follower murah yang fleksibel menyesuaikan kebutuhan dan budget Anda.",
+  mk3Judul: "Customer Support Responsif",
+  mk3Teks: "Tim ahli kami siap membantu memberikan informasi, konsultasi, dan solusi dengan sangat cepat.",
+  mk4Judul: "Beragam Kebutuhan",
+  mk4Teks: "Mulai dari personal branding, bisnis online, kreator, hingga optimasi untuk klien jasa tiktok surabaya.",
+  mk5Judul: "Fokus Kualitas",
+  mk5Teks: "Kami mengutamakan kualitas pengisian follower agar hasil yang didapatkan terlihat lebih alami dan optimal.",
+  mk6Judul: "Privasi Terjaga",
+  mk6Teks: "Kami tidak pernah memberikan informasi data client ke public"
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Lengkap <span class="text-blue-600">Kebutuhan Sosial Media</span>',
+  deskripsiUtama: "Selain follower, kami juga menyediakan layanan interaksi utama untuk memaksimalkan performa konten Anda di berbagai platform.",
+  
+  sol1Icon: "lucide:heart",
+  sol1Judul: "Optimasi Video Pendek",
+  sol1Teks: "Tingkatkan engagement video pendek Anda melalui <a href='/like-tiktok' class='text-blue-600 font-medium hover:underline'>Jasa Like TikTok</a> dan <a href='/like-instagram' class='text-blue-600 font-medium hover:underline'>Jasa Like Instagram</a> agar lebih mudah menjangkau audiens baru.",
+  
+  sol2Icon: "lucide:thumbs-up",
+  sol2Judul: "Interaksi Facebook",
+  sol2Teks: "Perkuat kredibilitas postingan, fanpage, maupun Reels Anda menggunakan <a href='/like-facebook' class='text-blue-600 font-medium hover:underline'>Jasa Like Facebook</a> yang aman dan natural.",
+  
+  sol3Icon: "lucide:youtube", // Pastikan pakai lucide:youtube atau lucide:play
+  sol3Judul: "Dukungan Channel YouTube",
+  sol3Teks: "Bantu video Anda mendapatkan peringkat pencarian yang lebih baik dengan dukungan <a href='/like-youtube' class='text-blue-600 font-medium hover:underline'>Jasa Like YouTube</a> dari pengguna aktif."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Order <span class="text-blue-400">Follower TikTok</span>',
+  deskripsiUtama: "Proses pemesanan sangat mudah, cepat, dan transparan tanpa perlu repot.",
+  co1Judul: "Pilih Paket",
+  co1Teks: "Pilih paket follower TikTok yang paling sesuai dengan kebutuhan akun Anda.",
+  co2Judul: "Kirim Username",
+  co2Teks: "Cukup kirimkan tautan (link) profil atau username akun TikTok Anda kepada tim admin kami.",
+  co3Judul: "Konfirmasi Pesanan",
+  co3Teks: "Lakukan konfirmasi pesanan dan pembayaran dengan menghubungi tim WhatsApp kami.",
+  co4Judul: "Proses Dimulai",
+  co4Teks: "Penambahan follower akan langsung diproses secara aman ke akun Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket Follower TikTok",
+  deskripsiHarga: "Tingkatkan kredibilitas akun TikTok Anda mulai hari ini dengan harga terbaik.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-followertiktok.png", // Sesuaikan nama gambar Akang
+  p1Nama: "Paket 100 Follower",
+  p1Fitur1: "Proses Cepat & Terstruktur",
+  p1Fitur2: "Cocok Untuk Akun Baru",
+  p1Fitur3: "Tanpa Password (Aman)",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%20100%20Follower%20TikTok",
+
+  // Paket Kanan
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/harga-followertiktok.png", // Sesuaikan nama gambar Akang
+  p2Nama: "Paket 1.000 Follower",
+  p2Fitur1: "Kualitas Premium Terbaik",
+  p2Fitur2: "Membantu Membuka Fitur Live",
+  p2Fitur3: "Meningkatkan Branding Signifikan",
+  p2HargaCoret: "Rp 2.750.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%201000%20Follower%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Follower <br/> <span class="text-blue-600">TikTok</span>',
+  deskripsiUtama: "Pertanyaan umum mengenai layanan tambah follower TikTok JasaLike.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20Jasa%20Follower%20TikTok",
+  faq1Judul: "Apakah layanan ini cocok untuk akun baru?",
+  faq1Teks: "Ya, layanan ini sangat cocok digunakan untuk mem-boosting akun baru maupun akun yang sedang berkembang agar terlihat lebih meyakinkan.",
+  faq2Judul: "Berapa lama proses pengerjaannya?",
+  faq2Teks: "Proses biasanya langsung dimulai tidak lama setelah konfirmasi pesanan dan pembayaran berhasil dilakukan.",
+  faq3Judul: "Apakah tersedia follower Indonesia?",
+  faq3Teks: "Ya, kami menyediakan jasa tambah follower Indonesia maupun campuran (mix) sesuai kebutuhan dan paket pilihan pelanggan.",
+  faq4Judul: "Apakah layanan ini cocok untuk bisnis?",
+  faq4Teks: "Sangat cocok. Banyak brand, kreator, dan UMKM menggunakan layanan ini untuk meningkatkan branding profesional mereka di TikTok.",
+  faq5Judul: "Apa saja yang dibutuhkan untuk pemesanan?",
+  faq5Teks: "Anda cukup menginformasikan tautan (link) profil atau username akun TikTok yang ingin ditambahkan followernya kepada tim admin kami.",
+  faq6Judul: "Apakah tersedia paket murah?",
+  faq6Teks: "Tentu. Tersedia berbagai pilihan jasa tambah follower murah dengan harga yang sangat kompetitif di pasaran."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Tambah Follower TikTok Murah & Berkualitas",
+    "image": "https://jasalike.com/image/hero-jasalike-Tiktok.png",
+    "description": "Layanan jasa tambah follower TikTok Indonesia untuk membantu meningkatkan kredibilitas akun, engagement, dan memperkuat branding bisnis.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1840"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Tambah Follower TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan follower TikTok ini cocok untuk akun baru?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan ini sangat cocok digunakan untuk akun baru maupun akun yang sedang berkembang agar terlihat kredibel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses pengerjaannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Proses biasanya dimulai setelah pesanan berhasil dikonfirmasi dan pembayaran diverifikasi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah membutuhkan password TikTok?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak. Kami hanya membutuhkan link profile atau username TikTok Anda untuk memproses pesanan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
