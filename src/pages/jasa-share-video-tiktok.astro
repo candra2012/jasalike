@@ -1,0 +1,276 @@
+---
+// src/pages/jasa-share-video-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa Share Video TikTok Profesional & Berkualitas";
+const description = "Jasa share video TikTok terpercaya untuk membantu meningkatkan jangkauan konten, exposure akun, dan interaksi sosial media Anda secara edukatif dan aman.";
+const keywords = "jasa share video tiktok, jasa share tiktok, jasa share live tiktok, layanan share konten tiktok, jasa share postingan, jasa share akun tiktok, jasa share sosial media, jasa share konten, jasa share online";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (FOKUS EDUKASI & SOLUSI JANGKAUAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Solusi Distribusi Konten Digital",
+  labelIcon: "lucide:share-2",
+  judulUtama: 'Jasa Share Video <br class="hidden md:block"/> <span class="text-orange-500">TikTok Profesional</span>',
+  deskripsi: "Perluas jangkauan konten TikTok Anda secara lebih maksimal! Dalam persaingan era digital yang semakin kompetitif, sebuah video membutuhkan strategi distribusi yang tepat agar mampu menjangkau lebih banyak audiens. Layanan share video kami hadir sebagai solusi solutif untuk membantu *creator*, pemilik bisnis online, *affiliate*, hingga *brand* memperluas jangkauan promosi secara terarah. <br class='hidden md:block mt-2' /> <span class='text-orange-400 font-semibold block mt-4'>✓ Perluas Jangkauan Audiens &nbsp; ✓ Cocok untuk Promosi &nbsp; ✓ Proses Terstruktur</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Distribusi <span class="text-orange-500">Konten TikTok</span>',
+  deskripsiUtama: "Mengapa video yang sudah dikonsep dengan sangat menarik sering kali kesulitan mendapatkan perhatian audiens baru?",
+  ms1Teks: '<strong class="text-orange-500 font-bold">Stagnasi Jangkauan Penonton:</strong> Video sulit menembus audiens di luar pengikut Anda karena minimnya aktivitas membagikan (share) pada postingan tersebut.',
+  ms2Teks: '<strong class="text-orange-500 font-bold">Interaksi Kurang Berkembang:</strong> Rendahnya penyebaran membuat performa interaksi (engagement) berjalan lambat, sehingga konten cepat tenggelam di lini masa.',
+  ms3Teks: '<strong class="text-orange-500 font-bold">Live TikTok Sepi Pengunjung:</strong> Siaran langsung yang Anda jalankan kurang mendapatkan sorotan atau *exposure* karena tidak ada dorongan penyebaran ke pengguna lain.',
+  ms4Teks: '<strong class="text-orange-500 font-bold">Kalah Bersaing di Algoritma:</strong> Sistem kurasi sering kali memprioritaskan video yang aktif didistribusikan, membuat konten yang statis menjadi sulit bersaing.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Memahami Strategi <span class="text-orange-500">Share TikTok</span>',
+  deskripsiUtama: "Edukasi mengenai pentingnya distribusi yang terstruktur untuk mengoptimalkan potensi video Anda di platform.",
+  k1Judul: "Katalisator Penyebaran Konten",
+  k1Teks: "Layanan ini bertindak sebagai jembatan untuk mendistribusikan konten Anda ke berbagai ruang, memberikan sinyal positif kepada sistem bahwa video Anda bernilai dan layak disebarluaskan.",
+  k2Judul: "Optimasi Berbasis Solusi",
+  k2Teks: "Dirancang secara spesifik untuk memecahkan kebuntuan jangkauan. Baik itu video reguler maupun siaran Live, peningkatan jumlah share akan merangsang interaksi lanjutan dari pengguna organik yang baru menemukan akun Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-orange-500">Ekspansi Konten</span>',
+  deskripsiUtama: "Berbagai keuntungan strategis yang akan Anda peroleh melalui penyebaran konten yang lebih terarah.",
+  m1Judul: "Menjangkau Audiens Baru",
+  m1Teks: "Konten yang dibagikan secara luas membuka gerbang interaksi dengan pengguna potensial yang belum pernah melihat profil Anda sebelumnya.",
+  m2Judul: "Meningkatkan Aktivitas Interaksi",
+  m2Teks: "Tingkat penyebaran yang tinggi secara berkesinambungan membantu memperkuat performa *engagement* video secara natural dan sehat.",
+  m3Judul: "Mendukung Strategi Branding",
+  m3Teks: "Sangat efektif digunakan untuk memperkenalkan produk baru, layanan jasa, maupun memperkuat kesadaran merek (brand awareness).",
+  m4Judul: "Daya Saing Konten Meningkat",
+  m4Teks: "Video dengan rekam jejak penyebaran yang baik cenderung memancing rasa penasaran audiens, membuatnya terlihat lebih aktif dan kompetitif."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Kualitas Pelayanan <span class="text-orange-500">Profesional</span>',
+  deskripsiUtama: "Komitmen kami dalam menghadirkan solusi penyebaran konten yang aman dan berfokus pada hasil yang optimal.",
+  mk1Judul: "Pengerjaan Terstruktur",
+  mk1Teks: "Setiap pesanan diproses dengan sistem kerja yang rapi dan konsisten untuk memastikan kualitas distribusi tetap terjaga dengan baik.",
+  mk2Judul: "Kerahasiaan Privasi Terjamin",
+  mk2Teks: "Kami menjunjung tinggi keamanan data. Proses distribusi murni dilakukan dari luar dengan hanya mengandalkan tautan (URL) publik konten Anda.",
+  mk3Judul: "Dukungan Sangat Responsif",
+  mk3Teks: "Tim ahli kami siap memberikan informasi, edukasi, dan solusi yang tepat untuk mengawal kesuksesan kampanye promosi digital Anda.",
+  mk4Judul: "Solusi Berbagai Kebutuhan",
+  mk4Teks: "Infrastruktur kami siap melayani skala kebutuhan *creator* independen, bisnis online, *affiliate*, hingga kampanye berskala besar.",
+  mk5Judul: "Distribusi Terkalibrasi",
+  mk5Teks: "Laju penyebaran diatur sedemikian rupa untuk menyerupai pola kewajaran interaksi dari komunitas, sehingga kredibilitas akun Anda selalu aman.",
+  mk6Judul: "Orientasi Kepuasan Pelanggan",
+  mk6Teks: "Kami selalu mengutamakan integritas dan kualitas pelayanan agar hasil yang Anda peroleh benar-benar sesuai dengan harapan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ekosistem <span class="text-orange-500">Interaksi Menyeluruh</span>',
+  // Internal link telah disisipkan di dalam paragraf ini sesuai permintaan
+  deskripsiUtama: "Selain jasa share video, Anda dapat memaksimalkan performa konten dengan <a href='/like-tiktok' class='text-orange-500 font-semibold hover:underline'>jasa like TikTok</a> dan melengkapi ruang diskusi yang edukatif menggunakan <a href='/komentar-tiktok' class='text-orange-500 font-semibold hover:underline'>jasa komentar TikTok</a> untuk membangun fondasi kredibilitas yang solid di mata audiens.",
+  sol1Icon: "lucide:eye",
+  sol1Judul: "Optimasi Jangkauan Visual",
+  sol1Teks: "Padukan penyebaran konten dengan jumlah penayangan (view) yang relevan agar video terlihat lebih meyakinkan saat ditemukan penonton baru.",
+  sol2Icon: "lucide:users",
+  sol2Judul: "Pembangunan Komunitas",
+  sol2Teks: "Dukung pertumbuhan akun jangka panjang dengan membangun basis pengikut (followers) yang kuat untuk menyambut pengunjung baru.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Eskalasi Interaksi Terpadu",
+  sol3Teks: "Kombinasikan berbagai elemen partisipasi audiens untuk menciptakan fondasi konten yang tangguh dan tidak mudah tenggelam."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Langkah pemesanan dibuat sangat praktis, edukatif, dan mudah dipahami oleh siapa saja.",
+  co1Judul: "Identifikasi Kebutuhan",
+  co1Teks: "Evaluasi target jangkauan Anda, lalu pilih paket layanan penyebaran konten yang paling selaras dengan tujuan promosi Anda.",
+  co2Judul: "Serahkan Tautan Konten",
+  co2Teks: "Salin dan informasikan tautan (URL) publik dari video reguler atau siaran langsung (Live) TikTok yang ingin Anda optimalkan.",
+  co3Judul: "Konfirmasi & Edukasi",
+  co3Teks: "Tim representatif kami akan mengonfirmasi detail pesanan sekaligus memberikan panduan singkat mengenai estimasi penyelesaian.",
+  co4Judul: "Eksekusi Terstruktur",
+  co4Teks: "Sistem kami mulai bekerja mendistribusikan konten Anda, membuka peluang agar video menjangkau spektrum audiens yang lebih luas."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Harga Paket Share TikTok",
+  deskripsiHarga: "Pilih skala penyebaran yang paling ideal untuk mendukung laju kampanye konten Anda.",
+
+  p1Gambar: "/image/harga-sharetiktok.png",
+  p1Nama: "Paket Distribusi 100 Share",
+  p1Fitur1: "Ideal untuk Edukasi Konten Baru",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Kerahasiaan Privasi 100%",
+  p1Harga: "Rp 200.000", // Silakan sesuaikan harganya
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Distribusi%20100%20Share%20TikTok",
+
+  p2Label: "REKOMENDASI KAMPANYE",
+  p2Gambar: "/image/harga-sharetiktok.png",
+  p2Nama: "Paket Ekspansi 1000 Share",
+  p2Fitur1: "Mendukung Campaign Bisnis",
+  p2Fitur2: "Bisa Digunakan untuk Live TikTok",
+  p2Fitur3: "Layanan Dukungan Prioritas",
+  p2HargaCoret: "Rp 2.500.000", // Silakan sesuaikan
+  p2Harga: "Rp 2.000.000",       // Silakan sesuaikan
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Ekspansi%201000%20Share%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <span class="text-orange-500">Share TikTok</span>',
+  deskripsiUtama: "Pusat informasi dan solusi cepat untuk menjawab berbagai pertanyaan seputar penyebaran konten digital.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Share%20TikTok",
+  faq1Judul: "Apakah layanan ini relevan untuk akun yang baru merintis?",
+  faq1Teks: "Sangat relevan. Layanan ini dirancang sebagai solusi edukatif untuk membantu memancing jangkauan awal dan membangun otoritas pada akun yang sedang berkembang.",
+  faq2Judul: "Apakah sistem ini berlaku untuk siaran langsung (Live TikTok)?",
+  faq2Teks: "Tentu bisa. Kami memiliki infrastruktur yang dapat mendistribusikan tautan siaran langsung Anda, sehingga eksposur Live berpotensi meningkat di waktu yang tepat.",
+  faq3Judul: "Bagaimana dengan keamanan privasi akun saya?",
+  faq3Teks: "Kami menggunakan pendekatan keamanan tingkat tinggi. Proses operasional kami murni berjalan dari sisi eksternal. Kami hanya membutuhkan tautan (URL) publik dari video Anda tanpa syarat apa pun yang merepotkan.",
+  faq4Judul: "Apakah penyebaran konten ini mendukung promosi bisnis?",
+  faq4Teks: "Sangat mendukung. Banyak pelaku bisnis digital dan merek (brand) memanfaatkan strategi penyebaran ini untuk meningkatkan efektivitas kampanye pemasaran produk mereka.",
+  faq5Judul: "Berapa lama estimasi waktu pengerjaan yang dibutuhkan?",
+  faq5Teks: "Pengerjaan akan segera diinisiasi setelah konfirmasi pesanan berhasil. Kecepatan laju distribusi selalu kami sesuaikan secara profesional untuk menjaga kewajaran pertumbuhan akun.",
+  faq6Judul: "Apakah tersedia opsi paket yang bervariasi?",
+  faq6Teks: "Ya, kami menyediakan beragam pilihan skala distribusi share. Anda bisa berdiskusi dengan tim kami untuk memilih paket yang paling sesuai dengan anggaran dan target audiens Anda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Share Video TikTok Profesional",
+    "image": "https://jasalike.com/image/harga-sharetiktok.png",
+    "description": "Layanan jasa share TikTok edukatif dan solutif untuk membantu meningkatkan penyebaran konten dan jangkauan audiens promosi Anda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "834"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Share TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini relevan untuk akun yang baru merintis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat relevan. Layanan ini dirancang sebagai solusi edukatif untuk membantu memancing jangkauan awal dan membangun otoritas pada akun yang sedang berkembang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah sistem ini berlaku untuk siaran langsung (Live TikTok)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu bisa. Kami memiliki infrastruktur yang dapat mendistribusikan tautan siaran langsung Anda, sehingga eksposur Live berpotensi meningkat di waktu yang tepat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana dengan keamanan privasi akun saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami menggunakan pendekatan keamanan tingkat tinggi. Proses operasional kami murni berjalan dari sisi eksternal. Kami hanya membutuhkan tautan (URL) publik dari video Anda tanpa syarat apa pun yang merepotkan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
+
