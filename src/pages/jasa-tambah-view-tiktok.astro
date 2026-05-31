@@ -1,0 +1,278 @@
+---
+// src/pages/jasa-tambah-view-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa Tambah View TikTok Murah & Profesional | Tingkatkan Engagement";
+const description = "Optimalkan konten Anda menggunakan jasa tambah view TikTok terpercaya. Solusi terbaik bagi kreator guna memperluas audiens secara aman, cepat dan efektif.";
+const keywords = "jasa tambah view tiktok, jasa view video tiktok, jasa view tiktok murah, jasa view live tiktok, jasa like dan view tiktok, jasa naikin view tiktok, jasa view apk, jasa penambah view, jasa view video tiktok";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS VIEW TIKTOK
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan TikTok Premium",
+  labelIcon: "fa-brands:tiktok",
+  judulUtama: 'Jasa Tambah View TikTok <br class="hidden md:block"/> <span class="text-blue-500">Murah & Profesional</span>',
+  deskripsi: "Selamat datang di platform profesional yang dirancang khusus untuk membantu kreator konten dan pebisnis online. Dapatkan dorongan awal strategis agar setiap karya video Anda menjangkau penonton yang tepat sasaran dan menembus <strong>fyp tiktok</strong>. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Keamanan Ekstra Terjamin &nbsp; ✓ Pengerjaan Cepat &nbsp; ✓ Harga Kompetitif</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-Tiktok.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala Utama Kreator <span class="text-blue-600">TikTok</span>',
+  deskripsiUtama: "Perjalanan seorang kreator digital tidak pernah lepas dari rintangan teknis. Banyak yang merasa frustrasi saat kerja keras editan tidak mendapat apresiasi sepadan.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Stagnasi Jumlah Penonton:</strong> Video sering kali berhenti di angka penonton rendah, membuat promosi tidak bekerja optimal.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Algoritma Dinamis:</strong> Sangat sulit menembus beranda utama tanpa adanya interaksi awal yang kuat.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Kalah Bersaing:</strong> Kompetitor dengan metrik tinggi lebih mudah mendapatkan kepercayaan calon audiens baru.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Waktu Terbuang:</strong> Fokus memikirkan ide terkuras karena statistik video yang tak kunjung meningkat.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Solusi Cerdas <span class="text-blue-500">Optimasi Algoritma</span>',
+  deskripsiUtama: "Menghadapi rentetan kendala, penggunaan jasa tambah view tiktok hadir sebagai langkah taktis yang bisa diandalkan untuk mempercepat metrik akun Anda.",
+  k1Judul: "Katalisator Sistem Rekomendasi",
+  k1Teks: "Sistem akan mendeteksi aktivitas positif pada unggahan Anda, yang sangat krusial untuk memicu kurasi konten ke ruang lingkup yang lebih luas.",
+  k2Judul: "Alternatif Aman & Terukur",
+  k2Teks: "Tinggalkan risiko mencari jasa view apk yang tidak teruji. Tim kami menangani seluruh proses optimasi secara profesional, etis, dan terukur."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Peningkatan <span class="text-blue-600">Metrik Awal</span>',
+  deskripsiUtama: "Berinvestasi pada optimasi metrik awal akan membawa dampak positif jangka panjang yang sangat signifikan bagi perkembangan identitas digital Anda.",
+  m1Judul: "Membangun Kredibilitas",
+  m1Teks: "Angka tontonan yang tinggi otomatis menciptakan kesan meyakinkan. Pengguna secara psikologis lebih tertarik menonton tayangan yang sudah populer.",
+  m2Judul: "Katalisator Distribusi",
+  m2Teks: "Memberikan sinyal positif kepada sistem platform bahwa unggahan Anda relevan dan layak direkomendasikan secara organik.",
+  m3Judul: "Efisiensi Waktu & Tenaga",
+  m3Teks: "Fokuslah pada perancangan ide, kami yang akan membantu mendongkrak statistiknya melalui jasa view video tiktok berkualitas.",
+  m4Judul: "Mendukung Konversi Bisnis",
+  m4Teks: "Sangat efektif menarik perhatian calon pembeli untuk segera mengunjungi tautan atau keranjang kuning di akun Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">Mitra Kami?</span>',
+  deskripsiUtama: "Komitmen utama kami adalah memberikan hasil nyata, terukur, dan mengutamakan kenyamanan bagi setiap klien digital.",
+  mk1Judul: "Keamanan Ekstra",
+  mk1Teks: "Kami mengutamakan privasi dan integritas profil Anda dengan selalu mematuhi standar operasional yang paling ketat.",
+  mk2Judul: "Pengerjaan Tepat Waktu",
+  mk2Teks: "Tim spesialis memproses permintaan dengan disiplin tinggi, memastikan Anda segera melihat progres dari layanan.",
+  mk3Judul: "Investasi Kompetitif",
+  mk3Teks: "Sebagai penyedia jasa view tiktok murah, kami menawarkan solusi ekonomis tanpa pernah mengorbankan mutu.",
+  mk4Judul: "Dukungan Live Streaming",
+  mk4Teks: "Menyediakan jasa view live tiktok untuk menjaga retensi dan antusiasme audiens saat siaran langsung.",
+  mk5Judul: "Paket Menyeluruh",
+  mk5Teks: "Tersedia kombinasi jasa like dan view tiktok guna menyeimbangkan rasio interaksi agar proporsional.",
+  mk6Judul: "Solusi Jangka Panjang",
+  mk6Teks: "Kami adalah pendorong andalan (jasa naikin view tiktok) untuk melancarkan berbagai jenis strategi pemasaran Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Lengkap <span class="text-blue-600">Promosi Lintas Platform</span>',
+  deskripsiUtama: "Kami tidak hanya memposisikan diri sebagai jasa penambah view biasa. Interaksi yang komprehensif amatlah dibutuhkan untuk bersaing.",
+  
+  sol1Icon: "lucide:video",
+  sol1Judul: "Sinergi Interaksi TikTok",
+  sol1Teks: "Gunakan jasa view live tiktok untuk retensi siaran, atau kombinasi jasa like dan view tiktok agar rasio interaksi video terlihat proporsional di mata audiens.",
+  
+  sol2Icon: "lucide:message-square",
+  sol2Judul: "Ekspansi Microblogging",
+  sol2Teks: "Kuasai opini audiens melalui <a href='/like-twitter' class='text-blue-600 font-medium hover:underline'>Jasa Like Twitter</a> untuk mendukung <strong>jasa trending topik twitter</strong>, serta <a href='/like-threads' class='text-blue-600 font-medium hover:underline'>Jasa Like Threads</a> agar pesan Anda makin viral.",
+  
+  sol3Icon: "lucide:image",
+  sol3Judul: "Kekuatan Visual & Inspirasi",
+  sol3Teks: "Tingkatkan daya tarik visual etalase produk dan portofolio Anda menggunakan <a href='/like-pinterest' class='text-blue-600 font-medium hover:underline'>Jasa Like Pinterest</a> secara aman untuk menarik pembeli organik."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Order <span class="text-blue-400">Jasa View TikTok</span>',
+  deskripsiUtama: "Proses pemesanan cepat dan mudah agar Anda bisa kembali fokus menciptakan konten.",
+  co1Judul: "Pilih Target Metrik",
+  co1Teks: "Tentukan jumlah view reguler atau view live yang dibutuhkan untuk mengoptimalkan kampanye Anda.",
+  co2Judul: "Kirim Tautan Video",
+  co2Teks: "Cukup sampaikan tautan (link) video TikTok yang ingin ditingkatkan jumlah tayangannya.",
+  co3Judul: "Selesaikan Pembayaran",
+  co3Teks: "Konfirmasikan pesanan Anda melalui WhatsApp dan selesaikan instruksi pembayaran yang diberikan.",
+  co4Judul: "Mulai Dioptimasi",
+  co4Teks: "Tim spesialis kami akan segera mengeksekusi pesanan dengan disiplin waktu yang tinggi."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket View TikTok",
+  deskripsiHarga: "Tingkatkan metrik tontonan Anda hari ini dengan struktur biaya yang ekonomis dan efisien.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-viewtiktok.png", // Sesuaikan jika ada gambar
+  p1Nama: "Paket 100 View",
+  p1Fitur1: "Katalisator Sistem Distribusi",
+  p1Fitur2: "Aman dari Deteksi Spam",
+  p1Fitur3: "Meningkatkan Kredibilitas Awal",
+  p1Harga: "Rp 50.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%205000%20View%20TikTok",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI KREATOR",
+  p2Gambar: "/image/harga-viewtiktok.png", // Sesuaikan jika ada gambar
+  p2Nama: "Paket 1.000 View",
+  p2Fitur1: "Dorongan Maksimal Menuju FYP",
+  p2Fitur2: "Sangat Meyakinkan Audiens Baru",
+  p2Fitur3: "Efisiensi Waktu & Tenaga",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%2050000%20View%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa View <br/> <span class="text-blue-600">TikTok</span>',
+  deskripsiUtama: "Pertanyaan seputar layanan optimasi metrik penonton TikTok kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20Jasa%20View%20TikTok",
+  faq1Judul: "Apakah metode yang digunakan aman untuk integritas profil saya?",
+  faq1Teks: "Tentu saja. Kami menggunakan prosedur pengerjaan yang didesain sedemikian rupa untuk senantiasa menjaga perlindungan privasi klien secara maksimal.",
+  faq2Judul: "Berapa estimasi waktu yang diperlukan hingga progres mulai terlihat?",
+  faq2Teks: "Estimasi durasi bervariasi bergantung pada volume pesanan. Namun, tim operasional kami berdedikasi memproses sesegera mungkin sesudah validasi pesanan.",
+  faq3Judul: "Apakah layanan ini juga kompatibel untuk format siaran langsung?",
+  faq3Teks: "Ya, di luar unggahan reguler, kami menyediakan jasa view live tiktok untuk membantu menjaga atensi penonton secara real-time.",
+  faq4Judul: "Apakah ada dukungan bantuan apabila terjadi kendala teknis?",
+  faq4Teks: "Kami menghadirkan pendampingan berstandar profesional. Tim layanan pelanggan kami senantiasa siap sedia memberikan edukasi dan solusi.",
+  faq5Judul: "Bolehkah saya menggunakan layanan berupa APK penambah view?",
+  faq5Teks: "Kami sangat tidak menyarankan penggunaan jasa view apk sembarangan karena berisiko pada keamanan. Percayakan pada tim kami yang memproses secara etis dan terukur.",
+  faq6Judul: "Apakah bisa dipadukan dengan optimasi lainnya?",
+  faq6Teks: "Sangat bisa. Kami merekomendasikan opsi jasa like dan view tiktok guna menyeimbangkan rasio interaksi agar terlihat proporsional dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Tambah View TikTok Murah & Profesional",
+    "image": "https://jasalike.com/image/harga-viewtiktok.png",
+    "description": "Optimalkan konten TikTok Anda menggunakan jasa tambah view terpercaya untuk memperluas audiens secara aman, cepat, dan efektif.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1645"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Direktori Layanan",
+        "item": "https://jasalike.com/direktori-layanan"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Tambah View TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah metode yang digunakan aman untuk integritas profil saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu saja. Kami menggunakan prosedur pengerjaan yang didesain sedemikian rupa untuk senantiasa menjaga perlindungan privasi klien secara maksimal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa estimasi waktu yang diperlukan hingga progres mulai terlihat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estimasi durasi bervariasi bergantung pada volume pesanan. Namun, tim operasional kami berdedikasi memproses sesegera mungkin sesudah validasi pesanan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini juga kompatibel untuk format siaran langsung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, di luar unggahan reguler, kami menyediakan jasa view live tiktok untuk membantu menjaga atensi penonton secara real-time."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
