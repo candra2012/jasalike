@@ -1,0 +1,291 @@
+---
+// src/pages/jasa-report-akun-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Report Akun TikTok Sampai Hilang";
+const description = "Sedia jasa report akun TikTok massal dengan proses cepat, aman, dan support 24 jam. Bisa report akun, live, video, dan postingan TikTok.";
+const keywords = "jasa report akun tiktok sampai banned, jasa report akun tiktok terpercaya, jasa report live streaming tiktok, jasa report video tiktok pelanggaran, jasa report akun tiktok cepat, jasa report akun tiktok indonesia, jasa report tiktok real user, jasa report tiktok aman, jasa report tiktok anti gagal, jasa report akun tiktok massal, jasa report tiktok jakarta, jasa report akun tiktok bandung, jasa report tiktok amanah";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FORMAL & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Keamanan Akun TikTok",
+  labelIcon: "lucide:shield-check",
+  judulUtama: 'Solusi Report Akun <br class="hidden md:block"/> <span class="text-blue-500">TikTok Profesional</span>',
+  deskripsi: "Aktivitas akun palsu, konten pelanggaran, hingga Live TikTok yang merugikan dapat memberikan dampak negatif bagi bisnis maupun personal branding. Dalam kondisi tertentu, penanganan yang cepat dan masif menjadi hal krusial agar masalah tidak semakin meluas. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Penanganan Cepat & Profesional &nbsp; ✓ Privasi Terjaga &nbsp; ✓ Support Responsif</span>",
+  teksTombol1: "Pilih Layanan",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Masalah",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Ekosistem <span class="text-blue-600">TikTok Saat Ini</span>',
+  deskripsiUtama: "Pertumbuhan TikTok yang sangat cepat membuat munculnya berbagai akun bermasalah semakin sulit dihindari. Apakah Anda mengalami hal berikut?",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Akun Fake & Kloning:</strong> Pihak tidak bertanggung jawab menggunakan identitas bisnis, nama, atau foto Anda untuk melakukan tindakan penipuan.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Konten Pelanggaran:</strong> Postingan video yang berisi pencemaran nama baik, berita bohong (hoax), atau mengganggu aktivitas promosi Anda.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Live TikTok Merugikan:</strong> Siaran langsung dari akun tertentu yang mengandung provokasi atau aktivitas yang merusak citra brand.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Serangan Kompetitor:</strong> Kompetitor melakukan tindakan tidak etis yang dengan sengaja mengganggu branding dan kepercayaan audiens Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-blue-500">Report TikTok</span>',
+  deskripsiUtama: "Solusi terstruktur untuk memberikan sinyal kuat kepada sistem algoritma TikTok agar segera menindak pelanggaran.",
+  k1Judul: "Penanganan Masif (Buzzer Report)",
+  k1Teks: "Kami menggunakan metode report massal menggunakan ratusan hingga ribuan akun (buzzer) agar laporan Anda diprioritaskan dan segera ditinjau oleh tim moderator TikTok.",
+  k2Judul: "Penargetan Multi-Layanan",
+  k2Teks: "Layanan kami mencakup jasa report akun TikTok secara keseluruhan (agar di-banned), report postingan (takedown video), hingga report Live TikTok."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Menindak <span class="text-blue-600">Pelanggaran</span>',
+  deskripsiUtama: "Menggunakan jasa report TikTok memberikan perlindungan tambahan terhadap aktivitas digital yang merugikan bisnis Anda.",
+  m1Judul: "Menjaga Reputasi Brand",
+  m1Teks: "Menghapus akun palsu dan penipu yang mengatasnamakan bisnis Anda, sehingga kepercayaan pelanggan tetap terjaga dengan baik.",
+  m2Judul: "Lingkungan Digital Lebih Aman",
+  m2Teks: "Membersihkan timeline dan ekosistem dari konten provokatif, menciptakan ruang sosial media yang sehat bagi pengikut Anda.",
+  m3Judul: "Proses Efisien & Terarah",
+  m3Teks: "Anda tidak perlu membuang waktu dan tenaga untuk melakukan report manual satu per satu. Biarkan sistem masif kami yang bekerja.",
+  m4Judul: "Fleksibel untuk Berbagai Kebutuhan",
+  m4Teks: "Layanan ini sangat cocok digunakan oleh content creator, bisnis online, brand perusahaan, hingga untuk kebutuhan perlindungan akun pribadi."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Sistem <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Kami fokus memberikan layanan jasa report akun dengan pendekatan profesional, terukur, dan aman.",
+  mk1Judul: "Tim Ahli Berpengalaman",
+  mk1Teks: "Penanganan dilakukan oleh tim yang memahami secara teknis algoritma dan kebijakan komunitas (Community Guidelines) TikTok.",
+  mk2Judul: "Customer Support Responsif",
+  mk2Teks: "Tim layanan pelanggan kami siap merespons keluhan dan memberikan solusi penanganan masalah dengan cepat.",
+  mk3Judul: "Alasan Report Akurat",
+  mk3Teks: "Kami menyesuaikan 'reason' (alasan) pelaporan yang paling spesifik dan relevan dengan jenis pelanggaran agar mudah disetujui TikTok.",
+  mk4Judul: "Privasi Pelapor Terjaga",
+  mk4Teks: "Identitas Anda sebagai klien dijamin 100% aman dan rahasia. Target tidak akan pernah tahu siapa yang melaporkannya.",
+  mk5Judul: "Harga Sangat Kompetitif",
+  mk5Teks: "Tersedia berbagai pilihan paket layanan report masal yang bisa disesuaikan dengan skala masalah dan anggaran Anda.",
+  mk6Judul: "Garansi Tambahan",
+  mk6Teks: "Sebagai bentuk komitmen, kami menyediakan garansi 50% uang kembali khusus untuk pesanan skala besar (minimal order 1000 report)."
+};
+
+const dataSolusi = {
+  judulUtama: 'Tindak Tegas <span class="text-blue-600">Pelanggaran</span>',
+  deskripsiUtama: "Jangan biarkan pihak tak bertanggung jawab merusak kerja keras Anda. Ambil tindakan sekarang.",
+  sol1Icon: "lucide:user-x",
+  sol1Judul: "Takedown Akun Palsu",
+  sol1Teks: "Hentikan segera aksi penipuan yang memanfaatkan foto, nama, atau identitas bisnis Anda di platform TikTok.",
+  sol2Icon: "lucide:video-off",
+  sol2Judul: "Hapus Konten Merugikan",
+  sol2Teks: "Laporkan video atau Live Streaming yang melanggar pedoman secara masif hingga diturunkan paksa oleh sistem.",
+  sol3Icon: "lucide:shield",
+  sol3Judul: "Kembalikan Keamanan Bisnis",
+  sol3Teks: "Fokus kembali pada pertumbuhan bisnis dan pembuatan konten yang positif tanpa gangguan dari pihak luar."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Sederhana <span class="text-blue-400">Pemesanan</span>',
+  deskripsiUtama: "Proses penanganan dibuat sederhana dan cepat agar masalah akun Anda dapat segera terselesaikan.",
+  co1Judul: "Konsultasi Masalah",
+  co1Teks: "Hubungi admin kami untuk menceritakan jenis pelanggaran (akun fake, video, atau live) yang sedang Anda hadapi.",
+  co2Judul: "Kirim Data Target",
+  co2Teks: "Serahkan detail berupa link/tautan profil akun TikTok atau link postingan video yang menjadi target pelaporan.",
+  co3Judul: "Pilih Skala Layanan",
+  co3Teks: "Tentukan jenis layanan dan jumlah volume report yang dibutuhkan untuk menumbangkan target pelanggaran tersebut.",
+  co4Judul: "Proses Penanganan Dimulai",
+  co4Teks: "Sistem dan tim kami akan langsung mengeksekusi pelaporan masal. Anda tinggal menunggu hasil peninjauan pihak TikTok."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Keamanan & Report",
+  deskripsiHarga: "Pilih paket report masal untuk menghentikan aktivitas merugikan dari akun target.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-reporttiktok.png",
+  p1Nama: "Paket Taktis 100 Report",
+  p1Fitur1: "Ideal untuk Pelanggaran Ringan",
+  p1Fitur2: "Report Postingan / Live",
+  p1Fitur3: "Privasi Pelapor 100% Aman",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Taktis%20100%20Report%20TikTok",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI MASSAL",
+  p2Gambar: "/image/harga-reporttiktok.png",
+  p2Nama: "Paket Dominasi 1000 Report",
+  p2Fitur1: "Target Takedown / Banned Akun",
+  p2Fitur2: "Prioritas Kecepatan Sistem",
+  p2Fitur3: "Garansi 50% Uang Kembali (S&K)",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Report%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <br/> <span class="text-blue-600">Report TikTok</span>',
+  deskripsiUtama: "Informasi krusial yang perlu Anda ketahui mengenai mekanisme pelaporan akun dan konten.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Report%20TikTok",
+  faq1Judul: "Apakah layanan ini cocok untuk akun fake?",
+  faq1Teks: "Ya, layanan ini sangat tepat digunakan untuk membantu menangani akun fake (kloningan) maupun akun penipu yang beroperasi menggunakan identitas Anda.",
+  faq2Judul: "Apakah bisa untuk report postingan TikTok?",
+  faq2Teks: "Bisa. Kami menyediakan jasa report postingan TikTok yang difokuskan pada video spesifik yang melanggar hak cipta atau mencemarkan nama baik.",
+  faq3Judul: "Apakah tersedia layanan report live TikTok?",
+  faq3Teks: "Ya, tersedia layanan jasa report live TikTok untuk kebutuhan mendesak menghentikan siaran langsung yang merugikan secara *real-time*.",
+  faq4Judul: "Berapa lama proses penanganan?",
+  faq4Teks: "Waktu proses sangat bervariasi. Hal ini tergantung dari tingkat pelanggaran yang dilakukan target dan lamanya waktu antrean peninjauan (review) oleh sistem TikTok sendiri.",
+  faq5Judul: "Apakah dijamin akun target akan hilang?",
+  faq5Teks: "Keputusan penangguhan (banned/takedown) sepenuhnya dipegang oleh TikTok. Tugas kami adalah memberikan 'dorongan masal' yang kuat agar laporan segera ditinjau dan disetujui. Pelanggaran berat biasanya jauh lebih cepat diproses.",
+  faq6Judul: "Apakah tersedia layanan report dalam jumlah besar?",
+  faq6Teks: "Ya, kami menyediakan jasa report masal dan jasa spam report TikTok. Khusus untuk pesanan di atas 1000 report, kami bahkan memberikan perlindungan garansi 50% uang kembali (S&K berlaku)."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Service",
+    "name": "Jasa Report Akun TikTok Profesional",
+    "image": "https://jasalike.com/image/harga-reporttiktok.png",
+    "description": "Layanan jasa report TikTok terpercaya untuk menangani akun fake, penipu, dan konten pelanggaran secara masif dan aman.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "645"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "3"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Report Akun TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini cocok untuk akun fake?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan ini sangat tepat digunakan untuk membantu menangani akun fake (kloningan) maupun akun penipu yang beroperasi menggunakan identitas Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa untuk report postingan TikTok?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bisa. Kami menyediakan jasa report postingan TikTok yang difokuskan pada video spesifik yang melanggar hak cipta atau mencemarkan nama baik."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia layanan report live TikTok?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, tersedia layanan jasa report live TikTok untuk kebutuhan mendesak menghentikan siaran langsung yang merugikan secara real-time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses penanganan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waktu proses sangat bervariasi. Hal ini tergantung dari tingkat pelanggaran yang dilakukan target dan lamanya waktu antrean peninjauan (review) oleh sistem TikTok sendiri."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia layanan report dalam jumlah besar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, kami menyediakan jasa report masal dan jasa spam report TikTok. Khusus untuk pesanan di atas 1000 report, kami bahkan memberikan perlindungan garansi 50% uang kembali (S&K berlaku)."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
