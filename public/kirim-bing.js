@@ -2,8 +2,8 @@
 
 const dataIndexNow = {
   "host": "jasalike.com",
-  "key": "e6400b71a593497dbc4ee0d66640ad78",
-  "keyLocation": "https://jasalike.com/e6400b71a593497dbc4ee0d66640ad78.txt",
+  "key": "8176943294884eabb5eb73ebb2b54810",
+  "keyLocation": "https://jasalike.com/8176943294884eabb5eb73ebb2b54810.txt",
   "urlList": [
     "https://jasalike.com/",
     "https://jasalike.com/like-tiktok",
