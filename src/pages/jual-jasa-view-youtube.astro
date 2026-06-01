@@ -1,0 +1,274 @@
+---
+// src/pages/jual-jasa-view-youtube.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jual Jasa View YouTube & Shorts Organik | JasaLike";
+const description = "Pusat layanan jual jasa view YouTube termurah dan aman. Tersedia jasa view YouTube organik, view luar negeri, hingga optimasi 4000 jam tayang.";
+const keywords = "jual jasa view youtube, jasa view youtube termurah, jasa view youtube organik, jasa tambah view youtube, jasa view youtube luar negri, jasa view video youtube, jasa boost view youtube, harga jasa view, jasa view 4000 jam youtube, jasa tembak view youtube";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (SEBARAN KEYWORD NATURAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Optimasi Tayangan YouTube",
+  labelIcon: "lucide:youtube",
+  judulUtama: 'Layanan <span class="text-red-600">Jasa Tambah View YouTube</span> Profesional',
+  deskripsi: "Membangun audiens di platform video terbesar butuh strategi. Kami hadir sebagai pusat penyedia <strong>jual jasa view YouTube</strong> yang siap mendongkrak popularitas video reguler maupun Shorts Anda. Dapatkan lonjakan interaksi yang aman untuk memancing algoritma. <br class='hidden md:block mt-2' /> <span class='text-blue-500 font-semibold block mt-4'>✓ Privasi Terjaga &nbsp; ✓ Views Berkualitas &nbsp; ✓ Support Responsif</span>",
+  teksTombol1: "Lihat Harga",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Video",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Mengapa Video Anda <span class="text-red-600">Sepi Penonton?</span>',
+  deskripsiUtama: "Menghasilkan konten yang bagus saja belum cukup jika tidak didukung oleh metrik penayangan awal yang kuat.",
+  ms1Teks: '<strong class="text-red-600 font-bold">Terjebak Algoritma:</strong> Video baru seringkali sulit masuk ke beranda rekomendasi karena kurangnya dorongan interaksi di jam-jam pertama tayang.',
+  ms2Teks: '<strong class="text-red-600 font-bold">Kalah Bersaing:</strong> Saat mencari <strong>jasa view video YouTube</strong>, banyak kreator menyadari bahwa kompetitor mereka sudah memiliki basis retensi penonton yang masif.',
+  ms3Teks: '<strong class="text-red-600 font-bold">Sulit Monetisasi:</strong> Target monetisasi terasa sangat berat dicapai jika mengandalkan penayangan yang pertumbuhannya sangat lambat.',
+  ms4Teks: '<strong class="text-red-600 font-bold">Kredibilitas Rendah:</strong> Penonton organik cenderung enggan mengklik video yang angka tayangannya masih di bawah standar.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Solusi Cerdas <span class="text-blue-500">Optimasi Tayangan</span>',
+  deskripsiUtama: "Kami memberikan dorongan trafik yang dibutuhkan channel Anda agar terlihat meyakinkan dan profesional.",
+  k1Judul: "Pertumbuhan Trafik Berkualitas",
+  k1Teks: "Banyak yang mencari strategi instan atau <strong>jasa tembak view YouTube</strong>. Kami menyempurnakannya dengan sistem retensi tinggi sehingga tayangan yang masuk tidak merusak retensi video Anda.",
+  k2Judul: "Distribusi Penonton Alami",
+  k2Teks: "Melalui layanan <strong>jasa view YouTube organik</strong>, kami menyalurkan penayangan secara bertahap dan terukur. Pendekatan ini menjaga performa analitik channel Anda tetap sehat di mata sistem."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-red-600">Layanan Tayangan</span>',
+  deskripsiUtama: "Suntikan angka penayangan awal adalah rahasia banyak kreator besar untuk masuk ke halaman trending atau FYP Shorts.",
+  m1Judul: "Memicu Sinyal Rekomendasi",
+  m1Teks: "Layanan <strong>jasa boost view YouTube</strong> kami berfungsi sebagai pemancing agar algoritma platform mau menyebarkan video Anda ke penonton organik yang lebih luas.",
+  m2Judul: "Tingkatkan Klik (CTR)",
+  m2Teks: "Video dengan jumlah tayangan yang tinggi menciptakan validasi sosial. Orang lebih penasaran dan mudah terpancing untuk menonton video yang sedang ramai.",
+  m3Judul: "Buka Jalur Monetisasi",
+  m3Teks: "Bagi Anda yang sedang mengejar syarat program partner, opsi optimasi durasi lewat <strong>jasa view 4000 jam youtube</strong> akan sangat memangkas waktu perjuangan Anda.",
+  m4Judul: "Aman untuk Bisnis & Kreator",
+  m4Teks: "Sistem operasional kami murni hanya menggunakan link URL publik, tanpa pernah meminta data rahasia dari channel Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Sistem <span class="text-blue-400">JasaLike</span>',
+  deskripsiUtama: "Infrastruktur layanan kami disesuaikan dengan standar keamanan platform video modern.",
+  mk1Judul: "Pilihan Penonton Global",
+  mk1Teks: "Ingin target pasar internasional? Kami menyediakan opsi <strong>jasa view YouTube luar negri</strong> untuk menyesuaikan geografi audiens channel Anda.",
+  mk2Judul: "Kualitas Harga Terbaik",
+  mk2Teks: "Sebagai vendor tangan pertama, kami berani menawarkan <strong>jasa view YouTube termurah</strong> dengan kualitas tayangan yang tidak murahan.",
+  mk3Judul: "Support Video Shorts",
+  mk3Teks: "Selain video panjang, layanan kami juga telah dikalibrasi khusus untuk mendongkrak penayangan video pendek (Shorts).",
+  mk4Judul: "Privasi Ekstra Ketat",
+  mk4Teks: "Seluruh data pemesanan, link video, dan identitas klien dijaga kerahasiaannya dengan standar privasi bisnis kelas atas.",
+  mk5Judul: "Garansi Tayangan Masuk",
+  mk5Teks: "Kami memastikan volume tayangan yang Anda pesan terdistribusi dengan baik sesuai kapasitas dan kecepatan jaringan.",
+  mk6Judul: "Layanan Pelanggan Siaga",
+  mk6Teks: "Tim ahli kami siap mendampingi proses kampanye video Anda dari awal konsultasi hingga pesanan selesai diproses."
+};
+
+const dataSolusi = {
+  judulUtama: 'Fase Baru <span class="text-red-600">Video Anda</span>',
+  deskripsiUtama: "Jangan biarkan jam kerja keras Anda mengedit video terbuang sia-sia karena sepi tayangan.",
+  sol1Icon: "lucide:trending-up",
+  sol1Judul: "Dominasi Pencarian",
+  sol1Teks: "Angka tayangan awal yang stabil membantu video Anda merangsek naik di hasil kolom pencarian (SEO YouTube).",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Skema 100% Aman",
+  sol2Teks: "Tanpa risiko. Kami menggunakan jalur distribusi yang mematuhi pedoman komunitas untuk memastikan channel Anda berumur panjang.",
+  sol3Icon: "lucide:play-circle",
+  sol3Judul: "Bebas Repot",
+  sol3Teks: "Serahkan urusan visibilitas kepada tim kami, dan kembalilah fokus untuk menciptakan ide konten brilian selanjutnya."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Cepat <span class="text-blue-400">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh 3 langkah sederhana untuk mulai menyuntikkan tayangan ke dalam video Anda.",
+  co1Judul: "Tentukan Target Video",
+  co1Teks: "Pilih satu atau beberapa video reguler/Shorts yang ingin Anda angkat performa tayangannya.",
+  co2Judul: "Salin Link Publik",
+  co2Teks: "Copy tautan (URL) dari video tersebut. Ingat, pastikan setelan video Anda berada dalam mode Publik.",
+  co3Judul: "Pilih Opsi Kampanye",
+  co3Teks: "Hubungi tim support kami, tentukan jumlah tayangan, dan kami akan langsung mengeksekusi pesanan Anda.",
+  co4Judul: "Pantau Hasilnya",
+  co4Teks: "Proses distribusi akan berjalan secara bertahap sesuai jadwal. Anda tinggal memantau kenaikan angkanya di analitik."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Daftar Harga Jasa View",
+  deskripsiHarga: "Temukan <strong>harga jasa view</strong> yang paling pas dengan skala kebutuhan marketing Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-viewyt.png",
+  p1Nama: "100 View",
+  p1Fitur1: "Cocok untuk Video Pendek/Shorts",
+  p1Fitur2: "Distribusi View Bertahap",
+  p1Fitur3: "Privasi Link 100% Aman",
+  p1Harga: "Mulai Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20Layanan%20View%20YouTube%20Standar",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI MONETISASI",
+  p2Gambar: "/image/harga-viewyt.png",
+  p2Nama: "1000 View",
+  p2Fitur1: "Khusus Video Durasi Panjang",
+  p2Fitur2: "Durasi Tonton (Watch Time) Tinggi",
+  p2Fitur3: "Garansi Stabilitas Angka",
+  p2HargaCoret: "Rp 2.700.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20Layanan%20View%20YouTube%20High%20Retention"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <br/> <span class="text-red-600">View YouTube</span>',
+  deskripsiUtama: "Jawaban dari pertanyaan seputar keamanan dan teknis optimasi tayangan video Anda.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20konsultasi%20mengenai%20Layanan%20View%20YouTube",
+  faq1Judul: "Apakah bisa untuk video YouTube Shorts?",
+  faq1Teks: "Tentu bisa! Layanan ini sangat mendukung untuk optimasi trafik video pendek (Shorts) maupun video berdurasi panjang.",
+  faq2Judul: "Apakah penayangan ini bisa membantu mengejar jam tayang monetisasi?",
+  faq2Teks: "Sangat bisa. Kami menyediakan paket khusus retensi tinggi (High Retention) yang dirancang untuk menyumbang akumulasi waktu tonton channel Anda secara signifikan.",
+  faq3Judul: "Apakah akun saya aman jika menggunakan layanan ini?",
+  faq3Teks: "Kami menjamin keamanan 100%. Kami beroperasi hanya dengan menggunakan link video Anda, tanpa melakukan intervensi sistem dari dalam channel.",
+  faq4Judul: "Berapa lama waktu yang dibutuhkan agar tayangan masuk?",
+  faq4Teks: "Estimasi waktu masuk tergantung pada jumlah volume pesanan. Sistem kami mendistribusikannya secara natural agar tidak memicu deteksi spam dari platform.",
+  faq5Judul: "Apakah bisa target negara tertentu?",
+  faq5Teks: "Bisa, kami memiliki opsi server audiens global yang memungkinkan Anda mendapatkan jangkauan dari luar negeri sesuai ketersediaan."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Service",
+    "name": "Jasa Tambah View YouTube & Shorts Terpercaya",
+    "image": "https://jasalike.com/image/harga-viewyt.png",
+    "description": "Layanan jual jasa view YouTube termurah dan organik. Mendukung tayangan video panjang, YouTube Shorts, serta optimasi syarat 4000 jam tayang secara aman.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "915"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "20000",
+      "highPrice": "150000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jual Jasa View YouTube"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah bisa untuk video YouTube Shorts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu bisa! Layanan ini sangat mendukung untuk optimasi trafik video pendek (Shorts) maupun video berdurasi panjang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah penayangan ini bisa membantu mengejar jam tayang monetisasi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat bisa. Kami menyediakan paket khusus retensi tinggi (High Retention) yang dirancang untuk menyumbang akumulasi waktu tonton channel Anda secara signifikan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah akun saya aman jika menggunakan layanan ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami menjamin keamanan 100%. Kami beroperasi hanya dengan menggunakan link video Anda, tanpa melakukan intervensi sistem dari dalam channel."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
