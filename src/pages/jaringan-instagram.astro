@@ -1,117 +1,73 @@
 ---
 // src/pages/jaringan-instagram.astro
 import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Hero from '../components/Hero.astro'
 import { Icon } from 'astro-icon/components' 
 
 const title = "Jaringan Resmi JasaLike | Pusat Layanan Jasa Like Terpercaya";
 const description = "Temukan jaringan resmi akun Instagram dan tiktok JasaLike. Kami berfokus memberikan layanan jasa like terbaik, cepat, dan aman untuk mendongkrak interaksi akun Anda.";
 const keywords = "jasa like, jasa like instagram, beli like murah, jasa like aman, jasa like cepat, jasalike, optimasi interaksi";
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Pusat Akun JasaLike",
+  labelIcon: "lucide:layout-grid", 
+  judulUtama: 'Akun Tiktok & Instagram Resmi <br class="hidden md:block"/> <span class="text-blue-500">jasalike</span>',
+  deskripsi: " Follow akun resmi kami untuk informasi jasa like TikTok permanent, jasa like Instagram real, promo terbaru, dan layanan social media terpercaya. class='hidden md:block mt-2'/><span class='text-blue-500 font-semibold block mt-4'>✓ Lintas Platform ✓ Eksekusi Cepat ✓ Privasi Klien Terjamin</span>",
+  teksTombol1: "Pilih Kategori Layanan",
+  linkTombol1: "#daftar-akun",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-direktori.png" 
+}
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
+   <Hero {...dataHero} />
   <main class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-    
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-slate-900 to-black px-6 py-12 text-center shadow-2xl mb-10">
 
-  <!-- Blur Effect -->
-  <div class="absolute -top-10 -left-10 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500/20 rounded-full blur-3xl"></div>
+      <!-- Bagian Tombol Linktree -->
+<div id="daftar-akun" class="w-full max-w-xl space-y-4">
 
-  <!-- Content -->
-  <div class="relative z-10">
+  <!-- Header Mini -->
+  <div class="text-center mb-6">
 
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm mb-5 backdrop-blur-md">
-      <Icon name="fa6-solid:circle-check" class="text-cyan-400" />
-      Akun Resmi JasaLike
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-4">
+      <Icon name="fa6-solid:badge-check" />
+      Direktori Resmi
     </div>
 
-    <!-- Title -->
-    <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-      Jaringan TikTok & Instagram
-    </h1>
+    <h2 class="text-2xl font-extrabold text-gray-900 mb-3">
+      Daftar Akun Resmi JasaLike
+    </h2>
 
-    <!-- Description -->
-    <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-      Temukan seluruh akun resmi JasaLike untuk layanan 
-      jasa like TikTok permanent, jasa like Instagram real,
-      promo terbaru, testimonial pelanggan, dan bantuan admin.
+    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+      Temukan akun TikTok & Instagram resmi untuk layanan jasa like,
+      promo terbaru, dan konsultasi admin terpercaya.
     </p>
 
-    <!-- Mini Stats -->
-    <div class="flex justify-center gap-3 flex-wrap mt-7">
+  </div>
 
-      <div class="px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-white text-sm backdrop-blur-md">
-        ⚡ Fast Respon
-      </div>
+  <!-- Akun 1 -->
+  <a href="https://tiktok.com/@jasalike.vttiktok" target="_blank" rel="noopener noreferrer"
+    class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
 
-      <div class="px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-white text-sm backdrop-blur-md">
-        🔒 Aman & Bergaransi
-      </div>
+    <Icon name="fa-brands:tiktok"
+      class="w-10 h-10 text-black group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
 
-      <div class="px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-white text-sm backdrop-blur-md">
-        🚀 Permanent Like
-      </div>
+    <div class="text-left">
+      <h3 class="text-lg font-bold text-gray-900">
+        JasaLike Official TikTok
+      </h3>
 
+      <p class="text-sm text-gray-500 line-clamp-2">
+        Pusat order jasa like TikTok permanent, aman, cepat, dan bergaransi.
+      </p>
     </div>
 
-  </div>
+  </a>
+
 </div>
-
-
-    <!-- Bagian Tombol Linktree (8 Akun Tiktok Fokus Jasa Like) -->
-    <div class="w-full max-w-xl space-y-4">
-      
-      <!-- Akun 1: Utama/Pemesanan -->
-      <a href="https://tiktok.com/@jasalike.vttiktok" target="_blank" rel="noopener noreferrer" class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
-  <Icon name="fa-brands:tiktok" class="w-10 h-10 text-black group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
-  
-  <div class="text-left">
-    <h2 class="text-lg font-bold text-gray-900">JasaLike Official TikTok</h2>
-    
-    <p class="text-sm text-gray-500 line-clamp-2">
-      Pusat order jasa like TikTok permanent, aman, cepat, dan bergaransi.
-    </p>
-  </div>
-</a>
-
-      <!-- Akun 2: Testimoni -->
-      <a href="https://instagram.com/jasalikeig.cepat" target="_blank" rel="noopener noreferrer" class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
-        <Icon name="lucide:instagram" class="w-10 h-10 text-pink-500 group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
-        <div class="text-left">
-          <h2 class="text-lg font-bold text-gray-900">Bukti Transaksi & Testimoni</h2>
-          <p class="text-sm text-gray-500 line-clamp-2">Kumpulan bukti interaksi like yang sukses masuk dan review asli dari klien setia kami.</p>
-        </div>
-      </a>
-
-      <!-- Akun 3: Promo & Diskon -->
-      <a href="https://instagram.com/jasalikeig.aktif" target="_blank" rel="noopener noreferrer" class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
-        <Icon name="lucide:instagram" class="w-10 h-10 text-pink-500 group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
-        <div class="text-left">
-          <h2 class="text-lg font-bold text-gray-900">Info Harga & Diskon Like</h2>
-          <p class="text-sm text-gray-500 line-clamp-2">Ikuti akun ini untuk mendapatkan <em>update</em> harga <strong>jasa like murah</strong> dan promo kilat harian.</p>
-        </div>
-      </a>
-
-      <!-- Akun 4: Edukasi Algoritma -->
-      <a href="https://instagram.com/likeigcepat.id" target="_blank" rel="noopener noreferrer" class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
-        <Icon name="lucide:instagram" class="w-10 h-10 text-pink-500 group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
-        <div class="text-left">
-          <h2 class="text-lg font-bold text-gray-900">Edukasi & Tips Engagement</h2>
-          <p class="text-sm text-gray-500 line-clamp-2">Berbagi rahasia cara mengoptimalkan like untuk menembus algoritma Explore secara organik.</p>
-        </div>
-      </a>
-
-      <!-- Akun 5: Support / CS -->
-      <a href="https://instagram.com/likeig.terpercaya" target="_blank" rel="noopener noreferrer" class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
-        <Icon name="lucide:instagram" class="w-10 h-10 text-pink-500 group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
-        <div class="text-left">
-          <h2 class="text-lg font-bold text-gray-900">Admin Support (Bantuan Khusus)</h2>
-          <p class="text-sm text-gray-500 line-clamp-2">Pusat bantuan kendala layanan. Admin kami siap membantu memastikan pesanan like Anda lancar.</p>
-        </div>
-      </a>
-
-    </div>
 
     <!-- Teks Daging SEO Spesifik Jasa Like -->
     <div class="w-full max-w-2xl mt-16 bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-left">
