@@ -1,0 +1,275 @@
+---
+// src/pages/jasa-subscribe-youtube.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Tambah Subscriber YouTube Terpercaya";
+const description = "Tingkatkan kredibilitas channel Anda dengan jasa subscriber YouTube natural. Proses aman, menjaga privasi, dan mendukung pertumbuhan channel secara jangka panjang.";
+const keywords = "jasa subscriber youtube, jasa subscribe YouTube terpercaya, jasa Subscribe YouTube permanent, jasa Subscribe YouTube aman, jasa YouTube subscribe, membeli subscribe, jasa tambah Subscribe YouTube, web beli subscribe YouTube, website jual subscribe YouTube, web Subscribe YouTube, website beli Subscribe YouTube";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FORMAL & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Pertumbuhan YouTube",
+  labelIcon: "lucide:youtube",
+  judulUtama: 'Tingkatkan Kredibilitas <br class="hidden md:block"/> <span class="text-red-600">Channel YouTube Anda</span>',
+  deskripsi: "Membangun audiens di platform video terbesar membutuhkan waktu dan konsistensi. Dorong pertumbuhan channel Anda lebih cepat dengan dukungan interaksi yang natural dan terukur. <br class='hidden md:block mt-2' /> <span class='text-blue-500 font-semibold block mt-4'>✓ Proses Natural & Aman &nbsp; ✓ Privasi Terjaga 100% &nbsp; ✓ Support Responsif</span>",
+  teksTombol1: "Pilih Layanan",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Konten Kreator <span class="text-red-600">Saat Ini</span>',
+  deskripsiUtama: "Menghasilkan video berkualitas tinggi saja terkadang tidak cukup untuk menembus persaingan ketat di beranda penonton.",
+  ms1Teks: '<strong class="text-red-600 font-bold">Sulit Mendapatkan Kepercayaan:</strong> Channel baru sering kali diabaikan karena jumlah pengikut yang masih sedikit (kurangnya social proof).',
+  ms2Teks: '<strong class="text-red-600 font-bold">Algoritma Kurang Berpihak:</strong> Video berkualitas tenggelam karena minimnya interaksi awal yang memicu rekomendasi sistem platform.',
+  ms3Teks: '<strong class="text-red-600 font-bold">Terhambatnya Ekspansi:</strong> Kesulitan mencapai visibilitas yang cukup untuk menarik perhatian sponsor maupun target pasar yang lebih luas.',
+  ms4Teks: '<strong class="text-red-600 font-bold">Persaingan yang Sangat Ketat:</strong> Kalah saing dengan kreator lain yang sudah memiliki fondasi audiens dan pengikut yang lebih besar.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-blue-500">Pertumbuhan Kami</span>',
+  deskripsiUtama: "Solusi cerdas untuk memberikan dorongan awal yang dibutuhkan channel Anda agar lebih mudah menarik perhatian penonton organik.",
+  k1Judul: "Pertumbuhan Skala Natural",
+  k1Teks: "Kami mendistribusikan penambahan pengikut secara bertahap dan terstruktur. Metode ini memastikan metrik Anda terlihat wajar dan reputasi channel tetap prima.",
+  k2Judul: "Pendekatan Privasi Penuh",
+  k2Teks: "Seluruh proses optimasi dikerjakan dari luar sistem Anda. Kami hanya berinteraksi menggunakan tautan (URL) channel publik Anda, memastikan kerahasiaan operasional bisnis Anda terlindungi."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Optimasi <span class="text-red-600">Channel YouTube</span>',
+  deskripsiUtama: "Membangun fondasi interaksi yang kuat akan membuka banyak peluang baru untuk distribusi konten Anda.",
+  m1Judul: "Meningkatkan Kredibilitas Instan",
+  m1Teks: "Jumlah pengikut yang solid membuat calon penonton lebih yakin untuk mengklik, menonton, dan pada akhirnya ikut berlangganan secara sukarela.",
+  m2Judul: "Memicu Sinyal Positif",
+  m2Teks: "Interaksi dasar ini membantu memberikan sinyal kepada ekosistem platform bahwa channel Anda aktif dan layak direkomendasikan.",
+  m3Judul: "Daya Tarik Kerja Sama Brand",
+  m3Teks: "Profil dengan ukuran audiens yang meyakinkan jauh lebih bernilai di mata brand atau sponsor yang ingin melakukan kerja sama pemasaran digital.",
+  m4Judul: "Fokus pada Kualitas Konten",
+  m4Teks: "Hemat waktu dan energi Anda dari promosi manual yang melelahkan. Biarkan kami mengurus pertumbuhannya, sementara Anda fokus pada kreativitas."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Ekosistem <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Kami hadir sebagai mitra pertumbuhan digital yang memprioritaskan keamanan, kualitas, dan privasi penuh.",
+  mk1Judul: "Proses Aman & Terukur",
+  mk1Teks: "Sistem operasional kami dirancang agar selaras dengan pembaruan pedoman komunitas, menjaga stabilitas channel jangka panjang.",
+  mk2Judul: "Privasi Ekstra Ketat",
+  mk2Teks: "Keamanan informasi adalah prioritas mutlak. Kami menjaga rapat seluruh rekam jejak pesanan dan identitas Anda dari pihak eksternal.",
+  mk3Judul: "Tim Spesialis Siaga",
+  mk3Teks: "Layanan pelanggan kami beroperasi secara responsif untuk menjawab pertanyaan dan memberikan panduan layanan yang paling akurat.",
+  mk4Judul: "Prosedur Eksekusi Bersih",
+  mk4Teks: "Kami menjunjung tinggi prinsip profesionalisme dengan murni hanya menggunakan link publik untuk menjalankan prosedur optimasi.",
+  mk5Judul: "Varian Paket Fleksibel",
+  mk5Teks: "Tersedia beragam opsi layanan penambahan audiens yang bisa Anda sesuaikan langsung dengan target capaian dan anggaran bulanan.",
+  mk6Judul: "Jaminan Mutu Pelayanan",
+  mk6Teks: "Kami memiliki prosedur pengawasan berlapis untuk memastikan setiap distribusi kampanye diselesaikan dengan presisi dan kualitas tinggi."
+};
+
+const dataSolusi = {
+  judulUtama: 'Fase Baru <span class="text-red-600">Pertumbuhan Anda</span>',
+  deskripsiUtama: "Ambil langkah strategis hari ini dan rasakan perbedaan pada performa tayangan video Anda.",
+  sol1Icon: "lucide:trending-up",
+  sol1Judul: "Skala Audiens Cepat",
+  sol1Teks: "Dapatkan percepatan pertumbuhan yang akan membantu channel Anda terlihat lebih mapan dan dipercaya oleh penonton baru.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Keamanan Jangka Panjang",
+  sol2Teks: "Optimasi dilakukan dengan metode profesional yang berfokus penuh pada kesehatan dan keberlanjutan performa channel Anda.",
+  sol3Icon: "lucide:play-circle",
+  sol3Judul: "Dominasi Perhatian",
+  sol3Teks: "Fondasi interaksi yang kuat adalah kunci utama untuk mendorong video Anda mendominasi hasil pencarian dan rekomendasi."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Langkah Mudah <span class="text-blue-400">Memulai Ekspansi</span>',
+  deskripsiUtama: "Sistem pemesanan kami sangat efisien, memastikan kampanye Anda dapat segera berjalan tanpa hambatan birokrasi.",
+  co1Judul: "Pilih Paket Strategis",
+  co1Teks: "Tinjau daftar layanan kami dan pilih volume pertumbuhan yang paling relevan dengan target ekspansi channel Anda saat ini.",
+  co2Judul: "Serahkan Tautan Resmi",
+  co2Teks: "Cukup lampirkan URL channel YouTube publik Anda. Tim kami akan segera melakukan verifikasi kelayakan tautan tersebut.",
+  co3Judul: "Selesaikan Administrasi",
+  co3Teks: "Lakukan proses pembayaran melalui berbagai pilihan saluran transaksi aman dan tepercaya yang telah kami integrasikan.",
+  co4Judul: "Eksekusi & Pemantauan",
+  co4Teks: "Duduk manis dan fokuslah memproduksi konten. Tim kami akan memproses pesanan secara sistematis sesuai jadwal."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Audiens YouTube",
+  deskripsiHarga: "Tentukan skala percepatan audiens yang Anda inginkan dengan paket penanganan profesional kami.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-subscribeyt.png",
+  p1Nama: "100 Subscribe",
+  p1Fitur1: "Distribusi Penambahan Natural",
+  p1Fitur2: "Privasi 100% Terlindungi",
+  p1Fitur3: "Dukungan Support Responsif",
+  p1Harga: "Mulai Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20Layanan%20Subscriber%20YouTube%20Paket%20Pemula",
+
+  // Paket Kanan
+  p2Label: "1000 Subscribe",
+  p2Gambar: "/image/harga-subscribeyt.png",
+  p2Nama: "Paket Dominasi (Pro)",
+  p2Fitur1: "Prioritas Kecepatan Sistem",
+  p2Fitur2: "Kualitas Akun Level Atas",
+  p2Fitur3: "Pengawasan Mutu Berlapis",
+  p2HargaCoret: "Rp 2.950.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20Layanan%20Subscriber%20YouTube%20Paket%20Dominasi"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-red-600">YouTube JasaLike</span>',
+  deskripsiUtama: "Jawaban transparan untuk memastikan Anda merasa aman dan nyaman menggunakan ekosistem layanan kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Subscriber%20YouTube",
+  faq1Judul: "Apakah layanan ini aman untuk visibilitas channel saya?",
+  faq1Teks: "Ya, sangat aman. Kami menggunakan pendekatan operasional yang dirancang khusus untuk mematuhi regulasi dan menjaga kesehatan jangka panjang akun klien kami.",
+  faq2Judul: "Apakah saya harus memberikan data yang bersifat rahasia?",
+  faq2Teks: "Tidak sama sekali. Kami menjunjung tinggi integritas privasi dan murni hanya memerlukan tautan (URL) channel publik Anda untuk menjalankan seluruh rangkaian layanan.",
+  faq3Judul: "Berapa lama waktu yang dibutuhkan hingga pesanan selesai?",
+  faq3Teks: "Kecepatan penyelesaian bervariasi menyesuaikan dengan volume paket yang Anda pilih. Kami sengaja mendistribusikannya secara bertahap agar grafik pertumbuhan Anda tetap terlihat wajar.",
+  faq4Judul: "Apakah audiens yang masuk memiliki tingkat retensi yang baik?",
+  faq4Teks: "Layanan kami dikalibrasi untuk memberikan stabilitas metrik yang maksimal. Kami selalu mengedepankan kualitas untuk meminimalisasi terjadinya fluktuasi angka pada channel Anda.",
+  faq5Judul: "Apakah layanan ini bisa digabungkan dengan optimasi tayangan (views)?",
+  faq5Teks: "Tentu. Strategi kombinasi antara pertumbuhan pengikut dan peningkatan interaksi tayangan sangat kami rekomendasikan untuk memperkuat sinyal sosial secara menyeluruh.",
+  faq6Judul: "Bagaimana jika saya memerlukan bantuan teknis di pertengahan jalan?",
+  faq6Teks: "Anda tidak perlu khawatir. Tim spesialis layanan pelanggan kami beroperasi secara siaga untuk mendampingi, memantau, dan menyelesaikan setiap kebutuhan teknis kampanye Anda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Service",
+    "name": "Jasa Subscriber YouTube Terpercaya",
+    "image": "https://jasalike.com/image/harga-subscribeyt.png",
+    "description": "Layanan jasa subscriber YouTube natural dan aman. Solusi cerdas untuk mendongkrak kredibilitas channel Anda dengan mengedepankan privasi klien.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "812"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Subscriber YouTube"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini aman untuk visibilitas channel saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, sangat aman. Kami menggunakan pendekatan operasional yang dirancang khusus untuk mematuhi regulasi dan menjaga kesehatan jangka panjang akun klien kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data yang bersifat rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak sama sekali. Kami menjunjung tinggi integritas privasi dan murni hanya memerlukan tautan (URL) channel publik Anda untuk menjalankan seluruh rangkaian layanan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama waktu yang dibutuhkan hingga pesanan selesai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kecepatan penyelesaian bervariasi menyesuaikan dengan volume paket yang Anda pilih. Kami sengaja mendistribusikannya secara bertahap agar grafik pertumbuhan Anda tetap terlihat wajar."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
