@@ -11,17 +11,53 @@ const keywords = "jasa like, jasa like instagram, beli like murah, jasa like ama
 <DefaultLayout title={title} description={description} keywords={keywords}>
   <main class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
     
-    <!-- Bagian Header Profil -->
-    <div class="text-center mb-10">
-  <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-    Akun TikTok & Instagram Resmi Jasa Like
-  </h1>
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-900 via-slate-900 to-black px-6 py-12 text-center shadow-2xl mb-10">
 
-  <p class="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-    Follow akun resmi kami untuk informasi jasa like TikTok permanent,
-    jasa like Instagram real, promo terbaru, dan layanan social media terpercaya.
-  </p>
+  <!-- Blur Effect -->
+  <div class="absolute -top-10 -left-10 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-500/20 rounded-full blur-3xl"></div>
+
+  <!-- Content -->
+  <div class="relative z-10">
+
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm mb-5 backdrop-blur-md">
+      <Icon name="fa6-solid:circle-check" class="text-cyan-400" />
+      Akun Resmi JasaLike
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+      Jaringan TikTok & Instagram
+    </h1>
+
+    <!-- Description -->
+    <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+      Temukan seluruh akun resmi JasaLike untuk layanan 
+      jasa like TikTok permanent, jasa like Instagram real,
+      promo terbaru, testimonial pelanggan, dan bantuan admin.
+    </p>
+
+    <!-- Mini Stats -->
+    <div class="flex justify-center gap-3 flex-wrap mt-7">
+
+      <div class="px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-white text-sm backdrop-blur-md">
+        ⚡ Fast Respon
+      </div>
+
+      <div class="px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-white text-sm backdrop-blur-md">
+        🔒 Aman & Bergaransi
+      </div>
+
+      <div class="px-4 py-2 rounded-xl bg-white/10 border border-white/10 text-white text-sm backdrop-blur-md">
+        🚀 Permanent Like
+      </div>
+
+    </div>
+
+  </div>
 </div>
+
 
     <!-- Bagian Tombol Linktree (8 Akun Tiktok Fokus Jasa Like) -->
     <div class="w-full max-w-xl space-y-4">
