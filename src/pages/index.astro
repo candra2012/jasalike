@@ -114,21 +114,55 @@ const dataFaq = {
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
   
-  <script type="application/ld+json" slot="head">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://jasalike.com/#website",
-          "url": "https://jasalike.com",
-          "name": "Jasalike",
-          "description": "Spesialis Jasa Like Sosial Media Terpercaya No. 1",
-          "inLanguage": "id-ID"
-        }
-      ]
+  <Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JasaLike",
+    "alternateName": ["Jasa Like", "Auradigital"],
+    "url": "https://jasalike.com/",
+    "description": "Pusat layanan jasa optimasi media sosial profesional. Tingkatkan followers, likes, dan views untuk TikTok, Instagram, YouTube, dan platform lainnya secara aman dan natural.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://jasalike.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
     }
-  </script>
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "JasaLike by Auradigital",
+    "url": "https://jasalike.com/",
+    "logo": "https://jasalike.com/favicon.svg", 
+    "image": "https://jasalike.com/og-home.png",
+    "description": "Layanan digital marketing dan optimasi interaksi media sosial terpercaya di Indonesia. Melayani peningkatan social proof secara natural dan aman.",
+    "telephone": "+6289634740308",
+    "priceRange": "Rp 200.000 - Rp 2.000.000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ID"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1250"
+    },
+    "sameAs": [
+      "https://tiktok.com/@jasalike.vttiktok",
+      "https://instagram.com/jasalike.vttiktok",
+      "https://facebook.com/jasalike"
+    ]
+  }
+]
+</script>
+</Fragment>
 
   <Hero {...dataHero} />
   
