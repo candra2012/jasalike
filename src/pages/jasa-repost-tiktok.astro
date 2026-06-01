@@ -1,0 +1,291 @@
+---
+// src/pages/jasa-repost-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Repost TikTok Viral & Cepat Masuk FYP";
+const description = "Sedia jasa repost TikTok terpercaya untuk meningkatkan exposure, engagement, dan peluang masuk FYP dengan proses cepat dan support harian.";
+const keywords = "jasa repost tiktok, jasa repost tiktok murah, jasa repost video tiktok viral, jasa repost tiktok terpercaya, jasa repost tiktok real user, jasa repost akun tiktok indonesia, jasa repost video tiktok, jasa repost konten tiktok, jasa repost video viral tiktok, jasa repost tiktok indonesia, jasa repost tiktok cepat";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (EDUKATIF, SOLUTIF & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Distribusi Konten TikTok",
+  labelIcon: "lucide:repeat",
+  judulUtama: 'Perluas Jangkauan Konten <br class="hidden md:block"/> <span class="text-blue-500">Secara Ekstensif</span>',
+  deskripsi: "Di tengah jutaan video yang diunggah setiap harinya, konten berkualitas saja tidak cukup tanpa jalur distribusi yang tepat. Fitur 'Repost' di TikTok adalah sinyal rekomendasi sosial yang sangat disukai algoritma. Kami hadir membantu mendistribusikan ulang karya Anda secara masif, menembus batas pengikut Anda saat ini, dan membawa video Anda langsung ke hadapan ribuan audiens baru yang potensial. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Ekspansi Audiens Cepat &nbsp; ✓ Dorongan Algoritma &nbsp; ✓ Privasi Terjaga Penuh</span>",
+  teksTombol1: "Eksplorasi Layanan",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-Tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Kurangnya <span class="text-blue-600">Exposure Konten</span>',
+  deskripsiUtama: "Banyak kreator dan pebisnis merasa frustrasi karena sudah rutin mengunggah video yang diedit dengan sangat baik, namun hasil distribusinya sangat minim. Mengapa ini terjadi?",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Mentok di View Ratusan:</strong> Fenomena ini terjadi karena sistem TikTok menguji video Anda di kelompok audiens kecil (100-200 orang). Jika tidak ada interaksi kuat (seperti repost), distribusinya akan dihentikan.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Keterbatasan Pengikut:</strong> Mengandalkan *followers* yang sudah ada membuat jangkauan konten menjadi stagnan dan sulit menjangkau target demografi yang baru.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Tenggelam di Timeline:</strong> Tanpa daya dorong tambahan, video edukasi maupun promosi yang Anda buat akan dengan cepat tergeser oleh konten kreator lain yang lebih aktif mendominasi beranda.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Promosi Bisnis Kurang Optimal:</strong> Bagi *online shop* atau afiliator, video *showcase* produk yang sepi penonton berbanding lurus dengan rendahnya tingkat konversi dan penjualan.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Kekuatan <span class="text-blue-500">Sistem Repost</span>',
+  deskripsiUtama: "Mengapa aktivitas merekomendasikan ulang (repost) menjadi metrik yang paling bernilai bagi sistem klasifikasi TikTok?",
+  k1Judul: "Amplifikasi Jalur Teman (Friends Tab)",
+  k1Teks: "Ketika sebuah video di-repost, video tersebut tidak hanya muncul di halaman For You (FYP), tetapi juga diprioritaskan masuk ke tab 'Teman' dari para pengikut orang yang melakukan repost tersebut. Ini menciptakan efek bola salju (snowball effect) yang luar biasa efektif.",
+  k2Judul: "Sinyal Validasi Tertinggi",
+  k2Teks: "Bagi algoritma, pengguna yang bersedia melakukan repost dianggap memberikan 'stempel persetujuan' bahwa video tersebut sangat layak tonton. Sistem kami menyuplai volume validasi ini agar konten Anda dinilai sebagai tayangan berkualitas tinggi."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Signifikan <span class="text-blue-600">Bagi Akun Anda</span>',
+  deskripsiUtama: "Memanfaatkan optimasi distribusi konten melalui layanan kami akan memberikan efek domino yang positif bagi pertumbuhan aset digital Anda.",
+  m1Judul: "Penetrasi Audiens Ekstrim",
+  m1Teks: "Menghancurkan batas *bubble* pengikut Anda. Video Anda akan menyeberang dan ditonton oleh berbagai kelompok pengguna baru di luar lingkaran Anda selama ini.",
+  m2Judul: "Memperkuat Kepercayaan (Social Proof)",
+  m2Teks: "Angka repost yang tinggi pada sebuah video secara otomatis meningkatkan wibawa konten tersebut, membuat penonton organik lebih percaya pada informasi atau produk yang ditawarkan.",
+  m3Judul: "Katalisator Interaksi Berantai",
+  m3Teks: "Semakin banyak konten Anda tersebar, semakin besar pula peluang masuknya interaksi organik lanjutan berupa *likes*, komentar yang relevan, hingga penyebaran *share* ke platform lain.",
+  m4Judul: "Mendukung Campaign Komersial",
+  m4Teks: "Sangat strategis digunakan untuk menyokong peluncuran produk baru, *giveaway*, atau kampanye *branding* agar pesan komersial Anda terdengar lebih nyaring di pasar."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Infrastruktur Mutu <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Kami mengelola distribusi konten Anda dengan standar operasional agensi yang profesional, aman, dan terukur.",
+  mk1Judul: "Keamanan Eksternal Penuh",
+  mk1Teks: "Seluruh eksekusi dilakukan sepenuhnya dari luar sistem akun Anda. Kami hanya memerlukan tautan (URL) dari video publik Anda, sehingga integritas dan privasi Anda terjamin utuh.",
+  mk2Judul: "Distribusi Terukur & Natural",
+  mk2Teks: "Kami mendesain penyaluran layanan dengan ritme yang terkalibrasi. Hal ini memastikan pola pertumbuhan analitik pada video Anda terlihat stabil, wajar, dan selaras dengan pergerakan lalu lintas alami.",
+  mk3Judul: "Presisi Penanganan",
+  mk3Teks: "Layanan ini diarahkan secara spesifik pada tautan video yang Anda pilih, memastikan bahwa fokus eksposur jatuh tepat pada konten prioritas yang sedang Anda promosikan.",
+  mk4Judul: "Kapabilitas Skala Besar",
+  mk4Teks: "Mulai dari kebutuhan pertumbuhan kreator pemula hingga kebutuhan kampanye *brand* korporat berskala masif, infrastruktur kami siap mengakomodasi sesuai target sasaran.",
+  mk5Judul: "Layanan Pendampingan",
+  mk5Teks: "Kami tidak sekadar melayani transaksi, representatif kami selalu sedia untuk diajak berdiskusi menentukan strategi volume distribusi terbaik untuk usia dan jenis akun Anda.",
+  mk6Judul: "Perlindungan Garansi",
+  mk6Teks: "Komitmen kami adalah memberikan hasil. Kami menyertakan fasilitas jaminan pemulihan (*refill*) sesuai dengan spesifikasi dan syarat pada paket layanan yang Anda ambil."
+};
+
+const dataSolusi = {
+  judulUtama: 'Sinergi Penentu <span class="text-blue-600">Video Viral</span>',
+  deskripsiUtama: "Gabungkan kualitas materi internal Anda dengan daya dorong distribusi eksternal kami untuk menguasai rekomendasi.",
+  sol1Icon: "lucide:clapperboard",
+  sol1Judul: "Optimalisasi Tiga Detik Pertama",
+  sol1Teks: "Pastikan video Anda memiliki daya pikat (hook) visual atau audio yang kuat di detik-detik awal agar penonton yang baru melihat konten Anda berkat repost, tidak langsung menggulir layar.",
+  sol2Icon: "lucide:arrow-up-right",
+  sol2Judul: "Dorongan Distribusi Eksternal",
+  sol2Teks: "Di sinilah kami mengambil peran. Kami menyuntikkan dukungan penyebaran masif untuk memastikan video dengan *hook* bagus tadi tidak berhenti di kelompok penguji awal.",
+  sol3Icon: "lucide:shopping-bag",
+  sol3Judul: "Konversi Tindakan Lanjutan",
+  sol3Teks: "Gunakan fitur Call-to-Action (CTA) di akhir video Anda untuk mengarahkan gelombang penonton baru tersebut menjadi pengikut tetap atau pembeli di keranjang etalase Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-blue-400">Pemesanan</span>',
+  deskripsiUtama: "Langkah terstruktur untuk memulai kampanye perluasan jangkauan video TikTok Anda bersama tim kami.",
+  co1Judul: "Konsultasi Target",
+  co1Teks: "Hubungi tim dukungan kami melalui WhatsApp untuk menceritakan tujuan kampanye konten Anda dan mengidentifikasi kebutuhan eksposur.",
+  co2Judul: "Penentuan Skala Layanan",
+  co2Teks: "Pilih volume distribusi (jumlah repost) yang paling relevan dengan kapasitas akun Anda saat ini agar hasilnya berjalan optimal dan terarah.",
+  co3Judul: "Penyerahan Tautan Konten",
+  co3Teks: "Cukup salin dan kirimkan tautan (*Copy Link*) dari video TikTok yang sudah Anda publikasikan ke publik.",
+  co4Judul: "Proses & Laporan Eksekusi",
+  co4Teks: "Tim akan langsung mengatur antrean pekerjaan. Anda cukup fokus memantau peningkatan pergerakan analitik video Anda melalui aplikasi."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Distribusi Konten",
+  deskripsiHarga: "Pilih paket dukungan repost yang paling sesuai dengan tingkatan kampanye digital Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-reposttiktok.png",
+  p1Nama: "Paket Exposure Starter",
+  p1Fitur1: "Ideal untuk Konten Edukasi Harian",
+  p1Fitur2: "Distribusi Terjaga Natural",
+  p1Fitur3: "Keamanan Eksternal Penuh",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Repost%20TikTok%20Starter",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI CAMPAIGN",
+  p2Gambar: "/image/harga-reposttiktok.png",
+  p2Nama: "Paket Ekspansi Dominasi",
+  p2Fitur1: "Boost untuk Produk Afiliasi / Brand",
+  p2Fitur2: "Prioritas Alokasi Antrean",
+  p2Fitur3: "Dukungan Konsultasi Penuh",
+  p2HargaCoret: "Rp 2.850.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Repost%20TikTok%20Dominasi"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Edukasi <br/> <span class="text-blue-600">Distribusi Repost</span>',
+  deskripsiUtama: "Pemahaman fundamental yang perlu Anda ketahui sebelum merancang strategi perluasan konten di TikTok.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Repost%20TikTok",
+  faq1Judul: "Apakah layanan repost ini cocok dan direkomendasikan untuk akun yang baru dibuat?",
+  faq1Teks: "Sangat direkomendasikan. Akun baru sering kali mengalami kendala 'Shadow Period' dimana TikTok masih menguji kualitas mereka. Dukungan distribusi awal akan sangat membantu mempercepat pengenalan profil Anda ke sistem rekomendasi yang lebih luas.",
+  faq2Judul: "Apakah strategi ini efektif untuk promosi bisnis online atau produk afiliasi?",
+  faq2Teks: "Tentu saja. Dalam bisnis *online*, visibilitas adalah segalanya. Semakin banyak video etalase Anda disebarluaskan, semakin tinggi probabilitas audiens menemukan keranjang kuning Anda, yang pada akhirnya menunjang potensi peningkatan transaksi penjualan.",
+  faq3Judul: "Berapa lama proses distribusi ini memakan waktu?",
+  faq3Teks: "Pengerjaan biasanya segera kami mulai setelah pesanan dan tautan berhasil divalidasi. Waktu penyelesaian sangat bergantung pada besaran volume pesanan; kami mengatur ritmenya secara hati-hati agar riwayat interaksi video Anda tumbuh secara wajar.",
+  faq4Judul: "Apa perbedaan metrik Repost dengan metrik Share (Bagikan)?",
+  faq4Teks: "Metrik *Share* umumnya berarti membagikan video ke luar platform (seperti ke WhatsApp atau Instagram). Sedangkan *Repost* adalah mendistribusikan ulang video tersebut ke dalam ekosistem TikTok itu sendiri (masuk ke *feed* pengikut orang yang me-repost), sehingga sangat kuat untuk menjaga retensi penonton di dalam aplikasi.",
+  faq5Judul: "Data privasi apa yang perlu saya persiapkan?",
+  faq5Teks: "Kami beroperasi menjunjung tinggi kerahasiaan Anda. Kami tidak memerlukan kredensial sensitif apa pun. Anda hanya perlu memberikan tautan publik (Link URL) dari konten video yang ingin dioptimalkan performanya.",
+  faq6Judul: "Apakah layanan ini tersedia untuk kebutuhan skala korporasi atau manajemen artis?",
+  faq6Teks: "Ya, infrastruktur kami sangat mumpuni untuk menangani kampanye skala besar (*massive campaign*) secara profesional, baik untuk kebutuhan musisi yang merilis lagu baru, peluncuran produk *brand*, hingga agenda *marketing* terpadu lainnya."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Service",
+    "name": "Jasa Repost TikTok Profesional",
+    "image": "https://jasalike.com/image/harga-reposttiktok.png",
+    "description": "Layanan distribusi edukatif untuk meningkatkan exposure konten TikTok, memperluas jangkauan algoritma, dan memperkuat performa video secara aman dan terstruktur.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "734"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Repost TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan repost ini cocok dan direkomendasikan untuk akun yang baru dibuat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat direkomendasikan. Akun baru sering kali mengalami kendala 'Shadow Period' dimana TikTok masih menguji kualitas mereka. Dukungan distribusi awal akan sangat membantu mempercepat pengenalan profil Anda ke sistem rekomendasi yang lebih luas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah strategi ini efektif untuk promosi bisnis online atau produk afiliasi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu saja. Dalam bisnis online, visibilitas adalah segalanya. Semakin banyak video etalase Anda disebarluaskan, semakin tinggi probabilitas audiens menemukan keranjang kuning Anda, yang pada akhirnya menunjang potensi peningkatan transaksi penjualan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses distribusi ini memakan waktu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pengerjaan biasanya segera kami mulai setelah pesanan dan tautan berhasil divalidasi. Waktu penyelesaian sangat bergantung pada besaran volume pesanan; kami mengatur ritmenya secara hati-hati agar riwayat interaksi video Anda tumbuh secara wajar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apa perbedaan metrik Repost dengan metrik Share (Bagikan)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Metrik Share umumnya berarti membagikan video ke luar platform (seperti ke WhatsApp atau Instagram). Sedangkan Repost adalah mendistribusikan ulang video tersebut ke dalam ekosistem TikTok itu sendiri (masuk ke feed pengikut orang yang me-repost), sehingga sangat kuat untuk menjaga retensi penonton di dalam aplikasi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Data privasi apa yang perlu saya persiapkan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami beroperasi menjunjung tinggi kerahasiaan Anda. Kami tidak memerlukan kredensial sensitif apa pun. Anda hanya perlu memberikan tautan publik (Link URL) dari konten video yang ingin dioptimalkan performanya."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
