@@ -1,0 +1,291 @@
+---
+// src/pages/jasa-livestreaming-tiktok.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Livestreaming TikTok Profesional & Ramai Viewer";
+const description = "Sedia jasa livestreaming TikTok profesional untuk boosting viewer, engagement, live shopping, dan TikTok Shop dengan proses cepat dan support harian.";
+const keywords = "jasa host live tiktok. jasa viewer live tiktok, jasa live shopping tiktok, jasa pk tiktok, jasa battle tiktok, jasa livestreaming tiktok murah, jasa live tiktok real viewer, jasa live tiktok shop, jasa host live tiktok shop, jasa tiktok live, jasa viewer live tiktok indonesia, jasa live streaming tiktok terpercaya, jasa live tiktok real viewer";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (EDUKATIF, SOLUTIF & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Optimasi Visibilitas Siaran Langsung",
+  labelIcon: "lucide:radio",
+  judulUtama: 'Maksimalkan Potensi <br class="hidden md:block"/> <span class="text-blue-500">Live TikTok Anda</span>',
+  deskripsi: "Live streaming adalah kunci utama untuk membangun kedekatan audiens dan konversi penjualan. Namun, menjaga siaran agar tetap ramai membutuhkan momentum awal yang kuat. Kami hadir untuk menyuplai stimulus interaksi yang membuat live Anda terlihat kredibel, memancing rasa penasaran audiens organik, dan didorong oleh algoritma ke halaman rekomendasi FYP secara maksimal. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Retensi Audiens Tinggi &nbsp; ✓ Interaksi Aktif &nbsp; ✓ Privasi Terjamin</span>",
+  teksTombol1: "Lihat Paket Live",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Jadwal",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-Tiktok.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Algoritma <span class="text-blue-600">Live TikTok Saat Ini</span>',
+  deskripsiUtama: "Persaingan konten live di TikTok semakin ketat. Banyak pengguna melakukan siaran rutin berjam-jam, namun hasil yang diperoleh belum sepadan karena menghadapi berbagai kendala struktural:",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Krisis Retensi Menit Pertama:</strong> Audiens TikTok memiliki rentang perhatian pendek. Jika saat mereka masuk siaran terlihat sepi, mereka akan langsung menggeser layar (*scroll away*).',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Rendahnya Pancingan Interaksi:</strong> Kolom komentar yang kosong membuat penonton organik enggan untuk bertanya atau memulai percakapan lebih dulu.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Promosi Produk Terabaikan:</strong> Upaya *soft-selling* atau penjelasan etalase keranjang kuning menjadi tidak efektif karena kurangnya *social proof* (bukti sosial) dari penonton lain.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Distribusi Algoritma Terhenti:</strong> TikTok hanya mendistribusikan siaran ke *traffic* yang lebih luas jika mendeteksi adanya aktivitas dan waktu tonton (*watch time*) yang konsisten dari audiens awal.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Memahami Konsep Edukasi <span class="text-blue-500">Algoritma Live</span>',
+  deskripsiUtama: "Bagaimana layanan optimasi kami membantu siaran Anda diakui sebagai konten yang bernilai oleh sistem TikTok?",
+  k1Judul: "Stimulus Social Proof (Bukti Sosial)",
+  k1Teks: "Dalam dunia digital, keramaian akan memancing keramaian baru. Siaran yang sudah terlihat aktif sejak awal secara psikologis akan membuat audiens organik yang baru bergabung merasa nyaman untuk menetap dan ikut berinteraksi.",
+  k2Judul: "Pemantik Sinyal Rekomendasi",
+  k2Teks: "Kami memberikan suntikan aktivitas terukur untuk memancing metrik dasar. Saat sistem mendeteksi adanya retensi dan partisipasi yang baik, siaran Anda akan mendapatkan skor prioritas untuk disebarkan ke audiens yang lebih masif."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Strategis <span class="text-blue-600">Bagi Akun Anda</span>',
+  deskripsiUtama: "Menggunakan jasa livestreaming TikTok yang tepat sasaran akan memberikan pondasi kuat bagi perjalanan kreator maupun bisnis Anda.",
+  m1Judul: "Menciptakan Atmosfer Interaktif",
+  m1Teks: "Menghilangkan kesan pasif pada siaran Anda. Kolom obrolan yang hidup akan menstimulasi pengguna TikTok lainnya untuk ikut memberikan opini atau bertanya.",
+  m2Judul: "Memperkuat Kredibilitas Brand",
+  m2Teks: "Bagi *seller* maupun afiliator, siaran yang ramai mencerminkan citra profesional yang meyakinkan calon pembeli terhadap kualitas layanan atau produk Anda.",
+  m3Judul: "Efisiensi Tenaga & Mental",
+  m3Teks: "Berbicara di depan siaran yang sepi sangat menguras energi. Dengan audiens yang sudah terkondisikan, Anda bisa lebih fokus dan percaya diri menyampaikan materi utama.",
+  m4Judul: "Mendorong Performa Akun Berkelanjutan",
+  m4Teks: "Riwayat siaran langsung yang memiliki metrik penyelesaian dan interaksi tinggi akan memberikan dampak positif pada kesehatan dan otoritas akun Anda di masa depan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Standar Kualitas <span class="text-blue-400">JasaLike.com</span>',
+  deskripsiUtama: "Kami mengutamakan pendekatan yang terarah dan terstruktur agar investasi waktu live Anda membuahkan hasil optimal.",
+  mk1Judul: "Privasi Eksternal Mutlak",
+  mk1Teks: "Seluruh prosedur dijalankan secara independen. Kami hanya membutuhkan tautan (URL) profil yang sedang siaran, menjaga integritas keamanan Anda secara penuh.",
+  mk2Judul: "Distribusi Terjadwal",
+  mk2Teks: "Penanganan dilakukan dengan mengatur ritme dan volume aktivitas agar metrik siaran Anda tumbuh secara wajar dan selaras dengan pola organik.",
+  mk3Judul: "Pendampingan Strategis",
+  mk3Teks: "Bukan sekadar layanan teknis, tim kami siap memberikan konsultasi mengenai jadwal terbaik dan persiapan materi sebelum Anda memulai siaran.",
+  mk4Judul: "Dukungan Multi-Skenario",
+  mk4Teks: "Sangat adaptif untuk berbagai kebutuhan, mulai dari *live* peluncuran produk UMKM, sesi tanya jawab kreator, hingga kampanye afiliasi digital.",
+  mk5Judul: "Harga Fleksibel & Kompetitif",
+  mk5Teks: "Tersedia ragam opsi durasi dan volume interaksi yang bisa disesuaikan dengan skala *event* maupun anggaran operasional Anda.",
+  mk6Judul: "Eksekusi Tepat Waktu",
+  mk6Teks: "Kami memahami bahwa setiap detik dalam siaran langsung sangat berharga. Tim kami disiagakan untuk merespons jadwal Anda dengan sigap."
+};
+
+const dataSolusi = {
+  judulUtama: 'Tiga Pilar <span class="text-blue-600">Kesuksesan Siaran</span>',
+  deskripsiUtama: "Padukan kualitas materi Anda dengan infrastruktur optimasi kami untuk hasil yang tak tertandingi.",
+  sol1Icon: "lucide:calendar-clock",
+  sol1Judul: "Persiapan & Konsistensi",
+  sol1Teks: "Tentukan jadwal siaran yang tetap agar pengikut Anda terbiasa, serta siapkan ringkasan topik yang akan dibahas agar siaran memiliki alur yang jelas.",
+  sol2Icon: "lucide:users-round",
+  sol2Judul: "Pancingan Momentum Awal",
+  sol2Teks: "Gunakan layanan kami pada 15-30 menit pertama siaran untuk menembus ambang batas algoritma, memastikan video Anda disebarkan ke beranda pengguna lain.",
+  sol3Icon: "lucide:mic",
+  sol3Judul: "Sapaan Aktif Konversi",
+  sol3Teks: "Saat *traffic* mulai masuk, sambut audiens secara verbal dan arahkan mereka menuju sasaran utama, seperti mengeklik keranjang kuning atau mengikuti profil Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Sistematis <span class="text-blue-400">Pemesanan</span>',
+  deskripsiUtama: "Langkah mudah untuk memastikan agenda livestreaming Anda mendapatkan pendampingan yang tepat.",
+  co1Judul: "Konsultasi Kebutuhan Live",
+  co1Teks: "Diskusikan tujuan siaran Anda (edukasi, hiburan, atau jualan) bersama representatif kami agar kami dapat menyarankan formula terbaik.",
+  co2Judul: "Reservasi Jadwal",
+  co2Teks: "Tentukan hari, tanggal, dan estimasi jam berapa Anda akan menekan tombol 'Mulai Siaran' di aplikasi TikTok.",
+  co3Judul: "Penyerahan Tautan Publik",
+  co3Teks: "Sesaat setelah siaran dimulai, kirimkan *username* atau tautan bagikan (*share link*) dari siaran langsung Anda kepada tim kami.",
+  co4Judul: "Monitoring & Eksekusi",
+  co4Teks: "Tim akan langsung menyalurkan dukungan interaksi secara bertahap selama durasi yang telah disepakati bersama."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi Siaran",
+  deskripsiHarga: "Pilih paket dukungan yang sesuai dengan skala audiens yang ingin Anda capai.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-livestreamingtiktok.png",
+  p1Nama: "Paket Live 10 View (60 Menit)",
+  p1Fitur1: "Ideal untuk Sesi Tanya Jawab",
+  p1Fitur2: "Stimulus Retensi Awal",
+  p1Fitur3: "Dukungan Privasi Penuh",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Live%20TikTok",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI SELLER",
+  p2Gambar: "/image/harga-livestreamingtiktok.png",
+  p2Nama: "Paket Live 100 View (60 Menit)",
+  p2Fitur1: "Khusus Bedah Produk / Flash Sale",
+  p2Fitur2: "Pemeliharaan Keramaian Konsisten",
+  p2Fitur3: "Prioritas Penanganan Cepat",
+  p2HargaCoret: "Rp 2.800.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Live%20TikTok"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Edukasi <br/> <span class="text-blue-600">Livestreaming TikTok</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering diajukan mengenai mekanisme optimasi siaran langsung secara profesional.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20konsultasi%20mengenai%20Layanan%20Livestreaming%20TikTok",
+  faq1Judul: "Apakah layanan ini cocok untuk akun baru yang belum pernah live?",
+  faq1Teks: "Sangat cocok. Justru akun baru membutuhkan daya dorong ekstra (*social proof*) pada siaran-siaran perdananya agar algoritma TikTok mulai mengenali dan mengategorikan audiens yang relevan untuk profil Anda.",
+  faq2Judul: "Data apa saja yang perlu saya persiapkan?",
+  faq2Teks: "Kami menjunjung tinggi keamanan Anda. Kami beroperasi dari luar jangkauan akun, sehingga Anda hanya perlu mengirimkan jadwal *live* dan *Username* (atau Link URL siaran) ketika Anda sudah *on-air*.",
+  faq3Judul: "Apakah ini aman dan mematuhi pedoman komunitas?",
+  faq3Teks: "Layanan kami dirancang mengedepankan keamanan dan kewajaran. Kami menyalurkan aktivitas interaksi secara bertahap dan terukur, menyesuaikan dengan standar pola keramaian alami di platform sosial media.",
+  faq4Judul: "Berapa lama proses layanan dimulai setelah saya live?",
+  faq4Teks: "Untuk hasil yang maksimal, kami menyarankan Anda melakukan konfirmasi jadwal (*booking*) minimal beberapa jam sebelum siaran. Saat Anda memberi aba-aba bahwa siaran telah dimulai, tim kami akan merespons dalam hitungan menit.",
+  faq5Judul: "Apakah bisa digunakan untuk siaran jualan (TikTok Shop) atau afiliasi?",
+  faq5Teks: "Tentu. Banyak pengguna dari kalangan kreator, UMKM, hingga mitra afiliasi yang memanfaatkan dukungan ini khusus untuk sesi *flash sale* atau promosi etalase guna mempertahankan keramaian calon pembeli potensial.",
+  faq6Judul: "Bagaimana jika siaran saya terputus karena sinyal buruk?",
+  faq6Teks: "Jika terjadi kendala teknis dari sisi jaringan Anda dan siaran terhenti sementara waktu, kami sarankan Anda segera melakukan *re-connect*. Tim kami akan menunggu instruksi lanjutan dari Anda melalui WhatsApp."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Service",
+    "name": "Jasa Livestreaming TikTok Profesional",
+    "image": "https://jasalike.com/image/harga-livestreamingtiktok.png",
+    "description": "Layanan edukasi dan optimasi interaksi livestreaming TikTok untuk membantu kreator dan pebisnis mempertahankan retensi audiens serta meningkatkan jangkauan algoritma.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "812"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "2"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Livestreaming TikTok"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini cocok untuk akun baru yang belum pernah live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat cocok. Justru akun baru membutuhkan daya dorong ekstra (social proof) pada siaran-siaran perdananya agar algoritma TikTok mulai mengenali dan mengategorikan audiens yang relevan untuk profil Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Data apa saja yang perlu saya persiapkan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami menjunjung tinggi keamanan Anda. Kami beroperasi dari luar jangkauan akun, sehingga Anda hanya perlu mengirimkan jadwal live dan Username (atau Link URL siaran) ketika Anda sudah on-air."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah ini aman dan mematuhi pedoman komunitas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Layanan kami dirancang mengedepankan keamanan dan kewajaran. Kami menyalurkan aktivitas interaksi secara bertahap dan terukur, menyesuaikan dengan standar pola keramaian alami di platform sosial media."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses layanan dimulai setelah saya live?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Untuk hasil yang maksimal, kami menyarankan Anda melakukan konfirmasi jadwal (booking) minimal beberapa jam sebelum siaran. Saat Anda memberi aba-aba bahwa siaran telah dimulai, tim kami akan merespons dalam hitungan menit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa digunakan untuk siaran jualan (TikTok Shop) atau afiliasi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu. Banyak pengguna dari kalangan kreator, UMKM, hingga mitra afiliasi yang memanfaatkan dukungan ini khusus untuk sesi flash sale atau promosi etalase guna mempertahankan keramaian calon pembeli potensial."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
