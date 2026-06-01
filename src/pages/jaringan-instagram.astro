@@ -13,61 +13,63 @@ const dataHero = {
   labelTeks: "Pusat Akun JasaLike",
   labelIcon: "lucide:layout-grid", 
   judulUtama: 'Akun Tiktok & Instagram Resmi <br class="hidden md:block"/> <span class="text-blue-500">jasalike</span>',
-  deskripsi: " Follow akun resmi kami untuk informasi jasa like TikTok permanent, jasa like Instagram real, promo terbaru, dan layanan social media terpercaya. class='hidden md:block mt-2'/><span class='text-blue-500 font-semibold block mt-4'>✓ Lintas Platform ✓ Eksekusi Cepat ✓ Privasi Klien Terjamin</span>",
+  
+  // PERBAIKAN: Tag <br> yang terputus sudah disambung kembali agar tidak merusak HTML
+  deskripsi: "Follow akun resmi kami untuk informasi jasa like TikTok permanent, jasa like Instagram real, promo terbaru, dan layanan social media terpercaya. <br class='hidden md:block mt-2'/><span class='text-blue-500 font-semibold block mt-4'>✓ Lintas Platform ✓ Eksekusi Cepat ✓ Privasi Klien Terjamin</span>",
+  
   teksTombol1: "Pilih Kategori Layanan",
   linkTombol1: "#daftar-akun",
   teksTombol2: "Konsultasi Gratis",
   linkTombol2: "https://wa.me/6289634740308",
   gambarHero: "/image/hero-direktori.png" 
-}
+};
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
-   <Hero {...dataHero} />
+  <Hero {...dataHero} />
+  
   <main class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center">
 
-      <!-- Bagian Tombol Linktree -->
-<div id="daftar-akun" class="w-full max-w-xl space-y-4">
+    <!-- Bagian Tombol Linktree -->
+    <div id="daftar-akun" class="w-full max-w-xl space-y-4">
 
-  <!-- Header Mini -->
-  <div class="text-center mb-6">
+      <!-- Header Mini -->
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-4">
+          
+          <!-- Menggunakan ikon fa6-solid sesuai permintaanmu -->
+          <Icon name="fa6-solid:badge-check" class="w-4 h-4" />
+          Direktori Resmi
+        </div>
 
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-4">
-      <Icon name="fa6-solid:badge-check" />
-      Direktori Resmi
+        <h2 class="text-2xl font-extrabold text-gray-900 mb-3">
+          Daftar Akun Resmi JasaLike
+        </h2>
+
+        <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+          Temukan akun TikTok & Instagram resmi untuk layanan jasa like,
+          promo terbaru, dan konsultasi admin terpercaya.
+        </p>
+      </div>
+
+      <!-- Akun 1 -->
+      <a href="https://tiktok.com/@jasalike.vttiktok" target="_blank" rel="noopener noreferrer"
+        class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
+
+        <!-- Menggunakan ikon fa-brands sesuai permintaanmu -->
+        <Icon name="fa-brands:tiktok" class="w-10 h-10 text-black group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
+
+        <div class="text-left">
+          <h3 class="text-lg font-bold text-gray-900">
+            JasaLike Official TikTok
+          </h3>
+          <p class="text-sm text-gray-500 line-clamp-2">
+            Pusat order jasa like TikTok permanent, aman, cepat, dan bergaransi.
+          </p>
+        </div>
+      </a>
+
     </div>
-
-    <h2 class="text-2xl font-extrabold text-gray-900 mb-3">
-      Daftar Akun Resmi JasaLike
-    </h2>
-
-    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
-      Temukan akun TikTok & Instagram resmi untuk layanan jasa like,
-      promo terbaru, dan konsultasi admin terpercaya.
-    </p>
-
-  </div>
-
-  <!-- Akun 1 -->
-  <a href="https://tiktok.com/@jasalike.vttiktok" target="_blank" rel="noopener noreferrer"
-    class="group flex items-center p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all duration-300">
-
-    <Icon name="fa-brands:tiktok"
-      class="w-10 h-10 text-black group-hover:text-blue-500 transition-colors mr-4 flex-shrink-0" />
-
-    <div class="text-left">
-      <h3 class="text-lg font-bold text-gray-900">
-        JasaLike Official TikTok
-      </h3>
-
-      <p class="text-sm text-gray-500 line-clamp-2">
-        Pusat order jasa like TikTok permanent, aman, cepat, dan bergaransi.
-      </p>
-    </div>
-
-  </a>
-
-</div>
 
     <!-- Teks Daging SEO Spesifik Jasa Like -->
     <div class="w-full max-w-2xl mt-16 bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-left">
@@ -82,5 +84,4 @@ const dataHero = {
 
   </main>
 </DefaultLayout>
-
 
