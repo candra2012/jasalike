@@ -1,0 +1,284 @@
+---
+// src/pages/jasa-vote-ig-private.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Vote IG Private | Dukungan Lomba & Polling Instagram";
+const description = "Menangkan kontes Instagram Anda dengan layanan jasa vote IG private terpercaya. Proses pemungutan suara organik, aman untuk akun terkunci, dan kerahasiaan terjamin.";
+const keywords = "jasa vote ig private, jual jasa vote polling instagram, jasa pemenangan lomba instagram, beli vote akun private aman, layanan dukungan polling ig, jasa vote story instagram private, jasa buzzer vote, jasa vote polling, jasa vote di instagram, jasa vote murah, jasa voting instagram, jasa vote private";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & FOKUS KOMPETISI)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Pemenangan Kompetisi",
+  labelIcon: "lucide:award",
+  judulUtama: '<span class="text-pink-600">Jasa Vote IG Private</span> Terpercaya',
+  deskripsi: "Sedang mengikuti lomba, audisi, atau polling di Instagram namun terhalang oleh akun penyelenggara yang dikunci (private)? Kami memahami bahwa memenangkan persaingan di akun tertutup membutuhkan penanganan teknis yang khusus. Layanan jasa vote IG private kami dirancang untuk mengerahkan dukungan suara secara masif dengan proses yang natural, aman, dan kerahasiaan tingkat tinggi.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Tembus Akun Terkunci &nbsp; ✓ Suara Valid &nbsp; ✓ Bebas Repot</span>",
+  teksTombol1: "Pilih Skala Dukungan",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Lomba",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Memenangkan Polling</span> Saat Ini',
+  deskripsiUtama: "Mengumpulkan dukungan suara secara manual sangat menguras tenaga, terlebih jika ada hambatan teknis dari pihak penyelenggara. Apakah ini kendala Anda?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Akun Penyelenggara Digembok:</strong> Anda kesulitan memobilisasi massa karena setiap orang yang ingin mendukung harus menunggu persetujuan pertemanan (follow request) dari penyelenggara.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Kalah Cepat dari Kompetitor:</strong> Pesaing Anda terus mendapatkan lonjakan suara yang signifikan sementara angka dukungan Anda berjalan sangat lambat.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Terbatasnya Waktu:</strong> Periode pemungutan suara (voting) akan ditutup dalam waktu singkat, dan Anda butuh suntikan dukungan ekstra segera.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Rasa Sungkan Berpromosi:</strong> Meminta bantuan ke grup keluarga atau memohon dukungan dari orang asing secara terus-menerus bisa merusak citra profesional Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Sistem <span class="text-pink-600">Dukungan Terintegrasi</span>',
+  deskripsiUtama: "Sebuah alur pengerahan massa terstruktur untuk memastikan dukungan suara Anda sah di mata penyelenggara kompetisi.",
+  k1Judul: "Penetrasi Akses Bertahap",
+  k1Teks: "Sistem kami akan mengerahkan audiens untuk mengirimkan permintaan pertemanan (follow request) terlebih dahulu. Setelah disetujui, mereka baru akan memberikan suaranya.",
+  k2Judul: "Keakuratan Target Pemilihan",
+  k2Teks: "Seluruh dukungan akan diarahkan secara presisi sesuai dengan instruksi Anda, baik itu memilih nama Anda, opsi nomor urut, maupun menjawab kuis spesifik."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keunggulan Mendominasi <span class="text-pink-600">Papan Suara</span>',
+  deskripsiUtama: "Berikan diri Anda peluang terbesar untuk keluar sebagai juara tanpa harus merasa stres memikirkan target dukungan.",
+  m1Judul: "Memaksimalkan Peluang Juara",
+  m1Teks: "Tingkatkan probabilitas kemenangan Anda dalam kontes foto, pemilihan duta merek (brand ambassador), hingga lomba kreativitas digital dengan perolehan suara yang meyakinkan.",
+  m2Judul: "Efisiensi Waktu & Tenaga",
+  m2Teks: "Hentikan penyebaran tautan spam ke berbagai grup WhatsApp. Biarkan jaringan eksternal kami yang bekerja di belakang layar secara diam-diam.",
+  m3Judul: "Membangun Persepsi Positif",
+  m3Teks: "Perolehan suara yang tinggi memberikan sinyal kepada penyelenggara dan publik bahwa Anda adalah figur yang sangat didukung dan populer.",
+  m4Judul: "Fokus pada Kualitas Materi",
+  m4Teks: "Anda bisa bernapas lega dan kembali berfokus menyiapkan materi untuk tahapan kompetisi selanjutnya tanpa harus pusing memikirkan angka polling."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami memiliki spesialisasi khusus dalam menangani sengketa suara di akun yang memiliki tingkat privasi tinggi.",
+  mk1Judul: "Keahlian Menembus Akun Private",
+  mk1Teks: "Layanan kami dirancang secara spesifik untuk mematuhi alur persetujuan akun tertutup, memastikan suara yang masuk tetap valid dan sah.",
+  mk2Judul: "Kerahasiaan Klien Mutlak",
+  mk2Teks: "Identitas Anda sebagai pengguna layanan kami dijamin kerahasiaannya. Penyelenggara maupun kompetitor tidak akan mengetahui strategi di balik layar Anda.",
+  mk3Judul: "Proses Aman Terkendali",
+  mk3Teks: "Kami mendistribusikan dukungan suara menggunakan metode natural yang menghormati pedoman komunitas, menjaga reputasi profil Anda dari kecurigaan.",
+  mk4Judul: "Dukungan Responsif",
+  mk4Teks: "Mengingat lomba sering kali berpacu dengan waktu, tim operasional kami siap merespons pesanan dan keluhan Anda dengan sangat cepat.",
+  mk5Judul: "Tarif Fleksibel",
+  mk5Teks: "Kami menyediakan berbagai rentang paket yang bisa disesuaikan dengan seberapa ketat jarak suara Anda dengan kompetitor.",
+  mk6Judul: "Operasional Eksternal",
+  mk6Teks: "Kami hanya membutuhkan tautan lomba dan detail pilihan Anda. Kami tidak akan pernah mengutak-atik ruang sensitif pada akun Instagram Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Amankan <span class="text-pink-600">Posisi Puncak</span> Sekarang',
+  deskripsiUtama: "Waktu terus berjalan. Jangan biarkan kompetitor merebut gelar juara yang seharusnya menjadi milik Anda.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Validasi Suara Sah",
+  sol1Teks: "Dapatkan ketenangan pikiran karena setiap dukungan yang kami berikan tercatat dengan sempurna di statistik penyelenggara.",
+  sol2Icon: "lucide:trending-up",
+  sol2Judul: "Tinggalkan Pesaing Anda",
+  sol2Teks: "Ciptakan jarak angka (gap) yang signifikan di papan skor untuk mematahkan semangat kompetitor Anda.",
+  sol3Icon: "lucide:shield-check",
+  sol3Judul: "Optimalisasi Portofolio",
+  sol3Teks: 'Sembari fokus memenangkan perlombaan, pastikan juga profil utama Anda terlihat meyakinkan bagi juri lomba dengan dukungan tambahan dari <a href="/jasa-tambah-follower" class="text-pink-600 hover:underline font-semibold">jasa tambah follower</a> kami.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Proses pengerjaan dikelola dengan sistem yang ringkas agar Anda bisa segera mengejar ketertinggalan suara.",
+  co1Judul: "Pilih Volume Dukungan",
+  co1Teks: "Tentukan berapa banyak suntikan suara (vote) yang Anda butuhkan untuk memenangkan persaingan saat ini.",
+  co2Judul: "Sertakan Detail Lomba",
+  co2Teks: "Kirimkan tautan (link) spesifik menuju postingan atau story lomba tersebut. Jangan lupa, sebutkan secara jelas Nama atau Nomor Urut Anda.",
+  co3Judul: "Proses Administrasi",
+  co3Teks: "Selesaikan transaksi secara mandiri melalui berbagai saluran metode pembayaran otomatis kami yang aman dan terenkripsi.",
+  co4Judul: "Eksekusi Strategis",
+  co4Teks: "Tim akan langsung mengerahkan audiens untuk melakukan request follow ke akun penyelenggara dan mengeksekusi pilihan setelah disetujui."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Pemenangan Kompetisi",
+  deskripsiHarga: "Tentukan rentang dukungan yang Anda butuhkan untuk mendominasi persaingan di menit-menit akhir.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-voteig.png",
+  p1Nama: "100 Vote",
+  p1Fitur1: "Support Akun Private",
+  p1Fitur2: "Pemilihan Akurat 100%",
+  p1Fitur3: "Kerahasiaan Identitas Aman",
+  p1Harga: "Rp 250.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Vote%20IG%20Private",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI JUARA",
+  p2Gambar: "/image/harga-voteig.png",
+  p2Nama: "1000 Vote",
+  p2Fitur1: "Dukungan Skala Besar",
+  p2Fitur2: "Prioritas Kecepatan Sistem",
+  p2Fitur3: "Alokasi Target Super Presisi",
+  p2HargaCoret: "Rp 3.000.000",
+  p2Harga: "Rp 2.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Vote%20IG%20Private"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Vote IG Private</span>',
+  deskripsiUtama: "Temukan jawaban teknis mengenai cara kerja sistem dukungan pemenangan kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Vote%20IG%20Private",
+  faq1Judul: "Mengapa proses untuk akun private membutuhkan waktu lebih lama?",
+  faq1Teks: "Sistem kerja akun private mengharuskan setiap pendukung (audiens kami) untuk mengirimkan permintaan mengikuti (follow request). Suara baru bisa dieksekusi setelah pemilik akun tersebut secara manual menyetujui (approve) permintaan kami. Ini sangat bergantung pada seberapa aktif pihak penyelenggara online.",
+  faq2Judul: "Apakah bisa digunakan untuk fitur polling di Story?",
+  faq2Teks: "Sangat bisa. Kami melayani berbagai instrumen pemungutan suara, baik itu klik stiker polling di Instagram Story, menjawab kolom QnA, hingga format memberikan like pada postingan Feed yang dilombakan.",
+  faq3Judul: "Apakah identitas saya aman dari kecurigaan penyelenggara?",
+  faq3Teks: "Tentu. Kami mendistribusikan suara secara wajar dan tidak terburu-buru (spam) dalam satu detik yang sama. Kami menjamin kerahasiaan Anda; tidak ada rekam jejak yang menghubungkan partisipasi audiens kami dengan pesanan Anda.",
+  faq4Judul: "Apa saja data yang perlu saya serahkan saat memesan?",
+  faq4Teks: "Kami hanya membutuhkan dua informasi publik: pertama, tautan (URL) profil atau postingan penyelenggara lomba. Kedua, instruksi spesifik mengenai siapa atau nomor berapa yang harus kami pilih/dukung.",
+  faq5Judul: "Bagaimana jika lomba berakhir sebelum semua vote masuk?",
+  faq5Teks: "Itulah mengapa kami sangat menyarankan Anda untuk memesan jauh-jauh hari atau minimal 24 jam sebelum penutupan. Terlebih untuk akun yang dikunci, kecepatan persetujuan (approval) ada di tangan pihak penyelenggara, bukan di sistem kami.",
+  faq6Judul: "Apakah suara yang sudah masuk bisa ditarik kembali?",
+  faq6Teks: "Dukungan yang telah kami berikan bersifat permanen dan sah tercatat di dalam statistik penyelenggara perlombaan. Pilihan tidak akan ditarik kembali setelah kampanye selesai dikerjakan."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Vote IG Private & Polling Lomba",
+    "image": "https://jasalike.com/image/harga-voteig.png",
+    "description": "Menangkan kontes Instagram Anda dengan layanan jasa vote IG private terpercaya. Proses organik, aman untuk akun terkunci, dan kerahasiaan terjamin.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.8,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 240
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 250000,
+      "highPrice": 2500000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Vote IG Private"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Mengapa proses untuk akun private membutuhkan waktu lebih lama?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sistem kerja akun private mengharuskan setiap pendukung (audiens kami) untuk mengirimkan permintaan mengikuti (follow request). Suara baru bisa dieksekusi setelah pemilik akun tersebut secara manual menyetujui (approve) permintaan kami. Ini sangat bergantung pada seberapa aktif pihak penyelenggara online."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa digunakan untuk fitur polling di Story?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat bisa. Kami melayani berbagai instrumen pemungutan suara, baik itu klik stiker polling di Instagram Story, menjawab kolom QnA, hingga format memberikan like pada postingan Feed yang dilombakan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah identitas saya aman dari kecurigaan penyelenggara?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu. Kami mendistribusikan suara secara wajar dan tidak terburu-buru (spam) dalam satu detik yang sama. Kami menjamin kerahasiaan Anda; tidak ada rekam jejak yang menghubungkan partisipasi audiens kami dengan pesanan Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana jika lomba berakhir sebelum semua vote masuk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Itulah mengapa kami sangat menyarankan Anda untuk memesan jauh-jauh hari atau minimal 24 jam sebelum penutupan. Terlebih untuk akun yang dikunci, kecepatan persetujuan (approval) ada di tangan pihak penyelenggara, bukan di sistem kami."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
