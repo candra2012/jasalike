@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import compress from 'astro-compress'
 import icon from 'astro-icon'
-import sitemap from '@astrojs/sitemap' // 1. Tambahkan import sitemap
+import sitemap from '@astrojs/sitemap' 
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
 
@@ -12,10 +12,15 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
   
-  // 👇 TAMBAHKAN FITUR PREFETCH DI SINI 👇
+  // 👇 FITUR PREFETCH 👇
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'hover'
+  },
+
+  // 👇 TAMBAHKAN FITUR REDIRECTS DI SINI 👇
+  redirects: {
+    '/jasa-like-tiktok-permanen': '/like-tiktok'
   },
   // 👆 SELESAI 👆
 
@@ -23,7 +28,7 @@ export default defineConfig({
     mdx(), 
     icon(), 
     compress(), 
-    sitemap() // 2. Tambahkan sitemap ke sini
+    sitemap() 
   ],
   vite: {
     css: {
