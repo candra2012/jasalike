@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-report-youtube.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Report YouTube | Takedown Akun & Video Pelanggaran";
+const description = "Lindungi reputasi Anda dengan jasa report YouTube profesional. Layanan takedown video dan channel penipu secara masif, cepat, dan rahasia.";
+const keywords = "jasa report youtube, jual jasa report akun youtube, jasa takedown video youtube, report channel youtube penipu, jasa hapus video youtube, layanan pelaporan hak cipta youtube, jasa report youtube massal, jasa report akun youtube, jasa report permanen, jasa report indonesia, jasa report cepat, jasa report akun murah, jasa report terpercaya, jasa report akun palsu";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA TEGAS & PROTEKTIF)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Keamanan & Reputasi Digital",
+  labelIcon: "lucide:shield-alert",
+  judulUtama: 'Jual <span class="text-red-600">Jasa Report YouTube</span> Profesional',
+  deskripsi: "Jangan biarkan pihak tak bertanggung jawab mencuri karya atau merusak nama baik Anda di internet. Melalui layanan jual jasa report YouTube terstruktur ini, kami memberikan dorongan masif agar sistem moderator segera menindak tegas (takedown) channel palsu maupun video yang merugikan bisnis Anda.<br class='hidden md:block mt-2' /> <span class='text-red-500 font-semibold block mt-4'>✓ Penanganan Akun & Video &nbsp; ✓ Privasi Pelapor Aman &nbsp; ✓ Tindakan Cepat</span>",
+  teksTombol1: "Lihat Skala Report",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Kasus",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Ancaman <span class="text-red-600">Reputasi Bisnis</span> Saat Ini',
+  deskripsiUtama: "Platform video terbesar tidak luput dari oknum yang memanfaatkan celah untuk merugikan kreator asli. Apakah Anda sedang menghadapi krisis berikut?",
+  ms1Teks: '<strong class="text-red-600 font-bold">Pencurian Hak Cipta (Reuploader):</strong> Karya orisinal yang Anda buat dengan susah payah diunggah ulang oleh channel lain tanpa izin demi meraup keuntungan.',
+  ms2Teks: '<strong class="text-red-600 font-bold">Akun Kloning & Penipuan:</strong> Pihak luar menggunakan nama, logo, atau wajah Anda untuk membuat channel palsu yang berpotensi menipu audiens Anda.',
+  ms3Teks: '<strong class="text-red-600 font-bold">Pencemaran Nama Baik:</strong> Terdapat video opini, fitnah, atau berita hoaks yang secara sengaja dirancang untuk menghancurkan citra (brand image) Anda.',
+  ms4Teks: '<strong class="text-red-600 font-bold">Spam Merugikan:</strong> Serangan komentar terorganisir pada video Anda yang berisi tautan (link) berbahaya atau ujaran kebencian.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-red-600">Takedown YouTube</span>',
+  deskripsiUtama: "Langkah penegakan hukum digital yang bekerja selaras dengan pedoman komunitas (Community Guidelines) resmi YouTube.",
+  k1Judul: "Sinyal Pelanggaran Masif",
+  k1Teks: "Kami menembakkan ribuan laporan spesifik kepada algoritma Trust & Safety YouTube untuk memaksa mereka segera melakukan peninjauan manual terhadap target.",
+  k2Judul: "Penargetan Multi-Lini",
+  k2Teks: "Layanan ini sangat fleksibel. Anda dapat mengarahkannya untuk menumbangkan satu video spesifik (postingan) atau melumpuhkan keseluruhan saluran (channel) target."
+};
+
+const dataManfaat = {
+  judulUtama: 'Urgensi Melakukan <span class="text-red-600">Pelaporan</span>',
+  deskripsiUtama: "Mendiamkan pelanggaran sama dengan membiarkan kompetitor jahat menggerogoti hasil kerja keras Anda.",
+  m1Judul: "Mengamankan Kepercayaan Publik",
+  m1Teks: "Dengan menghapus channel penipu, Anda mencegah calon pelanggan jatuh ke tangan yang salah dan menyelamatkan reputasi brand.",
+  m2Judul: "Melindungi Hak Kekayaan Intelektual",
+  m2Teks: "Pastikan hanya saluran resmi Anda yang berhak mendapatkan eksposur tayangan dan monetisasi atas konten tersebut.",
+  m3Judul: "Efisiensi Waktu & Tenaga",
+  m3Teks: "Melaporkan akun secara manual sendirian sering kali diabaikan oleh sistem. Serangan masif kami menjamin laporan Anda mendapat prioritas utama.",
+  m4Judul: "Membersihkan Ekosistem Pencarian",
+  m4Teks: "Hapus video negatif dari halaman hasil pencarian agar calon mitra bisnis Anda hanya melihat informasi yang positif tentang perusahaan Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Eksekusi <span class="text-red-500">JasaLike.com</span>',
+  deskripsiUtama: "Menangani sengketa digital membutuhkan keahlian taktis. Kami adalah mitra pelindung aset digital Anda.",
+  mk1Judul: "Pemilihan 'Reason' Akurat",
+  mk1Teks: "Kami sangat memahami celah aturan YouTube. Kategori pelaporan akan disesuaikan dengan jenis pelanggaran target agar persentase keberhasilan semakin tinggi.",
+  mk2Judul: "Kerahasiaan Tingkat Tinggi",
+  mk2Teks: "Identitas pelapor (Anda) dijamin kerahasiaannya. Pihak target tidak akan pernah mengetahui dari mana asal gelombang laporan tersebut.",
+  mk3Judul: "Targeting Super Presisi",
+  mk3Teks: "Fokus pelaporan tidak akan meleset, baik itu mengarah ke URL sebuah postingan video maupun beranda profil channel utama.",
+  mk4Judul: "Dukungan Responsif",
+  mk4Teks: "Dalam situasi krisis (seperti fitnah viral), tim ahli kami siap bergerak cepat merespons keluhan dan melakukan penanganan seketika.",
+  mk5Judul: "Harga Realistis",
+  mk5Teks: "Kami menawarkan biaya perlindungan yang sangat masuk akal dibandingkan kerugian material yang diakibatkan oleh video pelanggaran tersebut.",
+  mk6Judul: "Proteksi Terukur",
+  mk6Teks: "Kapasitas pelaporan bisa disesuaikan dengan tingkat kesulitan dan besaran (subscribers) dari channel yang menjadi target pelanggaran."
+};
+
+const dataSolusi = {
+  judulUtama: 'Bersihkan <span class="text-red-600">Jejak Negatif</span> Sekarang',
+  deskripsiUtama: "Saatnya mengambil tindakan tegas. Hentikan eksploitasi dan lindungi masa depan digital bisnis Anda.",
+  sol1Icon: "lucide:trash-2",
+  sol1Judul: "Hapus Video Merugikan",
+  sol1Teks: "Tenggelamkan konten yang mencuri karya atau menyebarkan hoaks tentang perusahaan Anda dengan cepat.",
+  sol2Icon: "lucide:user-x",
+  sol2Judul: "Lumpuhkan Channel Palsu",
+  sol2Teks: "Kirimkan peringatan keras (strike) bertubi-tubi hingga akun penipu ditangguhkan (banned) secara permanen oleh YouTube.",
+  sol3Icon: "lucide:shield-check",
+  sol3Judul: "Kembalikan Fokus Anda",
+  sol3Teks: "Serahkan urusan bersih-bersih ini kepada kami. Segera kembali bangun otoritas Anda dengan aman. Pastikan konten asli Anda lebih mendominasi menggunakan <a href="/jasa-subscribe-youtube" class="text-red-600 hover:underline font-semibold">jasa subscribe YouTube</a> dari Auradigital."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Cepat <span class="text-red-500">Penanganan</span>',
+  deskripsiUtama: "Waktu adalah kunci. Prosedur kami rancang sesederhana mungkin agar krisis Anda segera teratasi.",
+  co1Judul: "Ceritakan Kasus Anda",
+  co1Teks: "Hubungi admin kami dan jelaskan jenis pelanggaran yang dilakukan oleh target (misal: pencurian video atau akun kloningan).",
+  co2Judul: "Serahkan Tautan (Link) Target",
+  co2Teks: "Kirimkan URL spesifik dari video atau channel YouTube yang melanggar tersebut kepada tim teknis kami.",
+  co3Judul: "Penentuan Skala Serangan",
+  co3Teks: "Pilih volume laporan (report) masal yang direkomendasikan berdasarkan ukuran dan tingkat pelanggaran akun target.",
+  co4Judul: "Eksekusi & Peninjauan",
+  co4Teks: "Sistem akan melancarkan dorongan laporan secara masif. Anda hanya perlu menunggu pihak YouTube memproses penghapusan."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Perlindungan Aset",
+  deskripsiHarga: "Pilih volume dorongan pelaporan masal untuk melumpuhkan target pelanggaran Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/reportyt.png",
+  p1Nama: "100 Report",
+  p1Fitur1: "Ideal untuk Pelanggaran Ringan",
+  p1Fitur2: "Bisa Target Video/Channel",
+  p1Fitur3: "Privasi Pelapor 100% Aman",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Report%20YouTube",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI TAKEDOWN",
+  p2Gambar: "/image/reportyt.png",
+  p2Nama: "1000 Report",
+  p2Fitur1: "Serangan Skala Prioritas",
+  p2Fitur2: "Sinyal 'Strike' Lebih Kuat",
+  p2Fitur3: "Prioritas Kecepatan Sistem",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Report%20YouTube"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-red-600">Report YouTube</span>',
+  deskripsiUtama: "Informasi krusial seputar teknis penanganan akun dan video pelanggaran.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Report%20YouTube",
+  faq1Judul: "Apakah layanan ini bisa menghapus satu video saja?",
+  faq1Teks: "Sangat bisa. Anda dapat memberikan kami tautan (link) ke satu video spesifik yang melanggar (seperti reupload atau pencemaran nama baik). Kami akan memfokuskan serangan laporan hanya ke postingan tersebut tanpa menyentuh keseluruhan channel.",
+  faq2Judul: "Apakah bisa untuk melaporkan (banned) keseluruhan Channel?",
+  faq2Teks: "Bisa. Jika targetnya adalah akun penipu yang menggunakan nama brand Anda, kami akan mengarahkan laporan masif langsung ke tautan beranda channel target agar akun tersebut ditangguhkan secara permanen oleh YouTube.",
+  faq3Judul: "Berapa lama waktu hingga video/channel dihapus?",
+  faq3Teks: "Waktu penanganan sepenuhnya bergantung pada antrean tim moderator YouTube. Dorongan masif dari kami berfungsi mempercepat algoritma untuk segera melakukan peninjauan. Semakin berat tingkat pelanggaran target, semakin cepat mereka tumbang.",
+  faq4Judul: "Apakah identitas saya sebagai pelapor akan ketahuan?",
+  faq4Teks: "Tidak. Integritas dan privasi Anda adalah prioritas kami. Semua laporan ditembakkan melalui jaringan sistem independen, sehingga target tidak akan bisa melacak siapa dalang di balik pelaporan tersebut.",
+  faq5Judul: "Apakah dijamin pasti berhasil 100%?",
+  faq5Teks: "Keputusan akhir penghapusan (takedown) ada di tangan pihak YouTube berdasarkan penilaian pedoman komunitas mereka. Tugas kami adalah memastikan laporan tersebut di-notice dengan memberikan dorongan volume yang masif dan menggunakan alasan (reason) yang paling akurat.",
+  faq6Judul: "Apakah saya perlu login ke akun YouTube saya?",
+  faq6Teks: "Sama sekali tidak. Proses penanganan kami berjalan secara eksternal. Anda cukup mengirimkan link target melalui WhatsApp dan sistem kami yang akan mengambil alih sisanya."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Report YouTube Profesional (Takedown Akun & Video)",
+    "image": "https://jasalike.com/image/reportyt.png",
+    "description": "Layanan jual jasa report YouTube terstruktur untuk takedown video pelanggaran hak cipta dan channel penipu secara masif dan rahasia.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.8,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 425
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Report YouTube"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini bisa menghapus satu video saja?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat bisa. Anda dapat memberikan kami tautan (link) ke satu video spesifik yang melanggar (seperti reupload atau pencemaran nama baik). Kami akan memfokuskan serangan laporan hanya ke postingan tersebut tanpa menyentuh keseluruhan channel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa untuk melaporkan (banned) keseluruhan Channel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bisa. Jika targetnya adalah akun penipu yang menggunakan nama brand Anda, kami akan mengarahkan laporan masif langsung ke tautan beranda channel target agar akun tersebut ditangguhkan secara permanen oleh YouTube."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama waktu hingga video/channel dihapus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waktu penanganan sepenuhnya bergantung pada antrean tim moderator YouTube. Dorongan masif dari kami berfungsi mempercepat algoritma untuk segera melakukan peninjauan. Semakin berat tingkat pelanggaran target, semakin cepat mereka tumbang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah identitas saya sebagai pelapor akan ketahuan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak. Integritas dan privasi Anda adalah prioritas kami. Semua laporan ditembakkan melalui jaringan sistem independen, sehingga target tidak akan bisa melacak siapa dalang di balik pelaporan tersebut."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
