@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-save-video-youtube.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Save Video YouTube Cepat & Aman | Tambah Bookmark Organik";
+const description = "Sedia jasa save YouTube real dan aktif Indonesia untuk membantu meningkatkan engagement video, performa algoritma, dan interaksi channel YouTube Anda.";
+const keywords = "jasa save video youtube, jual jasa save video youtube, jasa tambah save youtube organik, beli save video youtube terpercaya, layanan bookmark video youtube aman, jasa save youtube untuk seo, jasa save youtube shorts, jasa save youtube real indonesia, jasa save youtube natural, jasa save youtube permanen, jasa save youtube anti drop, jasa save youtube berkualitas, jasa save youtube cepat, jasa save youtube proses cepat";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & NATURAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan SEO & Algoritma YouTube",
+  labelIcon: "lucide:bookmark-plus",
+  judulUtama: 'Jual <span class="text-red-600">Jasa Save Video</span> YouTube Organik',
+  deskripsi: "Tahukah Anda bahwa fitur 'Simpan' (Save / Add to Playlist) adalah indikator emas bagi sistem rekomendasi YouTube? Saat audiens menyimpan karya Anda, algoritma langsung mengenalinya sebagai konten bernilai tinggi. Jika Anda mencari layanan jual jasa save video YouTube untuk mendongkrak jangkauan penonton secara instan, kami hadir memberikan solusi yang terukur dan profesional.<br class='hidden md:block mt-2' /> <span class='text-red-500 font-semibold block mt-4'>✓ Sinyal Algoritma Positif &nbsp; ✓ Privasi Terjaga &nbsp; ✓ Pelayanan Premium</span>",
+  teksTombol1: "Cek Paket Save",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Algoritma",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-red-600">Rekomendasi Konten</span> Saat Ini',
+  deskripsiUtama: "Menciptakan video dengan kualitas visual yang memukau belumlah cukup jika sistem enggan menyebarkannya. Apakah ini yang sedang Anda alami?",
+  ms1Teks: '<strong class="text-red-600 font-bold">Stagnasi Tayangan:</strong> Video Anda berhenti mendapatkan penonton baru setelah beberapa hari penayangan pertama.',
+  ms2Teks: '<strong class="text-red-600 font-bold">Kalah di Halaman Pencarian:</strong> Konten Anda selalu tenggelam oleh video kompetitor meskipun menggunakan kata kunci yang sama.',
+  ms3Teks: '<strong class="text-red-600 font-bold">Gagal Masuk Fitur Beranda:</strong> Kurangnya aksi spesifik dari penonton (seperti menyimpan video) membuat YouTube enggan merekomendasikan karya Anda.',
+  ms4Teks: '<strong class="text-red-600 font-bold">Minimnya Nilai Edukasi:</strong> Khusus untuk konten tutorial, musik, atau podcast, ketiadaan jumlah "Save" memberikan kesan bahwa video tersebut kurang layak untuk ditonton ulang.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-red-600">Penambahan Save/Bookmark</span>',
+  deskripsiUtama: "Sebuah strategi fundamental untuk memberikan sinyal positif kepada mesin pencari YouTube bahwa karya Anda sangat diminati.",
+  k1Judul: "Stimulasi Algoritma Cerdas",
+  k1Teks: "Kami mendistribusikan tindakan penyimpanan video (ke dalam playlist atau tonton nanti) secara bertahap untuk membangun otoritas konten Anda di mata sistem.",
+  k2Judul: "Pertumbuhan yang Sehat",
+  k2Teks: "Layanan jasa tambah save YouTube organik ini dijalankan dengan ritme yang sangat hati-hati, memastikan seluruh proses berjalan selaras dengan kebijakan platform."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keunggulan Mendongkrak <span class="text-red-600">Angka Save</span>',
+  deskripsiUtama: "Mengoptimalkan fitur penyimpanan membawa dampak jangka panjang yang signifikan terhadap performa seluruh saluran Anda.",
+  m1Judul: "Melesatkan Peringkat SEO",
+  m1Teks: "YouTube sangat memprioritaskan video yang sering disimpan oleh penggunanya. Ini adalah kunci utama untuk menembus halaman pertama hasil pencarian.",
+  m2Judul: "Memicu 'Suggested Videos'",
+  m2Teks: "Sinyal interaksi yang kuat memaksa sistem untuk menampilkan karya Anda di kolom rekomendasi sebelah kanan saat orang lain sedang menonton.",
+  m3Judul: "Investasi Viewers Jangka Panjang",
+  m3Teks: "Video yang tersimpan di daftar putar (playlist) penonton memiliki peluang besar untuk ditonton berulang kali di masa mendatang.",
+  m4Judul: "Memperkuat Kredibilitas Konten",
+  m4Teks: "Menumbuhkan persepsi publik bahwa informasi atau hiburan yang Anda sajikan memiliki kualitas premium yang sayang jika dilewatkan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih Memilih <span class="text-red-500">JasaLike.com</span>',
+  deskripsiUtama: "Sebagai penyedia beli save video YouTube terpercaya, kami merancang layanan ini untuk keamanan dan hasil maksimal.",
+  mk1Judul: "Pendekatan 100% Organik",
+  mk1Teks: "Sistem kami menduplikasi perilaku audiens asli sehingga riwayat aktivitas video Anda tetap terlihat bersih dan terpercaya.",
+  mk2Judul: "Keamanan Saluran Terjamin",
+  mk2Teks: "Kami menjunjung tinggi kerahasiaan. Tidak ada permintaan kredensial sensitif, Anda hanya cukup melampirkan tautan video saja.",
+  mk3Judul: "Kestabilan Layanan",
+  mk3Teks: "Angka penyimpanan yang masuk bersifat tahan lama, memberikan fondasi perlindungan yang kokoh untuk video-video unggulan Anda.",
+  mk4Judul: "Dukungan Konsultan Ahli",
+  mk4Teks: "Tim Auradigital siap memberikan panduan teknis kapan pun Anda membutuhkan arahan mengenai optimasi kampanye.",
+  mk5Judul: "Nilai Investasi Proporsional",
+  mk5Teks: "Struktur harga yang kami tawarkan sangat rasional dan sepadan dengan lonjakan kualitas SEO yang akan Anda dapatkan.",
+  mk6Judul: "Proses Terukur & Transparan",
+  mk6Teks: "Anda dapat memantau perkembangan performa konten secara langsung tanpa ada prosedur yang disembunyikan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Rebut Perhatian <span class="text-red-600">Sistem YouTube</span>',
+  deskripsiUtama: "Berhenti menunggu keajaiban. Ambil kendali penuh atas visibilitas karya Anda hari ini juga.",
+  sol1Icon: "lucide:bar-chart-2",
+  sol1Judul: "Maksimalkan Potensi Karya",
+  sol1Teks: "Bantu algoritma menyadari betapa berkualitasnya konten yang sudah Anda produksi dengan susah payah.",
+  sol2Icon: "lucide:shield-check",
+  sol2Judul: "Bebas Risiko Pemblokiran",
+  sol2Teks: "Nikmati pertumbuhan yang tenang karena layanan kami sepenuhnya mematuhi batasan wajar pedoman komunitas YouTube.",
+  sol3Icon: "lucide:message-square",
+  sol3Judul: "Ekspansi Interaksi Menyeluruh",
+  sol3Teks: 'Untuk hasil SEO yang lebih eksplosif, kami sangat merekomendasikan Anda untuk mengombinasikan strategi ini dengan <a href="/jasa-komen-youtube-aktif" class="text-red-600 hover:underline font-semibold">jasa komen YouTube</a> kami guna menciptakan lingkungan video yang super interaktif.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-red-500">Pemesanan</span>',
+  deskripsiUtama: "Kami memangkas kerumitan teknis agar Anda bisa langsung menikmati hasilnya dengan cepat.",
+  co1Judul: "Tentukan Skala Kebutuhan",
+  co1Teks: "Pilih paket volume penyimpanan (bookmark) yang paling sejalan dengan target pencapaian video Anda.",
+  co2Judul: "Serahkan Tautan Karya",
+  co2Teks: "Salin dan tempelkan link URL video YouTube Anda kepada sistem kami. Pastikan status video sudah dipublikasikan (Public).",
+  co3Judul: "Selesaikan Transaksi",
+  co3Teks: "Lakukan pembayaran melalui opsi saluran otomatis yang tersedia dengan aman dan nyaman.",
+  co4Judul: "Pantau Pertumbuhan",
+  co4Teks: "Tim kami akan mengambil alih pekerjaan di belakang layar. Anda cukup duduk manis melihat angka interaksi bertumbuh."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimasi SEO",
+  deskripsiHarga: "Tentukan paket layanan bookmark yang tepat untuk memperluas jangkauan video unggulan Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-saveyt.png",
+  p1Nama: "100 Save",
+  p1Fitur1: "Optimasi SEO Dasar",
+  p1Fitur2: "Proses Masuk Bertahap",
+  p1Fitur3: "Privasi Klien Terjaga",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Save%20YouTube",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI ALGORITMA",
+  p2Gambar: "/image/harga-saveyt.png",
+  p2Nama: "1000 Save",
+  p2Fitur1: "Lonjakan Sinyal Algoritma",
+  p2Fitur2: "Garansi Layanan Premium",
+  p2Fitur3: "Prioritas Kecepatan Sistem",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Save%20YouTube"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-red-600">Save YouTube</span>',
+  deskripsiUtama: "Informasi teknis yang sering ditanyakan seputar jasa save YouTube untuk SEO.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Save%20Video%20YouTube",
+  faq1Judul: "Apa bedanya layanan Save dengan Like?",
+  faq1Teks: "Meskipun keduanya penting, fitur 'Save' (menyimpan ke daftar putar) memberikan sinyal yang jauh lebih kuat kepada algoritma bahwa video Anda memiliki nilai edukasi, hiburan, atau referensi tinggi yang layak direkomendasikan secara luas.",
+  faq2Judul: "Apakah proses ini aman untuk saluran yang sudah dimonetisasi?",
+  faq2Teks: "Sangat aman. Kami menggunakan distribusi yang organik dan patuh terhadap regulasi YouTube. Status monetisasi (AdSense) Anda tidak akan terganggu sama sekali.",
+  faq3Judul: "Apakah butuh akses rahasia ke saluran saya?",
+  faq3Teks: "Sama sekali tidak. Proses penanganan kami seratus persen berjalan dari luar. Anda hanya perlu memberikan tautan (URL) video publik yang ingin dioptimasi.",
+  faq4Judul: "Apakah video pasti langsung masuk halaman beranda (trending)?",
+  faq4Teks: "Layanan ini berfungsi sebagai katalisator pendorong SEO yang sangat kuat. Namun, algoritma YouTube menggabungkan banyak faktor (seperti kualitas thumbnail dan persentase retensi tontonan). Layanan kami menjamin pondasi interaksi awal yang kuat.",
+  faq5Judul: "Apakah ada syarat khusus untuk video yang diajukan?",
+  faq5Teks: "Syarat utamanya sangat sederhana: video tidak boleh melanggar hukum, berstatus Publik, dan bukan berjenis tayangan perdana (Premiere) atau siaran langsung (Live) yang sedang berjalan.",
+  faq6Judul: "Berapa lama waktu yang dibutuhkan untuk melihat hasilnya?",
+  faq6Teks: "Penambahan angka penyimpanan akan berjalan segera setelah pesanan dikonfirmasi. Kami mengatur ritme yang proporsional sesuai jumlah paket yang Anda pesan agar terlihat natural di statistik analitik YouTube Anda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jual Jasa Save Video YouTube Organik",
+    "image": "https://jasalike.com/image/harga-saveyt.png",
+    "description": "Layanan jual jasa save video YouTube untuk mendongkrak sinyal algoritma dan SEO pencarian. Proses aman, organik, dan terpercaya.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.8,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 412
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Save Video YouTube"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apa bedanya layanan Save dengan Like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Meskipun keduanya penting, fitur 'Save' (menyimpan ke daftar putar) memberikan sinyal yang jauh lebih kuat kepada algoritma bahwa video Anda memiliki nilai edukasi, hiburan, atau referensi tinggi yang layak direkomendasikan secara luas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah proses ini aman untuk saluran yang sudah dimonetisasi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menggunakan distribusi yang organik dan patuh terhadap regulasi YouTube. Status monetisasi (AdSense) Anda tidak akan terganggu sama sekali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah butuh akses rahasia ke saluran saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Proses penanganan kami seratus persen berjalan dari luar. Anda hanya perlu memberikan tautan (URL) video publik yang ingin dioptimasi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah ada syarat khusus untuk video yang diajukan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Syarat utamanya sangat sederhana: video tidak boleh melanggar hukum, berstatus Publik, dan bukan berjenis tayangan perdana (Premiere) atau siaran langsung (Live) yang sedang berjalan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
