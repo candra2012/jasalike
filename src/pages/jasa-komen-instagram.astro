@@ -1,0 +1,285 @@
+---
+// src/pages/jasa-komen-instagram.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Komen Instagram Aktif | Layanan Diskusi Organik";
+const description = "Hidupkan suasana postingan Anda dengan jasa komen Instagram organik. Layanan jual komentar custom yang relevan untuk mendongkrak interaksi dua arah di profil Anda.";
+const keywords = "jasa komen instagram, jual jasa komentar ig aktif, beli komen instagram organik, layanan diskusi postingan ig, komentar custom instagram, jasa komen ig indonesia, jasa komentar IG, jasa komen IG, jasa komen konten Instagram, jasa komen orang lain di ig, jasa komen video Instagram";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & FOKUS KOMUNIKASI DUA ARAH)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Pemantik Keterlibatan (Engagement)",
+  labelIcon: "lucide:message-circle",
+  judulUtama: '<span class="text-pink-600">Jasa Komen Instagram</span> Relevan',
+  deskripsi: "Sebuah unggahan visual yang memukau sering kali terasa hampa tanpa adanya percakapan di bawahnya. Hidupkan suasana postingan Anda dan pancing audiens organik untuk ikut bersuara melalui layanan jasa komen Instagram kami. Kami menyediakan interaksi dua arah yang bermakna untuk mengoptimalkan tingkat keterlibatan profil Anda dan membangun relasi yang lebih hangat dengan pelanggan.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Reaksi Berbasis Topik &nbsp; ✓ Kustomisasi Teks &nbsp; ✓ Bebas Risiko</span>",
+  teksTombol1: "Pilih Volume Diskusi",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Narasi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan Membangun <span class="text-pink-600">Komunikasi</span> Saat Ini',
+  deskripsiUtama: "Mendapatkan respons dari pengikut di era digital yang serba cepat ini membutuhkan usaha ekstra. Apakah Anda sering menghadapi situasi berikut?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Keengganan Audiens Pertama:</strong> Pengikut asli biasanya merasa canggung untuk menjadi orang pertama yang mengetik tanggapan di unggahan baru Anda.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Kesan Kurang Menarik:</strong> Foto atau carousel produk yang sepi tanggapan sering kali dianggap kurang memiliki nilai jual oleh calon pembeli yang mampir.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Feedback Satu Arah:</strong> Anda sudah menyisipkan pertanyaan pemancing (Call to Action) di caption, namun tidak ada satu pun pengikut yang meresponsnya.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Penurunan Rasio Interaksi:</strong> Algoritma menilai kualitas sebuah unggahan dari seberapa riuh percakapan yang terjadi. Jika sepi, distribusi konten Anda akan dibatasi.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-pink-600">Pemantik Diskusi</span>',
+  deskripsiUtama: "Sebuah instrumen strategis untuk meruntuhkan kebekuan interaksi dan memfasilitasi terjadinya komunikasi dua arah pada karya Anda.",
+  k1Judul: "Kustomisasi Narasi Penuh",
+  k1Teks: "Anda memiliki kendali mutlak. Anda bisa menentukan sendiri draf kalimat spesifik (custom text) seperti apa yang ingin disematkan pada postingan tersebut untuk kebutuhan ulasan (review).",
+  k2Judul: "Respons Berbasis Konteks",
+  k2Teks: "Jika tidak memiliki draf, tim audiens kami akan merumuskan reaksi yang paling relevan dengan konteks visual dan deskripsi (caption) yang Anda tulis, menghindari kesan generik atau kaku."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Menghidupkan <span class="text-pink-600">Kolom Percakapan</span>',
+  deskripsiUtama: "Interaksi tekstual membawa dampak emosional dan teknis yang sangat besar terhadap performa kampanye digital Anda.",
+  m1Judul: "Memecah Kebekuan (Ice Breaking)",
+  m1Teks: "Kehadiran percakapan awal akan meruntuhkan tembok keraguan, membuat pengikut lain merasa jauh lebih nyaman untuk ikut nimbrung dan mengobrol.",
+  m2Judul: "Mendongkrak Konversi Soft-Selling",
+  m2Teks: "Anda bisa memanfaatkan taktik tanya-jawab (FAQ) secara halus di area percakapan untuk menonjolkan keunggulan spesifik dari produk Anda.",
+  m3Judul: "Membangun Kedekatan Emosional",
+  m3Teks: "Profil bisnis yang memiliki kolom diskusi aktif terlihat jauh lebih ramah, manusiawi, dan terbuka terhadap masukan dari pelanggannya.",
+  m4Judul: "Meningkatkan Engagement Rate (ER)",
+  m4Teks: "Lonjakan aktivitas diskusi adalah sinyal terkuat bagi mesin kurasi Instagram bahwa konten Anda sangat bernilai dan layak didistribusikan lebih luas."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Alasan Memilih Ekosistem <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami memastikan bahwa setiap kata yang ditinggalkan pada unggahan Anda memberikan nilai tambah yang elegan dan profesional.",
+  mk1Judul: "Terhindar dari Respons Spam",
+  mk1Teks: "Kami melarang keras penggunaan kalimat pasaran seperti 'nice pic' atau sekadar rentetan emotikon. Semua kalimat diracik agar terlihat substansial.",
+  mk2Judul: "Keamanan Profil Ekstra",
+  mk2Teks: "Seluruh tahapan operasional berjalan melalui jalur eksternal. Kami tidak akan pernah mengintervensi atau meminta akses konfidensial ke dalam ruang akun Anda.",
+  mk3Judul: "Rasio Penyaluran Proporsional",
+  mk3Teks: "Masuknya tanggapan diatur dengan jeda waktu yang masuk akal sehingga riwayat notifikasi Anda tetap selaras dengan parameter wajar platform.",
+  mk4Judul: "Transparansi Biaya Penuh",
+  mk4Teks: "Tidak ada tagihan tersembunyi. Seluruh spesifikasi layanan dan tarif dijelaskan secara gamblang sejak awal Anda berkonsultasi.",
+  mk5Judul: "Kapasitas Skala Beragam",
+  mk5Teks: "Mulai dari kebutuhan mikro (personal branding) hingga aktivasi merek (brand activation) yang membutuhkan ratusan dukungan, kami siap mengakomodasinya.",
+  mk6Judul: "Layanan Konsultasi Proaktif",
+  mk6Teks: "Tim ahli kami senantiasa bersiaga untuk membantu Anda memformulasikan strategi kampanye teks yang paling tepat sasaran."
+};
+
+const dataSolusi = {
+  judulUtama: 'Tingkatkan Nilai <span class="text-pink-600">Unggahan Anda</span>',
+  deskripsiUtama: "Jadikan setiap postingan Anda sebagai wadah berkumpulnya komunitas yang antusias dan suportif.",
+  sol1Icon: "lucide:users",
+  sol1Judul: "Ubah Pengamat Menjadi Terlibat",
+  sol1Teks: "Rangsang pengikut setia yang biasanya hanya menjadi pengamat (silent reader) untuk mulai berpartisipasi memberikan suaranya.",
+  sol2Icon: "lucide:rss",
+  sol2Judul: "Dominasi Beranda Utama",
+  sol2Teks: "Kumpulkan sinyal keterlibatan yang masif agar foto dan Reels Anda terus muncul di posisi teratas linimasa audiens Anda.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Sempurnakan Panggung Digital",
+  sol3Teks: 'Padukan percakapan yang hidup ini dengan <a href="/jasa-tambah-view" class="text-pink-600 hover:underline font-semibold">jasa tambah view Instagram</a> kami untuk menciptakan kombinasi popularitas yang tak tertandingi di mata audiens baru.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Tahapan Mudah <span class="text-pink-500">Aktivasi</span>',
+  deskripsiUtama: "Prosedur dirancang tanpa birokrasi berbelit agar Anda bisa segera melihat keramaian di profil Anda.",
+  co1Judul: "Pilih Volume Kebutuhan",
+  co1Teks: "Tentukan seberapa riuh suasana yang ingin Anda ciptakan pada satu unggahan spesifik tersebut.",
+  co2Judul: "Siapkan Tautan Postingan",
+  co2Teks: "Salin URL foto atau Reels Anda. Pastikan akun tidak digembok dan fitur pembatasan percakapan (Turn Off Comment) sedang tidak diaktifkan.",
+  co3Judul: "Tentukan Narasi (Opsional)",
+  co3Teks: "Serahkan draf kalimat spesifik kepada admin kami jika ada, atau biarkan audiens kami merespons secara natural sesuai intuisi mereka.",
+  co4Judul: "Selesaikan Transaksi",
+  co4Teks: "Lakukan proses pembayaran dengan metode yang Anda sukai, dan saksikan kolom diskusi Anda mulai dibanjiri energi positif."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Keterlibatan Audiens",
+  deskripsiHarga: "Pilih paket dukungan percakapan untuk memperkuat pesan yang ingin Anda sampaikan ke publik.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-komenig.png",
+  p1Nama: "100 Komen",
+  p1Fitur1: "Reaksi Berbasis Konteks",
+  p1Fitur2: "Gratis Kustomisasi Teks",
+  p1Fitur3: "Privasi Profil Terjamin",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Komen%20Instagram",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI BRAND",
+  p2Gambar: "/image/harga-komenig.png",
+  p2Nama: "1000 Komen",
+  p2Fitur1: "Skala Kampanye Masif",
+  p2Fitur2: "Prioritas Distribusi Sistem",
+  p2Fitur3: "Garansi Pelayanan Premium",
+  p2HargaCoret: "Rp 2.600.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%201000%20Komen%20Instagram"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Diskusi Instagram</span>',
+  deskripsiUtama: "Jawaban atas pertanyaan umum seputar mekanisme pengelolaan percakapan di unggahan Anda.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Komen%20Instagram",
+  faq1Judul: "Apakah saya bisa menentukan sendiri isi teksnya?",
+  faq1Teks: "Tentu saja. Anda diberikan kebebasan penuh untuk menyusun draf kalimat spesifik (custom text) yang ingin disematkan. Jika tidak ada draf, kami akan memberikan respons natural berbasis konteks gambar.",
+  faq2Judul: "Apakah tanggapannya menggunakan bahasa Indonesia?",
+  faq2Teks: "Ya, seluruh audiens yang berpartisipasi akan menggunakan bahasa Indonesia yang kasual, aktif, dan sesuai dengan gaya komunikasi pengguna lokal pada umumnya.",
+  faq3Judul: "Apakah layanan ini aman untuk akun bisnis?",
+  faq3Teks: "Sangat aman. Kami menerapkan batasan jeda waktu (delay) yang rasional dalam setiap penyaluran interaksi, sehingga aktivitas tersebut tetap terbaca sebagai tindakan yang wajar oleh sistem keamanan platform.",
+  faq4Judul: "Bisa membagi pesanan ke beberapa unggahan sekaligus?",
+  faq4Teks: "Untuk menjaga konsentrasi kampanye dan memastikan hasil yang maksimal, satu paket pesanan hanya dialokasikan untuk satu URL tautan tunggal.",
+  faq5Judul: "Apa syarat utama agar pesanan bisa diproses?",
+  faq5Teks: "Hanya ada dua syarat mutlak: pastikan profil Anda dalam keadaan Publik (tidak dikunci privasinya), dan pastikan fitur pengaturan komentar di unggahan tersebut tidak sedang dibatasi atau dinonaktifkan.",
+  faq6Judul: "Berapa lama hingga percakapan mulai masuk?",
+  faq6Teks: "Proses distribusi akan berjalan segera setelah konfirmasi administrasi selesai. Kecepatan penyelesaian menyesuaikan dengan total volume paket yang Anda pilih agar terhindar dari indikasi pergerakan yang tidak wajar."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jual Jasa Komen Instagram Aktif & Custom",
+    "image": "https://jasalike.com/image/harga-komenig.png",
+    "description": "Hidupkan suasana postingan Anda dengan jasa komen Instagram organik. Layanan jual komentar custom yang relevan untuk mendongkrak interaksi.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 380
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Komen Instagram"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah saya bisa menentukan sendiri isi teksnya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu saja. Anda diberikan kebebasan penuh untuk menyusun draf kalimat spesifik (custom text) yang ingin disematkan. Jika tidak ada draf, kami akan memberikan respons natural berbasis konteks gambar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tanggapannya menggunakan bahasa Indonesia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, seluruh audiens yang berpartisipasi akan menggunakan bahasa Indonesia yang kasual, aktif, dan sesuai dengan gaya komunikasi pengguna lokal pada umumnya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini aman untuk akun bisnis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menerapkan batasan jeda waktu (delay) yang rasional dalam setiap penyaluran interaksi, sehingga aktivitas tersebut tetap terbaca sebagai tindakan yang wajar oleh sistem keamanan platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apa syarat utama agar pesanan bisa diproses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hanya ada dua syarat mutlak: pastikan profil Anda dalam keadaan Publik (tidak dikunci privasinya), dan pastikan fitur pengaturan komentar di unggahan tersebut tidak sedang dibatasi atau dinonaktifkan."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
+
