@@ -1,0 +1,291 @@
+---
+// src/pages/jasa-komen-youtube-aktif.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Komen YouTube Cepat & Aman | Jual Komentar Organik";
+const description = "Sedia jasa komentar YouTube real dan aktif Indonesia untuk membantu meningkatkan engagement video, interaksi channel, dan performa algoritma YouTube.";
+const keywords = "jasa komen youtube aktif, jual jasa komentar youtube, jasa komen youtube relevan, beli komentar youtube organik, jasa komentar youtube indonesia, jasa komentar youtube aman, jasa tambah komentar youtube positif, cara menambah komentar youtube, cara meningkatkan engagement youtube, jasa komen buzzer, jasa komen live youtube, jasa komen video youtube, jasa komen aman, jasa komen natural, jasa komen tanpa bot, jasa komen";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FORMAL & PROFESIONAL)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Interaksi YouTube",
+  labelIcon: "lucide:message-square",
+  judulUtama: 'Jual <span class="text-red-600">Jasa Komen YouTube Aktif</span> & Relevan',
+  deskripsi: "Tingkatkan kredibilitas dan interaksi video Anda melalui diskusi organik yang berkualitas. Solusi cerdas untuk memancing partisipasi audiens baru dan mengoptimalkan visibilitas di algoritma pencarian. <br class='hidden md:block mt-2' /> <span class='text-red-500 font-semibold block mt-4'>✓ Tanggapan Natural &nbsp; ✓ Privasi Terjaga &nbsp; ✓ Support Responsif</span>",
+  teksTombol1: "Lihat Paket Harga",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Kampanye",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan <span class="text-red-600">Interaksi Video</span> Saat Ini',
+  deskripsiUtama: "Mendapatkan ribuan tayangan terkadang tidak sejalan dengan jumlah diskusi di kolom komentar. Apakah Anda menghadapi kendala berikut?",
+  ms1Teks: '<strong class="text-red-600 font-bold">Kolom Diskusi Sepi:</strong> Penonton sering kali ragu untuk menjadi orang pertama yang memulai percakapan di video Anda.',
+  ms2Teks: '<strong class="text-red-600 font-bold">Otoritas Kurang Meyakinkan:</strong> Video promosi, edukasi, maupun ulasan produk terlihat kurang kredibel tanpa adanya testimoni atau tanggapan positif awal.',
+  ms3Teks: '<strong class="text-red-600 font-bold">Rekomendasi Terhambat:</strong> Kurangnya partisipasi audiens membuat algoritma enggan merekomendasikan konten Anda ke jangkauan yang lebih luas.',
+  ms4Teks: '<strong class="text-red-600 font-bold">Kalah Visibilitas:</strong> Kompetitor dengan kolom komentar yang hidup lebih mudah mendominasi halaman pertama hasil pencarian.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-red-600">Komentar Organik</span>',
+  deskripsiUtama: "Sebuah pendekatan terstruktur untuk membangun ruang diskusi yang sehat dan interaktif pada karya visual Anda.",
+  k1Judul: "Tanggapan Sesuai Konteks",
+  k1Teks: "Setiap tanggapan yang diberikan disesuaikan dengan topik dan pesan dari video Anda, sehingga terlihat natural dan relevan bagi penonton lainnya.",
+  k2Judul: "Distribusi Bertahap",
+  k2Teks: "Proses penambahan diskusi dilakukan dengan ritme yang terukur dan aman, menjaga kesehatan serta riwayat pertumbuhan saluran Anda di mata sistem."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Membangun <span class="text-red-600">Diskusi Video</span>',
+  deskripsiUtama: "Tingkat interaksi yang tinggi adalah sinyal paling krusial bahwa konten Anda bernilai dan layak disebarluaskan.",
+  m1Judul: "Meningkatkan Kepercayaan Publik",
+  m1Teks: "Video dengan banyak tanggapan positif akan langsung membangun persepsi profesionalisme dan meyakinkan audiens baru untuk menonton hingga akhir.",
+  m2Judul: "Memicu Efek Domino (Bandwagon Effect)",
+  m2Teks: "Secara psikologis, orang lebih mudah ikut berkomentar ketika melihat orang lain sudah melakukannya. Kami menyediakan pemicu awal tersebut.",
+  m3Judul: "Mendongkrak Rekomendasi SEO",
+  m3Teks: "Aktivitas percakapan yang intensif memberikan dorongan besar pada algoritma untuk menampilkan video Anda di kolom 'Video Terkait' (Suggested Videos).",
+  m4Judul: "Fleksibel untuk Berbagai Konten",
+  m4Teks: "Sangat ideal diimplementasikan untuk peluncuran produk baru, kampanye kesadaran merek (branding), hingga video musik dan podcast."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Ekosistem <span class="text-red-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami hadir sebagai mitra tepercaya dengan pendekatan yang mengutamakan kualitas, privasi, dan keamanan saluran Anda.",
+  mk1Judul: "Interaksi Relevan & Berkualitas",
+  mk1Teks: "Kami menghindari tanggapan otomatis. Setiap interaksi diselaraskan dengan isi konten untuk menjaga orisinalitas percakapan.",
+  mk2Judul: "Integritas Privasi Terjamin",
+  mk2Teks: "Kerahasiaan Anda adalah komitmen kami. Anda hanya perlu menyertakan tautan (link) video publik untuk memulai eksekusi kampanye.",
+  mk3Judul: "Proses Aman & Presisi",
+  mk3Teks: "Seluruh layanan beroperasi dengan mematuhi pedoman komunitas standar, melindungi aset digital Anda dari risiko jangka panjang.",
+  mk4Judul: "Tim Dukungan Dedikatif",
+  mk4Teks: "Layanan pelanggan kami senantiasa siaga membantu mengarahkan kebutuhan Anda dan menjawab setiap pertanyaan dengan responsif.",
+  mk5Judul: "Transparansi Biaya",
+  mk5Teks: "Kami menerapkan sistem tarif yang lugas dan sangat kompetitif tanpa adanya biaya tersembunyi, memberikan nilai terbaik untuk investasi Anda.",
+  mk6Judul: "Garansi Kepuasan Layanan",
+  mk6Teks: "Sebagai bentuk profesionalisme, kami memberikan perlindungan garansi guna memastikan Anda menerima hasil sesuai dengan kualitas yang disepakati."
+};
+
+const dataSolusi = {
+  judulUtama: 'Fase Baru <span class="text-red-600">Visibilitas Video Anda</span>',
+  deskripsiUtama: "Jangan biarkan jam kerja keras Anda mengedit video berlalu tanpa apresiasi. Hidupkan suasana kolom diskusi sekarang juga.",
+  sol1Icon: "lucide:users",
+  sol1Judul: "Bangun Komunitas Solid",
+  sol1Teks: "Ubah penonton yang pasif menjadi audiens yang aktif berpartisipasi dalam setiap karya yang Anda publikasikan.",
+  sol2Icon: "lucide:trending-up",
+  sol2Judul: "Dominasi Pencarian",
+  sol2Teks: "Dapatkan sinyal interaksi organik yang kuat untuk membantu video Anda merangsek naik menembus halaman utama pencarian.",
+  sol3Icon: "lucide:thumbs-up",
+  sol3Judul: "Kombinasi Sempurna",
+  sol3Teks: 'Serahkan urusan interaksi awal kepada kami. Untuk performa visibilitas yang jauh lebih maksimal, padukan layanan ini dengan <a href="/like-youtube" class="text-red-600 hover:underline font-semibold">jasa like YouTube</a> kami agar otoritas konten Anda semakin tak tertandingi.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Sederhana <span class="text-red-500">Pemesanan</span>',
+  deskripsiUtama: "Prosedur dirancang seringkas mungkin agar Anda bisa segera kembali fokus menyusun strategi konten berikutnya.",
+  co1Judul: "Pilih Skala Interaksi",
+  co1Teks: "Tentukan jumlah paket tanggapan yang Anda butuhkan, sesuaikan dengan target audiens dan jangkauan kampanye saat ini.",
+  co2Judul: "Lampirkan Tautan Video",
+  co2Teks: "Cukup berikan tautan (link/URL) video YouTube Anda. Pastikan video bersifat publik dan fitur komentar tidak dalam status dinonaktifkan.",
+  co3Judul: "Selesaikan Pembayaran",
+  co3Teks: "Lakukan proses administrasi melalui berbagai metode pembayaran otomatis yang telah terintegrasi dengan aman di sistem kami.",
+  co4Judul: "Proses Eksekusi Berjalan",
+  co4Teks: "Sistem akan langsung memproses pesanan, mendistribusikan interaksi secara bertahap untuk menjaga keaslian pertumbuhan audiens Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Kredibilitas Video",
+  deskripsiHarga: "Pilih paket interaksi yang paling ideal untuk mendongkrak popularitas dan diskusi pada karya Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-komenyt.png",
+  p1Nama: "Paket Starter (100 Komen)",
+  p1Fitur1: "Tanggapan Sesuai Konteks",
+  p1Fitur2: "Proses Masuk Bertahap",
+  p1Fitur3: "Privasi Klien Terjaga",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Starter%20100%20Komen%20YouTube",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI KREATOR",
+  p2Gambar: "/image/harga-komenyt.png",
+  p2Nama: "Paket Dominasi (1000 Komen)",
+  p2Fitur1: "Interaksi Skala Masif",
+  p2Fitur2: "Garansi Layanan Premium",
+  p2Fitur3: "Prioritas Kecepatan Sistem",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Dominasi%201000%20Komen%20YouTube"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa <br/> <span class="text-red-600">Komen YouTube</span>',
+  deskripsiUtama: "Informasi esensial yang perlu Anda ketahui mengenai mekanisme layanan interaksi organik kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Komen%20YouTube",
+  faq1Judul: "Apakah aman untuk monetisasi (AdSense) saluran saya?",
+  faq1Teks: "Sangat aman. Kami menggunakan metode penambahan secara natural yang sepenuhnya mematuhi batasan keamanan YouTube, sehingga tidak akan memengaruhi atau membahayakan status monetisasi saluran Anda.",
+  faq2Judul: "Apakah saya harus memberikan data sensitif?",
+  faq2Teks: "Sama sekali tidak. Integritas keamanan Anda sangat kami junjung tinggi. Anda hanya perlu memberikan tautan (URL) video publik yang menjadi target kampanye.",
+  faq3Judul: "Apakah komentarnya menggunakan bahasa Indonesia?",
+  faq3Teks: "Ya, kami berfokus pada audiens lokal. Tanggapan yang disalurkan menggunakan bahasa Indonesia yang aktif, natural, dan relevan dengan isi video Anda.",
+  faq4Judul: "Bisakah saya membagi pesanan ke beberapa video?",
+  faq4Teks: "Untuk menjaga efektivitas dan konsentrasi interaksi, satu paket pesanan hanya berlaku untuk satu tautan video. Anda dipersilakan melakukan pemesanan terpisah untuk video lainnya.",
+  faq5Judul: "Berapa lama waktu penyelesaiannya?",
+  faq5Teks: "Sistem kami mengatur ritme masuknya tanggapan secara bertahap agar terlihat senatural mungkin. Kecepatan penyelesaian menyesuaikan dengan skala paket yang Anda pilih.",
+  faq6Judul: "Apa syarat utama agar layanan ini bisa diproses?",
+  faq6Teks: "Pastikan video Anda berstatus Publik (bukan Unlisted atau Private), dan pastikan fitur pengaturan komentar di video Anda tidak dalam keadaan dinonaktifkan (Turned Off)."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Komen YouTube Aktif & Relevan",
+    "image": "https://jasalike.com/image/harga-komenyt.png",
+    "description": "Tingkatkan interaksi video Anda dengan jasa komen YouTube aktif dan relevan. Layanan jual komentar organik, aman, dan privasi 100% terjaga.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 680
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Komen YouTube Aktif"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman untuk monetisasi (AdSense) saluran saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami menggunakan metode penambahan secara natural yang sepenuhnya mematuhi batasan keamanan YouTube, sehingga tidak akan memengaruhi atau membahayakan status monetisasi saluran Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data sensitif?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Integritas keamanan Anda sangat kami junjung tinggi. Anda hanya perlu memberikan tautan (URL) video publik yang menjadi target kampanye."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah komentarnya menggunakan bahasa Indonesia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, kami berfokus pada audiens lokal. Tanggapan yang disalurkan menggunakan bahasa Indonesia yang aktif, natural, dan relevan dengan isi video Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama waktu penyelesaiannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sistem kami mengatur ritme masuknya tanggapan secara bertahap agar terlihat senatural mungkin. Kecepatan penyelesaian menyesuaikan dengan skala paket yang Anda pilih."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apa syarat utama agar layanan ini bisa diproses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pastikan video Anda berstatus Publik (bukan Unlisted atau Private), dan pastikan fitur pengaturan komentar di video Anda tidak dalam keadaan dinonaktifkan (Turned Off)."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
