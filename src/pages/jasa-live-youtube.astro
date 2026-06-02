@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-live-youtube.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jual Jasa Viewer Live YouTube | Penonton Live Streaming Aktif";
+const description = "Hadirkan keramaian di siaran langsung Anda dengan layanan jual jasa viewer live YouTube. Tingkatkan penonton live streaming secara organik dan ciptakan hype acara Anda.";
+const keywords = "jasa live youtube, jual jasa viewer live youtube, beli penonton live streaming youtube, jasa penonton live youtube organik, tingkatkan penonton live youtube, layanan viewer live youtube aman, jasa live stream youtube indonesia, jasa live cirebon, jasa live yt, jasa live murah, jasa live jakarta, jasa live affiliator, jasa live rame, jasa live game";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & FOKUS MOMENTUM ACARA)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Retensi Siaran Langsung",
+  labelIcon: "lucide:radio",
+  judulUtama: 'Jual <span class="text-red-600">Jasa Viewer Live YouTube</span> Organik',
+  deskripsi: "Keberhasilan sebuah siaran langsung sangat ditentukan oleh keramaian di menit-menit pertama. Jangan biarkan peluncuran produk, webinar, atau acara penting Anda terasa sepi. Dengan layanan jual jasa viewer live YouTube kami, ciptakan momentum instan yang memancing audiens organik untuk ikut bergabung dan bertahan menonton siaran Anda.<br class='hidden md:block mt-2' /> <span class='text-red-500 font-semibold block mt-4'>✓ Retensi Stabil &nbsp; ✓ Privasi Acara Terjaga &nbsp; ✓ Hype Maksimal</span>",
+  teksTombol1: "Lihat Skala Penonton",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Jadwalkan Live",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-youtube.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Tantangan <span class="text-red-600">Siaran Langsung</span> Saat Ini',
+  deskripsiUtama: "Mempersiapkan materi live streaming yang luar biasa akan sia-sia jika tidak ada yang menyaksikannya. Apakah Anda sering menghadapi situasi ini?",
+  ms1Teks: '<strong class="text-red-600 font-bold">Sindrom Ruangan Kosong:</strong> Penonton organik yang baru masuk cenderung langsung keluar (bounce) jika melihat angka viewer siaran Anda masih di bawah 10 orang.',
+  ms2Teks: '<strong class="text-red-600 font-bold">Kehilangan Kredibilitas Acara:</strong> Saat Anda mengadakan peluncuran produk atau sesi edukasi, jumlah penonton yang sedikit membuat brand Anda terlihat kurang diminati.',
+  ms3Teks: '<strong class="text-red-600 font-bold">Minim Dorongan Algoritma:</strong> YouTube hanya merekomendasikan siaran langsung (Live) ke halaman beranda jika mendeteksi adanya lonjakan penonton secara instan.',
+  ms4Teks: '<strong class="text-red-600 font-bold">Konversi Penjualan Menurun:</strong> Sangat sulit meyakinkan audiens untuk melakukan pembelian produk saat suasana live streaming terasa sepi dan tidak antusias.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-red-600">Retensi Live Streaming</span>',
+  deskripsiUtama: "Sebuah taktik digital untuk mengamankan jumlah keramaian dasar (baseline crowd) selama acara langsung Anda berlangsung.",
+  k1Judul: "Injeksi Psikologi Massa",
+  k1Teks: "Manusia memiliki sifat FOMO (Fear of Missing Out). Kami menghadirkan penonton awal untuk menciptakan ilusi keramaian, sehingga memancing audiens asli yang lewat untuk ikut berhenti dan menonton.",
+  k2Judul: "Distribusi Penonton Real-Time",
+  k2Teks: "Sistem mendatangkan audiens tepat saat siaran Anda dimulai dan mempertahankan keberadaan mereka selama durasi yang disepakati untuk menjaga stabilitas analitik."
+};
+
+const dataManfaat = {
+  judulUtama: 'Keuntungan Membangun <span class="text-red-600">Keramaian Live</span>',
+  deskripsiUtama: "Lonjakan penonton siaran langsung adalah indikator terkuat bagi YouTube bahwa sebuah acara sedang trending.",
+  m1Judul: "Menciptakan Otoritas Instan",
+  m1Teks: "Siaran dengan puluhan hingga ratusan penonton langsung memancarkan aura profesionalisme. Audiens baru akan percaya bahwa apa yang Anda bicarakan sangat penting.",
+  m2Judul: "Meningkatkan Peringkat 'Live Now'",
+  m2Teks: "Jumlah pemirsa yang stabil mendorong video Anda naik ke deretan teratas pada fitur pencarian dan rekomendasi khusus siaran langsung.",
+  m3Judul: "Memaksimalkan Interaksi Organik",
+  m3Teks: "Orang akan merasa jauh lebih percaya diri untuk ikut berdiskusi atau bertanya di kolom live chat ketika melihat banyak orang lain di dalam ruangan tersebut.",
+  m4Judul: "ROI Acara yang Lebih Baik",
+  m4Teks: "Pastikan biaya dan tenaga yang Anda keluarkan untuk menyiapkan perlengkapan live streaming terbayar lunas dengan jangkauan audiens yang maksimal."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Keunggulan Eksekusi <span class="text-red-500">JasaLike.com</span>',
+  deskripsiUtama: "Sebagai penyedia layanan viewer live YouTube berpengalaman, kami memastikan siaran Anda berjalan mulus tanpa hambatan teknis.",
+  mk1Judul: "Kestabilan Retensi",
+  mk1Teks: "Penonton yang dialokasikan akan bertahan dan menjaga angka view tetap stabil selama jadwal yang telah Anda tentukan.",
+  mk2Judul: "Persiapan Tepat Waktu",
+  mk2Teks: "Tim operasional kami akan siaga memantau tautan (link) siaran Anda, memastikan penonton masuk tepat saat Anda mengudara.",
+  mk3Judul: "Integritas Privasi Klien",
+  mk3Teks: "Anda bertindak sebagai penyelenggara penuh. Kami hanya bekerja di belakang layar tanpa pernah meminta akses sensitif ke dalam akun studio Anda.",
+  mk4Judul: "Sangat Aman & Terukur",
+  mk4Teks: "Lalu lintas pemirsa disalurkan menggunakan metode yang sepenuhnya sejalan dengan standar keamanan komunitas YouTube.",
+  mk5Judul: "Fleksibilitas Skala Acara",
+  mk5Teks: "Baik untuk sesi live santai berdurasi singkat maupun acara webinar skala besar, sistem kami siap menyesuaikan dengan kebutuhan volume Anda.",
+  mk6Judul: "Pendampingan Ahli",
+  mk6Teks: "Kami siap berdiskusi sebelum acara dimulai untuk memastikan pengaturan saluran Anda sudah optimal menerima lonjakan pemirsa."
+};
+
+const dataSolusi = {
+  judulUtama: 'Jadikan Siaran Anda <span class="text-red-600">Pusat Perhatian</span>',
+  deskripsiUtama: "Bersiaplah menghadapi kamera dengan rasa percaya diri penuh karena Anda tahu audiens sudah menanti.",
+  sol1Icon: "lucide:users",
+  sol1Judul: "Hindari Suasana Canggung",
+  sol1Teks: "Hapus rasa gugup berbicara sendiri. Kehadiran audiens awal membantu Anda menemukan ritme presentasi yang lebih baik.",
+  sol2Icon: "lucide:trending-up",
+  sol2Judul: "Ledakan Algoritma",
+  sol2Teks: "Manfaatkan algoritma penyebaran kilat YouTube yang sangat menyukai siaran dengan interaksi penonton tinggi.",
+  sol3Icon: "lucide:thumbs-up",
+  sol3Judul: "Pondasi Reputasi",
+  sol3Teks: 'Setelah siaran langsung selesai dan videonya tersimpan di saluran Anda, pastikan reputasi video tersebut tetap terjaga. Anda bisa menyempurnakannya dengan dukungan <a href="/jasa-like-youtube" class="text-red-600 hover:underline font-semibold">jasa like YouTube</a> dari kami.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Alur Koordinasi <span class="text-red-500">Acara</span>',
+  deskripsiUtama: "Sistem pemesanan dibuat terstruktur agar kami dapat mendukung siaran Anda pada waktu yang tepat.",
+  co1Judul: "Konsultasi & Penjadwalan",
+  co1Teks: "Hubungi tim kami dan informasikan kapan (tanggal dan jam) siaran langsung Anda akan dilaksanakan.",
+  co2Judul: "Pilih Kapasitas Penonton",
+  co2Teks: "Tentukan besaran angka pemirsa (viewer) yang ingin Anda tampilkan secara bersamaan selama siaran berlangsung.",
+  co3Judul: "Serahkan Tautan (Link) Live",
+  co3Teks: "Berikan tautan spesifik dari video siaran langsung Anda. Pastikan pengaturan privasi diatur menjadi Publik.",
+  co4Judul: "Siaran Mengudara",
+  co4Teks: "Selesaikan administrasi, dan saat Anda menekan tombol 'Mulai Siaran', audiens kami akan segera masuk memenuhi ruangan Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Kesuksesan Live",
+  deskripsiHarga: "Tentukan kapasitas audiens yang paling ideal untuk mendampingi acara siaran langsung Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-liveyt.png",
+  p1Nama: "10 View Live",
+  p1Fitur1: "Kestabilan Angka Penonton",
+  p1Fitur2: "Durasi Siaran Standar",
+  p1Fitur3: "Privasi Klien Terjaga",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%2010%20Viewer%20Live%20YouTube",
+
+  // Paket Kanan
+  p2Label: "REKOMENDASI EVENT",
+  p2Gambar: "/image/harga-liveyt.png",
+  p2Nama: "100 View Live",
+  p2Fitur1: "Hype Psikologi Massa Maksimal",
+  p2Fitur2: "Dukungan Prioritas Sistem",
+  p2Fitur3: "Garansi Layanan Premium",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Viewer%20Live%20YouTube"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-red-600">Live Streaming</span>',
+  deskripsiUtama: "Informasi teknis operasional seputar layanan pendampingan siaran langsung Anda.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Layanan%20Live%20Streaming%20YouTube",
+  faq1Judul: "Kapan saya harus memesan layanan ini?",
+  faq1Teks: "Sangat disarankan untuk melakukan pemesanan dan koordinasi dengan admin kami minimal beberapa jam sebelum jadwal siaran langsung (live streaming) Anda dimulai, agar kami bisa menyiapkan alokasi jaringan.",
+  faq2Judul: "Apakah penonton ini akan ikut berkomentar di live chat?",
+  faq2Teks: "Fokus utama layanan ini adalah mendongkrak angka tayangan (viewers) secara real-time untuk membangun psikologi massa dan memancing algoritma. Mereka bertindak sebagai penonton diam (silent viewers) yang stabil.",
+  faq3Judul: "Berapa lama penonton akan bertahan di siaran saya?",
+  faq3Teks: "Durasi ketahanan penonton dapat disesuaikan dengan kebutuhan kampanye Anda. Silakan komunikasikan estimasi lama acara Anda dengan tim konsultan kami saat melakukan penjadwalan.",
+  faq4Judul: "Bagaimana jika siaran saya tiba-tiba terputus (disconnect)?",
+  faq4Teks: "Jika terjadi kendala koneksi dari pihak Anda yang menyebabkan siaran terhenti, sistem akan menganggap sesi tersebut selesai. Pastikan koneksi internet Anda sangat stabil sebelum memulai acara.",
+  faq5Judul: "Apakah layanan ini aman untuk saluran (channel) saya?",
+  faq5Teks: "Tentu saja. Lalu lintas audiens dikelola dengan sangat profesional dengan tetap menjunjung tinggi aturan keamanan komunitas YouTube, sehingga saluran Anda terbebas dari sanksi pemblokiran.",
+  faq6Judul: "Apakah butuh menyerahkan data konfidensial?",
+  faq6Teks: "Tidak sama sekali. Sistem kami dirancang untuk mendukung operasional Anda secara eksternal. Anda cukup mengirimkan tautan (link) publik dari jadwal siaran langsung yang sudah Anda buat."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jual Jasa Viewer Live YouTube Organik",
+    "image": "https://jasalike.com/image/harga-liveyt.png",
+    "description": "Layanan jual jasa viewer live YouTube untuk mendongkrak keramaian siaran langsung secara real-time. Retensi stabil dan aman.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 350
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Viewer Live YouTube"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kapan saya harus memesan layanan ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat disarankan untuk melakukan pemesanan dan koordinasi dengan admin kami minimal beberapa jam sebelum jadwal siaran langsung (live streaming) Anda dimulai, agar kami bisa menyiapkan alokasi jaringan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah penonton ini akan ikut berkomentar di live chat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fokus utama layanan ini adalah mendongkrak angka tayangan (viewers) secara real-time untuk membangun psikologi massa dan memancing algoritma. Mereka bertindak sebagai penonton diam (silent viewers) yang stabil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama penonton akan bertahan di siaran saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Durasi ketahanan penonton dapat disesuaikan dengan kebutuhan kampanye Anda. Silakan komunikasikan estimasi lama acara Anda dengan tim konsultan kami saat melakukan penjadwalan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan ini aman untuk saluran (channel) saya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu saja. Lalu lintas audiens dikelola dengan sangat profesional dengan tetap menjunjung tinggi aturan keamanan komunitas YouTube, sehingga saluran Anda terbebas dari sanksi pemblokiran."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
