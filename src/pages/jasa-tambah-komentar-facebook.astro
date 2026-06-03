@@ -1,0 +1,282 @@
+---
+// src/pages/jasa-tambah-komentar-facebook.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Tambah Komentar Facebook Organik & Aktif";
+const description = "Tingkatkan interaksi dan kredibilitas konten Anda dengan layanan jual jasa tambah komentar Facebook. Proses pertumbuhan organik, privasi terjaga, dan hasil yang efektif.";
+const keywords = "jasa tambah komentar facebook, jual jasa tambah komentar facebook, jasa tambah komentar fb aktif, beli komentar facebook organik, jasa komentar facebook indonesia, layanan tambah komentar fb, jasa komentar fb terpercaya, jasa jual komentar facebook aktif indonesia, harga jasa komentar facebook, jasa komentar facebook aktif murah, jasa komentar facebook organik, jasa tambah komentar facebook indonesia";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Pengembangan Interaksi Facebook",
+  labelIcon: "lucide:comments",
+  judulUtama: '<span class="text-pink-600">Jasa Tambah Komentar</span> Facebook',
+  deskripsi: "Punya konten yang ingin dibahas lebih luas? Layanan jasa tambah komentar hadir sebagai solusi untuk mempercepat interaksi konten Anda. Tingkatkan kredibilitas dan tarik perhatian audiens dengan interaksi yang solid dan meyakinkan.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Interaksi Natural &nbsp; ✓ Privasi Terjamin &nbsp; ✓ Kualitas Premium</span>",
+  teksTombol1: "Pilih Paket Komentar",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Konten",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-facebook.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Interaksi Konten</span> Saat Ini',
+  deskripsiUtama: "Di platform yang sangat mengutamakan interaksi, angka statistik sering kali menjadi penentu pertama kesuksesan. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Krisis Perhatian Audiens:</strong> Konten Anda sering kali tidak mendapatkan perhatian yang cukup karena minimnya interaksi.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Susah Meningkatkan Engagement:</strong> Konten Anda sulit untuk meningkatkan engagement rate karena kurangnya interaksi dari audiens.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Konten Tenggelam:</strong> Konten yang Anda buat kalah pamor oleh konten lain yang sudah lebih dulu memiliki interaksi yang tinggi.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Stagnasi Interaksi:</strong> Sudah rutin mempublikasikan konten setiap hari, namun interaksi konten seolah terkunci di angka yang itu-itu saja.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Strategi <span class="text-pink-600">Pengembangan Interaksi</span>',
+  deskripsiUtama: "Sebuah pendekatan cerdas untuk menciptakan impresi (kesan pertama) yang memukau bagi setiap pengunjung konten Anda.",
+  k1Judul: "Distribusi Interaksi Terarah",
+  k1Teks: "Proses penambahan komentar dirancang agar menyesuaikan dengan ritme aktivitas wajar di Facebook. Kami menjaga agar riwayat interaksi konten Anda tetap terlihat prima.",
+  k2Judul: "Fokus pada Reputasi Digital",
+  k2Teks: "Lebih dari sekadar angka, layanan ini bertujuan untuk membangun social proof (bukti sosial) yang membuat orang lain secara psikologis tertarik untuk berinteraksi dengan konten Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Pengembangan Interaksi</span>',
+  deskripsiUtama: "Interaksi yang solid akan membuka berbagai peluang baru bagi konten digital Anda.",
+  m1Judul: "Menciptakan Aura Profesional",
+  m1Teks: "Konten dengan interaksi yang proporsional otomatis memancarkan wibawa. Ini adalah kunci untuk meyakinkan audiens maupun klien B2B.",
+  m2Judul: "Memicu Efek Bola Salju",
+  m2Teks: "Orang lebih mudah berinteraksi dengan konten yang sudah memiliki interaksi yang tinggi. Ketika mereka melihat konten Anda sudah ramai, probabilitas mereka untuk berinteraksi akan melonjak drastis.",
+  m3Judul: "Mendongkrak Konversi Penjualan",
+  m3Teks: "Konten yang terlihat interaktif memberikan rasa aman bagi audiens untuk melakukan transaksi tanpa rasa ragu.",
+  m4Judul: "Dominasi Algoritma Pencarian",
+  m4Teks: "Facebook memprioritaskan konten dengan interaksi yang besar di halaman pencarian dan rekomendasi konten."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang elegan, menjaga privasi, dan memberikan ketenangan pikiran bagi klien.",
+  mk1Judul: "Metode Eksekusi Natural",
+  mk1Teks: "Kami menghindari lonjakan yang tidak masuk akal. Semua disalurkan dengan kehati-hatian tingkat tinggi untuk menjaga ekosistem konten Anda.",
+  mk2Judul: "Integritas Privasi Terjaga",
+  mk2Teks: "Sistem kami beroperasi secara independen dari luar. Anda hanya cukup memberikan tautan (username) konten Anda. Harap pastikan konten dalam kondisi Publik (tidak digembok/private) selama masa pengerjaan.",
+  mk3Judul: "Perlindungan Garansi (Refill)",
+  mk3Teks: "Untuk memastikan investasi Anda bernilai, kami menyediakan fitur isi ulang untuk melindungi stabilitas jumlah interaksi selama masa garansi.",
+  mk4Judul: "Layanan Pelanggan Dedikatif",
+  mk4Teks: "Tim operasional Auradigital selalu memantau kampanye Anda dan siap menjawab konsultasi dengan ramah setiap saat.",
+  mk5Judul: "Tarif Fleksibel & Kompetitif",
+  mk5Teks: "Tersedia berbagai skala layanan jual jasa tambah komentar yang bisa disesuaikan dengan anggaran perorangan maupun korporat.",
+  mk6Judul: "Proses Aktivasi Ringkas",
+  mk6Teks: "Pemesanan dirancang tanpa birokrasi rumit. Begitu transaksi terkonfirmasi, jadwal ekspansi langsung kami kerjakan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Konten Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan konten Anda sebagai etalase yang meyakinkan dan berkelas.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Kalahkan Keraguan Audiens",
+  sol1Teks: "Berikan alasan kuat bagi audiens untuk segera mempercayai kualitas konten yang Anda tawarkan.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Perluas Panggung Karya",
+  sol2Teks: "Jangkau lebih banyak penikmat konten dengan fondasi interaksi yang sudah terbukti solid dan diminati banyak orang.",
+  sol3Icon: "lucide:heart",
+  sol3Teks: 'Untuk menyeimbangkan jumlah interaksi yang besar, kami merekomendasikan Anda untuk melengkapi konten dengan <a href="/like-facebook" class="text-pink-600 hover:underline font-semibold">jasa like Facebook</a> agar rasio interaksi (engagement rate) semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai transformasi konten Anda.",
+  co1Judul: "Tentukan Target Ekspansi",
+  co1Teks: "Pilih paket komentar yang paling sesuai dengan target pencapaian dan ukuran konten Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Konten",
+  co2Teks: "Cukup berikan username Facebook Anda. Harap pastikan konten dalam kondisi Publik (tidak digembok/private) selama masa pengerjaan.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Pertumbuhan",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus menciptakan konten terbaik."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Interaksi Konten",
+  deskripsiHarga: "Pilih paket pertumbuhan interaksi yang paling tepat untuk mendongkrak pesona konten Facebook Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-komentarfb.png",
+  p1Nama: "10 Komentar",
+  p1Fitur1: "Kualitas Komentar Standar",
+  p1Fitur2: "Proses Distribusi Natural",
+  p1Fitur3: "Privasi Konten Terjaga",
+  p1Harga: "Rp 100.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%2010%20Komentar%20Facebook",
+
+  // Paket Kanan
+  p2Label: "PILIHAN KREATOR",
+  p2Gambar: "/image/harga-komentarfb.png",
+  p2Nama: "100 Komentar",
+  p2Fitur1: "Kualitas Komentar Premium",
+  p2Fitur2: "Garansi Refill 30 Hari",
+  p2Fitur3: "Dukungan Prioritas Sistem",
+  p2HargaCoret: "Rp 1.500.000",
+  p2Harga: "Rp 1.200.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Komentar%20Facebook"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Tambah Komentar</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan pertumbuhan interaksi Facebook.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Tambah%20Komentar%20Facebook",
+  faq1Judul: "Apakah aman menggunakan jasa tambah komentar ini?",
+  faq1Teks: "Sangat aman. Kami memproses penambahan komentar dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Facebook. Konten Anda bebas dari risiko penangguhan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan konten saja. Proses penambahan berjalan murni dari luar konten Anda.",
+  faq3Judul: "Mengapa konten saya tidak boleh di-private?",
+  faq3Teks: "Selama proses pengiriman komentar berlangsung, sistem kami membutuhkan akses terbuka agar konten Anda dapat ditemukan dan dikomentari. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah komentar ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga.",
+  faq5Judul: "Apakah bisa untuk komentar target kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan komentar campuran skala nasional (Indonesia) dan global untuk mendongkrak angka secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas konten Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jual Jasa Tambah Komentar Facebook Organik",
+    "image": "https://jasalike.com/image/harga-komentarfb.png",
+    "description": "Tingkatkan interaksi dan kredibilitas konten Anda dengan layanan jual jasa tambah komentar Facebook. Proses pertumbuhan organik, privasi terjaga, dan hasil yang efektif.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 100000,
+      "highPrice": 1200000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Tambah Komentar Facebook"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa tambah komentar ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses penambahan komentar dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Facebook. Konten Anda bebas dari risiko penangguhan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan konten saja. Proses penambahan berjalan murni dari luar konten Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa konten saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses pengiriman komentar berlangsung, sistem kami membutuhkan akses terbuka agar konten Anda dapat ditemukan dan dikomentari. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah komentar ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
