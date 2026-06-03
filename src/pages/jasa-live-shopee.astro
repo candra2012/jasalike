@@ -1,0 +1,269 @@
+---
+// src/pages/jasa-penonton-live-shopee.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Penonton Live Shopee Murah & Berkualitas";
+const description = "Tingkatkan visibilitas dan popularitas live streaming Shopee Anda dengan layanan jasa penonton live Shopee murah dan berkualitas.";
+const keywords = "jasa penonton live shopee, jasa live shopee, penonton live shopee, jasa view live shopee, live streaming shopee, jasa penonton shopee, shopee live, jasa viewer shopee";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Peningkatan Visibilitas Live Streaming",
+  labelIcon: "lucide:users",
+  judulUtama: '<span class="text-pink-600">Jasa Penonton Live Shopee</span>',
+  deskripsi: "Dapatkan penonton live Shopee yang berkualitas dan murah untuk meningkatkan popularitas dan visibilitas live streaming Anda. Dengan layanan ini, Anda dapat meningkatkan kesadaran merek dan meningkatkan penjualan.",
+  teksTombol1: "Pilih Paket Penonton",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Live Streaming",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-shopee.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Live Streaming</span> Saat Ini',
+  deskripsiUtama: "Apakah Anda mengalami kesulitan dalam meningkatkan visibilitas live streaming Shopee Anda?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Kurangnya Penonton:</strong> Live streaming Anda tidak memiliki penonton yang cukup untuk meningkatkan popularitas dan visibilitas.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Kesadaran Merek Rendah:</strong> Merek Anda tidak terkenal dan tidak memiliki kesadaran yang cukup di kalangan penonton live streaming.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Penjualan Rendah:</strong> Live streaming Anda tidak dapat meningkatkan penjualan produk atau jasa Anda.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Kualitas Live Streaming Rendah:</strong> Kualitas live streaming Anda tidak baik dan tidak dapat meningkatkan kesadaran merek Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal <span class="text-pink-600">Jasa Penonton Live Shopee</span>',
+  deskripsiUtama: "Layanan jasa penonton live Shopee adalah solusi untuk meningkatkan visibilitas dan popularitas live streaming Anda.",
+  k1Judul: "Peningkatan Visibilitas",
+  k1Teks: "Dengan layanan jasa penonton live Shopee, Anda dapat meningkatkan visibilitas live streaming Anda dan meningkatkan kesadaran merek Anda.",
+  k2Judul: "Peningkatan Popularitas",
+  k2Teks: "Layanan ini dapat membantu Anda meningkatkan popularitas live streaming Anda dan meningkatkan penjualan produk atau jasa Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Jasa Penonton Live Shopee</span>',
+  deskripsiUtama: "Layanan jasa penonton live Shopee dapat memberikan dampak positif bagi bisnis Anda.",
+  m1Judul: "Meningkatkan Visibilitas",
+  m1Teks: "Layanan ini dapat membantu Anda meningkatkan visibilitas live streaming Anda dan meningkatkan kesadaran merek Anda.",
+  m2Judul: "Meningkatkan Popularitas",
+  m2Teks: "Dengan layanan jasa penonton live Shopee, Anda dapat meningkatkan popularitas live streaming Anda dan meningkatkan penjualan produk atau jasa Anda.",
+  m3Judul: "Meningkatkan Penjualan",
+  m3Teks: "Layanan ini dapat membantu Anda meningkatkan penjualan produk atau jasa Anda dengan meningkatkan visibilitas dan popularitas live streaming Anda.",
+  m4Judul: "Meningkatkan Kesadaran Merek",
+  m4Teks: "Dengan layanan jasa penonton live Shopee, Anda dapat meningkatkan kesadaran merek Anda dan meningkatkan kepercayaan pelanggan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami menyediakan layanan jasa penonton live Shopee yang berkualitas dan murah.",
+  mk1Judul: "Pengalaman Bertahun-tahun",
+  mk1Teks: "Kami memiliki pengalaman bertahun-tahun dalam menyediakan layanan jasa penonton live Shopee.",
+  mk2Judul: "Kualitas Penonton yang Baik",
+  mk2Teks: "Kami menyediakan penonton live Shopee yang berkualitas dan dapat meningkatkan visibilitas dan popularitas live streaming Anda.",
+  mk3Judul: "Harga yang Kompetitif",
+  mk3Teks: "Kami menyediakan harga yang kompetitif dan dapat meningkatkan keuntungan Anda.",
+  mk4Judul: "Layanan Pelanggan yang Baik",
+  mk4Teks: "Kami menyediakan layanan pelanggan yang baik dan dapat membantu Anda dalam meningkatkan visibilitas dan popularitas live streaming Anda.",
+  mk5Judul: "Garansi yang Baik",
+  mk5Teks: "Kami menyediakan garansi yang baik dan dapat membantu Anda dalam meningkatkan kepercayaan pelanggan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Live Streaming Anda</span> Sekarang',
+  deskripsiUtama: "Dengan layanan jasa penonton live Shopee, Anda dapat meningkatkan visibilitas dan popularitas live streaming Anda.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Visibilitas",
+  sol1Teks: "Layanan ini dapat membantu Anda meningkatkan visibilitas live streaming Anda dan meningkatkan kesadaran merek Anda.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Meningkatkan Popularitas",
+  sol2Teks: "Dengan layanan jasa penonton live Shopee, Anda dapat meningkatkan popularitas live streaming Anda dan meningkatkan penjualan produk atau jasa Anda.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Meningkatkan Penjualan",
+  sol3Teks: "Layanan ini dapat membantu Anda meningkatkan penjualan produk atau jasa Anda dengan meningkatkan visibilitas dan popularitas live streaming Anda."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai meningkatkan visibilitas dan popularitas live streaming Anda.",
+  co1Judul: "Tentukan Paket Penonton",
+  co1Teks: "Pilih paket penonton yang sesuai dengan kebutuhan Anda.",
+  co2Judul: "Kirimkan Informasi Live Streaming",
+  co2Teks: "Kirimkan informasi live streaming Anda kepada kami.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan proses pembayaran dengan aman dan nyaman.",
+  co4Judul: "Nikmati Hasilnya",
+  co4Teks: "Nikmati hasilnya dan lihat perbedaan yang signifikan dalam visibilitas dan popularitas live streaming Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Visibilitas Live Streaming",
+  deskripsiHarga: "Pilih paket penonton yang sesuai dengan kebutuhan Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-penonton-shopee.png",
+  p1Nama: "100 Penonton",
+  p1Fitur1: "Kualitas Penonton yang Baik",
+  p1Fitur2: "Pengiriman Cepat",
+  p1Fitur3: "Harga yang Kompetitif",
+  p1Harga: "Rp 50.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Penonton%20Shopee",
+
+  // Paket Kanan
+  p2Label: "PILIHAN POPULER",
+  p2Gambar: "/image/harga-penonton-shopee.png",
+  p2Nama: "1000 Penonton",
+  p2Fitur1: "Kualitas Penonton yang Sangat Baik",
+  p2Fitur2: "Pengiriman yang Sangat Cepat",
+  p2Fitur3: "Harga yang Sangat Kompetitif",
+  p2HargaCoret: "Rp 500.000",
+  p2Harga: "Rp 450.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Penonton%20Shopee"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Jasa Penonton Live Shopee</span>',
+  deskripsiUtama: "Informasi yang sering ditanyakan tentang layanan jasa penonton live Shopee.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Penonton%20Live%20Shopee",
+  faq1Judul: "Apakah layanan jasa penonton live Shopee aman?",
+  faq1Teks: "Ya, layanan jasa penonton live Shopee kami sangat aman dan tidak akan membahayakan akun Anda.",
+  faq2Judul: "Berapa lama waktu pengiriman penonton?",
+  faq2Teks: "Waktu pengiriman penonton biasanya memakan waktu beberapa jam setelah pembayaran dilakukan.",
+  faq3Judul: "Apakah saya bisa meminta refund?",
+  faq3Teks: "Ya, Anda bisa meminta refund jika tidak puas dengan layanan kami.",
+  faq4Judul: "Bagaimana cara memesan layanan jasa penonton live Shopee?",
+  faq4Teks: "Anda bisa memesan layanan jasa penonton live Shopee dengan menghubungi kami melalui WhatsApp atau mengisi form pemesanan di website kami."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Penonton Live Shopee Murah & Berkualitas",
+    "image": "https://jasalike.com/image/harga-penonton-shopee.png",
+    "description": "Tingkatkan visibilitas dan popularitas live streaming Shopee Anda dengan layanan jasa penonton live Shopee murah dan berkualitas.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 50000,
+      "highPrice": 450000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Penonton Live Shopee"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan jasa penonton live Shopee aman?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan jasa penonton live Shopee kami sangat aman dan tidak akan membahayakan akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama waktu pengiriman penonton?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waktu pengiriman penonton biasanya memakan waktu beberapa jam setelah pembayaran dilakukan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya bisa meminta refund?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, Anda bisa meminta refund jika tidak puas dengan layanan kami."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
