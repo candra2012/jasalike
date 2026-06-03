@@ -1,0 +1,281 @@
+---
+// src/pages/jasa-vote-produk-shopee.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Vote Produk Shopee Terpercaya & Profesional";
+const description = "Tingkatkan popularitas produk Anda di Shopee dengan layanan jasa vote produk Shopee. Proses voting yang aman, privasi terjaga, dan hasil yang memuaskan.";
+const keywords = "jasa vote produk shopee, layanan vote shopee, jasa voting shopee, vote produk shopee, jasa vote shopee terpercaya, jasa vote produk shopee profesional, harga jasa vote shopee, jasa vote shopee murah";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Peningkatan Popularitas Produk",
+  labelIcon: "lucide:trophy",
+  judulUtama: '<span class="text-pink-600">Jasa Vote Produk Shopee</span>',
+  deskripsi: "Punya produk yang berkualitas, tetapi kesulitan menjangkau konsumen? Layanan jasa vote produk Shopee hadir sebagai solusi untuk meningkatkan popularitas produk Anda. Dengan vote yang banyak, produk Anda akan lebih mudah ditemukan dan dipercaya oleh konsumen.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Proses Voting Aman &nbsp; ✓ Privasi Terjamin &nbsp; ✓ Hasil yang Memuaskan</span>",
+  teksTombol1: "Pilih Paket Voting",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Produk",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasa-vote-shopee.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Penjualan Produk</span> Saat Ini',
+  deskripsiUtama: "Di platform yang sangat kompetitif, penjualan produk sering kali menjadi tantangan besar. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Krisis Kepercayaan Konsumen:</strong> Konsumen sering kali mengurungkan niat untuk membeli karena melihat produk Anda masih kurang populer.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Susah Tembus Pasar:</strong> Produk Anda sulit ditemukan oleh konsumen karena kalah saing dengan produk lain yang lebih populer.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Penjualan yang Lambat:</strong> Produk Anda sulit terjual karena kurangnya exposure dan promosi yang efektif.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Stagnasi Penjualan:</strong> Penjualan produk Anda stagnan dan tidak meningkat meskipun sudah melakukan promosi yang maksimal.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-pink-600">Vote Produk Shopee</span>',
+  deskripsiUtama: "Sebuah layanan yang dirancang untuk membantu meningkatkan popularitas produk Anda di Shopee.",
+  k1Judul: "Proses Voting yang Aman",
+  k1Teks: "Kami memastikan bahwa proses voting dilakukan dengan aman dan tidak melanggar kebijakan Shopee.",
+  k2Judul: "Privasi yang Terjamin",
+  k2Teks: "Kami menjaga privasi Anda dengan sangat ketat dan tidak akan membagikan informasi Anda kepada pihak lain."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Vote Produk Shopee</span>',
+  deskripsiUtama: "Dengan vote yang banyak, produk Anda akan lebih mudah ditemukan dan dipercaya oleh konsumen.",
+  m1Judul: "Meningkatkan Popularitas Produk",
+  m1Teks: "Vote yang banyak akan membuat produk Anda lebih populer dan mudah ditemukan oleh konsumen.",
+  m2Judul: "Meningkatkan Kepercayaan Konsumen",
+  m2Teks: "Konsumen akan lebih percaya diri untuk membeli produk Anda karena melihat banyak vote yang positif.",
+  m3Judul: "Meningkatkan Penjualan",
+  m3Teks: "Dengan popularitas yang meningkat, penjualan produk Anda akan meningkat dan menjadi lebih sukses.",
+  m4Judul: "Meningkatkan Posisi di Halaman Pencarian",
+  m4Teks: "Produk Anda akan lebih mudah ditemukan di halaman pencarian Shopee karena memiliki banyak vote."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang layanan ini untuk memberikan hasil yang memuaskan dan menjaga privasi Anda.",
+  mk1Judul: "Proses Voting yang Aman",
+  mk1Teks: "Kami memastikan bahwa proses voting dilakukan dengan aman dan tidak melanggar kebijakan Shopee.",
+  mk2Judul: "Privasi yang Terjamin",
+  mk2Teks: "Kami menjaga privasi Anda dengan sangat ketat dan tidak akan membagikan informasi Anda kepada pihak lain.",
+  mk3Judul: "Hasil yang Memuaskan",
+  mk3Teks: "Kami memastikan bahwa hasil voting akan memuaskan dan meningkatkan popularitas produk Anda.",
+  mk4Judul: "Layanan Pelanggan yang Baik",
+  mk4Teks: "Kami menyediakan layanan pelanggan yang baik dan responsif untuk membantu Anda dalam proses voting.",
+  mk5Judul: "Harga yang Kompetitif",
+  mk5Teks: "Kami menawarkan harga yang kompetitif dan terjangkau untuk layanan vote produk Shopee."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Produk Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan produk Anda lebih populer dan mudah ditemukan oleh konsumen dengan layanan vote produk Shopee.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Popularitas Produk",
+  sol1Teks: "Dapatkan vote yang banyak dan membuat produk Anda lebih populer dan mudah ditemukan oleh konsumen.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Meningkatkan Kepercayaan Konsumen",
+  sol2Teks: "Konsumen akan lebih percaya diri untuk membeli produk Anda karena melihat banyak vote yang positif.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Meningkatkan Penjualan",
+  sol3Teks: "Dengan popularitas yang meningkat, penjualan produk Anda akan meningkat dan menjadi lebih sukses."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai proses voting produk Anda.",
+  co1Judul: "Tentukan Jumlah Vote",
+  co1Teks: "Pilih jumlah vote yang Anda inginkan untuk meningkatkan popularitas produk Anda.",
+  co2Judul: "Kirimkan Informasi Produk",
+  co2Teks: "Kirimkan informasi produk Anda, seperti nama produk, link produk, dan deskripsi produk.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Hasil Voting",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus meningkatkan penjualan produk Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Popularitas Produk",
+  deskripsiHarga: "Pilih paket vote produk Shopee yang paling tepat untuk meningkatkan popularitas produk Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-vote-shopee.png",
+  p1Nama: "100 Vote",
+  p1Fitur1: "Proses Voting yang Aman",
+  p1Fitur2: "Privasi yang Terjamin",
+  p1Fitur3: "Hasil yang Memuaskan",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Vote%20Shopee",
+
+  // Paket Kanan
+  p2Label: "PILIHAN BISNIS",
+  p2Gambar: "/image/harga-vote-shopee.png",
+  p2Nama: "1000 Vote",
+  p2Fitur1: "Proses Voting yang Cepat",
+  p2Fitur2: "Privasi yang Terjamin",
+  p2Fitur3: "Hasil yang Memuaskan",
+  p2HargaCoret: "Rp 2.250.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Vote%20Shopee"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Vote Produk Shopee</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan vote produk Shopee.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Vote%20Produk%20Shopee",
+  faq1Judul: "Apakah aman menggunakan jasa vote produk Shopee?",
+  faq1Teks: "Sangat aman. Kami memproses vote dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Shopee.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan informasi produk saja. Proses voting berjalan murni dari luar akun Anda.",
+  faq3Judul: "Mengapa produk saya tidak boleh di-private?",
+  faq3Teks: "Selama proses voting berlangsung, sistem kami membutuhkan akses terbuka agar produk Anda dapat ditemukan dan divote. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah vote ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga.",
+  faq5Judul: "Apakah bisa untuk vote produk kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan vote produk secara nasional untuk mendongkrak angka secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas akun Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Vote Produk Shopee Terpercaya",
+    "image": "https://jasalike.com/image/harga-vote-shopee.png",
+    "description": "Tingkatkan popularitas produk Anda di Shopee dengan layanan jasa vote produk Shopee. Proses voting yang aman, privasi terjaga, dan hasil yang memuaskan.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Vote Produk Shopee"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa vote produk Shopee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses vote dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Shopee."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan informasi produk saja. Proses voting berjalan murni dari luar akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa produk saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses voting berlangsung, sistem kami membutuhkan akses terbuka agar produk Anda dapat ditemukan dan divote. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah vote ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
