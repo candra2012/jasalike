@@ -1,0 +1,278 @@
+---
+// src/pages/jasa-report-toko-shopee.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Report Toko Shopee Terpercaya & Akurat";
+const description = "Dapatkan laporan toko Shopee yang akurat dan terpercaya dengan layanan jasa report toko Shopee. Tingkatkan penjualan dan optimalkan strategi bisnis Anda.";
+const keywords = "jasa report toko shopee, report toko shopee, jasa laporan toko shopee, laporan toko shopee, jasa analisis toko shopee, analisis toko shopee, jasa optimasi toko shopee, optimasi toko shopee";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Analisis Toko Shopee",
+  labelIcon: "lucide:chart-bar",
+  judulUtama: '<span class="text-pink-600">Jasa Report Toko Shopee</span>',
+  deskripsi: "Punya toko Shopee yang ingin dioptimalkan? Layanan jasa report toko Shopee hadir untuk membantu Anda memahami performa toko dan meningkatkan penjualan. Dapatkan laporan yang akurat dan terpercaya dengan kami.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Laporan Akurat &nbsp; ✓ Analisis Komprehensif &nbsp; ✓ Strategi Optimasi</span>",
+  teksTombol1: "Dapatkan Laporan Sekarang",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-shopee.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Optimasi Toko</span> Saat Ini',
+  deskripsiUtama: "Di platform yang sangat kompetitif, analisis yang akurat menjadi kunci untuk meningkatkan penjualan. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Kesulitan Menganalisis Data:</strong> Anda kesulitan menganalisis data penjualan dan performa toko Shopee Anda.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Kurangnya Strategi Optimasi:</strong> Anda tidak memiliki strategi yang efektif untuk meningkatkan penjualan dan optimalkan toko Shopee Anda.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Keterlambatan dalam Mengambil Keputusan:</strong> Anda kesulitan mengambil keputusan yang tepat karena kurangnya informasi yang akurat.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Kehilangan Kesempatan Penjualan:</strong> Anda kehilangan kesempatan penjualan karena tidak memiliki strategi yang efektif untuk meningkatkan penjualan.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-pink-600">Report Toko Shopee</span>',
+  deskripsiUtama: "Sebuah layanan yang dirancang untuk membantu Anda memahami performa toko Shopee dan meningkatkan penjualan.",
+  k1Judul: "Laporan Akurat dan Komprehensif",
+  k1Teks: "Dapatkan laporan yang akurat dan komprehensif tentang performa toko Shopee Anda, termasuk analisis penjualan, produk, dan konsumen.",
+  k2Judul: "Strategi Optimasi yang Efektif",
+  k2Teks: "Dapatkan strategi optimasi yang efektif untuk meningkatkan penjualan dan optimalkan toko Shopee Anda, berdasarkan analisis data yang akurat."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Laporan Toko Shopee</span>',
+  deskripsiUtama: "Dapatkan manfaat yang signifikan dengan menggunakan layanan jasa report toko Shopee, termasuk peningkatan penjualan dan optimalkan toko Shopee Anda.",
+  m1Judul: "Meningkatkan Penjualan",
+  m1Teks: "Dapatkan strategi yang efektif untuk meningkatkan penjualan dan optimalkan toko Shopee Anda, berdasarkan analisis data yang akurat.",
+  m2Judul: "Mengoptimalkan Toko Shopee",
+  m2Teks: "Dapatkan strategi yang efektif untuk mengoptimalkan toko Shopee Anda, termasuk peningkatan kualitas produk, harga, dan pelayanan.",
+  m3Judul: "Mengambil Keputusan yang Tepat",
+  m3Teks: "Dapatkan informasi yang akurat dan komprehensif untuk mengambil keputusan yang tepat tentang toko Shopee Anda.",
+  m4Judul: "Meningkatkan Kepuasan Konsumen",
+  m4Teks: "Dapatkan strategi yang efektif untuk meningkatkan kepuasan konsumen, termasuk peningkatan kualitas produk, harga, dan pelayanan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang akurat, efektif, dan memuaskan bagi klien.",
+  mk1Judul: "Laporan Akurat dan Komprehensif",
+  mk1Teks: "Dapatkan laporan yang akurat dan komprehensif tentang performa toko Shopee Anda.",
+  mk2Judul: "Strategi Optimasi yang Efektif",
+  mk2Teks: "Dapatkan strategi optimasi yang efektif untuk meningkatkan penjualan dan optimalkan toko Shopee Anda.",
+  mk3Judul: "Pelayanan yang Memuaskan",
+  mk3Teks: "Dapatkan pelayanan yang memuaskan dan responsif dari tim kami.",
+  mk4Judul: "Harga yang Kompetitif",
+  mk4Teks: "Dapatkan harga yang kompetitif dan sesuai dengan kebutuhan Anda.",
+  mk5Judul: "Proses yang Efektif",
+  mk5Teks: "Dapatkan proses yang efektif dan efisien untuk meningkatkan penjualan dan optimalkan toko Shopee Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Toko Shopee Anda</span> Sekarang',
+  deskripsiUtama: "Dapatkan solusi yang efektif untuk meningkatkan penjualan dan optimalkan toko Shopee Anda.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Penjualan",
+  sol1Teks: "Dapatkan strategi yang efektif untuk meningkatkan penjualan dan optimalkan toko Shopee Anda.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Mengoptimalkan Toko Shopee",
+  sol2Teks: "Dapatkan strategi yang efektif untuk mengoptimalkan toko Shopee Anda, termasuk peningkatan kualitas produk, harga, dan pelayanan.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Meningkatkan Kepuasan Konsumen",
+  sol3Teks: "Dapatkan strategi yang efektif untuk meningkatkan kepuasan konsumen, termasuk peningkatan kualitas produk, harga, dan pelayanan."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai optimalkan toko Shopee Anda.",
+  co1Judul: "Tentukan Paket Laporan",
+  co1Teks: "Pilih paket laporan yang sesuai dengan kebutuhan Anda.",
+  co2Judul: "Kirimkan Informasi Toko",
+  co2Teks: "Kirimkan informasi toko Shopee Anda, termasuk nama toko, alamat, dan kontak.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Dapatkan Laporan",
+  co4Teks: "Dapatkan laporan yang akurat dan komprehensif tentang performa toko Shopee Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Optimalkan Toko Shopee",
+  deskripsiHarga: "Pilih paket laporan yang sesuai dengan kebutuhan Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-laporan-toko-shopee.png",
+  p1Nama: "Paket Laporan Dasar",
+  p1Fitur1: "Laporan Penjualan",
+  p1Fitur2: "Laporan Produk",
+  p1Fitur3: "Laporan Konsumen",
+  p1Harga: "Rp 500.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Laporan%20Dasar",
+
+  // Paket Kanan
+  p2Label: "PILIHAN BISNIS",
+  p2Gambar: "/image/harga-laporan-toko-shopee.png",
+  p2Nama: "Paket Laporan Premium",
+  p2Fitur1: "Laporan Penjualan",
+  p2Fitur2: "Laporan Produk",
+  p2Fitur3: "Laporan Konsumen",
+  p2Fitur4: "Analisis Strategi Optimasi",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Laporan%20Premium"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Report Toko Shopee</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan report toko Shopee.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Report%20Toko%20Shopee",
+  faq1Judul: "Apakah laporan yang disediakan akurat?",
+  faq1Teks: "Ya, laporan yang disediakan sangat akurat dan komprehensif.",
+  faq2Judul: "Apakah saya harus memberikan informasi toko?",
+  faq2Teks: "Ya, Anda harus memberikan informasi toko Shopee Anda, termasuk nama toko, alamat, dan kontak.",
+  faq3Judul: "Apakah laporan dapat diakses secara online?",
+  faq3Teks: "Ya, laporan dapat diakses secara online melalui sistem kami.",
+  faq4Judul: "Apakah saya dapat meminta laporan kustom?",
+  faq4Teks: "Ya, Anda dapat meminta laporan kustom sesuai dengan kebutuhan Anda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Report Toko Shopee Terpercaya & Akurat",
+    "image": "https://jasalike.com/image/harga-laporan-toko-shopee.png",
+    "description": "Dapatkan laporan toko Shopee yang akurat dan terpercaya dengan layanan jasa report toko Shopee. Tingkatkan penjualan dan optimalkan strategi bisnis Anda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 500000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Report Toko Shopee"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah laporan yang disediakan akurat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, laporan yang disediakan sangat akurat dan komprehensif."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan informasi toko?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, Anda harus memberikan informasi toko Shopee Anda, termasuk nama toko, alamat, dan kontak."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah laporan dapat diakses secara online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, laporan dapat diakses secara online melalui sistem kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya dapat meminta laporan kustom?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, Anda dapat meminta laporan kustom sesuai dengan kebutuhan Anda."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
