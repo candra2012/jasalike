@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-produk-terjual.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Produk Terjual di Toko Online Anda";
+const description = "Tingkatkan penjualan produk di toko online Anda dengan layanan jasa produk terjual. Proses profesional, privasi terjaga, dan hasil yang memuaskan.";
+const keywords = "jasa produk terjual, jual jasa produk terjual, jasa produk terjual online, beli jasa produk terjual, jasa produk terjual murah, jasa produk terjual terpercaya, jasa produk terjual berkualitas";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Peningkatan Penjualan",
+  labelIcon: "lucide:shopping-cart",
+  judulUtama: '<span class="text-pink-600">Jasa Produk Terjual</span>',
+  deskripsi: "Punya toko online yang ingin meningkatkan penjualan? Layanan jasa produk terjual hadir sebagai solusi untuk meningkatkan kesuksesan bisnis Anda. Dengan proses profesional dan privasi terjaga, Anda dapat meningkatkan penjualan produk di toko online Anda.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Proses Profesional &nbsp; ✓ Privasi Terjamin &nbsp; ✓ Hasil Memuaskan</span>",
+  teksTombol1: "Pilih Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasa-produk-terjual.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Penjualan</span> Saat Ini',
+  deskripsiUtama: "Di dunia e-commerce yang sangat kompetitif, angka penjualan sering kali menjadi penentu kesuksesan. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Krisis Kepercayaan Pembeli:</strong> Calon pembeli sering kali mengurungkan niat untuk berbelanja karena melihat produk Anda tidak pernah terjual.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Susah Meningkatkan Penjualan:</strong> Anda sudah rutin mempromosikan produk, namun penjualan tidak juga meningkat.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Kesulitan Mengatasi Persaingan:</strong> Toko online Anda kalah saing dengan toko lain yang sudah memiliki banyak penjualan.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Stagnasi Penjualan:</strong> Penjualan produk Anda tidak juga meningkat, meskipun sudah melakukan banyak promosi.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Strategi <span class="text-pink-600">Peningkatan Penjualan</span>',
+  deskripsiUtama: "Sebuah pendekatan cerdas untuk meningkatkan penjualan produk di toko online Anda.",
+  k1Judul: "Peningkatan Penjualan yang Efektif",
+  k1Teks: "Proses peningkatan penjualan dirancang agar efektif dan profesional, sehingga meningkatkan kesuksesan bisnis Anda.",
+  k2Judul: "Fokus pada Kepuasan Pembeli",
+  k2Teks: "Layanan ini bertujuan untuk meningkatkan kepuasan pembeli, sehingga meningkatkan penjualan dan kesuksesan bisnis Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Peningkatan Penjualan</span>',
+  deskripsiUtama: "Peningkatan penjualan produk di toko online Anda akan membuka berbagai peluang baru bagi kesuksesan bisnis Anda.",
+  m1Judul: "Meningkatkan Kepercayaan Pembeli",
+  m1Teks: "Peningkatan penjualan produk akan meningkatkan kepercayaan pembeli, sehingga meningkatkan kesuksesan bisnis Anda.",
+  m2Judul: "Meningkatkan Pendapatan",
+  m2Teks: "Peningkatan penjualan produk akan meningkatkan pendapatan bisnis Anda, sehingga meningkatkan kesuksesan bisnis Anda.",
+  m3Judul: "Meningkatkan Kompetitif",
+  m3Teks: "Peningkatan penjualan produk akan meningkatkan kompetitif bisnis Anda, sehingga meningkatkan kesuksesan bisnis Anda.",
+  m4Judul: "Meningkatkan Reputasi",
+  m4Teks: "Peningkatan penjualan produk akan meningkatkan reputasi bisnis Anda, sehingga meningkatkan kesuksesan bisnis Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang elegan, menjaga privasi, dan memberikan ketenangan pikiran bagi klien.",
+  mk1Judul: "Metode Eksekusi Profesional",
+  mk1Teks: "Kami menghindari lonjakan yang tidak masuk akal. Semua disalurkan dengan kehati-hatian tinggi untuk menjaga ekosistem bisnis Anda.",
+  mk2Judul: "Integritas Privasi Terjaga",
+  mk2Teks: "Sistem kami beroperasi secara independen dari luar. Anda hanya cukup memberikan informasi yang diperlukan, tanpa perlu menyerahkan informasi rahasia apa pun.",
+  mk3Judul: "Perlindungan Garansi (Refill)",
+  mk3Teks: "Untuk memastikan investasi Anda bernilai, kami menyediakan fitur isi ulang untuk melindungi stabilitas penjualan produk Anda selama masa garansi.",
+  mk4Judul: "Layanan Pelanggan Dedikatif",
+  mk4Teks: "Tim operasional Auradigital selalu memantau kampanye Anda dan siap menjawab konsultasi dengan ramah setiap saat.",
+  mk5Judul: "Tarif Fleksibel & Kompetitif",
+  mk5Teks: "Tersedia berbagai skala layanan jual jasa produk terjual yang bisa disesuaikan dengan anggaran perorangan maupun korporat.",
+  mk6Judul: "Proses Aktivasi Ringkas",
+  mk6Teks: "Pemesanan dirancang tanpa birokrasi rumit. Begitu transaksi terkonfirmasi, jadwal peningkatan penjualan langsung kami kerjakan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Bisnis Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan bisnis Anda sebagai contoh kesuksesan dengan layanan jasa produk terjual.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Penjualan",
+  sol1Teks: "Berikan alasan kuat bagi pembeli untuk segera mempercayai produk Anda.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Perluas Panggung Bisnis",
+  sol2Teks: "Jangkau lebih banyak pelanggan dengan fondasi bisnis yang sudah terbukti solid dan diminati banyak orang.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Kombinasi Kepuasan Pembeli",
+  sol3Teks: 'Untuk menyeimbangkan penjualan produk yang besar, kami merekomendasikan Anda untuk melengkapi bisnis dengan <a href="/jasa-like" class="text-pink-600 hover:underline font-semibold">jasa like</a> agar rasio interaksi (engagement rate) semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai transformasi bisnis Anda.",
+  co1Judul: "Tentukan Target Peningkatan",
+  co1Teks: "Pilih paket peningkatan penjualan yang paling sesuai dengan target pencapaian dan ukuran bisnis Anda saat ini.",
+  co2Judul: "Kirimkan Informasi Bisnis",
+  co2Teks: "Cukup berikan informasi yang diperlukan. Harap pastikan informasi yang diberikan sudah lengkap dan akurat.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Peningkatan Penjualan",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus mengembangkan bisnis Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Peningkatan Penjualan",
+  deskripsiHarga: "Pilih paket peningkatan penjualan yang paling tepat untuk mendongkrak kesuksesan bisnis Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-paket1.png",
+  p1Nama: "Paket Basic",
+  p1Fitur1: "Peningkatan Penjualan 10%",
+  p1Fitur2: "Proses Distribusi Natural",
+  p1Fitur3: "Privasi Bisnis Terjaga",
+  p1Harga: "Rp 500.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Basic",
+
+  // Paket Kanan
+  p2Label: "PILIHAN BISNIS",
+  p2Gambar: "/image/harga-paket2.png",
+  p2Nama: "Paket Pro",
+  p2Fitur1: "Peningkatan Penjualan 20%",
+  p2Fitur2: "Garansi Refill 30 Hari",
+  p2Fitur3: "Dukungan Prioritas Sistem",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Pro"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Produk Terjual</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan peningkatan penjualan.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Produk%20Terjual",
+  faq1Judul: "Apakah aman menggunakan jasa produk terjual ini?",
+  faq1Teks: "Sangat aman. Kami memproses peningkatan penjualan dengan kecepatan yang wajar dan metode profesional, sehingga sepenuhnya mematuhi standar keamanan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan informasi yang diperlukan saja.",
+  faq3Judul: "Mengapa bisnis saya tidak boleh di-private?",
+  faq3Teks: "Selama proses peningkatan penjualan berlangsung, sistem kami membutuhkan akses terbuka agar bisnis Anda dapat ditemukan dan diakses. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah penjualan ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga.",
+  faq5Judul: "Apakah bisa untuk penjualan target kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan penjualan secara nasional (Indonesia) dan global untuk mendongkrak angka secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas bisnis Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jual Jasa Produk Terjual di Toko Online",
+    "image": "https://jasalike.com/image/harga-paket1.png",
+    "description": "Tingkatkan penjualan produk di toko online Anda dengan layanan jasa produk terjual. Proses profesional, privasi terjaga, dan hasil yang memuaskan.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 500000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Produk Terjual"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa produk terjual ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses peningkatan penjualan dengan kecepatan yang wajar dan metode profesional, sehingga sepenuhnya mematuhi standar keamanan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan informasi yang diperlukan saja."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa bisnis saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses peningkatan penjualan berlangsung, sistem kami membutuhkan akses terbuka agar bisnis Anda dapat ditemukan dan diakses. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah penjualan ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
