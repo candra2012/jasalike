@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-vote-produk.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Vote Produk Online Terpercaya untuk Meningkatkan Peluang Menang";
+const description = "Dapatkan dukungan suara yang solid dengan layanan jasa vote produk online. Tingkatkan kesempatan menang Anda dalam kompetisi atau lomba dengan strategi yang efektif dan aman.";
+const keywords = "jasa vote produk, jasa tambah suara, jasa dukungan suara, jasa vote online, jasa menang lomba, jasa menang kompetisi, layanan vote produk, jasa vote produk terpercaya";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Dukungan Suara untuk Kemenangan",
+  labelIcon: "lucide:trophy",
+  judulUtama: '<span class="text-pink-600">Jasa Vote Produk</span> Online',
+  deskripsi: "Ingin meningkatkan peluang menang dalam kompetisi atau lomba? Layanan jasa vote produk online hadir untuk membantu Anda mendapatkan dukungan suara yang solid dan efektif. Dengan strategi yang aman dan terpercaya, kami membantu Anda mencapai kemenangan yang diinginkan.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Dukungan Suara Solid &nbsp; ✓ Strategi Efektif &nbsp; ✓ Aman dan Terpercaya</span>",
+  teksTombol1: "Pilih Paket Dukungan",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-vote.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Dukungan Suara</span> Saat Ini',
+  deskripsiUtama: "Di kompetisi atau lomba, dukungan suara yang solid sangat penting untuk meningkatkan peluang menang. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Kurangnya Dukungan Suara:</strong> Anda merasa kesulitan mendapatkan dukungan suara yang cukup untuk meningkatkan peluang menang.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Strategi yang Tidak Efektif:</strong> Anda merasa bahwa strategi yang digunakan tidak efektif dalam meningkatkan dukungan suara.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Kurangnya Waktu dan Sumber Daya:</strong> Anda merasa kesulitan mengelola waktu dan sumber daya untuk meningkatkan dukungan suara.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Kurangnya Kepercayaan:</strong> Anda merasa bahwa kepercayaan diri Anda rendah karena kurangnya dukungan suara.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Strategi <span class="text-pink-600">Dukungan Suara</span>',
+  deskripsiUtama: "Sebuah pendekatan cerdas untuk meningkatkan dukungan suara dan meningkatkan peluang menang.",
+  k1Judul: "Strategi Dukungan Suara yang Efektif",
+  k1Teks: "Kami membantu Anda meningkatkan dukungan suara dengan strategi yang efektif dan aman.",
+  k2Judul: "Meningkatkan Kepercayaan Diri",
+  k2Teks: "Dengan dukungan suara yang solid, Anda dapat meningkatkan kepercayaan diri dan meningkatkan peluang menang."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Dukungan Suara</span>',
+  deskripsiUtama: "Dukungan suara yang solid dapat membantu Anda mencapai kemenangan yang diinginkan.",
+  m1Judul: "Meningkatkan Peluang Menang",
+  m1Teks: "Dengan dukungan suara yang solid, Anda dapat meningkatkan peluang menang dalam kompetisi atau lomba.",
+  m2Judul: "Meningkatkan Kepercayaan Diri",
+  m2Teks: "Dukungan suara yang solid dapat membantu Anda meningkatkan kepercayaan diri dan meningkatkan kinerja.",
+  m3Judul: "Mengurangi Stres dan Kecemasan",
+  m3Teks: "Dengan dukungan suara yang solid, Anda dapat mengurangi stres dan kecemasan yang terkait dengan kompetisi atau lomba.",
+  m4Judul: "Meningkatkan Reputasi",
+  m4Teks: "Dukungan suara yang solid dapat membantu Anda meningkatkan reputasi dan meningkatkan kesempatan untuk mendapatkan pengakuan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami membantu Anda meningkatkan dukungan suara dengan strategi yang efektif dan aman.",
+  mk1Judul: "Strategi Dukungan Suara yang Efektif",
+  mk1Teks: "Kami membantu Anda meningkatkan dukungan suara dengan strategi yang efektif dan aman.",
+  mk2Judul: "Meningkatkan Kepercayaan Diri",
+  mk2Teks: "Dengan dukungan suara yang solid, Anda dapat meningkatkan kepercayaan diri dan meningkatkan peluang menang.",
+  mk3Judul: "Mengurangi Stres dan Kecemasan",
+  mk3Teks: "Dengan dukungan suara yang solid, Anda dapat mengurangi stres dan kecemasan yang terkait dengan kompetisi atau lomba.",
+  mk4Judul: "Meningkatkan Reputasi",
+  mk4Teks: "Dukungan suara yang solid dapat membantu Anda meningkatkan reputasi dan meningkatkan kesempatan untuk mendapatkan pengakuan.",
+  mk5Judul: "Layanan yang Profesional",
+  mk5Teks: "Kami memberikan layanan yang profesional dan ramah untuk membantu Anda mencapai kemenangan yang diinginkan.",
+  mk6Judul: "Harga yang Kompetitif",
+  mk6Teks: "Kami menawarkan harga yang kompetitif untuk membantu Anda meningkatkan dukungan suara dan mencapai kemenangan yang diinginkan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Kompetisi Anda</span> Sekarang',
+  deskripsiUtama: "Dapatkan dukungan suara yang solid dengan layanan jasa vote produk online.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Peluang Menang",
+  sol1Teks: "Dengan dukungan suara yang solid, Anda dapat meningkatkan peluang menang dalam kompetisi atau lomba.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Meningkatkan Kepercayaan Diri",
+  sol2Teks: "Dukungan suara yang solid dapat membantu Anda meningkatkan kepercayaan diri dan meningkatkan kinerja.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Mengurangi Stres dan Kecemasan",
+  sol3Teks: 'Dengan dukungan suara yang solid, Anda dapat mengurangi stres dan kecemasan yang terkait dengan kompetisi atau lomba.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai transformasi kompetisi Anda.",
+  co1Judul: "Tentukan Target Dukungan",
+  co1Teks: "Pilih paket dukungan yang paling sesuai dengan target pencapaian dan ukuran kompetisi Anda saat ini.",
+  co2Judul: "Kirimkan Informasi Kompetisi",
+  co2Teks: "Cukup berikan informasi kompetisi Anda. Harap pastikan informasi yang diberikan akurat dan lengkap.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Dukungan Suara",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus mencapai kemenangan yang diinginkan."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Dukungan Suara",
+  deskripsiHarga: "Pilih paket dukungan suara yang paling tepat untuk meningkatkan peluang menang Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-vote.png",
+  p1Nama: "100 Suara",
+  p1Fitur1: "Dukungan Suara yang Solid",
+  p1Fitur2: "Strategi yang Efektif",
+  p1Fitur3: "Aman dan Terpercaya",
+  p1Harga: "Rp 500.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Suara",
+
+  // Paket Kanan
+  p2Label: "PILIHAN KOMPETITOR",
+  p2Gambar: "/image/harga-vote.png",
+  p2Nama: "1000 Suara",
+  p2Fitur1: "Dukungan Suara yang Kuat",
+  p2Fitur2: "Strategi yang Inovatif",
+  p2Fitur3: "Layanan yang Profesional",
+  p2HargaCoret: "Rp 5.000.000",
+  p2Harga: "Rp 4.500.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Suara"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Vote Produk</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan dukungan suara.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Vote%20Produk",
+  faq1Judul: "Apakah aman menggunakan jasa vote produk ini?",
+  faq1Teks: "Sangat aman. Kami memproses dukungan suara dengan strategi yang efektif dan aman, sehingga sepenuhnya mematuhi standar keamanan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan informasi kompetisi saja. Proses dukungan suara berjalan murni dari luar kompetisi Anda.",
+  faq3Judul: "Mengapa saya harus memilih paket dukungan suara?",
+  faq3Teks: "Paket dukungan suara kami dirancang untuk membantu Anda meningkatkan peluang menang dalam kompetisi atau lomba. Dengan memilih paket yang tepat, Anda dapat meningkatkan dukungan suara yang solid dan efektif.",
+  faq4Judul: "Apakah dukungan suara ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar dukungan suara Anda tetap terjaga.",
+  faq5Judul: "Apakah bisa untuk kompetisi kota tertentu?",
+  faq5Teks: "Layanan utama kami mendukung kompetisi skala nasional dan global untuk mendongkrak dukungan suara secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat dukungan suara Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Vote Produk Online Terpercaya",
+    "image": "https://jasalike.com/image/harga-vote.png",
+    "description": "Dapatkan dukungan suara yang solid dengan layanan jasa vote produk online. Tingkatkan peluang menang Anda dalam kompetisi atau lomba dengan strategi yang efektif dan aman.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 500000,
+      "highPrice": 4500000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Vote Produk"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa vote produk ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses dukungan suara dengan strategi yang efektif dan aman, sehingga sepenuhnya mematuhi standar keamanan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan informasi kompetisi saja. Proses dukungan suara berjalan murni dari luar kompetisi Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa saya harus memilih paket dukungan suara?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Paket dukungan suara kami dirancang untuk membantu Anda meningkatkan peluang menang dalam kompetisi atau lomba. Dengan memilih paket yang tepat, Anda dapat meningkatkan dukungan suara yang solid dan efektif."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah dukungan suara ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar dukungan suara Anda tetap terjaga."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
