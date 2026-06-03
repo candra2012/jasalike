@@ -1,0 +1,275 @@
+---
+// src/pages/vote-kontes-facebook.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa Vote Kontes Facebook Aktif, Aman & Terpercaya";
+const description = "Jasa vote kontes Facebook dengan proses cepat, aman, dan terpercaya untuk membantu meningkatkan peluang menang";
+const keywords = "jasa vote kontes facebook terpercaya, jasa vote facebook aman, jasa vote kontes facebook indonesia, jasa vote facebook murah aman, jasa vote kontes facebook profesional";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS FACEBOOK
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Vote Kontes Facebook Premium",
+  labelIcon: "lucide:facebook",
+  judulUtama: 'Jasa Vote Kontes Facebook <br class="hidden md:block"/> <span class="text-blue-500">Aktif & Terpercaya</span>',
+  deskripsi: "Meningkatkan peluang menang kontes Facebook dengan vote yang aktif dan profesional. Cocok untuk kebutuhan kontes, promosi bisnis, branding produk, hingga optimasi Facebook agar lebih mudah menjangkau audiens baru. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Proses Cepat & Stabil &nbsp; ✓ Privasi Akun Tetap Aman &nbsp; ✓ Cocok Untuk Personal & Bisnis</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasa-vote-kontes-facebook.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala Umum Kontes <span class="text-blue-600">Facebook</span>',
+  deskripsiUtama: "Masalah yang sering membuat kontes Facebook sulit berkembang dan kurang mendapatkan perhatian audiens.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Vote Rendah:</strong> Kontes sudah menarik tetapi jumlah vote masih minim.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kurang Meyakinkan:</strong> Kontes dengan vote rendah sering dianggap kurang terpercaya.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Sulit Menjangkau Audiens:</strong> Algoritma Facebook lebih memprioritaskan kontes dengan engagement yang aktif.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Persaingan Ketat:</strong> Kontes lain terlihat lebih unggul karena memiliki vote lebih tinggi.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Apa Itu Jasa Vote <span class="text-blue-500">Kontes Facebook?</span>',
+  deskripsiUtama: "Layanan optimasi vote kontes Facebook untuk membantu kontes terlihat lebih aktif, profesional, dan menarik perhatian audiens baru.",
+  k1Judul: "Membantu Performa Kontes",
+  k1Teks: "Kontes dengan vote yang aktif cenderung lebih mudah mendapatkan perhatian pengguna lain di Beranda maupun Facebook Reels.",
+  k2Judul: "Meningkatkan Kredibilitas",
+  k2Teks: "Jumlah vote yang terlihat natural dapat memperkuat citra kontes, bisnis, maupun brand agar lebih dipercaya audiens."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Jasa Vote <span class="text-blue-600">Kontes Facebook</span>',
+  deskripsiUtama: "Optimasi vote yang tepat dapat membantu kontes berkembang lebih cepat dan terlihat lebih profesional.",
+  m1Judul: "Kredibilitas Meningkat",
+  m1Teks: "Kontes terlihat lebih aktif sehingga mampu meningkatkan kepercayaan audiens terhadap kontes atau bisnis Anda.",
+  m2Judul: "Mendukung Algoritma",
+  m2Teks: "Vote yang stabil membantu kontes lebih mudah direkomendasikan oleh sistem Facebook.",
+  m3Judul: "Meningkatkan Daya Tarik",
+  m3Teks: "Kontes yang ramai biasanya lebih menarik perhatian pengguna lain untuk ikut berpartisipasi.",
+  m4Judul: "Membantu Branding",
+  m4Teks: "Cocok untuk membangun citra profesional bagi bisnis, produk, komunitas, maupun personal branding."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaVote?</span>',
+  deskripsiUtama: "Layanan profesional untuk membantu meningkatkan performa kontes Facebook secara aman dan terpercaya.",
+  mk1Judul: "Privasi Tetap Aman",
+  mk1Teks: "Proses order hanya membutuhkan link kontes Facebook sehingga privasi akun Anda tetap terjaga.",
+  mk2Judul: "Proses Cepat",
+  mk2Teks: "Pesanan langsung diproses setelah pembayaran terkonfirmasi dengan sistem yang stabil dan teratur.",
+  mk3Judul: "Garansi Refill",
+  mk3Teks: "Kami menyediakan garansi refill untuk menjaga kualitas vote tetap optimal.",
+  mk4Judul: "Harga Kompetitif",
+  mk4Teks: "Pilihan paket fleksibel dengan harga terjangkau untuk kebutuhan personal maupun bisnis.",
+  mk5Judul: "Vote Natural",
+  mk5Teks: "Vote masuk secara bertahap agar terlihat lebih natural dan nyaman dipandang.",
+  mk6Judul: "Support Responsif",
+  mk6Teks: "Tim admin siap membantu konsultasi dan proses pemesanan kapan saja."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-600">Untuk Kontes Facebook</span>',
+  deskripsiUtama: "Kami membantu meningkatkan kualitas vote kontes Facebook dengan sistem yang aman, stabil, dan profesional.",
+  sol1Icon: "lucide:shield-check",
+  sol1Judul: "Proses Aman & Stabil",
+  sol1Teks: "Sistem pengerjaan dirancang untuk menjaga kualitas vote tetap stabil sehingga akun Anda tetap nyaman digunakan.",
+  sol2Icon: "lucide:zap",
+  sol2Judul: "Meningkatkan Daya Tarik Kontes",
+  sol2Teks: "Kontes dengan vote aktif biasanya lebih menarik perhatian pengguna lain untuk ikut berpartisipasi.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Mendukung Jangkauan Organik",
+  sol3Teks: "Vote awal yang baik membantu kontes Facebook lebih mudah menjangkau audiens baru secara organik."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Order <span class="text-blue-400">Jasa Vote Kontes Facebook</span>',
+  deskripsiUtama: "Proses pemesanan cepat, mudah, dan transparan untuk semua kebutuhan Facebook Anda.",
+  co1Judul: "Pilih Paket",
+  co1Teks: "Tentukan paket vote Facebook sesuai kebutuhan kontes atau strategi promosi Anda.",
+  co2Judul: "Hubungi Admin",
+  co2Teks: "Konsultasikan kebutuhan Anda langsung melalui WhatsApp admin JasaVote.",
+  co3Judul: "Kirim Link Kontes",
+  co3Teks: "Cukup kirim tautan kontes Facebook yang ingin ditingkatkan vote-nya.",
+  co4Judul: "Pesanan Diproses",
+  co4Teks: "Tim kami akan segera memproses pesanan Anda secara cepat dan profesional."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket Vote Kontes Facebook",
+  deskripsiHarga: "Tingkatkan performa kontes Facebook Anda mulai hari ini.",
+
+  // Paket Kiri
+  p1Gambar: "/image/jasa-vote-kontes-facebook-organik-100vote.png",
+  p1Nama: "Paket 100 Vote Facebook",
+  p1Fitur1: "Proses Cepat & Stabil",
+  p1Fitur2: "Vote Natural",
+  p1Fitur3: "Cocok Untuk Kontes Personal",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%20100%20Vote%20Facebook",
+
+  // Paket Kanan
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/jasa-vote-kontes-facebook-organik-1000vote.png",
+  p2Nama: "Paket 1000 Vote Facebook",
+  p2Fitur1: "Masuk Bertahap & Natural",
+  p2Fitur2: "Cocok Untuk Kontes Bisnis & Brand",
+  p2Fitur3: "Membantu Meningkatkan Kredibilitas",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%201000%20Vote%20Facebook"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa Vote <br/> <span class="text-blue-600">Kontes Facebook</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering diajukan terkait layanan vote kontes Facebook kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20Jasa%20Vote%20Kontes%20Facebook",
+  faq1Judul: "Apakah layanan ini aman digunakan?",
+  faq1Teks: "Ya, layanan kami dirancang untuk membantu meningkatkan vote kontes Facebook dengan proses yang aman dan profesional.",
+  faq2Judul: "Berapa lama proses pengerjaannya?",
+  faq2Teks: "Pesanan biasanya mulai diproses dalam beberapa menit hingga beberapa jam setelah pembayaran dikonfirmasi.",
+  faq3Judul: "Apakah tersedia garansi refill?",
+  faq3Teks: "Tersedia garansi refill sesuai ketentuan layanan untuk menjaga kualitas vote tetap optimal.",
+  faq4Judul: "Apakah bisa untuk kontes Facebook Reels?",
+  faq4Teks: "Ya, layanan kami mendukung kontes Facebook biasa maupun Facebook Reels.",
+  faq5Judul: "Apakah bisa dibagi ke beberapa kontes?",
+  faq5Teks: "Bisa. Silakan konsultasikan kebutuhan Anda kepada admin sebelum melakukan pemesanan.",
+  faq6Judul: "Apakah cocok untuk kontes bisnis?",
+  faq6Teks: "Sangat cocok untuk kontes bisnis, promosi produk, personal branding, komunitas, maupun kebutuhan vote lainnya."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Vote Kontes Facebook Aktif dan Terpercaya",
+    "image": "https://jasalike.com/image/jasa-vote-kontes-facebook-organik-100vote.png",
+    "description": "Layanan jasa vote kontes Facebook untuk membantu meningkatkan peluang menang, kredibilitas kontes, dan performa konten.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaVote"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1250"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "200000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Vote Kontes Facebook"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah jasa vote kontes Facebook ini aman?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan kami dirancang untuk membantu meningkatkan vote kontes Facebook dengan proses yang aman dan profesional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses pengerjaannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pesanan biasanya mulai diproses dalam beberapa menit hingga beberapa jam setelah pembayaran dikonfirmasi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia garansi refill?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tersedia garansi refill sesuai ketentuan layanan untuk menjaga kualitas vote tetap optimal."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
