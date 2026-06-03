@@ -1,0 +1,275 @@
+---
+// src/pages/view-live-facebook.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT SEMUA KOMPONEN CETAKAN
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO
+// ==========================================
+const title = "Jasa View Live Facebook Aktif, Aman & Terpercaya";
+const description = "Jasa view live Facebook untuk meningkatkan interaksi dan visibilitas konten Anda dengan proses cepat, aman, dan terpercaya";
+const keywords = "jasa view live facebook, jasa view live streaming facebook, jasa view facebook live, jasa view facebook streaming, jasa view live fb";
+
+// ==========================================
+// 3. DATA KONTEN KHUSUS FACEBOOK
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Facebook Premium",
+  labelIcon: "lucide:facebook",
+  judulUtama: 'Jasa View Live Facebook <br class="hidden md:block"/> <span class="text-blue-500">Aktif & Terpercaya</span>',
+  deskripsi: "Meningkatkan interaksi dan visibilitas konten Anda dengan jasa view live Facebook yang aman, cepat, dan profesional. Cocok untuk kebutuhan personal, promosi bisnis, branding produk, hingga optimasi Facebook Live agar lebih mudah menjangkau audiens baru. <br class='hidden md:block mt-2' /> <span class='text-blue-400 font-semibold block mt-4'>✓ Proses Cepat & Stabil &nbsp; ✓ Privasi Akun Tetap Aman &nbsp; ✓ Cocok Untuk Personal & Bisnis</span>",
+  teksTombol1: "Lihat Harga Paket",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasa-view-live-facebook.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala Umum Pengguna <span class="text-blue-600">Facebook Live</span>',
+  deskripsiUtama: "Masalah yang sering membuat konten Facebook Live sulit berkembang dan kurang mendapatkan perhatian audiens.",
+  ms1Teks: '<strong class="text-blue-600 font-bold">Interaksi Rendah:</strong> Konten sudah menarik tetapi jumlah view dan respons masih minim.',
+  ms2Teks: '<strong class="text-blue-600 font-bold">Kurang Meyakinkan:</strong> Konten dengan interaksi rendah sering dianggap kurang terpercaya.',
+  ms3Teks: '<strong class="text-blue-600 font-bold">Sulit Menjangkau Audiens:</strong> Algoritma Facebook lebih memprioritaskan konten dengan engagement yang aktif.',
+  ms4Teks: '<strong class="text-blue-600 font-bold">Persaingan Ketat:</strong> Konten lain terlihat lebih unggul karena memiliki interaksi lebih tinggi.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Apa Itu Jasa View Live <span class="text-blue-500">Facebook?</span>',
+  deskripsiUtama: "Layanan optimasi engagement Facebook Live untuk membantu konten terlihat lebih aktif, profesional, dan menarik perhatian audiens baru.",
+  k1Judul: "Membantu Performa Konten",
+  k1Teks: "Konten dengan interaksi yang aktif cenderung lebih mudah mendapatkan perhatian pengguna lain di Beranda maupun Facebook Live.",
+  k2Judul: "Meningkatkan Kredibilitas",
+  k2Teks: "Jumlah view yang terlihat natural dapat memperkuat citra akun, bisnis, maupun brand agar lebih dipercaya audiens."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Jasa View Live <span class="text-blue-600">Facebook</span>',
+  deskripsiUtama: "Optimasi interaksi yang tepat dapat membantu konten Facebook Live berkembang lebih cepat dan terlihat lebih profesional.",
+  m1Judul: "Kredibilitas Meningkat",
+  m1Teks: "Konten terlihat lebih aktif sehingga mampu meningkatkan kepercayaan audiens terhadap akun atau bisnis Anda.",
+  m2Judul: "Mendukung Algoritma",
+  m2Teks: "Interaksi yang stabil membantu konten lebih mudah direkomendasikan oleh sistem Facebook.",
+  m3Judul: "Meningkatkan Daya Tarik",
+  m3Teks: "Konten yang ramai biasanya lebih menarik perhatian pengguna lain untuk ikut berinteraksi.",
+  m4Judul: "Membantu Branding",
+  m4Teks: "Cocok untuk membangun citra profesional bagi bisnis, produk, komunitas, maupun personal branding."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: "Layanan profesional untuk membantu meningkatkan performa konten Facebook Live secara aman dan terpercaya.",
+  mk1Judul: "Privasi Tetap Aman",
+  mk1Teks: "Proses order hanya membutuhkan link konten Facebook Live sehingga privasi akun Anda tetap terjaga.",
+  mk2Judul: "Proses Cepat",
+  mk2Teks: "Pesanan langsung diproses setelah pembayaran terkonfirmasi dengan sistem yang stabil dan teratur.",
+  mk3Judul: "Garansi Refill",
+  mk3Teks: "Kami menyediakan garansi refill sesuai ketentuan layanan untuk menjaga kualitas interaksi tetap optimal.",
+  mk4Judul: "Harga Kompetitif",
+  mk4Teks: "Pilihan paket fleksibel dengan harga terjangkau untuk kebutuhan personal maupun bisnis.",
+  mk5Judul: "Interaksi Natural",
+  mk5Teks: "View masuk secara bertahap agar terlihat lebih natural dan nyaman dipandang.",
+  mk6Judul: "Support Responsif",
+  mk6Teks: "Tim admin siap membantu konsultasi dan proses pemesanan kapan saja."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi Tepat <span class="text-blue-600">Untuk Engagement Facebook Live</span>',
+  deskripsiUtama: "Kami membantu meningkatkan kualitas interaksi konten Facebook Live dengan sistem yang aman, stabil, dan profesional.",
+  sol1Icon: "lucide:shield-check",
+  sol1Judul: "Proses Aman & Stabil",
+  sol1Teks: "Sistem pengerjaan dirancang untuk menjaga kualitas interaksi tetap stabil sehingga akun Anda tetap nyaman digunakan.",
+  sol2Icon: "lucide:zap",
+  sol2Judul: "Meningkatkan Daya Tarik Konten",
+  sol2Teks: "Konten dengan engagement aktif biasanya lebih menarik perhatian pengguna lain untuk ikut berinteraksi.",
+  sol3Icon: "lucide:trending-up",
+  sol3Judul: "Mendukung Jangkauan Organik",
+  sol3Teks: "Interaksi awal yang baik membantu konten Facebook Live lebih mudah menjangkau audiens baru secara organik."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Cara Order <span class="text-blue-400">Jasa View Live Facebook</span>',
+  deskripsiUtama: "Proses pemesanan cepat, mudah, dan transparan untuk semua kebutuhan Facebook Live Anda.",
+  co1Judul: "Pilih Paket",
+  co1Teks: "Tentukan paket view live Facebook sesuai kebutuhan akun atau strategi promosi Anda.",
+  co2Judul: "Hubungi Admin",
+  co2Teks: "Konsultasikan kebutuhan Anda langsung melalui WhatsApp admin JasaLike.",
+  co3Judul: "Kirim Link Konten",
+  co3Teks: "Cukup kirim tautan konten Facebook Live yang ingin ditingkatkan interaksinya.",
+  co4Judul: "Pesanan Diproses",
+  co4Teks: "Tim kami akan segera memproses pesanan Anda secara cepat dan profesional."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Pilihan Paket View Live Facebook",
+  deskripsiHarga: "Tingkatkan performa konten Facebook Live Anda mulai hari ini.",
+
+  // Paket Kiri
+  p1Gambar: "/image/jasa-view-live-facebook-organik-100view.png",
+  p1Nama: "Paket 100 View Facebook Live",
+  p1Fitur1: "Proses Cepat & Stabil",
+  p1Fitur2: "View Natural",
+  p1Fitur3: "Cocok Untuk Akun Personal",
+  p1Harga: "Rp 150.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%20100%20View%20Facebook%20Live",
+
+  // Paket Kanan
+  p2Label: "TERLARIS",
+  p2Gambar: "/image/jasa-view-live-facebook-organik-1000view.png",
+  p2Nama: "Paket 1000 View Facebook Live",
+  p2Fitur1: "Masuk Bertahap & Natural",
+  p2Fitur2: "Cocok Untuk Bisnis & Brand",
+  p2Fitur3: "Membantu Meningkatkan Kredibilitas",
+  p2HargaCoret: "Rp 1.500.000",
+  p2Harga: "Rp 1.200.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20ingin%20pesan%20Paket%201000%20View%20Facebook%20Live"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Jasa View Live <br/> <span class="text-blue-600">Facebook</span>',
+  deskripsiUtama: "Pertanyaan yang paling sering diajukan terkait layanan view live Facebook kami.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20Jasa%20View%20Live%20Facebook",
+  faq1Judul: "Apakah layanan ini aman digunakan?",
+  faq1Teks: "Ya, layanan kami dirancang untuk membantu meningkatkan interaksi konten Facebook Live dengan proses yang aman dan profesional.",
+  faq2Judul: "Berapa lama proses pengerjaannya?",
+  faq2Teks: "Pesanan biasanya mulai diproses dalam beberapa menit hingga beberapa jam setelah pembayaran dikonfirmasi.",
+  faq3Judul: "Apakah tersedia garansi refill?",
+  faq3Teks: "Tersedia garansi refill sesuai ketentuan layanan untuk menjaga kualitas interaksi tetap optimal.",
+  faq4Judul: "Apakah bisa untuk Facebook Live?",
+  faq4Teks: "Ya, layanan kami mendukung konten Facebook Live.",
+  faq5Judul: "Apakah bisa dibagi ke beberapa konten?",
+  faq5Teks: "Bisa. Silakan konsultasikan kebutuhan Anda kepada admin sebelum melakukan pemesanan.",
+  faq6Judul: "Apakah cocok untuk bisnis?",
+  faq6Teks: "Sangat cocok untuk bisnis, promosi produk, personal branding, komunitas, maupun kebutuhan engagement lainnya."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa View Live Facebook Aktif dan Terpercaya",
+    "image": "https://jasalike.com/image/jasa-view-live-facebook-organik-100view.png",
+    "description": "Layanan jasa view live Facebook untuk membantu meningkatkan interaksi konten, kredibilitas akun, dan performa konten.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1250"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "150000",
+      "highPrice": "1200000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "View Live Facebook"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah jasa view live Facebook ini aman?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan kami dirancang untuk membantu meningkatkan interaksi konten Facebook Live dengan proses yang aman dan profesional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses pengerjaannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pesanan biasanya mulai diproses dalam beberapa menit hingga beberapa jam setelah pembayaran dikonfirmasi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah tersedia garansi refill?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tersedia garansi refill sesuai ketentuan layanan untuk menjaga kualitas interaksi tetap optimal."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
