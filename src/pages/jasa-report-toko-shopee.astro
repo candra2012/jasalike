@@ -1,0 +1,275 @@
+---
+// src/pages/jasa-report-toko-shopee.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Report Toko Shopee: Takedown Penipu & Pelanggar";
+const description = "Laporkan toko penipu di Shopee dengan layanan jasa report toko Shopee profesional. Dapatkan solusi takedown yang efektif dan efisien.";
+const keywords = "jasa report toko shopee, report toko shopee, takedown toko shopee, jasa laporkan toko shopee, report toko penipu shopee, takedown penipu shopee, jasa report pelanggar shopee, report pelanggar shopee";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Perlindungan Konsumen",
+  labelIcon: "lucide:shield",
+  judulUtama: '<span class="text-pink-600">Jasa Report Toko Shopee</span>',
+  deskripsi: "Lindungi diri Anda dari penipuan toko tidak bertanggung jawab di Shopee. Dengan layanan jasa report toko Shopee, Anda dapat melaporkan dan takedown toko yang melanggar aturan dengan mudah dan efektif.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Proses Cepat &nbsp; ✓ Hasil Efektif &nbsp; ✓ Dukungan Profesional</span>",
+  teksTombol1: "Laporkan Sekarang",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-shopee.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Toko Penipu</span> di Shopee',
+  deskripsiUtama: "Sudahkah Anda pernah menjadi korban penipuan toko tidak bertanggung jawab di Shopee?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Kerugian Finansial:</strong> Anda kehilangan uang karena membeli produk yang tidak sesuai dengan deskripsi.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Kehilangan Kepercayaan:</strong> Anda merasa kehilangan kepercayaan pada toko online setelah mengalami penipuan.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Sulit Mendapatkan Ganti:</strong> Anda kesulitan mendapatkan ganti atau refund dari toko yang tidak bertanggung jawab.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Tidak Ada yang Bertanggung Jawab:</strong> Anda merasa bahwa tidak ada yang bertanggung jawab atas kerugian yang Anda alami.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal <span class="text-pink-600">Jasa Report Toko Shopee</span>',
+  deskripsiUtama: "Layanan jasa report toko Shopee adalah solusi efektif untuk melaporkan dan takedown toko penipu di Shopee.",
+  k1Judul: "Proses Cepat dan Efektif",
+  k1Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee.",
+  k2Judul: "Dukungan Profesional",
+  k2Teks: "Kami menyediakan dukungan profesional dan responsif untuk membantu Anda dalam proses pelaporan dan takedown toko penipu."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Jasa Report Toko Shopee</span>',
+  deskripsiUtama: "Dengan menggunakan layanan jasa report toko Shopee, Anda dapat melindungi diri dari penipuan dan kerugian finansial.",
+  m1Judul: "Lindungi Diri dari Penipuan",
+  m1Teks: "Anda dapat melaporkan dan takedown toko penipu di Shopee dengan mudah dan efektif.",
+  m2Judul: "Menghemat Waktu dan Biaya",
+  m2Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee, sehingga Anda dapat menghemat waktu dan biaya.",
+  m3Judul: "Meningkatkan Kepercayaan",
+  m3Teks: "Dengan menggunakan layanan jasa report toko Shopee, Anda dapat meningkatkan kepercayaan pada toko online dan mengurangi risiko penipuan.",
+  m4Judul: "Dukungan Profesional",
+  m4Teks: "Kami menyediakan dukungan profesional dan responsif untuk membantu Anda dalam proses pelaporan dan takedown toko penipu."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-pink-500">JasaLike</span>',
+  deskripsiUtama: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee.",
+  mk1Judul: "Proses Cepat dan Efektif",
+  mk1Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee.",
+  mk2Judul: "Dukungan Profesional",
+  mk2Teks: "Kami menyediakan dukungan profesional dan responsif untuk membantu Anda dalam proses pelaporan dan takedown toko penipu.",
+  mk3Judul: "Menghemat Waktu dan Biaya",
+  mk3Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee, sehingga Anda dapat menghemat waktu dan biaya.",
+  mk4Judul: "Meningkatkan Kepercayaan",
+  mk4Teks: "Dengan menggunakan layanan jasa report toko Shopee, Anda dapat meningkatkan kepercayaan pada toko online dan mengurangi risiko penipuan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-pink-600">Toko Anda</span> Sekarang',
+  deskripsiUtama: "Dengan menggunakan layanan jasa report toko Shopee, Anda dapat melaporkan dan takedown toko penipu di Shopee dengan mudah dan efektif.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Laporkan Toko Penipu",
+  sol1Teks: "Anda dapat melaporkan toko penipu di Shopee dengan mudah dan efektif.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Takedown Toko Penipu",
+  sol2Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Meningkatkan Kepercayaan",
+  sol3Teks: "Dengan menggunakan layanan jasa report toko Shopee, Anda dapat meningkatkan kepercayaan pada toko online dan mengurangi risiko penipuan."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai proses pelaporan dan takedown toko penipu di Shopee.",
+  co1Judul: "Tentukan Toko yang Ingin Dilaporkan",
+  co1Teks: "Anda dapat melaporkan toko penipu di Shopee dengan mudah dan efektif.",
+  co2Judul: "Kirimkan Informasi Toko",
+  co2Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Kami memiliki tim yang profesional dan berpengalaman dalam melaporkan dan takedown toko penipu di Shopee, sehingga Anda dapat menghemat waktu dan biaya.",
+  co4Judul: "Nikmati Hasil",
+  co4Teks: "Dengan menggunakan layanan jasa report toko Shopee, Anda dapat meningkatkan kepercayaan pada toko online dan mengurangi risiko penipuan."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Perlindungan",
+  deskripsiHarga: "Pilih paket yang paling sesuai dengan kebutuhan Anda untuk melaporkan dan takedown toko penipu di Shopee.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-report-toko-shopee.png",
+  p1Nama: "Paket Standar",
+  p1Fitur1: "Laporkan Toko Penipu",
+  p1Fitur2: "Takedown Toko Penipu",
+  p1Fitur3: "Dukungan Profesional",
+  p1Harga: "Rp 500.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Standar%20Report%20Toko%20Shopee",
+
+  // Paket Kanan
+  p2Label: "PILIHAN PRIORITAS",
+  p2Gambar: "/image/harga-report-toko-shopee.png",
+  p2Nama: "Paket Prioritas",
+  p2Fitur1: "Laporkan Toko Penipu Prioritas",
+  p2Fitur2: "Takedown Toko Penipu Prioritas",
+  p2Fitur3: "Dukungan Profesional Prioritas",
+  p2HargaCoret: "Rp 1.500.000",
+  p2Harga: "Rp 1.200.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20Prioritas%20Report%20Toko%20Shopee"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Report Toko Shopee</span>',
+  deskripsiUtama: "Informasi yang sering ditanyakan mengenai layanan report toko Shopee.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Report%20Toko%20Shopee",
+  faq1Judul: "Apakah layanan report toko Shopee aman?",
+  faq1Teks: "Ya, layanan report toko Shopee kami aman dan profesional.",
+  faq2Judul: "Berapa lama waktu yang dibutuhkan untuk melaporkan toko penipu?",
+  faq2Teks: "Waktu yang dibutuhkan untuk melaporkan toko penipu dapat bervariasi tergantung pada situasi dan kondisi.",
+  faq3Judul: "Apakah saya perlu memberikan informasi pribadi?",
+  faq3Teks: "Tidak, Anda tidak perlu memberikan informasi pribadi untuk menggunakan layanan report toko Shopee.",
+  faq4Judul: "Apakah layanan report toko Shopee efektif?",
+  faq4Teks: "Ya, layanan report toko Shopee kami efektif dan dapat membantu Anda melaporkan dan takedown toko penipu di Shopee."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Report Toko Shopee",
+    "image": "https://jasalike.com/image/harga-report-toko-shopee.png",
+    "description": "Laporkan toko penipu di Shopee dengan layanan jasa report toko Shopee profesional. Dapatkan solusi takedown yang efektif dan efisien.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 500000,
+      "highPrice": 1200000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Report Toko Shopee"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan report toko Shopee aman?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan report toko Shopee kami aman dan profesional."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama waktu yang dibutuhkan untuk melaporkan toko penipu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Waktu yang dibutuhkan untuk melaporkan toko penipu dapat bervariasi tergantung pada situasi dan kondisi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya perlu memberikan informasi pribadi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak, Anda tidak perlu memberikan informasi pribadi untuk menggunakan layanan report toko Shopee."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan report toko Shopee efektif?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya, layanan report toko Shopee kami efektif dan dapat membantu Anda melaporkan dan takedown toko penipu di Shopee."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
