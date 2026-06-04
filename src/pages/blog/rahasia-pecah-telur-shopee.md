@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../../layouts/MarkdownLayout.astro
 title: "Rahasia 'Pecah Telur' di Shopee: Mengapa Angka Produk Terjual Sangat Menentukan?"
 pubDate: 2026-06-04
 description: "Panduan optimasi toko Shopee untuk penjual baru. Pelajari mengapa angka produk terjual dan ulasan adalah kunci utama untuk mendominasi algoritma pencarian Shopee."
