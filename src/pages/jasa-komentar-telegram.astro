@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-komentar-telegram.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Komentar Telegram untuk Meningkatkan Interaksi";
+const description = "Berkembang bersama komunitas Anda dengan layanan tambah komentar di Telegram. Buat diskusi semakin hidup dan menarik dengan kualitas komentar yang relevan dan berkualitas.";
+const keywords = "jasa komentar telegram, beli komen channel telegram, tambah komentar grup telegram, jasa custom komen telegram, layanan tambah komentar telegram, jasa tambah komentar grup telegram, jasa tambah komentar channel telegram, jasa komentar grup telegram, jasa komentar channel telegram, layanan tambah komen telegram";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Peningkatan Interaksi",
+  labelIcon: "lucide:users",
+  judulUtama: '<span class="text-sky-600">Jasa Komentar</span> Telegram',
+  deskripsi: "Membangun ruang diskusi yang hidup dan menarik di channel atau grup Telegram Anda. Dengan layanan tambah komentar, Anda bisa memancing partisipasi orang secara organik dan menciptakan kesan komunitas yang solid.<br class='hidden md:block mt-2' /> <span class='text-sky-500 font-semibold block mt-4'>✓ Kualitas Berkualitas &nbsp; ✓ Interaksi Aktif &nbsp; ✓ Diskusi Menarik</span>",
+  teksTombol1: "Pilih Paket Komentar",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Channel",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-telegram.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-sky-600">Peningkatan Interaksi</span> Saat Ini',
+  deskripsiUtama: "Di platform komunikasi seperti Telegram, interaksi yang hidup sangat penting. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-sky-600 font-bold">Diskusi Sebatang Kara:</strong> Percakapan di grup atau channel Anda jarang mendapat respons, membuat suasana menjadi sepi dan kurang menarik.',
+  ms2Teks: '<strong class="text-sky-600 font-bold">Kurang Partisipasi:</strong> Anggota komunitas Anda enggan berpartisipasi dalam diskusi, sehingga sulit untuk membangun keterlibatan yang kuat.',
+  ms3Teks: '<strong class="text-sky-600 font-bold">Konten Kurang Diminati:</strong> Postingan Anda tidak mendapatkan banyak komentar, membuat konten Anda kurang diminati oleh anggota komunitas.',
+  ms4Teks: '<strong class="text-sky-600 font-bold">Kesulitan Menarik Anggota Baru:</strong> Tanpa interaksi yang aktif, sulit untuk menarik anggota baru yang tertarik bergabung ke komunitas Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-sky-600">Jasa Komentar Telegram</span>',
+  deskripsiUtama: "Layanan ini dirancang untuk memperkaya diskusi di grup atau channel Telegram Anda, sehingga menciptakan atmosfer yang hidup dan menarik bagi anggota komunitas.",
+  k1Judul: "Peningkatan Interaksi",
+  k1Teks: "Kami menambahkan komentar berkualitas yang relevan dengan topik diskusi Anda, sehingga memancing lebih banyak orang untuk berpartisipasi secara organik.",
+  k2Judul: "Membangun Komunitas",
+  k2Teks: "Dengan interaksi yang lebih aktif, komunitas Anda akan terasa lebih solid dan menarik bagi anggota baru maupun lama."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-sky-600">Peningkatan Interaksi</span>',
+  deskripsiUtama: "Interaksi yang hidup di Telegram akan membuka berbagai peluang baru bagi komunitas Anda.",
+  m1Judul: "Meningkatkan Keterlibatan",
+  m1Teks: "Anggota komunitas akan merasa lebih terlibat dalam diskusi, sehingga meningkatkan rasa kebersamaan dan keterlibatan.",
+  m2Judul: "Memicu Diskusi Lebih Lanjut",
+  m2Teks: "Komentar yang relevan akan memancing lebih banyak orang untuk berkontribusi, sehingga diskusi menjadi lebih panjang dan mendalam.",
+  m3Judul: "Meningkatkan Jangkauan",
+  m3Teks: "Interaksi yang aktif akan membuat konten Anda lebih menarik, sehingga meningkatkan jangkauan dan daya tarik komunitas Anda.",
+  m4Judul: "Meningkatkan Kredibilitas",
+  m4Teks: "Komunitas yang aktif dan interaktif akan meningkatkan kredibilitas Anda sebagai pemimpin atau admin komunitas."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-sky-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang elegan, menjaga privasi, dan memberikan ketenangan pikiran bagi klien.",
+  mk1Judul: "Kualitas Komentar",
+  mk1Teks: "Kami menjamin setiap komentar yang kami tambahkan berkualitas dan relevan dengan topik diskusi Anda.",
+  mk2Judul: "Proses Natural",
+  mk2Teks: "Kami menghindari lonjakan yang tidak masuk akal. Semua komentar disalurkan dengan kehati-hatian tingkat tinggi untuk menjaga ekosistem komunitas Anda.",
+  mk3Judul: "Integritas Privasi",
+  mk3Teks: "Sistem kami beroperasi secara independen. Anda hanya perlu memberikan tautan atau username channel/publik grup, tanpa perlu menyerahkan informasi kredensial apa pun.",
+  mk4Judul: "Layanan Pelanggan",
+  mk4Teks: "Tim operasional Auradigital selalu memantau kampanye Anda dan siap menjawab konsultasi dengan ramah setiap saat.",
+  mk5Judul: "Tarif Fleksibel",
+  mk5Teks: "Tersedia berbagai skala layanan jasa komentar yang bisa disesuaikan dengan anggaran perorangan maupun korporat.",
+  mk6Judul: "Proses Aktivasi Ringkas",
+  mk6Teks: "Pemesanan dirancang tanpa birokrasi rumit. Begitu transaksi terkonfirmasi, jadwal eksekusi langsung kami kerjakan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-sky-600">Diskusi Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan komunitas Telegram Anda sebagai tempat diskusi yang hidup dan menarik.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Interaksi",
+  sol1Teks: "Berikan alasan kuat bagi anggota untuk aktif berpartisipasi dalam diskusi Anda.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Memperluas Jangkauan",
+  sol2Teks: "Jangkau lebih banyak anggota baru dengan komunitas yang sudah terbukti aktif dan menarik.",
+  sol3Icon: "lucide:heart",
+  sol3Teks: 'Untuk menyeimbangkan interaksi, kami juga merekomendasikan Anda untuk melengkapi dengan <a href="/like-telegram" class="text-sky-600 hover:underline font-semibold">jasa like Telegram</a> agar rasio interaksi semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-sky-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai peningkatan interaksi komunitas Anda.",
+  co1Judul: "Tentukan Target Interaksi",
+  co1Teks: "Pilih paket komentar yang paling sesuai dengan target pencapaian dan ukuran komunitas Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Channel/Grup",
+  co2Teks: "Cukup berikan username atau tautan channel/grup Telegram Anda. Harap pastikan akun dalam kondisi Publik selama masa pengerjaan.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Interaksi",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus membangun komunitas yang lebih baik."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Interaksi Berkualitas",
+  deskripsiHarga: "Pilih paket peningkatan interaksi yang paling tepat untuk komunitas Telegram Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-komentar-telegram.png",
+  p1Nama: "100 Komentar",
+  p1Fitur1: "Kualitas Komentar Standar",
+  p1Fitur2: "Proses Distribusi Natural",
+  p1Fitur3: "Privasi Profil Terjaga",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Komentar%20Telegram",
+
+  // Paket Kanan
+  p2Label: "PILIHAN KREATOR",
+  p2Gambar: "/image/harga-komentar-telegram.png",
+  p2Nama: "1000 Komentar",
+  p2Fitur1: "Kualitas Komentar Premium",
+  p2Fitur2: "Perlindungan Interaksi",
+  p2Fitur3: "Dukungan Prioritas Sistem",
+  p2HargaCoret: "Rp 2.250.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Komentar%20Telegram"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-sky-600">Jasa Komentar Telegram</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan peningkatan interaksi Telegram.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Komentar%20Telegram",
+  faq1Judul: "Apakah aman menggunakan jasa komentar ini?",
+  faq1Teks: "Sangat aman. Kami memproses penambahan komentar dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Telegram. Akun Anda bebas dari risiko penangguhan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan channel/grup saja. Proses penambahan berjalan murni dari luar akun Anda.",
+  faq3Judul: "Mengapa akun saya tidak boleh di-private?",
+  faq3Teks: "Selama proses pengiriman komentar berlangsung, sistem kami membutuhkan akses terbuka agar profil Anda dapat ditemukan dan diikuti. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah komentar bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan fitur perlindungan interaksi agar kualitas interaksi Anda tetap terjaga.",
+  faq5Judul: "Apakah bisa untuk target kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan komentar campuran skala nasional (Indonesia) dan global untuk mendongkrak interaksi secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas komunitas Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Komentar Telegram untuk Meningkatkan Interaksi",
+    "image": "https://jasalike.com/image/harga-komentar-telegram.png",
+    "description": "Berkembang bersama komunitas Anda dengan layanan tambah komentar di Telegram. Buat diskusi semakin hidup dan menarik dengan kualitas komentar yang relevan dan berkualitas.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Komentar Telegram",
+        "item": "https://jasalike.com/jasa-komentar-telegram"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa komentar ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses penambahan komentar dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Telegram. Akun Anda bebas dari risiko penangguhan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan channel/grup saja. Proses penambahan berjalan murni dari luar akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa akun saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses pengiriman komentar berlangsung, sistem kami membutuhkan akses terbuka agar profil Anda dapat ditemukan dan diikuti. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah komentar bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan fitur perlindungan interaksi agar kualitas interaksi Anda tetap terjaga."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
