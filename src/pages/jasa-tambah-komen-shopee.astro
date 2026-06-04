@@ -1,0 +1,284 @@
+---
+// src/pages/jasa-tambah-komen-shopee.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Tambah Komen Shopee Aktif & Relevan";
+const description = "Meningkatkan interaksi dan kredibilitas toko Shopee Anda dengan layanan jasa tambah komentar produk. Komentar relevan dan aktif untuk meningkatkan kepercayaan pembeli.";
+const keywords = "jasa tambah komen shopee, beli komen shopee, jasa komentar produk shopee, tambah ulasan shopee aktif, jasa komentar shopee, layanan tambah komentar shopee, jasa tambah ulasan produk shopee, jasa komentar shopee aktif, harga jasa komentar shopee, jasa tambah komentar shopee terpercaya, jasa komentar shopee relevan, jasa tambah ulasan shopee organik";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Interaksi Toko Online",
+  labelIcon: "lucide:users",
+  judulUtama: '<span class="text-orange-600">Jasa Tambah Komen</span> Shopee',
+  deskripsi: "Meningkatkan kredibilitas toko Shopee Anda dengan layanan jasa tambah komentar produk. Komentar yang relevan dan aktif akan membantu meningkatkan kepercayaan pembeli dan menarik lebih banyak pelanggan potensial.<br class='hidden md:block mt-2' /> <span class='text-orange-500 font-semibold block mt-4'>✓ Komentar Relevan &nbsp; ✓ Interaksi Aktif &nbsp; ✓ Proses Cepat</span>",
+  teksTombol1: "Pilih Paket Komentar",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Toko",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-shopee.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-orange-600">Interaksi Toko</span> Saat Ini',
+  deskripsiUtama: "Di platform e-commerce, interaksi pelanggan melalui komentar produk sangat berpengaruh terhadap keputusan pembelian. Apakah Anda mengalami hambatan ini?",
+  ms1Teks: '<strong class="text-orange-600 font-bold">Kurangnya Ulasan Positif:</strong> Banyak calon pembeli ragu untuk membeli produk Anda karena jumlah komentar yang masih sedikit atau cenderung negatif.',
+  ms2Teks: '<strong class="text-orange-600 font-bold">Susah Tembus Penjualan:</strong> Meskipun produk Anda unggul, penjualan masih stagnan karena kurangnya kepercayaan dari pelanggan baru.',
+  ms3Teks: '<strong class="text-orange-600 font-bold">Kualitas Produk Dipertanyakan:</strong> Tanpa ulasan yang cukup, kualitas produk Anda mungkin dianggap kurang oleh pasar.',
+  ms4Teks: '<strong class="text-orange-600 font-bold">Kurangnya Kompetisi:</strong> Toko Anda kalah bersaing dengan toko lain yang memiliki banyak ulasan positif dan interaksi aktif.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Layanan <span class="text-orange-600">Interaksi Positif</span>',
+  deskripsiUtama: "Sebuah solusi cerdas untuk meningkatkan kredibilitas toko Shopee Anda dengan menambah komentar produk yang relevan dan aktif.",
+  k1Judul: "Komentar Relevan",
+  k1Teks: "Kami memastikan setiap komentar yang ditambahkan sesuai dengan deskripsi dan kualitas produk Anda, sehingga meningkatkan kepercayaan pelanggan.",
+  k2Judul: "Interaksi Aktif",
+  k2Teks: "Dengan layanan ini, toko Anda akan terlihat lebih ramai dan aktif, yang menarik lebih banyak pelanggan potensial untuk berbelanja."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-orange-600">Peningkatan Interaksi</span>',
+  deskripsiUtama: "Interaksi yang aktif dan relevan akan membuka berbagai peluang baru bagi bisnis toko online Anda di Shopee.",
+  m1Judul: "Meningkatkan Kepercayaan",
+  m1Teks: "Ulasan positif yang relevan akan meningkatkan kepercayaan pelanggan terhadap kualitas produk dan pelayanan toko Anda.",
+  m2Judul: "Memicu Efek Bola Salju",
+  m2Teks: "Ketika lebih banyak pelanggan melihat toko Anda ramai dan mendapatkan ulasan positif, probabilitas mereka untuk berbelanja akan meningkat secara signifikan.",
+  m3Judul: "Meningkatkan Penjualan",
+  m3Teks: "Toko yang terlihat aktif dan memiliki banyak ulasan positif cenderung memiliki penjualan yang lebih tinggi.",
+  m4Judul: "Dominasi Algoritma Pencarian",
+  m4Teks: "Shopee memprioritaskan toko dengan interaksi tinggi di hasil pencarian dan halaman rekomendasi."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-orange-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang relevan, menjaga privasi, dan memberikan ketenangan pikiran bagi klien.",
+  mk1Judul: "Metode Eksekusi Natural",
+  mk1Teks: "Kami menghindari lonjakan yang tidak masuk akal. Semua komentar disalurkan dengan kehati-hatian tingkat tinggi untuk menjaga kredibilitas toko Anda.",
+  mk2Judul: "Integritas Privasi Terjaga",
+  mk2Teks: "Sistem kami beroperasi secara independen. Anda hanya perlu memberikan tautan produk, tanpa perlu menyerahkan informasi kredensial apa pun.",
+  mk3Judul: "Proses Cepat",
+  mk3Teks: "Kami memastikan bahwa komentar ditambahkan dengan cepat dan efisien, sehingga toko Anda segera terlihat aktif.",
+  mk4Judul: "Layanan Pelanggan Dedikatif",
+  mk4Teks: "Tim operasional Auradigital selalu memantau kampanye Anda dan siap menjawab konsultasi dengan ramah setiap saat.",
+  mk5Judul: "Tarif Fleksibel & Kompetitif",
+  mk5Teks: "Tersedia berbagai skala layanan jasa tambah komentar yang bisa disesuaikan dengan anggaran perorangan maupun korporat.",
+  mk6Judul: "Proses Aktivasi Ringkas",
+  mk6Teks: "Pemesanan dirancang tanpa birokrasi rumit. Begitu transaksi terkonfirmasi, jadwal penambahan komentar langsung kami kerjakan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-orange-600">Toko Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan toko Shopee Anda sebagai etalase produk yang meyakinkan dan berkelas.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Kalahkan Keraguan Pembeli",
+  sol1Teks: "Berikan alasan kuat bagi audiens baru untuk segera mempercayai kualitas produk yang Anda tawarkan.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Perluas Jangkauan Pasar",
+  sol2Teks: "Jangkau lebih banyak pembeli potensial dengan interaksi toko yang sudah terbukti solid dan dipercaya.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Kombinasi Interaksi Sempurna",
+  sol3Teks: 'Untuk menyeimbangkan jumlah interaksi yang besar, kami merekomendasikan Anda untuk melengkapi toko dengan <a href="/like-shopee" class="text-orange-600 hover:underline font-semibold">jasa like Shopee</a> agar rasio interaksi (engagement rate) semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai peningkatan interaksi toko Anda.",
+  co1Judul: "Tentukan Target Interaksi",
+  co1Teks: "Pilih paket komentar yang paling sesuai dengan target pencapaian dan ukuran bisnis Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Produk",
+  co2Teks: "Cukup berikan link produk Shopee Anda. Pastikan akun toko dalam kondisi aktif selama masa pengerjaan.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Peningkatan Interaksi",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus mengembangkan bisnis toko Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Interaksi Positif",
+  deskripsiHarga: "Pilih paket penambahan komentar yang paling tepat untuk mendongkrak kredibilitas toko Shopee Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-komen-shopee.png",
+  p1Nama: "100 Komentar",
+  p1Fitur1: "Komentar Relevan Sesuai Produk",
+  p1Fitur2: "Proses Cepat",
+  p1Fitur3: "Privasi Toko Terjaga",
+  p1Harga: "Rp 300.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Komentar%20Shopee",
+
+  // Paket Kanan
+  p2Label: "PILIHAN KREATOR",
+  p2Gambar: "/image/harga-komen-shopee.png",
+  p2Nama: "1000 Komentar",
+  p2Fitur1: "Komentar Relevan Sesuai Produk",
+  p2Fitur2: "Proses Cepat",
+  p2Fitur3: "Dukungan Prioritas Sistem",
+  p2HargaCoret: "Rp 3.500.000",
+  p2Harga: "Rp 3.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Komentar%20Shopee"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-orange-600">Tambah Komen Shopee</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan penambahan komentar produk Shopee.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Tambah%20Komen%20Shopee",
+  faq1Judul: "Apakah aman menggunakan jasa tambah komentar ini?",
+  faq1Teks: "Sangat aman. Kami memproses penambahan komentar dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Shopee. Toko Anda bebas dari risiko penangguhan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan link produk saja. Proses penambahan berjalan murni dari luar akun Anda.",
+  faq3Judul: "Mengapa toko saya tidak boleh di-private?",
+  faq3Teks: "Selama proses penambahan komentar berlangsung, sistem kami membutuhkan akses terbuka agar produk Anda dapat ditemukan dan dikomentari. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah komentar ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami memastikan setiap komentar yang ditambahkan relevan dan aktif.",
+  faq5Judul: "Apakah bisa untuk target kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan komentar skala nasional (Indonesia) untuk mendongkrak angka secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas toko Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jual Jasa Tambah Komen Shopee Aktif & Relevan",
+    "image": "https://jasalike.com/image/harga-komen-shopee.png",
+    "description": "Meningkatkan kredibilitas toko Shopee Anda dengan layanan jasa tambah komentar produk. Komentar relevan dan aktif untuk meningkatkan kepercayaan pembeli.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 300000,
+      "highPrice": 3000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Tambah Komen Shopee",
+        "item": "https://jasalike.com/jasa-tambah-komen-shopee"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa tambah komentar ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses penambahan komentar dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Shopee. Toko Anda bebas dari risiko penangguhan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan link produk saja. Proses penambahan berjalan murni dari luar akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa toko saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses penambahan komentar berlangsung, sistem kami membutuhkan akses terbuka agar produk Anda dapat ditemukan dan dikomentari. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah komentar ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami memastikan setiap komentar yang ditambahkan relevan dan aktif."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
