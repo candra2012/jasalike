@@ -105,7 +105,7 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Link: https://www.jasalike.com/jasa-live-shopee
 
 23. KOMEN LIVE SHOPEE
-- Harga: Rp 200.000 / 100 KOMEN
+- Harga: Rp 200.000 / 100 KOMEN LIVE
 - Link: https://www.jasalike.com/jasa-komen-live-shopee
 
 24. VIEW VIDEO SHOPEE
