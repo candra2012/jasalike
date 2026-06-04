@@ -2,32 +2,29 @@
 // Komponen Aurabot CS JasaLike
 ---
 
-<!-- 1. Tombol Chat Mengambang (Desain Kembar dengan WA) -->
-<!-- Posisi ditinggikan ke bottom-24 & md:bottom-28 agar pas di atas WA -->
+<!-- 1. Tombol Chat Mengambang (Pasti Naik karena pakai style="bottom: 90px;") -->
 <button 
   id="aurabot-toggle" 
-  class="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-[100] group flex items-center gap-3 bg-[#0f172a] hover:bg-[#1e293b] border border-slate-700 p-2 pr-5 rounded-full shadow-2xl hover:shadow-sky-500/30 transition-all duration-300"
+  class="fixed right-6 md:right-8 z-[100] group flex items-center gap-3 bg-[#0f172a] hover:bg-[#1e293b] border border-slate-700 p-2 pr-5 rounded-full shadow-2xl hover:shadow-sky-500/30 transition-all duration-300"
+  style="bottom: 90px;"
   aria-label="Buka Chat Aurabot"
 >
   <div class="bg-gradient-to-br from-sky-500 to-indigo-500 p-3 rounded-full group-hover:scale-110 transition-transform duration-300 shadow-md">
-    <!-- Ikon Robot/Chat -->
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
     </svg>
   </div>
-  
-  <!-- Teks Tombol Ditambahkan Di Sini -->
   <span class="font-bold text-white text-sm md:text-base tracking-wide">
     Tanya Aurabot AI
   </span>
 </button>
 
-<!-- 2. Jendela Chat -->
+<!-- 2. Jendela Chat (Pasti di Atas Tombol) -->
 <div 
   id="aurabot-window" 
-  class="fixed bottom-40 right-6 md:bottom-48 md:right-8 w-[calc(100vw-3rem)] max-w-[350px] bg-white border border-gray-200 rounded-2xl shadow-2xl z-[100] hidden flex-col overflow-hidden transition-all"
+  class="fixed right-6 md:right-8 w-[calc(100vw-3rem)] max-w-[350px] bg-white border border-gray-200 rounded-2xl shadow-2xl z-[100] hidden flex-col overflow-hidden transition-all"
+  style="bottom: 160px;"
 >
-  <!-- Header -->
   <div class="bg-gradient-to-r from-sky-600 to-indigo-600 text-white p-4 flex justify-between items-center">
     <div class="flex items-center gap-2">
       <div class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse border border-white"></div>
@@ -36,27 +33,23 @@
     <button id="aurabot-close" class="text-white hover:text-gray-200 font-bold p-1">✕</button>
   </div>
 
-  <!-- Area Pesan -->
   <div id="aurabot-messages" class="flex-1 p-4 h-72 md:h-80 overflow-y-auto bg-slate-50 flex flex-col gap-3 text-sm scroll-smooth">
     <div class="bg-sky-100 text-slate-800 p-3 rounded-xl rounded-tl-none self-start max-w-[85%] shadow-sm">
       Halo Kak! 👋 Saya Aurabot AI dari JasaLike. Ada yang bisa saya bantu tentang layanan kami?
     </div>
   </div>
 
-  <!-- Input Area -->
   <div class="p-3 bg-white border-t border-gray-100 flex gap-2">
     <input type="text" id="aurabot-input" placeholder="Ketik pertanyaanmu..." class="flex-1 p-2 border border-gray-300 rounded-xl focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm">
     <button id="aurabot-send" class="bg-sky-600 text-white px-4 py-2 rounded-xl hover:bg-sky-700 font-bold shadow-sm transition-colors">Kirim</button>
   </div>
 </div>
 
-<!-- 3. Animasi Melayang (Kembar dengan WA) -->
 <style>
   #aurabot-toggle {
     animation: floatbot 4s ease-in-out infinite;
-    animation-delay: 2s; /* Sengaja di-delay 2 detik agar melayangnya bergantian dengan WA (tidak kaku) */
+    animation-delay: 2s;
   }
-
   @keyframes floatbot {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
@@ -65,69 +58,78 @@
 </style>
 
 <script>
-  const toggleBtn = document.getElementById('aurabot-toggle');
-  const closeBtn = document.getElementById('aurabot-close');
-  const chatWindow = document.getElementById('aurabot-window');
-  const messagesBox = document.getElementById('aurabot-messages');
-  const inputField = document.getElementById('aurabot-input');
-  const sendBtn = document.getElementById('aurabot-send');
+  // 👇 INI OBATNYA! Memaksa script hidup lagi setiap pindah halaman
+  document.addEventListener('astro:page-load', () => {
+    const toggleBtn = document.getElementById('aurabot-toggle');
+    const closeBtn = document.getElementById('aurabot-close');
+    const chatWindow = document.getElementById('aurabot-window');
+    const messagesBox = document.getElementById('aurabot-messages');
+    const inputField = document.getElementById('aurabot-input') as HTMLInputElement;
+    const sendBtn = document.getElementById('aurabot-send');
 
-  toggleBtn.addEventListener('click', () => {
-    chatWindow.classList.toggle('hidden');
-    if (!chatWindow.classList.contains('hidden')) inputField.focus();
-  });
-  
-  closeBtn.addEventListener('click', () => chatWindow.classList.add('hidden'));
+    // Mencegah error jika elemen tidak ada
+    if (!toggleBtn || !chatWindow) return;
 
-  function addMessage(text, isUser) {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `p-3 rounded-xl text-sm max-w-[85%] shadow-sm leading-relaxed ${isUser ? 'bg-sky-600 text-white self-end rounded-tr-none' : 'bg-sky-100 text-slate-800 self-start rounded-tl-none'}`;
-    
-    let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    msgDiv.innerHTML = formattedText;
-    
-    messagesBox.appendChild(msgDiv);
-    messagesBox.scrollTop = messagesBox.scrollHeight;
-  }
-
-  async function sendMessage() {
-    const userText = inputField.value.trim();
-    if (!userText) return;
-
-    addMessage(userText, true);
-    inputField.value = '';
-    
-    const loadingId = 'loading-' + Date.now();
-    const loadingDiv = document.createElement('div');
-    loadingDiv.id = loadingId;
-    loadingDiv.className = 'bg-gray-200 text-slate-500 p-3 rounded-xl self-start rounded-tl-none text-xs italic animate-pulse';
-    loadingDiv.innerText = 'Aurabot sedang mengetik...';
-    messagesBox.appendChild(loadingDiv);
-    messagesBox.scrollTop = messagesBox.scrollHeight;
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userText })
-      });
-      
-      const data = await response.json();
-      document.getElementById(loadingId)?.remove(); 
-      
-      if (data.reply) {
-        addMessage(data.reply, false);
-      } else {
-        addMessage("Maaf Kak, sistem sedang sibuk. Coba lagi ya!", false);
+    // Logika Buka Tutup
+    toggleBtn.addEventListener('click', () => {
+      chatWindow.classList.toggle('hidden');
+      if (!chatWindow.classList.contains('hidden')) {
+        inputField.focus();
       }
-    } catch (error) {
-      document.getElementById(loadingId)?.remove();
-      addMessage("Aduh, koneksi terputus. Mohon periksa internet Kakak.", false);
-    }
-  }
+    });
+    
+    closeBtn.addEventListener('click', () => {
+      chatWindow.classList.add('hidden');
+    });
 
-  sendBtn.addEventListener('click', sendMessage);
-  inputField.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
+    function addMessage(text: string, isUser: boolean) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `p-3 rounded-xl text-sm max-w-[85%] shadow-sm leading-relaxed ${isUser ? 'bg-sky-600 text-white self-end rounded-tr-none' : 'bg-sky-100 text-slate-800 self-start rounded-tl-none'}`;
+      let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      msgDiv.innerHTML = formattedText;
+      messagesBox.appendChild(msgDiv);
+      messagesBox.scrollTop = messagesBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const userText = inputField.value.trim();
+      if (!userText) return;
+
+      addMessage(userText, true);
+      inputField.value = '';
+      
+      const loadingId = 'loading-' + Date.now();
+      const loadingDiv = document.createElement('div');
+      loadingDiv.id = loadingId;
+      loadingDiv.className = 'bg-gray-200 text-slate-500 p-3 rounded-xl self-start rounded-tl-none text-xs italic animate-pulse';
+      loadingDiv.innerText = 'Aurabot sedang mengetik...';
+      messagesBox.appendChild(loadingDiv);
+      messagesBox.scrollTop = messagesBox.scrollHeight;
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userText })
+        });
+        
+        const data = await response.json();
+        document.getElementById(loadingId)?.remove(); 
+        
+        if (data.reply) {
+          addMessage(data.reply, false);
+        } else {
+          addMessage("Maaf Kak, sistem sedang sibuk. Coba lagi ya!", false);
+        }
+      } catch (error) {
+        document.getElementById(loadingId)?.remove();
+        addMessage("Aduh, koneksi terputus. Mohon periksa internet Kakak.", false);
+      }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    inputField.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
   });
 </script>
