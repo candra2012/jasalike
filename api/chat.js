@@ -74,7 +74,7 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 
 16. REPORT AKUN/POSTINGAN YOUTUBE
 - Harga: Rp 200.000 / 100 REPORT
-- Link: https://jasalike.com/jasa-report-youtub
+- Link: https://jasalike.com/jasa-report-youtube
 
 
 
