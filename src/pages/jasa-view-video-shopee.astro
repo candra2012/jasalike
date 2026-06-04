@@ -1,0 +1,272 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+const title = "Jasa View Video Shopee Terpercaya & Bersertifikat";
+const description = "Optimalkan penjualan di Shopee dengan layanan tambah view video Shopee. Tingkatkan kredibilitas dan daya tarik produk Anda dengan peningkatan viewers yang natural dan terukur.";
+const keywords = "jasa view video shopee, beli view shopee video, tambah viewer video shopee, jasa tambah view video shopee, layanan tambah penonton shopee, jasa peningkatan view video shopee, jasa viewer shopee, beli viewer shopee, layanan tambah penonton video shopee, jasa peningkatan viewers shopee video, harga jasa tambah view shopee, jasa view shopee terpercaya";
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimalisasi Audiens Visual",
+  labelIcon: "lucide:play",
+  judulUtama: '<span class="text-orange-600">Jasa View Video</span> Shopee',
+  deskripsi: "Ingin meningkatkan kredibilitas dan daya tarik produk Anda di Shopee? Layanan jasa tambah view video Shopee hadir untuk membantu Anda mencapai hal tersebut. Dengan peningkatan viewers yang natural dan terukur, produk Anda akan lebih mudah ditemukan dan dipercaya oleh calon pembeli.<br class='hidden md:block mt-2' /> <span class='text-orange-500 font-semibold block mt-4'>✓ Peningkatan Penonton Nyata &nbsp; ✓ Proses Cepat &nbsp; ✓ Hasil Terukur</span>",
+  teksTombol1: "Pilih Paket View",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Produk",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-shopee.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-orange-600">Penjualan</span> di Shopee',
+  deskripsiUtama: "Di platform e-commerce yang kompetitif, angka penonton video sering kali menjadi faktor penentu kesuksesan. Apakah Anda mengalami hambatan ini?",
+  ms1Teks: '<strong class="text-orange-600 font-bold">Produk Kurang Dicari:</strong> Video produk Anda sulit ditemukan oleh calon pembeli karena jumlah penonton yang masih sedikit.',
+  ms2Teks: '<strong class="text-orange-600 font-bold">Kurang Menarik:</strong> Produk Anda kurang menarik perhatian karena video tidak memiliki banyak penonton.',
+  ms3Teks: '<strong class="text-orange-600 font-bold">Kurang Dipercaya:</strong> Calon pembeli meragukan kualitas produk Anda karena video tidak memiliki banyak penonton.',
+  ms4Teks: '<strong class="text-orange-600 font-bold">Kurang Kompetitif:</strong> Produk Anda kurang kompetitif karena video tidak mendapatkan banyak penonton dibandingkan dengan pesaing.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Strategi <span class="text-orange-600">Peningkatan Viewers</span>',
+  deskripsiUtama: "Layanan jasa view video Shopee adalah solusi cerdas untuk meningkatkan kredibilitas dan daya tarik produk Anda di platform e-commerce. Dengan peningkatan viewers yang natural, produk Anda akan lebih mudah ditemukan dan dipercaya oleh calon pembeli.",
+  k1Judul: "Peningkatan Natural",
+  k1Teks: "Proses peningkatan penonton dirancang agar menyesuaikan dengan ritme penonton wajar di Shopee. Kami menjaga agar riwayat peningkatan penonton Anda tetap terlihat prima.",
+  k2Judul: "Fokus pada Kredibilitas",
+  k2Teks: "Lebih dari sekadar angka, layanan ini bertujuan untuk membangun kepercayaan pelanggan terhadap kualitas produk Anda melalui peningkatan viewers yang terukur."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-orange-600">Peningkatan Viewers</span>',
+  deskripsiUtama: "Basis penonton yang kuat akan membuka berbagai peluang baru bagi bisnis online Anda di Shopee.",
+  m1Judul: "Meningkatkan Daya Tarik Produk",
+  m1Teks: "Produk dengan penonton video yang banyak akan lebih menarik perhatian calon pembeli dan meningkatkan peluang penjualan.",
+  m2Judul: "Meningkatkan Kepercayaan Pelanggan",
+  m2Teks: "Penonton video yang banyak memberikan kesan bahwa produk Anda dipercaya dan diminati oleh banyak orang.",
+  m3Judul: "Optimasi Penunjukan Produk",
+  m3Teks: "Produk dengan penonton video yang tinggi cenderung lebih sering ditampilkan di halaman pencarian dan rekomendasi Shopee.",
+  m4Judul: "Meningkatkan ROI",
+  m4Teks: "Peningkatan penonton video akan membantu meningkatkan return on investment (ROI) dari produk Anda di Shopee."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-orange-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang elegan, menjaga privasi, dan memberikan ketenangan pikiran bagi klien.",
+  mk1Judul: "Metode Eksekusi Natural",
+  mk1Teks: "Kami menghindari lonjakan yang tidak masuk akal. Semua disalurkan dengan kehati-hatian tingkat tinggi untuk menjaga ekosistem akun Anda.",
+  mk2Judul: "Integritas Privasi Terjaga",
+  mk2Teks: "Sistem kami beroperasi secara independen dari luar. Anda hanya perlu memberikan tautan (username) profil toko, tanpa perlu menyerahkan informasi kredensial apa pun.",
+  mk3Judul: "Perlindungan Kualitas",
+  mk3Teks: "Kami menjamin bahwa penonton yang ditambahkan adalah nyata dan aktif, sehingga meningkatkan kualitas interaksi di video produk Anda.",
+  mk4Judul: "Layanan Pelanggan Dedikatif",
+  mk4Teks: "Tim operasional Auradigital selalu memantau kampanye Anda dan siap menjawab konsultasi dengan ramah setiap saat.",
+  mk5Judul: "Tarif Fleksibel & Kompetitif",
+  mk5Teks: "Tersedia berbagai skala layanan tambah view yang bisa disesuaikan dengan anggaran perorangan maupun korporat.",
+  mk6Judul: "Proses Aktivasi Ringkas",
+  mk6Teks: "Pemesanan dirancang tanpa birokrasi rumit. Begitu transaksi terkonfirmasi, jadwal peningkatan penonton langsung kami kerjakan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-orange-600">Produk Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan video produk Anda sebagai etalase yang menarik dan dipercaya oleh calon pembeli.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Daya Tarik Visual",
+  sol1Teks: "Berikan alasan kuat bagi calon pembeli untuk segera mempercayai kualitas produk Anda melalui video yang menarik.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Perluas Jangkauan Pasar",
+  sol2Teks: "Jangkau lebih banyak calon pembeli dengan basis penonton video yang sudah terbukti solid dan dipercaya.",
+  sol3Icon: "lucide:heart",
+  sol3Teks: 'Untuk menyeimbangkan jumlah penonton yang besar, kami merekomendasikan Anda untuk melengkapi produk dengan <a href="/like-shopee" class="text-orange-600 hover:underline font-semibold">jasa like Shopee</a> agar rasio interaksi (engagement rate) semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-orange-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai peningkatan penonton video produk Anda.",
+  co1Judul: "Pilih Paket Penonton",
+  co1Teks: "Pilih paket peningkatan penonton yang paling sesuai dengan target pencapaian dan ukuran bisnis Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Video",
+  co2Teks: "Cukup berikan tautan video produk Anda. Harap pastikan video dalam kondisi terpublikasikan selama masa pengerjaan.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Peningkatan",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus menciptakan konten video produk terbaik."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Kredibilitas Visual",
+  deskripsiHarga: "Pilih paket peningkatan penonton yang paling tepat untuk mendongkrak kredibilitas video produk Anda di Shopee.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-viewshopee.png",
+  p1Nama: "1000 Penonton",
+  p1Fitur1: "Kualitas Penonton Nyata",
+  p1Fitur2: "Proses Cepat",
+  p1Fitur3: "Privasi Toko Terjaga",
+  p1Harga: "Rp 300.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Penonton%20Shopee",
+
+  // Paket Kanan
+  p2Label: "PILIHAN KREATOR",
+  p2Gambar: "/image/harga-viewshopee.png",
+  p2Nama: "10000 Penonton",
+  p2Fitur1: "Kualitas Audiens Premium",
+  p2Fitur2: "Proses Cepat",
+  p2Fitur3: "Dukungan Prioritas Sistem",
+  p2HargaCoret: "Rp 2.500.000",
+  p2Harga: "Rp 2.200.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%2010000%20Penonton%20Shopee"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-orange-600">Tambah View Video</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan peningkatan penonton video di Shopee.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Tambah%20View%20Video%20Shopee",
+  faq1Judul: "Apakah aman menggunakan jasa tambah view video ini?",
+  faq1Teks: "Sangat aman. Kami memproses peningkatan penonton dengan kecepatan yang wajar dan metode natural, sehingga sepenuhnya mematuhi standar keamanan Shopee. Toko Anda bebas dari risiko penangguhan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan tautan video produk saja. Proses peningkatan penonton berjalan murni dari luar akun Anda.",
+  faq3Judul: "Mengapa video saya tidak boleh di-private?",
+  faq3Teks: "Selama proses peningkatan penonton berlangsung, sistem kami membutuhkan akses terbuka agar video Anda dapat ditemukan dan ditonton. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah penonton ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan kualitas penonton yang nyata dan aktif.",
+  faq5Judul: "Apakah bisa untuk target kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan penonton campuran skala nasional (Indonesia) dan global untuk mendongkrak angka secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas akun Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa View Video Shopee Terpercaya",
+    "image": "https://jasalike.com/image/harga-viewshopee.png",
+    "description": "Optimalkan penjualan di Shopee dengan layanan tambah view video Shopee. Tingkatkan kredibilitas dan daya tarik produk Anda dengan peningkatan viewers yang natural dan terukur.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 300000,
+      "highPrice": 2200000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa View Video Shopee",
+        "item": "https://jasalike.com/jasa-view-video-shopee"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa tambah view video ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses peningkatan penonton dengan kecepatan yang wajar dan metode natural, sehingga sepenuhnya mematuhi standar keamanan Shopee. Toko Anda bebas dari risiko penangguhan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan tautan video produk saja. Proses peningkatan penonton berjalan murni dari luar akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa video saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses peningkatan penonton berlangsung, sistem kami membutuhkan akses terbuka agar video Anda dapat ditemukan dan ditonton. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah penonton ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan kualitas penonton yang nyata dan aktif."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
