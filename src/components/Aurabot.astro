@@ -58,7 +58,6 @@
 </style>
 
 <script>
-  // 👇 INI OBATNYA! Memaksa script hidup lagi setiap pindah halaman
   document.addEventListener('astro:page-load', () => {
     const toggleBtn = document.getElementById('aurabot-toggle');
     const closeBtn = document.getElementById('aurabot-close');
@@ -67,10 +66,8 @@
     const inputField = document.getElementById('aurabot-input') as HTMLInputElement;
     const sendBtn = document.getElementById('aurabot-send');
 
-    // Mencegah error jika elemen tidak ada
     if (!toggleBtn || !chatWindow) return;
 
-    // Logika Buka Tutup
     toggleBtn.addEventListener('click', () => {
       chatWindow.classList.toggle('hidden');
       if (!chatWindow.classList.contains('hidden')) {
@@ -85,7 +82,12 @@
     function addMessage(text: string, isUser: boolean) {
       const msgDiv = document.createElement('div');
       msgDiv.className = `p-3 rounded-xl text-sm max-w-[85%] shadow-sm leading-relaxed ${isUser ? 'bg-sky-600 text-white self-end rounded-tr-none' : 'bg-sky-100 text-slate-800 self-start rounded-tl-none'}`;
+      
+      // 👇 INI DIA KUNCI RAHASIANYA! (Penerjemah Link HTML)
       let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      formattedText = formattedText.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" class="text-blue-700 font-bold hover:underline">$1</a>');
+      // 👆 Batas kode rahasia
+
       msgDiv.innerHTML = formattedText;
       messagesBox.appendChild(msgDiv);
       messagesBox.scrollTop = messagesBox.scrollHeight;
