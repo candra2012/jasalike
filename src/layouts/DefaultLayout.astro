@@ -5,6 +5,8 @@ import '../assets/scss/index.scss'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FloatingCS from '../components/FloatingCS.astro'
+// 👇 1. IMPORT AURABOT DI SINI
+import Aurabot from '../components/Aurabot.astro' 
 import { ClientRouter } from 'astro:transitions'
 
 // 1. Import komponen SEO khusus yang murni fokus Jasa Like
@@ -60,7 +62,6 @@ const {
   })();
 </script>
 
-
     <ClientRouter />
   </head>
   <body>
@@ -69,7 +70,10 @@ const {
       <slot />
     </main>
     <Footer />
+    
+    <!-- 👇 2. PANGGIL KOMPONENNYA DI SINI -->
     <FloatingCS />
+    <Aurabot />
 
     <style lang="scss" is:global>
       html, body { height: 100%; }
@@ -97,7 +101,6 @@ const {
         });
       });
     </script>
-
 
     </body>
 </html>
