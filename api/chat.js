@@ -76,7 +76,53 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Harga: Rp 200.000 / 100 REPORT
 - Link: https://jasalike.com/jasa-report-youtube
 
+17. LIKE INSTAGRAM
+- Harga: Rp 200.000 / 100 LIKE
+- Link: https://www.jasalike.com/like-instagram/
 
+18. VIEW INSTAGRAM
+- Harga: Rp 200.000 / 100 VIEW
+- Link: https://www.jasalike.com/jasa-tambah-view
+
+19. KOMENTAR INSTAGRAM
+- Harga: Rp 200.000 / 100 KOMEN
+- Link: https://www.jasalike.com/jasa-komen-instagram
+
+20. VOTE/POLLING INSTAGRAM
+- Harga: Rp 250.000 / 100 VOTE
+- Link: https://www.jasalike.com/jasa-vote-ig-private
+
+20. FOLLOWER SHOPEE
+- Harga: Rp 200.000 / 100 FOLLOWER
+- Link: https://www.jasalike.com/jasa-tambah-follower-shopee
+
+21. CHECKOUT/BARANG TERJUAL SHOPEE
+- Harga: Rp 200.000 / 10 CHECKOUT
+- Link: https://www.jasalike.com/jasa-fake-order-shopee
+
+22. LIVE SHOPEE
+- Harga: Rp 200.000 / 10 LIVE (60 MENIT)
+- Link: https://www.jasalike.com/jasa-live-shopee
+
+23. KOMEN LIVE SHOPEE
+- Harga: Rp 200.000 / 100 KOMEN
+- Link: https://www.jasalike.com/jasa-komen-live-shopee
+
+24. VIEW VIDEO SHOPEE
+- Harga: Rp 200.000 / 100 VIEW
+- Link: https://www.jasalike.com/jasa-view-video-shopee
+
+25. KOMENTAR VIDEO SHOPEE
+- Harga: Rp 300.000 / 100 KOMEN
+- Link: https://www.jasalike.com/jasa-tambah-komen-shopee
+
+26. REPORT AKUN/PRODUK SHOPEE
+- Harga: Rp 200.000 / 100 REPORT
+- Link: https://www.jasalike.com/jasa-report-toko-shopee
+
+27. VOTE/POLLING SHOPEE
+- Harga: Rp 300.000 / 100 VOTE
+- Link: https://www.jasalike.com/jasa-vote-produk-shopee
 
 CONTOH CARA MENJAWAB YANG BENAR:
 User: "Berapa harga like tiktok?"
