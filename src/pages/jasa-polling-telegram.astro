@@ -1,0 +1,283 @@
+---
+// src/pages/jasa-polling-telegram.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Polling Telegram Terpercaya & Strategis";
+const description = "Optimalkan potensi kompetisi Anda dengan layanan jasa polling Telegram. Meningkatkan suara dan memenangkan kompetisi dengan cara yang strategis dan efektif.";
+const keywords = "jasa polling telegram, beli vote polling telegram, tambah suara polling telegram, jasa vote telegram, cara menang polling telegram, layanan polling telegram, meningkatkan suara telegram, strategi polling telegram";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimalisasi Suara",
+  labelIcon: "lucide:users",
+  judulUtama: '<span class="text-sky-600">Jasa Polling</span> Telegram',
+  deskripsi: "Menghadapi kompetisi sengit di Telegram? Layanan jasa polling kami hadir untuk membantu Anda mendominasi hasil suara dan menciptakan konsensus sosial yang kuat. Dengan strategi yang tepat, Anda dapat menggiring opini publik dan memenangkan kompetisi dengan elegan.<br class='hidden md:block mt-2' /> <span class='text-sky-500 font-semibold block mt-4'>✓ Strategi Terarah &nbsp; ✓ Keakuratan Suara &nbsp; ✓ Hasil Maksimal</span>",
+  teksTombol1: "Pilih Paket Suara",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Strategi",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-telegram.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-sky-600">Optimalisasi Suara</span> Saat Ini',
+  deskripsiUtama: "Di era digital, suara publik sering kali menjadi penentu utama dalam berbagai kompetisi. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-sky-600 font-bold">Kesulitan Mempengaruhi Opini:</strong> Sulit untuk mengarahkan pandangan publik ke arah yang diinginkan, terutama ketika pesaing Anda sudah lebih dulu mendominasi.',
+  ms2Teks: '<strong class="text-sky-600 font-bold">Kurangnya Dukungan:</strong> Kurangnya dukungan dari pengguna Telegram yang membuat Anda tertinggal dalam berbagai kompetisi dan polling.',
+  ms3Teks: '<strong class="text-sky-600 font-bold">Kehilangan Momentum:</strong> Kesempatan untuk menunjukkan kualitas dan kompetensi Anda hilang karena hasil polling yang tidak sesuai harapan.',
+  ms4Teks: '<strong class="text-sky-600 font-bold">Kurangnya Konsensus:</strong> Sulit untuk menciptakan kesepakatan sosial yang kuat dan meyakinkan di antara komunitas Telegram Anda.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Strategi <span class="text-sky-600">Optimalisasi Suara</span>',
+  deskripsiUtama: "Layanan jasa polling Telegram dirancang untuk membantu Anda mengoptimalkan suara dan memenangkan kompetisi dengan cara yang strategis dan efektif.",
+  k1Judul: "Peningkatan Suara Terarah",
+  k1Teks: "Kami merancang strategi peningkatan suara yang dirancang untuk mencapai hasil yang konsisten dan terukur. Setiap langkah dihitung dengan cermat untuk memaksimalkan dampak.",
+  k2Judul: "Fokus pada Konsensus Sosial",
+  k2Teks: "Lebih dari sekadar jumlah suara, layanan ini bertujuan untuk menciptakan konsensus sosial yang kuat dan meyakinkan di antara komunitas Telegram Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-sky-600">Optimalisasi Suara</span>',
+  deskripsiUtama: "Meningkatkan suara dan menciptakan konsensus sosial yang kuat akan membuka berbagai peluang baru bagi Anda.",
+  m1Judul: "Meningkatkan Visibilitas",
+  m1Teks: "Hasil polling yang kuat akan meningkatkan visibilitas Anda di komunitas Telegram, memperkuat posisi Anda sebagai pemimpin atau influencer.",
+  m2Judul: "Menciptakan Kredibilitas",
+  m2Teks: "Suara yang tinggi menciptakan kredibilitas dan kepercayaan publik, membuat Anda lebih dihargai dan dihormati dalam berbagai diskusi dan keputusan.",
+  m3Judul: "Meningkatkan Pengaruh",
+  m3Teks: "Dengan konsensus sosial yang kuat, Anda dapat lebih mudah mempengaruhi opini publik dan mengarahkan diskusi sesuai dengan tujuan Anda.",
+  m4Judul: "Menciptakan Momentum",
+  m4Teks: "Hasil polling yang positif akan menciptakan momentum positif, memudahkan Anda untuk memenangkan kompetisi dan mencapai tujuan Anda."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-sky-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang strategis, menjaga kualitas, dan memberikan kepuasan bagi klien.",
+  mk1Judul: "Strategi Terarah",
+  mk1Teks: "Kami mengembangkan strategi peningkatan suara yang dirancang untuk mencapai hasil yang konsisten dan terukur.",
+  mk2Judul: "Kualitas Suara Terjaga",
+  mk2Teks: "Kami menjamin setiap suara yang kami tambahkan berasal dari akun yang real dan aktif, sehingga hasilnya benar-benar kredibel.",
+  mk3Judul: "Pelayanan Profesional",
+  mk3Teks: "Tim kami selalu siap membantu Anda dengan pelayanan profesional dan dedikatif, memastikan proses berjalan lancar.",
+  mk4Judul: "Proses Cepat & Efisien",
+  mk4Teks: "Kami memastikan proses peningkatan suara berjalan dengan cepat dan efisien, sehingga Anda dapat segera melihat hasilnya.",
+  mk5Judul: "Harga Terjangkau",
+  mk5Teks: "Kami menawarkan berbagai paket dengan harga terjangkau, sesuai dengan kebutuhan dan anggaran Anda.",
+  mk6Judul: "Dukungan Kontinu",
+  mk6Teks: "Kami menyediakan dukungan kontinu untuk memastikan hasil yang optimal dan memuaskan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-sky-600">Kompetisi Anda</span> Sekarang',
+  deskripsiUtama: "Manfaatkan layanan jasa polling Telegram untuk meningkatkan suara dan menciptakan konsensus sosial yang kuat.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Visibilitas",
+  sol1Teks: "Dengan hasil polling yang kuat, Anda dapat meningkatkan visibilitas dan kredibilitas Anda di komunitas Telegram.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Meningkatkan Pengaruh",
+  sol2Teks: "Hasil polling yang positif akan meningkatkan pengaruh Anda dalam berbagai diskusi dan keputusan.",
+  sol3Icon: "lucide:heart",
+  sol3Teks: 'Untuk memaksimalkan hasil, kami merekomendasikan Anda untuk melengkapi layanan dengan <a href="/like-telegram" class="text-sky-600 hover:underline font-semibold">jasa like Telegram</a> agar interaksi semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-sky-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai optimalisasi suara Anda.",
+  co1Judul: "Tentukan Target Suara",
+  co1Teks: "Pilih paket suara yang paling sesuai dengan target pencapaian dan kebutuhan Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Polling",
+  co2Teks: "Cukup berikan tautan polling Telegram Anda. Harap pastikan polling dalam kondisi aktif selama masa pengerjaan.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Hasil",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa fokus mencapai tujuan Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Kredibilitas Suara",
+  deskripsiHarga: "Pilih paket peningkatan suara yang paling tepat untuk mencapai tujuan Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-polling-telegram.png",
+  p1Nama: "100 Suara",
+  p1Fitur1: "Kualitas Akun Standar",
+  p1Fitur2: "Peningkatan Suara Terarah",
+  p1Fitur3: "Proses Cepat & Efisien",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Suara%20Polling%20Telegram",
+
+  // Paket Kanan
+  p2Label: "PILIHAN STRATEGIS",
+  p2Gambar: "/image/harga-polling-telegram.png",
+  p2Nama: "1000 Suara",
+  p2Fitur1: "Kualitas Suara Premium",
+  p2Fitur2: "Peningkatan Suara Terarah",
+  p2Fitur3: "Dukungan Prioritas",
+  p2HargaCoret: "Rp 2.250.000",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Suara%20Polling%20Telegram"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-sky-600">Polling Telegram</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan peningkatan suara Telegram.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Polling%20Telegram",
+  faq1Judul: "Apakah aman menggunakan jasa polling Telegram ini?",
+  faq1Teks: "Sangat aman. Kami memproses peningkatan suara dengan metode yang natural dan konsisten, sehingga sepenuhnya mematuhi standar keamanan Telegram. Akun Anda bebas dari risiko penangguhan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Tidak perlu. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan tautan polling saja. Proses peningkatan berjalan murni dari luar akun Anda.",
+  faq3Judul: "Mengapa polling saya tidak boleh di-close?",
+  faq3Teks: "Selama proses peningkatan suara berlangsung, sistem kami membutuhkan akses terbuka agar dapat menambahkan suara. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturannya kembali.",
+  faq4Judul: "Apakah jumlah suara bisa berkurang?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Namun, kami menjamin hasil yang optimal dan konsisten.",
+  faq5Judul: "Apakah bisa untuk target grup tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan suara dari berbagai grup Telegram untuk mendongkrak angka secara umum. Untuk penargetan grup spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan) agar hasilnya terlihat natural dan konsisten."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Polling Telegram Terpercaya & Strategis",
+    "image": "https://jasalike.com/image/harga-polling-telegram.png",
+    "description": "Optimalkan potensi kompetisi Anda dengan layanan jasa polling Telegram. Meningkatkan suara dan memenangkan kompetisi dengan cara yang strategis dan efektif.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 200000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Polling Telegram",
+        "item": "https://jasalike.com/jasa-polling-telegram"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa polling Telegram ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses peningkatan suara dengan metode yang natural dan konsisten, sehingga sepenuhnya mematuhi standar keamanan Telegram. Akun Anda bebas dari risiko penangguhan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak perlu. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan tautan polling saja. Proses peningkatan berjalan murni dari luar akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa polling saya tidak boleh di-close?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses peningkatan suara berlangsung, sistem kami membutuhkan akses terbuka agar dapat menambahkan suara. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturannya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah suara bisa berkurang?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Namun, kami menjamin hasil yang optimal dan konsisten."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
