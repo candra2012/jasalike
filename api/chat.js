@@ -72,7 +72,7 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Harga: Rp 200.000 / 10 LIVE
 - Link: https://jasalike.com/jasa-live-youtube
 
-16. REPORT YOUTUBE
+16. REPORT AKUN/POSTINGAN YOUTUBE
 - Harga: Rp 200.000 / 100 REPORT
 - Link: https://jasalike.com/jasa-report-youtub
 
