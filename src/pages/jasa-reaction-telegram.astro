@@ -1,0 +1,284 @@
+---
+// src/pages/jasa-reaction-telegram.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Reaction Telegram: Membangun Interaksi Aktif";
+const description = "Optimalkan channel Telegram Anda dengan layanan jasa reaction Telegram. Tingkatkan validasi sosial, interaksi, dan membuat channel terlihat hidup dan aktif.";
+const keywords = "jasa reaction telegram, beli reaction postingan telegram, tambah reaksi channel telegram, jasa auto reaction telegram, layanan tambah reaksi telegram, jasa tambah reaction telegram, beli reaksi telegram, jasa reaksi telegram, layanan reaction telegram";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Optimalisasi Interaksi",
+  labelIcon: "lucide:users",
+  judulUtama: '<span class="text-sky-600">Jasa Reaction</span> Telegram',
+  deskripsi: "Ingin channel Telegram Anda terlihat aktif dan menarik perhatian lebih banyak anggota? Layanan jasa reaction Telegram kami membantu meningkatkan validasi sosial dan interaksi di setiap postingan Anda. Dengan reaksi yang lebih banyak, channel Anda akan terlihat hidup dan dinamis.<br class='hidden md:block mt-2' /> <span class='text-sky-500 font-semibold block mt-4'>✓ Interaksi Aktif &nbsp; ✓ Validasi Sosial &nbsp; ✓ Channel Hidup</span>",
+  teksTombol1: "Pilih Paket Reaksi",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Channel",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-jasalike-telegram.png" 
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-sky-600">Interaksi Channel</span> Saat Ini',
+  deskripsiUtama: "Di platform pesan instan yang serba cepat, interaksi sering kali menjadi penentu pertama kesuksesan. Apakah Anda merasakan hambatan ini?",
+  ms1Teks: '<strong class="text-sky-600 font-bold">Kurangnya Respon:</strong> Postingan Anda jarang mendapatkan reaksi, membuat anggota merasa sepi dan kurang tertarik untuk berinteraksi lebih lanjut.',
+  ms2Teks: '<strong class="text-sky-600 font-bold">Kredibilitas Rendah:</strong> Channel Anda terlihat kurang hidup karena kurangnya interaksi, sehingga sulit menarik perhatian anggota baru.',
+  ms3Teks: '<strong class="text-sky-600 font-bold">Konten Tidak Mengena:</strong> Konten menarik yang Anda bagikan kurang mendapatkan apresiasi karena kurangnya reaksi dari anggota.',
+  ms4Teks: '<strong class="text-sky-600 font-bold">Stagnasi Pertumbuhan:</strong> Meskipun konten berkualitas, channel Anda masih sulit berkembang karena kurangnya interaksi dan validasi sosial.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal <span class="text-sky-600">Jasa Reaction Telegram</span>',
+  deskripsiUtama: "Layanan yang membantu meningkatkan interaksi dan validasi sosial di channel Telegram Anda. Dengan reaksi yang lebih banyak, channel Anda akan terlihat lebih hidup dan aktif.",
+  k1Judul: "Peningkatan Interaksi",
+  k1Teks: "Kami menyediakan reaksi autentik yang meningkatkan interaksi di setiap postingan Anda, membuat channel terlihat lebih hidup dan dinamis.",
+  k2Judul: "Validasi Sosial",
+  k2Teks: "Reaksi yang lebih banyak membantu meningkatkan kredibilitas dan validasi sosial, menarik lebih banyak anggota baru."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-sky-600">Peningkatan Reaksi</span>',
+  deskripsiUtama: "Interaksi yang lebih tinggi akan membawa berbagai manfaat bagi channel Telegram Anda.",
+  m1Judul: "Meningkatkan Kredibilitas",
+  m1Teks: "Channel dengan banyak reaksi terlihat lebih kredibel dan menarik perhatian anggota baru.",
+  m2Judul: "Meningkatkan Interaksi",
+  m2Teks: "Reaksi yang lebih banyak mendorong anggota lain untuk berinteraksi lebih aktif, menciptakan lingkungan komunitas yang lebih dinamis.",
+  m3Judul: "Meningkatkan Keterlibatan",
+  m3Teks: "Anggota merasa lebih terlibat dan terdorong untuk berpartisipasi lebih aktif dalam diskusi dan aktivitas channel.",
+  m4Judul: "Meningkatkan Pertumbuhan",
+  m4Teks: "Channel yang terlihat aktif dan hidup lebih mudah menarik anggota baru, meningkatkan pertumbuhan komunitas."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Nilai Lebih <span class="text-sky-500">JasaLike.com</span>',
+  deskripsiUtama: "Kami merancang sistem ini untuk memberikan hasil yang elegan, menjaga privasi, dan memberikan ketenangan pikiran bagi klien.",
+  mk1Judul: "Metode Eksekusi Natural",
+  mk1Teks: "Kami menghindari lonjakan yang tidak masuk akal. Semua disalurkan dengan kehati-hatian tingkat tinggi untuk menjaga ekosistem channel Anda.",
+  mk2Judul: "Integritas Privasi Terjaga",
+  mk2Teks: "Sistem kami beroperasi secara independen dari luar. Anda hanya cukup memberikan tautan (username) channel publik, tanpa perlu menyerahkan informasi kredensial apa pun.",
+  mk3Judul: "Perlindungan Kualitas",
+  mk3Teks: "Kami memastikan bahwa setiap reaksi yang kami berikan adalah autentik dan meningkatkan kualitas interaksi di channel Anda.",
+  mk4Judul: "Layanan Pelanggan Dedikatif",
+  mk4Teks: "Tim operasional Auradigital selalu memantau kampanye Anda dan siap menjawab konsultasi dengan ramah setiap saat.",
+  mk5Judul: "Tarif Fleksibel & Kompetitif",
+  mk5Teks: "Tersedia berbagai skala layanan jual jasa reaction Telegram yang bisa disesuaikan dengan anggaran perorangan maupun korporat.",
+  mk6Judul: "Proses Aktivasi Ringkas",
+  mk6Teks: "Pemesanan dirancang tanpa birokrasi rumit. Begitu transaksi terkonfirmasi, jadwal peningkatan reaksi langsung kami kerjakan."
+};
+
+const dataSolusi = {
+  judulUtama: 'Ubah Wajah <span class="text-sky-600">Channel Anda</span> Sekarang',
+  deskripsiUtama: "Jadikan channel Telegram Anda sebagai etalase komunitas yang meyakinkan dan berkelas.",
+  sol1Icon: "lucide:check-circle",
+  sol1Judul: "Meningkatkan Keterlibatan Anggota",
+  sol1Teks: "Berikan alasan kuat bagi anggota baru untuk segera berinteraksi dan terlibat aktif di channel Anda.",
+  sol2Icon: "lucide:globe",
+  sol2Judul: "Perluas Jangkauan Konten",
+  sol2Teks: "Jangkau lebih banyak anggota dengan fondasi channel yang sudah terbukti aktif dan dinamis.",
+  sol3Icon: "lucide:heart",
+  sol3Judul: "Kombinasi Interaksi Sempurna",
+  sol3Teks: 'Untuk menyeimbangkan jumlah anggota yang besar, kami merekomendasikan Anda untuk melengkapi channel dengan <a href="/like-telegram" class="text-sky-600 hover:underline font-semibold">jasa like Telegram</a> agar rasio interaksi semakin optimal.'
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-sky-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk memulai transformasi channel Anda.",
+  co1Judul: "Tentukan Target Interaksi",
+  co1Teks: "Pilih paket reaksi yang paling sesuai dengan target pencapaian dan ukuran channel Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Channel",
+  co2Teks: "Cukup berikan username atau tautan channel Telegram Anda. Harap pastikan channel dalam kondisi Publik (tidak terkunci/private) selama masa pengerjaan.",
+  co3Judul: "Proses Pembayaran",
+  co3Teks: "Selesaikan tahapan administrasi dengan aman melalui metode pembayaran otomatis yang telah kami sediakan.",
+  co4Judul: "Nikmati Interaksi",
+  co4Teks: "Sistem operasional kami akan mengambil alih sisanya. Anda bisa kembali fokus menciptakan konten terbaik."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Kredibilitas Interaksi",
+  deskripsiHarga: "Pilih paket peningkatan reaksi yang paling tepat untuk mendongkrak aktivitas channel Telegram Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-reaction-telegram.png",
+  p1Nama: "100 Reaksi",
+  p1Fitur1: "Kualitas Reaksi Standar",
+  p1Fitur2: "Proses Distribusi Natural",
+  p1Fitur3: "Privasi Channel Terjaga",
+  p1Harga: "Rp 150.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Reaksi%20Telegram",
+
+  // Paket Kanan
+  p2Label: "PILIHAN KREATOR",
+  p2Gambar: "/image/harga-reaction-telegram.png",
+  p2Nama: "1000 Reaksi",
+  p2Fitur1: "Kualitas Reaksi Premium",
+  p2Fitur2: "Peningkatan Interaksi Maksimal",
+  p2Fitur3: "Dukungan Prioritas Sistem",
+  p2HargaCoret: "Rp 1.500.000",
+  p2Harga: "Rp 1.300.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Reaksi%20Telegram"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-sky-600">Jasa Reaction Telegram</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan peningkatan reaksi Telegram.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Reaction%20Telegram",
+  faq1Judul: "Apakah aman menggunakan jasa reaction Telegram ini?",
+  faq1Teks: "Sangat aman. Kami memproses peningkatan reaksi dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Telegram. Channel Anda bebas dari risiko penangguhan.",
+  faq2Judul: "Apakah saya harus memberikan data rahasia?",
+  faq2Teks: "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan channel saja. Proses peningkatan reaksi berjalan murni dari luar channel Anda.",
+  faq3Judul: "Mengapa channel saya tidak boleh di-private?",
+  faq3Teks: "Selama proses peningkatan reaksi berlangsung, sistem kami membutuhkan akses terbuka agar channel Anda dapat ditemukan dan diikuti. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali.",
+  faq4Judul: "Apakah jumlah reaksi ini bisa berkurang (drop)?",
+  faq4Teks: "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan fitur perlindungan kualitas agar angka investasi Anda tetap terjaga.",
+  faq5Judul: "Apakah bisa untuk target kota tertentu?",
+  faq5Teks: "Layanan utama kami mendistribusikan reaksi skala nasional (Indonesia) dan global untuk mendongkrak angka secara umum. Untuk penargetan kota spesifik, silakan berkonsultasi langsung dengan tim dukungan kami.",
+  faq6Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq6Teks: "Kecepatan sangat bergantung pada volume yang dipesan. Kami sengaja mengatur ritme penyaluran secara bertahap (tidak instan dalam 1 detik) agar riwayat aktivitas channel Anda tetap terlihat sehat dan natural."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Reaction Telegram",
+    "image": "https://jasalike.com/image/harga-reaction-telegram.png",
+    "description": "Optimalkan channel Telegram Anda dengan layanan jasa reaction Telegram. Tingkatkan validasi sosial, interaksi, dan membuat channel terlihat hidup dan aktif.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 855
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 150000,
+      "highPrice": 1300000,
+      "priceCurrency": "IDR",
+      "offerCount": 2
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Reaction Telegram",
+        "item": "https://jasalike.com/jasa-reaction-telegram"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa reaction Telegram ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Kami memproses peningkatan reaksi dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Telegram. Channel Anda bebas dari risiko penangguhan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan data rahasia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan channel saja. Proses peningkatan reaksi berjalan murni dari luar channel Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa channel saya tidak boleh di-private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Selama proses peningkatan reaksi berlangsung, sistem kami membutuhkan akses terbuka agar channel Anda dapat ditemukan dan diikuti. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah reaksi ini bisa berkurang (drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan fitur perlindungan kualitas agar angka investasi Anda tetap terjaga."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
