@@ -263,16 +263,15 @@ ATURAN SUPER KETAT:
     const data = await response.json();
     
     // 🚨 SENSOR PENGINTAI ERROR SERVER B.AI
-    // Kalau server AI ngambek, kita lempar pesannya langsung ke layar chat
     if (!data.choices || data.error) {
       const errorMsg = data.error?.message || "Format balasan B.ai tidak dikenali.";
       return res.status(200).json({ reply: `🚨 Maaf Kak, otak API lagi error: ${errorMsg}` });
     }
 
     const reply = data.choices[0].message.content;
-    res.status(200).json({ reply });
+    return res.status(200).json({ reply });
     
   } catch (error) {
-    // Ini kalau Vercel kamu yang gagal terhubung ke internet/B.ai
-    res.status(200).json({ reply: `🚨 Waduh server Vercel kaget: ${error.message}` });
+    return res.status(200).json({ reply: `🚨 Waduh server Vercel kaget: ${error.message}` });
   }
+}
