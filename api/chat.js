@@ -1,10 +1,12 @@
-export const POST = async ({ request }) => {
-  try {
-    // 1. Tangkap pesan dari frontend
-    const body = await request.json();
-    const message = body.message;
+export default async function handler(req, res) {
+  // Pastikan hanya menerima jalur POST dari website
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Hanya menerima POST' });
+  }
 
-  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR
+  const { message } = req.body;
+
+  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR (Tanda kutip sudah dijamin utuh!)
   const sop_jasalike = `Kamu adalah Aurabot, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
 Tugasmu adalah memberikan solusi untuk kebutuhan sosial media klien dengan ramah, santai (panggil 'Kak'), dan TIDAK hard-selling.
 
@@ -238,9 +240,9 @@ ATURAN SUPER KETAT:
 4. Jika ditanya di luar topik JasaLike, tolak dengan sopan.
 5. JIKA KLIEN BERTANYA SECARA UMUM / TIDAK JELAS PLATFORMNYA (misal: "harga like berapa?", "mau beli follower", "jasa view"):
    JANGAN menyebutkan semua harga sekaligus. Balas dengan menanyakan platform apa yang mereka butuhkan.
-   Contoh: "Halo Kak! 👋 Untuk layanan tersebut, Kakak butuhnya untuk platform apa nih? Kita sedia untuk TikTok, Instagram, Facebook, dan YouTube lho! Boleh sebutkan spesifiknya Kak biar Aurabot carikan harganya? 😊"
+   Contoh: "Halo Kak! 👋 Untuk layanan tersebut, Kakak butuhnya untuk platform apa nih? Kita sedia untuk TikTok, Instagram, Facebook, dan YouTube lho! Boleh sebutkan spesifiknya Kak biar Aurabot carikan harganya? 😊"`;
 
-    // 3. Tembak ke API B.ai
+  try {
     const response = await fetch("https://api.b.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -261,26 +263,16 @@ ATURAN SUPER KETAT:
 
     const data = await response.json();
     
-    // 4. Sensor Error & Format Balasan ala Astro
     if (!data.choices || data.error) {
       const errorMsg = data.error?.message || "Format balasan B.ai tidak dikenali.";
-      return new Response(JSON.stringify({ reply: `🚨 Maaf Kak, otak API lagi error: ${errorMsg}` }), {
-        status: 200,
-        headers: { "Content-Type": "application/json" }
-      });
+      return res.status(200).json({ reply: `🚨 Maaf Kak, otak API lagi error: ${errorMsg}` });
     }
 
     const reply = data.choices[0].message.content;
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" }
-    });
+    return res.status(200).json({ reply });
     
   } catch (error) {
-    // 5. Tangkap Error kalau server Vercel gagal
-    return new Response(JSON.stringify({ reply: `🚨 Waduh server Vercel kaget: ${error.message}` }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" }
-    });
+    return res.status(200).json({ reply: `🚨 Waduh server Vercel kaget: ${error.message}` });
   }
-};
+}
+
