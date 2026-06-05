@@ -254,7 +254,7 @@ ATURAN SUPER KETAT:
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "DeepSeek-V4-Flash",
+        model: "MiniMax-M3",
         messages: [
           { role: "system", content: sop_jasalike },
           { role: "user", content: message }
