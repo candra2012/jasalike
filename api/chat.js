@@ -1,12 +1,16 @@
 export default async function handler(req, res) {
-  // Pastikan hanya menerima jalur POST dari website
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Hanya menerima POST' });
   }
 
   const { message } = req.body;
 
-  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR (Tanda kutip sudah dijamin utuh!)
+  // 🚨 INI DIA MESIN CUCINYA! 
+  // Script ini akan otomatis membuang SEMUA karakter gaib dari API Key-mu
+  const rawApiKey = process.env.BAI_API_KEY || "";
+  const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
+
+  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR
   const sop_jasalike = `Kamu adalah Aurabot, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
 Tugasmu adalah memberikan solusi untuk kebutuhan sosial media klien dengan ramah, santai (panggil 'Kak'), dan TIDAK hard-selling.
 
@@ -246,7 +250,7 @@ ATURAN SUPER KETAT:
     const response = await fetch("https://api.b.ai/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.BAI_API_KEY}`,
+        "Authorization": `Bearer ${cleanApiKey}`, // 👈 Sekarang panggil kunci yang sudah dicuci
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
