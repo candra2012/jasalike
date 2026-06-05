@@ -254,7 +254,7 @@ ATURAN SUPER KETAT:
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "kimi-k2.5",
+        model: "DeepSeek-V4-Flash",
         messages: [
           { role: "system", content: sop_jasalike },
           { role: "user", content: message }
