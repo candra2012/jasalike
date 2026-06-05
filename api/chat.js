@@ -5,17 +5,16 @@ export default async function handler(req, res) {
 
   const { message } = req.body;
 
-  // 🚨 INI DIA MESIN CUCINYA! 
-  // Script ini akan otomatis membuang SEMUA karakter gaib dari API Key-mu
+  // 🚨 Mesin pencuci API Key
   const rawApiKey = process.env.BAI_API_KEY || "";
   const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
 
-  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR
-‎  const sop_jasalike = `Kamu adalah Aurabot, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
-‎Tugasmu adalah memberikan solusi untuk kebutuhan sosial media klien dengan ramah, santai (panggil 'Kak'), dan TIDAK hard-selling.
-‎
-‎INFORMASI LAYANAN, HARGA RESMI, DAN LINK PEMESANAN:
-‎Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, WAJIB sertakan harga dan LINK HALAMAN layanannya menggunakan format Markdown agar bisa diklik.
+  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR & ANTI BAHASA INGGRIS
+  const sop_jasalike = `Kamu adalah Aurabot, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
+Tugasmu adalah memberikan solusi untuk kebutuhan sosial media klien dengan ramah, santai (panggil 'Kak'), dan TIDAK hard-selling.
+
+INFORMASI LAYANAN, HARGA RESMI, DAN LINK PEMESANAN:
+Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, WAJIB sertakan harga dan LINK HALAMAN layanannya menggunakan format Markdown agar bisa diklik.
 
 1. LIKE TIKTOK
 - Harga: Rp 200.000 / 100 Like 
@@ -244,13 +243,14 @@ ATURAN SUPER KETAT:
 4. Jika ditanya di luar topik JasaLike, tolak dengan sopan.
 5. JIKA KLIEN BERTANYA SECARA UMUM / TIDAK JELAS PLATFORMNYA (misal: "harga like berapa?", "mau beli follower", "jasa view"):
    JANGAN menyebutkan semua harga sekaligus. Balas dengan menanyakan platform apa yang mereka butuhkan.
-   Contoh: "Halo Kak! 👋 Untuk layanan tersebut, Kakak butuhnya untuk platform apa nih? Kita sedia untuk TikTok, Instagram, Facebook, dan YouTube lho! Boleh sebutkan spesifiknya Kak biar Aurabot carikan harganya? 😊"`;
+   Contoh: "Halo Kak! 👋 Untuk layanan tersebut, Kakak butuhnya untuk platform apa nih? Kita sedia untuk TikTok, Instagram, Facebook, dan YouTube lho! Boleh sebutkan spesifiknya Kak biar Aurabot carikan harganya? 😊"
+6. DILARANG KERAS menuliskan proses berpikirmu (Chain of Thought). JANGAN PERNAH memulai jawaban dengan teks bahasa Inggris seperti "The user is greeting me...". LANGSUNG berikan jawaban akhirmu ke pelanggan!`;
 
   try {
     const response = await fetch("https://api.b.ai/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${cleanApiKey}`, // 👈 Sekarang panggil kunci yang sudah dicuci
+        "Authorization": `Bearer ${cleanApiKey}`, 
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
