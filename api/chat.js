@@ -241,36 +241,38 @@ ATURAN SUPER KETAT:
    JANGAN menyebutkan semua harga sekaligus. Balas dengan menanyakan platform apa yang mereka butuhkan.
    Contoh: "Halo Kak! 👋 Untuk layanan tersebut, Kakak butuhnya untuk platform apa nih? Kita sedia untuk TikTok, Instagram, Facebook, dan YouTube lho! Boleh sebutkan spesifiknya Kak biar Aurabot carikan harganya? 😊"
 
-  try {
+    try {
     const response = await fetch("https://api.b.ai/v1/chat/completions", {
       method: "POST",
       headers: {
-        // Pastikan nama di ENV Vercel kamu sekarang adalah BAI_API_KEY
         "Authorization": `Bearer ${process.env.BAI_API_KEY}`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json" // Header tambahan dari OpenRouter sudah dibuang
       },
       body: JSON.stringify({
-        model: "kimi-k2.5", // Sah! Sekarang pakai otak Kimi
+        model: "kimi-k2.5", // Otak Kimi
         messages: [
           { role: "system", content: sop_jasalike },
           { role: "user", content: message }
         ],
-        stream: false, // Jaga-jaga biar balasan tidak sepotong-sepotong
-        temperature: 0.2 // Suhu tetap 0.2 agar Aurabot patuh 100% pada SOP layanan
+        stream: false,     // WAJIB false biar tidak pecah
+        temperature: 0.7,  // Sesuai saran B.ai biar bahasanya luwes
+        max_tokens: 1000   // Parameter wajib dari dokumen B.ai
       })
     });
 
     const data = await response.json();
     
-    // 🚨 Sensor Pengintai Error dari Server API
-    if (data.error) {
-      return res.status(200).json({ reply: `🚨 Maaf Kak, otak saya lagi error: ${data.error.message}` });
+    // 🚨 SENSOR PENGINTAI ERROR SERVER B.AI
+    // Kalau server AI ngambek, kita lempar pesannya langsung ke layar chat
+    if (!data.choices || data.error) {
+      const errorMsg = data.error?.message || "Format balasan B.ai tidak dikenali.";
+      return res.status(200).json({ reply: `🚨 Maaf Kak, otak API lagi error: ${errorMsg}` });
     }
 
     const reply = data.choices[0].message.content;
     res.status(200).json({ reply });
     
   } catch (error) {
-    res.status(200).json({ reply: `🚨 Waduh server kaget: ${error.message}` });
+    // Ini kalau Vercel kamu yang gagal terhubung ke internet/B.ai
+    res.status(200).json({ reply: `🚨 Waduh server Vercel kaget: ${error.message}` });
   }
-}
