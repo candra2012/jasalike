@@ -242,26 +242,27 @@ ATURAN SUPER KETAT:
    Contoh: "Halo Kak! 👋 Untuk layanan tersebut, Kakak butuhnya untuk platform apa nih? Kita sedia untuk TikTok, Instagram, Facebook, dan YouTube lho! Boleh sebutkan spesifiknya Kak biar Aurabot carikan harganya? 😊"
 
   try {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("https://api.b.ai/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://jasalike.com",
-        "X-Title": "Aurabot JasaLike"
+        // Pastikan nama di ENV Vercel kamu sekarang adalah BAI_API_KEY
+        "Authorization": `Bearer ${process.env.BAI_API_KEY}`,
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "qwen/qwen-2.5-72b-instruct", 
+        model: "kimi-k2.5", // Sah! Sekarang pakai otak Kimi
         messages: [
           { role: "system", content: sop_jasalike },
           { role: "user", content: message }
         ],
-        temperature: 0.2 // Suhu tetap 0.2 agar AI patuh 100% pada SOP
+        stream: false, // Jaga-jaga biar balasan tidak sepotong-sepotong
+        temperature: 0.2 // Suhu tetap 0.2 agar Aurabot patuh 100% pada SOP layanan
       })
     });
 
     const data = await response.json();
     
+    // 🚨 Sensor Pengintai Error dari Server API
     if (data.error) {
       return res.status(200).json({ reply: `🚨 Maaf Kak, otak saya lagi error: ${data.error.message}` });
     }
