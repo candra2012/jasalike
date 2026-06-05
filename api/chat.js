@@ -254,7 +254,7 @@ ATURAN SUPER KETAT:
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "MiniMax-M3",
+        model: "Kimi-K2.5",
         messages: [
           { role: "system", content: sop_jasalike },
           { role: "user", content: message }
