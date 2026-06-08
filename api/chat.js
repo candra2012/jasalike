@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
 
   // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR & ANTI BAHASA INGGRIS
-  const sop_jasalike = `Kamu adalah Aurabot, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
+  const sop_jasalike = `Kamu adalah Aura, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
 Tugasmu adalah memberikan solusi untuk kebutuhan sosial media klien dengan ramah, santai (panggil 'Kak'), dan TIDAK hard-selling.
 
 INFORMASI LAYANAN, HARGA RESMI, DAN LINK PEMESANAN:
