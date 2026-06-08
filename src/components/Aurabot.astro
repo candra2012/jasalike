@@ -1,8 +1,7 @@
 ---
-// Komponen Aurabot CS JasaLike
+// Komponen Aura CS JasaLike
 ---
 
-<!-- 1. Tombol Chat Mengambang (Pasti Naik karena pakai style="bottom: 90px;") -->
 <button 
   id="aurabot-toggle" 
   class="fixed right-6 md:right-8 z-[100] group flex items-center gap-3 bg-[#0f172a] hover:bg-[#1e293b] border border-slate-700 p-2 pr-5 rounded-full shadow-2xl hover:shadow-sky-500/30 transition-all duration-300"
@@ -15,13 +14,12 @@
     </svg>
   </div>
   <span class="font-bold text-white text-sm md:text-base tracking-wide">
-    Tanya Aurabot AI
+    Tanya Aura AI
   </span>
 </button>
 
-<!-- 2. Jendela Chat (Pasti di Atas Tombol) -->
 <div 
-  id="aura-window" 
+  id="aurabot-window" 
   class="fixed right-6 md:right-8 w-[calc(100vw-3rem)] max-w-[350px] bg-white border border-gray-200 rounded-2xl shadow-2xl z-[100] hidden flex-col overflow-hidden transition-all"
   style="bottom: 160px;"
 >
@@ -30,7 +28,7 @@
       <div class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse border border-white"></div>
       <h3 class="font-bold text-sm md:text-base tracking-wide">Aura AI</h3>
     </div>
-    <button id="aura-close" class="text-white hover:text-gray-200 font-bold p-1">✕</button>
+    <button id="aurabot-close" class="text-white hover:text-gray-200 font-bold p-1">✕</button>
   </div>
 
   <div id="aurabot-messages" class="flex-1 p-4 h-72 md:h-80 overflow-y-auto bg-slate-50 flex flex-col gap-3 text-sm scroll-smooth">
@@ -104,7 +102,7 @@
       const loadingDiv = document.createElement('div');
       loadingDiv.id = loadingId;
       loadingDiv.className = 'bg-gray-200 text-slate-500 p-3 rounded-xl self-start rounded-tl-none text-xs italic animate-pulse';
-      loadingDiv.innerText = 'Aurabot sedang mengetik...';
+      loadingDiv.innerText = 'Aura sedang mengetik...';
       messagesBox.appendChild(loadingDiv);
       messagesBox.scrollTop = messagesBox.scrollHeight;
 
