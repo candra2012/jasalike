@@ -3,13 +3,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Hanya menerima POST' });
   }
 
-  const { message } = req.body;
+  // 👇 SEKARANG MENERIMA 'messages' (ARRAY RIWAYAT CHAT) BUKAN CUMA 'message' TUNGGAL
+  const { messages } = req.body;
+
+  if (!messages || !Array.isArray(messages)) {
+    return res.status(400).json({ error: 'Format body harus berupa array messages' });
+  }
 
   // 🚨 Mesin pencuci API Key
   const rawApiKey = process.env.BAI_API_KEY || "";
   const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
 
-  // 👇 SOP BARU DENGAN FITUR AUTO-LINK KASIR & ANTI BAHASA INGGRIS
+  // 👇 SOP RESMI AURA JASALIKE
   const sop_jasalike = `Kamu adalah Aura, Customer Service AI dari JasaLike (di bawah naungan Auradigital).
 Tugasmu adalah memberikan solusi untuk kebutuhan sosial media klien dengan ramah, santai (panggil 'Kak'), dan TIDAK hard-selling.
 
@@ -62,23 +67,23 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 
 12. SUBSCRIBER YOUTUBE
 - Harga: Rp 200.000 / 100 SUB
-- Link: https://jasalike.com/jasa-subscribe-youtube
+- Link: https://www.jasalike.com/jasa-subscribe-youtube
 
 13. SAVE/FAVORITE YOUTUBE
 - Harga: Rp 200.000 / 100 SAVE
-- Link: https://jasalike.com/jasa-save-video-youtube
+- Link: https://www.jasalike.com/jasa-save-video-youtube
 
 14. KOMENTAR YOUTUBE
 - Harga: Rp 200.000 / 100 KOMENTAR
-- Link: https://jasalike.com/jasa-komen-youtube-aktif
+- Link: https://www.jasalike.com/jasa-komen-youtube-aktif
 
 15. LIVE YOUTUBE
 - Harga: Rp 200.000 / 10 LIVE
-- Link: https://jasalike.com/jasa-live-youtube
+- Link: https://www.jasalike.com/jasa-live-youtube
 
 16. REPORT AKUN/POSTINGAN YOUTUBE
 - Harga: Rp 200.000 / 100 REPORT
-- Link: https://jasalike.com/jasa-report-youtube
+- Link: https://www.jasalike.com/jasa-report-youtube
 
 17. LIKE INSTAGRAM
 - Harga: Rp 200.000 / 100 LIKE
@@ -249,6 +254,12 @@ ATURAN SUPER KETAT:
 8. NAMA PANGGILAN KETAT: Kamu WAJIB menyebut dirimu dengan sebutan "Aura". DILARANG KERAS memanggil dirimu sendiri dengan sebutan "Aurabot", "Bot", "Admin", atau sebutan lainnya di dalam setiap kalimatmu.`;
   
   try {
+    // 🔥 MERAKIT CONTEXT: Masukkan SOP di paling atas, lalu gabung dengan semua riwayat chat dari frontend
+    const fullMessages = [
+      { role: "system", content: sop_jasalike },
+      ...messages
+    ];
+
     const response = await fetch("https://api.b.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -257,12 +268,9 @@ ATURAN SUPER KETAT:
       },
       body: JSON.stringify({
         model: "Kimi-K2.5",
-        messages: [
-          { role: "system", content: sop_jasalike },
-          { role: "user", content: message }
-        ],
+        messages: fullMessages, // 🚀 SEKARANG SUDAH BAWA RIWAYAT LENGKAP!
         stream: false,
-        temperature: 0.7,
+        temperature: 0.4, // 📉 Diturunkan ke 0.4 agar Aura makin fokus dan konsisten, tidak berhalusinasi
         max_tokens: 1000
       })
     });
