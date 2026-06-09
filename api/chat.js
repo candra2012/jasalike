@@ -3,14 +3,24 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Hanya menerima POST' });
   }
 
-  // 👇 SEKARANG MENERIMA 'messages' (ARRAY RIWAYAT CHAT) BUKAN CUMA 'message' TUNGGAL
-  const { messages } = req.body;
+  // 🔄 JALUR AMAN: Menerima format baru (messages) maupun format lama (message)
+  const { messages, message } = req.body;
 
-  if (!messages || !Array.isArray(messages)) {
-    return res.status(400).json({ error: 'Format body harus berupa array messages' });
+  let finalMessages = [];
+  if (messages && Array.isArray(messages)) {
+    finalMessages = messages;
+  } else if (message) {
+    // Kalau frontend kirim teks tunggal, kita bungkus otomatis jadi format array Kimi
+    finalMessages = [{ role: "user", content: message }];
+  } else {
+    return res.status(200).json({ reply: "🚨 Maaf Kak, input pesan tidak terbaca oleh Aura." });
   }
 
   // 🚨 Mesin pencuci API Key
+  const rawApiKey = process.env.BAI_API_KEY || "";
+  const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
+
+  // 👇 SOP RESMI AURA JASALIKE
   const rawApiKey = process.env.BAI_API_KEY || "";
   const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
 
