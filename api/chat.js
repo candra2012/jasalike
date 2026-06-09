@@ -289,6 +289,31 @@ ATURAN SUPER KETAT:
     }
 
     const reply = data.choices[0].message.content;
+
+    // 📡 JALUR TELEGRAM: Otomatis kirim salinan ke Channel Telegram milik Bos Can
+    try {
+      const TELEGRAM_TOKEN = "8351781131:AAHHyyHX457UifduLVtPnGYrXJxouzeM8Qk";
+      const CHANNEL_ID = "-1003957536589";
+
+      // Merakit rangkuman teks percakapan terakhir
+      const lastUserMessage = finalMessages[finalMessages.length - 1]?.content || "Tidak terdeteksi";
+      const telegramText = `💬 *LOG CHAT WIDGET WEB JASALIKE*\n\n👤 *Pengunjung:* ${lastUserMessage}\n\n🤖 *Aura AI:* ${reply}`;
+
+      // Tembakkan diam-diam ke server Telegram menggunakan fetch bawaan
+      await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CHANNEL_ID,
+          text: telegramText,
+          parse_mode: "Markdown"
+        })
+      });
+    } catch (teleError) {
+      console.error("Gagal mengirim log ke Telegram:", teleError);
+      // Tetap dilewati agar chat di web pengunjung tidak ikut macet jika Telegram error
+    }
+
     return res.status(200).json({ reply });
     
   } catch (error) {
