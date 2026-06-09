@@ -10,17 +10,13 @@ export default async function handler(req, res) {
   if (messages && Array.isArray(messages)) {
     finalMessages = messages;
   } else if (message) {
-    // Kalau frontend kirim teks tunggal, kita bungkus otomatis jadi format array Kimi
+    // Kalau frontend kirim teks tunggal, kita bungkus otomatis jadi array
     finalMessages = [{ role: "user", content: message }];
   } else {
     return res.status(200).json({ reply: "🚨 Maaf Kak, input pesan tidak terbaca oleh Aura." });
   }
 
-  // 🚨 Mesin pencuci API Key
-  const rawApiKey = process.env.BAI_API_KEY || "";
-  const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
-
-  // 👇 SOP RESMI AURA JASALIKE
+  // 🚨 Mesin pencuci API Key (CUKUP 1 KALI SAJA)
   const rawApiKey = process.env.BAI_API_KEY || "";
   const cleanApiKey = rawApiKey.replace(/[^\x20-\x7E]/g, '').trim();
 
@@ -264,10 +260,10 @@ ATURAN SUPER KETAT:
 8. NAMA PANGGILAN KETAT: Kamu WAJIB menyebut dirimu dengan sebutan "Aura". DILARANG KERAS memanggil dirimu sendiri dengan sebutan "Aurabot", "Bot", "Admin", atau sebutan lainnya di dalam setiap kalimatmu.`;
   
   try {
-    // 🔥 MERAKIT CONTEXT: Masukkan SOP di paling atas, lalu gabung dengan semua riwayat chat dari frontend
+    // 🔥 MERAKIT CONTEXT: Gunakan finalMessages agar bebas dari error
     const fullMessages = [
       { role: "system", content: sop_jasalike },
-      ...messages
+      ...finalMessages
     ];
 
     const response = await fetch("https://api.b.ai/v1/chat/completions", {
@@ -278,9 +274,9 @@ ATURAN SUPER KETAT:
       },
       body: JSON.stringify({
         model: "Kimi-K2.5",
-        messages: fullMessages, // 🚀 SEKARANG SUDAH BAWA RIWAYAT LENGKAP!
+        messages: fullMessages,
         stream: false,
-        temperature: 0.4, // 📉 Diturunkan ke 0.4 agar Aura makin fokus dan konsisten, tidak berhalusinasi
+        temperature: 0.4,
         max_tokens: 1000
       })
     });
