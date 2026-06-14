@@ -1,0 +1,30 @@
+---
+// src/pages/kontak-admin-1.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Hero from '../components/Hero.astro'
+
+const title = "Hubungi Admin | JasaLike";
+const description = "Halaman kontak resmi JasaLike untuk konsultasi layanan dan bantuan operasional.";
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Pusat Bantuan & Konsultasi",
+  labelIcon: "lucide:headset",
+  judulUtama: 'Mari Diskusikan <span class="text-pink-600">Kebutuhan Anda</span>',
+  deskripsi: "Terima kasih telah mengunjungi profil kami! Tim ahli kami senantiasa siap membantu merancang strategi interaksi terbaik untuk akun media sosial Anda. Silakan klik tombol di bawah untuk terhubung langsung dengan tim kami via WhatsApp.<br class='hidden md:block mt-2' /> <span class='text-pink-500 font-semibold block mt-4'>✓ Respons Cepat &nbsp; ✓ Konsultasi Ramah &nbsp; ✓ Privasi Terjaga</span>",
+  teksTombol1: "Chat via WhatsApp",
+  // UBAH TEKS BAWAAN WA DI SINI SESUAI GRUP
+  linkTombol1: "https://wa.me/6289634740308?text=Halo%20admin%20saya%20mau%20order%20komen",
+  teksTombol2: "Lihat Layanan Publik",
+  linkTombol2: "/",
+  gambarHero: "/image/hero-beranda.png" 
+};
+---
+
+<DefaultLayout title={title} description={description}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <Hero {...dataHero} />
+</DefaultLayout>
