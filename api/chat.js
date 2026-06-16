@@ -64,10 +64,10 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Link: https://jasalike.com/jasa-report-akun-tiktok
 
 10. LIVE TIKTOK
-- Harga: Rp 200.000 / 10 LIVE
+- Harga: Rp 150.000 / 10 LIVE
 - Link: https://jasalike.com/jasa-livestreaming-tiktok
 
-11. LREPOST TIKTOK
+11. REPOST TIKTOK
 - Harga: Rp 200.000 / 100 REPOST
 - Link: https://jasalike.com/jasa-repost-tiktok
 
@@ -84,7 +84,7 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Link: https://www.jasalike.com/jasa-komen-youtube-aktif
 
 15. LIVE YOUTUBE
-- Harga: Rp 200.000 / 10 LIVE
+- Harga: Rp 150.000 / 10 LIVE
 - Link: https://www.jasalike.com/jasa-live-youtube
 
 16. REPORT AKUN/POSTINGAN YOUTUBE
@@ -116,7 +116,7 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Link: https://www.jasalike.com/jasa-fake-order-shopee
 
 22. LIVE SHOPEE
-- Harga: Rp 200.000 / 10 LIVE (60 MENIT)
+- Harga: Rp 150.000 / 10 LIVE (60 MENIT)
 - Link: https://www.jasalike.com/jasa-live-shopee
 
 23. KOMEN LIVE SHOPEE
@@ -152,7 +152,7 @@ Berikut adalah daftar layanan kami. Jika klien bertanya harga layanan tertentu, 
 - Link: https://www.jasalike.com/jasa-share-facebook
 
 31. LIVE FACEBOOK
-- Harga: Rp 200.000 / 10 VIEW LIVE
+- Harga: Rp 150.000 / 10 VIEW LIVE
 - Link: https://www.jasalike.com/jasa-live-facebook
 
 32. VOTE/POLLING FACEBOOK
