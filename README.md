@@ -59,7 +59,7 @@ Aplikasi web marketing JasaLike ini dideploy secara otomatis via **Vercel** deng
 ## 📞 Kontak & Hubungan Klien
 
 Kami beroperasi penuh untuk melayani kebutuhan bisnis Anda tanpa hari libur.
-* **Situs Utama:** [JasaLike.com](https://jasalike.com)
+* **Situs Utama:** [jasalike.com](https://jasalike.com)
 * **WhatsApp Layanan Pelanggan:** [Hubungi Admin (+62 896-3474-0308)](https://wa.me/6289634740308)
 
 ---
