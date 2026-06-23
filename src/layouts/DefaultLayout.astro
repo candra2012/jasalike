@@ -5,7 +5,6 @@ import '../assets/scss/index.scss'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FloatingCS from '../components/FloatingCS.astro'
-import ReferralTracker from '../components/ReferralTracker.astro'
 import Aurabot from '../components/Aurabot.astro' 
 import { ClientRouter } from 'astro:transitions'
 
@@ -37,29 +36,60 @@ const {
     <slot name="head" />
 
 <script is:inline>
-  // Radar akan langsung berjalan saat halaman dimuat
-  (function() {
-    const webhookUrl = "https://script.google.com/macros/s/AKfycbwVf5QV5ch8s5OHzfYqoEKYgmPdiVd-NAGUoQ2IBYb6_OeZdGCD9YOlcQso1ToiI5Ys/exec"; 
-    
-    if(webhookUrl.includes("KODE_PANJANG_DARI_GOOGLE_TADI")) return;
+  // ==========================================
+  // 1. SENSOR WHATSAPP (Selalu siaga 24 jam)
+  // ==========================================
+  window.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
 
-    // 1. Ambil kode referral dari URL (jika ada) atau dari memori (jika sudah pindah halaman)
+    const href = anchor.href;
+    if (href.includes('wa.me') || href.includes('api.whatsapp.com')) {
+      const savedRef = localStorage.getItem('affiliate_ref');
+      if (!savedRef) return; 
+
+      // Mencegah double tulisan referral kalau diklik berkali-kali
+      if (href.includes('Kode Referral:')) return; 
+
+      let newHref = href;
+      if (href.includes('text=')) {
+        // Jika sudah ada teks bawaan, tinggal tambahkan enter dan kode
+        newHref = href + encodeURIComponent("\n\nKode Referral: " + savedRef);
+      } else {
+        // JIKA TEKS WA KOSONG: Kita buatkan kalimat sapaan default yang ramah
+        const pesanDefault = "Halo Admin Auradigital, saya tertarik dan ingin pesan layanannya.\n\nKode Referral: " + savedRef;
+        const separator = href.includes('?') ? '&' : '?';
+        newHref = href + separator + 'text=' + encodeURIComponent(pesanDefault);
+      }
+      anchor.href = newHref;
+    }
+  });
+
+  // ==========================================
+  // 2. RADAR TELEGRAM & PENYIMPAN REFFERAL (Versi Tahan Banting Astro)
+  // ==========================================
+  // 'astro:page-load' membuat script ini akan selalu dipicu SETIAP KALI pengunjung pindah halaman, tanpa perlu refresh!
+  document.addEventListener('astro:page-load', () => {
+    
+    // Simpan kode ref ke memori jika ada
     const params = new URLSearchParams(window.location.search);
     const refUrl = params.get('ref');
-    const refStorage = localStorage.getItem('affiliate_ref');
-    
-    // Tentukan kode referral yang aktif (prioritas dari URL, lalu memori)
-    const activeRef = refUrl || refStorage;
-    
-    // 2. Format tampilan halaman untuk Telegram
-    // Menggabungkan nama halaman (misal: /) dengan parameter (misal: ?ref=123)
+    if (refUrl) {
+      localStorage.setItem('affiliate_ref', refUrl);
+    }
+
+    const activeRef = refUrl || localStorage.getItem('affiliate_ref');
+
+    // Pengaturan Webhook Radar Telegram
+    const webhookUrl = "https://script.google.com/macros/s/AKfycbwVf5QV5ch8s5OHzfYqoEKYgmPdiVd-NAGUoQ2IBYb6_OeZdGCD9YOlcQso1ToiI5Ys/exec"; 
+    if(webhookUrl.includes("KODE_PANJANG")) return;
+
+    // Format url untuk pesan di Telegram
     let urlLengkap = window.location.pathname + window.location.search;
-    
-    // Tambahkan keterangan label Referral agar di Telegram terlihat sangat jelas
     if (activeRef) {
-      urlLengkap = urlLengkap + " (Ref: " + activeRef + ")";
+      urlLengkap += " (Ref: " + activeRef + ")";
     } else {
-      urlLengkap = urlLengkap + " (Organik)";
+      urlLengkap += " (Organik)";
     }
 
     const dataPengunjung = {
@@ -71,13 +101,11 @@ const {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(dataPengunjung)
-    }).then(response => {
-      console.log("Radar traffic terkirim sukses!");
-    }).catch(error => {
-      console.log("Radar gagal:", error);
-    });
-  })();
+    }).catch(error => console.log("Radar gagal:", error));
+    
+  });
 </script>
+
 
     <ClientRouter />
   </head>
@@ -87,7 +115,6 @@ const {
       <slot />
     </main>
     <Footer />
-    <ReferralTracker />
     <FloatingCS />
     <Aurabot />
 
