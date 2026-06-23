@@ -1,9 +1,43 @@
 <script is:inline>
+  // 1. TANGKAP & SIMPAN (Kode asli Bos)
   const params = new URLSearchParams(window.location.search);
   const ref = params.get('ref');
 
   if (ref) {
     localStorage.setItem('affiliate_ref', ref);
-    console.log('Referral tersimpan:', ref);
+    console.log('Referral tersimpan di memori:', ref);
+  }
+
+  // 2. AMBIL DARI MEMORI
+  const savedRef = localStorage.getItem('affiliate_ref');
+
+  // 3. SISIPKAN KE SEMUA TOMBOL WHATSAPP (Otomatis di 86 halaman)
+  if (savedRef) {
+    document.addEventListener("DOMContentLoaded", () => {
+      // Cari semua elemen <a> yang link-nya mengandung "wa.me" atau "api.whatsapp.com"
+      const waLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+
+      waLinks.forEach(link => {
+        let originalHref = link.href; 
+        
+        // Teks yang akan disisipkan (Enter 2x lalu cetak kode)
+        // encodeURIComponent digunakan agar spasi dan enter terbaca di URL WA
+        let textTambahan = encodeURIComponent("\n\nKode Referral: " + savedRef);
+
+        // Logika penyisipan agar tidak merusak format link WA yang sudah ada
+        if (originalHref.includes('text=')) {
+          // Jika tombol WA Bos sudah punya teks bawaan (misal: "Halo mau order jasa like")
+          link.href = originalHref + textTambahan;
+        } else if (originalHref.includes('?')) {
+          // Jika ada parameter lain tapi belum ada teks
+          link.href = originalHref + '&text=' + textTambahan;
+        } else {
+          // Jika tombol WA-nya polos tanpa teks (hanya nomor)
+          link.href = originalHref + '?text=' + textTambahan;
+        }
+      });
+      console.log(`Kode referral ${savedRef} berhasil disisipkan ke ${waLinks.length} tombol WhatsApp.`);
+    });
   }
 </script>
+
