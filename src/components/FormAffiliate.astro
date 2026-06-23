@@ -155,15 +155,16 @@ document.addEventListener("DOMContentLoaded", () => {
         "https://script.google.com/macros/s/AKfycbzA_bS4uNtxlXu_evsJWE-cXZWvU0AeFUc2XlysQW-Lr5wBFwPdMIcptugO9FoGxJxG/exec",
         {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
           body: JSON.stringify(data)
         }
       );
 
       const text = await response.text();
 
-console.log(text);
-
-const json = JSON.parse(text);
+      console.log(text);
 
       result.classList.remove("hidden");
 
@@ -173,14 +174,15 @@ const json = JSON.parse(text);
         </h3>
 
         <p>
-          Kode Referral Anda:
-          <strong>${json.referral}</strong>
+          Data affiliate berhasil dibuat.
         </p>
 
-        <p class="mt-2 break-all">
-          Link Referral:
-          <br>
-          <strong>https://jasalike.com/?ref=${json.referral}</strong>
+        <p class="mt-2">
+          Spreadsheet affiliate telah dibuat otomatis.
+        </p>
+
+        <p class="mt-2">
+          Tim JasaLike akan menghubungi Anda untuk mengirim link spreadsheet dan informasi referral.
         </p>
       `;
 
@@ -188,10 +190,19 @@ const json = JSON.parse(text);
 
     } catch (error) {
 
-      alert("Gagal mengirim data.");
-
       console.error(error);
 
+      result.classList.remove("hidden");
+
+      result.innerHTML = `
+        <h3 class="font-bold text-xl mb-2 text-red-600">
+          Terjadi Kesalahan
+        </h3>
+
+        <p>
+          Data mungkin sudah berhasil terkirim. Silakan hubungi admin jika belum menerima informasi affiliate.
+        </p>
+      `;
     }
 
   });
