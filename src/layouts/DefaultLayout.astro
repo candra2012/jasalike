@@ -5,7 +5,7 @@ import '../assets/scss/index.scss'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import FloatingCS from '../components/FloatingCS.astro'
-// 👇 1. IMPORT AURABOT DI SINI
+import ReferralTracker from '../components/ReferralTracker.astro'
 import Aurabot from '../components/Aurabot.astro' 
 import { ClientRouter } from 'astro:transitions'
 
@@ -70,8 +70,7 @@ const {
       <slot />
     </main>
     <Footer />
-    
-    <!-- 👇 2. PANGGIL KOMPONENNYA DI SINI -->
+    <ReferralTracker />
     <FloatingCS />
     <Aurabot />
 
