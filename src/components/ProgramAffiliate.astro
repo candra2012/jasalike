@@ -1,0 +1,65 @@
+---
+
+const {
+judulUtama = 'Program <span class="text-blue-500">Affiliate JasaLike</span>',
+deskripsiUtama = 'Dapatkan komisi dari setiap transaksi yang berasal dari link referral Anda.',
+k1Judul = 'Komisi Menarik',
+k1Teks = 'Dapatkan komisi 20% dari setiap transaksi yang berhasil berasal dari referral Anda.',
+k2Judul = 'Gratis Bergabung',
+k2Teks = 'Tidak ada biaya pendaftaran maupun biaya bulanan untuk menjadi affiliate.',
+k3Judul = 'Link Referral Unik',
+k3Teks = 'Setiap affiliate mendapatkan link referral unik yang dapat digunakan untuk seluruh layanan di website.',
+k4Judul = 'Pencairan Mudah',
+k4Teks = 'Komisi dapat dicairkan setelah mencapai batas minimum pencairan.'
+} = Astro.props;
+
+<section class="py-16 bg-slate-50">  <div class="container mx-auto px-4"><div class="text-center max-w-3xl mx-auto mb-12">
+
+  <h2
+    class="text-4xl font-bold mb-4"
+    set:html={judulUtama}
+  />
+
+  <p class="text-slate-600">
+    {deskripsiUtama}
+  </p>
+
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+  <div class="bg-white rounded-xl p-6 shadow">
+    <h3 class="font-bold text-xl mb-2">
+      {k1Judul}
+    </h3>
+
+    <p>{k1Teks}</p>
+  </div>
+
+  <div class="bg-white rounded-xl p-6 shadow">
+    <h3 class="font-bold text-xl mb-2">
+      {k2Judul}
+    </h3>
+
+    <p>{k2Teks}</p>
+  </div>
+
+  <div class="bg-white rounded-xl p-6 shadow">
+    <h3 class="font-bold text-xl mb-2">
+      {k3Judul}
+    </h3>
+
+    <p>{k3Teks}</p>
+  </div>
+
+  <div class="bg-white rounded-xl p-6 shadow">
+    <h3 class="font-bold text-xl mb-2">
+      {k4Judul}
+    </h3>
+
+    <p>{k4Teks}</p>
+  </div>
+
+</div>
+
+  </div></section>
