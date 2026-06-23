@@ -65,44 +65,45 @@ deskripsi = "Isi formulir berikut untuk bergabung dengan Program Affiliate JasaL
 
     <div>
   <label class="block mb-2 font-semibold">
-    Nama Bank
-  </label>
+    Metode Pencairan Komisi
+  </label><select
+name="metode"
+required
+class="w-full border rounded-xl p-3"
 
-  <input
-    type="text"
-    name="bank"
-    required
-    class="w-full border rounded-xl p-3"
-    placeholder="BCA / BRI / Mandiri / dll"
-  />
-</div>
+<option value="">Pilih Metode Pencairan</option>
+<option value="BCA">BCA</option>
+<option value="BRI">BRI</option>
+<option value="BNI">BNI</option>
+<option value="Mandiri">Mandiri</option>
+<option value="Dana">Dana</option>
+<option value="GoPay">GoPay</option>
+<option value="OVO">OVO</option>
+<option value="ShopeePay">ShopeePay</option>
 
-<div>
+  </select>
+</div><div>
   <label class="block mb-2 font-semibold">
-    Nomor Rekening
-  </label>
+    Nomor Rekening / Nomor E-Wallet
+  </label><input
+type="text"
+name="rekening"
+required
+class="w-full border rounded-xl p-3"
+placeholder="Masukkan nomor rekening atau nomor e-wallet"
+/>
 
-  <input
-    type="text"
-    name="rekening"
-    required
-    class="w-full border rounded-xl p-3"
-    placeholder="Nomor rekening"
-  />
-</div>
-
-<div>
+</div><div>
   <label class="block mb-2 font-semibold">
-    Nama Pemilik Rekening
-  </label>
+    Nama Pemilik Rekening / Akun
+  </label><input
+type="text"
+name="pemilik"
+required
+class="w-full border rounded-xl p-3"
+placeholder="Nama sesuai rekening atau akun e-wallet"
+/>
 
-  <input
-    type="text"
-    name="pemilik"
-    required
-    class="w-full border rounded-xl p-3"
-    placeholder="Nama sesuai rekening"
-  />
 </div>
 
     <button
