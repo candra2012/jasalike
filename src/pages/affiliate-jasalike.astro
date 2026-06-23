@@ -1,5 +1,4 @@
 ---
-
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 
 import Hero from '../components/Hero.astro'
@@ -11,29 +10,29 @@ const description = "Dapatkan komisi dari setiap transaksi yang berasal dari ref
 const keywords = "affiliate jasalike, referral jasalike, reseller jasalike";
 
 const dataHero = {
-tipe: "service",
-labelTeks: "Program Affiliate",
-labelIcon: "lucide:users",
-judulUtama: 'Program <span class="text-blue-500">Affiliate JasaLike</span>',
-deskripsi: "Promosikan layanan JasaLike dan dapatkan komisi dari setiap transaksi yang berasal dari link referral Anda.",
-teksTombol1: "Daftar Sekarang",
-linkTombol1: "#form-affiliate",
-teksTombol2: "Tanya Admin",
-linkTombol2: "https://wa.me/6289634740308",
-gambarHero: "/image/logo-hero-jasalike.png"
+  tipe: "service",
+  labelTeks: "Program Affiliate",
+  labelIcon: "lucide:users",
+  judulUtama: 'Program <span class="text-blue-500">Affiliate JasaLike</span>',
+  deskripsi: "Promosikan layanan JasaLike dan dapatkan komisi dari setiap transaksi yang berasal dari link referral Anda.",
+  teksTombol1: "Daftar Sekarang",
+  linkTombol1: "#form-affiliate",
+  teksTombol2: "Tanya Admin",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png"
 };
-
-<DefaultLayout
-title={title}
-description={description}
-keywords={keywords}
-
 ---
 
-<Hero {...dataHero} />
+<DefaultLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
 
-    <ProgramAffiliate />  
-   <FormAffiliate />
+  <Hero {...dataHero} />
 
+  <ProgramAffiliate />
 
-  </DefaultLayout>
+  <FormAffiliate />
+
+</DefaultLayout>
