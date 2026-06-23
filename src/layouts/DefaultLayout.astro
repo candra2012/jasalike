@@ -39,14 +39,31 @@ const {
 <script is:inline>
   // Radar akan langsung berjalan saat halaman dimuat
   (function() {
-    // ⚠️ PASTIKAN AKANG MENGGANTI TULISAN DI BAWAH INI DENGAN URL GOOGLE SCRIPT AKANG
     const webhookUrl = "https://script.google.com/macros/s/AKfycbwVf5QV5ch8s5OHzfYqoEKYgmPdiVd-NAGUoQ2IBYb6_OeZdGCD9YOlcQso1ToiI5Ys/exec"; 
     
-    // Cegah radar jalan kalau URL belum diganti
     if(webhookUrl.includes("KODE_PANJANG_DARI_GOOGLE_TADI")) return;
 
+    // 1. Ambil kode referral dari URL (jika ada) atau dari memori (jika sudah pindah halaman)
+    const params = new URLSearchParams(window.location.search);
+    const refUrl = params.get('ref');
+    const refStorage = localStorage.getItem('affiliate_ref');
+    
+    // Tentukan kode referral yang aktif (prioritas dari URL, lalu memori)
+    const activeRef = refUrl || refStorage;
+    
+    // 2. Format tampilan halaman untuk Telegram
+    // Menggabungkan nama halaman (misal: /) dengan parameter (misal: ?ref=123)
+    let urlLengkap = window.location.pathname + window.location.search;
+    
+    // Tambahkan keterangan label Referral agar di Telegram terlihat sangat jelas
+    if (activeRef) {
+      urlLengkap = urlLengkap + " (Ref: " + activeRef + ")";
+    } else {
+      urlLengkap = urlLengkap + " (Organik)";
+    }
+
     const dataPengunjung = {
-      halaman: window.location.pathname,
+      halaman: urlLengkap,
       waktu: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })
     };
     
@@ -55,7 +72,7 @@ const {
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(dataPengunjung)
     }).then(response => {
-      console.log("Radar terkirim!");
+      console.log("Radar traffic terkirim sukses!");
     }).catch(error => {
       console.log("Radar gagal:", error);
     });
