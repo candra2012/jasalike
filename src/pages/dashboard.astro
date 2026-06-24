@@ -1,0 +1,34 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+import Hero from '../components/Hero.astro'
+import DashboardArea from '../components/DashboardArea.astro' // Komponen baru kita
+
+const title = "Dashboard Affiliate JasaLike";
+const description = "Pantau komisi, riwayat transaksi, dan cairkan pendapatan Anda.";
+const keywords = "dashboard affiliate, komisi jasalike, referral jasalike";
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Dashboard Affiliate",
+  labelIcon: "lucide:layout-dashboard",
+  judulUtama: 'Dashboard <span class="text-blue-500">Affiliate</span>',
+  deskripsi: "Masukkan kode afiliasi Anda untuk memantau transaksi, total komisi, dan mengajukan pencairan dana.",
+  teksTombol1: "Masuk Dashboard",
+  linkTombol1: "#area-dashboard",
+  teksTombol2: "Tanya Admin",
+  linkTombol2: "https://wa.me/6282120567299",
+  gambarHero: "/image/logo-hero-jasalike.png" // Nanti foto ini bisa Bos ganti
+};
+---
+
+<DefaultLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <Hero {...dataHero} />
+
+  <!-- Memanggil komponen interaktif dashboard -->
+  <DashboardArea />
+
+</DefaultLayout>
