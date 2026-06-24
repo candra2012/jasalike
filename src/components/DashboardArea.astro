@@ -271,15 +271,14 @@ function tampilkanDashboard() {
     tbody.innerHTML = "";
 
     if (
-        !dataGlobal.transaksi ||
-        dataGlobal.transaksi.length === 0
-    ) {
+    !dataGlobal.transaksi ||
+    dataGlobal.transaksi.length === 0
+) {
 
-        tbody.innerHTML =
-            "<tr><td colspan='4' class='text-center py-6 text-gray-500'>Belum ada transaksi.</td></tr>";
+    tbody.innerHTML =
+        "<tr><td colspan='4' class='text-center py-6 text-gray-500'>Belum ada transaksi.</td></tr>";
 
-        return;
-    }
+} else {
 
     dataGlobal.transaksi.forEach(trx => {
 
@@ -321,6 +320,8 @@ function tampilkanDashboard() {
         tbody.innerHTML += baris;
 
     });
+
+}
 
 
 // =====================
