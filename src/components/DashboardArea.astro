@@ -96,7 +96,39 @@
 
         </div>
     </div>
+
+<!-- TABEL PENCAIRAN -->
+<div class="bg-white rounded-xl shadow-md p-6 overflow-hidden">
+    <h2 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">
+        Riwayat Pencairan
+    </h2>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left whitespace-nowrap">
+            <thead class="text-gray-600 bg-gray-100">
+                <tr>
+                    <th class="px-4 py-3 rounded-tl-lg">
+                        Tanggal
+                    </th>
+
+                    <th class="px-4 py-3">
+                        Nominal
+                    </th>
+
+                    <th class="px-4 py-3 rounded-tr-lg">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelPencairan">
+            </tbody>
+
+        </table>
+    </div>
+</div>
 </section>
+
 
 <!-- SCRIPT LOGIKA BROWSER -->
 <script>
@@ -289,6 +321,88 @@ function tampilkanDashboard() {
         tbody.innerHTML += baris;
 
     });
+
+
+// =====================
+// RIWAYAT PENCAIRAN
+// =====================
+
+const tbodyPencairan =
+document.getElementById(
+    "tabelPencairan"
+);
+
+if (tbodyPencairan) {
+
+    tbodyPencairan.innerHTML = "";
+
+    if (
+        !dataGlobal.pencairan ||
+        dataGlobal.pencairan.length === 0
+    ) {
+
+        tbodyPencairan.innerHTML =
+        `<tr>
+            <td colspan="3"
+            class="text-center py-6 text-gray-500">
+                Belum ada pencairan
+            </td>
+        </tr>`;
+
+    } else {
+
+        dataGlobal.pencairan.forEach(cair => {
+
+            const tanggal =
+            cair["Tanggal Request"]
+            ? new Date(
+                cair["Tanggal Request"]
+              ).toLocaleDateString(
+                "id-ID"
+              )
+            : "-";
+
+            let warnaStatus =
+            "bg-yellow-100 text-yellow-800";
+
+            if (
+                String(cair["Status"])
+                .toLowerCase() === "berhasil"
+            ) {
+                warnaStatus =
+                "bg-green-100 text-green-800";
+            }
+
+            let baris = `
+            <tr class="border-b">
+
+                <td class="px-4 py-3">
+                    ${tanggal}
+                </td>
+
+                <td class="px-4 py-3 font-bold">
+                    Rp ${formatRupiah(
+                        cair["Nominal Penarikan"] || 0
+                    )}
+                </td>
+
+                <td class="px-4 py-3">
+                    <span class="px-2 py-1 rounded-full text-xs ${warnaStatus}">
+                        ${cair["Status"] || "Pending"}
+                    </span>
+                </td>
+
+            </tr>
+            `;
+
+            tbodyPencairan.innerHTML +=
+            baris;
+
+        });
+
+    }
+
+}
 
 }
 
