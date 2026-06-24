@@ -473,33 +473,48 @@ if (btnCairkan) {
                 nominal
             )
             .then(res => res.json())
-            .then(() => {
+.then(() => {
 
-                const pesanWA =
-                    `Hallo admin saya affiliator ${nama} sudah melakukan penarikan sebesar Rp ${nominal}. Mohon diproses.`;
+    fetch(
+        URL_APPS_SCRIPT +
+        "?action=getDashboard&kode=" +
+        kode
+    )
 
-                const urlWA =
-                    `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesanWA)}`;
+    .then(res => res.json())
+    .then(dataBaru => {
 
-                window.open(
-                    urlWA,
-                    "_blank"
-                );
+        dataGlobal = dataBaru;
 
-                btnCairkan.innerHTML =
-                    "💰 Tarik Komisi ke WhatsApp";
+        tampilkanDashboard();
 
-            })
-            .catch(() => {
+        const pesanWA =
+            `Hallo admin saya affiliator ${nama} sudah melakukan penarikan sebesar Rp ${nominal}. Mohon diproses.`;
 
-                alert(
-                    "Gagal memproses pencairan."
-                );
+        const urlWA =
+            `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesanWA)}`;
 
-                btnCairkan.innerHTML =
-                    "💰 Tarik Komisi ke WhatsApp";
+        window.open(
+            urlWA,
+            "_blank"
+        );
 
-            });
+        btnCairkan.innerHTML =
+            "💰 Tarik Komisi ke WhatsApp";
+
+    });
+
+})
+.catch(() => {
+
+    alert(
+        "Gagal memproses pencairan."
+    );
+
+    btnCairkan.innerHTML =
+        "💰 Tarik Komisi ke WhatsApp";
+
+});
 
         }
 
