@@ -42,19 +42,16 @@ const {
   window.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
     if (!anchor) return;
-
     const href = anchor.href;
     if (href.includes('wa.me') || href.includes('api.whatsapp.com')) {
       const savedRef = localStorage.getItem('affiliate_ref');
       if (!savedRef) return; 
-
-      if (href.includes('Kode Referral:')) return; 
-
+      if (href.includes('Kode Affiliate:')) return; 
       let newHref = href;
       if (href.includes('text=')) {
-        newHref = href + encodeURIComponent("\n\nKode Referral: " + savedRef);
+        newHref = href + encodeURIComponent("\n\nKode Affiliate: " + savedRef);
       } else {
-        const pesanDefault = "Halo Admin Auradigital, saya tertarik dan ingin pesan layanannya.\n\nKode Referral: " + savedRef;
+        const pesanDefault = "Halo Admin Auradigital, saya tertarik dan ingin pesan layanannya.\n\nKode Affiliate: " + savedRef;
         const separator = href.includes('?') ? '&' : '?';
         newHref = href + separator + 'text=' + encodeURIComponent(pesanDefault);
       }
@@ -63,28 +60,21 @@ const {
   });
 
   // =========================================================
-  // AUTO-REWRITER & RADAR TELEGRAM (Versi Pintar)
+  // AUTO-REWRITER & RADAR TELEGRAM
   // =========================================================
   document.addEventListener('astro:page-load', () => {
     const params = new URLSearchParams(window.location.search);
     const refUrl = params.get('ref');
-    
-    // Simpan ke localStorage hanya jika ada referral di URL
-    if (refUrl) {
-      localStorage.setItem('affiliate_ref', refUrl);
-    }
-
+    if (refUrl) localStorage.setItem('affiliate_ref', refUrl);
     const activeRef = refUrl || localStorage.getItem('affiliate_ref');
 
-    // --- FITUR AUTO-REWRITER (Hanya jalan jika ada kode referral) ---
+    // FITUR AUTO-REWRITER (Mengubah link secara otomatis)
     if (activeRef) {
       const allLinks = document.querySelectorAll('a');
       allLinks.forEach(link => {
         try {
-          // Hanya rewrite link internal web Bos
           if (link.hostname === window.location.hostname && !link.href.includes('wa.me')) {
             const urlObj = new URL(link.href);
-            // Tambahkan ref jika belum ada
             if (!urlObj.searchParams.has('ref')) {
               urlObj.searchParams.set('ref', activeRef);
               link.href = urlObj.toString();
@@ -92,22 +82,17 @@ const {
           }
         } catch(err) {}
       });
-      console.log("Auto-Rewriter aktif untuk referral:", activeRef);
     }
-    // -------------------------------------------------------------
 
-    // Pengaturan Webhook Radar Telegram
-    const webhookUrl = "https://script.google.com/macros/s/AKfycby0cicgOOjBB-0DiFCGLugENeUHnD_aOn7f4YDa-oDMIunabiW2uGtK08_XXFHnzB5mYg/exec"; 
-    if(webhookUrl.includes("KODE_PANJANG")) return;
-
+    // RADAR TELEGRAM
+    const webhookUrl = "https://script.google.com/macros/s/AKfycbwVf5QV5ch8s5OHzfYqoEKYgmPdiVd-NAGUoQ2IBYb6_OeZdGCD9YOlcQso1ToiI5Ys/exec"; 
     let urlLengkap = window.location.pathname + window.location.search;
     urlLengkap += activeRef ? " (Ref: " + activeRef + ")" : " (Organik)";
-
     fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({ halaman: urlLengkap, waktu: new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' }) })
-    }).catch(error => console.log("Radar gagal:", error));
+    }).catch(e => console.log("Radar gagal:", e));
   });
 </script>
 
