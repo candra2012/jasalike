@@ -1,0 +1,159 @@
+---
+const materiPromosi = [
+
+{
+id:1,
+judul:"Template Instagram Feed #01",
+platform:"Instagram",
+badge:"Terbaru",
+tanggal:"20 Juni 2026",
+preview:"/image/template-instagram-1.webp",
+download:"#",
+
+caption:
+`🚀 Mau akun Instagram terlihat lebih ramai?
+
+Gunakan layanan JasaLike sekarang juga.
+
+✅ Like Instagram
+✅ Followers
+✅ Komentar
+✅ Views
+
+Klik link berikut:
+https://jasalike.com`,
+
+hashtag:
+`#jasalike
+#jasainstagram
+#likeinstagram
+#followersinstagram`
+},
+
+{
+id:2,
+judul:"Template Instagram Feed #02",
+platform:"Instagram",
+badge:"Terbaru",
+tanggal:"20 Juni 2026",
+preview:"/image/template-instagram-2.webp",
+download:"#",
+
+caption:
+`🔥 Mau postingan Instagram lebih dipercaya?
+
+Gunakan JasaLike sekarang juga.
+
+Klik link berikut:
+https://jasalike.com`,
+
+hashtag:
+`#jasalike
+#instagram
+#viral
+#explore`
+},
+
+{
+id:3,
+judul:"Template TikTok #01",
+platform:"TikTok",
+badge:"Baru",
+tanggal:"20 Juni 2026",
+preview:"/image/template-tiktok-1.webp",
+download:"#",
+
+caption:
+`🔥 Tingkatkan engagement TikTok Anda bersama JasaLike.`,
+
+hashtag:
+`#tiktok
+#jasalike
+#fyp`
+}
+
+];
+---
+
+<section id="materi" class="py-20 bg-slate-50">
+
+<div class="container mx-auto px-4">
+
+<div class="max-w-3xl mx-auto text-center mb-14">
+
+<h2 class="text-4xl font-black mb-4">
+📂 Pusat Materi Promosi
+</h2>
+
+<p class="text-slate-600 leading-8">
+
+Silakan download seluruh materi promosi resmi
+Affiliate JasaLike.
+
+Template akan diperbarui secara berkala.
+
+</p>
+
+</div>
+
+<div class="mb-10">
+
+<input
+id="searchMateri"
+type="text"
+placeholder="Cari template..."
+class="w-full border rounded-xl px-5 py-4 shadow-sm focus:ring-2 focus:ring-blue-500 outline-none"
+/>
+
+</div>
+
+<div
+id="gridMateri"
+class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+{
+
+materiPromosi.map(item=>(
+
+<div
+class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+
+<img
+src={item.preview}
+alt={item.judul}
+class="w-full h-64 object-cover"
+/>
+
+<div class="p-6">
+
+<div class="flex justify-between items-center mb-3">
+
+<span
+class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">
+
+{item.platform}
+
+</span>
+
+<span
+class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
+
+{item.badge}
+
+</span>
+
+</div>
+
+<h3 class="text-xl font-bold mb-2">
+
+{item.judul}
+
+</h3>
+
+<p class="text-sm text-slate-500 mb-6">
+
+Update :
+
+{item.tanggal}
+
+</p>
