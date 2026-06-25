@@ -282,7 +282,7 @@ document.addEventListener('astro:page-load', () => {
 
                     const pesanWA = `Hallo admin saya affiliator ${nama} dengan kode ${kode} sudah melakukan penarikan sebesar Rp ${nominal}. Mohon diproses.`;
                     const urlWA = `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesanWA)}`;
-                    window.open(urlWA, "_blank");
+                    window.location.href = urlWA;
 
                     btnCairkan.innerHTML = "💰 Tarik Komisi ke WhatsApp";
                 });
