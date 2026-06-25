@@ -1,78 +1,12 @@
 ---
-const materiPromosi = [
+const API =
+"https://script.google.com/macros/s/AKfycbyEREB__t-bEqEOkri9R_YB-DclLyAXJUpYbfV9O1g-BIRWK0-bSed_HcNhA74CT2-eWw/exec?action=getMateri";
 
-{
-id:1,
-judul:"Template Instagram Feed #01",
-platform:"Instagram",
-badge:"Terbaru",
-tanggal:"20 Juni 2026",
-preview:"/image/template-instagram-1.webp",
-download:"#",
+const res = await fetch(API);
 
-caption:
-`🚀 Mau akun Instagram terlihat lebih ramai?
+const json = await res.json();
 
-Gunakan layanan JasaLike sekarang juga.
-
-✅ Like Instagram
-✅ Followers
-✅ Komentar
-✅ Views
-
-Klik link berikut:
-https://jasalike.com`,
-
-hashtag:
-`#jasalike
-#jasainstagram
-#likeinstagram
-#followersinstagram`
-},
-
-{
-id:2,
-judul:"Template Instagram Feed #02",
-platform:"Instagram",
-badge:"Terbaru",
-tanggal:"20 Juni 2026",
-preview:"/image/template-instagram-2.webp",
-download:"#",
-
-caption:
-`🔥 Mau postingan Instagram lebih dipercaya?
-
-Gunakan JasaLike sekarang juga.
-
-Klik link berikut:
-https://jasalike.com`,
-
-hashtag:
-`#jasalike
-#instagram
-#viral
-#explore`
-},
-
-{
-id:3,
-judul:"Template TikTok #01",
-platform:"TikTok",
-badge:"Baru",
-tanggal:"20 Juni 2026",
-preview:"/image/template-tiktok-1.webp",
-download:"#",
-
-caption:
-`🔥 Tingkatkan engagement TikTok Anda bersama JasaLike.`,
-
-hashtag:
-`#tiktok
-#jasalike
-#fyp`
-}
-
-];
+const materiPromosi = json.materi;
 ---
 
 <section id="materi" class="py-20 bg-slate-50">
