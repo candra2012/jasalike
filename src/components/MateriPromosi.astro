@@ -142,6 +142,13 @@ class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">
 
 </span>
 
+    <span
+class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-bold">
+
+🖼 4 Gambar
+
+</span>
+
 </div>
 
 <h3 class="text-xl font-bold mb-2">
@@ -159,6 +166,14 @@ Update :
 </p>
 
 <div class="grid gap-3">
+
+    <button
+class="btnPreview w-full bg-slate-700 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition"
+data-image={item.preview}>
+
+👁 Preview Gambar
+
+</button>
 
 <a
 href={item.download}
@@ -194,6 +209,29 @@ data-hashtag={item.hashtag}>
 ))
 
 }
+
+</div>
+
+</div>
+
+<div
+id="lightbox"
+class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-5">
+
+<div class="relative">
+
+<button
+id="closePreview"
+class="absolute -top-4 -right-4 bg-white rounded-full w-10 h-10 font-bold">
+
+✕
+
+</button>
+
+<img
+id="previewImage"
+src=""
+class="max-h-[90vh] rounded-xl shadow-2xl"/>
 
 </div>
 
