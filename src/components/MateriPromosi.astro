@@ -157,3 +157,146 @@ Update :
 {item.tanggal}
 
 </p>
+
+<div class="grid gap-3">
+
+<a
+href={item.download}
+target="_blank"
+class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-center transition">
+
+⬇ Download Template
+
+</a>
+
+<button
+class="btnCaption w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition"
+data-caption={item.caption}>
+
+📋 Salin Caption
+
+</button>
+
+<button
+class="btnHashtag w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-xl transition"
+data-hashtag={item.hashtag}>
+
+🏷 Salin Hashtag
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+))
+
+}
+
+</div>
+
+</div>
+
+</section>
+
+<script is:inline>
+
+document.addEventListener("astro:page-load",()=>{
+
+//==============================
+// SEARCH TEMPLATE
+//==============================
+
+const search =
+document.getElementById("searchMateri");
+
+if(search){
+
+search.addEventListener("keyup",()=>{
+
+const keyword =
+search.value.toLowerCase();
+
+document.querySelectorAll("#gridMateri > div")
+
+.forEach(card=>{
+
+const teks =
+card.innerText.toLowerCase();
+
+card.style.display =
+teks.includes(keyword)
+? ""
+: "none";
+
+});
+
+});
+
+}
+
+//==============================
+// COPY CAPTION
+//==============================
+
+document
+.querySelectorAll(".btnCaption")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+navigator.clipboard.writeText(
+btn.dataset.caption
+);
+
+const lama =
+btn.innerHTML;
+
+btn.innerHTML =
+"✅ Caption Tersalin";
+
+setTimeout(()=>{
+
+btn.innerHTML = lama;
+
+},2000);
+
+});
+
+});
+
+//==============================
+// COPY HASHTAG
+//==============================
+
+document
+.querySelectorAll(".btnHashtag")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+navigator.clipboard.writeText(
+btn.dataset.hashtag
+);
+
+const lama =
+btn.innerHTML;
+
+btn.innerHTML =
+"✅ Hashtag Tersalin";
+
+setTimeout(()=>{
+
+btn.innerHTML = lama;
+
+},2000);
+
+});
+
+});
+
+});
+
+</script>
