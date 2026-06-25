@@ -2,167 +2,247 @@
 // src/components/LayananGrid.astro
 import { Icon } from 'astro-icon/components'
 
-// DATA SEMUA LAYANAN (FOKUS 100% JASA LIKE - TERBARU)
-const layananGrid = [
+// DATA LAYANAN DIKELOMPOKKAN PER PLATFORM
+const kategoriLayanan = [
   {
-    nama: "Instagram",
-    icon: "lucide:instagram",
-    colorClass: "text-pink-600",
-    bgClass: "bg-pink-600/10",
-    deskripsi: "Jasa Like Instagram aktif untuk postingan dan Reels agar konten terlihat lebih kredibel.",
-    link: "/like-instagram", 
-  },
-  {
-    nama: "TikTok",
-    icon: "lucide:music-2",
-    colorClass: "text-slate-900", 
-    bgClass: "bg-slate-900/10",
-    deskripsi: "Jasa Like TikTok premium untuk mendorong video Anda lebih cepat dan mudah masuk FYP.",
-    link: "/like-tiktok",
-  },
-  {
-    nama: "Facebook",
-    icon: "lucide:facebook",
-    colorClass: "text-blue-600",
-    bgClass: "bg-blue-600/10",
-    deskripsi: "Optimasi Jasa Like Facebook untuk Postingan, Fanpage, dan Reels secara natural.",
-    link: "/like-facebook",
-  },
-  {
-    nama: "LinkedIn",
-    icon: "lucide:linkedin",
-    colorClass: "text-blue-700",
-    bgClass: "bg-blue-700/10",
-    deskripsi: "Jasa Like LinkedIn untuk membangun otoritas B2B & menarik perhatian HRD secara profesional.",
-    link: "/like-linkedin",
+    platform: "Instagram",
+    iconKategori: "lucide:instagram",
+    warnaKategori: "text-pink-500",
+    borderKategori: "border-pink-500/30",
+    items: [
+      {
+        nama: "Instagram",
+        icon: "lucide:instagram",
+        colorClass: "text-pink-600",
+        bgClass: "bg-pink-600/10",
+        deskripsi: "Jasa Like Instagram aktif untuk postingan dan Reels agar konten terlihat lebih kredibel.",
+        link: "/like-instagram", 
+      },
+      {
+        nama: "Like Komentar Instagram",
+        icon: "lucide:message-circle", 
+        colorClass: "text-emerald-600", 
+        bgClass: "bg-emerald-600/10",
+        deskripsi: "Jasa Like Komentar khusus untuk menaikkan posisi komentar Anda menjadi urutan teratas (Top Comment).",
+        link: "/like-komentar-instagram",
+      }
+    ]
   },
   {
-    nama: "YouTube",
-    icon: "lucide:youtube",
-    colorClass: "text-red-600",
-    bgClass: "bg-red-600/10",
-    deskripsi: "Jasa Like YouTube organik untuk meningkatkan metrik interaksi dan ranking video di pencarian.",
-    link: "/like-youtube",
+    platform: "TikTok",
+    iconKategori: "lucide:music-2",
+    warnaKategori: "text-white",
+    borderKategori: "border-white/30",
+    items: [
+      {
+        nama: "TikTok",
+        icon: "lucide:music-2",
+        colorClass: "text-slate-900", 
+        bgClass: "bg-slate-900/10",
+        deskripsi: "Jasa Like TikTok premium untuk mendorong video Anda lebih cepat dan mudah masuk FYP.",
+        link: "/like-tiktok",
+      },
+      {
+        nama: "Like Komentar TikTok",
+        icon: "lucide:message-square-text",
+        colorClass: "text-slate-900", 
+        bgClass: "bg-slate-900/10",
+        deskripsi: "Jasa like komentar TikTok cepat & aman untuk membantu komentar tampil lebih menonjol.",
+        link: "/like-komentar-tiktok",
+      }
+    ]
   },
   {
-    nama: "Twitter / X",
-    icon: "lucide:twitter",
-    colorClass: "text-slate-800", 
-    bgClass: "bg-slate-800/10",
-    deskripsi: "Jasa Like Twitter/X untuk meramaikan interaksi Tweet agar lebih mudah menjadi Trending Topic.",
-    link: "/like-twitter",
+    platform: "YouTube",
+    iconKategori: "lucide:youtube",
+    warnaKategori: "text-red-500",
+    borderKategori: "border-red-500/30",
+    items: [
+      {
+        nama: "YouTube",
+        icon: "lucide:youtube",
+        colorClass: "text-red-600",
+        bgClass: "bg-red-600/10",
+        deskripsi: "Jasa Like YouTube organik untuk meningkatkan metrik interaksi dan ranking video di pencarian.",
+        link: "/like-youtube",
+      },
+      {
+        nama: "Like Komentar YouTube",
+        icon: "lucide:message-square-text",
+        colorClass: "text-red-600",
+        bgClass: "bg-red-600/10",
+        deskripsi: "Jasa like komentar YouTube terpercaya, proses cepat, aman, dan cocok untuk berbagai kebutuhan.",
+        link: "/like-komentar-youtube",
+      }
+    ]
   },
   {
-    nama: "Threads",
-    icon: "lucide:at-sign", 
-    colorClass: "text-neutral-900", 
-    bgClass: "bg-neutral-900/10",
-    deskripsi: "Jasa Like Threads aktif untuk mendongkrak popularitas dan engagement postingan Threads Anda.",
-    link: "/like-threads",
+    platform: "Facebook",
+    iconKategori: "lucide:facebook",
+    warnaKategori: "text-blue-500",
+    borderKategori: "border-blue-500/30",
+    items: [
+      {
+        nama: "Facebook",
+        icon: "lucide:facebook",
+        colorClass: "text-blue-600",
+        bgClass: "bg-blue-600/10",
+        deskripsi: "Optimasi Jasa Like Facebook untuk Postingan, Fanpage, dan Reels secara natural.",
+        link: "/like-facebook",
+      },
+      {
+        nama: "Like Komentar Facebook",
+        icon: "lucide:message-circle", 
+        colorClass: "text-blue-600", 
+        bgClass: "bg-blue-600/10",
+        deskripsi: "Jasa like komentar Facebook terpercaya untuk mendominasi filter 'Paling Relevan' di Fanpage dan Grup Publik.",
+        link: "/like-komentar-facebook",
+      }
+    ]
   },
   {
-    nama: "Like Produk Marketplace",
-    icon: "lucide:shopping-bag", 
-    colorClass: "text-orange-500", 
-    bgClass: "bg-orange-500/10",
-    deskripsi: "Jasa like produk dan wishlist terpercaya untuk mendongkrak algoritma pencarian Shopee, TikTok Shop, Lazada, dan Blibli.",
-    link: "/like-marketplace",
+    platform: "Twitter / X",
+    iconKategori: "lucide:twitter",
+    warnaKategori: "text-sky-400",
+    borderKategori: "border-sky-400/30",
+    items: [
+      {
+        nama: "Twitter / X",
+        icon: "lucide:twitter",
+        colorClass: "text-slate-800", 
+        bgClass: "bg-slate-800/10",
+        deskripsi: "Jasa Like Twitter/X untuk meramaikan interaksi Tweet agar lebih mudah menjadi Trending Topic.",
+        link: "/like-twitter",
+      },
+      {
+        nama: "Like Komentar Twitter / X",
+        icon: "lucide:message-square", 
+        colorClass: "text-sky-500", 
+        bgClass: "bg-sky-500/10",
+        deskripsi: "Jasa like komentar Twitter (X) premium untuk mendongkrak ulasan Anda menjadi Top Reply di cuitan populer.",
+        link: "/like-komentar-twitter",
+      }
+    ]
   },
   {
-    nama: "Like Reddit/Upvote",
-    icon: "fa-brands:reddit", 
-    colorClass: "text-orange-500", 
-    bgClass: "bg-orange-500/10",
-    deskripsi: "Jasa like Reddit terpercaya bantu tingkatkan engagement postingan",
-    link: "/like-reddit",
+    platform: "LinkedIn",
+    iconKategori: "lucide:linkedin",
+    warnaKategori: "text-blue-400",
+    borderKategori: "border-blue-400/30",
+    items: [
+      {
+        nama: "LinkedIn",
+        icon: "lucide:linkedin",
+        colorClass: "text-blue-700",
+        bgClass: "bg-blue-700/10",
+        deskripsi: "Jasa Like LinkedIn untuk membangun otoritas B2B & menarik perhatian HRD secara profesional.",
+        link: "/like-linkedin",
+      },
+      {
+        nama: "Like Komentar LinkedIn",
+        icon: "lucide:message-square-text", 
+        colorClass: "text-blue-700", 
+        bgClass: "bg-blue-700/10",
+        deskripsi: "Jasa like komentar LinkedIn untuk mendominasi diskusi B2B, menarik perhatian HRD, dan memperkuat otoritas profil.",
+        link: "/like-komentar-linkedin",
+      }
+    ]
   },
   {
-    nama: "Like Pinterest",
-    icon: "fa-brands:pinterest", 
-    colorClass: "text-orange-500", 
-    bgClass: "bg-red-500/10",
-    deskripsi: "Jasa like Pinterest aman untuk meningkatkan engagement dan impresi.",
-    link: "/like-pinterest",
+    platform: "Threads",
+    iconKategori: "lucide:at-sign",
+    warnaKategori: "text-gray-300",
+    borderKategori: "border-gray-300/30",
+    items: [
+      {
+        nama: "Threads",
+        icon: "lucide:at-sign", 
+        colorClass: "text-neutral-900", 
+        bgClass: "bg-neutral-900/10",
+        deskripsi: "Jasa Like Threads aktif untuk mendongkrak popularitas dan engagement postingan Threads Anda.",
+        link: "/like-threads",
+      },
+      {
+        nama: "Like Komentar Threads",
+        icon: "lucide:message-circle", 
+        colorClass: "text-neutral-900", 
+        bgClass: "bg-neutral-900/10",
+        deskripsi: "Jasa like komentar Threads untuk mendominasi arus percakapan dan mengunci posisi Top Reply di ekosistem Meta.",
+        link: "/like-komentar-threads",
+      }
+    ]
   },
   {
-    nama: "Like Komentar Instagram",
-    icon: "lucide:instagram", 
-    colorClass: "text-emerald-600", 
-    bgClass: "bg-emerald-600/10",
-    deskripsi: "Jasa Like Komentar khusus untuk menaikkan posisi komentar Anda menjadi urutan teratas (Top Comment).",
-    link: "/like-komentar-instagram",
+    platform: "Marketplace & E-Commerce",
+    iconKategori: "lucide:shopping-bag",
+    warnaKategori: "text-amber-500",
+    borderKategori: "border-amber-500/30",
+    items: [
+      {
+        nama: "Like Produk Marketplace",
+        icon: "lucide:shopping-bag", 
+        colorClass: "text-orange-500", 
+        bgClass: "bg-orange-500/10",
+        deskripsi: "Jasa like produk dan wishlist terpercaya untuk mendongkrak algoritma pencarian Shopee, TikTok Shop, dll.",
+        link: "/like-marketplace",
+      },
+      {
+        nama: "Like Komentar Marketplace",
+        icon: "lucide:message-square", 
+        colorClass: "text-amber-500", 
+        bgClass: "bg-amber-500/10",
+        deskripsi: "Jasa like ulasan produk untuk menaikkan review positif ke posisi Top Review dan menenggelamkan komplain.",
+        link: "/like-komentar-marketplace",
+      }
+    ]
   },
   {
-    nama: "Like Komentar TikTok",
-    icon: "lucide:music-2",
-    colorClass: "text-slate-900", 
-    bgClass: "bg-slate-900/10",
-    deskripsi: "Jasa like komentar TikTok cepat & aman untuk membantu komentar tampil lebih menonjol.",
-    link: "/like-komentar-tiktok",
-  },
-{
-    nama: "Like Komentar YouTube",
-    icon: "lucide:youtube",
-    colorClass: "text-red-600",
-    bgClass: "bg-red-600/10",
-    deskripsi: "Jasa like komentar YouTube terpercaya, proses cepat, aman, dan cocok untuk berbagai kebutuhan.",
-    link: "/like-komentar-youtube",
-  },
-{
-    nama: "Like Komentar Twitter / X",
-    icon: "lucide:twitter", 
-    colorClass: "text-sky-500", 
-    bgClass: "bg-sky-500/10",
-    deskripsi: "Jasa like komentar Twitter (X) premium untuk mendongkrak ulasan Anda menjadi Top Reply di cuitan populer.",
-    link: "/like-komentar-twitter",
-  },
-{
-    nama: "Like Komentar Facebook",
-    icon: "lucide:facebook", 
-    colorClass: "text-blue-600", 
-    bgClass: "bg-blue-600/10",
-    deskripsi: "Jasa like komentar Facebook terpercaya untuk mendominasi filter 'Paling Relevan' di Fanpage dan Grup Publik.",
-    link: "/like-komentar-facebook",
+    platform: "Reddit",
+    iconKategori: "fa-brands:reddit",
+    warnaKategori: "text-orange-500",
+    borderKategori: "border-orange-500/30",
+    items: [
+      {
+        nama: "Like Reddit/Upvote",
+        icon: "fa-brands:reddit", 
+        colorClass: "text-orange-500", 
+        bgClass: "bg-orange-500/10",
+        deskripsi: "Jasa like Reddit terpercaya bantu tingkatkan engagement postingan",
+        link: "/like-reddit",
+      },
+      {
+        nama: "Like Komentar Reddit",
+        icon: "lucide:message-square-text", 
+        colorClass: "text-orange-500", 
+        bgClass: "bg-orange-500/10",
+        deskripsi: "Jasa like komentar Reddit cepat untuk bantu optimasi interaksi diskusi.",
+        link: "/like-komentar-reddit",
+      }
+    ]
   },
   {
-    nama: "Like Komentar LinkedIn",
-    icon: "lucide:linkedin", 
-    colorClass: "text-blue-700", 
-    bgClass: "bg-blue-700/10",
-    deskripsi: "Jasa like komentar LinkedIn untuk mendominasi diskusi B2B, menarik perhatian HRD, dan memperkuat otoritas profil.",
-    link: "/like-komentar-linkedin",
-  },
-  {
-    nama: "Like Komentar Threads",
-    icon: "lucide:at-sign", 
-    colorClass: "text-neutral-900", 
-    bgClass: "bg-neutral-900/10",
-    deskripsi: "Jasa like komentar Threads untuk mendominasi arus percakapan dan mengunci posisi Top Reply di ekosistem Meta.",
-    link: "/like-komentar-threads",
-  },
-  {
-    nama: "Like Komentar Marketplace",
-    icon: "lucide:message-square", 
-    colorClass: "text-amber-500", 
-    bgClass: "bg-amber-500/10",
-    deskripsi: "Jasa like ulasan produk untuk menaikkan review positif ke posisi Top Review dan menenggelamkan komplain pembeli.",
-    link: "/like-komentar-marketplace",
-  },
-  {
-    nama: "Like Komentar Reddit",
-    icon: "fa-brands:reddit", 
-    colorClass: "text-orange-500", 
-    bgClass: "bg-orange-500/10",
-    deskripsi: "Jasa like komentar Reddit cepat untuk bantu optimasi interaksi diskusi.",
-    link: "/like-komentar-reddit",
-  },
-  {
-    nama: "Like Komentar Pinterest",
-    icon: "fa-brands:pinterest", 
-    colorClass: "text-orange-500", 
-    bgClass: "bg-red-500/10",
-    deskripsi: "Jasa like komentar Pinterest aman untuk meningkatkan interaksi visual.",
-    link: "/like-komentar-pinterest",
+    platform: "Pinterest",
+    iconKategori: "fa-brands:pinterest",
+    warnaKategori: "text-red-500",
+    borderKategori: "border-red-500/30",
+    items: [
+      {
+        nama: "Like Pinterest",
+        icon: "fa-brands:pinterest", 
+        colorClass: "text-red-600", 
+        bgClass: "bg-red-600/10",
+        deskripsi: "Jasa like Pinterest aman untuk meningkatkan engagement dan impresi.",
+        link: "/like-pinterest",
+      },
+      {
+        nama: "Like Komentar Pinterest",
+        icon: "lucide:message-square", 
+        colorClass: "text-red-600", 
+        bgClass: "bg-red-600/10",
+        deskripsi: "Jasa like komentar Pinterest aman untuk meningkatkan interaksi visual.",
+        link: "/like-komentar-pinterest",
+      }
+    ]
   }
 ];
 ---
@@ -170,30 +250,46 @@ const layananGrid = [
 <section class="py-16 md:py-24 bg-slate-900 relative">
   <div class="container mx-auto px-6 max-w-7xl relative z-10">
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 mt-10">
-      
-      {layananGrid.map((item) => (
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-          
-          <div class={`w-12 h-12 rounded-[1rem] flex items-center justify-center mb-4 ${item.bgClass || 'bg-blue-50'} ${item.colorClass || 'text-blue-600'}`}>
-            <Icon name={item.icon || 'lucide:box'} class="w-6 h-6" />
+    <div class="text-center mb-16">
+       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Layanan JasaLike per Platform</h2>
+       <p class="text-slate-400">Pilih platform yang ingin Anda optimasi untuk melihat detail layanan kami.</p>
+    </div>
+
+    <div class="space-y-16">
+      {kategoriLayanan.map((kategori) => (
+        <div>
+          <div class={`flex items-center gap-3 mb-6 border-b ${kategori.borderKategori} pb-3`}>
+            <Icon name={kategori.iconKategori} class={`w-8 h-8 ${kategori.warnaKategori}`} />
+            <h2 class="text-2xl font-bold text-white">{kategori.platform}</h2>
           </div>
 
-          <h3 class="text-xl font-bold text-slate-900 mb-2">{item.nama}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+            {kategori.items.map((item) => (
+              <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+                
+                <div class={`w-12 h-12 rounded-[1rem] flex items-center justify-center mb-4 transition-transform group-hover:scale-110 ${item.bgClass || 'bg-blue-50'} ${item.colorClass || 'text-blue-600'}`}>
+                  <Icon name={item.icon || 'lucide:box'} class="w-6 h-6" />
+                </div>
 
-          <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
-            {item.deskripsi}
-          </p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">{item.nama}</h3>
 
-          <a href={item.link} class="inline-flex items-center text-blue-600 font-bold text-sm hover:text-blue-700 transition-colors mt-auto group">
-            Lihat Detail Layanan 
-            <Icon name="lucide:arrow-right" class="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
-          </a>
-          
+                <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
+                  {item.deskripsi}
+                </p>
+
+                <a href={item.link} class="inline-flex items-center text-blue-600 font-bold text-sm hover:text-blue-700 transition-colors mt-auto group/link">
+                  Lihat Detail Layanan 
+                  <Icon name="lucide:arrow-right" class="w-4 h-4 ml-1.5 transition-transform group-hover/link:translate-x-1" />
+                </a>
+                
+              </div>
+            ))}
+          </div>
+
         </div>
       ))}
-
     </div>
+
   </div>
 </section>
 
