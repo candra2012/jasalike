@@ -439,30 +439,45 @@ if (btnCairkan) {
     btnCairkan.addEventListener("click", () => {
 
         let nominal = prompt(
-            "Masukkan nominal pencairan (minimal Rp 50.000)",
-            "50000"
-        );
+    "Masukkan nominal pencairan (minimal Rp 50.000)",
+    "50000"
+);
 
-        if (
-            nominal &&
-            !isNaN(nominal) &&
-            parseInt(nominal) >= 50000
-        ) {
+const saldo = Number(dataGlobal.saldo || 0);
 
-            const nama =
-                document.getElementById(
-                    "namaAfiliator"
-                ).innerText;
+if (saldo < 50000) {
+    alert("Saldo Anda belum mencapai minimal pencairan Rp 50.000.");
+    return;
+}
 
-            const kode =
-                document.getElementById(
-                    "kodeAfiliatorDisplay"
-                ).innerText;
+if (!nominal || isNaN(nominal)) {
+    return;
+}
 
-            btnCairkan.innerText =
-                "Memproses...";
+if (Number(nominal) > saldo) {
+    alert("Nominal pencairan melebihi saldo yang tersedia.");
+    return;
+}
 
-            fetch(
+if (parseInt(nominal) < 50000) {
+    alert("Minimal pencairan adalah Rp 50.000.");
+    return;
+}
+
+const nama =
+    document.getElementById(
+        "namaAfiliator"
+    ).innerText;
+
+const kode =
+    document.getElementById(
+        "kodeAfiliatorDisplay"
+    ).innerText;
+
+btnCairkan.innerText =
+    "Memproses...";
+
+fetch(
                 URL_APPS_SCRIPT +
                 "?action=tarik" +
                 "&kode=" +
