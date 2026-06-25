@@ -331,6 +331,39 @@ btn.innerHTML = lama;
 
 },2000);
 
+//==============================
+// PREVIEW GAMBAR
+//==============================
+
+const lightbox =
+document.getElementById("lightbox");
+
+const preview =
+document.getElementById("previewImage");
+
+document
+.querySelectorAll(".btnPreview")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+preview.src =
+btn.dataset.image;
+
+lightbox.classList.remove("hidden");
+
+});
+
+});
+
+document
+.getElementById("closePreview")
+.addEventListener("click",()=>{
+
+lightbox.classList.add("hidden");
+
+});
+
 });
 
 });
