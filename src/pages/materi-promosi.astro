@@ -1,0 +1,61 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+
+import Hero from "../components/Hero.astro";
+import MateriPromosi from "../components/MateriPromosi.astro";
+
+// ==========================================
+// SEO
+// ==========================================
+
+const title =
+"Materi Promosi Affiliate JasaLike";
+
+const description =
+"Download seluruh materi promosi resmi Affiliate JasaLike mulai dari template Instagram, TikTok, Facebook, caption, hashtag, dan materi terbaru.";
+
+const keywords =
+"materi promosi affiliate, template promosi, affiliate jasalike, caption promosi, hashtag promosi";
+
+// ==========================================
+// HERO
+// ==========================================
+
+const dataHero = {
+
+tipe:"service",
+
+labelTeks:"Affiliate Center",
+
+labelIcon:"lucide:folder-open",
+
+judulUtama:
+'Materi Promosi <br class="hidden md:block"/> <span class="text-blue-500">Affiliate JasaLike</span>',
+
+deskripsi:
+"Seluruh materi promosi resmi JasaLike tersedia dalam satu halaman. Download template terbaru, salin caption, gunakan hashtag terbaik, lalu mulai promosikan layanan untuk memperoleh komisi.",
+
+teksTombol1:"Lihat Materi",
+
+linkTombol1:"#materi",
+
+teksTombol2:"Dashboard Affiliate",
+
+linkTombol2:"/dashboard",
+
+gambarHero:"/image/logo-hero-jasalike.png"
+
+};
+---
+
+<DefaultLayout
+title={title}
+description={description}
+keywords={keywords}
+>
+
+<Hero {...dataHero} />
+
+<MateriPromosi />
+
+</DefaultLayout>
