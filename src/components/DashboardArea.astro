@@ -10,7 +10,7 @@
         <div id="login-section" class="max-w-md mx-auto bg-white rounded-xl shadow-md p-6">
             <h2 class="text-2xl font-bold text-center text-blue-600 mb-2">Akses Dashboard</h2>
             <p class="text-center text-gray-500 mb-6">Masukkan Kode Affiliate Anda</p>
-            <input type="text" id="inputKode" placeholder="Contoh: S76AHE" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 uppercase">
+            <input type="text" id="inputKode" placeholder="Contoh: JL58219" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 uppercase">
             <button id="btnMasuk" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition">Masuk Dashboard</button>
             <p id="pesanError" class="text-red-500 text-sm text-center mt-3 hidden">Kode tidak ditemukan. Silakan coba lagi.</p>
         </div>
@@ -23,42 +23,23 @@
                 <h1 class="text-xl text-gray-500">Halo, <span id="namaAfiliator" class="font-bold text-gray-800">Nama</span>! 👋</h1>
                 <p class="text-sm text-gray-400 mb-4">Kode Affiliate: <span id="kodeAfiliatorDisplay" class="font-mono text-blue-600 font-bold"></span></p>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <!-- KARTU SALDO -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <p class="text-sm text-gray-500">Total Komisi</p>
+                        <h3 id="totalKomisi" class="text-2xl font-bold text-green-600">Rp 0</h3>
+                    </div>
 
-  <div class="bg-green-50 border border-green-200 rounded-xl p-4">
-    <p class="text-sm text-gray-500">
-      Total Komisi
-    </p>
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                        <p class="text-sm text-gray-500">Total Penarikan</p>
+                        <h3 id="totalPenarikan" class="text-2xl font-bold text-yellow-600">Rp 0</h3>
+                    </div>
 
-    <h3 id="totalKomisi"
-      class="text-2xl font-bold text-green-600">
-      Rp 0
-    </h3>
-  </div>
-
-  <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
-    <p class="text-sm text-gray-500">
-      Total Penarikan
-    </p>
-
-    <h3 id="totalPenarikan"
-      class="text-2xl font-bold text-yellow-600">
-      Rp 0
-    </h3>
-  </div>
-
-  <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
-    <p class="text-sm text-gray-500">
-      Saldo Tersedia
-    </p>
-
-    <h3 id="saldoTersedia"
-      class="text-2xl font-bold text-blue-600">
-      Rp 0
-    </h3>
-  </div>
-
-</div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                        <p class="text-sm text-gray-500">Saldo Tersedia</p>
+                        <h3 id="saldoTersedia" class="text-2xl font-bold text-blue-600">Rp 0</h3>
+                    </div>
+                </div>
                 
                 <div class="p-4 bg-blue-50 rounded-lg mb-6 border border-blue-100">
                     <p class="text-sm text-gray-600 mb-2">Link Promosi Anda:</p>
@@ -94,446 +75,223 @@
                 </div>
             </div>
 
-               <!-- TABEL PENCAIRAN -->
-<div class="bg-white rounded-xl shadow-md p-6 overflow-hidden">
-    <h2 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">
-        Riwayat Pencairan
-    </h2>
+            <!-- TABEL PENCAIRAN -->
+            <div class="bg-white rounded-xl shadow-md p-6 overflow-hidden">
+                <h2 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">Riwayat Pencairan</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left whitespace-nowrap">
+                        <thead class="text-gray-600 bg-gray-100">
+                            <tr>
+                                <th class="px-4 py-3 rounded-tl-lg">Tanggal</th>
+                                <th class="px-4 py-3">Nominal</th>
+                                <th class="px-4 py-3 rounded-tr-lg">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelPencairan">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-    <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left whitespace-nowrap">
-            <thead class="text-gray-600 bg-gray-100">
-                <tr>
-                    <th class="px-4 py-3 rounded-tl-lg">
-                        Tanggal
-                    </th>
-
-                    <th class="px-4 py-3">
-                        Nominal
-                    </th>
-
-                    <th class="px-4 py-3 rounded-tr-lg">
-                        Status
-                    </th>
-                </tr>
-            </thead>
-
-            <tbody id="tabelPencairan">
-            </tbody>
-
-        </table>
+        </div>
     </div>
-</div>
-
-</div>
-</div>
 </section>
 
-
 <!-- SCRIPT LOGIKA BROWSER -->
-<script>
-const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwIdnPFD0ud-vP_BewqMFevWHq6753cBjfS2UhXstiu-kNbu1mp7_pHlDQ-IIwP1rfAPQ/exec";
+<!-- Ditambahkan 'is:inline' dan 'astro:page-load' agar berfungsi sempurna di framework Astro -->
+<script is:inline>
+document.addEventListener('astro:page-load', () => {
 
-const NOMOR_WA_ADMIN = "6282120567299";
+    const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbwIdnPFD0ud-vP_BewqMFevWHq6753cBjfS2UhXstiu-kNbu1mp7_pHlDQ-IIwP1rfAPQ/exec";
+    const NOMOR_WA_ADMIN = "6282120567299";
 
-let dataGlobal = {};
+    let dataGlobal = {};
 
-function formatRupiah(angka) {
-    return new Intl.NumberFormat("id-ID").format(
-        Number(angka || 0)
-    );
-}
-
-const btnMasuk = document.getElementById("btnMasuk");
-const btnSalin = document.getElementById("btnSalin");
-const btnCairkan = document.getElementById("btnCairkan");
-
-if (btnMasuk) {
-
-    btnMasuk.addEventListener("click", () => {
-
-        const kode =
-            document
-            .getElementById("inputKode")
-            .value
-            .trim()
-            .toUpperCase();
-
-        if (!kode) return;
-
-        btnMasuk.innerText = "Mencari Data...";
-
-        document
-            .getElementById("pesanError")
-            .classList
-            .add("hidden");
-
-        fetch(
-            URL_APPS_SCRIPT +
-            "?action=getDashboard&kode=" +
-            kode
-        )
-        .then(response => response.json())
-        .then(data => {
-
-            if (data.status === "success") {
-
-                dataGlobal = data;
-
-                tampilkanDashboard();
-
-            } else {
-
-                document
-                    .getElementById("pesanError")
-                    .classList
-                    .remove("hidden");
-
-                btnMasuk.innerText =
-                    "Masuk Dashboard";
-            }
-
-        })
-        .catch(error => {
-
-            alert("Terjadi kesalahan jaringan.");
-
-            btnMasuk.innerText =
-                "Masuk Dashboard";
-
-        });
-
-    });
-
-}
-
-function tampilkanDashboard() {
-
-    document
-        .getElementById("login-section")
-        .classList
-        .add("hidden");
-
-    document
-        .getElementById("dashboard-section")
-        .classList
-        .remove("hidden");
-
-    document.getElementById(
-        "namaAfiliator"
-    ).innerText =
-        dataGlobal.profil["Nama Lengkap"] ||
-        dataGlobal.profil["Nama Affiliate"] ||
-        "-";
-
-    document.getElementById(
-        "kodeAfiliatorDisplay"
-    ).innerText =
-        dataGlobal.profil["Kode Afiliator"] ||
-        dataGlobal.profil["Kode Affiliate"] ||
-        "-";
-
-    document.getElementById(
-        "linkPromosi"
-    ).value =
-        dataGlobal.profil["Link Promosi"] ||
-        "";
-
-    document.getElementById(
-        "totalKomisi"
-    ).innerText =
-        "Rp " +
-        formatRupiah(
-            dataGlobal.totalKomisi
-        );
-
-    document.getElementById(
-        "totalPenarikan"
-    ).innerText =
-        "Rp " +
-        formatRupiah(
-            dataGlobal.totalPenarikan
-        );
-
-    document.getElementById(
-        "saldoTersedia"
-    ).innerText =
-        "Rp " +
-        formatRupiah(
-            dataGlobal.saldo
-        );
-
-    const tbody =
-        document.getElementById(
-            "tabelTransaksi"
-        );
-
-    tbody.innerHTML = "";
-
-    if (
-    !dataGlobal.transaksi ||
-    dataGlobal.transaksi.length === 0
-) {
-
-    tbody.innerHTML =
-        "<tr><td colspan='4' class='text-center py-6 text-gray-500'>Belum ada transaksi.</td></tr>";
-
-} else {
-
-    dataGlobal.transaksi.forEach(trx => {
-
-        const tanggal =
-            trx["Tanggal"]
-            ? new Date(
-                trx["Tanggal"]
-              ).toLocaleDateString(
-                "id-ID"
-              )
-            : "-";
-
-        let baris = `
-        <tr class="border-b hover:bg-gray-50">
-
-            <td class="px-4 py-3">
-                ${tanggal}
-            </td>
-
-            <td class="px-4 py-3">
-                ${trx["Layanan"] || "-"}
-            </td>
-
-            <td class="px-4 py-3 font-bold text-green-600">
-                Rp ${formatRupiah(
-                    trx["Komisi"] || 0
-                )}
-            </td>
-
-            <td class="px-4 py-3">
-                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">
-                    ${trx["Status"] || "Lunas"}
-                </span>
-            </td>
-
-        </tr>
-        `;
-
-        tbody.innerHTML += baris;
-
-    });
-
-}
-
-
-// =====================
-// RIWAYAT PENCAIRAN
-// =====================
-
-const tbodyPencairan =
-document.getElementById(
-    "tabelPencairan"
-);
-
-if (tbodyPencairan) {
-
-    tbodyPencairan.innerHTML = "";
-
-    if (
-        !dataGlobal.pencairan ||
-        dataGlobal.pencairan.length === 0
-    ) {
-
-        tbodyPencairan.innerHTML =
-        `<tr>
-            <td colspan="3"
-            class="text-center py-6 text-gray-500">
-                Belum ada pencairan
-            </td>
-        </tr>`;
-
-    } else {
-
-        dataGlobal.pencairan.forEach(cair => {
-
-            const tanggal =
-            cair["Tanggal Request"]
-            ? new Date(
-                cair["Tanggal Request"]
-              ).toLocaleDateString(
-                "id-ID"
-              )
-            : "-";
-
-            let warnaStatus =
-            "bg-yellow-100 text-yellow-800";
-
-            if (
-                String(cair["Status"])
-                .toLowerCase() === "berhasil"
-            ) {
-                warnaStatus =
-                "bg-green-100 text-green-800";
-            }
-
-            let baris = `
-            <tr class="border-b">
-
-                <td class="px-4 py-3">
-                    ${tanggal}
-                </td>
-
-                <td class="px-4 py-3 font-bold">
-                    Rp ${formatRupiah(
-                        cair["Nominal Penarikan"] || 0
-                    )}
-                </td>
-
-                <td class="px-4 py-3">
-                    <span class="px-2 py-1 rounded-full text-xs ${warnaStatus}">
-                        ${cair["Status"] || "Pending"}
-                    </span>
-                </td>
-
-            </tr>
-            `;
-
-            tbodyPencairan.innerHTML +=
-            baris;
-
-        });
-
+    function formatRupiah(angka) {
+        return new Intl.NumberFormat("id-ID").format(Number(angka || 0));
     }
 
-}
+    const btnMasuk = document.getElementById("btnMasuk");
+    const btnSalin = document.getElementById("btnSalin");
+    const btnCairkan = document.getElementById("btnCairkan");
 
-}
+    // =====================================
+    // LOGIKA LOGIN DASHBOARD
+    // =====================================
+    if (btnMasuk) {
+        btnMasuk.addEventListener("click", () => {
+            const kode = document.getElementById("inputKode").value.trim().toUpperCase();
+            if (!kode) return;
 
-if (btnSalin) {
+            btnMasuk.innerText = "Mencari Data...";
+            document.getElementById("pesanError").classList.add("hidden");
 
-    btnSalin.addEventListener("click", () => {
+            fetch(URL_APPS_SCRIPT + "?action=getDashboard&kode=" + kode)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    dataGlobal = data;
+                    tampilkanDashboard();
+                } else {
+                    document.getElementById("pesanError").classList.remove("hidden");
+                    btnMasuk.innerText = "Masuk Dashboard";
+                }
+            })
+            .catch(error => {
+                alert("Terjadi kesalahan jaringan.");
+                btnMasuk.innerText = "Masuk Dashboard";
+            });
+        });
+    }
 
-        const linkInput =
-            document.getElementById(
-                "linkPromosi"
-            );
+    // =====================================
+    // FUNGSI TAMPILKAN DATA & HITUNG SALDO
+    // =====================================
+    function tampilkanDashboard() {
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("dashboard-section").classList.remove("hidden");
 
-        linkInput.select();
+        // Set Data Profil
+        document.getElementById("namaAfiliator").innerText = dataGlobal.profil["Nama Lengkap"] || dataGlobal.profil["Nama Affiliate"] || "-";
+        document.getElementById("kodeAfiliatorDisplay").innerText = dataGlobal.profil["Kode Affiliate"] || dataGlobal.profil["Kode Afiliator"] || "-";
+        document.getElementById("linkPromosi").value = dataGlobal.profil["Link Promosi"] || "";
 
-        document.execCommand("copy");
+        // Hitung Saldo Secara Otomatis
+        let totalKomisi = 0;
+        let totalPenarikan = 0;
 
-        btnSalin.innerText =
-            "Tersalin!";
-
-        setTimeout(() => {
-
-            btnSalin.innerText =
-                "Salin Link";
-
-        }, 2000);
-
-    });
-
-}
-
-if (btnCairkan) {
-
-    btnCairkan.addEventListener("click", () => {
-
-        let nominal = prompt(
-    "Masukkan nominal pencairan (minimal Rp 50.000)",
-    "50000"
-);
-
-const saldo = Number(dataGlobal.saldo || 0);
-
-if (saldo < 50000) {
-    alert("Saldo Anda belum mencapai minimal pencairan Rp 50.000.");
-    return;
-}
-
-if (!nominal || isNaN(nominal)) {
-    return;
-}
-
-if (Number(nominal) > saldo) {
-    alert("Nominal pencairan melebihi saldo yang tersedia.");
-    return;
-}
-
-if (parseInt(nominal) < 50000) {
-    alert("Minimal pencairan adalah Rp 50.000.");
-    return;
-}
-
-const nama =
-    document.getElementById(
-        "namaAfiliator"
-    ).innerText;
-
-const kode =
-    document.getElementById(
-        "kodeAfiliatorDisplay"
-    ).innerText;
-
-btnCairkan.innerText =
-    "Memproses...";
-
-fetch(
-                URL_APPS_SCRIPT +
-                "?action=tarik" +
-                "&kode=" +
-                kode +
-                "&nama=" +
-                encodeURIComponent(nama) +
-                "&nominal=" +
-                nominal
-            )
-            .then(res => res.json())
-.then(() => {
-
-    fetch(
-        URL_APPS_SCRIPT +
-        "?action=getDashboard&kode=" +
-        kode
-    )
-
-    .then(res => res.json())
-    .then(dataBaru => {
-
-        dataGlobal = dataBaru;
-
-        tampilkanDashboard();
-
-        const pesanWA =
-            `Hallo admin saya affiliator ${nama} sudah melakukan penarikan sebesar Rp ${nominal}. Mohon diproses.`;
-
-        const urlWA =
-            `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesanWA)}`;
-
-        window.open(
-            urlWA,
-            "_blank"
-        );
-
-        btnCairkan.innerHTML =
-            "💰 Tarik Komisi ke WhatsApp";
-
-    });
-
-})
-.catch(() => {
-
-    alert(
-        "Gagal memproses pencairan."
-    );
-
-    btnCairkan.innerHTML =
-        "💰 Tarik Komisi ke WhatsApp";
-
-});
-
+        if (dataGlobal.transaksi && dataGlobal.transaksi.length > 0) {
+            dataGlobal.transaksi.forEach(trx => {
+                totalKomisi += Number(trx["Komisi"] || 0);
+            });
         }
 
-    });
+        if (dataGlobal.pencairan && dataGlobal.pencairan.length > 0) {
+            dataGlobal.pencairan.forEach(cair => {
+                totalPenarikan += Number(cair["Nominal"] || cair["Nominal Penarikan"] || 0);
+            });
+        }
 
-}
+        const saldoTersedia = totalKomisi - totalPenarikan;
+        dataGlobal.saldo = saldoTersedia; // Simpan untuk dicek saat narik komisi
+
+        // Tampilkan Saldo di Kartu
+        document.getElementById("totalKomisi").innerText = "Rp " + formatRupiah(totalKomisi);
+        document.getElementById("totalPenarikan").innerText = "Rp " + formatRupiah(totalPenarikan);
+        document.getElementById("saldoTersedia").innerText = "Rp " + formatRupiah(saldoTersedia);
+
+        // Render Tabel Transaksi
+        const tbodyTrans = document.getElementById("tabelTransaksi");
+        tbodyTrans.innerHTML = "";
+        if (!dataGlobal.transaksi || dataGlobal.transaksi.length === 0) {
+            tbodyTrans.innerHTML = "<tr><td colspan='4' class='text-center py-6 text-gray-500'>Belum ada transaksi.</td></tr>";
+        } else {
+            dataGlobal.transaksi.forEach(trx => {
+                const tanggal = trx["Tanggal"] ? new Date(trx["Tanggal"]).toLocaleDateString("id-ID") : "-";
+                let baris = `
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="px-4 py-3">${tanggal}</td>
+                    <td class="px-4 py-3">${trx["Layanan"] || "-"}</td>
+                    <td class="px-4 py-3 font-bold text-green-600">Rp ${formatRupiah(trx["Komisi"] || 0)}</td>
+                    <td class="px-4 py-3">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">${trx["Status"] || "Selesai"}</span>
+                    </td>
+                </tr>`;
+                tbodyTrans.innerHTML += baris;
+            });
+        }
+
+        // Render Tabel Pencairan
+        const tbodyCair = document.getElementById("tabelPencairan");
+        tbodyCair.innerHTML = "";
+        if (!dataGlobal.pencairan || dataGlobal.pencairan.length === 0) {
+            tbodyCair.innerHTML = `<tr><td colspan="3" class="text-center py-6 text-gray-500">Belum ada pencairan</td></tr>`;
+        } else {
+            dataGlobal.pencairan.forEach(cair => {
+                const tanggal = cair["Tanggal"] || cair["Tanggal Request"] ? new Date(cair["Tanggal"] || cair["Tanggal Request"]).toLocaleDateString("id-ID") : "-";
+                let warnaStatus = "bg-yellow-100 text-yellow-800";
+                if (String(cair["Status"]).toLowerCase() === "berhasil") {
+                    warnaStatus = "bg-green-100 text-green-800";
+                }
+                let baris = `
+                <tr class="border-b">
+                    <td class="px-4 py-3">${tanggal}</td>
+                    <td class="px-4 py-3 font-bold">Rp ${formatRupiah(cair["Nominal"] || cair["Nominal Penarikan"] || 0)}</td>
+                    <td class="px-4 py-3">
+                        <span class="px-2 py-1 rounded-full text-xs ${warnaStatus}">${cair["Status"] || "Pending"}</span>
+                    </td>
+                </tr>`;
+                tbodyCair.innerHTML += baris;
+            });
+        }
+    }
+
+    // =====================================
+    // LOGIKA SALIN LINK
+    // =====================================
+    if (btnSalin) {
+        btnSalin.addEventListener("click", () => {
+            const linkInput = document.getElementById("linkPromosi");
+            linkInput.select();
+            document.execCommand("copy");
+            btnSalin.innerText = "Tersalin!";
+            setTimeout(() => { btnSalin.innerText = "Salin Link"; }, 2000);
+        });
+    }
+
+    // =====================================
+    // LOGIKA PENCAIRAN (SUDAH DIPERBAIKI BUG-NYA)
+    // =====================================
+    if (btnCairkan) {
+        btnCairkan.addEventListener("click", () => {
+            const saldo = Number(dataGlobal.saldo || 0);
+
+            if (saldo < 50000) {
+                alert("Saldo Anda belum mencapai minimal pencairan Rp 50.000.");
+                return;
+            }
+
+            let nominal = prompt("Masukkan nominal pencairan (minimal Rp 50.000)", "50000");
+            
+            if (!nominal || isNaN(nominal)) return;
+            
+            if (Number(nominal) > saldo) {
+                alert("Nominal pencairan melebihi saldo yang tersedia.");
+                return;
+            }
+
+            if (parseInt(nominal) < 50000) {
+                alert("Minimal pencairan adalah Rp 50.000.");
+                return;
+            }
+
+            const nama = document.getElementById("namaAfiliator").innerText;
+            const kode = document.getElementById("kodeAfiliatorDisplay").innerText;
+
+            btnCairkan.innerText = "Memproses...";
+
+            fetch(URL_APPS_SCRIPT + "?action=tarik&kode=" + kode + "&nama=" + encodeURIComponent(nama) + "&nominal=" + nominal)
+            .then(res => res.json())
+            .then(() => {
+                // Refresh data dashboard setelah berhasil tarik
+                fetch(URL_APPS_SCRIPT + "?action=getDashboard&kode=" + kode)
+                .then(res => res.json())
+                .then(dataBaru => {
+                    dataGlobal = dataBaru;
+                    tampilkanDashboard();
+
+                    const pesanWA = `Hallo admin saya affiliator ${nama} dengan kode ${kode} sudah melakukan penarikan sebesar Rp ${nominal}. Mohon diproses.`;
+                    const urlWA = `https://wa.me/${NOMOR_WA_ADMIN}?text=${encodeURIComponent(pesanWA)}`;
+                    window.open(urlWA, "_blank");
+
+                    btnCairkan.innerHTML = "💰 Tarik Komisi ke WhatsApp";
+                });
+            })
+            .catch(() => {
+                alert("Gagal memproses pencairan.");
+                btnCairkan.innerHTML = "💰 Tarik Komisi ke WhatsApp";
+            });
+        });
+    }
+});
 </script>
