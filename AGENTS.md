@@ -177,3 +177,260 @@ Always preserve canonical URL logic if it already exists.
 Never remove Fragment slot="head".
 
 Always preserve metadata structure.
+
+==================================================
+SEO MASTER RULES
+==================================================
+
+Search Engine Optimization is the highest priority.
+
+Every generated page must follow modern Google SEO best practices.
+
+The page must be useful, informative, and written for humans first.
+
+Never create pages only for search engines.
+
+==================================================
+TITLE RULES
+==================================================
+
+Every page must contain one SEO title.
+
+Title length should be approximately 60–70 characters.
+
+Put the primary keyword near the beginning whenever natural.
+
+Titles must be unique.
+
+Avoid clickbait.
+
+Avoid keyword stuffing.
+
+==================================================
+META DESCRIPTION
+==================================================
+
+Every page must have one meta description.
+
+Target length:
+150–160 characters.
+
+Include the primary keyword naturally.
+
+Describe benefits instead of repeating keywords.
+
+Every description must be unique.
+
+==================================================
+URL RULES
+==================================================
+
+Generate clean URL slugs.
+
+Use lowercase only.
+
+Separate words with hyphens.
+
+Avoid unnecessary numbers.
+
+Avoid random IDs.
+
+==================================================
+KEYWORD STRATEGY
+==================================================
+
+Every page has:
+
+- One Primary Keyword
+- Multiple Secondary Keywords
+- Multiple LSI Keywords
+
+Never repeat the exact primary keyword excessively.
+
+Use natural variations.
+
+Use synonyms.
+
+Write naturally.
+
+==================================================
+HEADING STRUCTURE
+==================================================
+
+Use only one H1.
+
+Use multiple H2 sections.
+
+Use H3 when necessary.
+
+Use H4 only if required.
+
+Never skip heading hierarchy.
+
+==================================================
+CONTENT STRUCTURE
+==================================================
+
+The first paragraph must naturally contain the primary keyword.
+
+Every section must answer user intent.
+
+Content must educate first.
+
+Selling should be soft.
+
+Never use aggressive marketing.
+
+==================================================
+COPYWRITING
+==================================================
+
+Writing style must be:
+
+Professional
+
+Elegant
+
+Premium
+
+Friendly
+
+Natural
+
+Human
+
+Helpful
+
+Educational
+
+Avoid robotic writing.
+
+Avoid repetitive wording.
+
+Never duplicate paragraphs.
+
+==================================================
+SEO QUALITY
+==================================================
+
+Every page should demonstrate:
+
+Experience
+
+Expertise
+
+Authority
+
+Trustworthiness
+
+Follow Google's E-E-A-T principles.
+
+==================================================
+INTERNAL LINKING
+==================================================
+
+Recommend relevant internal pages whenever appropriate.
+
+Never force links unnaturally.
+
+==================================================
+IMAGE SEO
+==================================================
+
+Every image should include:
+
+Meaningful alt text.
+
+Descriptive filenames.
+
+Lazy loading when appropriate.
+
+==================================================
+CANONICAL
+==================================================
+
+Every page should contain a canonical URL.
+
+Canonical must match the final page URL.
+
+==================================================
+OPEN GRAPH
+==================================================
+
+Generate:
+
+og:title
+
+og:description
+
+og:image
+
+og:url
+
+og:type
+
+==================================================
+TWITTER CARD
+==================================================
+
+Generate Twitter metadata whenever metadata exists.
+
+==================================================
+FAQ
+==================================================
+
+FAQ answers must be useful.
+
+Avoid one-line answers.
+
+Explain naturally.
+
+==================================================
+ANTI SPAM
+==================================================
+
+Never stuff keywords.
+
+Never create doorway pages.
+
+Never generate hidden text.
+
+Never generate invisible links.
+
+Never use black-hat SEO.
+
+Always prioritize quality.
+
+==================================================
+FINAL SEO CHECK
+==================================================
+
+Before finishing every page verify:
+
+✓ Title exists
+
+✓ Meta Description exists
+
+✓ H1 exists
+
+✓ Canonical exists
+
+✓ OpenGraph exists
+
+✓ Twitter Card exists
+
+✓ Product Schema exists
+
+✓ Breadcrumb exists
+
+✓ Internal Links exist
+
+✓ Primary Keyword exists naturally
+
+✓ LSI Keywords exist naturally
+
+✓ No keyword stuffing
+
+✓ Human-readable content
+
+✓ Production-ready output
