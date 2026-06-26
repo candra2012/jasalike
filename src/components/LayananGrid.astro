@@ -272,7 +272,7 @@ const kategoriLayanan = [
             {kategori.items.map((item) => (
               
               <!-- Seluruh Kotak Menjadi Link yang Bisa Diklik -->
-             <a href={item.link} class="group no-underline bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex items-start gap-4">
+             <a href={item.link} class="group !no-underline bg-white rounded-xl p-4 shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex items-start gap-4">
 
                 <!-- Ikon di Kiri -->
                 <div class={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 ${item.bgClass || 'bg-blue-50'} ${item.colorClass || 'text-blue-600'}`}>
@@ -301,4 +301,14 @@ const kategoriLayanan = [
 
   </div>
 </section>
+
+<style>
+  /* JURUS PAKSA: Menghilangkan garis bawah ungu dari CSS Global */
+  a, a h3, a p {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+</style>
+
 
