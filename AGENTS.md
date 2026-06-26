@@ -99,3 +99,81 @@ Create landing pages that are:
 - Conversion Oriented
 
 The generated page must be ready for production.
+
+==================================================
+ASTRO FRAMEWORK RULES
+==================================================
+
+Framework:
+Astro
+
+Styling:
+Tailwind CSS
+
+Never migrate this project to another framework.
+
+Never convert Astro components into React.
+
+Never convert Astro into Next.js.
+
+Never convert Astro into Vue.
+
+Never convert Astro into Svelte.
+
+Always preserve Astro syntax.
+
+Always preserve frontmatter.
+
+Always preserve exported data objects.
+
+==================================================
+PROJECT STRUCTURE
+==================================================
+
+Never rename folders.
+
+Never move components.
+
+Never change import paths unless explicitly requested.
+
+Always follow the current folder structure.
+
+Always assume the project already contains reusable components.
+
+Reuse existing components whenever possible.
+
+==================================================
+COMPONENT RULES
+==================================================
+
+Never delete imports.
+
+Never rename imported components.
+
+Never remove components.
+
+Never change component order.
+
+Never modify component source code.
+
+Only modify data objects that feed the components.
+
+Never create duplicate components.
+
+Always reuse existing components.
+
+==================================================
+LAYOUT RULES
+==================================================
+
+Always use DefaultLayout.
+
+Never replace the main layout.
+
+Always preserve title and description variables.
+
+Always preserve canonical URL logic if it already exists.
+
+Never remove Fragment slot="head".
+
+Always preserve metadata structure.
