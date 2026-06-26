@@ -434,3 +434,259 @@ Before finishing every page verify:
 ✓ Human-readable content
 
 ✓ Production-ready output
+
+==================================================
+COMPONENT MASTER RULES
+==================================================
+
+This project is built using reusable Astro components.
+
+The existing architecture has already been optimized.
+
+Never redesign the website architecture.
+
+Always reuse existing components.
+
+==================================================
+COMPONENT SAFETY
+==================================================
+
+Never delete components.
+
+Never rename components.
+
+Never change import paths.
+
+Never create duplicate components.
+
+Never replace existing components with new ones.
+
+Never merge multiple components into one.
+
+Never split components unless explicitly requested.
+
+==================================================
+IMPORT RULES
+==================================================
+
+Always preserve every import.
+
+Never remove unused imports unless requested.
+
+Never change component filenames.
+
+Never change folder structure.
+
+==================================================
+DATA OBJECT RULES
+==================================================
+
+Only modify component data.
+
+Never modify component logic.
+
+Never edit component source code.
+
+Always assume every component already works correctly.
+
+==================================================
+COMPONENT ORDER
+==================================================
+
+Always preserve the original component order.
+
+Never rearrange sections.
+
+The page structure has been carefully optimized for SEO and UX.
+
+==================================================
+DEFAULT COMPONENT ORDER
+==================================================
+
+DefaultLayout
+
+Hero
+
+ApaItu
+
+Masalah
+
+Manfaat
+
+MengapaMemilih
+
+Solusi
+
+CaraOrder
+
+HargaPaket
+
+FAQ
+
+CTA
+
+Schema
+
+==================================================
+HERO COMPONENT
+==================================================
+
+Hero is the most important section.
+
+Only modify:
+
+title
+
+description
+
+button text
+
+button link
+
+label
+
+hero image
+
+Never redesign the Hero layout.
+
+==================================================
+APA ITU COMPONENT
+==================================================
+
+Explain the service clearly.
+
+Focus on educating visitors.
+
+Avoid sales language.
+
+==================================================
+MASALAH COMPONENT
+==================================================
+
+Describe common problems.
+
+Use natural language.
+
+Focus on user pain points.
+
+==================================================
+MANFAAT COMPONENT
+==================================================
+
+Explain benefits.
+
+Explain business value.
+
+Explain long-term impact.
+
+==================================================
+MENGAPA MEMILIH
+==================================================
+
+Explain competitive advantages.
+
+Use trust-building language.
+
+Avoid exaggerated claims.
+
+==================================================
+SOLUSI COMPONENT
+==================================================
+
+Explain how the service solves problems.
+
+Use logical flow.
+
+Avoid repetitive wording.
+
+==================================================
+CARA ORDER
+==================================================
+
+Explain ordering process clearly.
+
+Maximum simplicity.
+
+Easy to understand.
+
+==================================================
+HARGA PAKET
+==================================================
+
+Never invent prices.
+
+Only use existing pricing structure.
+
+Do not change package hierarchy unless requested.
+
+==================================================
+FAQ COMPONENT
+==================================================
+
+Always generate useful FAQs.
+
+Avoid duplicated questions.
+
+Answer naturally.
+
+==================================================
+CTA COMPONENT
+==================================================
+
+CTA should be persuasive.
+
+Professional.
+
+Soft selling.
+
+Never force visitors.
+
+==================================================
+LAYOUT CONSISTENCY
+==================================================
+
+Maintain spacing.
+
+Maintain typography.
+
+Maintain responsive layout.
+
+Maintain Tailwind classes.
+
+Never redesign existing styling.
+
+==================================================
+TAILWIND CSS
+==================================================
+
+Preserve existing Tailwind utilities.
+
+Never replace Tailwind with CSS files.
+
+Never replace Tailwind with Bootstrap.
+
+Never replace Tailwind with inline styles.
+
+==================================================
+FINAL COMPONENT CHECKLIST
+==================================================
+
+Before finishing every page verify:
+
+✓ All imports exist
+
+✓ No component removed
+
+✓ No duplicate component
+
+✓ Component order preserved
+
+✓ Hero preserved
+
+✓ Layout preserved
+
+✓ Tailwind preserved
+
+✓ Responsive preserved
+
+✓ Production ready
