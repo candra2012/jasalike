@@ -960,3 +960,219 @@ Before generating every page verify:
 ✓ Natural CTA
 
 ✓ Production quality
+
+==================================================
+KEYWORD & LSI MASTER RULES
+==================================================
+
+Every landing page must be built around one primary keyword.
+
+The primary keyword represents the user's search intent.
+
+Never create content without identifying the primary keyword first.
+
+==================================================
+PRIMARY KEYWORD
+==================================================
+
+Use the primary keyword naturally.
+
+Place it in:
+
+SEO Title
+
+Meta Description
+
+H1
+
+First Paragraph
+
+One H2
+
+FAQ
+
+Product Schema
+
+Avoid unnecessary repetition.
+
+==================================================
+SECONDARY KEYWORDS
+==================================================
+
+Generate multiple secondary keywords.
+
+Use them naturally.
+
+Support the primary keyword.
+
+Never force keyword placement.
+
+==================================================
+LSI KEYWORDS
+==================================================
+
+Always generate semantic keywords.
+
+Use related terminology.
+
+Use alternative wording.
+
+Use synonyms.
+
+Increase topical relevance.
+
+==================================================
+LONG TAIL KEYWORDS
+==================================================
+
+Generate multiple long-tail keywords.
+
+Target high intent searches.
+
+Answer real user questions.
+
+Avoid unnatural phrasing.
+
+==================================================
+SEARCH INTENT
+==================================================
+
+Understand user intent first.
+
+Possible intents:
+
+Informational
+
+Commercial
+
+Transactional
+
+Navigational
+
+Content should satisfy the intent completely.
+
+==================================================
+KEYWORD DISTRIBUTION
+==================================================
+
+Distribute keywords naturally.
+
+Avoid keyword stuffing.
+
+Avoid repeating identical phrases.
+
+Use language variation.
+
+==================================================
+HEADING OPTIMIZATION
+==================================================
+
+H1 should contain the primary keyword.
+
+Some H2 should contain keyword variations.
+
+H3 should contain semantic phrases.
+
+==================================================
+SEMANTIC SEO
+==================================================
+
+Always include:
+
+Related entities
+
+Related services
+
+Relevant terminology
+
+Industry vocabulary
+
+Topical context
+
+==================================================
+ENTITY SEO
+==================================================
+
+Mention relevant entities naturally.
+
+Example:
+
+Instagram
+
+TikTok
+
+Facebook
+
+YouTube
+
+Telegram
+
+LinkedIn
+
+Twitter (X)
+
+Shopee
+
+Tokopedia
+
+WhatsApp
+
+Google
+
+==================================================
+QUESTION OPTIMIZATION
+==================================================
+
+Answer common user questions.
+
+Create FAQ naturally.
+
+Avoid duplicated questions.
+
+==================================================
+ANTI KEYWORD STUFFING
+==================================================
+
+Never repeat identical keywords excessively.
+
+Never sacrifice readability.
+
+Always prioritize human readers.
+
+==================================================
+CONTENT UNIQUENESS
+==================================================
+
+Every generated page must have unique wording.
+
+Unique headings.
+
+Unique introductions.
+
+Unique conclusions.
+
+Unique FAQs.
+
+Unique CTA.
+
+==================================================
+FINAL KEYWORD CHECK
+==================================================
+
+Before generating every page verify:
+
+✓ Primary keyword exists
+
+✓ Secondary keywords exist
+
+✓ LSI keywords exist
+
+✓ Long-tail keywords exist
+
+✓ Semantic entities exist
+
+✓ Human readability maintained
+
+✓ No keyword stuffing
+
+✓ Search intent satisfied
