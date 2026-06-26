@@ -1,0 +1,298 @@
+---
+// src/pages/jasa-share-instagram.astro
+import DefaultLayout from '../layouts/DefaultLayout.astro'
+
+// ==========================================
+// 1. IMPORT KOMPONEN SISTEM
+// ==========================================
+import Hero from '../components/Hero.astro'
+import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+import CaraOrder from '../components/CaraOrder.astro'
+import Solusi from '../components/Solusi.astro'
+import HargaPaket from '../components/HargaPaket.astro'
+import Testimonials from '../components/Testimonials.astro'
+import DaftarHarga from '../components/DaftarHarga.astro'
+import MetodePembayaran from '../components/MetodePembayaran.astro'
+import FaqJasaLike from '../components/FaqJasaLike.astro'
+
+// ==========================================
+// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+// ==========================================
+const title = "Jasa Share Instagram Terpercaya & Aman - JasaLike";
+const description = "Tingkatkan jangkauan postingan Instagram Anda dengan jasa share Instagram dari JasaLike. Proses natural, privasi terjaga, dan hasil optimal untuk brand Anda.";
+const keywords = "jasa share instagram, jasa share instagram terpercaya, jasa share postingan instagram, jasa share story instagram, jasa share ig";
+
+// ==========================================
+// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Layanan Share Instagram",
+  labelIcon: "lucide:share-2",
+  judulUtama: 'Jasa Share Instagram <br class="hidden md:block"/> <span class="text-pink-500">Terpercaya & Aman</span>',
+  deskripsi: "Perluas jangkauan konten Instagram Anda secara strategis. Layanan <strong class='text-white'>jasa share Instagram</strong> membantu postingan Anda menembus batas pengikut yang sudah ada, memicu sinyal positif algoritma, dan membangun kesan popularitas yang natural di mata audiens baru. <br class='hidden md:block mt-2' /> <span class='text-pink-400 font-semibold block mt-4'>✓ Distribusi Konten Terarah &nbsp; ✓ Privasi Terjamin &nbsp; ✓ Hasil Optimal</span>",
+  teksTombol1: "Pilih Paket Share",
+  linkTombol1: "#harga-paket",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/logo-hero-jasalike.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Kendala <span class="text-pink-600">Jangkauan Konten</span> di Instagram',
+  deskripsiUtama: "Banyak kreator dan pebisnis merasa kontennya sulit menembus audiens yang lebih luas meski sudah rutin mengunggah. Apakah Anda mengalami situasi serupa?",
+  ms1Teks: '<strong class="text-pink-600 font-bold">Konten Terbatas pada Pengikut:</strong> Postingan Anda hanya berputar di lingkaran pengikut yang sudah ada, sulit menjangkau audiens baru.',
+  ms2Teks: '<strong class="text-pink-600 font-bold">Minim Sinyal Distribusi:</strong> Algoritma Instagram kurang menganggap konten Anda layak direkomendasikan karena indikator pembagian masih rendah.',
+  ms3Teks: '<strong class="text-pink-600 font-bold">Brand Kurang Terlihat:</strong> Akun bisnis yang sepi aktivitas pembagian terkesan kurang populer dan kurang dipercaya calon pelanggan.',
+  ms4Teks: '<strong class="text-pink-600 font-bold">Engagement Stagnan:</strong> Sudah konsisten membuat konten, namun pertumbuhan interaksi dan kunjungan profil terasa tidak berkembang.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Mengenal Strategi <span class="text-pink-500">Share Instagram</span>',
+  deskripsiUtama: "Layanan yang dirancang untuk membantu konten Anda mendapatkan dorongan distribusi awal secara terukur dan aman.",
+  k1Judul: "Distribusi ke Komunitas Lebih Luas",
+  k1Teks: "Setiap aktivitas pembagian membawa konten Anda ke timeline, story, atau DM pengguna lain. Hal ini menciptakan jejak interaksi yang meyakinkan algoritma untuk menyebarluaskan postingan Anda.",
+  k2Judul: "Pemicu Social Proof",
+  k2Teks: "Konten yang sering dibagikan terlihat lebih berharga di mata audiens. Efek psikologis ini mendorong pengguna baru untuk berkunjung, mengikuti, hingga berinteraksi dengan akun Anda."
+};
+
+const dataManfaat = {
+  judulUtama: 'Dampak Positif <span class="text-pink-600">Jasa Share Instagram</span>',
+  deskripsiUtama: "Dorongan distribusi yang tepat akan membuka peluang pertumbuhan organik bagi akun pribadi maupun bisnis Anda.",
+  m1Judul: "Melebarkan Jangkauan Audiens",
+  m1Teks: "Konten Anda bisa ditemukan oleh komunitas baru di luar lingkaran followers yang sudah ada, meningkatkan potensi pertumbuhan akun secara signifikan.",
+  m2Judul: "Memperkuat Kredibilitas Brand",
+  m2Teks: "Postingan yang aktif dibagikan memancarkan aura populer dan profesional, memudahkan calon pelanggan untuk mempercayai layanan atau produk Anda.",
+  m3Judul: "Mendukung Performa Algoritma",
+  m3Teks: "Sinyal pembagian yang meningkat memberi isyarat kepada Instagram bahwa konten Anda layak direkomendasikan di halaman Explore dan Reels.",
+  m4Judul: "Mendorong Konversi Bisnis",
+  m4Teks: "Semakin luas jangkauan konten promosi Anda, semakin besar peluang untuk mendapatkan kunjungan profil, DM, hingga transaksi penjualan."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-pink-500">JasaLike.com</span>?',
+  deskripsiUtama: "Kami merancang layanan ini dengan fokus pada keamanan, kualitas, dan pengalaman klien yang menyeluruh.",
+  mk1Judul: "Metode Natural Bertahap",
+  mk1Teks: "Seluruh proses pembagian diatur dengan ritme yang wajar, menyerupai pola interaksi pengguna asli sehingga tetap aman dan tidak mencolok.",
+  mk2Judul: "Tanpa Akses Akun",
+  mk2Teks: "Kami tidak meminta password atau kredensial apapun. Anda hanya perlu mengirimkan tautan postingan publik yang ingin didorong jangkauannya.",
+  mk3Judul: "Privasi Klien Terjaga",
+  mk3Teks: "Informasi pesanan dan tautan konten Anda dikelola secara rahasia oleh tim operasional kami yang berpengalaman.",
+  mk4Judul: "Garansi Hasil",
+  mk4Teks: "Kami memberikan jaminan layanan sesuai paket yang dipesan. Jika terjadi kendala teknis, tim kami siap mengganti atau melanjutkan prosesnya.",
+  mk5Judul: "Harga Transparan",
+  mk5Teks: "Tersedia berbagai pilihan paket dengan harga jelas, tanpa biaya tersembunyi, cocok untuk kebutuhan personal maupun korporasi.",
+  mk6Judul: "Support Berkelanjutan",
+  mk6Teks: "Tim admin kami aktif setiap hari untuk menjawab pertanyaan, memberikan rekomendasi, dan membantu tracking progress pesanan Anda."
+};
+
+const dataSolusi = {
+  judulUtama: 'Solusi <span class="text-pink-600">Perluas Jangkauan Konten</span> Anda',
+  deskripsiUtama: "Kombinasikan layanan share dengan optimasi lainnya untuk hasil yang lebih maksimal dan berkelanjutan.",
+  sol1Icon: "lucide:heart",
+  sol1Judul: "Tingkatkan Interaksi Visual",
+  sol1Teks: "Lengkapi strategi Anda dengan <a href='/like-instagram' class='text-pink-600 hover:underline font-semibold'>jasa like Instagram</a> agar rasio engagement pada postingan terlihat seimbang dan menarik bagi audiens baru.",
+  sol2Icon: "lucide:message-circle",
+  sol2Judul: "Hidupkan Diskusi di Kolom Komentar",
+  sol2Teks: "Gunakan layanan komentar untuk menciptakan suasana ramai di bawah postingan, memancing pengguna lain untuk ikut berpartisipasi dan bertanya.",
+  sol3Icon: "lucide:users",
+  sol3Judul: "Bangun Otoritas Akun",
+  sol3Teks: "Dukung pertumbuhan jumlah pengikut agar profil Anda terlihat semakin kredibel saat konten dibagikan ke audiens yang lebih luas."
+};
+
+const dataCaraOrder = {
+  judulUtama: 'Prosedur Mudah <span class="text-pink-500">Pemesanan</span>',
+  deskripsiUtama: "Hanya butuh beberapa langkah sederhana untuk mulai memperluas jangkauan konten Instagram Anda.",
+  co1Judul: "Pilih Paket Share",
+  co1Teks: "Tentukan volume share yang sesuai dengan target jangkauan dan anggaran strategi konten Anda saat ini.",
+  co2Judul: "Kirimkan Tautan Postingan",
+  co2Teks: "Salin link URL postingan, Reels, atau Story yang ingin didorong. Pastikan akun dan konten Anda dalam mode publik.",
+  co3Judul: "Lakukan Pembayaran",
+  co3Teks: "Selesaikan transaksi melalui metode pembayaran yang tersedia. Pesanan akan segera kami proses setelah konfirmasi diterima.",
+  co4Judul: "Pantau Hasilnya",
+  co4Teks: "Anda bisa memantau peningkatan distribusi dan interaksi langsung melalui notifikasi serta insight di aplikasi Instagram Anda."
+};
+
+const dataHargaPaket = {
+  judulHarga: "Investasi Jangkauan Konten",
+  deskripsiHarga: "Pilih paket share Instagram yang paling tepat untuk mendongkrak visibilitas dan engagement postingan Anda.",
+
+  // Paket Kiri
+  p1Gambar: "/image/harga-sharefb.png",
+  p1Nama: "100 Share Instagram",
+  p1Fitur1: "Distribusi Akun Aktif",
+  p1Fitur2: "Proses Masuk Natural",
+  p1Fitur3: "Garansi & Prioritas",
+  p1Harga: "Rp 200.000",
+  p1Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%20100%20Share%20Instagram",
+
+  // Paket Kanan
+  p2Gambar: "/image/harga-sharefb.png",
+  p2Nama: "1000 Share Instagram",
+  p2Fitur1: "Distribusi Akun Aktif",
+  p2Fitur2: "Proses Masuk Natural",
+  p2Fitur3: "Garansi & Prioritas",
+  p2Harga: "Rp 2.000.000",
+  p2Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%201000%20Share%20Instagram",
+
+  p3Label: "PALING LARIS",
+  p3Gambar: "/image/harga-sharefb.png",
+  p3Nama: "50 Share Instagram",
+  p3Fitur1: "Distribusi Akun Aktif",
+  p3Fitur2: "Proses Masuk Natural",
+  p3Fitur3: "Garansi & Prioritas",
+  p3Harga: "Rp 100.000",
+  p3Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%2050%20Share%20Instagram",
+
+  p4Gambar: "/image/harga-sharefb.png",
+  p4Nama: "10 Share Instagram",
+  p4Fitur1: "Distribusi Akun Aktif",
+  p4Fitur2: "Proses Masuk Natural",
+  p4Fitur3: "Garansi & Prioritas",
+  p4Harga: "Rp 20.000",
+  p4Link: "https://wa.me/6289634740308?text=Halo%20Admin%2C%20saya%20tertarik%20pesan%20Paket%2010%20Share%20Instagram"
+};
+
+const dataFaq = {
+  judulUtama: 'FAQ Layanan <br/> <span class="text-pink-600">Share Instagram</span>',
+  deskripsiUtama: "Informasi operasional yang sering ditanyakan mengenai layanan share Instagram.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Share%20Instagram",
+  faq1Judul: "Apakah aman menggunakan jasa share Instagram ini?",
+  faq1Teks: "Sangat aman. Seluruh proses dilakukan secara eksternal tanpa memerlukan akses masuk ke akun Anda. Kami hanya membutuhkan tautan publik dari postingan yang ingin didorong, sehingga privasi dan keamanan akun tetap terjaga.",
+  faq2Judul: "Apakah saya harus memberikan password akun?",
+  faq2Teks: "Tidak sama sekali. Kami tidak pernah meminta password, kode OTP, atau data sensitif lainnya. Cukup kirimkan tautan konten publik Anda dan tim kami akan menangani sisanya.",
+  faq3Judul: "Mengapa akun Instagram saya harus dalam mode publik?",
+  faq3Teks: "Konten yang di-private tidak dapat diakses oleh sistem distribusi eksternal. Pastikan postingan atau akun Anda dalam mode publik selama masa pengerjaan agar proses share dapat berjalan optimal.",
+  faq4Judul: "Apakah jumlah share bisa berkurang setelah pengerjaan?",
+  faq4Teks: "Fluktuasi kecil bisa terjadi karena pembaruan algoritma Instagram. Oleh karena itu, kami memberikan garansi refill pada paket tertentu agar investasi Anda tetap terjaga dan sesuai target.",
+  faq5Judul: "Berapa lama estimasi waktu pengerjaannya?",
+  faq5Teks: "Waktu pengerjaan bergantung pada volume paket yang dipesan. Kami mengatur ritme pembagian secara bertahap agar pola pertumbuhan interaksi terlihat natural dan tidak mencolok di mata algoritma.",
+  faq6Judul: "Bisa digunakan untuk Reels, Feed, maupun Story?",
+  faq6Teks: "Ya, layanan ini dapat diterapkan pada berbagai format konten Instagram termasuk Feed, Reels, dan Story, asalkan tautan yang diberikan valid dan konten bersifat publik."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+
+<Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Jasa Share Instagram Terpercaya & Aman",
+    "image": "https://jasalike.com/image/harga-sharefb.png",
+    "description": "Tingkatkan jangkauan postingan Instagram Anda dengan jasa share Instagram dari JasaLike. Proses natural, privasi terjaga, dan hasil optimal untuk brand Anda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 812
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": 20000,
+      "highPrice": 2000000,
+      "priceCurrency": "IDR",
+      "offerCount": 4
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/direktori-layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Jasa Share Instagram"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah aman menggunakan jasa share Instagram ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat aman. Seluruh proses dilakukan secara eksternal tanpa memerlukan akses masuk ke akun Anda. Kami hanya membutuhkan tautan publik dari postingan yang ingin didorong, sehingga privasi dan keamanan akun tetap terjaga."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah saya harus memberikan password akun?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tidak sama sekali. Kami tidak pernah meminta password, kode OTP, atau data sensitif lainnya. Cukup kirimkan tautan konten publik Anda dan tim kami akan menangani sisanya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mengapa akun Instagram saya harus dalam mode publik?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Konten yang di-private tidak dapat diakses oleh sistem distribusi eksternal. Pastikan postingan atau akun Anda dalam mode publik selama masa pengerjaan agar proses share dapat berjalan optimal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah share bisa berkurang setelah pengerjaan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fluktuasi kecil bisa terjadi karena pembaruan algoritma Instagram. Oleh karena itu, kami memberikan garansi refill pada paket tertentu agar investasi Anda tetap terjaga dan sesuai target."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+
+  <MasalahJasaLike {...dataMasalah} />
+
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+
+  <Solusi {...dataSolusi} />
+
+  <CaraOrder {...dataCaraOrder} />
+
+  <DaftarHarga />
+
+  <HargaPaket {...dataHargaPaket} />
+
+  <Testimonials />
+
+  <MetodePembayaran />
+
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
