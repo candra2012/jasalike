@@ -1,0 +1,20 @@
+{
+  "name": "JasaLike by Auradigital",
+  "short_name": "JasaLike",
+  "description": "Layanan jasa like dan optimasi media sosial terpercaya untuk Instagram, TikTok, Facebook, YouTube, dan platform lainnya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1121",
+  "theme_color": "#2563EB",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -2,9 +2,12 @@
 // Import disesuaikan dengan struktur terbaru
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { Icon } from 'astro-icon/components'
+
+const keywords = "kontak jasalike, hubungi admin jasalike, layanan optimasi sosial media, konsultasi jasa like, nomor whatsapp jasalike";
+const description = "Hubungi JasaLike untuk konsultasi optimasi media sosial. Tim ahli kami siap membantu strategi engagement, kredibilitas brand, dan pertumbuhan bisnis Anda.";
 ---
 
-<DefaultLayout title="Hubungi Kami | JasaLike - Layanan B2B & Konsultasi">
+<DefaultLayout title="Hubungi Kami | JasaLike - Layanan B2B & Konsultasi" description={description} keywords={keywords}>
   
   <Fragment slot="head">
   <script type="application/ld+json">

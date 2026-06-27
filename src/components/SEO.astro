@@ -5,6 +5,7 @@
 // Komponen ini bertugas menangkap data dari Frontmatter index.astro
 
 const { title, description, keywords } = Astro.props
+const cleanUrl = new URL(Astro.url.pathname, Astro.site).href
 
 ---
 
@@ -16,7 +17,7 @@ const { title, description, keywords } = Astro.props
 <meta name="robots" content="index, follow" />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={cleanUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 
@@ -26,11 +27,11 @@ const { title, description, keywords } = Astro.props
 <meta property="og:image:height" content="630" />
 
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={cleanUrl} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://jasalike.com/og-home.png" />
 
 
-<link rel="canonical" href={Astro.url} /> 
+<link rel="canonical" href={cleanUrl} />
 

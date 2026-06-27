@@ -28,7 +28,23 @@ export default defineConfig({
     mdx(), 
     icon(), 
     compress(), 
-    sitemap() 
+    sitemap({
+      filter: (page) =>
+        !page.includes('/dashboard') &&
+        !page.includes('/admin-vote') &&
+        !page.includes('/affiliate-jasalike') &&
+        !page.includes('/404'),
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      serialize(item) {
+        if (item.url === 'https://jasalike.com/' || item.url === 'https://jasalike.com') {
+          item.priority = 1.0
+          item.changefreq = 'weekly'
+        }
+        return item
+      },
+    })
   ],
   vite: {
     css: {

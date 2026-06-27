@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro'
 
 const title = "Hubungi Admin | JasaLike";
 const description = "Halaman kontak resmi JasaLike untuk konsultasi layanan dan bantuan operasional.";
+const keywords = "admin vote jasalike, bantuan voting jasalike, layanan admin jasalike";
 
 const dataHero = {
   tipe: "service",
@@ -21,7 +22,7 @@ const dataHero = {
 };
 ---
 
-<DefaultLayout title={title} description={description}>
+<DefaultLayout title={title} description={description} keywords={keywords}>
   <Fragment slot="head">
     <meta name="robots" content="noindex, nofollow" />
   </Fragment>

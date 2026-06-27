@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard/
+Disallow: /admin-vote/
+Disallow: /affiliate-jasalike/
+
+Host: https://jasalike.com
 
 Sitemap: https://jasalike.com/sitemap-index.xml

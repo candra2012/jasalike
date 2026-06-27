@@ -2,9 +2,12 @@
 // Import disesuaikan dengan struktur terbaru
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import { Icon } from 'astro-icon/components'
+
+const keywords = "tentang jasalike, tentang auradigital, perusahaan jasa like indonesia, sejarah jasalike";
+const description = "Kenali JasaLike, mitra optimasi media sosial di Indonesia. Kami membantu brand membangun otoritas digital, engagement berkualitas, dan konversi berkelanjutan.";
 ---
 
-<DefaultLayout title="Tentang Kami | JasaLike by AuraDigital - Agensi Eskalasi Digital">
+<DefaultLayout title="Tentang Kami | JasaLike by AuraDigital - Agensi Eskalasi Digital" description={description} keywords={keywords}>
   
   <Fragment slot="head">
   <script type="application/ld+json">
