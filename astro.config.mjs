@@ -33,6 +33,7 @@ export default defineConfig({
         !page.includes('/dashboard') &&
         !page.includes('/admin-vote') &&
         !page.includes('/affiliate-jasalike') &&
+        !page.includes('/kontak-admin') &&
         !page.includes('/404'),
       changefreq: 'weekly',
       priority: 0.7,
