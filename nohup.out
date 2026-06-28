@@ -1,0 +1,23 @@
+WARNING agent.conversation_loop: API call failed (attempt 1/3) error_type=BadRequestError thread=asyncio_0:537539047840 provider=alibaba base_url=https://dashscope-intl.aliyuncs.com/compatible-mode/v1 model=qwen3-coder-plus-2025-07-22 summary=HTTP 400: The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information （or disable the "use free tier only" mode in the management console if already completed).
+ERROR agent.conversation_loop: Non-retryable client error: Error code: 400 - {'error': {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information （or disable the "use free tier only" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'AllocationQuota.FreeTierOnly'}, 'id': 'chatcmpl-01438ed4-901f-92b6-8571-6637725ee0c8', 'request_id': '01438ed4-901f-92b6-8571-6637725ee0c8'}
+WARNING gateway.run: Shutdown context: signal=SIGINT under_systemd=no parent_pid=18420 parent_name=bash loadavg_1m=19.27 tracer_pid=18416 parent_cmdline='/bin/bash -l'
+WARNING gateway.run: Shutdown context: signal=SIGINT under_systemd=no parent_pid=18420 parent_name=bash loadavg_1m=18.77 tracer_pid=18416 parent_cmdline='/bin/bash -l'
+WARNING gateway.run: Shutdown context: signal=SIGINT under_systemd=no parent_pid=18420 parent_name=bash loadavg_1m=18.77 tracer_pid=18416 parent_cmdline='/bin/bash -l'
+┌─────────────────────────────────────────────────────────┐
+│           ⚕ Hermes Gateway Starting...                 │
+├─────────────────────────────────────────────────────────┤
+│  Messaging platforms + cron scheduler                    │
+│  Press Ctrl+C to stop                                   │
+└─────────────────────────────────────────────────────────┘
+
+⚠️  API call failed (attempt 1/3): BadRequestError [HTTP 400]
+   🔌 Provider: alibaba  Model: qwen3-coder-plus-2025-07-22
+   🌐 Endpoint: https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+   📝 Error: HTTP 400: The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information （or disable the "use free tier only" mode in the management console if already completed).
+   📋 Details: {'message': 'The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information （or disable the "use free tier only" mode in the management console if already completed).', 'type': 'AllocationQuota.FreeTierOnly', 'param': None, 'code': 'Alloc
+   ⏱️  Elapsed: 3.81s  Context: 66 msgs, ~48,524 tokens
+❌ Non-retryable error (HTTP 400): HTTP 400: The free quota has been exhausted. To continue accessing the model on a paid basis, please complete your payment information （or disable the "use free tier only" mode in the management console if already completed).
+❌ Non-retryable client error (HTTP 400). Aborting.
+   🔌 Provider: alibaba  Model: qwen3-coder-plus-2025-07-22
+   🌐 Endpoint: https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+   💡 This type of error won't be fixed by retrying.
