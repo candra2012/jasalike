@@ -1,297 +1,355 @@
----
-// src/pages/jasa-invite-member-telegram.astro
-import DefaultLayout from '../layouts/DefaultLayout.astro'
+   // src/pages/jasa-invite-member-telegram.astro
+   import DefaultLayout from '../layouts/DefaultLayout.astro'
 
-// ==========================================
-// 1. IMPORT KOMPONEN SISTEM
-// ==========================================
-import Hero from '../components/Hero.astro'
-import MasalahJasaLike from '../components/MasalahJasaLike.astro'
-import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
-import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
-import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
-import CaraOrder from '../components/CaraOrder.astro'
-import Solusi from '../components/Solusi.astro'
-import HargaPaket from '../components/HargaPaket.astro'
-import Testimonials from '../components/Testimonials.astro'
-import DaftarHarga from '../components/DaftarHarga.astro'
-import MetodePembayaran from '../components/MetodePembayaran.astro'
-import FaqJasaLike from '../components/FaqJasaLike.astro'
+   // ==========================================
+   // 1. IMPORT KOMPONEN SISTEM
+   // ==========================================
+   import Hero from '../components/Hero.astro'
+   import MasalahJasaLike from '../components/MasalahJasaLike.astro'
+   import ApaItuJasaLike from '../components/ApaItuJasaLike.astro'
+   import ManfaatJasaLike from '../components/ManfaatJasaLike.astro'
+   import MengapaMemilihJasaLike from '../components/MengapaMemilihJasaLike.astro'
+   import CaraOrder from '../components/CaraOrder.astro'
+   import Solusi from '../components/Solusi.astro'
+   import HargaPaket from '../components/HargaPaket.astro'
+   import Testimonials from '../components/Testimonials.astro'
+   import DaftarHarga from '../components/DaftarHarga.astro'
+   import MetodePembayaran from '../components/MetodePembayaran.astro'
+   import FaqJasaLike from '../components/FaqJasaLike.astro'
 
-// ==========================================
-// 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
-// ==========================================
-const title = "Jasa Invite Member Telegram, Dorong Pertumbuhan Komunitas Anda";
-const description = "Dorong pertumbuhan anggota channel Telegram lewat jasa invite member terstruktur. Cocok untuk komunitas digital yang ingin tampil aktif dan meyakinkan.";
-const keywords = "jasa invite member telegram, invite member channel telegram, tambah anggota grup telegram, jasa tambah member telegram, komunitas telegram aktif, jasa invite telegram indonesia";
+   // ==========================================
+   // 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
+   // ==========================================
+   const title = "Jasa Tambah Member Telegram untuk Komunitas Aktif";
+   const description = "Gunakan jasa tambah member Telegram murah dan aman untuk mengembangkan
+ grup atau channel Anda. Proses bertahap, tanpa akses akun, dan bergaransi.";
+   const keywords = "jasa invite member telegram, invite member channel telegram, tambah anggota grup telegram";
 
-// ==========================================
-// 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
-// ==========================================
+   // ==========================================
+   // 3. KONTEN STRATEGIS (BAHASA FRESH & ELEGAN)
+   // ==========================================
 
-const dataHero = {
-  tipe: "service",
-  labelTeks: "Layanan Referral Komunitas Digital",
-  labelIcon: "lucide:users",
-  judulUtama: '<span class="text-sky-600">Jasa Invite Member Telegram</span> untuk Komunitas yang Cepat Tumbuh',
-  deskripsi: "Menghadapi channel baru yang masih sepi? Layanan invite member kami membantu membangun fondasi awal agar channel Telegram Anda terlihat lebih hidup dan dipercaya calon anggota sejak hari pertama.<br class='hidden md:block mt-2' /> <span class='text-sky-500 font-semibold block mt-4'>✓ Penyaluran Bertahap &nbsp; ✓ Privasi Terjaga &nbsp; ✓ Hasil Konsisten</span>",
-  teksTombol1: "Pilih Skala Audiens",
-  linkTombol1: "#harga-paket",
-  teksTombol2: "Konsultasi Profil",
-  linkTombol2: "https://wa.me/6289634740308",
-  gambarHero: "/image/hero-jasalike-telegram.png" 
-};
+   const dataHero = {
+     tipe: "service",
+     labelTeks: "Layanan Komunitas Digital",
+     labelIcon: "lucide:users",
+     judulUtama: '<span class="text-sky-600">Jasa Tambah Member Telegram</span> untuk Komunitas
+ yang Lebih Hidup dan Dipercaya',
+     deskripsi: "Grup atau channel Telegram yang sepi sering membuat calon pelanggan ragu untuk
+ bergabung. Dengan layanan ini, Anda bisa membangun kesan awal yang aktif dan profesional sejak
+ hari pertama. <br class='hidden md:block mt-2' /> <span class='text-sky-500 font-semibold block
+ mt-4'>✓ Aman dari Pembatasan &nbsp; ✓ Tanpa Akses Akun &nbsp; ✓ Privasi Terjaga</span>",
+     teksTombol1: "Pilih Paket Pertumbuhan",
+     linkTombol1: "#harga-paket",
+     teksTombol2: "Konsultasi Gratis",
+     linkTombol2: "https://wa.me/6289634740308",
+     gambarHero: "/image/hero-jasalike-telegram.png"
+   };
 
-const dataMasalah = {
-  judulUtama: 'Hambatan <span class="text-sky-600">Channel Baru Telegram</span> dalam Mencari Anggota',
-  deskripsiUtama: "Sebagian besar admin channel baru menghadapi tantangan yang sama saat mencoba mengembangkan basis anggota mereka di Telegram.",
-  ms1Teks: '<strong class="text-sky-600 font-bold">Anggota yang Susah Tumbuh:</strong> Channel Telegram yang baru dibuat membutuhkan waktu lama untuk mendapatkan anggota pertama yang benar-benar aktif.',
-  ms2Teks: '<strong class="text-sky-600 font-bold">Brand Menunggu Bukti Sosial:</strong> Banyak calon mitra atau sponsor enggan berkolaborasi sebelum channel menunjukkan jumlah anggota yang meyakinkan.',
-  ms3Teks: '<strong class="text-sky-600 font-bold">Konten Kurang Dilirik:</strong> Diskusi dan informasi yang Anda bagikan terasa kurang menarik karena tidak ada pemicu sosial yang membuat orang ikut bergabung.',
-  ms4Teks: '<strong class="text-sky-600 font-bold">Stagnasi Sejak Pekan Pertama:</strong> Sudah promosi di berbagai tempat, namun angka anggota channel tidak kunjung bergerak dari posisi awal.'
-};
+   const dataMasalah = {
+     judulUtama: 'Masalah yang Sering Dihadapi <span class="text-sky-600">Admin Telegram</span>
+ Saat Ini',
+     deskripsiUtama: "Banyak pemilik grup atau channel Telegram merasa kesulitan membangun
+ kepercayaan audiens di awal perjalanan komunitasnya.",
+     ms1Teks: '<strong class="text-sky-600 font-bold">Grup Terlihat Sepi:</strong> Anggota baru
+ cenderung enggan bergabung ketika grup masih minim interaksi dan terkesan tidak aktif.',
+     ms2Teks: '<strong class="text-sky-600 font-bold">Kredibilitas Belum Terbentuk:</strong> Calon
+ pelanggan atau mitra bisnis sering menilai kualitas komunitas dari jumlah anggota yang
+ terlihat.',
+     ms3Teks: '<strong class="text-sky-600 font-bold">Promosi Serasa Sia-sia:</strong> Sudah
+ banyak beriklan, namun konversi ke anggota tetap rendah karena kurangnya social proof.',
+     ms4Teks: '<strong class="text-sky-600 font-bold">Pertumbuhan Stagnan:</strong> Angka member
+ sulit bergerak naik meski sudah rutin membagikan konten dan tautan undangan.'
+   };
 
-const dataApaItu = {
-  judulUtama: 'Memahami Cara Kerja <span class="text-sky-600">Invite Member Telegram</span>',
-  deskripsiUtama: "Pendekatan terstruktur untuk membantu channel Telegram membangun kesan pertama yang kuat dan meyakinkan di mata calon anggota baru.",
-  k1Judul: "Penyaluran yang Menyatu dengan Aktivitas",
-  k1Teks: "Anggota baru didistribusikan mengikuti ritme wajar channel Telegram. Pola pertumbuhannya tetap terasa natural tanpa terlihat sebagai lonjakan buatan.",
-  k2Judul: "Membangun Social Proof Sejak Awal",
-  k2Teks: "Ketika calon pengunjung melihat channel Anda sudah memiliki basis anggota yang proporsional, persepsi positif tentang kualitas komunitas langsung terbentuk."
-};
+   const dataApaItu = {
+     judulUtama: 'Apa Itu <span class="text-sky-600">Jasa Tambah Member Telegram</span>?',
+     deskripsiUtama: "Solusi praktis untuk membantu grup atau channel Telegram tampil lebih aktif,
+ terpercaya, dan menarik minat anggota baru secara alami.",
+     k1Judul: "Mengatasi Grup yang Sepi",
+     k1Teks: "Layanan ini membantu menciptakan fondasi anggota awal sehingga grup Anda terlihat
+ hidup. Bagi banyak calon member, grup ramai adalah pertanda komunitas yang berkualitas.",
+     k2Judul: "Membangun Kepercayaan Sejak Awal",
+     k2Teks: "Ketika pengunjung melihat jumlah anggota yang proporsional, rasa percaya terhadap
+ komunitas Anda meningkat. Hal ini memudahkan proses konversi dari pengunjung menjadi member
+ aktif."
+   };
 
-const dataManfaat = {
-  judulUtama: 'Keuntungan <span class="text-sky-600">Channel Setelah Invite Member</span>',
-  deskripsiUtama: "Fondasi anggota yang sehat membuka peluang lebih besar untuk pertumbuhan channel di masa depan.",
-  m1Judul: "Mempercepat Efek Social Proof",
-  m1Teks: "Channel dengan jumlah anggota yang cukup otomatis terlihat lebih layak diikuti oleh pengguna baru yang sedang mencari referensi komunitas.",
-  m2Judul: "Menggandakan Peluang Kolaborasi",
-  m2Teks: "Brand dan kreator lain lebih tertarik menggandeng channel yang sudah menunjukkan basis anggota aktif, sehingga pintu kerja sama terbuka lebih lebar.",
-  m3Judul: "Meningkatkan Kepercayaan Pengunjung",
-  m3Teks: "Visual channel yang sudah ramai menciptakan persepsi positif sebelum pengunjung memutuskan untuk bergabung atau mengikuti diskusi Anda.",
-  m4Judul: "Mempermudah Monetisasi Komunitas",
-  m4Teks: "Channel yang memiliki basis anggota kuat menjadi lebih mudah dimonetisasi, baik lewat konten eksklusif, iklan, maupun program afiliasi di Telegram."
-};
+   const dataManfaat = {
+     judulUtama: 'Manfaat Menggunakan <span class="text-sky-600">Jasa Tambah Member
+ Telegram</span>',
+     deskripsiUtama: "Membangun komunitas yang kuat dari awal memberikan dampak positif jangka
+ panjang bagi branding dan pertumbuhan bisnis Anda.",
+     m1Judul: "Efek Social Proof yang Lebih Kuat",
+     m1Teks: "Grup dengan jumlah anggota yang cukup terlihat lebih layak diikuti, sehingga
+ pengguna baru lebih percaya untuk bergabung.",
+     m2Judul: "Meningkatkan Kredibilitas Brand",
+     m2Teks: "Komunitas yang ramai menciptakan kesan profesional dan terpercaya, penting bagi
+ bisnis, UMKM, hingga content creator yang ingin menjaring pelanggan.",
+     m3Judul: "Mendorong Interaksi yang Lebih Aktif",
+     m3Teks: "Dengan fondasi anggota yang lebih besar, diskusi, promo, atau informasi yang Anda
+ bagikan memiliki peluang lebih tinggi untuk mendapat respons.",
+     m4Judul: "Mempercepat Pertumbuhan Bisnis",
+     m4Teks: "Grup yang aktif lebih mudah dimonetisasi, baik melalui penjualan produk, program
+ afiliasi, hingga kolaborasi dengan brand atau mitra lain."
+   };
 
-const dataMengapaMemilih = {
-  judulUtama: 'Alasan Channel Mempercayakan <span class="text-sky-500">Layanan Ini</span>',
-  deskripsiUtama: "Standar layanan yang kami rancang untuk memastikan setiap klien mendapatkan hasil terukur dengan rasa tenang.",
-  mk1Judul: "Penyaluran Bertahap dan Wajar",
-  mk1Teks: "Setiap penambahan anggota dirancang mengikuti pola aktivitas channel pada umumnya sehingga tidak memicu tanda anomali pada sistem Telegram.",
-  mk2Judul: "Privasi Klien Sepenuhnya Dijaga",
-  mk2Teks: "Cukup kirimkan tautan channel publik Anda. Tidak ada informasi masuk akun, kredensial, maupun data sensitif lain yang kami minta.",
-  mk3Judul: "Jaminan Stabilitas (Refill)",
-  mk3Teks: "Kami menyediakan mekanisme isi ulang untuk menjaga kestabilan angka anggota channel Anda selama periode layanan berlangsung.",
-  mk4Judul: "Tim Support yang Responsif",
-  mk4Teks: "Tim operasional kami siap membantu menjawab pertanyaan dan memantau progres penambahan anggota channel Anda setiap hari kerja.",
-  mk5Judul: "Pilihan Skala yang Fleksibel",
-  mk5Teks: "Tersedia berbagai skala layanan yang dapat disesuaikan dengan target dan tahap pertumbuhan channel Telegram Anda.",
-  mk6Judul: "Aktivasi Cepat Tanpa Birokrasi",
-  mk6Teks: "Begitu pembayaran Anda kami konfirmasi, tim langsung memulai proses penambahan anggota sesuai paket yang dipilih."
-};
+   const dataMengapaMemilih = {
+     judulUtama: 'Mengapa Memilih <span class="text-sky-500">Layanan Kami</span>?',
+     deskripsiUtama: "Kami memahami betapa pentingnya keamanan dan kenyamanan Anda dalam membangun
+ komunitas di Telegram.",
+     mk1Judul: "Proses Bertahap dan Wajar",
+     mk1Teks: "Seluruh proses penambahan anggota dilakukan secara bertahap mengikuti pola
+ aktivitas wajar, sehingga risiko terkena pembatasan dari Telegram dapat diminimalkan.",
+     mk2Judul: "Tidak Perlu Akses Akun",
+     mk2Teks: "Kami tidak meminta kode akses, OTP, maupun login ke akun Anda. Cukup kirimkan
+ tautan grup atau channel publik, dan proses berjalan dari luar akun Anda.",
+     mk3Judul: "Privasi Terjaga",
+     mk3Teks: "Data grup dan informasi Anda ditangani secara rahasia. Tidak ada informasi sensitif
+ klien yang disebarluaskan atau digunakan di luar keperluan layanan.",
+     mk4Judul: "Dukungan Tim Responsif",
+     mk4Teks: "Tim kami siap membantu menjawab pertanyaan serta memantau perkembangan proses
+ penambahan anggota Anda selama jam kerja.",
+     mk5Judul: "Pilihan Paket Fleksibel",
+     mk5Teks: "Tersedia berbagai skala layanan yang bisa disesuaikan dengan kebutuhan dan
+ anggaran, mulai dari grup kecil hingga komunitas besar.",
+     mk6Judul: "Aktivasi Cepat Setelah Pembayaran",
+     mk6Teks: "Begitu pembayaran terverifikasi, tim kami langsung memproses pesanan sesuai paket
+ yang Anda pilih tanpa proses berbelit-belit."
+   };
 
-const dataSolusi = {
-  judulUtama: 'Saatnya <span class="text-sky-600">Channel Telegram</span> Anda Tumbuh Lebih Pesat',
-  deskripsiUtama: "Bangun komunitas Telegram yang aktif dan meyakinkan dengan strategi penambahan anggota yang terstruktur.",
-  sol1Icon: "lucide:check-circle",
-  sol1Judul: "Mengubah Persepsi Pengunjung",
-  sol1Teks: "Saat channel Anda sudah memiliki basis anggota yang proporsional, calon anggota baru akan lebih yakin untuk langsung mengikuti dan berdiskusi.",
-  sol2Icon: "lucide:globe",
-  sol2Judul: "Memperluas Jangkauan Komunitas",
-  sol2Teks: "Channel yang ramai otomatis lebih mudah muncul di rekomendasi Telegram dan mendapat perhatian dari pengguna di luar lingkaran awal Anda.",
-  sol3Icon: "lucide:heart",
-  sol3Judul: "Kombinasi Pendekatan Komunitas",
-  sol3Teks: 'Untuk hasil yang lebih maksimal, kami menyarankan Anda menambahkan <a href="/jasa-tambah-member-telegram" class="text-sky-600 hover:underline font-semibold">jasa tambah member Telegram</a> sebagai pelengkap pertumbuhan channel.'
-};
+   const dataSolusi = {
+     judulUtama: 'Solusi Tepat untuk <span class="text-sky-600">Komunitas Telegram</span> Anda',
+     deskripsiUtama: "Bangun grup atau channel yang aktif, terpercaya, dan mengundang minat
+ anggota baru dengan pendekatan yang aman dan terukur.",
+     sol1Icon: "lucide:check-circle",
+     sol1Judul: "Mengubah Persepsi Pengunjung",
+     sol1Teks: "Grup yang terlihat ramai membuat calon anggota lebih yakin untuk bergabung. Social
+ proof yang kuat adalah langkah pertama menuju komunitas yang berkembang.",
+     sol2Icon: "lucide:globe",
+     sol2Judul: "Memperluas Jangkauan Komunitas",
+     sol2Teks: "Channel atau grup yang aktif lebih mudah mendapat perhatian, baik dari pengguna
+ Telegram maupun calon mitra bisnis yang melihat potensi kolaborasi.",
+     sol3Icon: "lucide:heart",
+     sol3Judul: "Pendekatan Komunitas yang Sehat",
+     sol3Teks: 'Untuk hasil optimal, Anda bisa menggabungkan layanan ini dengan <a
+ href="/jasa-tambah-member-telegram" class="text-sky-600 hover:underline font-semibold">jasa
+ tambah subscriber channel Telegram</a> guna memperkuat pertumbuhan secara menyeluruh.'
+   };
 
-const dataCaraOrder = {
-  judulUtama: 'Alur Pemesanan <span class="text-sky-500">Invite Member</span> yang Sederhana',
-  deskripsiUtama: "Hanya butuh beberapa langkah ringkas untuk memulai penambahan anggota channel Telegram Anda.",
-  co1Judul: "Pilih Skala Penambahan",
-  co1Teks: "Tentukan jumlah anggota yang ingin ditambahkan sesuai dengan target dan tahap pertumbuhan channel Telegram Anda saat ini.",
-  co2Judul: "Kirim Tautan Channel Publik",
-  co2Teks: "Bagikan username atau tautan channel Telegram Anda. Pastikan channel tetap dalam status publik selama proses penambahan berlangsung.",
-  co3Judul: "Lakukan Pembayaran",
-  co3Teks: "Selesaikan transaksi melalui kanal pembayaran otomatis kami. Setelah status pembayaran terkonfirmasi, tim akan langsung memproses pesanan.",
-  co4Judul: "Pantau Pertumbuhan Channel",
-  co4Teks: "Tim kami akan menginformasikan perkembangan penambahan anggota. Anda bisa kembali fokus mengelola konten dan interaksi di channel."
-};
+   const dataCaraOrder = {
+     judulUtama: 'Cara Order <span class="text-sky-500">Jasa Tambah Member Telegram</span>',
+     deskripsiUtama: "Proses pemesanan dirancang sederhana agar Anda bisa langsung fokus
+ mengembangkan konten dan interaksi di grup.",
+     co1Judul: "Pilih Paket yang Sesuai",
+     co1Teks: "Tentukan jumlah anggota yang ingin ditambahkan berdasarkan target dan tahap
+ pertumbuhan grup atau channel Anda saat ini.",
+     co2Judul: "Kirim Tautan Grup Publik",
+     co2Teks: "Bagikan tautan grup atau channel Telegram Anda. Pastikan statusnya tetap publik
+ selama proses penambahan berlangsung.",
+     co3Judul: "Lakukan Pembayaran",
+     co3Teks: "Selesaikan pembayaran melalui kanal yang tersedia. Setelah terkonfirmasi, tim kami
+ langsung memproses pesanan Anda.",
+     co4Judul: "Pantau Hasilnya",
+     co4Teks: "Anda bisa melihat perkembangan jumlah anggota secara real-time. Tim kami juga akan
+ memberikan informasi terkait status pesanan."
+   };
 
-const dataHargaPaket = {
-  judulHarga: "Skema Investasi Pertumbuhan Channel",
-  deskripsiHarga: "Pilih skala penambahan anggota yang paling sesuai dengan tahap perkembangan channel Telegram Anda saat ini.",
-  
-  p1Gambar: "/image/harga-member-telegram.png",
-  p1Nama: "500 Anggota (Server)",
-  p1Fitur1: "Proses Otomatis 1x24jam",
-  p1Fitur2: "Cocok Pancingan Awal",
-  p1Fitur3: "Layanan Sistem Dasar",
-  p1Harga: "Rp 30.000",
-  p1Link: "https://wa.me/6289634740308",
-  
-  p2Gambar: "/image/harga-member-telegram.png",
-  p2Nama: "1000 Anggota (Server)",
-  p2Fitur1: "Akun Bot/Server",
-  p2Fitur2: "Proses Otomatis 1x24jam",
-  p2Fitur3: "Garansi Permanen",
-  p2Harga: "Rp 60.000",
-  p2Link: "https://wa.me/6289634740308",
-  
-  p3Label: "TERLARIS",
-  p3Gambar: "/image/harga-member-telegram.png",
-  p3Nama: "100 Anggota (Real Aktif)",
-  p3Fitur1: "Kualitas Akun Premium",
-  p3Fitur2: "Proses Cepat",
-  p3Fitur3: "Garansi & Prioritas",
-  p3Harga: "Rp 200.000",
-  p3Link: "https://wa.me/6289634740308",
+   const dataHargaPaket = {
+     judulHarga: "Skema Investasi Pertumbuhan Channel",
+     deskripsiHarga: "Pilih skala penambahan anggota yang paling sesuai dengan tahap perkembangan
+ channel Telegram Anda saat ini.",
 
-  p4Gambar: "/image/harga-member-telegram.png",
-  p4Nama: "1000 Anggota (Real Aktif)",
-  p4Fitur1: "Semua Fitur Real",
-  p4Fitur2: "Proses Cepat",
-  p4Fitur3: "VIP Support 24/7",
-  p4Harga: "Rp 2.000.000",
-  p4Link: "https://wa.me/6289634740308"
-};
+     p1Gambar: "/image/harga-member-telegram.png",
+     p1Nama: "500 Anggota (Server)",
+     p1Fitur1: "Proses Otomatis 1x24jam",
+     p1Fitur2: "Cocok Pancingan Awal",
+     p1Fitur3: "Layanan Sistem Dasar",
+     p1Harga: "Rp 30.000",
+     p1Link: "https://wa.me/6289634740308",
 
-const dataFaq = {
-  judulUtama: 'Hal yang Sering Ditanyakan <br/> <span class="text-sky-600">Seputar Invite Member</span>',
-  deskripsiUtama: "Informasi penting yang biasanya ditanyakan oleh admin channel Telegram sebelum menggunakan layanan invite member.",
-  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20Invite%20Teman%20Bot%20Telegram",
-  faq1Judul: "Apakah layanan invite member ini aman untuk channel?",
-  faq1Teks: "Layanan ini dijalankan dengan metode bertahap dan mengikuti pola aktivitas wajar di Telegram. Selama channel Anda dikelola dengan baik, risiko penangguhan dapat diminimalkan.",
-  faq2Judul: "Apakah saya perlu memberikan akses masuk ke akun Telegram?",
-  faq2Teks: "Tidak. Cukup kirimkan tautan channel publik. Seluruh proses penambahan berjalan dari luar sistem Anda tanpa memerlukan kredensial apa pun.",
-  faq3Judul: "Mengapa channel tidak boleh di-private saat proses berjalan?",
-  faq3Teks: "Sistem kami memerlukan akses publik agar anggota baru dapat menemukan dan bergabung ke channel Anda. Setelah pesanan selesai, Anda bebas mengubah pengaturan privasi.",
-  faq4Judul: "Apakah anggota bisa berkurang setelah layanan selesai?",
-  faq4Teks: "Fluktuasi ringan adalah hal yang wajar di Telegram. Kami menyediakan fitur isi ulang pada paket tertentu agar kestabilan jumlah anggota tetap terjaga.",
-  faq5Judul: "Bisakah memilih anggota dari kota atau negara tertentu?",
-  faq5Teks: "Layanan utama kami mendistribusikan anggota campuran dari berbagai wilayah. Untuk penargetan spesifik, silakan diskusikan terlebih dahulu dengan tim dukungan kami.",
-  faq6Judul: "Berapa lama proses penambahan anggota selesai?",
-  faq6Teks: "Durasi pengerjaan bergantung pada jumlah anggota dan paket yang dipilih. Kami menyalurkan secara bertahap untuk menjaga kesan natural di channel."
-};
----
+     p2Gambar: "/image/harga-member-telegram.png",
+     p2Nama: "1000 Anggota (Server)",
+     p2Fitur1: "Akun Bot/Server",
+     p2Fitur2: "Proses Otomatis 1x24jam",
+     p2Fitur3: "Garansi Permanen",
+     p2Harga: "Rp 60.000",
+     p2Link: "https://wa.me/6289634740308",
 
-<DefaultLayout title={title} description={description} keywords={keywords}>
+     p3Label: "TERLARIS",
+     p3Gambar: "/image/harga-member-telegram.png",
+     p3Nama: "100 Anggota (Real Aktif)",
+     p3Fitur1: "Kualitas Akun Premium",
+     p3Fitur2: "Proses Cepat",
+     p3Fitur3: "Garansi & Prioritas",
+     p3Harga: "Rp 200.000",
+     p3Link: "https://wa.me/6289634740308",
 
-<Fragment slot="head">
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "Jasa Invite Teman Bot Telegram untuk Referral Airdrop",
-    "image": "https://jasalike.com/image/harga-member-telegram.png",
-    "description": "Optimalkan pertumbuhan komunitas Anda dengan layanan Jasa Invite Teman Bot Telegram. Solusi terbaik untuk meningkatkan partisipasi dan interaksi di Mini App Telegram.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 855
-    },
-    "offers": {
-      "@type": "AggregateOffer",
-      "lowPrice": 30000,
-      "highPrice": 2000000,
-      "priceCurrency": "IDR",
-      "offerCount": 4
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Beranda",
-        "item": "https://jasalike.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Layanan",
-        "item": "https://jasalike.com/direktori-layanan/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Jasa Invite Teman Bot Telegram",
-        "item": "https://jasalike.com/jasa-invite-member-telegram"
-      }
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Apakah aman menggunakan jasa invite teman bot ini?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sangat aman. Kami memproses penambahan anggota dengan kecepatan yang wajar dan metode organik, sehingga sepenuhnya mematuhi standar keamanan Telegram. Komunitas Anda bebas dari risiko penangguhan."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Apakah saya harus memberikan data rahasia?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sama sekali tidak. Kebijakan kami sangat ketat terkait privasi klien. Anda hanya diwajibkan memberikan username atau tautan komunitas saja. Proses penambahan berjalan murni dari luar akun Anda."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Mengapa komunitas saya tidak boleh di-private?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Selama proses pengiriman anggota berlangsung, sistem kami membutuhkan akses terbuka agar komunitas Anda dapat ditemukan dan diikuti. Setelah pesanan berstatus selesai, Anda bebas mengubah pengaturan privasinya kembali."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Apakah jumlah anggota ini bisa berkurang (drop)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Fluktuasi kecil adalah hal yang wajar karena pembaruan algoritma platform. Itulah mengapa kami melengkapi paket tertentu dengan jaminan perlindungan (refill) agar angka investasi Anda tetap terjaga."
-        }
-      }
-    ]
-  }
-]
-</script>
-</Fragment>
+     p4Gambar: "/image/harga-member-telegram.png",
+     p4Nama: "1000 Anggota (Real Aktif)",
+     p4Fitur1: "Semua Fitur Real",
+     p4Fitur2: "Proses Cepat",
+     p4Fitur3: "VIP Support 24/7",
+     p4Harga: "Rp 2.000.000",
+     p4Link: "https://wa.me/6289634740308"
+   };
 
-  <Hero {...dataHero} />
+   const dataFaq = {
+     judulUtama: 'Pertanyaan Seputar <br/> <span class="text-sky-600">Jasa Tambah Member
+ Telegram</span>',
+     deskripsiUtama: "Temukan jawaban atas berbagai pertanyaan umum sebelum Anda memutuskan
+ menggunakan layanan penambahan anggota Telegram.",
+     linkWhatsapp:
+ "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20berdiskusi%20mengenai%20Jasa%20I
+ nvite%20Teman%20Bot%20Telegram",
+     faq1Judul: "Apakah layanan tambah member Telegram ini aman?",
+     faq1Teks: "Ya. Kami menerapkan metode bertahap yang mengikuti pola aktivitas wajar di
+ Telegram. Dengan demikian, risiko pembatasan akun atau grup dapat diminimalkan selama Anda tetap
+ mengelola komunitas dengan baik.",
+     faq2Judul: "Apakah saya harus memberikan akses masuk ke akun Telegram?",
+     faq2Teks: "Tidak sama sekali. Kami hanya membutuhkan tautan grup atau channel publik Anda.
+ Tidak ada kredensial, kode OTP, atau data sensitif lain yang diminta.",
+     faq3Judul: "Mengapa grup harus dalam mode publik saat proses berlangsung?",
+     faq3Teks: "Sistem kami membutuhkan akses publik agar anggota baru dapat menemukan dan
+ bergabung ke grup Anda. Setelah pesanan selesai, Anda bebas mengubah pengaturan privasi
+ kembali.",
+     faq4Judul: "Apakah jumlah anggota bisa berkurang setelahnya?",
+     faq4Teks: "Fluktuasi ringan adalah hal yang wajar di Telegram. Karena itu, beberapa paket
+ kami dilengkapi dengan garansi refill untuk menjaga kestabilan jumlah anggota Anda.",
+     faq5Judul: "Bisakah saya memilih anggota dari wilayah tertentu?",
+     faq5Teks: "Layanan utama kami mendistribusikan anggota campuran dari berbagai wilayah. Jika
+ Anda membutuhkan penargetan khusus, silakan diskusikan terlebih dahulu dengan tim dukungan
+ kami.",
+     faq6Judul: "Berapa lama proses penambahan anggota?",
+     faq6Teks: "Durasi pengerjaan tergantung pada jumlah anggota dan paket yang dipilih. Kami
+ menyalurkan secara bertahap agar pertumbuhan terlihat natural dan aman."
+   };
+   ---
 
-  <MasalahJasaLike {...dataMasalah} />
+   <DefaultLayout title={title} description={description}>
 
-  <ApaItuJasaLike {...dataApaItu} />
+   <Fragment slot="head">
+   <script type="application/ld+json">
+   [
+     {
+       "@context": "https://schema.org/",
+       "@type": "Product",
+       "name": "Jasa Tambah Member Telegram untuk Komunitas Aktif",
+       "image": "https://jasalike.com/image/harga-member-telegram.png",
+       "description": "Gunakan jasa tambah member Telegram murah dan aman untuk mengembangkan grup
+ atau channel Anda. Proses bertahap, tanpa akses akun, dan bergaransi.",
+       "brand": {
+         "@type": "Brand",
+         "name": "JasaLike"
+       },
+       "aggregateRating": {
+         "@type": "AggregateRating",
+         "ratingValue": 4.9,
+         "bestRating": 5,
+         "worstRating": 1,
+         "ratingCount": 855
+       },
+       "offers": {
+         "@type": "AggregateOffer",
+         "lowPrice": 30000,
+         "highPrice": 2000000,
+         "priceCurrency": "IDR",
+         "offerCount": 4
+       }
+     },
+     {
+       "@context": "https://schema.org",
+       "@type": "BreadcrumbList",
+       "itemListElement": [
+         {
+           "@type": "ListItem",
+           "position": 1,
+           "name": "Beranda",
+           "item": "https://jasalike.com/"
+         },
+         {
+           "@type": "ListItem",
+           "position": 2,
+           "name": "Layanan",
+           "item": "https://jasalike.com/direktori-layanan/"
+         },
+         {
+           "@type": "ListItem",
+           "position": 3,
+           "name": "Jasa Tambah Member Telegram",
+           "item": "https://jasalike.com/jasa-invite-member-telegram"
+         }
+       ]
+     },
+     {
+       "@context": "https://schema.org",
+       "@type": "FAQPage",
+       "mainEntity": [
+         {
+           "@type": "Question",
+           "name": "Apakah aman menggunakan jasa tambah member Telegram ini?",
+           "acceptedAnswer": {
+             "@type": "Answer",
+             "text": "Sangat aman. Kami memproses penambahan anggota secara bertahap dengan pola
+ aktivitas wajar, sehingga risiko pembatasan dari Telegram dapat diminimalkan."
+           }
+         },
+         {
+           "@type": "Question",
+           "name": "Apakah saya harus memberikan data rahasia?",
+           "acceptedAnswer": {
+             "@type": "Answer",
+             "text": "Sama sekali tidak. Kami tidak meminta kode akses, OTP, atau login ke akun
+ Anda. Cukup kirimkan tautan grup atau channel publik, dan proses berjalan dari luar sistem Anda."
+           }
+         },
+         {
+           "@type": "Question",
+           "name": "Mengapa grup tidak boleh di-private saat proses?",
+           "acceptedAnswer": {
+             "@type": "Answer",
+             "text": "Sistem kami membutuhkan akses publik agar anggota baru dapat menemukan dan
+ bergabung ke grup Anda. Setelah pesanan selesai, Anda bebas mengubah pengaturan privasinya
+ kembali."
+           }
+         },
+         {
+           "@type": "Question",
+           "name": "Apakah jumlah anggota bisa berkurang setelah layanan selesai?",
+           "acceptedAnswer": {
+             "@type": "Answer",
+             "text": "Fluktuasi ringan adalah hal yang wajar di Telegram. Untuk menjaga
+ kestabilan, beberapa paket kami dilengkapi dengan garansi refill."
+           }
+         }
+       ]
+     }
+   ]
+   </script>
+   </Fragment>
 
-  <ManfaatJasaLike {...dataManfaat} />
+     <Hero {...dataHero} />
 
-  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+     <MasalahJasaLike {...dataMasalah} />
 
-  <Solusi {...dataSolusi} />
+     <ApaItuJasaLike {...dataApaItu} />
 
-  <CaraOrder {...dataCaraOrder} />
+     <ManfaatJasaLike {...dataManfaat} />
 
-  <DaftarHarga />
+     <MengapaMemilihJasaLike {...dataMengapaMemilih} />
 
-  <HargaPaket {...dataHargaPaket} />
+     <Solusi {...dataSolusi} />
 
-  <Testimonials />
+     <CaraOrder {...dataCaraOrder} />
 
-  <MetodePembayaran />
+     <DaftarHarga />
 
-  <FaqJasaLike {...dataFaq} />
+     <HargaPaket {...dataHargaPaket} />
 
-</DefaultLayout>
+     <Testimonials />
+
+     <MetodePembayaran />
+
+     <FaqJasaLike {...dataFaq} />
+
+   </DefaultLayout>
