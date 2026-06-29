@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import HomeSchemas from '@components/HomeSchemas.astro'
@@ -252,3 +253,259 @@ const dataFaq = {
 
 </DefaultLayout>
 
+=======
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import HomeSchemas from '@components/HomeSchemas.astro'
+import OrganizationSchema from '@components/OrganizationSchema.astro'
+
+import Hero from '@components/Hero.astro'
+import MasalahJasaLike from '@components/MasalahJasaLike.astro'
+import ApaItuJasaLike from '@components/ApaItuJasaLike.astro'
+import ManfaatJasaLike from '@components/ManfaatJasaLike.astro'
+import MengapaMemilihJasaLike from '@components/MengapaMemilihJasaLike.astro' 
+import Testimonials from '@components/Testimonials.astro'
+import FaqJasaLike from '@components/FaqJasaLike.astro'
+import MetodePembayaran from '@components/MetodePembayaran.astro'
+import DaftarHarga from '@components/DaftarHarga.astro' 
+import CaraOrder from '@components/CaraOrder.astro'
+
+
+// ==========================================
+// 1. DATA SEO
+// ==========================================
+const title = "Jasa Like Terpercaya | Tambah Like Media Sosial Cepat & Aman";
+const description = "Jasa like media sosial terlengkap. Tingkatkan interaksi postingan dan video Anda di TikTok, Instagram, dan Facebook secara instan, aman, dan terpercaya.";
+const keywords = "jasa like, jasa buzzer, jasa like indonesia, jasa tambah like, jasa like terpercaya";
+
+// ==========================================
+// 2. DATA KONTEN HALAMAN (FRONTMATTER)
+// ==========================================
+
+const dataHero = {
+  tipe: "home",
+  judulUtama: 'Jasalike indonesia Membantu Meningkatkan <span class="text-blue-500">Engagement Social Media</span>',
+  deskripsi: "Tingkatkan interaksi, bangun otoritas brand, dan raih potensi viral di TikTok, Instagram, dan Facebook dengan suntikan engagement yang 100% aman dan bergaransi penuh.",
+  teksTombol1: "Lihat Daftar Harga",
+  linkTombol1: "https://docs.google.com/spreadsheets/d/1BXtgxl_qcKRe4UOIm__BDH5DwufpyX-56Ru-NDDXMcI/edit?usp=sharing",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/hero-beranda.png"
+};
+
+const dataMasalah = {
+  judulUtama: 'Familiar dengan <span class="text-blue-600">Situasi Ini?</span>',
+  deskripsiUtama: "Membangun audiens dari nol memang tidak mudah. Banyak kreator dan pebisnis tertahan potensinya karena kendala-kendala ini:",
+  ms1Teks: 'Calon pembeli ragu bertransaksi karena <strong class="text-blue-600 font-bold">jumlah interaksi</strong> profil bisnis Anda masih sangat sedikit.',
+  ms2Teks: 'Konten susah viral dan <strong class="text-blue-600 font-bold">kalah saing di algoritma</strong> karena minimnya pancingan *like* di awal.',
+  ms3Teks: 'Sudah capek membuat konten dan rajin upload, tapi <strong class="text-blue-600 font-bold">postingan selalu sepi</strong> pengunjung.',
+  ms4Teks: 'Susah membangun <strong class="text-blue-600 font-bold">otoritas brand</strong> yang berujung pada lambatnya konversi penjualan.'
+};
+
+const dataApaItu = {
+  judulUtama: 'Lebih dari Sekadar <span class="text-blue-500">Angka di Layar</span>',
+  deskripsiUtama: "JasaLike bukan sekadar penambah metrik pasif. Kami adalah pendorong awal agar akun Anda terlihat profesional, aktif, dan siap bersaing di sistem algoritma.",
+  k1Judul: "Mata Uang Kepercayaan",
+  k1Teks: "Secara psikologis, saat seseorang melihat postingan dengan ribuan <em>like</em>, otak mereka otomatis berasumsi bahwa konten atau produk tersebut bernilai, aman, dan telah disukai banyak orang (<strong class='text-blue-600'>Social Proof</strong>).",
+  k2Judul: "Katalis Algoritma",
+  k2Teks: "Seringkali konten yang bagus tenggelam karena akun masih baru. Kami hadir menyuntikkan interaksi awal agar sistem algoritma platform <strong class='text-blue-600'>terpancing menyebarkan konten</strong> Anda lebih luas."
+};
+
+const dataManfaat = {
+  judulUtama: 'Manfaat Nyata yang <span class="text-blue-600">Anda Dapatkan</span>',
+  deskripsiUtama: "Bukan sekadar kosmetik digital. Optimasi interaksi yang tepat akan membuka keran potensi organik akun media sosial Anda secara masif.",
+  m1Judul: "Algoritma Membaik",
+  m1Teks: "Sinyal interaksi yang tinggi memicu algoritma platform untuk merekomendasikan konten Anda ke audiens yang lebih luas secara organik.",
+  m2Judul: "Meningkatkan Closing",
+  m2Teks: "Akun jualan yang ramai interaksi secara psikologis menurunkan keraguan calon pembeli, sehingga konversi penjualan Anda meningkat.",
+  m3Judul: "Efisiensi Waktu",
+  m3Teks: "Anda tidak perlu stres menunggu interaksi pertama berhari-hari. Biarkan kami yang memicu keramaian di awal postingan Anda.",
+  m4Judul: "Brand Authority",
+  m4Teks: "Membangun citra bahwa brand atau diri Anda adalah pemain besar yang diminati dan diperhatikan oleh banyak netizen."
+};
+
+const dataMengapaMemilih = {
+  judulUtama: 'Mengapa Memilih <span class="text-blue-400">JasaLike?</span>',
+  deskripsiUtama: "Kami fokus melayani satu hal dengan sempurna. Ini alasan mengapa kreator dan pebisnis mempercayakan akunnya pada kami.",
+  
+  mk1Judul: "Sangat Fokus",
+  mk1Teks: "Server kami khusus didedikasikan untuk memproses Like, menjamin stabilitas tanpa gangguan sistem lain.",
+  
+  mk2Judul: "Super Cepat",
+  mk2Teks: "Pesanan masuk langsung dieksekusi instan oleh sistem. Tidak perlu menunggu antrean berhari-hari.",
+  
+  mk3Judul: "Privasi Terjaga",
+  mk3Teks: "100% aman. Kami hanya membutuhkan link URL postingan, tanpa pernah meminta password akun Anda.",
+  
+  mk4Judul: "Harga Spesial",
+  mk4Teks: "Sebagai penyedia layanan tangan pertama berskala besar, kami memberikan jaminan harga termurah.",
+  
+  // Data Tambahan untuk Kotak ke-5 dan ke-6
+  mk5Judul: "Bergaransi",
+  mk5Teks: "Layanan kami dilengkapi garansi isi ulang (refill) otomatis apabila terjadi penurunan jumlah (drop).",
+  
+  mk6Judul: "Support 24/7",
+  mk6Teks: "Tim layanan pelanggan kami selalu siap sedia merespons dan membantu Anda kapan pun dibutuhkan."
+};
+
+
+const dataFaq = {
+  judulUtama: 'Pertanyaan Seputar <br/> <span class="text-blue-600">Layanan JasaLike</span>',
+  deskripsiUtama: "Menemukan kendala atau butuh informasi lebih lanjut? Berikut adalah hal-hal yang paling sering ditanyakan oleh klien kami sebelum menggunakan layanan.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20punya%20pertanyaan%20tentang%20JasaLike...",
+  faq1Judul: "Apakah layanan optimasi media sosial ini terjamin keamanannya?",
+  faq1Teks: "Privasi Anda adalah prioritas absolut kami. Sistem kerja kami murni beroperasi dari luar menggunakan metode <strong>injeksi URL spesifik</strong> atau sekadar <em>drop link</em>. Kami sama sekali tidak membutuhkan akses internal kredensial login Anda, sehingga profil Anda bebas dari risiko <em>shadowban</em>.",
+  faq2Judul: "Apakah suntikan interaksi yang masuk bersifat permanen (anti-drop)?",
+  faq2Teks: "Sistem distribusi <em>likes</em> kami dirancang semulus mungkin meniru jejak audiens organik, menjadikannya sangat stabil. Namun, jika sewaktu-waktu terjadi pembaruan ketat dari platform, Anda sepenuhnya terlindungi oleh fasilitas <strong>Klaim Garansi Refill (Suntik Ulang)</strong>.",
+  faq3Judul: "Berapa estimasi waktu pengerjaan untuk boost engagement konten?",
+  faq3Teks: "Begitu konfirmasi transaksi divalidasi, manuver eksekusi langsung dikerahkan. Normalnya, Anda sudah bisa menikmati lonjakan metrik notifikasi di perangkat Anda dalam rentang waktu <strong>1 sampai 5 jam</strong> kerja saja.",
+  faq4Judul: "Adakah batasan kuota minimal saat membeli jasa tambah like?",
+  faq4Teks: "Kami sangat adaptif dalam mengakomodasi berbagai level strategi digital Anda. Anda bisa mengamankan <em>order</em> mulai dari <strong>100 impresi</strong> hingga pesanan puluhan ribu reaksi per tautan.",
+  faq5Judul: "Bisakah saya memecah paket interaksi untuk beberapa postingan sekaligus?",
+  faq5Teks: "Sangat memungkinkan! Sebagai ilustrasi, jika Anda meminang paket 1.000 reaksi, Anda berhak membaginya secara merata ke 10 video, <em>reels</em>, atau foto yang berbeda. Cukup setorkan daftar URL kepada tim admin kami.",
+  faq6Judul: "Apakah akun atau postingan saya boleh dikunci (private) saat proses berjalan?",
+  faq6Teks: "Demi kelancaran sistem, akun atau tautan konten Anda <strong>wajib disetting untuk Publik</strong> selama pengerjaan. Jika akun dikunci, jaringan sistem kami tidak akan bisa mendeteksi URL target sehingga proses otomatis tertunda."
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords}>
+  
+  <Fragment slot="head">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JasaLike",
+    "alternateName": ["Jasa Like", "Auradigital"],
+    "url": "https://jasalike.com/",
+    "description": "Pusat layanan jasa optimasi media sosial profesional. Tingkatkan followers, likes, dan views untuk TikTok, Instagram, YouTube, dan platform lainnya secara aman dan natural.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://jasalike.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "JasaLike by Auradigital",
+    "url": "https://jasalike.com/",
+    "logo": "https://jasalike.com/favicon.svg", 
+    "image": "https://jasalike.com/og-home.png",
+    "description": "Layanan digital marketing dan optimasi interaksi media sosial terpercaya di Indonesia. Melayani peningkatan social proof secara natural dan aman.",
+    "telephone": "+6289634740308",
+    "priceRange": "Rp 200.000 - Rp 2.000.000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ID"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1250"
+    },
+    "sameAs": [
+      "https://tiktok.com/@jasalike.vttiktok",
+      "https://instagram.com/jasalike.vttiktok",
+      "https://facebook.com/jasalike"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Apakah layanan optimasi media sosial ini terjamin keamanannya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Privasi Anda adalah prioritas absolut kami. Sistem kerja kami murni beroperasi dari luar menggunakan metode injeksi URL spesifik atau sekadar drop link. Kami sama sekali tidak membutuhkan akses internal kredensial login Anda, sehingga profil Anda bebas dari risiko shadowban."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah suntikan interaksi yang masuk bersifat permanen (anti-drop)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sistem distribusi likes kami dirancang semulus mungkin meniru jejak audiens organik, menjadikannya sangat stabil. Namun, jika sewaktu-waktu terjadi pembaruan ketat dari platform, Anda sepenuhnya terlindungi oleh fasilitas Klaim Garansi Refill (Suntik Ulang)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa estimasi waktu pengerjaan untuk boost engagement konten?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Begitu konfirmasi transaksi divalidasi, manuver eksekusi langsung dikerahkan. Normalnya, Anda sudah bisa menikmati lonjakan metrik notifikasi di perangkat Anda dalam rentang waktu 1 sampai 5 jam kerja saja."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Adakah batasan kuota minimal saat membeli jasa tambah like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami sangat adaptif dalam mengakomodasi berbagai level strategi digital Anda. Anda bisa mengamankan order mulai dari 100 impresi hingga pesanan puluhan ribu reaksi per tautan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bisakah saya memecah paket interaksi untuk beberapa postingan sekaligus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat memungkinkan! Sebagai ilustrasi, jika Anda meminang paket 1.000 reaksi, Anda berhak membaginya secara merata ke 10 video, reels, atau foto yang berbeda. Cukup setorkan daftar URL kepada tim admin kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah akun atau postingan saya boleh dikunci (private) saat proses berjalan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Demi kelancaran sistem, akun atau tautan konten Anda wajib disetting untuk Publik selama pengerjaan. Jika akun dikunci, jaringan sistem kami tidak akan bisa mendeteksi URL target sehingga proses otomatis tertunda."
+        }
+      }
+    ]
+  }
+]
+</script>
+</Fragment>
+
+  <Hero {...dataHero} />
+  
+  <MasalahJasaLike {...dataMasalah} />
+  
+  <ApaItuJasaLike {...dataApaItu} />
+
+  <ManfaatJasaLike {...dataManfaat} />
+
+  <MengapaMemilihJasaLike {...dataMengapaMemilih} />
+  
+  <Testimonials />
+  
+  <MetodePembayaran />
+  
+  <DaftarHarga />
+
+  <CaraOrder />
+  
+  <FaqJasaLike {...dataFaq} />
+
+</DefaultLayout>
+
+>>>>>>> 3815f42 (Optimasi variasi CTA untuk mengurangi duplicate content)
