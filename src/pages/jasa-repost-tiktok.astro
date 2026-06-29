@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Repost TikTok Profesional",
-    "image": "https://jasalike.com/image/harga-reposttiktok.png",
+    "serviceType": "Jasa Repost TikTok Profesional",
     "description": "Layanan distribusi edukatif untuk meningkatkan exposure konten TikTok, memperluas jangkauan algoritma, dan memperkuat performa video secara aman dan terstruktur.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-repost-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 4.8,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 734
+      "ratingCount": 1285
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -282,8 +287,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

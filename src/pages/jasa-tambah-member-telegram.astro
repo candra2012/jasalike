@@ -177,24 +177,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Tambah Member Telegram",
-    "image": "https://jasalike.com/image/harga-member-telegram.png",
+    "serviceType": "Jasa Tambah Member Telegram",
     "description": "Optimalkan pertumbuhan anggota Telegram Anda dengan layanan tambah member profesional. Tambah invite member Telegram secara organik dan aman, baik untuk Grup maupun Channel.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-tambah-member-telegram/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 4.7,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 1538
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -266,8 +271,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

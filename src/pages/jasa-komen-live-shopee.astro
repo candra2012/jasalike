@@ -179,24 +179,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Komen Live Shopee Aktif & Interaksi Tinggi",
-    "image": "https://jasalike.com/image/harga-komenliveshopee.png",
+    "serviceType": "Jasa Komen Live Shopee Aktif & Interaksi Tinggi",
     "description": "Optimalkan Live Streaming Shopee Anda dengan layanan jasa tambah komentar Live Shopee. Tambahkan interaksi aktif dan buat sesi live Anda semakin menarik.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-komen-live-shopee/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 1205
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -268,8 +273,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

@@ -179,24 +179,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jual Jasa Share Facebook Organik",
-    "image": "https://jasalike.com/image/harga-sharefb.png",
+    "serviceType": "Jual Jasa Share Facebook Organik",
     "description": "Tingkatkan visibilitas konten Anda dengan layanan jasa share Facebook. Proses pembagian konten yang efektif, privasi terjaga, dan hasil yang optimal.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-share-facebook/",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 4.9,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 844
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -267,8 +272,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

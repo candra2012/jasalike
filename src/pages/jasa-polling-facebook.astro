@@ -179,24 +179,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jual Jasa Vote Facebook",
-    "image": "https://jasalike.com/image/harga-votefb.png",
+    "serviceType": "Jual Jasa Vote Facebook",
     "description": "Optimalkan kampanye online Anda dengan layanan jasa vote Facebook. Dapatkan dukungan suara yang solid dan terpercaya, tingkatkan kredibilitas, dan capai target Anda dengan efisien.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-polling-facebook/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 4.8,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 1782
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -267,8 +272,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

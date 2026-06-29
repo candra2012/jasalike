@@ -180,24 +180,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Save Video YouTube untuk Playlist Organik",
-    "image": "https://jasalike.com/image/harga-saveyt.png",
+    "serviceType": "Jasa Save Video YouTube untuk Playlist Organik",
     "description": "Layanan jasa save video YouTube untuk menambah bookmark ke playlist YouTube dan mendongkrak engagement YouTube secara organik.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-save-video-youtube/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.8,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 412
+      "ratingCount": 974
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -284,8 +289,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

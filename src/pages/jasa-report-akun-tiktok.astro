@@ -179,24 +179,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",  // <--- GANTI BAGIAN INI JADI PRODUCT
+    "@type": "Service",
     "name": "Jasa Report Akun TikTok Profesional",
-    "image": "https://jasalike.com/image/harga-reporttiktok.png",
+    "serviceType": "Jasa Report Akun TikTok Profesional",
     "description": "Layanan jasa report TikTok terpercaya untuk menangani akun fake, penipu, dan konten pelanggaran secara masif dan aman.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-report-akun-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 4.8,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 645
+      "ratingCount": 603
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -226,7 +231,7 @@ const dataFaq = {
         "@type": "ListItem",
         "position": 3,
         "name": "Jasa Report Akun TikTok",
-        "item": "https://jasalike.com/jasa-report-akun-tiktok" 
+        "item": "https://jasalike.com/jasa-report-akun-tiktok"
       }
     ]
   },
@@ -276,8 +281,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

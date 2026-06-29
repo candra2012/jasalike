@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Like Ulasan Komentar Marketplace",
-    "image": "https://jasalike.com/image/jasa-like-marketplace-100.png",
+    "serviceType": "Jasa Like Ulasan Komentar Marketplace",
     "description": "Layanan optimasi engagement untuk mendongkrak ulasan positif menjadi Top Review di Shopee, Tokopedia, Lazada, dan TikTok Shop.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/like-ulasan-marketplace/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": 5.0,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "892"
+      "ratingCount": 386
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -282,8 +287,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

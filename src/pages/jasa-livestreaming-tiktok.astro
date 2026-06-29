@@ -177,24 +177,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Livestreaming TikTok Profesional",
-    "image": "https://jasalike.com/image/harga-livestreamingtiktok.png",
+    "serviceType": "Jasa Livestreaming TikTok Profesional",
     "description": "Layanan edukasi dan optimasi interaksi livestreaming TikTok untuk membantu kreator dan pebisnis mempertahankan retensi audiens serta meningkatkan jangkauan algoritma.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-livestreaming-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.8,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 812
+      "ratingCount": 576
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -273,8 +278,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

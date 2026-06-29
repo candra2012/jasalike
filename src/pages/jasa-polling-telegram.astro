@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Polling Telegram Terpercaya & Strategis",
-    "image": "https://jasalike.com/image/harga-polling-telegram.png",
+    "serviceType": "Jasa Polling Telegram Terpercaya & Strategis",
     "description": "Optimalkan potensi kompetisi Anda dengan layanan jasa polling Telegram. Meningkatkan suara dan memenangkan kompetisi dengan cara yang strategis dan efektif.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-polling-telegram/",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 4.9,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 1645
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -267,8 +272,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

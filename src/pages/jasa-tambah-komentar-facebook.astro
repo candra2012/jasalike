@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jual Jasa Tambah Komentar Facebook Organik",
-    "image": "https://jasalike.com/image/harga-komentarfb.png",
+    "serviceType": "Jual Jasa Tambah Komentar Facebook Organik",
     "description": "Tingkatkan interaksi dan kredibilitas konten Anda dengan layanan jual jasa tambah komentar Facebook. Proses pertumbuhan organik, privasi terjaga, dan hasil yang efektif.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-tambah-komentar-facebook/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 4.7,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 689
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -266,8 +271,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

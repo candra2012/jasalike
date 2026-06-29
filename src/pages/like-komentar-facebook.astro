@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Like Komentar Facebook Aktif",
-    "image": "https://jasalike.com/image/jasa-like-facebook-organik-100like.png",
+    "serviceType": "Jasa Like Komentar Facebook Aktif",
     "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi dan mencapai filter 'Paling Relevan' di Facebook secara profesional.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/like-komentar-facebook/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
+      "ratingValue": 4.9,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "685"
+      "ratingCount": 591
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -282,8 +287,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

@@ -180,24 +180,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Komen YouTube Aktif Terpercaya",
-    "image": "https://jasalike.com/image/harga-komenyt.png",
+    "serviceType": "Jasa Komen YouTube Aktif Terpercaya",
     "description": "Layanan jasa komen YouTube aktif dengan komentar natural, kontekstual, dan dari akun Indonesia. Tingkatkan kredibilitas serta aman untuk monetisasi channel.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-komen-youtube-aktif/",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": 4.9,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 680
+      "ratingCount": 642
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -284,8 +289,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

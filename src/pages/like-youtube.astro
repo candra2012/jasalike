@@ -178,112 +178,116 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
   <Fragment slot="head">
-    <script type="application/ld+json">
-      [
-        {
-          "@context": "https://schema.org/",
-          "@type": "Product",
-          "name": "Jasa Like YouTube Terpercaya",
-          "image": "https://jasalike.com/image/harga-paket-100like-youtube.png",
-          "description": "Layanan jasa like YouTube terpercaya dengan distribusi like video YouTube organik. Membantu engagement channel, optimasi video YouTube, dan peningkatan peringkat secara aman.",
-          "brand": {
-            "@type": "Brand",
-            "name": "JasaLike"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "1350"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "lowPrice": "40000",
-            "highPrice": "2000000",
-            "priceCurrency": "IDR",
-            "offerCount": "4"
-          }
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Beranda",
-              "item": "https://jasalike.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Layanan",
-              "item": "https://jasalike.com/layanan/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Like YouTube"
-            }
-          ]
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Bagaimana sistem kerja jasa like YouTube terpercaya dari JasaLike?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Anda cukup mengirimkan tautan video publik, lalu tim mendistribusikan like secara bertahap melalui jaringan akun aktif. Pendekatan ini menjaga pola engagement agar tetap natural di mata algoritma."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Berapa lama proses like YouTube selesai dikirim?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Durasi pengerjaan bergantung pada paket yang dipilih. Umumnya like mulai masuk dalam hitungan jam dan tuntas secara bertahap dalam 1–3 hari untuk menjaga kestabilan metrik."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Apakah jasa like video YouTube aman untuk monetisasi channel?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Aman. Kami tidak meminta akses login, sehingga tidak ada risiko pelanggaran kebijakan YouTube Partner Program. Like terdistribusi seperti aktivitas pengguna reguler pada umumnya."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Apakah layanan mendukung YouTube Shorts dan podcast?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ya. Layanan kami mencakup seluruh format video YouTube, termasuk Shorts, video reguler, live streaming rekaman, maupun podcast berdurasi panjang."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Apa yang terjadi jika jumlah like menurun setelah proses selesai?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Anda berhak atas garansi refill gratis dalam periode yang telah ditentukan. Cukup kirimkan bukti screenshot dan tim akan mengisi ulang selisih like yang berkurang."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Bagaimana jasa tambah like YouTube membantu optimasi algoritma?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Like organik meningkatkan rasio interaksi awal, yang menjadi salah satu sinyal terkuat algoritma untuk memasukkan video ke rekomendasi Beranda, kolom Pencarian, dan Suggested Videos."
-              }
-            }
-          ]
+    <script type="application/ld+json">[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Service",
+    "name": "Jasa Like YouTube Terpercaya",
+    "serviceType": "Jasa Like YouTube Terpercaya",
+    "description": "Layanan jasa like YouTube terpercaya dengan distribusi like video YouTube organik. Membantu engagement channel, optimasi video YouTube, dan peningkatan peringkat secara aman.",
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/like-youtube/",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5.0,
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": 1832
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "40000",
+      "highPrice": "2000000",
+      "priceCurrency": "IDR",
+      "offerCount": "4"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "https://jasalike.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Layanan",
+        "item": "https://jasalike.com/layanan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Like YouTube"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Bagaimana sistem kerja jasa like YouTube terpercaya dari JasaLike?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anda cukup mengirimkan tautan video publik, lalu tim mendistribusikan like secara bertahap melalui jaringan akun aktif. Pendekatan ini menjaga pola engagement agar tetap natural di mata algoritma."
         }
-      ]
-    </script>
+      },
+      {
+        "@type": "Question",
+        "name": "Berapa lama proses like YouTube selesai dikirim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Durasi pengerjaan bergantung pada paket yang dipilih. Umumnya like mulai masuk dalam hitungan jam dan tuntas secara bertahap dalam 1–3 hari untuk menjaga kestabilan metrik."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jasa like video YouTube aman untuk monetisasi channel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aman. Kami tidak meminta akses login, sehingga tidak ada risiko pelanggaran kebijakan YouTube Partner Program. Like terdistribusi seperti aktivitas pengguna reguler pada umumnya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah layanan mendukung YouTube Shorts dan podcast?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ya. Layanan kami mencakup seluruh format video YouTube, termasuk Shorts, video reguler, live streaming rekaman, maupun podcast berdurasi panjang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apa yang terjadi jika jumlah like menurun setelah proses selesai?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anda berhak atas garansi refill gratis dalam periode yang telah ditentukan. Cukup kirimkan bukti screenshot dan tim akan mengisi ulang selisih like yang berkurang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bagaimana jasa tambah like YouTube membantu optimasi algoritma?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Like organik meningkatkan rasio interaksi awal, yang menjadi salah satu sinyal terkuat algoritma untuk memasukkan video ke rekomendasi Beranda, kolom Pencarian, dan Suggested Videos."
+        }
+      }
+    ]
+  }
+]</script>
   </Fragment>
 
   <Hero {...dataHero} />

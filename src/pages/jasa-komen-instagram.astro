@@ -180,24 +180,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jual Jasa Komen Instagram Aktif & Custom",
-    "image": "https://jasalike.com/image/harga-komenig.png",
+    "serviceType": "Jual Jasa Komen Instagram Aktif & Custom",
     "description": "Hidupkan suasana postingan Anda dengan jasa komen Instagram organik. Layanan jual komentar custom yang relevan untuk mendongkrak interaksi.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-komen-instagram/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 380
+      "ratingCount": 1571
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -268,8 +273,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

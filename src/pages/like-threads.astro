@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Like Threads Terpercaya",
-    "image": "https://jasalike.com/image/jasa-like-threads-organik-100like.png",
+    "serviceType": "Jasa Like Threads Terpercaya",
     "description": "Layanan optimasi engagement Threads premium untuk membantu meningkatkan otoritas dan kredibilitas utas Anda.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/like-threads/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": 4.8,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "850"
+      "ratingCount": 1093
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -227,9 +232,62 @@ const dataFaq = {
         "name": "Jasa Like Threads"
       }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Bagaimana sistem pengerjaan Jasa Like Threads ini?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami menggunakan infrastruktur eksternal yang didesain untuk menyalurkan apresiasi (like) secara bertahap pada tautan utas yang Anda kirimkan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah keamanan data pribadi saya tetap terlindungi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sangat terlindungi. Karena layanan kami berbasis URL publik, kami tidak membutuhkan kredensial rahasia apa pun dari akun Anda."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah bisa digunakan untuk kebutuhan bisnis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tentu. Sangat direkomendasikan untuk menunjang branding perusahaan maupun promosi produk agar terlihat lebih dipercaya."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kapan saya bisa melihat hasilnya?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estimasi awal pengerjaan biasanya dimulai dalam hitungan menit hingga jam setelah data tervalidasi oleh sistem kami."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah jumlah interaksi bersifat permanen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kami mengusahakan kualitas terbaik yang stabil. Jika terjadi fluktuasi, paket kami umumnya sudah menyertakan asuransi isi ulang."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Apakah paket bisa dibagi ke beberapa utas berbeda?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bisa. Silakan komunikasikan preferensi pembagian jumlah like Anda kepada admin kami saat melakukan pemesanan."
+        }
+      }
+    ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

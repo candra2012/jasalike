@@ -66,7 +66,110 @@ const dataFaq = {
 ---
 
 <DefaultLayout title={title} description={description} keywords={keywords}>
-  
+
+  <Fragment slot="head">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Layanan Optimasi Sosmed Lengkap - JasaLike",
+      "serviceType": "Pusat Layanan Optimasi Media Sosial",
+      "description": "Pusat layanan optimasi engagement untuk semua platform sosial media. Tingkatkan kredibilitas akun Anda dengan proses aman dan hasil organik.",
+      "url": "https://jasalike.com/layanan/",
+      "provider": {
+        "@type": "Organization",
+        "name": "JasaLike",
+        "url": "https://jasalike.com"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.9,
+        "bestRating": 5,
+        "worstRating": 1,
+        "ratingCount": 2107
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://jasalike.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Layanan",
+          "item": "https://jasalike.com/layanan/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah keamanan privasi akun saya terjamin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sangat terjamin 100%. Kami hanya membutuhkan link/tautan postingan target, tanpa pernah meminta password atau data login akun Anda."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah JasaLike menyediakan layanan Followers atau Views?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. Sesuai dengan nama brand kami, JasaLike fokus 100% sebagai spesialis penyedia layanan Like. Ini komitmen kami untuk memberikan kualitas interaksi (like) yang paling maksimal dan natural dibanding layanan palugada lainnya."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Berapa lama proses masuknya like?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pesanan akan langsung diproses ke dalam antrean sistem setelah pembayaran terkonfirmasi. Waktu masuknya like bervariasi mulai dari hitungan menit hingga beberapa jam agar terlihat natural."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Platform apa saja yang bisa dioptimasi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kami menyediakan layanan Jasa Like lengkap untuk Instagram, TikTok, Facebook, LinkedIn, YouTube, hingga Twitter (X)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah tersedia garansi jika terjadi drop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ya, kami menyediakan garansi isi ulang (refill) sesuai dengan ketentuan masing-masing paket untuk memastikan jumlah interaksi Anda tetap stabil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah jumlah like bisa dibagi ke banyak postingan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tentu bisa! Anda bisa mendistribusikan pesanan like ke beberapa postingan berbeda sekaligus. Silakan hubungi admin WhatsApp kami untuk mengatur pembagian jumlahnya."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</Fragment>
+
   <Hero {...dataHero} />
 
   <ManfaatJasaLike {...dataManfaat} />

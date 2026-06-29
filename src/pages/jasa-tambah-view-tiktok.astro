@@ -180,24 +180,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Tambah View TikTok Murah & Profesional",
-    "image": "https://jasalike.com/image/harga-viewtiktok.png",
+    "serviceType": "Jasa Tambah View TikTok Murah & Profesional",
     "description": "Optimalkan konten TikTok Anda menggunakan jasa tambah view terpercaya untuk memperluas audiens secara aman, cepat, dan efektif.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-tambah-view-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": 4.9,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "1645"
+      "ratingCount": 1124
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -260,8 +265,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

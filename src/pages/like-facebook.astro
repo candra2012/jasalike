@@ -177,24 +177,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Like Facebook Aktif dan Terpercaya",
-    "image": "https://jasalike.com/image/jasa-like-facebook-organik-100like.png",
+    "serviceType": "Jasa Like Facebook Aktif dan Terpercaya",
     "description": "Layanan jasa like Facebook untuk membantu meningkatkan interaksi postingan, kredibilitas akun, dan performa konten.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/like-facebook/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": 4.9,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "1250"
+      "ratingCount": 1187
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -257,8 +262,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

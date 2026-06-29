@@ -180,24 +180,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jual Jasa View YouTube Organik & Shorts",
-    "image": "https://jasalike.com/image/harga-viewyt.png",
+    "serviceType": "Jual Jasa View YouTube Organik & Shorts",
     "description": "Layanan jual jasa view YouTube organik untuk video panjang dan Shorts. Tingkatkan watch time, penonton organik, dan performa algoritma channel Anda secara aman.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jual-jasa-view-youtube/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.8,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 915
+      "ratingCount": 1749
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -276,8 +281,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

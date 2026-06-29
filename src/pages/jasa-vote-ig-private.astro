@@ -163,24 +163,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Vote IG Private & Polling Lomba",
-    "image": "https://jasalike.com/image/harga-voteig.png",
+    "serviceType": "Jasa Vote IG Private & Polling Lomba",
     "description": "Menangkan kontes Instagram Anda dengan layanan jasa vote IG private terpercaya. Proses organik, aman untuk akun terkunci, dan kerahasiaan terjamin.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-vote-ig-private/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.8,
+      "ratingValue": 4.7,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 240
+      "ratingCount": 1126
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -251,8 +256,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

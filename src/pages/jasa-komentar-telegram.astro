@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Komentar Telegram untuk Meningkatkan Interaksi",
-    "image": "https://jasalike.com/image/harga-komentar-telegram.png",
+    "serviceType": "Jasa Komentar Telegram untuk Meningkatkan Interaksi",
     "description": "Berkembang bersama komunitas Anda dengan layanan tambah komentar di Telegram. Buat diskusi semakin hidup dan menarik dengan kualitas komentar yang relevan dan berkualitas.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-komentar-telegram/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 996
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -267,8 +272,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

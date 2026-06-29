@@ -179,24 +179,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
      <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Subscriber YouTube Premium untuk Monetisasi",
-    "image": "https://jasalike.com/image/harga-subscribeyt.png",
+    "serviceType": "Jasa Subscriber YouTube Premium untuk Monetisasi",
     "description": "Layanan jasa subscriber YouTube premium dengan metode penambahan bertahap, akun terkurasi, dan pendampingan konsultan untuk membantu kreator menembus syarat monetisasi 1000 subscriber.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-subscribe-youtube/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 4.7,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 812
+      "ratingCount": 438
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -259,8 +264,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
 

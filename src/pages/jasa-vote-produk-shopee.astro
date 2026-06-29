@@ -162,24 +162,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Vote Produk Online Terpercaya",
-    "image": "https://jasalike.com/image/harga-voteshopee.png",
+    "serviceType": "Jasa Vote Produk Online Terpercaya",
     "description": "Dapatkan dukungan suara yang solid dengan layanan jasa vote produk online. Tingkatkan peluang menang Anda dalam kompetisi atau lomba dengan strategi yang efektif dan aman.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-vote-produk-shopee/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 855
+      "ratingCount": 489
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -250,8 +255,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

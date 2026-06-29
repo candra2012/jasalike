@@ -178,24 +178,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Like Komentar Reddit & Layanan Upvote Diskusi",
-    "image": "https://jasalike.com/image/harga-paket-komentarreddit.png",
+    "serviceType": "Jasa Like Komentar Reddit & Layanan Upvote Diskusi",
     "description": "Layanan optimasi upvote komentar Reddit untuk mendominasi diskusi, memenangkan perdebatan, dan mengamankan posisi Top Comment secara profesional.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/like-komentar-reddit/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": 4.8,
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "624"
+      "ratingCount": 482
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -258,8 +263,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />

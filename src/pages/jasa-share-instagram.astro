@@ -179,24 +179,29 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">
-[
+<script type="application/ld+json">[
   {
     "@context": "https://schema.org/",
-    "@type": "Product",
+    "@type": "Service",
     "name": "Jasa Share Instagram Terpercaya & Aman",
-    "image": "https://jasalike.com/image/harga-sharefb.png",
+    "serviceType": "Jasa Share Instagram Terpercaya & Aman",
     "description": "Tingkatkan jangkauan postingan Instagram Anda dengan jasa share Instagram dari JasaLike. Proses natural, privasi terjaga, dan hasil optimal untuk brand Anda.",
-    "brand": {
-      "@type": "Brand",
-      "name": "JasaLike"
+    "provider": {
+      "@type": "Organization",
+      "name": "JasaLike",
+      "url": "https://jasalike.com"
     },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Indonesia"
+    },
+    "url": "https://jasalike.com/jasa-share-instagram/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": 5.0,
       "bestRating": 5,
       "worstRating": 1,
-      "ratingCount": 812
+      "ratingCount": 920
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -267,8 +272,7 @@ const dataFaq = {
       }
     ]
   }
-]
-</script>
+]</script>
 </Fragment>
 
   <Hero {...dataHero} />
