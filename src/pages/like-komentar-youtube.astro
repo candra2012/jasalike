@@ -177,29 +177,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Like Komentar YouTube Aktif Terpercaya",
-    "serviceType": "Jasa Like Komentar YouTube Aktif Terpercaya",
     "description": "Layanan jasa like komentar youtube aktif dan terpercaya untuk mengangkat opini, branding, serta tautan afiliasi ke posisi Top Comment video YouTube populer.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/like-komentar-youtube/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": "4.9",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": 1813
+      "reviewCount": 670
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -207,6 +197,11 @@ const dataFaq = {
       "highPrice": "2000000",
       "priceCurrency": "IDR",
       "offerCount": "4"
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-youtube.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -286,7 +281,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

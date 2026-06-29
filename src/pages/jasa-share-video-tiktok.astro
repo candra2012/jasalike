@@ -178,29 +178,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Share Video TikTok Profesional",
-    "serviceType": "Jasa Share Video TikTok Profesional",
     "description": "Layanan jasa share TikTok edukatif dan solutif untuk membantu meningkatkan penyebaran konten dan jangkauan audiens promosi Anda.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-share-video-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.8,
+      "ratingValue": "4.8",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": 1248
+      "reviewCount": 1456
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -208,6 +198,11 @@ const dataFaq = {
       "highPrice": "2000000",
       "priceCurrency": "IDR",
       "offerCount": "4"
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-Tiktok.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -263,7 +258,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

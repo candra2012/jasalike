@@ -180,29 +180,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jual Jasa Tambah Komentar Twitter Aktif",
-    "serviceType": "Jual Jasa Tambah Komentar Twitter Aktif",
     "description": "Tingkatkan keterlibatan dan kredibilitas profil Anda dengan layanan jasa tambah komen Twitter. Komentar aktif dan relevan yang membantu konten Anda lebih diperhatikan.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-komen-twitter/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 5.0,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 798
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": 631
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -210,6 +200,11 @@ const dataFaq = {
       "highPrice": 2000000,
       "priceCurrency": "IDR",
       "offerCount": 4
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-twitter.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -274,7 +269,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

@@ -177,29 +177,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Like Reddit & Layanan Upvote Terpercaya",
-    "serviceType": "Jasa Like Reddit & Layanan Upvote Terpercaya",
     "description": "Layanan pendorong visibilitas subreddit untuk menaikkan otoritas postingan. Solusi cara masuk halaman depan Reddit yang aman dan profesional.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/like-reddit/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.7,
+      "ratingValue": "4.9",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": 1126
+      "reviewCount": 1278
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -207,6 +197,11 @@ const dataFaq = {
       "highPrice": "2500000",
       "priceCurrency": "IDR",
       "offerCount": "4"
+    },
+    "image": "https://jasalike.com/image/hero-reddit.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -262,7 +257,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

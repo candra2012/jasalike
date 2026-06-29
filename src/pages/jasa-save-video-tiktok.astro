@@ -177,29 +177,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Save Video TikTok & Optimasi Fitur Koleksi",
-    "serviceType": "Jasa Save Video TikTok & Optimasi Fitur Koleksi",
     "description": "Layanan optimasi indikator Save/Bookmark TikTok yang edukatif dan solutif. Bantu konten Anda bertahan lebih lama di algoritma FYP dengan interaksi berkualitas tinggi.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-save-video-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
+      "ratingValue": "4.9",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": 1357
+      "reviewCount": 1473
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -207,6 +197,11 @@ const dataFaq = {
       "highPrice": "2000000",
       "priceCurrency": "IDR",
       "offerCount": "4"
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-Tiktok.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -262,7 +257,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

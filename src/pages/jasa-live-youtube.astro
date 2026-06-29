@@ -179,29 +179,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Live YouTube Organik & Terpercaya",
-    "serviceType": "Jasa Live YouTube Organik & Terpercaya",
     "description": "Layanan jasa live youtube terpercaya dengan viewer real-time yang stabil untuk webinar, peluncuran produk, dan acara brand profesional.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-live-youtube/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 758
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": 1903
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -209,6 +199,11 @@ const dataFaq = {
       "highPrice": 1500000,
       "priceCurrency": "IDR",
       "offerCount": 4
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-youtube.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -288,7 +283,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

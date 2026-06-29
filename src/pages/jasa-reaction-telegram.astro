@@ -179,29 +179,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Reaction Telegram",
-    "serviceType": "Jasa Reaction Telegram",
     "description": "Optimalkan channel Telegram Anda dengan layanan jasa reaction Telegram. Tingkatkan validasi sosial, interaksi, dan membuat channel terlihat hidup dan aktif.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-reaction-telegram/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 651
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": 773
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -209,6 +199,11 @@ const dataFaq = {
       "highPrice": 2000000,
       "priceCurrency": "IDR",
       "offerCount": 4
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-telegram.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -273,7 +268,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

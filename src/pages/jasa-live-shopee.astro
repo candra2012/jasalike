@@ -172,29 +172,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Penonton Live Shopee Murah & Berkualitas",
-    "serviceType": "Jasa Penonton Live Shopee Murah & Berkualitas",
     "description": "Tingkatkan visibilitas dan popularitas live streaming Shopee Anda dengan layanan jasa penonton live Shopee murah dan berkualitas.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-live-shopee/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 5.0,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 1832
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": 801
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -202,6 +192,11 @@ const dataFaq = {
       "highPrice": 1500000,
       "priceCurrency": "IDR",
       "offerCount": 4
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-shopee.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -258,7 +253,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

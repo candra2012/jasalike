@@ -179,29 +179,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Report Akun TikTok Profesional",
-    "serviceType": "Jasa Report Akun TikTok Profesional",
     "description": "Layanan jasa report TikTok terpercaya untuk menangani akun fake, penipu, dan konten pelanggaran secara masif dan aman.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-report-akun-tiktok/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 4.8,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 603
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": 783
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -209,6 +199,11 @@ const dataFaq = {
       "highPrice": 2000000,
       "priceCurrency": "IDR",
       "offerCount": 4
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-Tiktok.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -281,7 +276,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

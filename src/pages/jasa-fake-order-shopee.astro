@@ -179,29 +179,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jual Jasa Produk Terjual di Toko Online",
-    "serviceType": "Jual Jasa Produk Terjual di Toko Online",
     "description": "Tingkatkan penjualan produk di toko online Anda dengan layanan jasa produk terjual. Proses profesional, privasi terjaga, dan hasil yang memuaskan.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/jasa-fake-order-shopee/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 5.0,
-      "bestRating": 5,
-      "worstRating": 1,
-      "ratingCount": 1244
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": 1743
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -209,6 +199,11 @@ const dataFaq = {
       "highPrice": 15000000,
       "priceCurrency": "IDR",
       "offerCount": 4
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-shopee.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -273,7 +268,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />

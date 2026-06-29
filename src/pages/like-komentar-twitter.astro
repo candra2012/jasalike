@@ -177,29 +177,19 @@ const dataFaq = {
 <DefaultLayout title={title} description={description} keywords={keywords}>
 
 <Fragment slot="head">
-<script type="application/ld+json">[
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org/",
-    "@type": "Service",
+    "@type": "Product",
     "name": "Jasa Like Komentar Twitter Aktif",
-    "serviceType": "Jasa Like Komentar Twitter Aktif",
     "description": "Layanan optimasi engagement untuk mendominasi kolom diskusi dan meraih posisi Top Reply di Twitter / X secara profesional.",
-    "provider": {
-      "@type": "Organization",
-      "name": "JasaLike",
-      "url": "https://jasalike.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Indonesia"
-    },
-    "url": "https://jasalike.com/like-komentar-twitter/",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": 5.0,
+      "ratingValue": "4.7",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": 1205
+      "reviewCount": 395
     },
     "offers": {
       "@type": "AggregateOffer",
@@ -207,6 +197,11 @@ const dataFaq = {
       "highPrice": "2000000",
       "priceCurrency": "IDR",
       "offerCount": "4"
+    },
+    "image": "https://jasalike.com/image/hero-jasalike-twitter.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "JasaLike"
     }
   },
   {
@@ -286,7 +281,8 @@ const dataFaq = {
       }
     ]
   }
-]</script>
+]
+</script>
 </Fragment>
 
   <Hero {...dataHero} />
