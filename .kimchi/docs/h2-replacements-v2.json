@@ -1,0 +1,163 @@
+[
+  {
+    "file": "like-komentar-pinterest.astro",
+    "replacements": [
+      { "old": "Alur Cepat <span class=\"text-orange-500\">Pemesanan</span>", "new": "Panduan Ringkas <span class=\"text-orange-500\">Order Komentar Pinterest</span>" }
+    ]
+  },
+  {
+    "file": "like-komentar-threads.astro",
+    "replacements": [
+      { "old": "Alur Cepat <span class=\"text-neutral-800\">Pemesanan</span>", "new": "Tahapan Mudah <span class=\"text-neutral-800\">Order Komentar Threads</span>" }
+    ]
+  },
+  {
+    "file": "like-marketplace.astro",
+    "replacements": [
+      { "old": "Alur Cepat <span class=\"text-orange-500\">Pemesanan</span>", "new": "Cara Cepat <span class=\"text-orange-500\">Like Produk Marketplace</span>" }
+    ]
+  },
+  {
+    "file": "like-pinterest.astro",
+    "replacements": [
+      { "old": "Alur Cepat <span class=\"text-orange-500\">Pemesanan</span>", "new": "Langkah Order <span class=\"text-orange-500\">Like Pinterest</span>" },
+      { "old": "Keunggulan Infrastruktur <span class=\"text-orange-500\">JasaLike.com</span>", "new": "Mengapa Memilih Layanan <span class=\"text-orange-500\">Like Pinterest JasaLike</span>" }
+    ]
+  },
+  {
+    "file": "like-reddit.astro",
+    "replacements": [
+      { "old": "Alur Cepat <span class=\"text-orange-500\">Pemesanan</span>", "new": "Alur Order <span class=\"text-orange-500\">Upvote Reddit</span>" },
+      { "old": "Keunggulan Infrastruktur <span class=\"text-orange-500\">JasaLike.com</span>", "new": "Keunggulan Layanan <span class=\"text-orange-500\">Upvote Reddit JasaLike</span>" }
+    ]
+  },
+  {
+    "file": "jasa-subscribe-youtube.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan <span class=\"text-blue-400\">yang Ringkas</span>", "new": "Cara Memesan <span class=\"text-blue-400\">Subscriber YouTube</span>" }
+    ]
+  },
+  {
+    "file": "like-komentar-instagram.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan <span class=\"text-blue-400\">yang Ringkas</span>", "new": "Panduan Order <span class=\"text-blue-400\">Like Komentar Instagram</span>" }
+    ]
+  },
+  {
+    "file": "like-komentar-linkedin.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan <span class=\"text-blue-700\">yang Ringkas</span>", "new": "Tahapan Memesan <span class=\"text-blue-700\">Like Komentar LinkedIn</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-follower-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering <br/> <span class=\"text-pink-600\">Ditanyakan Klien</span>", "new": "Pertanyaan Umum <br/> <span class=\"text-pink-600\">Seputar Follower Facebook</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-komentar-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering <br/> <span class=\"text-pink-600\">Ditanyakan Klien</span>", "new": "FAQ Lengkap <br/> <span class=\"text-pink-600\">Komentar Facebook</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-view-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering <br/> <span class=\"text-pink-600\">Ditanyakan Klien</span>", "new": "Pertanyaan Populer <br/> <span class=\"text-pink-600\">View Facebook</span>" }
+    ]
+  },
+  {
+    "file": "jasa-fake-order-shopee.astro",
+    "replacements": [
+      { "old": "Kenapa Seller Memilih <span class=\"text-orange-500\">JasaLike</span>", "new": "Mengapa Seller Shopee <span class=\"text-orange-500\">Mengandalkan JasaLike</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-komen-shopee.astro",
+    "replacements": [
+      { "old": "Kenapa Seller Memilih <span class=\"text-orange-500\">JasaLike</span>", "new": "Keunggulan JasaLike <span class=\"text-orange-500\">untuk Komentar Shopee</span>" }
+    ]
+  },
+  {
+    "file": "jasa-polling-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering <br/> <span class=\"text-blue-600\">Ditanyakan Peserta</span>", "new": "FAQ Vote <br/> <span class=\"text-blue-600\">dan Polling Facebook</span>" }
+    ]
+  },
+  {
+    "file": "like-komentar-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering <br/> <span class=\"text-blue-600\">Ditanyakan Peserta</span>", "new": "Pertanyaan Umum <br/> <span class=\"text-blue-600\">Like Komentar Facebook</span>" }
+    ]
+  },
+  {
+    "file": "jasa-reaction-telegram.astro",
+    "replacements": [
+      { "old": "Alasan Admin Memilih <span class=\"text-sky-500\">Layanan Ini</span>", "new": "Mengapa Admin Channel <span class=\"text-sky-500\">Memilih Reaksi Telegram</span>" },
+      { "old": "Hal yang Sering Ditanyakan <br/> <span class=\"text-sky-600\">Admin Channel Telegram</span>", "new": "Pertanyaan Seputar <br/> <span class=\"text-sky-600\">Reaksi Emoji Telegram</span>" }
+    ]
+  },
+  {
+    "file": "jasa-view-telegram.astro",
+    "replacements": [
+      { "old": "Alasan Admin Memilih <span class=\"text-sky-500\">Layanan Ini</span>", "new": "Keunggulan View Telegram <span class=\"text-sky-500\">dari JasaLike</span>" },
+      { "old": "Hal yang Sering Ditanyakan <br/> <span class=\"text-sky-600\">Admin Channel Telegram</span>", "new": "FAQ View <br/> <span class=\"text-sky-600\">Postingan Telegram</span>" }
+    ]
+  },
+  {
+    "file": "jasa-save-video-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul <br/> <span class=\"text-orange-500\">dari Kreator TikTok</span>", "new": "FAQ Lengkap <br/> <span class=\"text-orange-500\">Save Video TikTok</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-follower-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul <br/> <span class=\"text-blue-600\">dari Kreator TikTok</span>", "new": "Pertanyaan Umum <br/> <span class=\"text-blue-600\">Seputar Follower TikTok</span>" }
+    ]
+  },
+  {
+    "file": "jasa-share-facebook.astro",
+    "replacements": [
+      { "old": "Dampak Nyata bagi <span class=\"text-pink-600\">Kreator Konten FB</span>", "new": "Manfaat Share Facebook <span class=\"text-pink-600\">untuk Performa Konten</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-komentar-facebook.astro",
+    "replacements": [
+      { "old": "Dampak Nyata bagi <span class=\"text-pink-600\">Kreator Konten FB</span>", "new": "Dampak Positif Komentar <span class=\"text-pink-600\">untuk Bisnis Facebook</span>" }
+    ]
+  },
+  {
+    "file": "jasa-share-video-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul <br/> <span class=\"text-orange-500\">Kreator TikTok</span>", "new": "FAQ Lengkap <br/> <span class=\"text-orange-500\">Share Video TikTok</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-view-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul <br/> <span class=\"text-blue-600\">Kreator TikTok</span>", "new": "Pertanyaan Umum <br/> <span class=\"text-blue-600\">Seputar View TikTok</span>" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-follower.astro",
+    "replacements": [
+      { "old": "Standar Layanan <span class=\"text-pink-500\">yang Kami Pegang</span> Teguh", "new": "Komitmen Kualitas <span class=\"text-pink-500\">untuk Pertumbuhan Follower</span>" }
+    ]
+  },
+  {
+    "file": "like-youtube.astro",
+    "replacements": [
+      { "old": "Standar Layanan <span class=\"text-blue-400\">yang Kami Pegang Teguh</span>", "new": "Mengapa Kreator YouTube <span class=\"text-blue-400\">Memilih JasaLike</span>" },
+      { "old": "Alur Pemesanan <span class=\"text-blue-500\">yang Sederhana</span>", "new": "Panduan Memesan <span class=\"text-blue-500\">Like YouTube</span>" }
+    ]
+  },
+  {
+    "file": "like-komentar-youtube.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan <span class=\"text-red-500\">yang Sederhana</span>", "new": "Cara Pesan <span class=\"text-red-500\">Like Komentar YouTube</span>" }
+    ]
+  }
+]

@@ -1,0 +1,163 @@
+[
+  {
+    "file": "like-komentar-pinterest.astro",
+    "replacements": [
+      { "old": "Alur Cepat Pemesanan", "new": "Panduan Ringkas Order Like Komentar Pinterest" }
+    ]
+  },
+  {
+    "file": "like-komentar-threads.astro",
+    "replacements": [
+      { "old": "Alur Cepat Pemesanan", "new": "Tahapan Mudah Memesan Like Komentar Threads" }
+    ]
+  },
+  {
+    "file": "like-marketplace.astro",
+    "replacements": [
+      { "old": "Alur Cepat Pemesanan", "new": "Cara Cepat Memesan Like Produk Marketplace" }
+    ]
+  },
+  {
+    "file": "like-pinterest.astro",
+    "replacements": [
+      { "old": "Alur Cepat Pemesanan", "new": "Langkah Order Like Pinterest" },
+      { "old": "Keunggulan Infrastruktur JasaLike.com", "new": "Mengapa Memilih Layanan Like Pinterest JasaLike" }
+    ]
+  },
+  {
+    "file": "like-reddit.astro",
+    "replacements": [
+      { "old": "Alur Cepat Pemesanan", "new": "Alur Pemesanan Upvote Reddit" },
+      { "old": "Keunggulan Infrastruktur JasaLike.com", "new": "Keunggulan Layanan Upvote Reddit JasaLike" }
+    ]
+  },
+  {
+    "file": "jasa-subscribe-youtube.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan yang Ringkas", "new": "Cara Memesan Subscriber YouTube" }
+    ]
+  },
+  {
+    "file": "like-komentar-instagram.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan yang Ringkas", "new": "Panduan Order Like Komentar Instagram" }
+    ]
+  },
+  {
+    "file": "like-komentar-linkedin.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan yang Ringkas", "new": "Tahapan Memesan Like Komentar LinkedIn" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-follower-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering  Ditanyakan Klien", "new": "Pertanyaan Umum Seputar Follower Facebook" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-komentar-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering  Ditanyakan Klien", "new": "FAQ Lengkap Komentar Facebook" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-view-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering  Ditanyakan Klien", "new": "Pertanyaan Populer View Facebook" }
+    ]
+  },
+  {
+    "file": "jasa-fake-order-shopee.astro",
+    "replacements": [
+      { "old": "Kenapa Seller Memilih JasaLike", "new": "Mengapa Seller Shopee Mengandalkan JasaLike" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-komen-shopee.astro",
+    "replacements": [
+      { "old": "Kenapa Seller Memilih JasaLike", "new": "Keunggulan JasaLike untuk Komentar Shopee" }
+    ]
+  },
+  {
+    "file": "jasa-polling-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering  Ditanyakan Peserta", "new": "FAQ Vote dan Polling Facebook" }
+    ]
+  },
+  {
+    "file": "like-komentar-facebook.astro",
+    "replacements": [
+      { "old": "Hal yang Sering  Ditanyakan Peserta", "new": "Pertanyaan Umum Like Komentar Facebook" }
+    ]
+  },
+  {
+    "file": "jasa-reaction-telegram.astro",
+    "replacements": [
+      { "old": "Alasan Admin Memilih Layanan Ini", "new": "Mengapa Admin Channel Memilih Reaksi Telegram JasaLike" },
+      { "old": "Hal yang Sering Ditanyakan  Admin Channel Telegram", "new": "Pertanyaan Seputar Reaksi Emoji Telegram" }
+    ]
+  },
+  {
+    "file": "jasa-view-telegram.astro",
+    "replacements": [
+      { "old": "Alasan Admin Memilih Layanan Ini", "new": "Keunggulan View Telegram dari JasaLike" },
+      { "old": "Hal yang Sering Ditanyakan  Admin Channel Telegram", "new": "FAQ View Postingan Telegram" }
+    ]
+  },
+  {
+    "file": "jasa-save-video-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul  dari Kreator TikTok", "new": "FAQ Save Video TikTok" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-follower-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul  dari Kreator TikTok", "new": "Pertanyaan Umum Follower TikTok" }
+    ]
+  },
+  {
+    "file": "jasa-share-facebook.astro",
+    "replacements": [
+      { "old": "Dampak Nyata bagi Kreator Konten FB", "new": "Manfaat Share Facebook untuk Performa Konten" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-komentar-facebook.astro",
+    "replacements": [
+      { "old": "Dampak Nyata bagi Kreator Konten FB", "new": "Dampak Positif Komentar Facebook untuk Bisnis" }
+    ]
+  },
+  {
+    "file": "jasa-share-video-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul  Kreator TikTok", "new": "FAQ Share Video TikTok" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-view-tiktok.astro",
+    "replacements": [
+      { "old": "Pertanyaan yang Sering Muncul  Kreator TikTok", "new": "Pertanyaan Umum View TikTok" }
+    ]
+  },
+  {
+    "file": "jasa-tambah-follower.astro",
+    "replacements": [
+      { "old": "Standar Layanan yang Kami Pegang Teguh", "new": "Komitmen Kualitas JasaLike untuk Pertumbuhan Follower" }
+    ]
+  },
+  {
+    "file": "like-youtube.astro",
+    "replacements": [
+      { "old": "Standar Layanan yang Kami Pegang Teguh", "new": "Mengapa Kreator YouTube Memilih JasaLike" },
+      { "old": "Alur Pemesanan yang Sederhana", "new": "Panduan Memesan Like YouTube" }
+    ]
+  },
+  {
+    "file": "like-komentar-youtube.astro",
+    "replacements": [
+      { "old": "Alur Pemesanan yang Sederhana", "new": "Cara Pesan Like Komentar YouTube" }
+    ]
+  }
+]
