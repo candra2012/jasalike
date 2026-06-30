@@ -1,17 +1,6 @@
 ---
 // src/components/Testimonials.astro
-// Screenshot testimoni disimpan di: public/testimonials/
-// Gunakan rasio potret (9:16) agar tampilan seperti screenshot Android.
-const testimonialImages = [
-  '/testimonials/testimoni-1.webp',
-  '/testimonials/testimoni-2.webp',
-  '/testimonials/testimoni-3.webp',
-  '/testimonials/testimoni-4.webp',
-  '/testimonials/testimoni-5.webp'
-];
-
-const slideDuration = 5000;
-const transitionDuration = 700;
+import { Icon } from 'astro-icon/components'
 ---
 
 <section id="testimoni" class="py-20 md:py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
@@ -87,23 +76,6 @@ const transitionDuration = 700;
     </div>
   </div>
 </section>
-
-<style>
-  .testimonial-slide {
-    opacity: 0;
-    z-index: 0;
-  }
-
-  .testimonial-slide.active {
-    opacity: 1;
-    z-index: 10;
-  }
-
-  .testimonial-dot.active {
-    background-color: #2563eb;
-    width: 1.5rem;
-  }
-</style>
 
 <script>
   document.addEventListener("astro:page-load", () => {
