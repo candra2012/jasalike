@@ -52,7 +52,7 @@ const kategori = [
   { nama: "Lainnya", ikon: "lucide:more-horizontal" }
 ];
 
-const gambarTersedia = (namaFile) => {
+const gambarTersedia = (namaFile: string) => {
   if (!namaFile) return false
   const filePath = path.join(process.cwd(), 'public', 'image', 'portofolio', namaFile)
   return fs.existsSync(filePath)
@@ -72,25 +72,16 @@ const portofolioItems = [
     urlLayanan: "/like-instagram/"
   },
   {
-
-    namaLayanan: "Tambah Like Video TikTok",
-
     id: "tiktok-view-edukasi",
     gambar: "tiktok-view-edukasi.webp",
-
     platform: "TikTok",
     namaLayanan: "Tambah View Video TikTok",
     target: "Meningkatkan jumlah tayangan video edukasi",
     hasil: "Video mendapatkan visibilitas lebih luas",
-
-    deskripsi: "Seorang kreator edukasi membutuhkan pancingan awal agar videonya muncul di FYP audiens yang relevan. Distribusi Like dilakukan secara bertahap tanpa membebani akun.",
-    warna: "bg-gradient-to-br from-slate-800 to-black"
-
     deskripsi: "Seorang kreator edukasi membutuhkan pancingan awal agar videonya muncul di FYP audiens yang relevan. Distribusi view dilakukan secara bertahap tanpa membebani akun.",
     warna: "bg-gradient-to-br from-slate-800 to-black",
     ikonPlatform: "lucide:music",
     urlLayanan: "/jasa-tambah-view-tiktok/"
-
   },
   {
     id: "youtube-subscriber-teknologi",
