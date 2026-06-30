@@ -1,0 +1,403 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import Hero from '@components/Hero.astro'
+import FaqJasaLike from '@components/FaqJasaLike.astro'
+import { Icon } from 'astro-icon/components'
+
+// ==========================================
+// 1. DATA SEO
+// ==========================================
+const title = "Portofolio JasaLike | Contoh Hasil Layanan Media Sosial";
+const description = "Lihat portofolio hasil kerja JasaLike untuk Instagram, TikTok, YouTube, Facebook, Telegram, Shopee, dan marketplace. Bukti nyata layanan profesional yang meningkatkan engagement secara aman.";
+const keywords = "portofolio jasalike, contoh hasil layanan, portofolio media sosial, hasil kerja jasa like, portofolio engagement, contoh portofolio jasa sosmed";
+
+const siteUrl = "https://jasalike.com";
+const pageUrl = `${siteUrl}/portofolio`;
+const ogImage = `${siteUrl}/og-home.png`;
+
+// ==========================================
+// 2. DATA KONTEN HALAMAN
+// ==========================================
+
+const dataHero = {
+  tipe: "service",
+  labelTeks: "Portofolio JasaLike",
+  labelIcon: "lucide:briefcase",
+  judulUtama: '<span class="text-blue-500">Portofolio JasaLike</span> <br class="hidden md:block"/> Contoh Hasil Layanan yang Telah Kami Kerjakan',
+  deskripsi: "Lihat berbagai hasil layanan dari berbagai platform. Setiap studi kasus di bawah ini mencerminkan komitmen kami dalam membantu klien membangun social proof, engagement, dan kepercayaan audiens secara bertahap.",
+  teksTombol1: "Lihat Daftar Layanan",
+  linkTombol1: "/layanan/",
+  teksTombol2: "Konsultasi Gratis",
+  linkTombol2: "https://wa.me/6289634740308",
+  gambarHero: "/image/layanan.png"
+};
+
+const stats = [
+  { angka: "8+", label: "Platform yang Didukung", ikon: "lucide:layers" },
+  { angka: "40+", label: "Layanan Tersedia", ikon: "lucide:box" },
+  { angka: "94%", label: "Tingkat Kepuasan Pelanggan", ikon: "lucide:smile" },
+  { angka: "5+", label: "Tahun Pengalaman Melayani", ikon: "lucide:calendar" }
+];
+
+const kategori = [
+  { nama: "Instagram", ikon: "lucide:instagram" },
+  { nama: "TikTok", ikon: "lucide:music" },
+  { nama: "YouTube", ikon: "lucide:youtube" },
+  { nama: "Facebook", ikon: "lucide:facebook" },
+  { nama: "Telegram", ikon: "lucide:send" },
+  { nama: "Shopee", ikon: "lucide:shopping-bag" },
+  { nama: "Marketplace", ikon: "lucide:store" },
+  { nama: "Lainnya", ikon: "lucide:more-horizontal" }
+];
+
+const portofolioItems = [
+  {
+    namaLayanan: "Optimasi Like Reels Instagram",
+    platform: "Instagram",
+    ikonPlatform: "lucide:instagram",
+    target: "Peningkatan interaksi awal pada Reels UMKM kuliner",
+    hasil: "Like bertambah signifikan dalam 24 jam pertama",
+    deskripsi: "Klien dari sektor kuliner ingin Reels produk baru mereka muncul di halaman Explore. Kami memberikan dorongan like bertahap agar algoritma mengenali sinyal kualitas konten.",
+    warna: "bg-gradient-to-br from-purple-500 to-pink-500"
+  },
+  {
+    namaLayanan: "Tambah View Video TikTok",
+    platform: "TikTok",
+    ikonPlatform: "lucide:music",
+    target: "Meningkatkan jumlah tayangan video edukasi",
+    hasil: "Video mendapatkan visibilitas lebih luas",
+    deskripsi: "Seorang kreator edukasi membutuhkan pancingan awal agar videonya muncul di FYP audiens yang relevan. Distribusi view dilakukan secara bertahap tanpa membebani akun.",
+    warna: "bg-gradient-to-br from-slate-800 to-black"
+  },
+  {
+    namaLayanan: "Optimasi Subscriber YouTube",
+    platform: "YouTube",
+    ikonPlatform: "lucide:youtube",
+    target: "Memperkuat kredibilitas channel review teknologi",
+    hasil: "Channel terlihat lebih authoritative",
+    deskripsi: "Channel teknologi yang baru lahir kesulitan mendapatkan kepercayaan penonton. Peningkatan subscriber membantu membangun social proof sebelum kolaborasi dengan brand.",
+    warna: "bg-gradient-to-br from-red-500 to-red-700"
+  },
+  {
+    namaLayanan: "Like Postingan Facebook Page",
+    platform: "Facebook",
+    ikonPlatform: "lucide:facebook",
+    target: "Memperkuat engagement postingan promosi bulanan",
+    hasil: "Postingan terlihat lebih ramai dan dipercaya",
+    deskripsi: "Sebuah komunitas belajar online menggunakan layanan ini untuk memastikan postingan promo kelas terlihat aktif dan diminati oleh calon peserta.",
+    warna: "bg-gradient-to-br from-blue-500 to-blue-700"
+  },
+  {
+    namaLayanan: "Tambah Member Telegram",
+    platform: "Telegram",
+    ikonPlatform: "lucide:send",
+    target: "Mengisi grup komunitas awal",
+    hasil: "Grup terlihat lebih hidup dan menarik anggota organik",
+    deskripsi: "Komunitas baru sering menghadapi tantangan untuk mendapatkan anggota pertama. Kami membantu memberikan pondasi awal agar grup tidak terlihat sepi.",
+    warna: "bg-gradient-to-br from-sky-400 to-blue-500"
+  },
+  {
+    namaLayanan: "Optimasi Ulasan Produk Shopee",
+    platform: "Shopee",
+    ikonPlatform: "lucide:shopping-bag",
+    target: "Meningkatkan jumlah like pada ulasan produk",
+    hasil: "Ulasan unggulan semakin dipercaya pembeli",
+    deskripsi: "Penjual Shopee ingin ulasan positif produknya muncul di urutan teratas. Like pada ulasan membantu calon pembeli melihat rekomendasi terbaik terlebih dahulu.",
+    warna: "bg-gradient-to-br from-orange-500 to-red-500"
+  },
+  {
+    namaLayanan: "Engagement Toko Marketplace",
+    platform: "Marketplace",
+    ikonPlatform: "lucide:store",
+    target: "Memperkuat interaksi pada listing produk",
+    hasil: "Listing terlihat lebih diminati",
+    deskripsi: "Berbagai penjual di marketplace memanfaatkan layanan ini untuk memberikan kesan bahwa produk mereka sudah banyak diminati dan layak dipertimbangkan.",
+    warna: "bg-gradient-to-br from-emerald-500 to-teal-600"
+  },
+  {
+    namaLayanan: "Komentar Aktif YouTube",
+    platform: "Lainnya",
+    ikonPlatform: "lucide:message-square",
+    target: "Memicu diskusi di kolom komentar video",
+    hasil: "Kolom komentar terlihat lebih hidup",
+    deskripsi: "Video dengan kolom komentar yang ramai cenderung mendapatkan retention lebih baik. Kami membantu memberikan komentar relevan yang memancing audiens lain untuk berdiskusi.",
+    warna: "bg-gradient-to-br from-indigo-500 to-violet-600"
+  }
+];
+
+const caraKerja = [
+  {
+    judul: "Konsultasi",
+    deskripsi: "Ceritakan tujuan dan platform yang ingin Anda optimasi. Tim kami akan membantu memilih layanan yang paling sesuai.",
+    ikon: "lucide:message-circle"
+  },
+  {
+    judul: "Pemesanan",
+    deskripsi: "Tentukan paket, jumlah target, dan kirimkan tautan konten yang akan dikerjakan. Proses administrasi cepat dan transparan.",
+    ikon: "lucide:clipboard-list"
+  },
+  {
+    judul: "Pengerjaan",
+    deskripsi: "Tim teknis memproses pesanan secara bertahap dan natural sesuai ritme yang aman untuk akun Anda.",
+    ikon: "lucide:settings"
+  },
+  {
+    judul: "Selesai",
+    deskripsi: "Pantau hasilnya langsung di platform Anda. Jika ada pertanyaan, tim support siap membantu kapan saja.",
+    ikon: "lucide:check-circle"
+  }
+];
+
+const dataFaq = {
+  judulUtama: 'Pertanyaan Seputar <br/> <span class="text-blue-600">Portofolio JasaLike</span>',
+  deskripsiUtama: "Temukan jawaban atas hal-hal yang sering ditanyakan mengenai contoh-contoh hasil kerja yang kami tampilkan di halaman ini.",
+  linkWhatsapp: "https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20mau%20tanya%20tentang%20Portofolio%20JasaLike...",
+  faq1Judul: "Apakah semua portofolio merupakan hasil pekerjaan nyata?",
+  faq1Teks: "Ya, setiap contoh yang kami tampilkan berasal dari proyek nyata yang telah kami kerjakan untuk klien. Kami hanya menyajikan studi kasus yang mencerminkan standar kualitas dan etika kerja kami, tanpa membuat klaim berlebihan.",
+  faq2Judul: "Apakah identitas pelanggan dalam portofolio disamarkan?",
+  faq2Teks: "Demi menjaga privasi klien, kami tidak menampilkan nama akun, username, atau tautan langsung ke konten pribadi mereka kecuali mendapatkan izin tertulis. Fokus kami adalah menjelaskan jenis layanan dan hasil yang dicapai.",
+  faq3Judul: "Apakah saya bisa meminta contoh hasil berdasarkan layanan tertentu?",
+  faq3Teks: "Tentu. Jika Anda membutuhkan contoh hasil untuk platform atau jenis layanan tertentu, silakan hubungi admin kami melalui WhatsApp. Kami akan memberikan penjelasan dan referensi yang paling relevan dengan kebutuhan Anda.",
+  faq4Judul: "Apakah portofolio ini akan terus diperbarui?",
+  faq4Teks: "Kami secara berkala menambahkan studi kasus baru yang merepresentasikan layanan terbaru kami. Halaman ini dirancang agar mudah dikembangkan, sehingga portofolio baru dapat ditambahkan kapan saja tanpa mengubah struktur utama."
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": `${siteUrl}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portofolio",
+      "item": pageUrl
+    }
+  ]
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": title,
+  "description": description,
+  "url": pageUrl,
+  "image": ogImage,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": portofolioItems.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": item.namaLayanan,
+        "description": item.deskripsi,
+        "genre": item.platform
+      }
+    }))
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Apakah semua portofolio merupakan hasil pekerjaan nyata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, setiap contoh yang kami tampilkan berasal dari proyek nyata yang telah kami kerjakan untuk klien. Kami hanya menyajikan studi kasus yang mencerminkan standar kualitas dan etika kerja kami, tanpa membuat klaim berlebihan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah identitas pelanggan dalam portofolio disamarkan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Demi menjaga privasi klien, kami tidak menampilkan nama akun, username, atau tautan langsung ke konten pribadi mereka kecuali mendapatkan izin tertulis. Fokus kami adalah menjelaskan jenis layanan dan hasil yang dicapai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah saya bisa meminta contoh hasil berdasarkan layanan tertentu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tentu. Jika Anda membutuhkan contoh hasil untuk platform atau jenis layanan tertentu, silakan hubungi admin kami melalui WhatsApp. Kami akan memberikan penjelasan dan referensi yang paling relevan dengan kebutuhan Anda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah portofolio ini akan terus diperbarui?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kami secara berkala menambahkan studi kasus baru yang merepresentasikan layanan terbaru kami. Halaman ini dirancang agar mudah dikembangkan, sehingga portofolio baru dapat ditambahkan kapan saja tanpa mengubah struktur utama."
+      }
+    }
+  ]
+};
+---
+
+<DefaultLayout title={title} description={description} keywords={keywords} image={ogImage}>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
+  </Fragment>
+
+  <Hero {...dataHero} />
+
+  {/* Statistik Singkat */}
+  <section class="relative py-14 md:py-18 bg-white border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        {stats.map((stat) => (
+          <div class="text-center p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 mx-auto mb-4 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+              <Icon name={stat.ikon} class="w-6 h-6" />
+            </div>
+            <p class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-1">{stat.angka}</p>
+            <p class="text-sm text-slate-600 font-medium">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Tentang Portofolio */}
+  <section class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">Tentang Portofolio</span>
+      <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
+        Bukti Nyata <span class="text-blue-600">Profesionalisme</span> Kami
+      </h2>
+      <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+        Portofolio ini disusun sebagai referensi transparan bagi calon pelanggan yang ingin memahami bagaimana layanan JasaLike bekerja di berbagai platform. Setiap studi kasus menunjukkan pendekatan kami yang mengutamakan keamanan, privasi, dan hasil yang terukur.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/layanan/" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-full transition-colors text-sm md:text-base no-underline">
+          <Icon name="lucide:list" class="w-4 h-4" />
+          Lihat Semua Layanan
+        </a>
+        <a href="https://wa.me/6289634740308" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-bold px-8 py-3.5 rounded-full border border-slate-300 transition-colors text-sm md:text-base no-underline">
+          <Icon name="lucide:message-circle" class="w-4 h-4" />
+          Tanya Admin
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Kategori Portofolio */}
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Kategori Portofolio</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">Jelajahi contoh hasil kerja kami berdasarkan platform yang Anda minati.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {kategori.map((kat) => (
+          <a href={`#portofolio-${kat.nama.toLowerCase()}`} class="group flex flex-col items-center text-center p-5 rounded-2xl border border-slate-200 bg-white hover:border-blue-400 hover:shadow-lg transition-all no-underline">
+            <div class="w-14 h-14 mb-4 bg-slate-100 text-slate-600 group-hover:bg-blue-100 group-hover:text-blue-600 rounded-2xl flex items-center justify-center transition-colors">
+              <Icon name={kat.ikon} class="w-7 h-7" />
+            </div>
+            <span class="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{kat.nama}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Grid Portofolio */}
+  <section id="portofolio-grid" class="py-16 md:py-24 bg-[#0B1121] text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(#ffffff_2px,transparent_2px)] [background-size:32px_32px] opacity-5"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl md:text-4xl font-extrabold mb-4">Galeri <span class="text-blue-400">Hasil Kerja</span></h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Contoh layanan yang telah kami kerjakan untuk membantu klien dari berbagai industri.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {portofolioItems.map((item, index) => (
+          <article class="group bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-900/20 transition-all flex flex-col">
+            {/* Placeholder Screenshot */}
+            <div class={`relative h-48 ${item.warna} flex items-center justify-center overflow-hidden`}>
+              <div class="absolute inset-0 bg-black/10"></div>
+              <div class="relative z-10 text-center text-white/90">
+                <Icon name={item.ikonPlatform} class="w-12 h-12 mx-auto mb-2 opacity-90" />
+                <span class="text-xs font-semibold uppercase tracking-wider opacity-80">Screenshot Placeholder</span>
+              </div>
+              <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+                {item.platform}
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col">
+              <h3 class="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{item.namaLayanan}</h3>
+              <div class="space-y-2 mb-4 text-sm">
+                <p class="text-slate-400"><span class="text-slate-500 font-semibold">Target:</span> {item.target}</p>
+                <p class="text-slate-400"><span class="text-slate-500 font-semibold">Hasil:</span> {item.hasil}</p>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed flex-1">{item.deskripsi}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="text-center text-slate-500 text-sm mt-10 max-w-2xl mx-auto">
+        Ingin melihat contoh hasil untuk platform atau industri tertentu? Silakan hubungi tim kami untuk mendapatkan referensi yang lebih spesifik.
+      </p>
+    </div>
+  </section>
+
+  {/* Cara Kerja */}
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Cara Kerja</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">Proses sederhana yang kami jalankan setiap kali menerima pesanan.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {caraKerja.map((step, index) => (
+          <div class="relative text-center p-6">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm mb-4 z-10">
+              {index + 1}
+            </div>
+            <div class="w-16 h-16 mx-auto mb-5 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mt-6">
+              <Icon name={step.ikon} class="w-8 h-8" />
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">{step.judul}</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">{step.deskripsi}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FaqJasaLike {...dataFaq} />
+
+  {/* CTA Portofolio */}
+  <section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-8 md:p-14 text-center text-white shadow-2xl">
+        <h2 class="text-2xl md:text-4xl font-extrabold mb-4">Konsultasikan Kebutuhan Anda</h2>
+        <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8">
+          Setiap bisnis memiliki kebutuhan yang berbeda. Diskusikan target platform Anda dengan tim JasaLike dan dapatkan rekomendasi layanan yang paling sesuai.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/layanan/" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-900 font-bold px-8 py-3.5 rounded-full transition-colors text-sm md:text-base no-underline">
+            <Icon name="lucide:list" class="w-4 h-4" />
+            Lihat Daftar Layanan
+          </a>
+          <a href="https://wa.me/6289634740308?text=Halo%20Admin,%20saya%20ingin%20konsultasi%20tentang%20layanan%20JasaLike" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold px-8 py-3.5 rounded-full transition-colors text-sm md:text-base no-underline">
+            <Icon name="lucide:message-circle" class="w-4 h-4" />
+            Hubungi Tim Kami
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</DefaultLayout>
