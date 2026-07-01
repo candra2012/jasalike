@@ -32,7 +32,7 @@ const testimonialImages = [
     >
       {testimonialImages.length > 0 ? (
         <>
-          <div class="testimonial-track relative overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-slate-200 aspect-[9/16]">
+          <div class="testimonial-track relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg bg-white aspect-[9/16]">
             {testimonialImages.map((src, i) => (
               <div
                 class="testimonial-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out"
@@ -40,6 +40,7 @@ const testimonialImages = [
                 aria-roledescription="slide"
                 aria-label={`Slide ${i + 1} dari ${testimonialImages.length}`}
               >
+
                 <img
   src={src}
   alt={`Testimoni pelanggan JasaLike ${i + 1}`}
