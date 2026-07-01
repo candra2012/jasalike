@@ -41,15 +41,17 @@ const testimonialImages = [
                 aria-label={`Slide ${i + 1} dari ${testimonialImages.length}`}
               >
                 <img
-                  src={src}
-                  alt={`Testimoni pelanggan JasaLike ${i + 1}`}
-                  width="720"
-                  height="1280"
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                  class="w-full h-full object-cover aspect-[9/16]"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                />
+  src={src}
+  alt={`Testimoni pelanggan JasaLike ${i + 1}`}
+  width="720"
+  height="1280"
+  loading={i === 0 ? 'eager' : 'lazy'}
+  decoding="async"
+  /* UBAH DI BARIS BAWAH INI */
+  class="w-full h-full object-contain aspect-[9/16]" 
+  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+/>
+
                 <div
                   class="fallback hidden absolute inset-0 flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200 text-slate-500"
                   aria-hidden="true"
