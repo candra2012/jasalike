@@ -1,7 +1,7 @@
 ---
 // src/components/Testimonials.astro
 // Gambar testimoni disimpan di: public/testimonials/
-// Gunakan rasio potret (9:16) agar tampilan seperti screenshot Android.
+// Gunakan rasio potret (4:5) agar tampilan proporsional dan rapi.
 import { Icon } from 'astro-icon/components'
 
 const testimonialImages = [
@@ -32,7 +32,7 @@ const testimonialImages = [
     >
       {testimonialImages.length > 0 ? (
         <>
-          <div class="testimonial-track relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg bg-white aspect-[9/16]">
+          <div class="testimonial-track relative overflow-hidden rounded-2xl border border-slate-100 shadow-lg bg-white aspect-[4/5]">
             {testimonialImages.map((src, i) => (
               <div
                 class="testimonial-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out"
@@ -42,15 +42,15 @@ const testimonialImages = [
               >
 
                 <img
-  src={src}
-  alt={`Testimoni pelanggan JasaLike ${i + 1}`}
-  width="720"
-  height="1280"
-  loading={i === 0 ? 'eager' : 'lazy'}
-  decoding="async"
-  class="w-full h-full object-contain aspect-[9/16] bg-white" 
-  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-/>
+                  src={src}
+                  alt={`Testimoni pelanggan JasaLike ${i + 1}`}
+                  width="720"
+                  height="900"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  class="w-full h-full object-contain aspect-[4/5] bg-white" 
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
 
 
                 <div
