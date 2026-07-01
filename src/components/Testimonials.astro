@@ -101,7 +101,7 @@ const testimonialImages = [
 </section>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  const initTestimonialSlider = () => {
     const slider = document.querySelector('.testimonial-slider');
     if (!slider) return;
 
@@ -173,5 +173,13 @@ const testimonialImages = [
 
     show(0);
     start();
-  });
+  };
+
+  document.addEventListener('astro:page-load', initTestimonialSlider);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTestimonialSlider);
+  } else {
+    initTestimonialSlider();
+  }
 </script>
