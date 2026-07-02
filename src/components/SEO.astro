@@ -4,8 +4,10 @@
 
 // Komponen ini bertugas menangkap data dari Frontmatter index.astro
 
-const { title, description, keywords } = Astro.props
+const { title, description, keywords, image = '/og/og-home.webp' } = Astro.props
 const cleanUrl = new URL(Astro.url.pathname, Astro.site).href
+const ogImageUrl = new URL(image, Astro.site).href
+const ogImageType = image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/png'
 
 ---
 
@@ -21,8 +23,8 @@ const cleanUrl = new URL(Astro.url.pathname, Astro.site).href
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 
-<meta property="og:image" content="https://jasalike.com/og-home.png" />
-<meta property="og:image:type" content="image/png" />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:type" content={ogImageType} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
@@ -30,7 +32,7 @@ const cleanUrl = new URL(Astro.url.pathname, Astro.site).href
 <meta property="twitter:url" content={cleanUrl} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content="https://jasalike.com/og-home.png" />
+<meta property="twitter:image" content={ogImageUrl} />
 
 
 <link rel="canonical" href={cleanUrl} />
