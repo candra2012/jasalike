@@ -3,6 +3,7 @@
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
 import { Icon } from 'astro-icon/components' 
+import RelatedServices from '../components/RelatedServices.astro'
 
 const title = "Jaringan Resmi JasaLike | Pusat Layanan Jasa Like Terpercaya";
 const description = "Temukan jaringan resmi akun Instagram dan tiktok JasaLike. Kami berfokus memberikan layanan jasa like terbaik, cepat, dan aman untuk mendongkrak interaksi akun Anda.";
@@ -100,5 +101,8 @@ const dataHero = {
     </div>
 
   </main>
+
+  <RelatedServices category="instagram" current={Astro.url.pathname} />
+
 </DefaultLayout>
 

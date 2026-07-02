@@ -17,6 +17,7 @@ import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
 import FaqJasaLike from '../components/FaqJasaLike.astro'
+import RelatedServices from '../components/RelatedServices.astro'
 
 // ==========================================
 // 2. DATA SEO (FOKUS KEYWORD UTAMA & LONGTAIL)
@@ -307,6 +308,7 @@ const dataFaq = {
   <Testimonials />
 
   <MetodePembayaran />
+  <RelatedServices category="threads" current={Astro.url.pathname} />
 
   <FaqJasaLike {...dataFaq} />
 

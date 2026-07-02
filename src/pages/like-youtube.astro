@@ -18,6 +18,7 @@ import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
 import FaqJasaLike from '../components/FaqJasaLike.astro'
+import RelatedServices from '../components/RelatedServices.astro'
 
 // ==========================================
 // SEO & METADATA
@@ -298,6 +299,7 @@ const dataFaq = {
   <HargaPaket {...dataHargaPaket} />
   <Testimonials />
   <MetodePembayaran />
+  <RelatedServices category="youtube" current={Astro.url.pathname} />
 
   <FaqJasaLike {...dataFaq} />
 

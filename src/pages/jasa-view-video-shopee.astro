@@ -13,6 +13,7 @@ import Testimonials from '../components/Testimonials.astro'
 import DaftarHarga from '../components/DaftarHarga.astro'
 import MetodePembayaran from '../components/MetodePembayaran.astro'
 import FaqJasaLike from '../components/FaqJasaLike.astro'
+import RelatedServices from '../components/RelatedServices.astro'
 
 const title = "Jasa View Video Shopee untuk Produk Cepat Direkomendasikan";
 const description = "Tingkatkan view video Shopee secara profesional dan aman. Buat konten produk Anda lebih dipercaya calon pembeli serta lebih mudah muncul di rekomendasi Shopee.";
@@ -282,6 +283,7 @@ const dataFaq = {
   <Testimonials />
 
   <MetodePembayaran />
+  <RelatedServices category="shopee" current={Astro.url.pathname} />
 
   <FaqJasaLike {...dataFaq} />
 
