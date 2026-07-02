@@ -1,0 +1,134 @@
+---
+// src/components/RelatedServices.astro
+// Komponen reusable internal linking berdasarkan kategori layanan.
+// Penggunaan:
+// <RelatedServices category="instagram" current={Astro.url.pathname} />
+
+import { Icon } from 'astro-icon/components'
+import { relatedServices, categoryHeadings } from '../data/relatedServices.js'
+
+interface RelatedServiceItem {
+  link: string;
+  name: string;
+  icon: string;
+  description: string;
+  anchors: string[];
+}
+
+interface RelatedServiceCategory {
+  category: string;
+  title: string;
+  icon: string;
+  colorClass: string;
+  bgClass: string;
+  borderClass: string;
+  services: RelatedServiceItem[];
+}
+
+interface Props {
+  category: string;
+  current?: string;
+}
+
+const { category = '', current = '' }: Props = Astro.props;
+
+// Normalisasi current agar cocok dengan format link data (/path)
+const normalizedCurrent: string = typeof current === 'string' ? current.replace(/\/$/, '') || '/' : '/';
+
+// Cari kategori yang diminta
+const categoryData: RelatedServiceCategory | undefined = relatedServices.find(
+  (cat: RelatedServiceCategory) => cat.category.toLowerCase() === category.toLowerCase()
+);
+
+// Pilih judul dinamis berdasarkan current page (deterministik)
+function pickHeading(categoryName: string, currentPath: string): string {
+  const options: string[] = categoryHeadings[categoryName.toLowerCase() as keyof typeof categoryHeadings] || categoryHeadings['instagram'];
+  let hash = 0;
+  for (let i = 0; i < currentPath.length; i++) {
+    hash = (hash << 5) - hash + currentPath.charCodeAt(i);
+    hash |= 0;
+  }
+  const index = Math.abs(hash) % options.length;
+  return options[index];
+}
+
+// Pilih anchor text deterministik agar tidak identik antar item
+function pickAnchor(service: RelatedServiceItem, currentPath: string, itemIndex: number): string {
+  const anchors: string[] = service.anchors && service.anchors.length > 0
+    ? service.anchors
+    : [service.name];
+  let hash = 0;
+  const base = currentPath + service.link + itemIndex;
+  for (let i = 0; i < base.length; i++) {
+    hash = (hash << 5) - hash + base.charCodeAt(i);
+    hash |= 0;
+  }
+  const index = Math.abs(hash) % anchors.length;
+  return anchors[index];
+}
+
+let services: RelatedServiceItem[] = [];
+let heading = '';
+let hasCategory = false;
+let categoryTitle = '';
+let categoryColorClass = '';
+let categoryBgClass = '';
+
+if (categoryData) {
+  hasCategory = true;
+  heading = pickHeading(categoryData.category, normalizedCurrent);
+  categoryTitle = categoryData.title;
+  categoryColorClass = categoryData.colorClass;
+  categoryBgClass = categoryData.bgClass;
+  services = categoryData.services.filter(
+    (service: RelatedServiceItem) => service.link.replace(/\/$/, '') !== normalizedCurrent.replace(/\/$/, '')
+  );
+}
+---
+
+{hasCategory && services.length > 0 && (
+  <section class="py-16 md:py-20 bg-white border-t border-slate-100">
+    <div class="container mx-auto px-6 max-w-7xl">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">
+            {heading}
+          </h2>
+          <p class="text-slate-600 mt-2 max-w-2xl">
+            Temukan layanan pendukung lainnya yang dirancang untuk memperkuat performa {categoryTitle} Anda secara menyeluruh.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {services.map((service: RelatedServiceItem, index: number) => {
+          const anchorText = pickAnchor(service, normalizedCurrent, index);
+          return (
+            <a
+              href={service.link}
+              class="group flex flex-col h-full bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-blue-400 transition-all duration-300 !no-underline"
+            >
+              <div class="flex items-start gap-4 mb-4">
+                <div class={`shrink-0 w-11 h-11 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 ${categoryBgClass || 'bg-blue-50'}`}>
+                  <Icon name={service.icon || 'lucide:box'} class={`w-5 h-5 ${categoryColorClass || 'text-blue-600'}`} />
+                </div>
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                  {service.name}
+                </h3>
+              </div>
+
+              <p class="text-sm text-slate-500 leading-relaxed mb-5 flex-grow line-clamp-3">
+                {service.description}
+              </p>
+
+              <span class="mt-auto inline-flex items-center justify-center w-full gap-2 bg-slate-900 hover:bg-blue-600 text-white font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                {anchorText}
+                <Icon name="lucide:arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
