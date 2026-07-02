@@ -2,11 +2,25 @@
 const API =
 "https://script.google.com/macros/s/AKfycbyEREB__t-bEqEOkri9R_YB-DclLyAXJUpYbfV9O1g-BIRWK0-bSed_HcNhA74CT2-eWw/exec?action=getMateri";
 
-const res = await fetch(API);
+let materiPromosi = [];
 
-const json = await res.json();
+try {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  const res = await fetch(API, { signal: controller.signal });
+  clearTimeout(timeoutId);
 
-const materiPromosi = json.materi;
+  if (res.ok) {
+    const contentType = res.headers.get("content-type") || "";
+    if (contentType.includes("application/json")) {
+      const json = await res.json();
+      materiPromosi = json.materi || [];
+    }
+  }
+} catch (err) {
+  console.warn("Gagal memuat materi promosi:", err);
+  materiPromosi = [];
+}
 ---
 
 <section id="materi" class="py-20 bg-slate-50">
@@ -44,6 +58,22 @@ class="w-full border rounded-xl px-5 py-4 shadow-sm focus:ring-2 focus:ring-blue
 <div
 id="gridMateri"
 class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+{
+
+materiPromosi.length === 0 && (
+
+<div class="col-span-full text-center py-16 bg-white rounded-2xl shadow">
+
+<p class="text-slate-500 text-lg mb-2">Materi promosi sedang tidak tersedia.</p>
+
+<p class="text-slate-400 text-sm">Silakan muat ulang halaman dalam beberapa saat.</p>
+
+</div>
+
+)
+
+}
 
 {
 
