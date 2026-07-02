@@ -4,7 +4,7 @@
 
 // Komponen ini bertugas menangkap data dari Frontmatter index.astro
 
-const { title, description, keywords, image = '/og/og-home.webp' } = Astro.props
+const { title, description, keywords, image = '/og/default/og-home.webp' } = Astro.props
 const cleanUrl = new URL(Astro.url.pathname, Astro.site).href
 const ogImageUrl = new URL(image, Astro.site).href
 const ogImageType = image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/png'
